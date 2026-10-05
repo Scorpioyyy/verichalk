@@ -1,0 +1,18 @@
+{
+ "key": "7447f7b3dd0a444f0045aaece82a556c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级面积的，出5道，光计算就行，别弄文字题。\", \"b\": \"哎，帮我给四年级面积这块弄5道题吧，就只要纯计算的那种，文字题可千万别加进去。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 161,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1315.1815999881364,
+ "ttft_ms": 1315.1993000064977,
+ "total_ms": 2201.1108999722637
+}

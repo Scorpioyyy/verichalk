@@ -1,0 +1,18 @@
+{
+ "key": "889aec501903e992ad6bf77c86953dd4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要新题，三年级乘法，20道基础题\",\"grade\":3,\"topics\":[\"乘法\"],\"count\":20,\"difficulty\":[1,2],\"tier\":\"consolidate\",\"explicit\":[\"grade\",\"count\",\"difficulty\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 63,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1520.9410999668762,
+ "ttft_ms": 1520.9610000019893,
+ "total_ms": 1885.7064999756403
+}

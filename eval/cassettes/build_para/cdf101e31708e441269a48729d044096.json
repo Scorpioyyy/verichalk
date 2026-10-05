@@ -1,0 +1,18 @@
+{
+ "key": "cdf101e31708e441269a48729d044096",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\":\"三年级两位数乘一位数这块儿，帮我来5道差不多的错题练练。\",\"b\":\"哎，我这边想给孩子做点错题巩固，就是三年级学的那个两位数乘一位数，麻烦你照着出5道差不多的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 974.94889999507,
+ "ttft_ms": 974.9672999605536,
+ "total_ms": 1463.4790999698453
+}

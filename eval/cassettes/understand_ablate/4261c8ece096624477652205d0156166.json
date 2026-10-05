@@ -1,0 +1,18 @@
+{
+ "key": "4261c8ece096624477652205d0156166",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题练习凑十法20以内加法\",\"topics\":[\"20以内加法\"],\"count\":5,\"tier\":\"consolidate\",\"explicit\":[\"count\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 49,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1041.8723999755457,
+ "ttft_ms": 1041.8857999611646,
+ "total_ms": 1319.4892999599688
+}

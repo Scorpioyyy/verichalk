@@ -1,0 +1,18 @@
+{
+ "key": "44bf1eb60aabf9e11dd32d6b5822827f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\n  \"a\": \"呃，我这边需要一份××年级××学期××知识点的卷子，××道题，难度××，题型是××，情境用××，限制是××，整卷参数××。\",\n  \"b\": \"你好呀，我想请你帮我出一份卷子，是××年级××学期的，内容围绕××这个知识点，题量要××道，难度控制在××，题型用××，最好把情境设成××，另外还有这些限制：××，整卷参数也要按××来。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 150,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2203.1860999995843,
+ "ttft_ms": 2203.2122000236996,
+ "total_ms": 3505.3340999875218
+}

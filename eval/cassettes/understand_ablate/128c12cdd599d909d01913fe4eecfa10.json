@@ -1,0 +1,18 @@
+{
+ "key": "128c12cdd599d909d01913fe4eecfa10",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出5道乘法分配律的题\",\"count\":5,\"topics\":[\"乘法分配律\"],\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 39,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 939.3898000125773,
+ "ttft_ms": 939.5320999901742,
+ "total_ms": 1095.9248000290245
+}

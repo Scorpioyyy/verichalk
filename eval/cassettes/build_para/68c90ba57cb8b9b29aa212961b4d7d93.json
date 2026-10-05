@@ -1,0 +1,18 @@
+{
+ "key": "68c90ba57cb8b9b29aa212961b4d7d93",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级，先热热前面学的分数加减，4道，新课前用。\", \"b\": \"马上要上新课了，我想先带五年级的孩子回头复习一下之前学的分数加减，就出4道题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 966.2651999969967,
+ "ttft_ms": 966.4657000103034,
+ "total_ms": 1465.5973000335507
+}

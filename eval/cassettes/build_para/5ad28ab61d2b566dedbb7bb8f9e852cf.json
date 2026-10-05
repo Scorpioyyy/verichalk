@@ -1,0 +1,18 @@
+{
+ "key": "5ad28ab61d2b566dedbb7bb8f9e852cf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"一年级上学期，10以内加减，来5道。\", \"b\": \"麻烦帮我给一年级上册的小朋友出几道题吧，就用10以内的加减法，一共要5道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1242.7357999840751,
+ "ttft_ms": 1242.7488000248559,
+ "total_ms": 1735.9560999902897
+}

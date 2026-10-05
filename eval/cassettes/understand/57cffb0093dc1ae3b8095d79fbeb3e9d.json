@@ -1,0 +1,18 @@
+{
+ "key": "57cffb0093dc1ae3b8095d79fbeb3e9d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"item:2\",\"instruction\":\"数字改小一点\"},\"constraints\":[\"数字不要太大\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2127,
+  "completion_tokens": 30,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1308.5347000160255,
+ "ttft_ms": 1308.5546000511386,
+ "total_ms": 1510.1058000000194
+}

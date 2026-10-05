@@ -1,0 +1,18 @@
+{
+ "key": "3957d10c0e909a9e57f5947a6c5d309b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"帮我弄套卷子呗。\", \"b\": \"哎，麻烦你帮我整一份试卷出来吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 28,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 953.579599969089,
+ "ttft_ms": 953.5941999638453,
+ "total_ms": 1168.5859999852255
+}

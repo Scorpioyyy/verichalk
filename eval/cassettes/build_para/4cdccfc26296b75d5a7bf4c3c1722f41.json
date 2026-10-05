@@ -1,0 +1,18 @@
+{
+ "key": "4cdccfc26296b75d5a7bf4c3c1722f41",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来几道圆面积的题。\", \"b\": \"哎，帮我出几道关于圆的面积的题目吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 29,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 940.0896000443026,
+ "ttft_ms": 940.102000022307,
+ "total_ms": 1242.3444000305608
+}

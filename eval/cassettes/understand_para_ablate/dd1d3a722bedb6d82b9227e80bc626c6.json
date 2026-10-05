@@ -1,0 +1,18 @@
+{
+ "key": "dd1d3a722bedb6d82b9227e80bc626c6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要5道关于时间的题，二年级，数字不要太大\",\"grade\":2,\"topics\":[\"时间\"],\"count\":5,\"constraints\":[\"数字不要太大\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1398,
+  "completion_tokens": 57,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1137.528499995824,
+ "ttft_ms": 1137.5562000321224,
+ "total_ms": 1388.3516000350937
+}

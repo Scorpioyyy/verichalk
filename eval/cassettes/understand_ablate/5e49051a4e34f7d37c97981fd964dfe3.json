@@ -1,0 +1,18 @@
+{
+ "key": "5e49051a4e34f7d37c97981fd964dfe3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"paper\", \"reason\": \"用户要一份测验卷\", \"action\": \"paper\", \"explicit\": [\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1365,
+  "completion_tokens": 30,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 962.4311000225134,
+ "ttft_ms": 962.4516000039876,
+ "total_ms": 1185.1328000193462
+}

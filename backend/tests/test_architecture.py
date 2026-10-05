@@ -31,7 +31,7 @@ LAYERS = {
 
 # 外部库只能出现在指定的模块里（业务代码不得绕过网关 / 沙箱 / 知识层 / 存储）
 RESTRICTED = {
-    "httpx": {"llm/transport.py"},
+    "httpx": {"llm/transport.py", "knowledge/embedding.py"},
     "requests": set(),
     "chalkbase": {"knowledge/service.py"},
     "sqlite3": {"store/db.py", "store/repos.py"},

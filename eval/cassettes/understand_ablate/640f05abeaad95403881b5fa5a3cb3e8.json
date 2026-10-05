@@ -1,0 +1,18 @@
+{
+ "key": "640f05abeaad95403881b5fa5a3cb3e8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"一元二次方程属于初中知识，超出小学数学范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2115,
+  "completion_tokens": 19,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1024.919499992393,
+ "ttft_ms": 1024.9509999994189,
+ "total_ms": 1109.4066000077873
+}

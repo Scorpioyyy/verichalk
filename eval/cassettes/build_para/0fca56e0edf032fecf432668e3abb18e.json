@@ -1,0 +1,18 @@
+{
+ "key": "0fca56e0edf032fecf432668e3abb18e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级下学期，分数乘法，来5道题。\",\"b\": \"哎，帮我个忙哈，就是五年级下册那个分数乘法这块儿，你给我出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2259.906100051012,
+ "ttft_ms": 2259.9292000522837,
+ "total_ms": 2790.75590003049
+}

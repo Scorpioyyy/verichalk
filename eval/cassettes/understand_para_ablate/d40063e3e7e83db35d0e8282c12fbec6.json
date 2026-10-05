@@ -1,0 +1,18 @@
+{
+ "key": "d40063e3e7e83db35d0e8282c12fbec6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定20以内加法凑十法5道\",\"count\":5,\"topics\":[\"20以内加法\",\"凑十法\"],\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1374,
+  "completion_tokens": 46,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 985.1774999988265,
+ "ttft_ms": 985.202300013043,
+ "total_ms": 1312.6645000302233
+}

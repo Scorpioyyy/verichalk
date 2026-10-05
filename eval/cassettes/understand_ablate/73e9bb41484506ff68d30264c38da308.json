@@ -1,0 +1,18 @@
+{
+ "key": "73e9bb41484506ff68d30264c38da308",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"要一份三年级下册周长单元的整卷\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"周长\"],\"action\":\"paper\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 36,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1019.3199999630451,
+ "ttft_ms": 1020.0344999902882,
+ "total_ms": 1286.2263999995776
+}

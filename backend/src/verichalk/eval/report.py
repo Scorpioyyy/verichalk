@@ -9,6 +9,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from ..metrics import proportion
+from . import understand_report
 from .runner import SuiteResult
 
 
@@ -81,6 +82,8 @@ def render_markdown(r: SuiteResult, *, models: dict[str, str], rev: str) -> str:
     L += ["", "## 按标签切片（用例整体通过率）", "", "| 标签 | 通过率 |", "|---|---|"]
     L += [f"| {k} | {_pct(proportion(sum(v), len(v)))} |" for k, v in sorted(by_tag.items())]
 
+    if understand_report.has_understanding(r):
+        L += understand_report.section(r)
     fails = [c for c in r.cases if not c.passed]
     L += ["", f"## 失败样本（{len(fails)}）", ""]
     if not fails:
@@ -110,6 +113,7 @@ def write_report(r: SuiteResult, out_dir: Path, *, models: dict[str, str], root:
         "mode": r.settings.llm_mode.value,
         "models": models,
         "off": sorted(r.settings.features.off),
+        **({"understand": understand_report.summary(r)} if understand_report.has_understanding(r) else {}),
         "n_cases": len(r.cases),
         "case_pass": sum(1 for c in r.cases if c.passed),
         "success_rate": agg.success_rate.p,

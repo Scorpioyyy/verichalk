@@ -1,0 +1,18 @@
+{
+ "key": "81c44a5f80290ec59e92f14c42b47ddd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要20道二年级口算题\",\"grade\":2,\"count\":20,\"kinds\":[\"calc\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1372,
+  "completion_tokens": 43,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1209.8509999923408,
+ "ttft_ms": 1209.8735999898054,
+ "total_ms": 1511.0637999605387
+}

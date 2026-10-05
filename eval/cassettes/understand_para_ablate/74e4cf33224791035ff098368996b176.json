@@ -1,0 +1,18 @@
+{
+ "key": "74e4cf33224791035ff098368996b176",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一套毕业考试模拟卷（整卷）\",\"grade\":6,\"difficulty\":[4,5],\"action\":\"paper\",\"explicit\":[\"grade\",\"difficulty\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1392,
+  "completion_tokens": 46,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1050.7052000029944,
+ "ttft_ms": 1050.731600029394,
+ "total_ms": 1506.0358000337146
+}

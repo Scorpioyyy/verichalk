@@ -1,0 +1,18 @@
+{
+ "key": "d05d3f333099a735314073dfaa1c1a82",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"all\",\"instruction\":\"整体难度降一点\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2124,
+  "completion_tokens": 19,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1066.7975000105798,
+ "ttft_ms": 1066.816300037317,
+ "total_ms": 1203.5163000109605
+}

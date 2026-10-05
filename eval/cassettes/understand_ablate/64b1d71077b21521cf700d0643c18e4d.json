@@ -1,0 +1,18 @@
+{
+ "key": "64b1d71077b21521cf700d0643c18e4d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"20以内加法\",\"凑十法\"],\"count\":5,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 29,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1237.8441999899223,
+ "ttft_ms": 1237.9331999691203,
+ "total_ms": 1397.2346999798901
+}

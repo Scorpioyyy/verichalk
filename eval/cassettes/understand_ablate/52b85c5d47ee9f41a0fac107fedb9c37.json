@@ -1,0 +1,18 @@
+{
+ "key": "52b85c5d47ee9f41a0fac107fedb9c37",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要新题，指定年级、知识点和题量\",\"grade\":5,\"topics\":[\"小数除法\"],\"count\":5,\"constraints\":[\"除数都是一位数\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 56,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 984.3323999666609,
+ "ttft_ms": 984.3533000093885,
+ "total_ms": 1347.821399976965
+}

@@ -1,0 +1,18 @@
+{
+ "key": "f952c8aa653c966b419c49eb5d20128f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"乘法分配律\"],\"count\":6,\"tier\":\"variation\",\"explicit\":[\"grade\",\"count\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2135,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 993.5983999748714,
+ "ttft_ms": 993.7948999577202,
+ "total_ms": 1203.2474000006914
+}

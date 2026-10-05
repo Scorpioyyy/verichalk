@@ -1,0 +1,18 @@
+{
+ "key": "6f01c7d912e5b02cd94d1b08c4c0f010",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"topics\":[\"百分数应用题\"],\"count\":5,\"kinds\":[\"application\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 41,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1488.1050999974832,
+ "ttft_ms": 1488.118499983102,
+ "total_ms": 1492.5529999891296
+}

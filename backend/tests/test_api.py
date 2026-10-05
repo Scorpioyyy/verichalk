@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import io
 import json
+from typing import Any
 
 import httpx
 import pytest_asyncio
@@ -13,6 +14,7 @@ from verichalk.api import create_app
 from verichalk.core.config import LLMMode, Settings
 from verichalk.llm import build_gateway
 from verichalk.orchestrator import Container, PipelineResult, RunManager, Warmer
+from verichalk.orchestrator.pipelines import diagnostic_pipeline
 from verichalk.trace import EventBus
 
 
@@ -27,7 +29,10 @@ async def env(store, kb_service, tmp_path):
     settings = Settings(llm_mode=LLMMode.live, cassette_dir=tmp_path, data_dir=tmp_path / "data")
     holder: dict = {}
 
-    def make(pipelines=None, transport=None) -> Container:
+    def make(pipelines: Any = None, transport: Any = None) -> Container:
+        pipelines = pipelines or {
+            "diagnostic": diagnostic_pipeline
+        }  # 这些测试验证 API 与事件流本身，用最小的诊断管线
         llm = build_gateway(
             settings,
             transport=transport or FakeTransport(content_chunks("好的。", usage=usage(300, 5, cached=256))),

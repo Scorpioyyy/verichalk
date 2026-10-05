@@ -1,0 +1,18 @@
+{
+ "key": "f101242f6c5b210e6100d287519148b5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"分数乘法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1053.0588999972679,
+ "ttft_ms": 1053.0817999970168,
+ "total_ms": 1175.4534999490716
+}

@@ -1,0 +1,18 @@
+{
+ "key": "815cc8d4871c2cd0aba8e3f99d8205d7",
+ "model": "qwen3.8-max",
+ "purpose": "para.verify",
+ "text": "{\"all_true\": false, \"failed\": [\"3. **没有**提到题量\", \"10. **没有**提到题量\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 227,
+  "completion_tokens": 30,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1235.7822000049055,
+ "ttft_ms": 1235.8007000293583,
+ "total_ms": 1694.10380005138
+}

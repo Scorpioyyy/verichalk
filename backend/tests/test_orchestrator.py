@@ -21,6 +21,7 @@ from verichalk.domain.run import RunStatus
 from verichalk.llm import build_gateway
 from verichalk.metrics.completeness import check_trace_completeness
 from verichalk.orchestrator import PipelineResult, RunManager, TurnInput
+from verichalk.orchestrator.pipelines import diagnostic_pipeline
 from verichalk.stages import RunContext
 from verichalk.trace import EventBus
 
@@ -229,7 +230,7 @@ async def test_diagnostic_pipeline_end_to_end(store, tmp_path, monkeypatch):
         from chalkbase import Curriculum
 
         kb = KnowledgeService(Curriculum())  # pyright: ignore[reportCallIssue]
-        mgr = RunManager(settings, store, EventBus(), kb, llm)
+        mgr = RunManager(settings, store, EventBus(), kb, llm, {"diagnostic": diagnostic_pipeline})
         ses = await mgr.create_session()
         run = await mgr.start_turn(ses.id, "小数加减法")
         done = await mgr.wait(run.id, 20)

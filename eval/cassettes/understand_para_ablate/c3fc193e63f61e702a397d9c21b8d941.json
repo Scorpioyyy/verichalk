@@ -1,0 +1,18 @@
+{
+ "key": "c3fc193e63f61e702a397d9c21b8d941",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道五年级下册分数乘法题\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"分数乘法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1385,
+  "completion_tokens": 51,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 957.9802000080235,
+ "ttft_ms": 958.008699992206,
+ "total_ms": 1779.0354999597184
+}

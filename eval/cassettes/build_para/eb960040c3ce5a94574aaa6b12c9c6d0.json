@@ -1,0 +1,18 @@
+{
+ "key": "eb960040c3ce5a94574aaa6b12c9c6d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"20以内加法，凑十法，来5道。\", \"b\": \"我想让孩子练一练凑十法，就是20以内加法那种，出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 162,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 936.1568999593146,
+ "ttft_ms": 936.1766999936663,
+ "total_ms": 1245.4114999854937
+}

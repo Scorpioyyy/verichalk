@@ -1,0 +1,18 @@
+{
+ "key": "6f97b465a03687e3ff777e18574430a6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定三年级、运动会情境、两步计算应用题，4道\",\"grade\":3,\"topics\":[\"两步计算应用题\"],\"count\":4,\"kinds\":[\"application\"],\"scenes\":[\"运动会\"],\"explicit\":[\"grade\",\"count\",\"kinds\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1388,
+  "completion_tokens": 71,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1423.2684000162408,
+ "ttft_ms": 1423.2926000258885,
+ "total_ms": 2256.0676999855787
+}

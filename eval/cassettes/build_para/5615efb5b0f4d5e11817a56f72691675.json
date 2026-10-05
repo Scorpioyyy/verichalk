@@ -1,0 +1,18 @@
+{
+ "key": "5615efb5b0f4d5e11817a56f72691675",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级乘法，出20道，最基础的那种。\", \"b\": \"我这有个三年级的孩子，想练乘法，麻烦给20道题，基础一点最好，越简单越好。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1284.8916000220925,
+ "ttft_ms": 1284.9093999830075,
+ "total_ms": 1912.3555999831297
+}

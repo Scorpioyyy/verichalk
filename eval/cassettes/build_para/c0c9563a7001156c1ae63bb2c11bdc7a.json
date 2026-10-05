@@ -1,0 +1,18 @@
+{
+ "key": "c0c9563a7001156c1ae63bb2c11bdc7a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级下学期数学，出5道题。\", \"b\": \"哎帮我个忙哈，孩子是四年级下学期的，想练数学，你给出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1194.3947999970987,
+ "ttft_ms": 1194.4197000120766,
+ "total_ms": 1933.739100000821
+}

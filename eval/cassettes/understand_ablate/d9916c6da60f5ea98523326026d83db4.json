@@ -1,0 +1,18 @@
+{
+ "key": "d9916c6da60f5ea98523326026d83db4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"写诗与小学数学命题无关\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1369,
+  "completion_tokens": 15,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 943.0246999836527,
+ "ttft_ms": 943.04420001572,
+ "total_ms": 1060.641999996733
+}

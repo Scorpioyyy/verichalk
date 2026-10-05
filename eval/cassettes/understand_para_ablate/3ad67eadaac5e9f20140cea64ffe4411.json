@@ -1,0 +1,18 @@
+{
+ "key": "3ad67eadaac5e9f20140cea64ffe4411",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"generate\", \"reason\": \"家长要几道题，未指定具体需求，由系统决定\", \"action\": \"generate\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1375,
+  "completion_tokens": 31,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1411.3380999770015,
+ "ttft_ms": 1411.3674000254832,
+ "total_ms": 1422.3915999755263
+}

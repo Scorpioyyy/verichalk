@@ -1,0 +1,18 @@
+{
+ "key": "da69c2e390e07ca661ddae542e7ab3f7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给六年级下学期做套期中卷，时间定90分钟，总分100。\", \"b\": \"麻烦帮忙出一份六年级下册的期中试卷吧，考试时间呢是90分钟，满分的话是100分。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 976.6514000366442,
+ "ttft_ms": 976.6764999949373,
+ "total_ms": 1643.803899991326
+}

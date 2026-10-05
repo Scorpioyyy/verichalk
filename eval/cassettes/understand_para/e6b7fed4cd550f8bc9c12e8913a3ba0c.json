@@ -1,0 +1,18 @@
+{
+ "key": "e6b7fed4cd550f8bc9c12e8913a3ba0c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"与小学数学命题无关\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2115,
+  "completion_tokens": 13,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1028.063999954611,
+ "ttft_ms": 1028.3283999888226,
+ "total_ms": 1164.0971999731846
+}

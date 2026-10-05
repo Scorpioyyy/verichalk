@@ -1,0 +1,18 @@
+{
+ "key": "d470a63e790882098b3e14cadb64bb9e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"b\",\"unit_ordinals\":[7],\"topics\":[\"用方程解决问题\"],\"explicit\":[\"grade\",\"semester\",\"unit\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1062.1492000063881,
+ "ttft_ms": 1062.1729000122286,
+ "total_ms": 1278.2551000127569
+}

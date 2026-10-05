@@ -1,0 +1,18 @@
+{
+ "key": "e227b469df6b12fc662094daff268583",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给二年级出点方程题呗。\", \"b\": \"哎，帮我弄几道方程题吧，就是给二年级孩子做的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 153,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1575.2308000228368,
+ "ttft_ms": 1575.2528000157326,
+ "total_ms": 2168.233600037638
+}

@@ -1,0 +1,18 @@
+{
+ "key": "03faae23c6cdce9d001a2d138a61d1a7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"topics\":[\"圆的面积\"],\"kinds\":[\"application\"],\"count\":3,\"explicit\":[\"grade\",\"kinds\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2136,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 942.8443000069819,
+ "ttft_ms": 942.9780999780633,
+ "total_ms": 1064.5873000030406
+}

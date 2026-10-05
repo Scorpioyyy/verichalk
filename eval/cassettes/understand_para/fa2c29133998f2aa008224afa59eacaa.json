@@ -1,0 +1,18 @@
+{
+ "key": "fa2c29133998f2aa008224afa59eacaa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"a\",\"topics\":[\"圆的周长\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2139,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1247.9912000126205,
+ "ttft_ms": 1248.0041999951936,
+ "total_ms": 1364.4533999613486
+}

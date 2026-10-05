@@ -1,0 +1,18 @@
+{
+ "key": "bda4304733e7d60d586b0c1eccc19f3c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道20以内进位加法题\",\"grade\":1,\"semester\":\"b\",\"topics\":[\"20以内进位加法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 53,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1238.5076999780722,
+ "ttft_ms": 1238.5297999717295,
+ "total_ms": 1875.955299998168
+}

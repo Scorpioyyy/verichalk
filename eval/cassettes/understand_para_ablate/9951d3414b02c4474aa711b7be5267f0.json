@@ -1,0 +1,18 @@
+{
+ "key": "9951d3414b02c4474aa711b7be5267f0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出5道除数是一位数的笔算除法题\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"除数是一位数的除法\"],\"count\":5,\"kinds\":[\"calc\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1388,
+  "completion_tokens": 66,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 980.0152000389062,
+ "ttft_ms": 980.0550999934785,
+ "total_ms": 1494.657000002917
+}

@@ -1,0 +1,18 @@
+{
+ "key": "88b004e033a4f8db5548908e149460f3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"items:2,4,5\",\"instruction\":\"保留第1题和第3题，其他题重出\"},\"explicit\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2131,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1034.2263000202365,
+ "ttft_ms": 1034.2422000248916,
+ "total_ms": 1248.0747000081465
+}

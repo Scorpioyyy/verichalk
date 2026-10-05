@@ -1,0 +1,18 @@
+{
+ "key": "9e3723328de2d7bc285499bd9706daa9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"semester\":\"a\",\"topics\":[\"两位数乘一位数\"],\"count\":8,\"kinds\":[\"calc\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 50,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1234.6179999876767,
+ "ttft_ms": 1234.6354999463074,
+ "total_ms": 1443.859999999404
+}

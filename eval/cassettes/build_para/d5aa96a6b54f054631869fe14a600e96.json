@@ -1,0 +1,18 @@
+{
+ "key": "d5aa96a6b54f054631869fe14a600e96",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\":\"来套四年级下第三单元的小测卷。\",\"b\":\"嗯，帮我弄一份四年级下学期第三单元的单元测验吧，就这个单元的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 34,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1123.283300024923,
+ "ttft_ms": 1123.3053000178188,
+ "total_ms": 1542.2244000365026
+}

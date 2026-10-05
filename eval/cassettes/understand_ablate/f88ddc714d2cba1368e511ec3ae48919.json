@@ -1,0 +1,18 @@
+{
+ "key": "f88ddc714d2cba1368e511ec3ae48919",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户觉得上一轮题目太简单，要求换难一点的题，属于调整需求后重出\",\"difficulty\":[4,5],\"explicit\":[\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1378,
+  "completion_tokens": 43,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1307.3048000223935,
+ "ttft_ms": 1307.321399974171,
+ "total_ms": 1590.8249000203796
+}

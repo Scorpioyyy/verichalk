@@ -1,0 +1,18 @@
+{
+ "key": "5c661d44bb38870123fa33541dbb0fba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "warmup",
+ "text": "收到",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "length",
+ "usage": {
+  "prompt_tokens": 45,
+  "completion_tokens": 1,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1112.5725000165403,
+ "ttft_ms": 1112.576000043191,
+ "total_ms": 1115.5736000509933
+}

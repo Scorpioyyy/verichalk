@@ -1,0 +1,18 @@
+{
+ "key": "9d2f7647475c635741f36d710bbc4df5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给二年级上半学期期中考出张卷子，40分钟。\", \"b\": \"麻烦帮我出一份二年级上册的期中试卷吧，就是期中考用的那种，考试时间按40分钟来。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1245.4482999746688,
+ "ttft_ms": 1245.4709999728948,
+ "total_ms": 1950.5863999947906
+}

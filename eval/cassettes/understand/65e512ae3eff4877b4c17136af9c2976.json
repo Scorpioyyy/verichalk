@@ -1,0 +1,18 @@
+{
+ "key": "65e512ae3eff4877b4c17136af9c2976",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"topics\":[\"方程\"],\"explicit\":[\"grade\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2114,
+  "completion_tokens": 23,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1064.8514999775216,
+ "ttft_ms": 1064.8681999882683,
+ "total_ms": 1243.6113000148907
+}

@@ -1,0 +1,18 @@
+{
+ "key": "831ae55c397c4945fe40449ccfd12e4d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"semester\":\"b\",\"topics\":[\"有余数的除法\"],\"count\":6,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 39,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1152.6003999751993,
+ "ttft_ms": 1152.741199999582,
+ "total_ms": 1336.288099992089
+}

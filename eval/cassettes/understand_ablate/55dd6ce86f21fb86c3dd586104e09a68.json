@@ -1,0 +1,18 @@
+{
+ "key": "55dd6ce86f21fb86c3dd586104e09a68",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题：一年级加法题，指定情境和题量\",\"grade\":1,\"topics\":[\"加法\"],\"count\":5,\"scenes\":[\"小兔子过河\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 59,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1022.8043000097387,
+ "ttft_ms": 1022.8246999904513,
+ "total_ms": 1411.6814999724738
+}

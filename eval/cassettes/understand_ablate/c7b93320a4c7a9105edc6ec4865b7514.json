@@ -1,0 +1,18 @@
+{
+ "key": "c7b93320a4c7a9105edc6ec4865b7514",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份六年级毕业考试模拟卷，属于整卷需求\",\"grade\":6,\"difficulty\":[4,5],\"action\":\"paper\",\"explicit\":[\"grade\",\"difficulty\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1374,
+  "completion_tokens": 48,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1001.1035000206903,
+ "ttft_ms": 1001.1299999896437,
+ "total_ms": 1286.2747000181116
+}

@@ -1,0 +1,18 @@
+{
+ "key": "eccc5489766c5a2fd957b2529ee11c8e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道一年级下册20以内进位加法练习题\",\"grade\":1,\"semester\":\"b\",\"topics\":[\"20以内的进位加法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1385,
+  "completion_tokens": 55,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1097.0248999656178,
+ "ttft_ms": 1097.0478999661282,
+ "total_ms": 2221.148999989964
+}

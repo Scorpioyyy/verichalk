@@ -1,0 +1,18 @@
+{
+ "key": "fc82e46578b9da65fd54461ff774ef0b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要鸡兔同笼的3道题，属于小学数学命题\",\"topics\":[\"鸡兔同笼\"],\"count\":3,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 43,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1091.4316999842413,
+ "ttft_ms": 1091.6316999937408,
+ "total_ms": 1548.6187000060454
+}

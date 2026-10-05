@@ -1,0 +1,18 @@
+{
+ "key": "71a7c40c12962ebf2b3389cd7c260327",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"高中数学超出小学范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 13,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1027.3931000265293,
+ "ttft_ms": 1027.4152000201866,
+ "total_ms": 1206.651000014972
+}

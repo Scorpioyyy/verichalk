@@ -1,0 +1,18 @@
+{
+ "key": "40920d9b8ea94eaffe942553effea641",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"娃在读小学，想找点数学题做做。\", \"b\": \"我家有个上小学的娃，想让他练一练数学，你帮忙看看。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4783.399099949747,
+ "ttft_ms": 4783.452799951192,
+ "total_ms": 5224.528199993074
+}

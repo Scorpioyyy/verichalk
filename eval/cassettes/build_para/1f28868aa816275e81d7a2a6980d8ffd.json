@@ -1,0 +1,18 @@
+{
+ "key": "1f28868aa816275e81d7a2a6980d8ffd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级上学期的可能性，给我来4道题。\", \"b\": \"我这边要五年级上册可能性那一块的内容，帮我出4道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5629.991499998141,
+ "ttft_ms": 5630.010100023355,
+ "total_ms": 6113.602800003719
+}

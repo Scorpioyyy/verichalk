@@ -1,0 +1,18 @@
+{
+ "key": "a8f11f760394abde7f841f2ef0a69510",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"items:2,4\",\"instruction\":\"换成应用题\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2129,
+  "completion_tokens": 21,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1001.0194999631494,
+ "ttft_ms": 1001.0384999914095,
+ "total_ms": 1244.7279000189155
+}

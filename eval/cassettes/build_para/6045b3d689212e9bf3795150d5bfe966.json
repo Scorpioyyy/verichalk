@@ -1,0 +1,18 @@
+{
+ "key": "6045b3d689212e9bf3795150d5bfe966",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来5道乘法分配律的题。\", \"b\": \"帮我出5道题吧，就是关于乘法分配律的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1029.083699977491,
+ "ttft_ms": 1029.1033000103198,
+ "total_ms": 1390.2677999576554
+}

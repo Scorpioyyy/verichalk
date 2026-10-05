@@ -1,0 +1,18 @@
+{
+ "key": "e185f38bb32191d497a030bfef774acd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五上期末复习，因数倍数跟分数放一块儿，出5道题。\", \"b\": \"哎，我这边是五年级上学期，快期末了要复习，你帮我出5道题吧，得把因数、倍数和分数这两个内容揉到一起考。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1211.6989000351168,
+ "ttft_ms": 1211.7123000207357,
+ "total_ms": 2169.9876000056975
+}

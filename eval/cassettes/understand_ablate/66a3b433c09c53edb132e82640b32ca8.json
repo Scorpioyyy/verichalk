@@ -1,0 +1,18 @@
+{
+ "key": "66a3b433c09c53edb132e82640b32ca8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"reason\":\"修改已有试卷中的选择题为填空题\",\"edit\":{\"target\":\"kind:choice\",\"instruction\":\"把选择题都改成填空题\"},\"explicit\":[\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1378,
+  "completion_tokens": 40,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1107.5615999870934,
+ "ttft_ms": 1107.5771999894641,
+ "total_ms": 1366.0947000025772
+}

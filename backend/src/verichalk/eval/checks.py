@@ -23,6 +23,8 @@ class RunResult:
     events: list[Event]
     metrics: RunMetrics
     reply: str = ""
+    turn_expect: dict[str, Any] = field(default_factory=dict)
+    aux: dict[str, Any] = field(default_factory=dict)  # 评分用的辅助数据（知识点文本、单元序号）
 
 
 @dataclass
@@ -31,6 +33,7 @@ class CheckOutcome:
     passed: bool
     detail: str = ""
     run_id: str = ""
+    data: dict[str, Any] = field(default_factory=dict)  # 期望 / 实际，供混淆矩阵等聚合使用
 
 
 @dataclass
@@ -159,4 +162,8 @@ def evaluate(expect: dict[str, Any], rs: list[RunResult]) -> list[CheckOutcome]:
         outcomes += fn(arg, rs)
     for fn in ALWAYS.values():
         outcomes += fn(None, rs)
+    from .understand_checks import understand_checks  # 延迟导入：避免与本模块循环依赖
+
+    for r in rs:
+        outcomes += understand_checks(r)
     return outcomes

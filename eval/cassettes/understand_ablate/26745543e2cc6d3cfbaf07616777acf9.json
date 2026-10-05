@@ -1,0 +1,18 @@
+{
+ "key": "26745543e2cc6d3cfbaf07616777acf9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要圆柱圆锥综合题，指定题量和情境\",\"grade\":6,\"topics\":[\"圆柱\",\"圆锥\"],\"count\":3,\"tier\":\"integrated\",\"scenes\":[\"建筑工地\"],\"explicit\":[\"grade\",\"count\",\"tier\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1377,
+  "completion_tokens": 64,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 989.051099983044,
+ "ttft_ms": 989.0699000097811,
+ "total_ms": 1940.7185000018217
+}

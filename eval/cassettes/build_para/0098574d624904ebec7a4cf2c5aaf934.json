@@ -1,0 +1,18 @@
+{
+ "key": "0098574d624904ebec7a4cf2c5aaf934",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"二下，来几道题吧\", \"b\": \"哎，我这边是二年级下学期的，你帮我弄几道题出来吧\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1097.798899980262,
+ "ttft_ms": 1098.0484000174329,
+ "total_ms": 1662.4338999972679
+}

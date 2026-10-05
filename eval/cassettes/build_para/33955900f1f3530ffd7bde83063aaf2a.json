@@ -1,0 +1,18 @@
+{
+ "key": "33955900f1f3530ffd7bde83063aaf2a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给四年级娃整几道小数题，要有点新意，别拿课本原题糊弄。\", \"b\": \"哎，帮我个忙吧——我们家孩子上四年级，正学小数这块儿呢，你给想几道题出来，最好是那种有点巧思、有创意的，可别直接从课本上扒原题啊。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 165,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1496.736500004772,
+ "ttft_ms": 1496.7647999874316,
+ "total_ms": 2826.5435000066645
+}

@@ -1,0 +1,18 @@
+{
+ "key": "59d59db75231beab4b08220c2d4215e1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级寒假复习，出10道乘除法题。\", \"b\": \"哎呀，寒假复习用的，三年级乘除法这块，来10道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1238.1724000442773,
+ "ttft_ms": 1238.239300029818,
+ "total_ms": 1717.0650000334717
+}

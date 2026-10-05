@@ -1,0 +1,18 @@
+{
+ "key": "291d7b47f7351021401621ab8ef0282d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出5道周长练习题\",\"grade\":3,\"topics\":[\"周长\"],\"count\":5,\"difficulty\":[2,4],\"explicit\":[\"grade\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1385,
+  "completion_tokens": 50,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1337.1893999865279,
+ "ttft_ms": 1337.2275999863632,
+ "total_ms": 1671.288299956359
+}

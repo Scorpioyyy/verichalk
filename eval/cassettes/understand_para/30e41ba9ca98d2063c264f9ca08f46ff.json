@@ -1,0 +1,18 @@
+{
+ "key": "30e41ba9ca98d2063c264f9ca08f46ff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"action\":\"paper\",\"explicit\":[\"grade\",\"semester\",\"unit\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 39,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1119.2509999964386,
+ "ttft_ms": 1119.2679000087082,
+ "total_ms": 1291.9855999643914
+}

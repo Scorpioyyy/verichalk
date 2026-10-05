@@ -1,0 +1,18 @@
+{
+ "key": "8c0229ad002d8bb10229797af51ae250",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出3道六年级圆的面积应用题\",\"grade\":6,\"topics\":[\"圆的面积\"],\"count\":3,\"kinds\":[\"application\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1389,
+  "completion_tokens": 41,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1415.329199982807,
+ "ttft_ms": 1415.3633000096306,
+ "total_ms": 1789.369500009343
+}

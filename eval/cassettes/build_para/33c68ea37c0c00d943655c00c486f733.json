@@ -1,0 +1,18 @@
+{
+ "key": "33c68ea37c0c00d943655c00c486f733",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五下异分母分数加减法，出六道题。\", \"b\": \"我这学期教的是五年级下册，正讲到异分母分数加减法这个内容，想麻烦你帮我出六道这方面的题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1237.5819000299089,
+ "ttft_ms": 1237.780700030271,
+ "total_ms": 1795.6057999981567
+}

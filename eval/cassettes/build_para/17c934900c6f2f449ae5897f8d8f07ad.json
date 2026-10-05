@@ -1,0 +1,18 @@
+{
+ "key": "17c934900c6f2f449ae5897f8d8f07ad",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来五道，稍微有点难度的。\", \"b\": \"麻烦帮我出五道题吧，难度上稍微拔高一点的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 974.1456999909133,
+ "ttft_ms": 974.1591999772936,
+ "total_ms": 1481.5740999765694
+}

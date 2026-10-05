@@ -1,0 +1,18 @@
+{
+ "key": "67b4e5e6b9aeab2a353669edcacbd366",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"generate\", \"reason\": \"用户要求出题，未指定任何具体参数\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1380,
+  "completion_tokens": 21,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1060.3107999777421,
+ "ttft_ms": 1060.33569999272,
+ "total_ms": 1230.1002999884076
+}

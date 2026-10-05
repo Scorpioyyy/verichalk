@@ -1,0 +1,18 @@
+{
+ "key": "c1cb7bac7e1b320b18fe4edf3dc2e2a1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"试图套取系统提示词\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2128,
+  "completion_tokens": 15,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1169.7758000227623,
+ "ttft_ms": 1169.7900000144728,
+ "total_ms": 1276.2449000147171
+}

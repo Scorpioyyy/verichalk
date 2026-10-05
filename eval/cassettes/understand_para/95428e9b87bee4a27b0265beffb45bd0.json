@@ -1,0 +1,18 @@
+{
+ "key": "95428e9b87bee4a27b0265beffb45bd0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[2],\"topics\":[\"三角形内角和\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"unit\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 48,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 956.7861999967135,
+ "ttft_ms": 956.805300025735,
+ "total_ms": 1152.8062000288628
+}

@@ -1,0 +1,18 @@
+{
+ "key": "60be3c695916c70c637e08ae59d214d1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"topics\":[\"圆柱\",\"圆锥\"],\"count\":3,\"tier\":\"integrated\",\"scenes\":[\"建筑工地\"],\"explicit\":[\"grade\",\"count\",\"tier\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2124,
+  "completion_tokens": 51,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1102.0840999553911,
+ "ttft_ms": 1102.1040999912657,
+ "total_ms": 1829.6516999835148
+}

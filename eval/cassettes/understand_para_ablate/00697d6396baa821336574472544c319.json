@@ -1,0 +1,18 @@
+{
+ "key": "00697d6396baa821336574472544c319",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份六年级下册期中整卷，并指定了时长和总分\",\"grade\":6,\"semester\":\"b\",\"action\":\"paper\",\"paper\":{\"duration_min\":90,\"total_score\":100},\"explicit\":[\"grade\",\"semester\",\"action\",\"paper\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1378,
+  "completion_tokens": 63,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1627.459799987264,
+ "ttft_ms": 1627.4839999969117,
+ "total_ms": 2225.917100033257
+}

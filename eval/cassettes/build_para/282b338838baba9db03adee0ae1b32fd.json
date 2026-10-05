@@ -1,0 +1,18 @@
+{
+ "key": "282b338838baba9db03adee0ae1b32fd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级下学期周长这块儿，来套单元卷。\", \"b\": \"帮我出一份单元测试吧，就是三年级下册那个周长单元的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6195.6979999667965,
+ "ttft_ms": 6195.8100000047125,
+ "total_ms": 6571.378099964932
+}

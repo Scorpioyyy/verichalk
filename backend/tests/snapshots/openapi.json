@@ -1,6 +1,15 @@
 {
  "components": {
   "schemas": {
+   "Action": {
+    "enum": [
+     "generate",
+     "paper",
+     "review"
+    ],
+    "title": "Action",
+    "type": "string"
+   },
    "AggregateMetrics": {
     "properties": {
      "cache_hit_ratio": {
@@ -119,6 +128,115 @@
      }
     },
     "title": "Body_post_turn_api_sessions__session_id__turns_post",
+    "type": "object"
+   },
+   "Brief": {
+    "properties": {
+     "action": {
+      "$ref": "#/components/schemas/Slot_Action_"
+     },
+     "assumptions": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+     },
+     "constraints": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "count": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_int_"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "difficulty": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_int__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "kinds": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_ItemKind__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "paper": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/PaperSpec"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "references": {
+      "items": {
+       "$ref": "#/components/schemas/ReferenceItem"
+      },
+      "title": "References",
+      "type": "array"
+     },
+     "scenes": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "scope": {
+      "$ref": "#/components/schemas/Scope"
+     },
+     "source": {
+      "$ref": "#/components/schemas/Slot_SourceMode_"
+     },
+     "target_lesson": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_str_"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "tier_mix": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_dict_Tier__float__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "title": "Brief",
     "type": "object"
    },
    "CheckResult": {
@@ -258,6 +376,79 @@
     "title": "CheckpointRequested",
     "type": "object"
    },
+   "Chip": {
+    "description": "展示在结果顶部的\"本次假设\"芯片（教师语言，可点击修改）。",
+    "properties": {
+     "key": {
+      "title": "Key",
+      "type": "string"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     },
+     "origin": {
+      "enum": [
+       "user",
+       "inferred",
+       "default"
+      ],
+      "title": "Origin",
+      "type": "string"
+     },
+     "value": {
+      "title": "Value",
+      "type": "string"
+     }
+    },
+    "required": [
+     "key",
+     "label",
+     "value",
+     "origin"
+    ],
+    "title": "Chip",
+    "type": "object"
+   },
+   "ClarifyOption": {
+    "properties": {
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "label"
+    ],
+    "title": "ClarifyOption",
+    "type": "object"
+   },
+   "ClarifyRequest": {
+    "description": "一次只问一个问题，带 2～4 个可点选项（PRD FR-3）。",
+    "properties": {
+     "options": {
+      "items": {
+       "$ref": "#/components/schemas/ClarifyOption"
+      },
+      "title": "Options",
+      "type": "array"
+     },
+     "prompt": {
+      "title": "Prompt",
+      "type": "string"
+     }
+    },
+    "required": [
+     "prompt"
+    ],
+    "title": "ClarifyRequest",
+    "type": "object"
+   },
    "Combo": {
     "description": "一个知识点组合候选（\"串联\"的单位）。",
     "properties": {
@@ -320,6 +511,24 @@
      "metrics"
     ],
     "title": "DebugRunItem",
+    "type": "object"
+   },
+   "EditIntent": {
+    "properties": {
+     "instruction": {
+      "title": "Instruction",
+      "type": "string"
+     },
+     "target": {
+      "title": "Target",
+      "type": "string"
+     }
+    },
+    "required": [
+     "target",
+     "instruction"
+    ],
+    "title": "EditIntent",
     "type": "object"
    },
    "ErrorInfo": {
@@ -1221,6 +1430,15 @@
     "title": "ModelStat",
     "type": "object"
    },
+   "Origin": {
+    "enum": [
+     "user",
+     "inferred",
+     "default"
+    ],
+    "title": "Origin",
+    "type": "string"
+   },
    "Paper": {
     "properties": {
      "id": {
@@ -1332,6 +1550,42 @@
      "rev"
     ],
     "title": "PaperPatched",
+    "type": "object"
+   },
+   "PaperSpec": {
+    "properties": {
+     "duration_min": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Duration Min"
+     },
+     "structure": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Structure",
+      "type": "array"
+     },
+     "total_score": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Total Score"
+     }
+    },
+    "title": "PaperSpec",
     "type": "object"
    },
    "Progress": {
@@ -1586,6 +1840,73 @@
     "title": "Quantiles",
     "type": "object"
    },
+   "ReferenceItem": {
+    "description": "来自照片或用户粘贴的题：既是\"学生做过什么\"的上下文，也是防雷同集合。",
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "difficulty": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Difficulty"
+     },
+     "figure_desc": {
+      "default": "",
+      "title": "Figure Desc",
+      "type": "string"
+     },
+     "has_figure": {
+      "default": false,
+      "title": "Has Figure",
+      "type": "boolean"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ItemKind"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "source": {
+      "default": "",
+      "title": "Source",
+      "type": "string"
+     },
+     "text": {
+      "title": "Text",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "text"
+    ],
+    "title": "ReferenceItem",
+    "type": "object"
+   },
    "RetrievalPayload": {
     "description": "一次知识检索 / 规划步骤的可视化载荷（事件 `retrieval.result`）。",
     "properties": {
@@ -1691,6 +2012,18 @@
     ],
     "title": "RetrievalResult",
     "type": "object"
+   },
+   "Route": {
+    "enum": [
+     "generate",
+     "paper",
+     "edit",
+     "ask",
+     "export",
+     "offtopic"
+    ],
+    "title": "Route",
+    "type": "string"
    },
    "Run": {
     "properties": {
@@ -2102,7 +2435,7 @@
       "type": "string"
      },
      "schema_version": {
-      "default": "1.0",
+      "default": "1.1",
       "title": "Schema Version",
       "type": "string"
      },
@@ -2238,6 +2571,72 @@
     "title": "RunView",
     "type": "object"
    },
+   "Scope": {
+    "properties": {
+     "grade": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_int_"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "kp_ids": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "lesson_ids": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "semester": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_str_"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "topics": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "units": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "title": "Scope",
+    "type": "object"
+   },
    "Section": {
     "properties": {
      "id": {
@@ -2361,6 +2760,195 @@
     "title": "SessionState",
     "type": "object"
    },
+   "Slot_Action_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "$ref": "#/components/schemas/Action"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[Action]",
+    "type": "object"
+   },
+   "Slot_SourceMode_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "$ref": "#/components/schemas/SourceMode"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[SourceMode]",
+    "type": "object"
+   },
+   "Slot_dict_Tier__float__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "additionalProperties": {
+       "type": "number"
+      },
+      "propertyNames": {
+       "$ref": "#/components/schemas/Tier"
+      },
+      "title": "Value",
+      "type": "object"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[dict[Tier, float]]",
+    "type": "object"
+   },
+   "Slot_int_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "title": "Value",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[int]",
+    "type": "object"
+   },
+   "Slot_list_ItemKind__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "items": {
+       "$ref": "#/components/schemas/ItemKind"
+      },
+      "title": "Value",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[list[ItemKind]]",
+    "type": "object"
+   },
+   "Slot_list_int__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "items": {
+       "type": "integer"
+      },
+      "title": "Value",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[list[int]]",
+    "type": "object"
+   },
+   "Slot_list_str__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Value",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[list[str]]",
+    "type": "object"
+   },
+   "Slot_str_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/components/schemas/Origin",
+      "default": "default"
+     },
+     "value": {
+      "title": "Value",
+      "type": "string"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[str]",
+    "type": "object"
+   },
    "Source": {
     "enum": [
      "novel",
@@ -2368,6 +2956,15 @@
      "edited"
     ],
     "title": "Source",
+    "type": "string"
+   },
+   "SourceMode": {
+    "enum": [
+     "auto",
+     "novel",
+     "template"
+    ],
+    "title": "SourceMode",
     "type": "string"
    },
    "SpanFinished": {
@@ -2629,6 +3226,137 @@
      "message_id"
     ],
     "title": "TurnAccepted",
+    "type": "object"
+   },
+   "Understanding": {
+    "properties": {
+     "brief": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Brief"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "chips": {
+      "items": {
+       "$ref": "#/components/schemas/Chip"
+      },
+      "title": "Chips",
+      "type": "array"
+     },
+     "clarify": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ClarifyRequest"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "edit": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/EditIntent"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "method": {
+      "default": "llm",
+      "enum": [
+       "llm",
+       "rules",
+       "rules_fallback"
+      ],
+      "title": "Method",
+      "type": "string"
+     },
+     "notes": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+     },
+     "reason": {
+      "default": "",
+      "title": "Reason",
+      "type": "string"
+     },
+     "route": {
+      "$ref": "#/components/schemas/Route"
+     }
+    },
+    "required": [
+     "route"
+    ],
+    "title": "Understanding",
+    "type": "object"
+   },
+   "UnderstandingReady": {
+    "description": "需求理解完成：用户端据此展示\"本次假设\"芯片与路由结果（1.1 新增）。",
+    "properties": {
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "understanding.ready",
+      "default": "understanding.ready",
+      "title": "Type",
+      "type": "string"
+     },
+     "understanding": {
+      "$ref": "#/components/schemas/Understanding"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "understanding"
+    ],
+    "title": "UnderstandingReady",
     "type": "object"
    },
    "Usage": {
@@ -3180,6 +3908,7 @@
             "run.started": "#/components/schemas/RunStarted",
             "span.finished": "#/components/schemas/SpanFinished",
             "span.started": "#/components/schemas/SpanStarted",
+            "understanding.ready": "#/components/schemas/UnderstandingReady",
             "usage.update": "#/components/schemas/UsageUpdate"
            },
            "propertyName": "type"
@@ -3217,6 +3946,9 @@
            },
            {
             "$ref": "#/components/schemas/CheckpointRequested"
+           },
+           {
+            "$ref": "#/components/schemas/UnderstandingReady"
            },
            {
             "$ref": "#/components/schemas/LLMCall"

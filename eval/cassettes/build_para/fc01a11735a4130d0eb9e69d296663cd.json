@@ -1,0 +1,18 @@
+{
+ "key": "fc01a11735a4130d0eb9e69d296663cd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给六年级孩子出三道圆柱圆锥的混合应用题，场景放建筑工地上。\", \"b\": \"哎，帮我个忙哈——六年级的圆柱和圆锥，想要那种综合性的题目，一共三道，情境的话就放在建筑工地那个场景里。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1161.519999965094,
+ "ttft_ms": 1161.5395999979228,
+ "total_ms": 2087.6294000190683
+}

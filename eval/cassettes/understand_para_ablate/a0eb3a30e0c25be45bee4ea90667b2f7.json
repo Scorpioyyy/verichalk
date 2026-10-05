@@ -1,0 +1,18 @@
+{
+ "key": "a0eb3a30e0c25be45bee4ea90667b2f7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"两位数乘一位数\"],\"count\":5,\"tier\":\"consolidate\",\"explicit\":[\"grade\",\"count\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2141,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1407.5224000262097,
+ "ttft_ms": 1407.5514000141993,
+ "total_ms": 1667.5101000000723
+}

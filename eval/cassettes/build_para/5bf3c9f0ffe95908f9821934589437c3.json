@@ -1,0 +1,18 @@
+{
+ "key": "5bf3c9f0ffe95908f9821934589437c3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"哎，帮我在四年级下册的统计图题里，捎带3道以前学过的小数内容。\", \"b\": \"麻烦你一下哈，咱们四年级下学期不是有统计图这块嘛，我想在里头融一些之前学过的小数知识进去，就出3道这样的题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 166,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1060.1285000448115,
+ "ttft_ms": 1060.1477000163868,
+ "total_ms": 1859.4248000299558
+}

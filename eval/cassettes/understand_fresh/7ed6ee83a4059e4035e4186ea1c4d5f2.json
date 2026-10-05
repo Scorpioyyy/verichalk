@@ -1,0 +1,18 @@
+{
+ "key": "7ed6ee83a4059e4035e4186ea1c4d5f2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"all\",\"instruction\":\"解析里把每一步都写上\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2127,
+  "completion_tokens": 21,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1042.2643999918364,
+ "ttft_ms": 1042.2847000299953,
+ "total_ms": 1149.3918999913149
+}

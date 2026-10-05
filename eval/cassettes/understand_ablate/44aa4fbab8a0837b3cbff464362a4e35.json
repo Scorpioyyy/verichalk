@@ -1,0 +1,18 @@
+{
+ "key": "44aa4fbab8a0837b3cbff464362a4e35",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"export\",\"reason\":\"用户要求把已有试卷导出为Word\",\"explicit\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 21,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1030.2188999485224,
+ "ttft_ms": 1030.2389999851584,
+ "total_ms": 1214.165699959267
+}

@@ -1,0 +1,18 @@
+{
+ "key": "60a324bc3070e52dffcc40b8b3b27a48",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级下学期第二单元，三角形内角和，来4道题。\", \"b\": \"哎，帮我个忙哈，四年级下学期的第二单元，就是那个三角形内角和的部分，给我出上4道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1288.9810999622568,
+ "ttft_ms": 1289.003399957437,
+ "total_ms": 1697.9631999856792
+}

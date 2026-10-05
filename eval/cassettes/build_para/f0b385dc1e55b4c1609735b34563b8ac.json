@@ -1,0 +1,18 @@
+{
+ "key": "f0b385dc1e55b4c1609735b34563b8ac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级的三角形这块，出10道题，选择、填空各5道。\", \"b\": \"我这边要四年级三角形这个内容，麻烦出10道题吧，选择题和填空题各占一半就行。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1050.4917000071146,
+ "ttft_ms": 1050.5127999931574,
+ "total_ms": 1773.2801000238396
+}

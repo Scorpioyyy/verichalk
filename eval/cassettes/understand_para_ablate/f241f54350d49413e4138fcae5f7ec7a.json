@@ -1,0 +1,18 @@
+{
+ "key": "f241f54350d49413e4138fcae5f7ec7a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出6道异分母分数加减法的题\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"异分母分数加减法\"],\"count\":6,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1389,
+  "completion_tokens": 56,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1130.937299982179,
+ "ttft_ms": 1131.2091000145301,
+ "total_ms": 1531.961600005161
+}

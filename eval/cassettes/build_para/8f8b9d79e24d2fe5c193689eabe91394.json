@@ -1,0 +1,18 @@
+{
+ "key": "8f8b9d79e24d2fe5c193689eabe91394",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级周长这块，来5道中等的题。\", \"b\": \"我这边是三年级，要练周长的，你帮我出5道题吧，难度就中等的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1279.201199999079,
+ "ttft_ms": 1279.3635000125505,
+ "total_ms": 2164.5801000413485
+}

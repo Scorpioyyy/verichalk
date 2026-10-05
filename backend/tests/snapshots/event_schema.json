@@ -1,6 +1,132 @@
 {
  "schema": {
   "$defs": {
+   "Action": {
+    "enum": [
+     "generate",
+     "paper",
+     "review"
+    ],
+    "title": "Action",
+    "type": "string"
+   },
+   "Brief": {
+    "properties": {
+     "action": {
+      "$ref": "#/$defs/Slot_Action_"
+     },
+     "assumptions": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+     },
+     "constraints": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "count": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_int_"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "difficulty": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_int__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "kinds": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_ItemKind__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "paper": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/PaperSpec"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "references": {
+      "items": {
+       "$ref": "#/$defs/ReferenceItem"
+      },
+      "title": "References",
+      "type": "array"
+     },
+     "scenes": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "scope": {
+      "$ref": "#/$defs/Scope"
+     },
+     "source": {
+      "$ref": "#/$defs/Slot_SourceMode_"
+     },
+     "target_lesson": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_str_"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "tier_mix": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_dict_Tier__float__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     }
+    },
+    "title": "Brief",
+    "type": "object"
+   },
    "CheckResult": {
     "properties": {
      "detail": {
@@ -129,6 +255,79 @@
     "title": "CheckpointRequested",
     "type": "object"
    },
+   "Chip": {
+    "description": "展示在结果顶部的\"本次假设\"芯片（教师语言，可点击修改）。",
+    "properties": {
+     "key": {
+      "title": "Key",
+      "type": "string"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     },
+     "origin": {
+      "enum": [
+       "user",
+       "inferred",
+       "default"
+      ],
+      "title": "Origin",
+      "type": "string"
+     },
+     "value": {
+      "title": "Value",
+      "type": "string"
+     }
+    },
+    "required": [
+     "key",
+     "label",
+     "value",
+     "origin"
+    ],
+    "title": "Chip",
+    "type": "object"
+   },
+   "ClarifyOption": {
+    "properties": {
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "label"
+    ],
+    "title": "ClarifyOption",
+    "type": "object"
+   },
+   "ClarifyRequest": {
+    "description": "一次只问一个问题，带 2～4 个可点选项（PRD FR-3）。",
+    "properties": {
+     "options": {
+      "items": {
+       "$ref": "#/$defs/ClarifyOption"
+      },
+      "title": "Options",
+      "type": "array"
+     },
+     "prompt": {
+      "title": "Prompt",
+      "type": "string"
+     }
+    },
+    "required": [
+     "prompt"
+    ],
+    "title": "ClarifyRequest",
+    "type": "object"
+   },
    "Combo": {
     "description": "一个知识点组合候选（\"串联\"的单位）。",
     "properties": {
@@ -154,6 +353,24 @@
      "score"
     ],
     "title": "Combo",
+    "type": "object"
+   },
+   "EditIntent": {
+    "properties": {
+     "instruction": {
+      "title": "Instruction",
+      "type": "string"
+     },
+     "target": {
+      "title": "Target",
+      "type": "string"
+     }
+    },
+    "required": [
+     "target",
+     "instruction"
+    ],
+    "title": "EditIntent",
     "type": "object"
    },
    "ErrorInfo": {
@@ -300,6 +517,18 @@
     ],
     "title": "GraphNode",
     "type": "object"
+   },
+   "ItemKind": {
+    "enum": [
+     "choice",
+     "fill",
+     "calc",
+     "judge",
+     "application",
+     "open"
+    ],
+    "title": "ItemKind",
+    "type": "string"
    },
    "ItemStatus": {
     "properties": {
@@ -726,6 +955,15 @@
     "title": "MessageDone",
     "type": "object"
    },
+   "Origin": {
+    "enum": [
+     "user",
+     "inferred",
+     "default"
+    ],
+    "title": "Origin",
+    "type": "string"
+   },
    "PaperPatched": {
     "properties": {
      "ops": {
@@ -804,6 +1042,44 @@
      "rev"
     ],
     "title": "PaperPatched",
+    "type": "object"
+   },
+   "PaperSpec": {
+    "properties": {
+     "duration_min": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Duration Min"
+     },
+     "structure": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Structure",
+      "type": "array"
+     },
+     "total_score": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Total Score"
+     }
+    },
+    "title": "PaperSpec",
     "type": "object"
    },
    "Progress": {
@@ -927,6 +1203,75 @@
     "title": "PromptRef",
     "type": "object"
    },
+   "ReferenceItem": {
+    "description": "来自照片或用户粘贴的题：既是\"学生做过什么\"的上下文，也是防雷同集合。",
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "difficulty": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Difficulty"
+     },
+     "figure_desc": {
+      "default": "",
+      "title": "Figure Desc",
+      "type": "string"
+     },
+     "has_figure": {
+      "default": false,
+      "title": "Has Figure",
+      "type": "boolean"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/ItemKind"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "source": {
+      "default": "",
+      "title": "Source",
+      "type": "string"
+     },
+     "text": {
+      "title": "Text",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "text"
+    ],
+    "title": "ReferenceItem",
+    "type": "object"
+   },
    "RetrievalPayload": {
     "description": "一次知识检索 / 规划步骤的可视化载荷（事件 `retrieval.result`）。",
     "properties": {
@@ -1034,6 +1379,18 @@
     ],
     "title": "RetrievalResult",
     "type": "object"
+   },
+   "Route": {
+    "enum": [
+     "generate",
+     "paper",
+     "edit",
+     "ask",
+     "export",
+     "offtopic"
+    ],
+    "title": "Route",
+    "type": "string"
    },
    "RunFinished": {
     "properties": {
@@ -1199,7 +1556,7 @@
       "type": "string"
      },
      "schema_version": {
-      "default": "1.0",
+      "default": "1.1",
       "title": "Schema Version",
       "type": "string"
      },
@@ -1247,6 +1604,78 @@
     "title": "RunStarted",
     "type": "object"
    },
+   "Scope": {
+    "properties": {
+     "grade": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_int_"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "kp_ids": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "lesson_ids": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "semester": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_str_"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "topics": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "units": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Slot_list_str__"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     }
+    },
+    "title": "Scope",
+    "type": "object"
+   },
    "SegmentInfo": {
     "description": "提示词分段（缓存友好布局：static → stable → history → dynamic）。",
     "properties": {
@@ -1270,6 +1699,204 @@
     ],
     "title": "SegmentInfo",
     "type": "object"
+   },
+   "Slot_Action_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "$ref": "#/$defs/Action"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[Action]",
+    "type": "object"
+   },
+   "Slot_SourceMode_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "$ref": "#/$defs/SourceMode"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[SourceMode]",
+    "type": "object"
+   },
+   "Slot_dict_Tier__float__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "additionalProperties": {
+       "type": "number"
+      },
+      "propertyNames": {
+       "$ref": "#/$defs/Tier"
+      },
+      "title": "Value",
+      "type": "object"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[dict[Tier, float]]",
+    "type": "object"
+   },
+   "Slot_int_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "title": "Value",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[int]",
+    "type": "object"
+   },
+   "Slot_list_ItemKind__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "items": {
+       "$ref": "#/$defs/ItemKind"
+      },
+      "title": "Value",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[list[ItemKind]]",
+    "type": "object"
+   },
+   "Slot_list_int__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "items": {
+       "type": "integer"
+      },
+      "title": "Value",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[list[int]]",
+    "type": "object"
+   },
+   "Slot_list_str__": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Value",
+      "type": "array"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[list[str]]",
+    "type": "object"
+   },
+   "Slot_str_": {
+    "properties": {
+     "confidence": {
+      "default": 1.0,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "origin": {
+      "$ref": "#/$defs/Origin",
+      "default": "default"
+     },
+     "value": {
+      "title": "Value",
+      "type": "string"
+     }
+    },
+    "required": [
+     "value"
+    ],
+    "title": "Slot[str]",
+    "type": "object"
+   },
+   "SourceMode": {
+    "enum": [
+     "auto",
+     "novel",
+     "template"
+    ],
+    "title": "SourceMode",
+    "type": "string"
    },
    "SpanFinished": {
     "properties": {
@@ -1454,6 +2081,15 @@
     "title": "SpanStatus",
     "type": "string"
    },
+   "Tier": {
+    "enum": [
+     "consolidate",
+     "variation",
+     "integrated"
+    ],
+    "title": "Tier",
+    "type": "string"
+   },
    "ToolCall": {
     "properties": {
      "arguments": {
@@ -1475,6 +2111,142 @@
      "arguments"
     ],
     "title": "ToolCall",
+    "type": "object"
+   },
+   "Understanding": {
+    "properties": {
+     "brief": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/Brief"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "chips": {
+      "items": {
+       "$ref": "#/$defs/Chip"
+      },
+      "title": "Chips",
+      "type": "array"
+     },
+     "clarify": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/ClarifyRequest"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "edit": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/EditIntent"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null
+     },
+     "method": {
+      "default": "llm",
+      "enum": [
+       "llm",
+       "rules",
+       "rules_fallback"
+      ],
+      "title": "Method",
+      "type": "string"
+     },
+     "notes": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+     },
+     "reason": {
+      "default": "",
+      "title": "Reason",
+      "type": "string"
+     },
+     "route": {
+      "$ref": "#/$defs/Route"
+     }
+    },
+    "required": [
+     "route"
+    ],
+    "title": "Understanding",
+    "type": "object"
+   },
+   "UnderstandingReady": {
+    "description": "需求理解完成：用户端据此展示\"本次假设\"芯片与路由结果（1.1 新增）。",
+    "properties": {
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "understanding.ready",
+      "default": "understanding.ready",
+      "title": "Type",
+      "type": "string"
+     },
+     "understanding": {
+      "$ref": "#/$defs/Understanding"
+     },
+     "visibility": {
+      "$ref": "#/$defs/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "understanding"
+    ],
+    "title": "UnderstandingReady",
     "type": "object"
    },
    "Usage": {
@@ -1616,6 +2388,7 @@
     "run.started": "#/$defs/RunStarted",
     "span.finished": "#/$defs/SpanFinished",
     "span.started": "#/$defs/SpanStarted",
+    "understanding.ready": "#/$defs/UnderstandingReady",
     "usage.update": "#/$defs/UsageUpdate"
    },
    "propertyName": "type"
@@ -1655,6 +2428,9 @@
     "$ref": "#/$defs/CheckpointRequested"
    },
    {
+    "$ref": "#/$defs/UnderstandingReady"
+   },
+   {
     "$ref": "#/$defs/LLMCall"
    },
    {
@@ -1665,5 +2441,5 @@
    }
   ]
  },
- "schema_version": "1.0"
+ "schema_version": "1.1"
 }

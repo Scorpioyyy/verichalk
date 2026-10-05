@@ -1,0 +1,18 @@
+{
+ "key": "55a0fadebc16509f3015c86f9d24680a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要二年级时间相关的新题\",\"grade\":2,\"topics\":[\"时间的认识\"],\"count\":5,\"constraints\":[\"数字不要太大\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 52,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 932.5380999944173,
+ "ttft_ms": 932.554800005164,
+ "total_ms": 1216.4709999924526
+}

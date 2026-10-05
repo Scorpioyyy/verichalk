@@ -1,0 +1,18 @@
+{
+ "key": "74cec953786044104f08b3b81a86018f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"除数是一位数的笔算除法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2135,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1145.4040000098757,
+ "ttft_ms": 1145.425399998203,
+ "total_ms": 1273.121300037019
+}

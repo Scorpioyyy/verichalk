@@ -1,0 +1,18 @@
+{
+ "key": "3ef07a319d87327a0c8e310f7c80bcff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"比例尺\"],\"count\":4,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2117,
+  "completion_tokens": 24,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1194.2331000464037,
+ "ttft_ms": 1194.3868000525981,
+ "total_ms": 1279.3326000100933
+}

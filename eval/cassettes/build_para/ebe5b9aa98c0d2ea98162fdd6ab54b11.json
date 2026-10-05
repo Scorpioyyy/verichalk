@@ -1,0 +1,18 @@
+{
+ "key": "ebe5b9aa98c0d2ea98162fdd6ab54b11",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.verify",
+ "text": "{\"all_true\": false, \"failed\": [\"1. 没有说明年级、知识点或单元（范围缺失）\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 111,
+  "completion_tokens": 26,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1082.5626999721862,
+ "ttft_ms": 1082.581199996639,
+ "total_ms": 1335.0812999997288
+}

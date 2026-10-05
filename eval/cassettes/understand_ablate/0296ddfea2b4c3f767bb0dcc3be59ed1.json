@@ -1,0 +1,18 @@
+{
+ "key": "0296ddfea2b4c3f767bb0dcc3be59ed1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"semester\":\"b\",\"topics\":[\"20以内进位加法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1494.1887999884784,
+ "ttft_ms": 1494.337700016331,
+ "total_ms": 1694.2414999939501
+}

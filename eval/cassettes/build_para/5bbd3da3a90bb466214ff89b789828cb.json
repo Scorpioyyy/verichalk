@@ -1,0 +1,18 @@
+{
+ "key": "5bbd3da3a90bb466214ff89b789828cb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"小学数学里，分数这部分该咋教啊？\", \"b\": \"哎，想请教一下，小学阶段的数学课，分数这个内容到底该怎么给孩子们讲呢？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 41,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1259.4550999929197,
+ "ttft_ms": 1259.4670000253245,
+ "total_ms": 1952.9070000280626
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6b219ddc6661c1bb332fd7dcb6bd88a3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份三年级下册周长单元的单元测试整卷\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"周长\"],\"action\":\"paper\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 39,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1228.7887000129558,
+ "ttft_ms": 1228.812899964396,
+ "total_ms": 1530.4577999631874
+}

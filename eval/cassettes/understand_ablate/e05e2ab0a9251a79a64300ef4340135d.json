@@ -1,0 +1,18 @@
+{
+ "key": "e05e2ab0a9251a79a64300ef4340135d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"无实际命题需求\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2111,
+  "completion_tokens": 13,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1007.3687999974936,
+ "ttft_ms": 1007.3896999820136,
+ "total_ms": 1248.982099990826
+}

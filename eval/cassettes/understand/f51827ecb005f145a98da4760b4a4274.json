@@ -1,0 +1,18 @@
+{
+ "key": "f51827ecb005f145a98da4760b4a4274",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"负数的初步认识\"],\"explicit\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 20,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1096.0938000353053,
+ "ttft_ms": 1096.1121000000276,
+ "total_ms": 1207.9486000002362
+}

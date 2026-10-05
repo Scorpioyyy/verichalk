@@ -18,6 +18,7 @@ from typing import Literal
 from ..core.config import LLMMode, Settings
 from ..core.errors import VerichalkError
 from ..domain.llm import ChatMessage, Role
+from ..knowledge import KnowledgeService
 from ..llm import LLMGateway, LLMRequest, all_prompt_ids, get_prompt
 
 log = logging.getLogger("verichalk.warmup")
@@ -35,8 +36,8 @@ class WarmupStatus:
 
 
 class Warmer:
-    def __init__(self, settings: Settings, llm: LLMGateway) -> None:
-        self._s, self._llm = settings, llm
+    def __init__(self, settings: Settings, llm: LLMGateway, kb: KnowledgeService | None = None) -> None:
+        self._s, self._llm, self._kb = settings, llm, kb
         self._last_at: float | None = None
         self._running = False
         self._last = WarmupStatus("fresh")
@@ -103,8 +104,8 @@ class Warmer:
                 seen.add(key)
                 jobs.append(self._ping(Role(tpl.role), tpl.static))
         try:
-            results = await asyncio.gather(*jobs)
-            ok = [r for r in results if r]
+            results = await asyncio.gather(*jobs, self._warm_embedding())
+            ok = [r for r in results[:-1] if r]
             self._last = WarmupStatus(
                 "fresh",
                 n_requests=len(jobs),
@@ -114,3 +115,10 @@ class Warmer:
             self._last_at = time.monotonic()
         finally:
             self._running = False
+
+    async def _warm_embedding(self) -> bool:
+        """预热查询向量接口的连接：复用连接的请求约 0.25～0.6s，新建连接约 1s 以上（D28）。"""
+        if self._kb is None:
+            return True
+        await self._kb.warm()
+        return True

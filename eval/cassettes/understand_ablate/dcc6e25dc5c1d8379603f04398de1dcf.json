@@ -1,0 +1,18 @@
+{
+ "key": "dcc6e25dc5c1d8379603f04398de1dcf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定四年级下册小数加减法5道\",\"grade\":4,\"semester\":\"b\",\"topics\":[\"小数加减法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1377,
+  "completion_tokens": 55,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1014.5764999906532,
+ "ttft_ms": 1014.6039999672212,
+ "total_ms": 1353.629999968689
+}

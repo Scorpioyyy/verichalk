@@ -1,0 +1,18 @@
+{
+ "key": "de040da58b5b89375df07051a3f7c54f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要新题，指定年级、情境、题型和题量\",\"grade\":3,\"topics\":[\"两步计算\"],\"count\":4,\"kinds\":[\"application\"],\"scenes\":[\"运动会\"],\"explicit\":[\"grade\",\"count\",\"kinds\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 66,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1128.0438000103459,
+ "ttft_ms": 1128.0655000009574,
+ "total_ms": 1557.2109000058845
+}

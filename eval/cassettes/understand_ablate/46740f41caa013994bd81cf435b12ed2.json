@@ -1,0 +1,18 @@
+{
+ "key": "46740f41caa013994bd81cf435b12ed2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求生成5道四年级小数加法题\",\"grade\":4,\"topics\":[\"小数加法\"],\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1375,
+  "completion_tokens": 42,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1068.773900042288,
+ "ttft_ms": 1068.7893000431359,
+ "total_ms": 1654.7512999968603
+}

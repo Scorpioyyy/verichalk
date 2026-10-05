@@ -1,0 +1,18 @@
+{
+ "key": "fa496be84515c849083d48b33c9177f7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要二年级上册乘法口诀的10道题\",\"grade\":2,\"semester\":\"a\",\"topics\":[\"乘法口诀\"],\"count\":10,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 51,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1169.5121999946423,
+ "ttft_ms": 1169.5641999831423,
+ "total_ms": 1550.6915000150912
+}

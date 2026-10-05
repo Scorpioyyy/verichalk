@@ -1,0 +1,18 @@
+{
+ "key": "3c69ff4c33c4d39216fbbf8ed4872b2d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要三年级新题5道\",\"grade\":3,\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1370,
+  "completion_tokens": 32,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1023.4093999606557,
+ "ttft_ms": 1023.4284999896772,
+ "total_ms": 1268.6047999886796
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4204c5656811ce002d0af6d6d2aea20f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给二年级上学期的小家伙们出十道乘法口诀的题。\", \"b\": \"哎，帮我个忙哈，我家孩子刚上二年级，这学期不是正学乘法口诀嘛，你帮我出十道这方面的题呗。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1226.595800020732,
+ "ttft_ms": 1226.723800005857,
+ "total_ms": 2022.6030999911018
+}

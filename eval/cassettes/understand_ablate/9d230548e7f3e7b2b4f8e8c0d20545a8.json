@@ -1,0 +1,18 @@
+{
+ "key": "9d230548e7f3e7b2b4f8e8c0d20545a8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"topics\":[\"圆\",\"比例\"],\"count\":2,\"kinds\":[\"application\"],\"tier\":\"integrated\",\"explicit\":[\"grade\",\"count\",\"kinds\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 50,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1113.9865000150166,
+ "ttft_ms": 1114.011300029233,
+ "total_ms": 1462.780700006988
+}

@@ -1,0 +1,18 @@
+{
+ "key": "748ff4823281ad75e1c4ca14b0815c17",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"今儿这天咋样？\", \"b\": \"哎，我想问一下啊，就是今天这个天气到底是个什么情况呢？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1105.3707000100985,
+ "ttft_ms": 1105.3864000132307,
+ "total_ms": 1639.9191999807954
+}

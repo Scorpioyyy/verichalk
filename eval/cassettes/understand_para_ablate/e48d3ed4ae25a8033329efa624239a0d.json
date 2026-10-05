@@ -1,0 +1,18 @@
+{
+ "key": "e48d3ed4ae25a8033329efa624239a0d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份四年级小数乘法的小测验整卷\",\"grade\":4,\"topics\":[\"小数乘法\"],\"count\":10,\"action\":\"paper\",\"paper\":{\"duration_min\":15},\"explicit\":[\"grade\",\"count\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1396,
+  "completion_tokens": 57,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1582.8427000087686,
+ "ttft_ms": 1583.131699997466,
+ "total_ms": 2691.9458000338636
+}

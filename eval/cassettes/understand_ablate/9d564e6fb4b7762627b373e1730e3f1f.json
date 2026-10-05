@@ -1,0 +1,18 @@
+{
+ "key": "9d564e6fb4b7762627b373e1730e3f1f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要出5道关于圆柱体积的题\",\"grade\":3,\"topics\":[\"圆柱的体积\"],\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 43,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 929.5308000291698,
+ "ttft_ms": 929.5479999855161,
+ "total_ms": 1359.3818999943323
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4a1aef6e67a14213105657a0bf1a6777",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"小数\"],\"source\":\"novel\",\"explicit\":[\"grade\",\"source\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2126,
+  "completion_tokens": 30,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1046.9897000002675,
+ "ttft_ms": 1047.0210000057705,
+ "total_ms": 1201.3028000365011
+}

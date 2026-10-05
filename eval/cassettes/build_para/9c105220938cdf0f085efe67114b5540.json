@@ -1,0 +1,18 @@
+{
+ "key": "9c105220938cdf0f085efe67114b5540",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给个一元二次方程的题呗。\",\"b\": \"哎，帮我弄一道一元二次方程的题目吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 154,
+  "completion_tokens": 28,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 972.7443999727257,
+ "ttft_ms": 972.7672999724746,
+ "total_ms": 1369.8257000069134
+}

@@ -1,0 +1,18 @@
+{
+ "key": "e87f2a17177e805c4d4fe61f8870175b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"高考数学超出小学数学命题范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2116,
+  "completion_tokens": 15,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1183.0729000503197,
+ "ttft_ms": 1183.0870000412688,
+ "total_ms": 1205.2711000433192
+}

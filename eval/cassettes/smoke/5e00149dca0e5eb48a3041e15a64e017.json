@@ -1,0 +1,18 @@
+{
+ "key": "5e00149dca0e5eb48a3041e15a64e017",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "diagnostic.reply",
+ "text": "出一道题：在三角形ABC中，已知∠A=50°，∠B=60°，求∠C的度数。这涉及知识点“三角形内角和”。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 73,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1277.8804000117816,
+ "ttft_ms": 1277.921300032176,
+ "total_ms": 1488.0587999941781
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c3bfabbc7040f241d104b68d711956a2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来三道题，超市买东西那种，得把小数和统计图揉一块儿考。\",\"b\": \"麻烦帮我弄三道题吧，场景就放在超市购物里面，每道题都得同时用上小数和统计图，算是综合性的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 164,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1771.2295000092126,
+ "ttft_ms": 1771.2784000323154,
+ "total_ms": 2663.97680004593
+}

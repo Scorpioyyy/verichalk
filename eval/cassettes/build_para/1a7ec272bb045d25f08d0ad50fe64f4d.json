@@ -1,0 +1,18 @@
+{
+ "key": "1a7ec272bb045d25f08d0ad50fe64f4d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级下学期，小数加减法，来5道。\", \"b\": \"哎，帮我个忙哈，孩子是四年级下学期的，正学小数加减法呢，你给整5道题出来。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1701.9498000154272,
+ "ttft_ms": 1702.947599987965,
+ "total_ms": 2207.109600014519
+}

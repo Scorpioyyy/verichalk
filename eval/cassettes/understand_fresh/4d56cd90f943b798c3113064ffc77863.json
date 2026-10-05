@@ -1,0 +1,18 @@
+{
+ "key": "4d56cd90f943b798c3113064ffc77863",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"三角函数是初中及以上知识，超出小学数学范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2114,
+  "completion_tokens": 18,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 991.5337999700569,
+ "ttft_ms": 991.550599981565,
+ "total_ms": 1288.2834000047296
+}

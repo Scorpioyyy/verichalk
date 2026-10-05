@@ -1,0 +1,18 @@
+{
+ "key": "7620a710ee18b35bc1792b4a5cc9bd60",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"a\",\"topics\":[\"条形统计图\"],\"count\":3,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 39,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1254.9196999752894,
+ "ttft_ms": 1254.9372999928892,
+ "total_ms": 1454.3048999621533
+}

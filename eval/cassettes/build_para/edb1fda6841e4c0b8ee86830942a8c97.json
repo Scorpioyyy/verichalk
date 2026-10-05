@@ -1,0 +1,18 @@
+{
+ "key": "edb1fda6841e4c0b8ee86830942a8c97",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\":\"帮我出一套卷子。\",\"b\":\"麻烦你帮我弄一张测验卷子吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 23,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1325.3238000324927,
+ "ttft_ms": 1325.351400009822,
+ "total_ms": 2034.9846000317484
+}

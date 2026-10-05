@@ -1,0 +1,18 @@
+{
+ "key": "0525810ce1a23067865a89005f84adc6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要4道比例尺的题\",\"count\":4,\"topics\":[\"比例尺\"],\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1370,
+  "completion_tokens": 35,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1066.9866999960504,
+ "ttft_ms": 1067.0019999961369,
+ "total_ms": 1287.2727999929339
+}

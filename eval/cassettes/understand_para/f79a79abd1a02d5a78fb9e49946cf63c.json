@@ -1,0 +1,18 @@
+{
+ "key": "f79a79abd1a02d5a78fb9e49946cf63c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"topics\":[\"加减法\"],\"kinds\":[\"calc\"],\"count\":15,\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2128,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 959.4645000179298,
+ "ttft_ms": 959.6510999836028,
+ "total_ms": 1170.0690999859944
+}

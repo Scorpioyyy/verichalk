@@ -1,0 +1,18 @@
+{
+ "key": "d773a01a479fe576be43ea7896c7f917",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"generate\", \"reason\": \"用户要求出几道题给孩子练习，未指定具体年级、主题等\", \"action\": \"generate\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1381,
+  "completion_tokens": 33,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1231.5665000351146,
+ "ttft_ms": 1231.6083000041544,
+ "total_ms": 1538.9501000172459
+}

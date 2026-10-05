@@ -1,0 +1,18 @@
+{
+ "key": "8bbb6e4f33a3dc8bcac3b84f690832c2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要新题，复习分数加减法\",\"grade\":5,\"topics\":[\"分数加减法\"],\"count\":4,\"action\":\"review\",\"tier\":\"consolidate\",\"explicit\":[\"grade\",\"count\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1379,
+  "completion_tokens": 55,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1042.846800002735,
+ "ttft_ms": 1042.871700017713,
+ "total_ms": 1572.9959000018425
+}

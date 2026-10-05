@@ -35,7 +35,8 @@ def _history(out_dir: Path) -> dict[str, dict]:
 
 def _settings(args: argparse.Namespace, mode: LLMMode, off: str) -> Settings:
     # 每个变体都构造全新的 Settings（其中缓存了特性开关的解析结果，不能复用或 model_copy）
-    return Settings(profile=Profile(args.profile), llm_mode=mode, cassette_namespace=args.suite, off=off)
+    ns = getattr(args, "cassette_ns", None) or args.suite
+    return Settings(profile=Profile(args.profile), llm_mode=mode, cassette_namespace=ns, off=off)
 
 
 def cmd_ablate(args: argparse.Namespace) -> int:
@@ -125,6 +126,7 @@ def main() -> None:
     a.add_argument("--record", action="store_true")
     a.add_argument("--profile", default="intl", choices=["cn", "intl"])
     a.add_argument("--concurrency", type=int, default=4)
+    a.add_argument("--cassette-ns", default=None, help="录制命名空间；消融用独立命名空间，避免覆盖黄金录制")
     a.add_argument("--flags", default="", help="要消融的开关，逗号分隔；缺省为全部已注册开关")
     a.set_defaults(fn=cmd_ablate)
     c = sub.add_parser("compare")

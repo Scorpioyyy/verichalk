@@ -1,0 +1,18 @@
+{
+ "key": "76482a339f61f60473d77e2cf07062bd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"kinds\":[\"application\"],\"count\":5,\"scenes\":[\"购物\"],\"explicit\":[\"grade\",\"count\",\"kinds\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2122,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 959.3948000110686,
+ "ttft_ms": 959.412699972745,
+ "total_ms": 1228.3146999543533
+}

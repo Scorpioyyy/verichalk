@@ -1,0 +1,18 @@
+{
+ "key": "7d0b432add32f6fe41c1144e977e9d5d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"三角形\"],\"count\":10,\"kinds\":[\"choice\",\"fill\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 41,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1152.4288000073284,
+ "ttft_ms": 1152.4488999857567,
+ "total_ms": 2075.423900038004
+}

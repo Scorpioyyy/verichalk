@@ -1,0 +1,18 @@
+{
+ "key": "3db99b74d390b35f2768bd2e39e598d5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给二年级娃出5道时间题，数别整太大。\", \"b\": \"哎，帮我个忙哈，我家孩子是二年级的，想让他练练时间这块儿，你给弄5道题，对了，数字别弄太大啊。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1152.3328000330366,
+ "ttft_ms": 1152.3525000084192,
+ "total_ms": 2019.6131000411697
+}

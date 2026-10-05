@@ -1,0 +1,18 @@
+{
+ "key": "6011eb8a5a091e8c58d9ebaeb45dfed1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"会话里没有试卷，无法导出\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2113,
+  "completion_tokens": 16,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 968.8737000105903,
+ "ttft_ms": 968.8906000228599,
+ "total_ms": 1094.88060005242
+}

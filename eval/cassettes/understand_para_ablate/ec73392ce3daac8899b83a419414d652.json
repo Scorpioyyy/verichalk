@@ -1,0 +1,18 @@
+{
+ "key": "ec73392ce3daac8899b83a419414d652",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出5道小数加减法题，四年级下学期，难度稍高\",\"grade\":4,\"semester\":\"b\",\"topics\":[\"小数加减法\"],\"count\":5,\"difficulty\":[3,5],\"explicit\":[\"grade\",\"semester\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1377,
+  "completion_tokens": 69,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1109.398800006602,
+ "ttft_ms": 1109.4222000101581,
+ "total_ms": 1453.5379000008106
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8c7e30093b44821d74c7051c6704abb1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给一年级出几道数学题呗。\", \"b\": \"哎，帮我弄点数学题吧，就一年级孩子做的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 34,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1011.486999981571,
+ "ttft_ms": 1011.5090999752283,
+ "total_ms": 1418.1327000260353
+}

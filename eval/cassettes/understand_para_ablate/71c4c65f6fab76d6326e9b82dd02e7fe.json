@@ -1,0 +1,18 @@
+{
+ "key": "71c4c65f6fab76d6326e9b82dd02e7fe",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道分数乘法题\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"分数乘法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 49,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1000.0240999506786,
+ "ttft_ms": 1000.0527999945916,
+ "total_ms": 1533.3982999436557
+}

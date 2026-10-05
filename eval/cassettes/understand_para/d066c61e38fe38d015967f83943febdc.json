@@ -1,0 +1,18 @@
+{
+ "key": "d066c61e38fe38d015967f83943febdc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"b\",\"count\":10,\"tier\":\"integrated\",\"action\":\"review\",\"explicit\":[\"grade\",\"semester\",\"count\",\"tier\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 45,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1048.7693999893963,
+ "ttft_ms": 1048.7916999845766,
+ "total_ms": 1469.6408999734558
+}

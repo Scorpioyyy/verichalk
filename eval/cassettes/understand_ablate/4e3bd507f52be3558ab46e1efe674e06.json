@@ -1,0 +1,18 @@
+{
+ "key": "4e3bd507f52be3558ab46e1efe674e06",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"质数和合数\"],\"count\":5,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2117,
+  "completion_tokens": 26,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1021.0457000066526,
+ "ttft_ms": 1021.2215000065044,
+ "total_ms": 1132.3370999889448
+}

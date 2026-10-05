@@ -1,0 +1,18 @@
+{
+ "key": "016af4a91a2f4d5a74fef9ec00e2f4c2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级的，给我出3道综合题，得有点难度。\", \"b\": \"我这有个五年级的，想找3道综合题，最好挺有挑战性的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1061.7050000000745,
+ "ttft_ms": 1061.7248000344262,
+ "total_ms": 1676.6866000252776
+}

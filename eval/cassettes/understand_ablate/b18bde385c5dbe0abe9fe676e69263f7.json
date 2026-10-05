@@ -1,0 +1,18 @@
+{
+ "key": "b18bde385c5dbe0abe9fe676e69263f7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要新题，且指定复习、结合知识点\",\"grade\":5,\"semester\":\"a\",\"topics\":[\"因数与倍数\",\"分数\"],\"count\":5,\"tier\":\"integrated\",\"action\":\"review\",\"explicit\":[\"grade\",\"semester\",\"count\",\"tier\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1377,
+  "completion_tokens": 69,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1062.2744000284001,
+ "ttft_ms": 1062.2906000353396,
+ "total_ms": 1438.9959999825805
+}

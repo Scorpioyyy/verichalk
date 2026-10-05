@@ -1,0 +1,18 @@
+{
+ "key": "fe8bfa525256da6eb66e1cae421664c0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"折线统计图\"],\"count\":4,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 32,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1190.0336999678984,
+ "ttft_ms": 1190.0650999741629,
+ "total_ms": 1361.320199968759
+}

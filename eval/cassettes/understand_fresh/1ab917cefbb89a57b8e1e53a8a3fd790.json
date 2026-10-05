@@ -1,0 +1,18 @@
+{
+ "key": "1ab917cefbb89a57b8e1e53a8a3fd790",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"topics\":[\"列方程解应用题\"],\"count\":4,\"kinds\":[\"application\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1145.5805999576114,
+ "ttft_ms": 1145.6105999532156,
+ "total_ms": 1352.4412999977358
+}

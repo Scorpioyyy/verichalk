@@ -1,0 +1,18 @@
+{
+ "key": "02744aae662acb2bf2722d94b899d1ba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"解方程\"],\"count\":6,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2116,
+  "completion_tokens": 24,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 993.6300000408664,
+ "ttft_ms": 993.6501000192948,
+ "total_ms": 1105.0512000219896
+}

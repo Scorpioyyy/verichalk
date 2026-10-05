@@ -1,0 +1,18 @@
+{
+ "key": "5d85d1701006c451f00619a8c2c459ba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级期末要复习，来5道题。\", \"b\": \"我这边是五年级期末复习用的，麻烦帮我出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1168.1387000135146,
+ "ttft_ms": 1168.1642000330612,
+ "total_ms": 1624.2400000337511
+}

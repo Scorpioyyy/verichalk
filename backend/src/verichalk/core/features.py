@@ -23,7 +23,12 @@ class Feature:
 REGISTRY: dict[str, Feature] = {
     f.name: f
     for f in [
-        Feature("warmup", "启动与页面打开时预热：建立模型连接、写入前缀缓存、预加载检索器"),
+        Feature("warmup", "启动与页面打开时预热：建立模型连接、写入前缀缓存"),
+        Feature("understand.llm", "意图理解使用语言模型；关闭则退化为规则解析（基线）"),
+        Feature("understand.parallel_search", "知识点检索与模型解析并行；关闭则串行"),
+        Feature("understand.topic_research", "解析出的主题与检索结果对不上时，按主题重新检索"),
+        Feature("understand.fewshot", "理解提示词包含示例段"),
+        Feature("understand.context", "理解时带上会话上下文（上一轮需求、是否已有试卷）"),
     ]
 }
 

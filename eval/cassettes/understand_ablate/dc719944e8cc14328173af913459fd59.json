@@ -1,0 +1,18 @@
+{
+ "key": "dc719944e8cc14328173af913459fd59",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道关于质数和合数的题目\",\"topics\":[\"质数和合数\"],\"count\":5,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1370,
+  "completion_tokens": 40,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1073.3178000082262,
+ "ttft_ms": 1073.3386999927461,
+ "total_ms": 1578.9932000334375
+}

@@ -1,0 +1,18 @@
+{
+ "key": "eaf6d7494f462dfcc41526722f4dc830",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"二年级上学期，厘米这个知识点，出4道题。\", \"b\": \"我这边是二年级上册的，想练一练厘米的认识这一块，麻烦帮我出4道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1168.039200012572,
+ "ttft_ms": 1168.0543000111356,
+ "total_ms": 1608.9255000115372
+}

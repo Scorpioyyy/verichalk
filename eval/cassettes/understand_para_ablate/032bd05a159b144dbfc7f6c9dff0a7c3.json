@@ -1,0 +1,18 @@
+{
+ "key": "032bd05a159b144dbfc7f6c9dff0a7c3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"kinds\":[\"application\"],\"count\":1,\"explicit\":[\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 26,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1311.4517000503838,
+ "ttft_ms": 1311.4845000091009,
+ "total_ms": 1365.3638000250794
+}

@@ -1,0 +1,18 @@
+{
+ "key": "21636125b4c033f26bd17184336f6852",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，练习乘法分配律和简便运算\",\"grade\":4,\"topics\":[\"乘法分配律\",\"简便运算\"],\"count\":5,\"tier\":\"integrated\",\"action\":\"generate\",\"explicit\":[\"grade\",\"count\",\"tier\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1385,
+  "completion_tokens": 64,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1340.9770000143908,
+ "ttft_ms": 1341.0152000142261,
+ "total_ms": 1349.2093000095338
+}

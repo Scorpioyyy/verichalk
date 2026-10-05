@@ -1,0 +1,18 @@
+{
+ "key": "c54c8e83e2be9cf6511a4ca87ed5d391",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要六年级圆柱圆锥综合题3道，建筑工地情境\",\"grade\":6,\"topics\":[\"圆柱\",\"圆锥\"],\"count\":3,\"tier\":\"integrated\",\"scenes\":[\"建筑工地\"],\"action\":\"generate\",\"explicit\":[\"grade\",\"count\",\"tier\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1394,
+  "completion_tokens": 71,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1990.7557000406086,
+ "ttft_ms": 1990.7840000232682,
+ "total_ms": 2418.3503000531346
+}

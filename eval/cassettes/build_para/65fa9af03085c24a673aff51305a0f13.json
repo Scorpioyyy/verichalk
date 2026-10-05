@@ -1,0 +1,18 @@
+{
+ "key": "65fa9af03085c24a673aff51305a0f13",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"哎，帮我给四年级上学期乘法分配律弄五道题。\", \"b\": \"我这边是四年级第一学期的，想让学生练练乘法分配律，麻烦你给凑五道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2648.901799984742,
+ "ttft_ms": 2648.922099964693,
+ "total_ms": 3604.0373999858275
+}

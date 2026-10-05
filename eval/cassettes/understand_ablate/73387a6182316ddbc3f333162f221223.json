@@ -1,0 +1,18 @@
+{
+ "key": "73387a6182316ddbc3f333162f221223",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"reason\":\"用户要求删除已有试卷中的第5题\",\"edit\":{\"target\":\"item:5\",\"instruction\":\"删掉第5题\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1378,
+  "completion_tokens": 34,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1065.335999999661,
+ "ttft_ms": 1065.3548000263982,
+ "total_ms": 1282.7354000182822
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5444e3fa03ac601e6c25f848ceb65dec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级上，来8道题。\", \"b\": \"哎，帮我个忙哈，这是四年级上册的，给我出8道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1108.6686999769881,
+ "ttft_ms": 1108.68229996413,
+ "total_ms": 1620.9058999666013
+}

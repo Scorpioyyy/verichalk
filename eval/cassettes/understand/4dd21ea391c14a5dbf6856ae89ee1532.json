@@ -1,0 +1,18 @@
+{
+ "key": "4dd21ea391c14a5dbf6856ae89ee1532",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"异分母分数加减法\"],\"count\":6,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 41,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1345.2247999957763,
+ "ttft_ms": 1345.2425999566913,
+ "total_ms": 1543.5440999572165
+}

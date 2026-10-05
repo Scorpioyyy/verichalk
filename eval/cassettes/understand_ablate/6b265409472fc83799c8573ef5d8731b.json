@@ -1,0 +1,18 @@
+{
+ "key": "6b265409472fc83799c8573ef5d8731b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"kind:choice\",\"instruction\":\"改成填空题\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 19,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1018.3616000576876,
+ "ttft_ms": 1018.3825000422075,
+ "total_ms": 1313.4193000150844
+}

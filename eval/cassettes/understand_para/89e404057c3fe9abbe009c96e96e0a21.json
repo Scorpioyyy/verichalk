@@ -1,0 +1,18 @@
+{
+ "key": "89e404057c3fe9abbe009c96e96e0a21",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"topics\":[\"小数乘法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"unit\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 47,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1122.9431999963708,
+ "ttft_ms": 1122.9645000421442,
+ "total_ms": 2254.3378000264056
+}

@@ -1,0 +1,18 @@
+{
+ "key": "e8d45a0f034dd9d7cbd4fcb98fdb5ec7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"一年级，用小兔子过河这个情境出5道加法题。\",\"b\": \"哎，帮我个忙哈，给一年级的小朋友出题，就用小兔子过河那个情境来编，加法题，一共要5道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 162,
+  "completion_tokens": 54,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1041.9637999730185,
+ "ttft_ms": 1042.3063999623992,
+ "total_ms": 1868.4659999562427
+}

@@ -139,3 +139,13 @@ class ContextBrief(BaseModel):
     number_range: dict[str, str] = Field(
         default_factory=dict
     )  # 该年级下的数值范围（min/max/max_decimal_places）
+
+
+class UnitRef(BaseModel):
+    """教材单元。`ordinal` 是标题里的序号（"三 小数乘法"→3），与 ID 里的序号不一定一致（中间可能插入"整理与复习"）。"""
+
+    id: str
+    title: str
+    ordinal: int | None = None
+    first_lesson_id: str
+    last_lesson_id: str

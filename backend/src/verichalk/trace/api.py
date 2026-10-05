@@ -12,11 +12,13 @@ from ..domain.events import (
     Progress,
     RetrievalResult,
     SpanKind,
+    UnderstandingReady,
     UsageUpdate,
     Visibility,
 )
 from ..domain.knowledge import RetrievalPayload
 from ..domain.llm import LLMCallRecord, Usage
+from ..domain.understanding import Understanding
 from .tracer import SpanHandle, current_tracer
 
 
@@ -58,3 +60,7 @@ async def retrieval(payload: RetrievalPayload) -> None:
 
 async def usage_update(usage: Usage, cost: float | None, currency: str = "CNY") -> None:
     await current_tracer().emit(UsageUpdate(usage=usage, cost=cost, currency=currency))
+
+
+async def understanding_ready(u: Understanding) -> None:
+    await current_tracer().emit(UnderstandingReady(understanding=u))

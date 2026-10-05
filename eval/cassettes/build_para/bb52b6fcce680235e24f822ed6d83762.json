@@ -1,0 +1,18 @@
+{
+ "key": "bb52b6fcce680235e24f822ed6d83762",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"六年级，圆的面积，来3道应用题。\", \"b\": \"哎，帮我出几道题吧，就是六年级这个学期学的圆的面积那块内容，要应用题，来3道就行。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1195.5481999902986,
+ "ttft_ms": 1195.5663000117056,
+ "total_ms": 1755.000300006941
+}

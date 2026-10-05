@@ -1,0 +1,18 @@
+{
+ "key": "8044a96b07c0e5dcb9ba9735573b5236",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"二年级啊，动物园里那些加减法应用题，来5道。\", \"b\": \"我们这边是二年级哈，想围绕动物园这个情境出一些加减法应用题，一共要5道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1104.06589997001,
+ "ttft_ms": 1104.0822999784723,
+ "total_ms": 1650.9705999633297
+}

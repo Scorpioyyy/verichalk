@@ -1,0 +1,18 @@
+{
+ "key": "8eeb75a2f43f67b9f5e1510d05340ff2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"topics\":[\"加减法\"],\"kinds\":[\"application\"],\"count\":5,\"scenes\":[\"动物园\"],\"explicit\":[\"grade\",\"count\",\"kinds\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 50,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1297.1847000299022,
+ "ttft_ms": 1297.20269999234,
+ "total_ms": 1302.4490000098012
+}

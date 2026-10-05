@@ -1,0 +1,18 @@
+{
+ "key": "9298a4be4119ffd2192dd1ba3c9692ea",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求四年级小数加减法出5道题，后半句涉及初中知识但整体按小学数学命题部分解析\",\"grade\":4,\"topics\":[\"小数加减法\"],\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1385,
+  "completion_tokens": 57,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1037.60229999898,
+ "ttft_ms": 1037.7766999881715,
+ "total_ms": 1420.7925000227988
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4b5b1dbc343bb387ee7a794d16c6d95f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级上学期，条形统计图，来3道题。\", \"b\": \"哎，帮我个忙哈，孩子是四年级上学期的，正学条形统计图这块儿呢，你给弄3道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1378.0764999683015,
+ "ttft_ms": 1378.0976999551058,
+ "total_ms": 2281.7861000075936
+}

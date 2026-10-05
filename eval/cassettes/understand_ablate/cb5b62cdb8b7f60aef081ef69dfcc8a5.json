@@ -1,0 +1,18 @@
+{
+ "key": "cb5b62cdb8b7f60aef081ef69dfcc8a5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"长方形周长\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2117,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1225.5121999769472,
+ "ttft_ms": 1225.526699970942,
+ "total_ms": 1421.3800999568775
+}

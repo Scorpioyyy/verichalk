@@ -1,0 +1,18 @@
+{
+ "key": "2158dfd5f0a2772530f675a30cc14e0d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要出5道长方形周长的练习题\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"长方形周长\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1386,
+  "completion_tokens": 50,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1021.5557999908924,
+ "ttft_ms": 1021.5835000271909,
+ "total_ms": 1498.1604000204243
+}

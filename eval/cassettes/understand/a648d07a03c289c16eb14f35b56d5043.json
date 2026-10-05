@@ -1,0 +1,18 @@
+{
+ "key": "a648d07a03c289c16eb14f35b56d5043",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"教学方法咨询，与小学数学命题无关\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2116,
+  "completion_tokens": 16,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1094.4106999668293,
+ "ttft_ms": 1094.4395000115037,
+ "total_ms": 1172.5311999907717
+}

@@ -1,0 +1,18 @@
+{
+ "key": "17a3ea701deba22dbb027e1a70755242",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给孩子弄几道题做做\", \"b\": \"麻烦你帮我出几道题吧，让孩子练一练。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 31,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1214.3717000144534,
+ "ttft_ms": 1214.4132000394166,
+ "total_ms": 1613.6213000281714
+}

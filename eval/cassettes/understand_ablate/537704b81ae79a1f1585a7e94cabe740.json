@@ -1,0 +1,18 @@
+{
+ "key": "537704b81ae79a1f1585a7e94cabe740",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要求出3道五年级上册平行四边形面积的题\",\"grade\":5,\"semester\":\"a\",\"topics\":[\"平行四边形的面积\"],\"count\":3,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 52,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1074.514000036288,
+ "ttft_ms": 1074.5334000093862,
+ "total_ms": 1282.632399990689
+}

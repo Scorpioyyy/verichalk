@@ -1,0 +1,18 @@
+{
+ "key": "2f98efc32fbebd766feded290ffb50f7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份整卷（小测卷）\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"action\":\"paper\",\"explicit\":[\"grade\",\"semester\",\"unit\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1372,
+  "completion_tokens": 52,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1793.6739000142552,
+ "ttft_ms": 1793.6996999778785,
+ "total_ms": 2116.714800009504
+}

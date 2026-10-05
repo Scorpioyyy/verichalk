@@ -1,0 +1,18 @@
+{
+ "key": "350a21ef9e56090a2be03bcc4fdd7758",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来四道比例尺的题目。\", \"b\": \"哎，帮我出四道关于比例尺的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 31,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1061.1059000366367,
+ "ttft_ms": 1061.1525000422262,
+ "total_ms": 1445.1908000046387
+}

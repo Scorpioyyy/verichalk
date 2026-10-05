@@ -1,0 +1,18 @@
+{
+ "key": "2dce79eda33ed5ea39143e4af458d53f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来，整首写春天的诗。\", \"b\": \"哎，我这会儿想用一首诗来讲讲春天，你帮我写一首吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1089.2255999497138,
+ "ttft_ms": 1089.280999964103,
+ "total_ms": 1586.436799960211
+}

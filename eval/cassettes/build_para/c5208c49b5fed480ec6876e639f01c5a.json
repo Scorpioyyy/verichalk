@@ -1,0 +1,18 @@
+{
+ "key": "c5208c49b5fed480ec6876e639f01c5a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\":\"三年级分数这块，别出图形题，来5道。\",\"b\":\"我这边是三年级、要练分数的内容哈，图形类的题就先不用了，给我出5道就行。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1106.57689999789,
+ "ttft_ms": 1106.6046999767423,
+ "total_ms": 1778.6430999985896
+}

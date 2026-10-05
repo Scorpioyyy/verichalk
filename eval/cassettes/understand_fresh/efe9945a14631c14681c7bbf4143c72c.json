@@ -1,0 +1,18 @@
+{
+ "key": "efe9945a14631c14681c7bbf4143c72c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"semester\":\"a\",\"topics\":[\"表内乘法\"],\"count\":6,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 39,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1480.4769000038505,
+ "ttft_ms": 1480.494000017643,
+ "total_ms": 1489.1356999869458
+}

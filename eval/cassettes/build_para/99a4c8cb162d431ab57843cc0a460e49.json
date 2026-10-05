@@ -1,0 +1,18 @@
+{
+ "key": "99a4c8cb162d431ab57843cc0a460e49",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五下分数乘法，来4道生活情境的题。\", \"b\": \"我这儿要五年级下学期分数乘法那块儿的练习，想要跟生活实际搭上边的题目，一共给我出4道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 977.0621000207029,
+ "ttft_ms": 977.0767000154592,
+ "total_ms": 1579.823200008832
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9fc54f63d6665c5ea7ab26148d04722b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份四年级下册第三单元的单元测验整卷\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"action\":\"paper\",\"explicit\":[\"grade\",\"semester\",\"unit\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1379,
+  "completion_tokens": 53,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1710.7185000204481,
+ "ttft_ms": 1710.7457000529394,
+ "total_ms": 2201.092300005257
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4b6696f9772e8065647ee1a9b1f7730c",
+ "model": "qwen3.8-max",
+ "purpose": "para.verify",
+ "text": "{\"all_true\": false, \"failed\": [\"5. 没有提到题量（改写后提到了'几道'）\", \"7. 没有提到情境（改写后添加了'我这五年级的孩子刚学到体积'的情境）\", \"10. 没有提到题量（改写后提到了'几道'）\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 213,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1401.4526000246406,
+ "ttft_ms": 1401.469399977941,
+ "total_ms": 2495.4223000095226
+}

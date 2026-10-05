@@ -1,0 +1,18 @@
+{
+ "key": "df328cb32839cdade4995c7ba4d2cb1a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来份三年级上学期的期末卷，100分满分，60分钟做完。\", \"b\": \"帮我出一套三年级上册的期末考试卷吧，满分是100分，考试时间60分钟。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 162,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8336.023800016847,
+ "ttft_ms": 8336.041500035208,
+ "total_ms": 8955.700699996669
+}

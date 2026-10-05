@@ -1,0 +1,18 @@
+{
+ "key": "b6a3fb09170b80996792226728c6c478",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题：二年级加减法口算15道\",\"grade\":2,\"topics\":[\"加减法\"],\"count\":15,\"kinds\":[\"calc\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1381,
+  "completion_tokens": 55,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1009.2765000299551,
+ "ttft_ms": 1009.3005000380799,
+ "total_ms": 1338.550300046336
+}

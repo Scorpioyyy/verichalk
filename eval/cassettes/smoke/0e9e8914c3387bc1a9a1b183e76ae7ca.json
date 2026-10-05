@@ -1,0 +1,18 @@
+{
+ "key": "0e9e8914c3387bc1a9a1b183e76ae7ca",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "diagnostic.reply",
+ "text": "乘法分配律是简便运算的核心，建议先复习它，再串联整数运算律在小数运算中的推广。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 83,
+  "completion_tokens": 24,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1199.598999985028,
+ "ttft_ms": 1199.9167999601923,
+ "total_ms": 1542.2983999596909
+}

@@ -1,0 +1,18 @@
+{
+ "key": "0a7f701f7b632490131854cec0fa3ec9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要求新出综合题，涉及小数加减法与条形统计图\",\"grade\":4,\"semester\":\"b\",\"topics\":[\"小数加减法\",\"条形统计图\"],\"count\":2,\"tier\":\"integrated\",\"action\":\"generate\",\"explicit\":[\"grade\",\"semester\",\"count\",\"tier\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1393,
+  "completion_tokens": 74,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3131.317199964542,
+ "ttft_ms": 3131.341199972667,
+ "total_ms": 3232.1833999594674
+}

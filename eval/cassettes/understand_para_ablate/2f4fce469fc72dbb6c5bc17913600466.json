@@ -1,0 +1,18 @@
+{
+ "key": "2f4fce469fc72dbb6c5bc17913600466",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"generate\", \"reason\": \"用户要出题练习，未指定年级、主题、题量等具体信息\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1382,
+  "completion_tokens": 28,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1383.6790000204928,
+ "ttft_ms": 1383.716700016521,
+ "total_ms": 1554.4629999785684
+}

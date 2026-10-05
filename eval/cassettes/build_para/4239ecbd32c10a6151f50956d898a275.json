@@ -1,0 +1,18 @@
+{
+ "key": "4239ecbd32c10a6151f50956d898a275",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级，小数加减法，来5道，别太难。\", \"b\": \"哎，我这边是四年级的，想练小数加减法，你帮我出5道题吧，简单一点的那种。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1552.6637000148185,
+ "ttft_ms": 1552.681700035464,
+ "total_ms": 2239.6874999976717
+}

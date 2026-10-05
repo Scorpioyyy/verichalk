@@ -1,0 +1,18 @@
+{
+ "key": "a5d64281ec7a9850d86de87f0129792f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"item:3\",\"instruction\":\"换个场景\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 19,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 996.3065999909304,
+ "ttft_ms": 996.3264999678358,
+ "total_ms": 1121.0792000056244
+}

@@ -1,0 +1,18 @@
+{
+ "key": "e106fb3638be3bce784dc2eb27cbacab",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"二年级下学期，有余数的除法，来6道题。\", \"b\": \"哎，帮我个忙哈，我家孩子是二年级下学期的，正学有余数的除法这块儿，你给出6道这方面的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1380.54679997731,
+ "ttft_ms": 1380.5627999827266,
+ "total_ms": 1879.0108999819495
+}

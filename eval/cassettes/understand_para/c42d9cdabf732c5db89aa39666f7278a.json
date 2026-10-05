@@ -1,0 +1,18 @@
+{
+ "key": "c42d9cdabf732c5db89aa39666f7278a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"面积\"],\"count\":5,\"kinds\":[\"calc\"],\"constraints\":[\"不要文字题\"],\"explicit\":[\"grade\",\"count\",\"kinds\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 51,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1165.3524999856018,
+ "ttft_ms": 1165.3828999842517,
+ "total_ms": 1448.743299988564
+}

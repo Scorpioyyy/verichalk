@@ -1,0 +1,18 @@
+{
+ "key": "976b677c282cbb308573570254e0e852",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"乘除法\"],\"count\":10,\"action\":\"review\",\"explicit\":[\"grade\",\"count\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2126,
+  "completion_tokens": 36,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2010.2471000282094,
+ "ttft_ms": 2010.4618000332266,
+ "total_ms": 2171.0949999978766
+}

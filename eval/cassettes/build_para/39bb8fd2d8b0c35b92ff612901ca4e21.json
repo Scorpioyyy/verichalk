@@ -1,0 +1,18 @@
+{
+ "key": "39bb8fd2d8b0c35b92ff612901ca4e21",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级，小数除法，出5道题，除数全是一位数。\", \"b\": \"帮我给五年级的孩子出几道小数除法的题吧，一共要5道，而且每道题里的除数都得是一位数。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1033.2728999783285,
+ "ttft_ms": 1033.2886999822222,
+ "total_ms": 1654.9082000274211
+}

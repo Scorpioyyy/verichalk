@@ -1,0 +1,18 @@
+{
+ "key": "d50e1bc8e9168d63dac4a99ceb1b2752",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四下了，第三单元那个小数乘法，出5道题。\", \"b\": \"哎，我这边是四年级下学期，第三单元讲的是小数乘法，你帮我弄5道这方面的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2391.89000002807,
+ "ttft_ms": 2391.9135000323877,
+ "total_ms": 2843.8919000327587
+}

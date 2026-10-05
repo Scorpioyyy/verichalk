@@ -1,0 +1,18 @@
+{
+ "key": "3405f8205fa6d2a23a8953415d9b676e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"折线统计图，来俩题。\", \"b\": \"哎，我这边想要关于折线统计图的题目，帮我出上两道吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1141.569100029301,
+ "ttft_ms": 1141.5874999947846,
+ "total_ms": 1815.3576999902725
+}

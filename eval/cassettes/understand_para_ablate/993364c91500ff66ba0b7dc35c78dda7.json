@@ -1,0 +1,18 @@
+{
+ "key": "993364c91500ff66ba0b7dc35c78dda7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"周长\"],\"count\":5,\"difficulty\":[2,4],\"explicit\":[\"grade\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2132,
+  "completion_tokens": 39,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1218.6207000049762,
+ "ttft_ms": 1218.6456000199541,
+ "total_ms": 1421.8274999875575
+}

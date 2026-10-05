@@ -10,6 +10,7 @@ from .api import (
     span,
     stage_span,
     tool_span,
+    understanding_ready,
     usage_update,
 )
 from .sinks import EventBus, EventSink, MemorySink, StoreSink
@@ -34,6 +35,7 @@ __all__ = [
     "span",
     "stage_span",
     "tool_span",
+    "understanding_ready",
     "usage_update",
     "use_tracer",
 ]

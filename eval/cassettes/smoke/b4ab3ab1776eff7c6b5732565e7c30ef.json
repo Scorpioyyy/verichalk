@@ -1,0 +1,18 @@
+{
+ "key": "b4ab3ab1776eff7c6b5732565e7c30ef",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "diagnostic.reply",
+ "text": "好的，已为你切换到更难的内容，第一个知识点是“简单图形绕一点旋转90度”。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 76,
+  "completion_tokens": 20,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1121.1457999888808,
+ "ttft_ms": 1121.1749999783933,
+ "total_ms": 1524.6856999583542
+}

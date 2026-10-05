@@ -1,0 +1,18 @@
+{
+ "key": "6b905692ec4568fc1e8f5204cc36cfe1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级的方程，来5道判断对错。\", \"b\": \"哎，我这儿四年级的方程这块，想让学生练练判断对错，你帮我出5道这样的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1132.765099988319,
+ "ttft_ms": 1132.7856000280008,
+ "total_ms": 1638.502600020729
+}

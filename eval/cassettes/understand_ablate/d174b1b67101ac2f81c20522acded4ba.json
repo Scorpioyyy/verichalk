@@ -1,0 +1,18 @@
+{
+ "key": "d174b1b67101ac2f81c20522acded4ba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"a\",\"topics\":[\"平行四边形的面积\"],\"count\":3,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1161.7571999668144,
+ "ttft_ms": 1161.7805999703705,
+ "total_ms": 1400.764399964828
+}

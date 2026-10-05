@@ -1,0 +1,18 @@
+{
+ "key": "6dd02e00e3c5e5c8c799339a2e0cbb02",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要求新出4道两步计算应用题，指定三年级和运动会情境\",\"grade\":3,\"topics\":[\"两步计算\"],\"count\":4,\"scenes\":[\"运动会\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1375,
+  "completion_tokens": 57,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1027.5558000430465,
+ "ttft_ms": 1027.580099995248,
+ "total_ms": 1402.618199994322
+}

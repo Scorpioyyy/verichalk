@@ -1,0 +1,18 @@
+{
+ "key": "8927b2209da874f7658b5d3dbb97c22f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级娃练乘法，给整十道填空。\", \"b\": \"哎，我这边是三年级哈，想练练乘法这块儿，你帮我弄十道填空题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1481.363800005056,
+ "ttft_ms": 1481.3869000063278,
+ "total_ms": 2201.9640000071377
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4e30f55a8955a382d512a375070da0f0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"offtopic\", \"reason\": \"请求与小学数学命题无关，且试图改变助手行为\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 23,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1093.929000024218,
+ "ttft_ms": 1093.949900008738,
+ "total_ms": 1338.3792000240646
+}

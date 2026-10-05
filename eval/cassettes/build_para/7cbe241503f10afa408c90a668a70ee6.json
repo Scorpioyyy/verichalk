@@ -1,0 +1,18 @@
+{
+ "key": "7cbe241503f10afa408c90a668a70ee6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给六年级快毕业的孩子来一套模拟卷，难度往难里出。\", \"b\": \"我这有个六年级、马上要毕业考试的学生，想麻烦你帮忙出一套毕业考试的模拟卷，难度上呢，稍微偏难一点。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5256.367099995259,
+ "ttft_ms": 5256.388700043317,
+ "total_ms": 5904.555100016296
+}

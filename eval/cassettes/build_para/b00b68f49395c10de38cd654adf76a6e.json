@@ -1,0 +1,18 @@
+{
+ "key": "b00b68f49395c10de38cd654adf76a6e",
+ "model": "qwen3.8-max",
+ "purpose": "para.verify",
+ "text": "{\"all_true\": true, \"failed\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 213,
+  "completion_tokens": 11,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1058.0107999849133,
+ "ttft_ms": 1058.0391999683343,
+ "total_ms": 1267.0147999888286
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c02b9d72f161396f14200a49ff91842d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"平均数\"],\"count\":3,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2114,
+  "completion_tokens": 23,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1151.6748000285588,
+ "ttft_ms": 1151.7008000519127,
+ "total_ms": 1245.380100037437
+}

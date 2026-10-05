@@ -1,0 +1,18 @@
+{
+ "key": "e3294ec3f4931a42fabe0ba37b9e8972",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道一年级加法题，指定小兔子过河情境\",\"grade\":1,\"topics\":[\"加法\"],\"count\":5,\"scenes\":[\"小兔子过河\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 60,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1024.5832999935374,
+ "ttft_ms": 1024.606599996332,
+ "total_ms": 2022.423600021284
+}

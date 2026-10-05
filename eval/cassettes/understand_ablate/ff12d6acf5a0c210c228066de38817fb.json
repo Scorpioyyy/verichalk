@@ -1,0 +1,18 @@
+{
+ "key": "ff12d6acf5a0c210c228066de38817fb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出5道三年级乘法题\",\"grade\":3,\"topics\":[\"乘法\"],\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1369,
+  "completion_tokens": 41,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 983.1388000166044,
+ "ttft_ms": 983.1628000247292,
+ "total_ms": 1147.6651999983005
+}

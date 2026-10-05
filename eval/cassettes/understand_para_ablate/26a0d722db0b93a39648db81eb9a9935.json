@@ -1,0 +1,18 @@
+{
+ "key": "26a0d722db0b93a39648db81eb9a9935",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要三年级周长的新题\",\"grade\":3,\"topics\":[\"周长\"],\"count\":5,\"difficulty\":[2,4],\"explicit\":[\"grade\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 48,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 944.5944000035524,
+ "ttft_ms": 944.6287999744527,
+ "total_ms": 1171.7652999795973
+}

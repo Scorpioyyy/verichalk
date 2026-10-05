@@ -1,0 +1,18 @@
+{
+ "key": "de9a5ccd020547d1e2af99394e97fa19",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定三年级下册、除数是一位数的笔算除法、5道\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"除数是一位数的笔算除法\"],\"count\":5,\"kinds\":[\"calc\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 73,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 898.8863999838941,
+ "ttft_ms": 898.9105999935418,
+ "total_ms": 1209.906600008253
+}

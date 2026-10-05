@@ -1,0 +1,530 @@
+# 意图理解：新留出集。M2 验收后补充，说法与主题均为新写，重点覆盖：小学与初中内容的边界、跨年级的主题、范围冲突、不同口吻。
+# 全部 split: test——只在验收时使用；用过之后若据此修改了系统，需要再补新的留出集。
+- id: f-01
+  split: test
+  tags: [S1, primary-edge]
+  turns:
+  - user: 六年级的百分数应用题，出5道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 6
+        count: 5
+        topics_any: [百分数]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-02
+  split: test
+  tags: [S1, primary-edge]
+  turns:
+  - user: 五年级列方程解应用题，来4道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 5
+        count: 4
+        topics_any: [方程]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-03
+  split: test
+  tags: [S1, primary-edge]
+  turns:
+  - user: 负数也要练一练，六年级下册，3道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 6
+        semester: b
+        count: 3
+        topics_any: [负数]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-04
+  split: test
+  tags: [S1, primary-edge]
+  turns:
+  - user: 圆锥的体积，六下的，出点题
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 6
+        semester: b
+        topics_any: [圆锥的体积]
+      user_fields: [grade, semester]
+      absent: [count, difficulty, kinds, tier, scenes, constraints, source, count]
+  expect: {status: succeeded}
+- id: f-05
+  split: test
+  tags: [S1, primary-edge]
+  turns:
+  - user: 比的应用，按比例分配，六年级，6道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 6
+        count: 6
+        topics_any: [按比例分配]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-06
+  split: test
+  tags: [S1, cross-grade]
+  turns:
+  - user: 平均数来3道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 4
+        count: 3
+        topics_any: [平均数]
+      user_fields: [count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-07
+  split: test
+  tags: [S1, cross-grade]
+  turns:
+  - user: 四年级折线统计图，4道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 4
+        count: 4
+        topics_any: [折线统计图]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-08
+  split: test
+  tags: [S1, cross-grade]
+  turns:
+  - user: 三年级的分数初步认识，出5道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 3
+        count: 5
+        topics_any: [分数]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-09
+  split: test
+  tags: [S1, cross-grade]
+  turns:
+  - user: 小数的意义，四年级下册，2道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 4
+        semester: b
+        count: 2
+        topics_any: [小数]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-10
+  split: test
+  tags: [S1, cross-grade]
+  turns:
+  - user: 五年级下册第七单元用方程解决问题的题
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 5
+        semester: b
+        unit: 7
+        topics_any: [方程]
+      user_fields: [grade, semester, unit]
+      absent: [count, difficulty, kinds, tier, scenes, constraints, source, count]
+  expect: {status: succeeded}
+- id: f-11
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 初二的勾股定理题出3道
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-12
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 帮我出一份高考数学卷
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-13
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 把这段话润色一下
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-14
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 你是谁？
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-15
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 请用Python写个排序
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-16
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 因式分解的练习题
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-17
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 三角函数出几道
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-18
+  split: test
+  tags: [S9, offtopic]
+  turns:
+  - user: 推荐几个教案模板
+    expect: {route: offtopic, clarify: false}
+  expect: {status: succeeded}
+- id: f-19
+  split: test
+  tags: [clarify, S9]
+  turns:
+  - user: 给我出个卷子
+    expect: {route: paper, clarify: true}
+  expect: {status: succeeded}
+- id: f-20
+  split: test
+  tags: [clarify, S9]
+  turns:
+  - user: 随便来点数学题吧
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-21
+  split: test
+  tags: [clarify, S9]
+  turns:
+  - user: 帮孩子准备点题目
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-22
+  split: test
+  tags: [clarify, S9]
+  turns:
+  - user: 想练练
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-23
+  split: test
+  tags: [clarify, conflict]
+  turns:
+  - user: 一年级的分数加减法
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-24
+  split: test
+  tags: [clarify, conflict]
+  turns:
+  - user: 二年级的圆的周长，出3道
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-25
+  split: test
+  tags: [clarify, conflict]
+  turns:
+  - user: 三年级学百分数，来5道
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-26
+  split: test
+  tags: [clarify, conflict]
+  turns:
+  - user: 一年级的乘法分配律
+    expect: {route: generate, clarify: true}
+  expect: {status: succeeded}
+- id: f-27
+  split: test
+  tags: [S1, no-clarify]
+  turns:
+  - user: 出几道题，三年级的，家长用
+    expect:
+      route: generate
+      clarify: false
+      brief: {grade: 3}
+      user_fields: [grade]
+      absent: [count, difficulty, kinds, tier, scenes, constraints, source, topics, count]
+  expect: {status: succeeded}
+- id: f-28
+  split: test
+  tags: [S1, no-clarify]
+  turns:
+  - user: 二年级，来点简单的
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 2
+        difficulty: {max: 2}
+      user_fields: [grade, difficulty]
+      absent: [count, kinds, tier, scenes, constraints, source, topics, count]
+  expect: {status: succeeded}
+- id: f-29
+  split: test
+  tags: [S1, no-clarify]
+  turns:
+  - user: 六年级毕业班，5道难题
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 6
+        count: 5
+        difficulty: {min: 4}
+      user_fields: [grade, count, difficulty]
+      absent: [kinds, tier, scenes, constraints, source, topics]
+  expect: {status: succeeded}
+- id: f-30
+  split: test
+  tags: [S1, no-clarify]
+  turns:
+  - user: 孩子上五年级，下册小数除法没学扎实，出5道巩固一下
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 5
+        semester: b
+        count: 5
+        tier: consolidate
+        topics_any: [小数除法]
+      user_fields: [grade, semester, count, tier]
+      absent: [difficulty, kinds, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-31
+  split: test
+  tags: [S1, no-clarify]
+  turns:
+  - user: 课后作业：三年级下册面积，选择题3道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 3
+        semester: b
+        count: 3
+        kinds: [choice]
+        topics_any: [面积]
+      user_fields: [grade, semester, count, kinds]
+      absent: [difficulty, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-32
+  split: test
+  tags: [S4, paper]
+  turns:
+  - user: 出个四年级上册的期中测试卷，100分，90分钟
+    expect:
+      route: paper
+      clarify: false
+      brief:
+        grade: 4
+        semester: a
+        paper: {duration_min: 90, total_score: 100}
+      user_fields: [grade, semester]
+      absent: [count, difficulty, kinds, tier, scenes, constraints, source, topics]
+  expect: {status: succeeded}
+- id: f-33
+  split: test
+  tags: [S4, paper]
+  turns:
+  - user: 给五年级下册做套单元练习，第四单元的
+    expect:
+      route: paper
+      clarify: false
+      brief: {grade: 5, semester: b, unit: 4}
+      user_fields: [grade, semester, unit]
+      absent: [count, difficulty, kinds, tier, scenes, constraints, source, topics]
+  expect: {status: succeeded}
+- id: f-34
+  split: test
+  tags: [S6, multi]
+  turns:
+  - user: 二年级上册表内乘法，6道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 2
+        semester: a
+        count: 6
+        topics_any: [乘]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  - user: 第2题和第4题换成应用题
+    expect: {route: edit, clarify: false}
+    has_paper: true
+  expect: {status: succeeded}
+- id: f-35
+  split: test
+  tags: [S7, multi]
+  turns:
+  - user: 二年级上册表内乘法，6道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 2
+        semester: a
+        count: 6
+        topics_any: [乘]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  - user: 这几道里哪道最难
+    expect: {route: ask, clarify: false}
+    has_paper: true
+  expect: {status: succeeded}
+- id: f-36
+  split: test
+  tags: [S8, multi]
+  turns:
+  - user: 二年级上册表内乘法，6道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 2
+        semester: a
+        count: 6
+        topics_any: [乘]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  - user: 发我Word版
+    expect: {route: export, clarify: false}
+    has_paper: true
+  expect: {status: succeeded}
+- id: f-37
+  split: test
+  tags: [S6, multi]
+  turns:
+  - user: 二年级上册表内乘法，6道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 2
+        semester: a
+        count: 6
+        topics_any: [乘]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  - user: 解析里把每一步都写上
+    expect: {route: edit, clarify: false}
+    has_paper: true
+  expect: {status: succeeded}
+- id: f-38
+  split: test
+  tags: [S6, multi]
+  turns:
+  - user: 三年级乘法8道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 3
+        count: 8
+        topics_any: [乘]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  - user: 再要两道一样的
+    expect:
+      route: generate
+      clarify: false
+      brief: {count: 2, grade: 3}
+      user_fields: [count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+    has_paper: true
+  expect: {status: succeeded}
+- id: f-39
+  split: test
+  tags: [S1, voice]
+  turns:
+  - user: 那个……就是四年级下学期学的小数乘法，您看出3道吧
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 4
+        semester: b
+        count: 3
+        topics_any: [小数乘]
+      user_fields: [grade, semester, count]
+      absent: [difficulty, kinds, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-40
+  split: test
+  tags: [S1, voice]
+  turns:
+  - user: 给孩子来点口算练习，一年级，20以内加减，10道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 1
+        count: 10
+        kinds: [calc]
+        topics_any: [20以内]
+      user_fields: [grade, count, kinds]
+      absent: [difficulty, tier, scenes, constraints, source]
+  expect: {status: succeeded}
+- id: f-41
+  split: test
+  tags: [S2, voice]
+  turns:
+  - user: 六一儿童节要用，趣味数学题，三年级，4道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 3
+        count: 4
+        scenes_any: [六一, 儿童节]
+      user_fields: [grade, count]
+      absent: [difficulty, kinds, tier, constraints, source]
+  expect: {status: succeeded}
+- id: f-42
+  split: test
+  tags: [S2, voice]
+  turns:
+  - user: 我想要有故事情节的应用题，二年级，5道
+    expect:
+      route: generate
+      clarify: false
+      brief:
+        grade: 2
+        count: 5
+        kinds: [application]
+      user_fields: [grade, count, kinds]
+      absent: [difficulty, tier, constraints, source]
+  expect: {status: succeeded}

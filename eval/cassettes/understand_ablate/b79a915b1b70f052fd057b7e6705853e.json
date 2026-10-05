@@ -1,0 +1,18 @@
+{
+ "key": "b79a915b1b70f052fd057b7e6705853e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要六年级比例的新题，3道拔高题\",\"grade\":6,\"topics\":[\"比例\"],\"count\":3,\"difficulty\":[4,5],\"tier\":\"integrated\",\"explicit\":[\"grade\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1372,
+  "completion_tokens": 60,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1146.0686000064015,
+ "ttft_ms": 1146.0875000339001,
+ "total_ms": 1455.8618000010028
+}

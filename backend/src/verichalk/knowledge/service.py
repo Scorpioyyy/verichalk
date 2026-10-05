@@ -10,12 +10,13 @@ from __future__ import annotations
 
 import asyncio
 import os
+import re
 from collections.abc import Callable, Iterable
 from typing import Any, TypeVar
 
 from .. import trace
-from ..core.config import Profile, Settings
-from ..core.errors import KnowledgeError, NotFound
+from ..core.config import Profile, Settings, load_credentials
+from ..core.errors import ConfigError, KnowledgeError, NotFound
 from ..domain.knowledge import (
     ArchetypeBrief,
     BoundaryReportView,
@@ -29,10 +30,14 @@ from ..domain.knowledge import (
     KPRef,
     RelationItem,
     RetrievalPayload,
+    UnitRef,
     ViolationView,
 )
+from .embedding import QueryEmbedder
 
 T = TypeVar("T")
+_CN_NUM = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
+_ORD_RE = re.compile(r"^(?:第)?([一二三四五六七八九十]+)(?:单元)?")
 _TEXT_CLIP = 260
 
 
@@ -57,13 +62,46 @@ class KnowledgeService:
     def __init__(self, cur: Any) -> None:
         self._cur = cur
         self._names: dict[str, str] = {}
+        self._units: dict[str, list[UnitRef]] = {}
+        self._embedder: QueryEmbedder | None = None
+        self._kp_index: list[tuple[str, str, int]] | None = None  # (名称, 可检索文本, 首次引入年级)
 
     @classmethod
     def from_settings(cls, settings: Settings) -> KnowledgeService:
         configure_environment(settings)
         from chalkbase import Curriculum  # 唯一允许导入 chalkbase 的位置
 
-        return cls(Curriculum())  # pyright: ignore[reportCallIssue]  chalkbase 的惰性导出使类型推断失真
+        svc = cls(Curriculum())  # pyright: ignore[reportCallIssue]  chalkbase 的惰性导出使类型推断失真
+        svc._install_embedder(settings)
+        return svc
+
+    def _install_embedder(self, settings: Settings) -> None:
+        """注入连接池复用的查询向量化（需要 chalkbase 提供 `set_embedder`，且在事件循环内、有密钥时才启用）。"""
+        try:
+            import chalkbase.query.embed as embed_mod
+        except ImportError:  # pragma: no cover
+            return
+        if not hasattr(embed_mod, "set_embedder"):
+            return  # 旧版 chalkbase：沿用它自带的同步实现
+        try:
+            loop = asyncio.get_running_loop()
+            embedder = QueryEmbedder(load_credentials(settings.profile), loop)
+        except (RuntimeError, ConfigError):
+            return  # 不在事件循环里，或没有密钥（回放 / 离线）：不注入
+
+        def sync_embed(texts: list[str]) -> list[list[float]]:
+            try:
+                return embedder(texts)
+            except KnowledgeError as e:  # 向量接口不可用：让 chalkbase 降级为词法检索，而不是整个检索失败
+                raise embed_mod.EmbeddingUnavailable(str(e)) from e
+
+        embed_mod.set_embedder(sync_embed)
+        self._embedder = embedder
+
+    async def warm(self) -> None:
+        """预热向量接口的连接（特性开关 `warmup` 控制是否调用）。"""
+        if self._embedder is not None:
+            await self._embedder.warm()
 
     @property
     def chalkbase_version(self) -> str:
@@ -112,6 +150,97 @@ class KnowledgeService:
             lesson_title=getattr(lesson, "title", None),
             unit_title=getattr(loc, "unit_title", None),
         )
+
+    # ---- 教材结构：册、单元、课时 ----
+    @staticmethod
+    def book_id(grade: int, semester: str) -> str:
+        return f"g{grade}{semester}"
+
+    @staticmethod
+    def _ordinal(title: str) -> int | None:
+        m = _ORD_RE.match(title.strip())
+        if not m:
+            return None
+        cn = m.group(1)
+        if cn == "十":
+            return 10
+        if cn.startswith("十"):
+            return 10 + _CN_NUM.get(cn[1:], 0)
+        return _CN_NUM.get(cn[0]) if len(cn) == 1 else None
+
+    async def units(self, book_id: str) -> list[UnitRef]:
+        """某册的单元（按教材顺序）。标题序号来自教材标题，不是 ID 序号。"""
+        if book_id not in self._units:
+
+            def _do() -> list[UnitRef]:
+                order: list[str] = []
+                first: dict[str, str] = {}
+                last: dict[str, str] = {}
+                title: dict[str, str] = {}
+                for les in self._cur.lessons_of(book=book_id):
+                    loc = self._cur.lesson_location(les.id)
+                    if loc.unit_id not in first:
+                        order.append(loc.unit_id)
+                        first[loc.unit_id], title[loc.unit_id] = les.id, loc.unit_title
+                    last[loc.unit_id] = les.id
+                return [
+                    UnitRef(
+                        id=u,
+                        title=title[u],
+                        ordinal=self._ordinal(title[u]),
+                        first_lesson_id=first[u],
+                        last_lesson_id=last[u],
+                    )
+                    for u in order
+                ]
+
+            self._units[book_id] = await self._run(_do)
+        return self._units[book_id]
+
+    async def unit_by_ordinal(self, book_id: str, ordinal: int) -> UnitRef | None:
+        return next((u for u in await self.units(book_id) if u.ordinal == ordinal), None)
+
+    async def last_lesson(self, book_id: str) -> str | None:
+        us = await self.units(book_id)
+        return us[-1].last_lesson_id if us else None
+
+    async def latest_lesson(self, lesson_ids: list[str]) -> str | None:
+        """教学序列中最靠后的课时（学生"学到哪"取其中最晚的那个）。"""
+        if not lesson_ids:
+            return None
+        return await self._run(lambda: max(lesson_ids, key=self._cur.lesson_position))
+
+    async def topic_floor(self, phrase: str) -> tuple[int, str] | None:
+        """知识库里所有名称 / 别名 / 主线含 `phrase` 的知识点中，最早被引入的年级及其名称；没有匹配返回 None。
+        用于判断"X 年级的 Y"是否超出范围：Y 在知识库里最早出现在哪个年级。"""
+        if self._kp_index is None:
+
+            def _build() -> list[tuple[str, str, int]]:
+                out = []
+                for kp in self._cur.kps():
+                    g = self._cur.kp_grade(kp.id)
+                    if g:
+                        out.append((kp.name, "|".join([kp.name, *kp.aliases, kp.thread]), g))
+                return out
+
+            self._kp_index = await self._run(_build)
+        hits = [(g, name) for name, text, g in self._kp_index if phrase in text]
+        return min(hits) if hits else None
+
+    async def kp_texts(self, kp_ids: list[str]) -> dict[str, str]:
+        """知识点的可检索文本（名称、别名、主线、主题），评测的 `topics_any` 与调试展示用。"""
+
+        def _do() -> dict[str, str]:
+            out = {}
+            for k in kp_ids:
+                try:
+                    kp = self._cur.kp(k)
+                except KeyError:
+                    continue
+                out[k] = "|".join([kp.name, *kp.aliases, kp.thread, kp.topic])
+            return out
+
+        return await self._run(_do)
 
     # ---- 检索 ----
     async def search(

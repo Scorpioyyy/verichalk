@@ -1,0 +1,18 @@
+{
+ "key": "fa850d58f8fdf76931b399cc2969d889",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出5道小数除法题，并限定除数是一位数\",\"grade\":5,\"topics\":[\"小数除法\"],\"count\":5,\"constraints\":[\"除数是一位数\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1390,
+  "completion_tokens": 60,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1016.0622000112198,
+ "ttft_ms": 1016.0969999851659,
+ "total_ms": 1290.8354999963194
+}

@@ -15,6 +15,11 @@ class TurnSpec(BaseModel):
     user: str = ""
     images: list[str] = Field(default_factory=list)  # 相对 eval/datasets/photos/ 的路径（拍照集不入库）
     pipeline: str | None = None
+    has_paper: bool = False  # 本轮开始前，会话里已有试卷（运行器会注入夹具试卷）
+    clarify_answer: str | None = None  # 若本轮触发澄清检查点，用它作答；缺省回答"你来定"
+    expect: dict[str, Any] = Field(
+        default_factory=dict
+    )  # 本轮的期望（意图理解：route / clarify / brief / user_fields / absent）
 
 
 class Case(BaseModel):

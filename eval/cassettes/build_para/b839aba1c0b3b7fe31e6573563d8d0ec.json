@@ -1,0 +1,18 @@
+{
+ "key": "b839aba1c0b3b7fe31e6573563d8d0ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来6道解方程的题。\", \"b\": \"哎，帮我个忙哈，解方程这块儿，给我出6道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1112.6261999597773,
+ "ttft_ms": 1112.642899970524,
+ "total_ms": 1584.794599970337
+}

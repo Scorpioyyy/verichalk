@@ -1,0 +1,18 @@
+{
+ "key": "6054719f23e69b1b3c9539d4db41e44f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要出一道应用题\",\"count\":1,\"kinds\":[\"application\"],\"explicit\":[\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 33,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1093.155000009574,
+ "ttft_ms": 1093.1811000336893,
+ "total_ms": 1313.9645000337623
+}

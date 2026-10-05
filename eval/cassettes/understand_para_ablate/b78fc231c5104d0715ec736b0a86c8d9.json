@@ -1,0 +1,18 @@
+{
+ "key": "b78fc231c5104d0715ec736b0a86c8d9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求新出2道综合应用题，涉及六年级圆和比例两个知识点\",\"grade\":6,\"topics\":[\"圆\",\"比例\"],\"count\":2,\"kinds\":[\"application\"],\"tier\":\"integrated\",\"explicit\":[\"grade\",\"count\",\"kinds\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1387,
+  "completion_tokens": 69,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1405.3916999837384,
+ "ttft_ms": 1405.4187000147067,
+ "total_ms": 1510.453899973072
+}

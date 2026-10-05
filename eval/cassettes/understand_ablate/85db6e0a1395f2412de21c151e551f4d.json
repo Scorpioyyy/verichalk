@@ -1,0 +1,18 @@
+{
+ "key": "85db6e0a1395f2412de21c151e551f4d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定年级、单元主题和题量\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"分数乘法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1372,
+  "completion_tokens": 54,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1048.6657000146806,
+ "ttft_ms": 1048.6826000269502,
+ "total_ms": 1406.5523000317626
+}

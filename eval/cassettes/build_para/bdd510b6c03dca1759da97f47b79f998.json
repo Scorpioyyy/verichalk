@@ -1,0 +1,18 @@
+{
+ "key": "bdd510b6c03dca1759da97f47b79f998",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来20道二年级口算，谢了。\", \"b\": \"麻烦帮我出一下二年级的口算题吧，一共要20道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 943.9699000213295,
+ "ttft_ms": 943.9911000081338,
+ "total_ms": 1349.6315000229515
+}

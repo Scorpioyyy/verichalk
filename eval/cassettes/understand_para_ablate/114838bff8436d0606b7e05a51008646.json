@@ -1,0 +1,18 @@
+{
+ "key": "114838bff8436d0606b7e05a51008646",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"generate\", \"reason\": \"用户要求出几道圆面积的题\", \"topics\": [\"圆面积\"], \"count\": null, \"action\": \"generate\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1369,
+  "completion_tokens": 38,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.8540999833494,
+ "ttft_ms": 1299.87849999452,
+ "total_ms": 1553.1578999944031
+}

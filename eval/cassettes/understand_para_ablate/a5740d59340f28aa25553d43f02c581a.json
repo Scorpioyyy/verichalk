@@ -1,0 +1,18 @@
+{
+ "key": "a5740d59340f28aa25553d43f02c581a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出10道乘法口诀题\",\"grade\":2,\"semester\":\"a\",\"topics\":[\"乘法口诀\"],\"count\":10,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 50,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1475.8595999446698,
+ "ttft_ms": 1475.8830999489874,
+ "total_ms": 1835.8907999936491
+}

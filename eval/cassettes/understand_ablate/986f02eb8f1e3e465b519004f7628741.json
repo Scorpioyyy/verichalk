@@ -1,0 +1,18 @@
+{
+ "key": "986f02eb8f1e3e465b519004f7628741",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"圆柱的体积\"],\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 30,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1054.6862999908626,
+ "ttft_ms": 1054.7106000012718,
+ "total_ms": 1176.0278000147082
+}

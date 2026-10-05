@@ -1,0 +1,18 @@
+{
+ "key": "48346fa6383e18d5433842214a12afac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"快期末了，四年级，想练乘法分配律和简便运算，连一块儿出5道题。\", \"b\": \"哎呀，这不快到期末复习了嘛，我想帮四年级的孩子把乘法分配律和简便运算这两个点串到一起练一练，麻烦给我出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 166,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1244.3713000393473,
+ "ttft_ms": 1244.386000034865,
+ "total_ms": 2245.3732999856584
+}

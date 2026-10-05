@@ -1,0 +1,18 @@
+{
+ "key": "f7be5e68b02b76f21cd3278620690234",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\":\"来三道鸡兔同笼的题。\",\"b\":\"哎，帮我个忙哈，就那个鸡兔同笼的经典问题，给我出上三道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1131.9086999865249,
+ "ttft_ms": 1131.9772999850102,
+ "total_ms": 1562.930799962487
+}

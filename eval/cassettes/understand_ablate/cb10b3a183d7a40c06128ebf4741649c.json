@@ -1,0 +1,18 @@
+{
+ "key": "cb10b3a183d7a40c06128ebf4741649c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定题量、情境和综合主题\",\"count\":3,\"topics\":[\"小数\",\"统计图\"],\"tier\":\"integrated\",\"scenes\":[\"超市购物\"],\"explicit\":[\"count\",\"tier\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1378,
+  "completion_tokens": 62,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1021.3155000237748,
+ "ttft_ms": 1021.330300020054,
+ "total_ms": 1433.2754000206478
+}

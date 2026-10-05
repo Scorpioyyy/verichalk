@@ -1,0 +1,18 @@
+{
+ "key": "6139ba66c69e3f98b7e3658dd2008e23",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出几道题\",\"grade\":2,\"semester\":\"b\",\"explicit\":[\"grade\",\"semester\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1380,
+  "completion_tokens": 33,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1112.2794999973848,
+ "ttft_ms": 1112.3056000215001,
+ "total_ms": 1271.6327999951318
+}

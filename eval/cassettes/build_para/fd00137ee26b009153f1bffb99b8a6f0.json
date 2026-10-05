@@ -1,0 +1,18 @@
+{
+ "key": "fd00137ee26b009153f1bffb99b8a6f0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级，乘法分配律，六道题，变式多来点。\", \"b\": \"我这边是四年级的，想练乘法分配律，麻烦出6道题吧，而且变式尽量丰富一些。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 161,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1087.372799986042,
+ "ttft_ms": 1087.3921000165865,
+ "total_ms": 1950.0450000050478
+}

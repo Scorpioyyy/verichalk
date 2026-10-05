@@ -1,0 +1,18 @@
+{
+ "key": "9307d3134d781176814381f09f24af24",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"勾股定理属于初中知识，超出小学数学范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2128,
+  "completion_tokens": 19,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1429.4096999801695,
+ "ttft_ms": 1429.43080002442,
+ "total_ms": 1597.3185999901034
+}

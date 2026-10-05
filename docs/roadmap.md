@@ -19,6 +19,7 @@
 
 ## 当前
 
-- M0：完成。
-- M1：后端基建完成（见 [eval/specs/m1_infra.md §5](../eval/specs/m1_infra.md)）：分层框架、网关、trace、存储、沙箱、知识层适配、编排、API、评测框架、探针 S1、基线；Dockerfile 为未验证草案，CI 配置待授权启用。
-- 紧接着：M2 理解（先写 `eval/specs/understand.md` 与评测集）。
+- M0：完成。M1：完成（[eval/specs/m1_infra.md §5](../eval/specs/m1_infra.md)）。
+- **M2 理解：完成**（[eval/specs/understand.md §5](../eval/specs/understand.md)）：规则基线 → 模型版；评测集 136 + 179（换说法）+ 42（新留出）；模型选型、消融、澄清策略；检索向量化提速（D32）。
+- 紧接着：**M3 规划与创作**（先写 `eval/specs/plan.md`、`produce.md` 与评测集：图检索、组合挖掘、创作、分层核验、修复）。
+- 待办（需要你确认）：发布 chalkbase 0.1.1（含查询向量注入点），并把 verichalk 依赖升到 `>=0.1.1`。

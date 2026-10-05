@@ -1,0 +1,18 @@
+{
+ "key": "09bce4d334fdd52d09b02260dd0ccaf7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给四年级下学期出5道小数加减法，稍微上点强度。\", \"b\": \"我这边是四年级下学期的，想让学生练练小数加减法，麻烦出5道题哈，别太简单，得有点难度。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6820.2488999813795,
+ "ttft_ms": 6820.27329999255,
+ "total_ms": 7405.019500001799
+}

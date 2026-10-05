@@ -1,0 +1,18 @@
+{
+ "key": "29800816b5de328696db9a744d5ddf84",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三下，长方形周长，来5题。\", \"b\": \"哎，我这儿是三年级下学期的课，想练长方形周长这个点，麻烦给我出5道题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2651.8537999945693,
+ "ttft_ms": 2652.0364999887533,
+ "total_ms": 3646.2793000391684
+}

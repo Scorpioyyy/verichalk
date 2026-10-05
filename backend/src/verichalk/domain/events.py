@@ -16,8 +16,9 @@ from .common import ErrorInfo
 from .knowledge import RetrievalPayload
 from .llm import LLMCallRecord, Usage
 from .paper import CheckResult, VerifyStatus
+from .understanding import Understanding
 
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"
 
 CheckpointKind = Literal["clarify", "blueprint", "samples", "confirm"]
 
@@ -141,6 +142,14 @@ class CheckpointRequested(EventBase):
     payload: dict[str, Any] = Field(default_factory=dict)
 
 
+class UnderstandingReady(EventBase):
+    """需求理解完成：用户端据此展示"本次假设"芯片与路由结果（1.1 新增）。"""
+
+    type: Literal["understanding.ready"] = "understanding.ready"
+    visibility: Visibility = Visibility.user
+    understanding: Understanding
+
+
 # ---- 调试与指标 ----
 class LLMCall(EventBase):
     type: Literal["llm.call"] = "llm.call"
@@ -171,6 +180,7 @@ Event = Annotated[
     | ItemStatus
     | PaperPatched
     | CheckpointRequested
+    | UnderstandingReady
     | LLMCall
     | RetrievalResult
     | UsageUpdate,

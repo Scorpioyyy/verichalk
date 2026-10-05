@@ -1,0 +1,18 @@
+{
+ "key": "5dc6ebb31c293a16645fce94da83db89",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "diagnostic.reply",
+ "text": "我检索到的第一个知识点是“12时记时法与24时记时法”，但这与写春天的诗无关，建议你换个主题或让我帮你写一首关于时间的诗。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 82,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1332.0498000248335,
+ "ttft_ms": 1332.0763999945484,
+ "total_ms": 1481.2949000042863
+}

@@ -1,0 +1,18 @@
+{
+ "key": "282789fd134a5fe179f1fe8d51e2d9e5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份单元测试整卷\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"action\":\"paper\",\"explicit\":[\"grade\",\"semester\",\"unit\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 49,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1013.0532999755815,
+ "ttft_ms": 1013.0772999837063,
+ "total_ms": 1253.3496000105515
+}

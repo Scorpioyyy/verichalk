@@ -1,0 +1,18 @@
+{
+ "key": "4dae2eeebbec4867736277d5586602ba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级乘法，出10道，课本里那种基础的。\", \"b\": \"帮我出10道三年级乘法题吧，就照着课本上那种最基础的来，别弄太难的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 161,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1363.2469999720342,
+ "ttft_ms": 1363.265499996487,
+ "total_ms": 1919.5168999722227
+}

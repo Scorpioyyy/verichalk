@@ -1,0 +1,18 @@
+{
+ "key": "338f702f88917642120f82b8931e3ad7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"explicit\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2122,
+  "completion_tokens": 10,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 987.5330000068061,
+ "ttft_ms": 987.5702999997884,
+ "total_ms": 1079.285699990578
+}

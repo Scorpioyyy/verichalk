@@ -1,0 +1,18 @@
+{
+ "key": "3c5e983a57d99496c92624da2361296b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要四年级小数加减法的题，但题量为0，无法生成\",\"grade\":4,\"topics\":[\"小数加减法\"],\"explicit\":[\"grade\",\"topics\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1459,
+  "completion_tokens": 46,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1085.91660001548,
+ "ttft_ms": 1085.938400006853,
+ "total_ms": 1276.7020000028424
+}

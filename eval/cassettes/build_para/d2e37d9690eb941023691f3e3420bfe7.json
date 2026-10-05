@@ -1,0 +1,18 @@
+{
+ "key": "d2e37d9690eb941023691f3e3420bfe7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来15道二年级的口算，加减法那种。\", \"b\": \"帮我出点题吧，就是二年级的加减法口算，一共要15道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1247.9095999733545,
+ "ttft_ms": 1247.928900003899,
+ "total_ms": 1805.3322999621741
+}

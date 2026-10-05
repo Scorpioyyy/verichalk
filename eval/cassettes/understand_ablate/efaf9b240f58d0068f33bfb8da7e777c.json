@@ -1,0 +1,18 @@
+{
+ "key": "efaf9b240f58d0068f33bfb8da7e777c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"ask\",\"reason\":\"针对已有试卷第2题答案的提问\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1379,
+  "completion_tokens": 17,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1078.4752999898046,
+ "ttft_ms": 1078.4890000359155,
+ "total_ms": 1309.484200028237
+}

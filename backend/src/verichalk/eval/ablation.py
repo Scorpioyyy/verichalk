@@ -10,6 +10,7 @@ import time
 from collections.abc import Callable
 
 from ..core.config import Settings
+from . import understand_report
 from .cases import Case
 from .runner import ContainerFactory, SuiteResult, default_factory, run_suite
 
@@ -75,6 +76,28 @@ def render_ablation(results: dict[str, SuiteResult]) -> str:
     ]
     for name, r in results.items():
         L.append(_row(name, r, None if name == "all-on" else base))
+    if understand_report.has_understanding(base):
+        f = lambda v: "—" if v is None else f"{v:.3f}"  # noqa: E731
+        L += [
+            "",
+            "### 意图理解质量（B 组）",
+            "",
+            "| 变体 | B1 字段通过率 | B1-origin | 幻觉率 | B2 精确率 | B2 召回 | B3 路由 | 理解阶段 p50 (ms) |",
+            "|---|---|---|---|---|---|---|---|",
+        ]
+        for name, r in results.items():
+            u = understand_report.summary(r)
+            t = [
+                x.total_ms
+                for c in r.cases
+                for res in c.results
+                for x in res.metrics.stages
+                if x.name == "understand"
+            ]
+            p50 = "—" if not t else f"{sorted(t)[len(t) // 2]:.0f}"
+            L.append(
+                f"| {name} | {f(u['b1_field'])} | {f(u['b1_origin'])} | {f(u['b1_hallucination'])} | {f(u['b2_precision'])} | {f(u['b2_recall'])} | {f(u['b3_route'])} | {p50} |"
+            )
     aa = results.get("A/A 噪声参照")
     if aa and base.aggregate.e2e_ms.p50 is not None and aa.aggregate.e2e_ms.p50 is not None:
         L += [

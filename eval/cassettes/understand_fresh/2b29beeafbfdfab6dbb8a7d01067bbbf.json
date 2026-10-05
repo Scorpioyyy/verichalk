@@ -1,0 +1,18 @@
+{
+ "key": "2b29beeafbfdfab6dbb8a7d01067bbbf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"b\",\"topics\":[\"小数的意义\"],\"count\":2,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 39,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1047.6401000050828,
+ "ttft_ms": 1047.6570000173524,
+ "total_ms": 1207.163600018248
+}

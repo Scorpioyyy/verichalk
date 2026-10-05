@@ -1,0 +1,18 @@
+{
+ "key": "b88c1ba4b396dfd5c7d1c4068e419879",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五下这个单元的小测，卷面总分50。\", \"b\": \"哎，帮我出份题吧：这是五年级下学期、一个单元测验用的，整张卷子一共50分。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6929.1616000118665,
+ "ttft_ms": 6929.17810002109,
+ "total_ms": 7767.219400033355
+}

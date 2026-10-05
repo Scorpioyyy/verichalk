@@ -1,0 +1,18 @@
+{
+ "key": "1a8779822029f1621ba1c0d59fb199ff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"六年级毕业复习题，出10道\",\"grade\":6,\"count\":10,\"action\":\"review\",\"explicit\":[\"grade\",\"count\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 39,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1032.0198999834247,
+ "ttft_ms": 1032.0397999603301,
+ "total_ms": 1300.3715999657288
+}

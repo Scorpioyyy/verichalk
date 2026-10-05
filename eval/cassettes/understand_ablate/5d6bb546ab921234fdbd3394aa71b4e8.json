@@ -1,0 +1,18 @@
+{
+ "key": "5d6bb546ab921234fdbd3394aa71b4e8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"用户消息为无意义的省略号，未提出任何小学数学命题需求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1364,
+  "completion_tokens": 24,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1093.6761999619193,
+ "ttft_ms": 1093.6975000076927,
+ "total_ms": 1225.3246000036597
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ce4b8d3bfc5ff002d19981a314a6daad",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"方程\"],\"kinds\":[\"judge\"],\"count\":5,\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2116,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1130.9653000207618,
+ "ttft_ms": 1130.990700039547,
+ "total_ms": 1312.2487000073306
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c7838fe7be6e457c85456ede551b65ff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级下学期，除数是一位数的笔算除法，来5道。\", \"b\": \"哎，帮我个忙哈——三年级下册，就是除数是一位数的那种笔算除法，给我出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 162,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1392.2906999941915,
+ "ttft_ms": 1392.3131999908946,
+ "total_ms": 2079.9191999831237
+}

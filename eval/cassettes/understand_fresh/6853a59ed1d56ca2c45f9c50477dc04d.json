@@ -1,0 +1,18 @@
+{
+ "key": "6853a59ed1d56ca2c45f9c50477dc04d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"b\",\"topics\":[\"圆锥的体积\"],\"explicit\":[\"grade\",\"semester\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 32,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2042.9841000004672,
+ "ttft_ms": 2043.0141999968328,
+ "total_ms": 2244.0945000271313
+}

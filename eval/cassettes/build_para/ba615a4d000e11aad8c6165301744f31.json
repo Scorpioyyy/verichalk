@@ -1,0 +1,18 @@
+{
+ "key": "ba615a4d000e11aad8c6165301744f31",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来5道质数合数的题。\", \"b\": \"哎，帮我个忙哈，就质数和合数这块儿，给我整5道题出来。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 41,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1046.6035000281408,
+ "ttft_ms": 1046.624000009615,
+ "total_ms": 1829.4877000153065
+}

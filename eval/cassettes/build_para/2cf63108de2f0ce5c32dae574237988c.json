@@ -1,0 +1,18 @@
+{
+ "key": "2cf63108de2f0ce5c32dae574237988c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"年月日这块，给我来5道题。\", \"b\": \"我这边要讲年月日这个知识点，麻烦你帮着出5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1339.7546000196598,
+ "ttft_ms": 1339.77690001484,
+ "total_ms": 2196.695799997542
+}

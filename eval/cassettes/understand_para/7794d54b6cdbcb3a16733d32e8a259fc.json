@@ -1,0 +1,18 @@
+{
+ "key": "7794d54b6cdbcb3a16733d32e8a259fc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"semester\":\"a\",\"topics\":[\"厘米的认识\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2133,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1866.5433999849483,
+ "ttft_ms": 1866.5768000064418,
+ "total_ms": 2070.442299998831
+}

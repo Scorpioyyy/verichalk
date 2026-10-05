@@ -1,0 +1,18 @@
+{
+ "key": "d70a531734af04602cc0621a32fb2458",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"edit\":{\"target\":\"item:5\",\"instruction\":\"删掉第5题\"}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 22,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1089.4782000104897,
+ "ttft_ms": 1089.5364999887533,
+ "total_ms": 1411.0269999946468
+}

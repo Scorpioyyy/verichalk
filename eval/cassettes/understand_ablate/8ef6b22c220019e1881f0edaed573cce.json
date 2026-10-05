@@ -1,0 +1,18 @@
+{
+ "key": "8ef6b22c220019e1881f0edaed573cce",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定四年级上册条形统计图3道\",\"grade\":4,\"semester\":\"a\",\"topics\":[\"条形统计图\"],\"count\":3,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 55,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1094.9402999831364,
+ "ttft_ms": 1095.1186000020243,
+ "total_ms": 1585.3606999735348
+}

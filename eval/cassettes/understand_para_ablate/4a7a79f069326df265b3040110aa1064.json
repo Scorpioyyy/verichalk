@@ -1,0 +1,18 @@
+{
+ "key": "4a7a79f069326df265b3040110aa1064",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要15道二年级口算加减法题\",\"grade\":2,\"topics\":[\"加减法\"],\"count\":15,\"kinds\":[\"calc\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 53,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1018.96499999566,
+ "ttft_ms": 1018.9889000030234,
+ "total_ms": 1245.8227000315674
+}

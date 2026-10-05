@@ -1,0 +1,18 @@
+{
+ "key": "cc72096b161617040c05af1807026285",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"圆面积\"],\"explicit\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2116,
+  "completion_tokens": 18,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1069.803000020329,
+ "ttft_ms": 1069.819100026507,
+ "total_ms": 1201.3932000263594
+}

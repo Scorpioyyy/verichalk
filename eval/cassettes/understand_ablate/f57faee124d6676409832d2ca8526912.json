@@ -1,0 +1,18 @@
+{
+ "key": "f57faee124d6676409832d2ca8526912",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"reason\":\"修改已有试卷的第3题场景\",\"edit\":{\"target\":\"item:3\",\"instruction\":\"换个场景\"},\"explicit\":[\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1378,
+  "completion_tokens": 36,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 934.6173999947496,
+ "ttft_ms": 934.6375999739394,
+ "total_ms": 1141.8359999661334
+}

@@ -1,0 +1,18 @@
+{
+ "key": "dfe15fbd8cdf391ec29161db94cd061d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"topics\":[\"加法\"],\"count\":5,\"scenes\":[\"小兔子过河\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1061.702899984084,
+ "ttft_ms": 1061.7331999819726,
+ "total_ms": 1278.9177999948151
+}

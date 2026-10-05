@@ -1,0 +1,18 @@
+{
+ "key": "df539480727a5a0a287e9ae00a6c2e12",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"分数初步认识\"],\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 31,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1431.0658000176772,
+ "ttft_ms": 1431.0806000139564,
+ "total_ms": 1719.539200013969
+}

@@ -1,0 +1,18 @@
+{
+ "key": "cc9a7088b4ce66bc45163af51c4a17d9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.verify",
+ "text": "{\"all_true\": true, \"failed\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 203,
+  "completion_tokens": 11,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1523.8488999893889,
+ "ttft_ms": 1523.8687000237405,
+ "total_ms": 2583.381200034637
+}

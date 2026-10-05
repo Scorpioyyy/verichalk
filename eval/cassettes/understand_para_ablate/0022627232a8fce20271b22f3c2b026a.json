@@ -1,0 +1,18 @@
+{
+ "key": "0022627232a8fce20271b22f3c2b026a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"批改作业不属于命题范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1371,
+  "completion_tokens": 15,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1377.7226000092924,
+ "ttft_ms": 1377.7498999843374,
+ "total_ms": 1528.6943999817595
+}

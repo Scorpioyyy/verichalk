@@ -1,0 +1,18 @@
+{
+ "key": "33e438548e7dafe9c231cb4023da5886",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"topics\":[\"比的应用\",\"按比例分配\"],\"count\":6,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 34,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1242.4079999909736,
+ "ttft_ms": 1242.4287000321783,
+ "total_ms": 1535.53940000711
+}

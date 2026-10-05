@@ -1,0 +1,18 @@
+{
+ "key": "d620271885f906e2f167b8124cca0f33",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"b\",\"topics\":[\"负数\"],\"count\":3,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 37,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1289.3442999920808,
+ "ttft_ms": 1289.3575999769382,
+ "total_ms": 1428.2579999999143
+}

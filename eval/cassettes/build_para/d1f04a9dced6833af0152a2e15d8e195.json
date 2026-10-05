@@ -1,0 +1,18 @@
+{
+ "key": "d1f04a9dced6833af0152a2e15d8e195",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级下学期，小数加减和条形统计图放一块儿，来两道综合题。\",\"b\": \"我这边是四年级下册哈，想让孩子练那种把小数加减法跟条形统计图揉在一起的题，麻烦给我出两题综合的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 164,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1075.893700006418,
+ "ttft_ms": 1075.984700000845,
+ "total_ms": 1752.4978999863379
+}

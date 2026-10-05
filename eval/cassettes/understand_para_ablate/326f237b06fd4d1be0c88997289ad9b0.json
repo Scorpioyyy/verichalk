@@ -1,0 +1,18 @@
+{
+ "key": "326f237b06fd4d1be0c88997289ad9b0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"paper\",\"reason\":\"用户要一份15分钟的小测整卷\",\"grade\":4,\"topics\":[\"小数乘法\"],\"count\":10,\"paper\":{\"duration_min\":15},\"action\":\"paper\",\"explicit\":[\"grade\",\"count\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1379,
+  "completion_tokens": 56,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1634.3540999805555,
+ "ttft_ms": 1634.3901999644004,
+ "total_ms": 2241.909799980931
+}

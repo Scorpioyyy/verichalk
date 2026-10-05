@@ -1,0 +1,18 @@
+{
+ "key": "a1167ffeeb9d28d86e1f092b8a21b997",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"b\",\"topics\":[\"圆柱体积\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2658.9984000311233,
+ "ttft_ms": 2659.252599987667,
+ "total_ms": 2878.438499988988
+}

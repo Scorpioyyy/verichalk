@@ -1,0 +1,18 @@
+{
+ "key": "124703653efeed1d0e5653177636d92f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"高中数学函数题超出小学数学命题范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1369,
+  "completion_tokens": 16,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1127.1702999947593,
+ "ttft_ms": 1128.7386000039987,
+ "total_ms": 1232.4082999839447
+}

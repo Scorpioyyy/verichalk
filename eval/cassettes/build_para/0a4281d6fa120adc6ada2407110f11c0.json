@@ -1,0 +1,18 @@
+{
+ "key": "0a4281d6fa120adc6ada2407110f11c0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"六年级上册，比的化简，来5道题。\", \"b\": \"我这边是六年级上学期的，想练一练比的化简这个知识点，麻烦给我出5道题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1311.5456000086851,
+ "ttft_ms": 1311.56960001681,
+ "total_ms": 1611.4218999864534
+}

@@ -1,0 +1,18 @@
+{
+ "key": "728705ec98a5e086a0cd39260fe57c4e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来，给我整几道数学题呗。\", \"b\": \"哎，我这边需要一些数学题，你帮我出几道吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1081.0912000015378,
+ "ttft_ms": 1081.1049999902025,
+ "total_ms": 1584.923600021284
+}

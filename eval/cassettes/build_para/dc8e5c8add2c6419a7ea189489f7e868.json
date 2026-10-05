@@ -1,0 +1,18 @@
+{
+ "key": "dc8e5c8add2c6419a7ea189489f7e868",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级，小数加减法，出5道，答案就行，别加解析。\", \"b\": \"哎，帮我弄一下四年级的小数加减法题吧，就要5道，答案给上就行，解析不用写。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1091.8732999707572,
+ "ttft_ms": 1091.8942999560386,
+ "total_ms": 1951.1403999640606
+}

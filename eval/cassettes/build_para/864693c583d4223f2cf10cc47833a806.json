@@ -1,0 +1,18 @@
+{
+ "key": "864693c583d4223f2cf10cc47833a806",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级的，用公园场景，周长和面积混着来，出3道。\", \"b\": \"哎，帮我弄一下：四年级的题哈，情境就放在公园里，周长和面积综合起来，出上3道吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1029.6559000271372,
+ "ttft_ms": 1029.6690000104718,
+ "total_ms": 1760.6748000252992
+}

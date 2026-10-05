@@ -1,0 +1,18 @@
+{
+ "key": "722292a486eedeeb13e2b0d0065c4739",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"周长\",\"面积\"],\"count\":3,\"tier\":\"integrated\",\"scenes\":[\"公园\"],\"explicit\":[\"grade\",\"count\",\"tier\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2138,
+  "completion_tokens": 50,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 957.4734999914654,
+ "ttft_ms": 957.4868999770842,
+ "total_ms": 1151.030000008177
+}

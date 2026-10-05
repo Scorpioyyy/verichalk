@@ -1,0 +1,18 @@
+{
+ "key": "890b64b8e4ddac79538fbd43a4ee602a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"小数\",\"统计图\"],\"count\":3,\"tier\":\"integrated\",\"scenes\":[\"超市购物\"],\"explicit\":[\"count\",\"tier\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 46,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1024.7911000042222,
+ "ttft_ms": 1024.8044999898411,
+ "total_ms": 1273.3451999956742
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b4b547198ab1a3b5f56460a2763aab45",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"这道 3.6-1.25=? 给翻成英文。\", \"b\": \"麻烦帮个忙哈，这道题是这样的：3.6-1.25=?，我想把它翻译成英文，你给处理一下。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 164,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1053.0949999811128,
+ "ttft_ms": 1053.1168999732472,
+ "total_ms": 1574.85859998269
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c376ff442747a11baef7a94d00a3eee2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出4道关于三角形内角和的题\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[2],\"topics\":[\"三角形内角和\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"unit\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 62,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1012.0720999548212,
+ "ttft_ms": 1012.3677999945357,
+ "total_ms": 1357.1562999859452
+}

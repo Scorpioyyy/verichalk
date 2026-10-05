@@ -1,0 +1,18 @@
+{
+ "key": "19010642cef28e2bf273706d81cdbaf6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\":\"刚学完新内容，来几道题练练\",\"b\":\"孩子们最近刚接触了一些新知识，你帮我出几道题让他们练一练吧\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 979.3880999786779,
+ "ttft_ms": 979.4195999857038,
+ "total_ms": 1320.8156999899074
+}

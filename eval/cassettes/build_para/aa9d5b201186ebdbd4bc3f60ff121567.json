@@ -1,0 +1,18 @@
+{
+ "key": "aa9d5b201186ebdbd4bc3f60ff121567",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级，圆柱体积，5道题。\", \"b\": \"哎，帮我给三年级孩子弄一下圆柱体积这块儿，就出5道题哈。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1076.8914999789558,
+ "ttft_ms": 1076.9120999611914,
+ "total_ms": 1594.2191999638453
+}

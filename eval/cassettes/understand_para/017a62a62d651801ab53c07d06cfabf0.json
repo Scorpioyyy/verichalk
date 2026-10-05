@@ -1,0 +1,18 @@
+{
+ "key": "017a62a62d651801ab53c07d06cfabf0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"semester\":\"a\",\"topics\":[\"厘米\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 37,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1060.4517000028864,
+ "ttft_ms": 1060.5073000187986,
+ "total_ms": 1201.8671000259928
+}

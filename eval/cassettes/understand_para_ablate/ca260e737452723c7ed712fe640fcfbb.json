@@ -1,0 +1,18 @@
+{
+ "key": "ca260e737452723c7ed712fe640fcfbb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要求出5道三年级数学题\",\"grade\":3,\"count\":5,\"explicit\":[\"grade\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 33,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1016.0060999915004,
+ "ttft_ms": 1016.0329999634996,
+ "total_ms": 1317.94280000031
+}

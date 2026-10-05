@@ -1,0 +1,18 @@
+{
+ "key": "4272a813b1be054dcdfd5ad07b652d78",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"两步计算\"],\"count\":4,\"scenes\":[\"运动会\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 940.6340999994427,
+ "ttft_ms": 940.6569999991916,
+ "total_ms": 1191.599599958863
+}

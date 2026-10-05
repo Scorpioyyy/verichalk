@@ -1,0 +1,18 @@
+{
+ "key": "3fd6fbaf3cc79afde1b4c067293067f1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级，购物情境的应用题，5道，贴近生活。\", \"b\": \"我这边要三年级的生活应用题，就围绕购物来出，一共5道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1505.9150999877602,
+ "ttft_ms": 1505.9376999852248,
+ "total_ms": 2051.035599957686
+}

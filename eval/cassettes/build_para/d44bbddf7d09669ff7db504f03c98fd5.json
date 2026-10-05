@@ -1,0 +1,18 @@
+{
+ "key": "d44bbddf7d09669ff7db504f03c98fd5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"六下总复习，来10道综合题。\", \"b\": \"我这边是六年级下学期的总复习阶段，想请帮忙出10道综合题，可以吗？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1223.0150999967009,
+ "ttft_ms": 1223.0368999880739,
+ "total_ms": 1686.6292000049725
+}

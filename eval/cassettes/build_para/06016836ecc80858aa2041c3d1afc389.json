@@ -1,0 +1,18 @@
+{
+ "key": "06016836ecc80858aa2041c3d1afc389",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"三年级，运动会的场景，两步计算，来4道。\", \"b\": \"我这边要三年级用的，得放在运动会这个情境里，是两步计算那种题，先给我出4道吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1100.0577000086196,
+ "ttft_ms": 1100.0778999878094,
+ "total_ms": 1717.5090999808162
+}

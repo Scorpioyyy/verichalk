@@ -1,0 +1,18 @@
+{
+ "key": "3894b48a2f64c9086d26718c7e255f2f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给六年级快毕业的孩子弄10道复习题。\", \"b\": \"我这边带的是六年级、马上要毕业的学生，想让他们做点复习题，帮我出10道吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1224.0156999905594,
+ "ttft_ms": 1224.0347000188194,
+ "total_ms": 1827.3877000319771
+}

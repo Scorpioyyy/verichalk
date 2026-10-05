@@ -1,0 +1,18 @@
+{
+ "key": "3f6eea828c3cb22cfbe8d7a9f6b6c776",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来5道三年级水平的题。\", \"b\": \"麻烦帮我出5道题吧，是给三年级学生用的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 31,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1300.9562999941409,
+ "ttft_ms": 1300.9722999995574,
+ "total_ms": 1754.9077000003308
+}

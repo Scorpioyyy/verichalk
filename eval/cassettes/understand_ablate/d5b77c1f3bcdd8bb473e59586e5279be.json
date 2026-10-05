@@ -1,0 +1,18 @@
+{
+ "key": "d5b77c1f3bcdd8bb473e59586e5279be",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定五年级下册异分母分数加减法6道\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"异分母分数加减法\"],\"count\":6,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1374,
+  "completion_tokens": 59,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1550.12050003279,
+ "ttft_ms": 1550.143200031016,
+ "total_ms": 1817.9774000309408
+}

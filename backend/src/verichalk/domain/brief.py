@@ -75,12 +75,13 @@ class Brief(BaseModel):
     action: Slot[Action] = Field(default_factory=lambda: Slot[Action](value=Action.generate))
     scope: Scope = Field(default_factory=Scope)
     count: Slot[int] | None = None
-    difficulty: Slot[list[int]] | None = None  # 单值 [3] 或分布 [2,3,3,4]
+    difficulty: Slot[list[int]] | None = None  # 难度范围 [lo, hi]（1～5，闭区间）
     kinds: Slot[list[ItemKind]] | None = None
     tier_mix: Slot[dict[Tier, float]] | None = None
     source: Slot[SourceMode] = Field(default_factory=lambda: Slot[SourceMode](value=SourceMode.auto))
     scenes: Slot[list[str]] | None = None
     constraints: Slot[list[str]] | None = None  # 如 "数字不要太大""不要图形题"
+    target_lesson: Slot[str] | None = None  # 能力边界的参照课时：学生"学到哪"
     references: list[ReferenceItem] = Field(default_factory=list)
     paper: PaperSpec | None = None
     assumptions: list[str] = Field(default_factory=list)  # 展示给用户的"本次假设"

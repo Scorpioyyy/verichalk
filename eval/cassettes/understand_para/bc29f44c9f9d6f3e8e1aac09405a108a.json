@@ -1,0 +1,18 @@
+{
+ "key": "bc29f44c9f9d6f3e8e1aac09405a108a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"a\",\"topics\":[\"比的化简\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1502.3355000303127,
+ "ttft_ms": 1502.354500000365,
+ "total_ms": 1728.4686000202782
+}

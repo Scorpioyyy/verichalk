@@ -1,0 +1,18 @@
+{
+ "key": "9fa09e1ee0f4e6c5fe916e8a4fc35fa7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"负数刚开头那点内容，来几题。\", \"b\": \"哎，我这会儿想给孩子们练练负数最基础的认识这块，你帮我出几道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1079.1052000131458,
+ "ttft_ms": 1079.1267000022344,
+ "total_ms": 1621.0426000179723
+}

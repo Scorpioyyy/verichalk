@@ -1,0 +1,18 @@
+{
+ "key": "13adb00e0f756c2391d167acd6026a47",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"六年级的比和比例，整3道难一点的题。\", \"b\": \"我这会儿带的是六年级，正学到比例这块儿，想让学生练练，麻烦给我出3道难度高一些的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1141.195299976971,
+ "ttft_ms": 1141.2150000105612,
+ "total_ms": 1942.576100002043
+}

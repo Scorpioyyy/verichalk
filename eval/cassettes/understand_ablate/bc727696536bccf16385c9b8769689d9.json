@@ -1,0 +1,18 @@
+{
+ "key": "bc727696536bccf16385c9b8769689d9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要三年级乘法基础题20道\",\"grade\":3,\"topics\":[\"乘法\"],\"count\":20,\"difficulty\":[1,2],\"tier\":\"consolidate\",\"explicit\":[\"grade\",\"count\",\"difficulty\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 60,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1140.9492999664508,
+ "ttft_ms": 1140.9634999581613,
+ "total_ms": 1470.866899995599
+}

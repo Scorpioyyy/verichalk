@@ -1,0 +1,18 @@
+{
+ "key": "0095f7b8fce72ef8ffd9d353203e5c85",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新题，指定一年级下册20以内进位加法，5道\",\"grade\":1,\"semester\":\"b\",\"topics\":[\"20以内进位加法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1373,
+  "completion_tokens": 58,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1306.2578000244685,
+ "ttft_ms": 1306.409300013911,
+ "total_ms": 1643.1834999821149
+}

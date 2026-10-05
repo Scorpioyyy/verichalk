@@ -2,5 +2,17 @@
 
 from .base import RunContext, Stage, run_stage
 from .diagnostic import DiagnosticIn, DiagnosticOut, DiagnosticStage
+from .reply import compose_reply
+from .understand import UnderstandIn, UnderstandStage
 
-__all__ = ["DiagnosticIn", "DiagnosticOut", "DiagnosticStage", "RunContext", "Stage", "run_stage"]
+__all__ = [
+    "DiagnosticIn",
+    "DiagnosticOut",
+    "DiagnosticStage",
+    "RunContext",
+    "Stage",
+    "UnderstandIn",
+    "UnderstandStage",
+    "compose_reply",
+    "run_stage",
+]

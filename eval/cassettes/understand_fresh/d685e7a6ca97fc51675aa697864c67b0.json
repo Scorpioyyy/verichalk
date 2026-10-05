@@ -1,0 +1,18 @@
+{
+ "key": "d685e7a6ca97fc51675aa697864c67b0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"乘法分配律不属于小学一年级内容\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2115,
+  "completion_tokens": 16,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1064.5845999824814,
+ "ttft_ms": 1064.6002999856137,
+ "total_ms": 1175.4921000101604
+}

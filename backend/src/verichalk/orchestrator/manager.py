@@ -17,6 +17,7 @@ from .. import trace
 from ..core.config import Settings
 from ..core.errors import Conflict, NotFound
 from ..core.ids import new_id
+from ..domain.brief import Brief
 from ..domain.events import CheckpointKind, CheckpointRequested, RunFinished, RunPaused, RunStarted, SpanKind
 from ..domain.run import Attachment, Message, MessageRole, Run, RunStatus, Session
 from ..knowledge import KnowledgeService
@@ -41,6 +42,12 @@ class RunManager:
     ) -> None:
         self.settings, self.store, self.bus, self.kb, self.llm = settings, store, bus, kb, llm
         self.pipelines = pipelines if pipelines is not None else PIPELINES
+        # 自定义管线集合（测试 / 评测）里没有默认名时，取其中第一个
+        self.default_pipeline = (
+            DEFAULT_PIPELINE
+            if DEFAULT_PIPELINE in self.pipelines
+            else next(iter(self.pipelines), DEFAULT_PIPELINE)
+        )
         self._tasks: dict[str, asyncio.Task[None]] = {}
         self._active_by_session: dict[str, str] = {}
         self._checkpoints: dict[str, asyncio.Future[dict[str, Any]]] = {}
@@ -76,7 +83,7 @@ class RunManager:
         session = await self.store.sessions.get(session_id)
         if session_id in self._active_by_session:
             raise Conflict(f"会话 {session_id} 已有进行中的运行")
-        name = pipeline or DEFAULT_PIPELINE
+        name = pipeline or self.default_pipeline
         if name not in self.pipelines:
             raise NotFound(f"管线不存在：{name}")
         attachments = attachments or []
@@ -112,6 +119,8 @@ class RunManager:
             kb=self.kb,
             store=self.store,
             history=history,
+            has_paper=await self.store.papers.get_current(session_id) is not None,
+            prev_brief=await self._prev_brief(session_id),
         )
         ctx.ask_fn = lambda kind, prompt, options, payload: self._ask(run, kind, prompt, options, payload)
         self._active_by_session[session_id] = run.id
@@ -121,6 +130,15 @@ class RunManager:
         self._tasks[run.id] = task
         task.add_done_callback(lambda _t, rid=run.id: self._tasks.pop(rid, None))
         return run
+
+    async def _prev_brief(self, session_id: str) -> Brief | None:
+        """上一轮成功的出题 / 整卷需求（继承范围用）；取自运行状态里的理解结果。"""
+        for r in await self.store.runs.list(session_id=session_id, status="succeeded", limit=5):
+            for key in ("understand:clarified", "understand"):
+                u = r.state.get(key)
+                if u and u.get("route") in ("generate", "paper") and u.get("brief"):
+                    return Brief.model_validate(u["brief"])
+        return None
 
     async def wait(self, run_id: str, timeout: float | None = None) -> Run:
         task = self._tasks.get(run_id)

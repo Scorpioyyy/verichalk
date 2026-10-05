@@ -33,7 +33,9 @@ from verichalk.trace import MemorySink, Tracer, use_tracer
 
 def make_gateway(transport, tmp_path, mode=LLMMode.live, **kw) -> LLMGateway:
     s = Settings(llm_mode=mode, cassette_dir=tmp_path, cassette_namespace="t", llm_max_retries=2, **kw)
-    reg = ModelRegistry.load(s.config_dir, Profile.cn)
+    reg = ModelRegistry.load(s.config_dir, Profile.cn).override(
+        Role.fast, model="qwen3.8-flash"
+    )  # 固定模型：成本断言依赖其价格
     return LLMGateway(s, reg, PriceTable.load(s.config_dir), transport, sleep=_nosleep)
 
 

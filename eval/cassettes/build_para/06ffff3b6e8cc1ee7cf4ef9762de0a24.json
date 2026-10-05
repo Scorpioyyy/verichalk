@@ -1,0 +1,18 @@
+{
+ "key": "06ffff3b6e8cc1ee7cf4ef9762de0a24",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"一年级，小数乘法，来3道。\", \"b\": \"嗯，帮我出一份一年级的小数乘法题吧，就3道。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1217.229400004726,
+ "ttft_ms": 1217.254800023511,
+ "total_ms": 1700.9156999993138
+}

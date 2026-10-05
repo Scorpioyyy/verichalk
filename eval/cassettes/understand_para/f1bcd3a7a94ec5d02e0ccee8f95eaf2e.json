@@ -1,0 +1,18 @@
+{
+ "key": "f1bcd3a7a94ec5d02e0ccee8f95eaf2e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"topics\":[\"时间\"],\"count\":5,\"constraints\":[\"数字不要太大\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2145,
+  "completion_tokens": 41,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1003.0026999884285,
+ "ttft_ms": 1003.0160999740474,
+ "total_ms": 1142.970899993088
+}

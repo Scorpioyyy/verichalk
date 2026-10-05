@@ -1,0 +1,18 @@
+{
+ "key": "49de25aaf3ec5cd582a15c0f0c52749a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\": \"generate\", \"reason\": \"复习分数加减法，出4道题\", \"grade\": 5, \"topics\": [\"分数加减法\"], \"count\": 4, \"action\": \"review\", \"explicit\": [\"grade\", \"count\", \"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1387,
+  "completion_tokens": 61,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1040.8153000171296,
+ "ttft_ms": 1040.8487999811769,
+ "total_ms": 1375.5608000210486
+}

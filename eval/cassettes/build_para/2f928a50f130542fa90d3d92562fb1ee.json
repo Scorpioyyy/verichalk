@@ -1,0 +1,18 @@
+{
+ "key": "2f928a50f130542fa90d3d92562fb1ee",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来100道三年级乘法题吧，短平快的那种。\", \"b\": \"辛苦帮我弄100道乘法题哈，是给三年级孩子用的。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1306.795200041961,
+ "ttft_ms": 1306.8122999975458,
+ "total_ms": 1895.3522000228986
+}

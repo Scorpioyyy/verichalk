@@ -1,0 +1,18 @@
+{
+ "key": "851081aaf51367391a9788cc1cb8f90f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级上，来套月考题，填空选择应用题都得带上。\", \"b\": \"帮我弄一份五年级上学期的月考卷子吧，里面填空题、选择题、应用题这几种题型都得安排上。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 165,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1000.0834000529721,
+ "ttft_ms": 1000.1057000481524,
+ "total_ms": 1551.343600032851
+}

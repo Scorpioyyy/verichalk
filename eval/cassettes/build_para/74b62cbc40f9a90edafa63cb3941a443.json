@@ -1,0 +1,18 @@
+{
+ "key": "74b62cbc40f9a90edafa63cb3941a443",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级、小数乘法，来10道题，15分钟能做完的小测。\", \"b\": \"哎，我这边是四年级的，想弄个关于小数乘法的小测验，就10道题，时间嘛，控制在15分钟，你帮我组一下。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 164,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10730.066499963868,
+ "ttft_ms": 10730.118200008292,
+ "total_ms": 11443.677700008266
+}

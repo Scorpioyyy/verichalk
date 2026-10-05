@@ -1,0 +1,18 @@
+{
+ "key": "6d83032e520c8acaa37dd410ed868f84",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"ask\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2127,
+  "completion_tokens": 5,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1010.6173999956809,
+ "ttft_ms": 1010.643900022842,
+ "total_ms": 1086.0941000282764
+}

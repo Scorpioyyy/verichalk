@@ -15,6 +15,7 @@ from pydantic import BaseModel
 from .. import trace
 from ..core.config import Settings
 from ..core.errors import StageError
+from ..domain.brief import Brief
 from ..domain.events import CheckpointKind
 from ..domain.run import Message
 from ..knowledge import KnowledgeService
@@ -42,6 +43,8 @@ class RunContext:
     state: dict[str, Any] = field(default_factory=dict)  # 阶段输出快照（可 JSON 序列化）
     reuse: set[str] = field(default_factory=set)  # 重放时直接复用快照的阶段键
     history: list[Message] = field(default_factory=list)
+    has_paper: bool = False  # 会话里是否已有试卷（决定"太简单了"是修改还是重出）
+    prev_brief: Brief | None = None  # 上一轮成功的需求（继承范围用）
     ask_fn: AskFn | None = None
 
     @property

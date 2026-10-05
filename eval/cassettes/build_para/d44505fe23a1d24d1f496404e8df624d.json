@@ -1,0 +1,18 @@
+{
+ "key": "d44505fe23a1d24d1f496404e8df624d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"小数乘法这知识点，给我出5道题。\", \"b\": \"我这会儿要的是小数乘法这块内容，麻烦你帮我准备5道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1033.283600001596,
+ "ttft_ms": 1033.3016999647953,
+ "total_ms": 1714.7649999824353
+}

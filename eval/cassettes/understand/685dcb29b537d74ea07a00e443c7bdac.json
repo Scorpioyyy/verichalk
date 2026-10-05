@@ -1,0 +1,18 @@
+{
+ "key": "685dcb29b537d74ea07a00e443c7bdac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"年月日\"],\"count\":5,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2116,
+  "completion_tokens": 24,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 995.7625999813899,
+ "ttft_ms": 995.7802999997512,
+ "total_ms": 1147.8505000122823
+}

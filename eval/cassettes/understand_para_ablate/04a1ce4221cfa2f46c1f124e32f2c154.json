@@ -1,0 +1,18 @@
+{
+ "key": "04a1ce4221cfa2f46c1f124e32f2c154",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"批改作业不属于小学数学命题范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1380,
+  "completion_tokens": 16,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1303.6979000316933,
+ "ttft_ms": 1303.722100041341,
+ "total_ms": 1309.073900047224
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ececc5b1815a7736e4be2c1ad0961190",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"reason\":\"用户要求把已有试卷改成六年级\",\"grade\":6,\"edit\":{\"target\":\"all\",\"instruction\":\"改成六年级的\"},\"explicit\":[\"grade\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 39,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 934.3794999876991,
+ "ttft_ms": 934.3950999900699,
+ "total_ms": 1143.3896000380628
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d2ba56973946bb9eb283151f546598b6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"教学方法咨询，与命题无关\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2130,
+  "completion_tokens": 15,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1068.0942999897525,
+ "ttft_ms": 1068.1169999879785,
+ "total_ms": 1130.1100999698974
+}

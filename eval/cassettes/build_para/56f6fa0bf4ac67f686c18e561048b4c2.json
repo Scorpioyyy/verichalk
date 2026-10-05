@@ -1,0 +1,18 @@
+{
+ "key": "56f6fa0bf4ac67f686c18e561048b4c2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"帮我看看学生的作业，给批一下。\", \"b\": \"哎，麻烦你帮我个忙，把学生交上来的作业批改一下。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.8890000162646,
+ "ttft_ms": 1300.0250000040978,
+ "total_ms": 1840.8226000028662
+}

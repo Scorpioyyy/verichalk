@@ -152,8 +152,7 @@ Revision  paper_id, rev, patch[Op], snapshot, author: agent|user, run_id?, ts
 
 | 阶段 | 输入 → 输出 | 模型角色 | 工具 / 能力 | 核心指标 |
 |---|---|---|---|---|
-| `route` | 轮次 + 会话状态 → 动作 | fast | — | B3 |
-| `understand` | 轮次 + 会话 → Brief（或澄清检查点） | fast | `knowledge.search`（解析范围） | B1 B2 |
+| `understand` | 轮次 + 会话上下文 → `Understanding`（路由、Brief、澄清、芯片）。**路由并入理解，一次模型调用**，其余由确定性后处理完成（D29） | fast | `knowledge.search`（与模型调用并行）、规则解析（基线 / 降级） | B1 B2 B3 |
 | `perceive` | 图片 → ReferenceSet（逐题转写、知识点、难度、学生上下文） | vision | 图像预处理、`knowledge.search` | B4 B5 B6 |
 | `plan` | Brief + 上下文 → Blueprint（ItemSpec 列表） | smart | 组合挖掘（确定性）+ 有界工具循环（兜底） | A4 A5c |
 | `produce` | ItemSpec → Item | 见 §5.1 | 沙箱、边界、相似度 | A1–A3 A6 E4 |
@@ -217,6 +216,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | `retrieval.result` | 图检索命中的节点、边、分数、选中的组合 | debug |
 | `item.status` | 某题核验状态变化（含 checks 摘要） | user + debug |
 | `paper.patch` | 试卷新修订（补丁 + rev） | user |
+| `understanding.ready` | 需求理解完成：路由、Brief、"本次假设"芯片（schema 1.1 新增） | user |
 | `checkpoint.requested` | 澄清 / 蓝图确认 / 样题确认 | user |
 | `usage.update` | 累计 token 与成本 | debug |
 

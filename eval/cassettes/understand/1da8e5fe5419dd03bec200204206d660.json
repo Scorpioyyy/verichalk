@@ -1,0 +1,18 @@
+{
+ "key": "1da8e5fe5419dd03bec200204206d660",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"topics\":[\"比例\"],\"count\":3,\"difficulty\":[4,5],\"tier\":\"integrated\",\"explicit\":[\"grade\",\"count\",\"difficulty\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 48,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1213.552900007926,
+ "ttft_ms": 1213.6095999740064,
+ "total_ms": 1396.6958000091836
+}

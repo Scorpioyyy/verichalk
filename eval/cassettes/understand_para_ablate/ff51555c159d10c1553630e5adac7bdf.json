@@ -1,0 +1,18 @@
+{
+ "key": "ff51555c159d10c1553630e5adac7bdf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要新出4道四年级下册三角形内角和的题\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[2],\"topics\":[\"三角形内角和\"],\"count\":4,\"explicit\":[\"grade\",\"semester\",\"unit\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1390,
+  "completion_tokens": 64,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1275.256900000386,
+ "ttft_ms": 1275.6173000088893,
+ "total_ms": 1576.976399985142
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5e1563acce2a9020e6da3b7f8070e92d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"edit\",\"grade\":6,\"edit\":{\"target\":\"all\",\"instruction\":\"改成六年级\"},\"explicit\":[\"grade\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 28,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 966.454999987036,
+ "ttft_ms": 966.4789999951608,
+ "total_ms": 1108.648399997037
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4cca0f754476d5aad1eabb7af95cf893",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来4道题，六年级上学期圆的周长。\", \"b\": \"哎，帮我个忙哈，孩子是六年级上学期的，正学圆的周长这块儿，你给咱出上4道题呗。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1253.0449000187218,
+ "ttft_ms": 1253.0591000104323,
+ "total_ms": 2003.5718000144698
+}

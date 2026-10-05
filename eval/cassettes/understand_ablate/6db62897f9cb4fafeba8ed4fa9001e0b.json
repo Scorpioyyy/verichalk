@@ -1,0 +1,18 @@
+{
+ "key": "6db62897f9cb4fafeba8ed4fa9001e0b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"在已有基础上追加3道题\",\"count\":3,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1376,
+  "completion_tokens": 26,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1120.941600005608,
+ "ttft_ms": 1120.9604000323452,
+ "total_ms": 1365.9527000272647
+}

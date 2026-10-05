@@ -1,0 +1,18 @@
+{
+ "key": "7a80e0db1521f4b239c464c97d4aa1c9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来5道勾股定理的应用题。\", \"b\": \"我这边想给学生练练勾股定理，麻烦你帮忙出5道应用题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1178.650799964089,
+ "ttft_ms": 1178.6841999855824,
+ "total_ms": 1736.6447999957018
+}

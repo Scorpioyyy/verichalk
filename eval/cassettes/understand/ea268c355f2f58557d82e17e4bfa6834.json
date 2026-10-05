@@ -1,0 +1,18 @@
+{
+ "key": "ea268c355f2f58557d82e17e4bfa6834",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"topics\":[\"小数除法\"],\"count\":5,\"constraints\":[\"除数都是一位数\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 42,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1879.4506999547593,
+ "ttft_ms": 1879.4776999857277,
+ "total_ms": 2160.5272999731824
+}

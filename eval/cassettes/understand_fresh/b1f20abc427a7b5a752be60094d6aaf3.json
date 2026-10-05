@@ -1,0 +1,18 @@
+{
+ "key": "b1f20abc427a7b5a752be60094d6aaf3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"面积\"],\"kinds\":[\"choice\"],\"count\":3,\"explicit\":[\"grade\",\"semester\",\"kinds\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 47,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1025.563900009729,
+ "ttft_ms": 1025.5860000033863,
+ "total_ms": 1420.9205000079237
+}

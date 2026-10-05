@@ -1,0 +1,18 @@
+{
+ "key": "d2dc7003a5d478c168476eedf9695d9c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"topics\":[\"分数加减法\"],\"explicit\":[\"grade\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2115,
+  "completion_tokens": 25,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1195.245100010652,
+ "ttft_ms": 1195.2751000062563,
+ "total_ms": 1359.2028999701142
+}

@@ -1,0 +1,18 @@
+{
+ "key": "149fd612872e7ee9fe331830ef103dcb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"offtopic\",\"reason\":\"因式分解是初中知识，超出小学数学范围\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2115,
+  "completion_tokens": 19,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1064.4504000083543,
+ "ttft_ms": 1064.4683000282384,
+ "total_ms": 1237.3681000317447
+}

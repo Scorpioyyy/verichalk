@@ -1,0 +1,18 @@
+{
+ "key": "067256304b3d617236b70f26090a4213",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"用户要三年级乘法填空题10道\",\"grade\":3,\"topics\":[\"乘法\"],\"count\":10,\"kinds\":[\"fill\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1370,
+  "completion_tokens": 49,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1241.2970999721438,
+ "ttft_ms": 1241.3162000011653,
+ "total_ms": 1567.5595999928191
+}

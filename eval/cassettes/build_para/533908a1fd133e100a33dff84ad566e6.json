@@ -1,0 +1,18 @@
+{
+ "key": "533908a1fd133e100a33dff84ad566e6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"小学四年级下册，小数加减法这块，来0道题。\", \"b\": \"我这儿是四年级下学期的数学，想练练小数加减法这个内容，麻烦给准备0道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2089.4246000098065,
+ "ttft_ms": 2089.450499974191,
+ "total_ms": 2884.491999982856
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4e3a1c6501218d5870e5e9727ae7aa0b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来5道高中数学的函数题。\", \"b\": \"嗯，帮我弄5道高中数学的函数题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 28,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1440.0849000085145,
+ "ttft_ms": 1440.1050000451505,
+ "total_ms": 1948.0323000461794
+}

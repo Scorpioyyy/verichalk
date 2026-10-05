@@ -1,0 +1,18 @@
+{
+ "key": "d42baa2be9c8c7755303cc0c0284f194",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"分数\"],\"count\":5,\"constraints\":[\"不要图形题\"],\"explicit\":[\"grade\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 41,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1084.158900019247,
+ "ttft_ms": 1084.18259996688,
+ "total_ms": 1237.3467999859713
+}

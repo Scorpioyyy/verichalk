@@ -1,0 +1,18 @@
+{
+ "key": "50a68417d0a8f504db7af1d8c1a1c4ef",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"来一道应用题吧。\", \"b\": \"哎，麻烦帮我出上一道应用题，好吧？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 26,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1009.9679999984801,
+ "ttft_ms": 1009.9835000000894,
+ "total_ms": 1386.7829999653623
+}

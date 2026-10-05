@@ -1,0 +1,18 @@
+{
+ "key": "fe156407dc12add7f357977c685fa191",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"semester\":\"a\",\"topics\":[\"10以内的加减法\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2119,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1247.996999998577,
+ "ttft_ms": 1248.0153999640606,
+ "total_ms": 1380.881099961698
+}

@@ -1,0 +1,18 @@
+{
+ "key": "eeb7f386b87058718cd6cf2f39175a7c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"给我出4道三角形内角和的题。\", \"b\": \"哎，我这边想找几道关于三角形内角和的练习题，帮我准备4道吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 41,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1111.7793999728747,
+ "ttft_ms": 1111.8155000149272,
+ "total_ms": 1646.80300001055
+}

@@ -1,0 +1,18 @@
+{
+ "key": "27ac56a8d1c35d6a5dbe570086c539fb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"四年级，小数乘法，来几道难题。\",\"b\": \"哎，帮我给四年级的孩子弄点小数乘法的题吧，难度得大一些。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4904.327699972782,
+ "ttft_ms": 4904.352799989283,
+ "total_ms": 5472.493699984625
+}

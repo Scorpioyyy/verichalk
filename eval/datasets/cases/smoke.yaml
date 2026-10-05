@@ -4,6 +4,7 @@
   tags: [smoke, S1]
   turns:
     - user: "四年级下册小数加减法，出4道有点难度的"
+      pipeline: diagnostic
   expect:
     status: succeeded
     max_e2e_ms: 30000
@@ -14,6 +15,7 @@
   tags: [smoke, S2]
   turns:
     - user: "想出几道跟买东西有关、要用到小数和统计图的综合题"
+      pipeline: diagnostic
   expect:
     status: succeeded
     has_events: [progress, retrieval.result, message.done]
@@ -23,6 +25,7 @@
   tags: [smoke, S5]
   turns:
     - user: "期末复习，把乘法分配律和简便运算串起来"
+      pipeline: diagnostic
   expect:
     status: succeeded
 
@@ -31,6 +34,7 @@
   tags: [smoke, S1]
   turns:
     - user: "二年级上册表内乘法"
+      pipeline: diagnostic
   expect:
     status: succeeded
     has_events: [retrieval.result]
@@ -40,7 +44,9 @@
   tags: [smoke, S6]
   turns:
     - user: "出一道三角形内角和的题"
+      pipeline: diagnostic
     - user: "太简单了，换难一点的"
+      pipeline: diagnostic
   expect:
     status: succeeded
 
@@ -49,5 +55,6 @@
   tags: [smoke, S9]
   turns:
     - user: "帮我写一首关于春天的诗"
+      pipeline: diagnostic
   expect:
     status: succeeded

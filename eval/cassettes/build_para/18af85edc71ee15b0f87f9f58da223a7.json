@@ -1,0 +1,18 @@
+{
+ "key": "18af85edc71ee15b0f87f9f58da223a7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"幼升小，10以内加减法，来6道题练练。\", \"b\": \"孩子马上要上一年级了，想让他把10以内的加减再复习一下，帮我出6道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.5762000209652,
+ "ttft_ms": 1299.597500008531,
+ "total_ms": 1970.1242000446655
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b7b0ff7a167cc0eca4dd8da1d4bfb8ae",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要新题，五年级上学期，因数倍数与分数综合复习\",\"grade\":5,\"semester\":\"a\",\"topics\":[\"因数与倍数\",\"分数\"],\"count\":5,\"tier\":\"integrated\",\"action\":\"review\",\"explicit\":[\"grade\",\"semester\",\"count\",\"tier\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1397,
+  "completion_tokens": 72,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1018.9553000382148,
+ "ttft_ms": 1018.9812000025995,
+ "total_ms": 2350.1071000355296
+}

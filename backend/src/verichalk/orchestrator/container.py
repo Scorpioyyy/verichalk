@@ -43,4 +43,4 @@ async def build_container(
     llm = llm or build_gateway(settings)
     manager = RunManager(settings, store, bus, kb, llm)
     await manager.recover()
-    return Container(settings, store, bus, kb, llm, manager, Warmer(settings, llm))
+    return Container(settings, store, bus, kb, llm, manager, Warmer(settings, llm, kb))

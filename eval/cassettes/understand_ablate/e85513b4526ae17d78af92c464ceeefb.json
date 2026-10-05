@@ -1,0 +1,18 @@
+{
+ "key": "e85513b4526ae17d78af92c464ceeefb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"reason\":\"要课本基础题，三年级乘法10道\",\"grade\":3,\"topics\":[\"乘法\"],\"count\":10,\"difficulty\":[1,2],\"source\":\"template\",\"tier\":\"consolidate\",\"explicit\":[\"grade\",\"count\",\"source\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1375,
+  "completion_tokens": 64,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 999.6121999574825,
+ "ttft_ms": 999.6320999925956,
+ "total_ms": 1273.9867999916896
+}

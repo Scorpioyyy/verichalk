@@ -1,0 +1,18 @@
+{
+ "key": "47e3fc30bb698fee5f2971fdcfd4037d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级的，体积这块，来几道简单的。\", \"b\": \"哎，我这五年级的孩子刚学到体积，你帮我出几道基础的题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1114.6152000292204,
+ "ttft_ms": 1114.6318999817595,
+ "total_ms": 1728.8719000061974
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5a9c166843c5cd1a436ed94bbc4f5b42",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"topics\":[\"鸡兔同笼\"],\"count\":3,\"explicit\":[\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 26,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1091.7843999923207,
+ "ttft_ms": 1091.8003999977373,
+ "total_ms": 1327.7012999751605
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8e39f636a5a50030d84e317838355fe1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"a\",\"topics\":[\"因数与倍数\",\"分数\"],\"count\":5,\"tier\":\"integrated\",\"action\":\"review\",\"explicit\":[\"grade\",\"semester\",\"count\",\"tier\",\"action\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2127,
+  "completion_tokens": 56,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1050.6290000048466,
+ "ttft_ms": 1050.6676000077277,
+ "total_ms": 1310.358599992469
+}

@@ -1,0 +1,18 @@
+{
+ "key": "66d0419d7a774f9259bbc76696e1c7ac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":2,\"semester\":\"a\",\"topics\":[\"乘法口诀\"],\"count\":10,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2118,
+  "completion_tokens": 38,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1044.3476000218652,
+ "ttft_ms": 1044.3712000269443,
+ "total_ms": 1238.8417000183836
+}

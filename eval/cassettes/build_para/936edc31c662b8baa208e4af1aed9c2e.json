@@ -1,0 +1,18 @@
+{
+ "key": "936edc31c662b8baa208e4af1aed9c2e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五上平行四边形面积这块，来3道题。\", \"b\": \"我这边是五年级上册哈，要讲平行四边形面积这个内容，帮我出3道题吧。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2619.393199973274,
+ "ttft_ms": 2619.414600019809,
+ "total_ms": 3411.7224999936298
+}

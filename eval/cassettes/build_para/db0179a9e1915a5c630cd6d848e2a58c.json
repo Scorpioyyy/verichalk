@@ -1,0 +1,18 @@
+{
+ "key": "db0179a9e1915a5c630cd6d848e2a58c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"哎，帮我出一份一年级下学期期末用的卷子。\", \"b\": \"你好，我这边是一年级下学期的期末阶段，想麻烦你帮忙出一套期末用的卷子。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 154,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7238.475299964193,
+ "ttft_ms": 7238.491499971133,
+ "total_ms": 7874.755099997856
+}

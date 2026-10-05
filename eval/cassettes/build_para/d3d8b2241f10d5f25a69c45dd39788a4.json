@@ -1,0 +1,18 @@
+{
+ "key": "d3d8b2241f10d5f25a69c45dd39788a4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "para.gen",
+ "text": "{\"a\": \"五年级的分数加减法，给我来五道选择题。\", \"b\": \"我这边是五年级，正上分数加减法这块，想请你帮忙出五道选择题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 935.8992999768816,
+ "ttft_ms": 936.2476999522187,
+ "total_ms": 1407.5090999831446
+}

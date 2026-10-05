@@ -1,0 +1,14 @@
+# 整卷蓝图用例（eval/specs/edit.md §2.3）：只评测确定性的细目表与知识点覆盖，不调用写题模型。
+# grade / semester(a 上 b 下) / units（单元 id，可选）/ duration / total / kinds（教师限定的题型，可选）/ structure（教师指定的结构，可选）。
+- {id: p-g1a-mid, grade: 1, semester: a, duration: 30, total: 100}
+- {id: p-g2b-unit, grade: 2, semester: b, units: [g2b.u2], duration: 30, total: 100}
+- {id: p-g3a-unit, grade: 3, semester: a, units: [g3a.u2], duration: 40, total: 100}
+- {id: p-g3b-final, grade: 3, semester: b, duration: 90, total: 100}
+- {id: p-g4a-mid, grade: 4, semester: a, duration: 60, total: 100}
+- {id: p-g4b-unit, grade: 4, semester: b, units: [g4b.u3], duration: 40, total: 100}
+- {id: p-g4b-unit45, grade: 4, semester: b, units: [g4b.u3], duration: 45, total: 100}
+- {id: p-g5a-final, grade: 5, semester: a, duration: 80, total: 120}
+- {id: p-g5b-quiz, grade: 5, semester: b, duration: 20, total: 50}
+- {id: p-g6a-unit, grade: 6, semester: a, units: [g6a.u1], duration: 40, total: 100}
+- {id: p-g6b-final-kinds, grade: 6, semester: b, duration: 90, total: 100, kinds: [choice, calc, application]}
+- {id: p-g4b-structure, grade: 4, semester: b, units: [g4b.u3], duration: 45, total: 100, structure: [{kind: choice, count: 8, score: 2}, {kind: fill, count: 6, score: 3}, {kind: calc, count: 4, score: 5}, {kind: application, count: 5, score: 9}]}

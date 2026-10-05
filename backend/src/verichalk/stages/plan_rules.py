@@ -14,6 +14,7 @@ from ..domain.blueprint import Blueprint, ItemSpec
 from ..domain.brief import Action, Brief, SourceMode
 from ..domain.knowledge import BoundaryView, Combo, ContextBrief
 from ..domain.paper import ItemKind, Tier
+from ..domain.paper_plan import Slot
 from ..knowledge import ComboMiner, GraphData, KnowledgeService, pair_signals
 
 # 各档位默认的题型循环（与知识点自然题型取交集；用户指定题型时以用户为准）
@@ -159,9 +160,10 @@ async def build_draft(
     *,
     use_miner: bool = True,
     cross_unit: bool = False,
+    slots: list[Slot] | None = None,
 ) -> Draft:
     g: GraphData = await kb.graph()
-    count = brief.count.value if brief.count else 5
+    count = len(slots) if slots else (brief.count.value if brief.count else 5)
     lo, hi = brief.difficulty.value if brief.difficulty else (2, 4)
     template = brief.source.value == SourceMode.template
     review = brief.action.value == Action.review
@@ -178,7 +180,7 @@ async def build_draft(
         n_review = max(1, math.ceil(count / 3))
         for i in range(n_review):
             sequence[-(i + 1)] = Tier.integrated
-    ladder = difficulty_ladder(len(sequence), lo, hi)
+    ladder = [s.difficulty for s in slots] if slots else difficulty_ladder(len(sequence), lo, hi)
     boundary = await kb.boundary(scope.lesson_id)
     grade = scope.grade or (g.nodes[scope.pool[0]].grade if scope.pool else None)
     ctx_list = await kb.contexts_for(grade, limit=60)
@@ -200,7 +202,8 @@ async def build_draft(
         else:
             scope.notes.append("该范围内没有可程序化生成的课本题型，改为由模型原创")
             template = False
-    singles = iter(_evenly(pool, n_single))
+    single_list = _evenly(pool, n_single)
+    singles = iter(single_list)
     semester = brief.scope.semester.value if brief.scope.semester else None
     # 综合题的搭档必须适合纯文字出题（教材里有不依赖图形的题型）：作图、观察物体类的知识点不拼进综合题
     combo_scope = {k for k in scope.learned if g.nodes[k].kinds} if g.nodes else scope.learned
@@ -215,6 +218,10 @@ async def build_draft(
     anchor_cycle = (
         scope.anchors or (_evenly(pool, n_integrated) if (n_integrated and broad) else pool) or pool
     )
+    if slots and n_integrated and not scope.anchors:
+        # 整卷：综合题的锚点优先取单点题没覆盖到的知识点，让整份卷子尽量覆盖范围内不同的知识点
+        rest = [k for k in pool if k not in set(single_list)]
+        anchor_cycle = _evenly(rest or pool, n_integrated)
     book_scope = {  # 本学期的知识点：整学期综合的搭档优先从这里取，不够再放宽到更早的内容
         k
         for k in combo_scope
@@ -336,10 +343,12 @@ async def build_draft(
                 kp_ids = [anchor]
         if combo is not None:
             kp_ids = combo.kp_ids
-        elif tier != Tier.integrated:
+        elif tier != Tier.integrated and not kp_ids:  # 综合题没找到搭配、已改成单点题时，锚点就是它的知识点
             kp_ids = [next(singles)]
         kinds_pool = DEFAULT_KINDS[tier]
-        if brief.kinds:
+        if slots:  # 整卷：题型由细目表的题位决定
+            kind = slots[i].kind
+        elif brief.kinds:
             kind = brief.kinds.value[i % len(brief.kinds.value)]
         else:
             natural = set().union(*(g.nodes[k].kinds for k in kp_ids)) if kp_ids else set()

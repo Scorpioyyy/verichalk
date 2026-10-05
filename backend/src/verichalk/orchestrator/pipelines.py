@@ -5,28 +5,25 @@
 
 from __future__ import annotations
 
-import asyncio
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
 from typing import Any
 
 from .. import trace
 from ..core.ids import new_id
-from ..domain.brief import Brief
 from ..domain.paper import Item
 from ..domain.paper_rules import placement
 from ..domain.run import Attachment
 from ..domain.understanding import ClarifyRequest, Route, Understanding
 from ..stages import (
+    AnswerIn,
+    AnswerStage,
     DiagnosticIn,
     DiagnosticStage,
     EditIn,
     EditStage,
     PlanIn,
     PlanStage,
-    ProduceIn,
-    ProduceOut,
-    ProduceStage,
     ReviewIn,
     ReviewStage,
     ReviewTarget,
@@ -38,8 +35,9 @@ from ..stages import (
 )
 from ..stages.assemble import assemble
 from ..stages.edit import compose_edit_reply
-from ..stages.plan_rules import replacement_spec
 from ..stages.reply import compose_generate_reply
+from .paper_flow import paper_flow
+from .produce_flow import produce_specs
 
 
 @dataclass
@@ -112,11 +110,16 @@ async def main_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
     u = await understand_turn(ctx, turn)
     if u.route == Route.generate and u.brief is not None:
         return await _finish(await generate(ctx, u, turn.text))
+    if u.route == Route.paper and u.brief is not None:
+        return await _finish(await paper_flow(ctx, u))
     if u.route == Route.edit and u.edit is not None and ctx.has_paper:
         out = await run_stage(
             ctx, EditStage(), EditIn(instruction=u.edit.instruction or turn.text, target=u.edit.target)
         )
         return await _finish(compose_edit_reply(out))
+    if u.route == Route.ask and ctx.has_paper:
+        ans = await run_stage(ctx, AnswerStage(), AnswerIn(question=turn.text))
+        return PipelineResult(reply_message_id=ans.message_id, reply_text=ans.reply)
     if u.route == Route.export and ctx.has_paper:
         return await _finish(
             "好的，请点击页面上的“导出”按钮：可以选 PDF、Word、Markdown 或 LaTeX，教师版（含答案与解析）或学生版（空白卷），"
@@ -125,53 +128,11 @@ async def main_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
     return await _finish(compose_reply(u))
 
 
-def _constraints_text(brief: Brief) -> str:
-    return "；".join(brief.constraints.value) if brief.constraints else ""
-
-
 async def generate(ctx: RunContext, u: Understanding, text: str = "") -> str:
     """出题：规划 → 逐题创作与核验（并行，受并发上限约束）→ 装配 → 总结。每道题完成时立即发出 `item.status`。"""
     assert u.brief is not None
     bp = await run_stage(ctx, PlanStage(), PlanIn(brief=u.brief))
-    n = len(bp.items)
-    await trace.progress("开始逐题创作并核验", 0, n)
-    sem = asyncio.Semaphore(ctx.settings.item_concurrency)
-    done = 0
-    constraints = _constraints_text(u.brief)
-
-    async def one(spec) -> ProduceOut:
-        nonlocal done
-        async with sem:
-            avoid = [
-                s.angle or f"{s.scene}情境的{'、'.join(s.kp_names)}" for s in bp.items if s.id != spec.id
-            ]
-            out = await run_stage(
-                ctx,
-                ProduceStage(),
-                ProduceIn(
-                    spec=spec,
-                    grade=bp.grade,
-                    lesson_id=bp.lesson_id,
-                    constraints=constraints,
-                    avoid=avoid[:6],
-                ),
-                key=spec.id,
-            )
-        done += 1
-        await trace.progress(f"已完成 {done}/{n} 道题的核验", done, n)
-        return out
-
-    outs = list(await asyncio.gather(*(one(s) for s in bp.items)))
-    # 补题：丢弃的题换成更稳妥的写法再来一次，尽量凑够教师要的题量（一轮）
-    missing = [i for i, o in enumerate(outs) if o.item is None]
-    if missing:
-        await trace.progress(f"有 {len(missing)} 道题没有通过核验，正在换个考法补上")
-        repl = await asyncio.gather(
-            *(one(replacement_spec(bp.items[i], keep_kinds=u.brief.kinds is not None)) for i in missing)
-        )
-        for i, r in zip(missing, repl, strict=True):
-            if r.item is not None:
-                outs[i] = r
+    outs = await produce_specs(ctx, bp, bp.items, u.brief, keep_kinds=u.brief.kinds is not None)
     items: list[Item] = [o.item for o in outs if o.item is not None]
     dropped = [o.dropped_reason for o in outs if o.item is None]
     how = placement(text, ctx.has_paper)

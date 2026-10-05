@@ -18,6 +18,7 @@ from ..domain.brief import Brief
 from ..domain.knowledge import Combo, GraphEdge, GraphNode, RetrievalPayload
 from ..domain.llm import Role
 from ..domain.paper import ItemKind, Tier
+from ..domain.paper_plan import Slot
 from ..knowledge import ComboMiner, ComboWeights, GraphData
 from ..llm import LLMGateway, LLMRequest, complete_json, get_prompt
 from .base import RunContext, Stage
@@ -39,6 +40,7 @@ _GRADE_CN = {1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六"}
 
 class PlanIn(BaseModel):
     brief: Brief
+    slots: list[Slot] | None = None  # 整卷：细目表的题位（题型与难度已定）
 
 
 class IdeaItem(BaseModel):
@@ -165,6 +167,7 @@ class PlanStage(Stage[PlanIn, Blueprint]):
             scope,
             use_miner=feats.enabled("plan.combo_miner"),
             cross_unit=feats.enabled("plan.cross_unit"),
+            slots=inp.slots,
         )
         await trace.retrieval(retrieval_payload(g, scope, draft))
         if not feats.enabled("plan.llm") or not draft.blueprint.items:

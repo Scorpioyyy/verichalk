@@ -322,7 +322,9 @@ def cmd_edit(args: argparse.Namespace) -> int:
     )
     root = settings.root_dir
     base = root / "eval" / "datasets" / "edit"
-    cases = load_edit_cases(base / "cases.yaml", args.split)
+    cases = load_edit_cases(
+        base / ("cases_fresh.yaml" if args.cases == "fresh" else "cases.yaml"), args.split
+    )
     if args.only:
         wanted = {x.strip() for x in args.only.split(",")}
         cases = [c for c in cases if c.id in wanted]
@@ -335,6 +337,74 @@ def cmd_edit(args: argparse.Namespace) -> int:
         results, f"{args.tag or 'edit'} · split={args.split} · {settings.features.describe()}"
     )
     out = root / "eval" / "reports" / f"edit_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
+def cmd_ask(args: argparse.Namespace) -> int:
+    """追问评测（S7）：固定试卷上回答教师的提问，判官检查回答与一致性。"""
+    from .ask_eval import load_ask_cases, render_ask_report, run_ask_cases
+    from .edit_eval import load_papers
+
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "edit",
+        off=args.off,
+        llm_concurrency=args.concurrency * 2,
+    )
+    root = settings.root_dir
+    base = root / "eval" / "datasets" / "edit"
+    cases = load_ask_cases(base / "ask.yaml")
+    if args.limit:
+        cases = cases[: args.limit]
+    paper = load_papers(base / "papers.yaml")["base8"]
+    results = asyncio.run(run_ask_cases(settings, cases, paper, args.concurrency))
+    md = render_ask_report(results, f"{args.tag or 'ask'} · {settings.features.describe()}")
+    out = root / "eval" / "reports" / f"ask_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
+def cmd_review(args: argparse.Namespace) -> int:
+    """手改复核评测（C2 与 edit.review 消融）：20 次手动编辑，检出率 / 误报 / 时延。"""
+    from .edit_eval import load_papers
+    from .review_eval import render_review_report, run_review_eval
+
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "edit",
+        off=args.off,
+        llm_concurrency=args.concurrency * 2,
+    )
+    root = settings.root_dir
+    paper = load_papers(root / "eval" / "datasets" / "edit" / "papers.yaml")["base8"]
+    rows = asyncio.run(run_review_eval(settings, paper, args.concurrency))
+    md = render_review_report(rows, args.tag or "review", settings.features.enabled("edit.review"))
+    out = root / "eval" / "reports" / f"review_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
+def cmd_paper(args: argparse.Namespace) -> int:
+    """整卷蓝图评测（P-A～P-D）：确定性，只用知识库，不调用模型。"""
+    from .paper_eval import load_paper_specs, render_paper_report, run_paper_eval
+
+    settings = Settings(off="plan.llm")
+    root = settings.root_dir
+    cases = load_paper_specs(root / "eval" / "datasets" / "edit" / "papers_spec.yaml")
+    rows = asyncio.run(run_paper_eval(settings, cases))
+    md = render_paper_report(rows, args.tag or "paper")
+    out = root / "eval" / "reports" / f"paper_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
     out.write_text(md, encoding="utf-8")
     print(md)
     print(f"报告：{out}")
@@ -417,6 +487,12 @@ def main() -> None:
     ex.set_defaults(fn=cmd_export)
     ed = sub.add_parser("edit", help="自然语言编辑评测（C1）")
     ed.add_argument("--split", default="val", choices=["val", "test", "all"])
+    ed.add_argument(
+        "--cases",
+        default="main",
+        choices=["main", "fresh"],
+        help="fresh = 从未调优过的留出集（验收只跑一次）",
+    )
     ed.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     ed.add_argument("--record", action="store_true")
     ed.add_argument("--profile", default="intl", choices=["cn", "intl"])
@@ -427,6 +503,28 @@ def main() -> None:
     ed.add_argument("--tag", default="")
     ed.add_argument("--cassette-ns", default=None)
     ed.set_defaults(fn=cmd_edit)
+    ak = sub.add_parser("ask", help="追问评测（S7）")
+    ak.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
+    ak.add_argument("--record", action="store_true")
+    ak.add_argument("--profile", default="intl", choices=["cn", "intl"])
+    ak.add_argument("--concurrency", type=int, default=6)
+    ak.add_argument("--limit", type=int, default=0)
+    ak.add_argument("--off", default="", help="关闭的特性开关（消融用）")
+    ak.add_argument("--tag", default="")
+    ak.add_argument("--cassette-ns", default=None)
+    ak.set_defaults(fn=cmd_ask)
+    rv = sub.add_parser("review", help="手改复核评测（C2 与 edit.review 消融）")
+    rv.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
+    rv.add_argument("--record", action="store_true")
+    rv.add_argument("--profile", default="intl", choices=["cn", "intl"])
+    rv.add_argument("--concurrency", type=int, default=6)
+    rv.add_argument("--off", default="", help="关闭的特性开关（edit.review 消融）")
+    rv.add_argument("--tag", default="")
+    rv.add_argument("--cassette-ns", default=None)
+    rv.set_defaults(fn=cmd_review)
+    pp = sub.add_parser("paper", help="整卷蓝图评测（P-A～P-D；确定性，不调用模型）")
+    pp.add_argument("--tag", default="")
+    pp.set_defaults(fn=cmd_paper)
     c = sub.add_parser("compare")
     c.add_argument("--base", required=True)
     c.add_argument("--new", required=True)

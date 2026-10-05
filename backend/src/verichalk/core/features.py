@@ -59,6 +59,10 @@ REGISTRY: dict[str, Feature] = {
             "edit.review",
             "手改 / 编辑后对被改动的题重新核验（盲解、边界、质量）；关闭则只给确定性提示，状态保持待核验",
         ),
+        Feature(
+            "paper.staged", "整卷分阶段：蓝图与样题各有检查点，教师确认或调整后再继续；关闭则一次出完整份卷子"
+        ),
+        Feature("answer.context", "追问回答带上被问题目的知识点说明与学生常见错误；关闭则只看题目本身"),
         Feature("context.textbook_examples", "写题上下文里给出教材题型的改写示例（学生做过什么）"),
     ]
 }

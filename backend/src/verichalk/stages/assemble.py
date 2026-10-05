@@ -13,7 +13,7 @@ import time
 from .. import trace
 from ..core.ids import new_id
 from ..domain.blueprint import Blueprint
-from ..domain.paper import Item, Paper, Revision, Section
+from ..domain.paper import Item, ItemKind, Paper, Revision, Section
 from ..domain.paper_ops import (
     AddItem,
     AddSection,
@@ -23,8 +23,10 @@ from ..domain.paper_ops import (
     SetTitle,
     apply_patch,
 )
-from ..domain.paper_rules import Placement, default_score
+from ..domain.paper_plan import PaperPlan
+from ..domain.paper_rules import Placement, default_score, distribute_scores
 from .base import RunContext
+from .paper_plan import KIND_ORDER, KIND_TITLE
 
 _GRADE_CN = {1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六"}
 
@@ -95,4 +97,70 @@ async def assemble(ctx: RunContext, items: list[Item], bp: Blueprint, how: Place
         ),
     )
     await trace.paper_patched(paper.id, saved.rev, patch, summary)
+    return paper
+
+
+async def assemble_paper(
+    ctx: RunContext,
+    delivered: list[tuple[int, Item]],
+    plan: PaperPlan,
+    bp: Blueprint,
+    *,
+    title: str = "",
+    note: str = "整卷",
+) -> Paper | None:
+    """整卷装配：按细目表分区（题型顺序）、同区内按题位顺序（难度从易到难）、给每题分值，替换会话里已有的试卷。
+
+    `delivered` 是（题位序号，题目）。题位总数与实际交付数不同（有题没通过核验）时，按题型权重重新分配分值，保证合计仍是总分。"""
+    if not delivered:
+        return None
+    delivered = sorted(delivered, key=lambda p: p[0])
+    kinds = [it.kind for _, it in delivered]
+    if len(delivered) == len(plan.slots):
+        scores = [plan.slots[i].score for i, _ in delivered]
+    else:
+        scores = distribute_scores(kinds, max(plan.total_score, len(kinds)))
+    by_kind: dict[ItemKind, list[Item]] = {}
+    for (_, it), sc in zip(delivered, scores, strict=True):
+        by_kind.setdefault(it.kind, []).append(it.model_copy(update={"score": float(sc)}))
+    current = await ctx.store.papers.get_current(ctx.session_id)
+    grade = _GRADE_CN.get(bp.grade or 0, "")
+    sections: list[tuple[Section, list[Item]]] = []
+    for kind in KIND_ORDER:
+        if kind in by_kind:
+            sections.append(
+                (Section(id=new_id("sec"), title=KIND_TITLE[kind], kind=kind.value), by_kind[kind])
+            )
+    ops: list[Op] = []
+    base = current if current is not None else Paper(id=new_id("pap"), rev=0)
+    if current is not None:
+        ops += [RemoveSection(section_id=s.id) for s in current.sections]
+    ops.append(SetTitle(title=title or plan.title or (f"{grade}年级数学测试卷" if grade else "数学测试卷")))
+    ops += [AddSection(section=s) for s, _ in sections]
+    ops += [AddItem(section_id=s.id, item=it) for s, its in sections for it in its]
+    total = int(sum(scores))
+    for key, val in (
+        ("total_score", total),
+        ("duration_minutes", plan.duration_min),
+        ("grade", bp.grade),
+        ("lesson_id", bp.lesson_id),
+    ):
+        if val is not None:
+            ops.append(SetMeta(key=key, value=val))
+    paper = apply_patch(base, ops)
+    patch = [op.model_dump(mode="json") for op in ops]
+    saved = await ctx.store.papers.save(
+        ctx.session_id,
+        paper,
+        Revision(
+            paper_id=paper.id,
+            rev=paper.rev,
+            author="agent",
+            run_id=ctx.run_id,
+            ts=time.time(),
+            patch=patch,
+            summary=note,
+        ),
+    )
+    await trace.paper_patched(paper.id, saved.rev, patch, note)
     return paper

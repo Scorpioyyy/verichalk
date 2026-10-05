@@ -23,7 +23,6 @@ def compose_reply(u: Understanding) -> str:
         lines += [f"（{a}）" for a in u.brief.assumptions]
     for n in u.notes:
         lines.append(f"提示：{n}")
-    lines += ["", "整卷出题（先出蓝图和样题，确认后再成卷）还在开发中，您可以先让我出几道题看看效果。"]
     return "\n".join(lines)
 
 

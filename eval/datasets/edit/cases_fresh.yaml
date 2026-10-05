@@ -1,0 +1,19 @@
+# 编辑评测的"从未调优过"的留出集（验收时只跑一次；之前的 val / test 已据其失败样本改过系统，不再是干净的留出集）。
+# 格式同 cases.yaml；基础试卷 `papers.yaml: base8`。
+- {id: fr-1, split: val, cat: 改题型, instruction: 第2题换成选择题, target: 'item:2', touch: [q2], expect: {kind: {q2: choice}, n_options: {q2: 4}}}
+- {id: fr-2, split: val, cat: 改题型, instruction: 把第4题变成应用题, target: 'item:4', touch: [q4], expect: {kind: {q4: application}}}
+- {id: fr-3, split: val, cat: 改题型, instruction: 第8题改成填空题, target: 'item:8', touch: [q8], expect: {kind: {q8: fill}}}
+- {id: fr-4, split: val, cat: 换情境, instruction: 第6题改成买水果的情境, target: 'item:6', touch: [q6], expect: {keywords_any: {q6: [水果, 苹果, 香蕉, 橙, 梨, 葡萄, 西瓜, 桃, 草莓]}}}
+- {id: fr-5, split: val, cat: 换情境, instruction: 第8题的场景换成课间活动, target: 'item:8', touch: [q8], expect: {judge: {q8: 新题发生在课间活动的情境里（如跳绳、踢毽子、做游戏、操场上），仍然是求平均数}}}
+- {id: fr-6, split: val, cat: 升难度, instruction: 第7题再提高一点难度, target: 'item:7', touch: [q7], expect: {difficulty_gte: [q7], judge: {q7: 新题比原题更难（步骤更多、条件更多或需要逆向思考）}}}
+- {id: fr-7, split: val, cat: 降难度, instruction: 第8题简单一点, target: 'item:8', touch: [q8], expect: {difficulty_lte: [q8], judge: {q8: 新题比原题更容易（数据更少或更小、更友好）}}}
+- {id: fr-8, split: val, cat: 调数字, instruction: 第7题的角度都用整十度, target: 'item:7', touch: [q7], expect: {judge: {q7: 新题题干里出现的角度都是整十度（如 30°、60°、90°），仍然求三角形的第三个内角}}}
+- {id: fr-9, split: val, cat: 改文字, instruction: 第6题的解析写详细一些, target: 'item:6', touch: [q6], expect: {answer_same: [q6], longer_solution: [q6], stem_same: [q6]}}
+- {id: fr-10, split: val, cat: 改文字, instruction: 第4题的题干表达得更清楚, target: 'item:4', touch: [q4], expect: {answer_same: [q4]}}
+- {id: fr-11, split: val, cat: 结构, instruction: 删除第1题和第8题, target: 'items:1,8', touch: [], expect: {removed: [q1, q8]}}
+- {id: fr-12, split: val, cat: 结构, instruction: 第2题挪到最后, target: 'item:2', touch: [], expect: {order: [q1, q3, q4, q5, q6, q7, q8, q2]}}
+- {id: fr-13, split: val, cat: 分值, instruction: 每题2分, target: all, touch: all, expect: {all_scores: 2}}
+- {id: fr-14, split: val, cat: 分值, instruction: 填空题每题4分, target: 'kind:fill', touch: [q3], expect: {scores: {q3: 4}}}
+- {id: fr-15, split: val, cat: 多项, instruction: 第1题删掉，第3题换个场景, target: 'items:1,3', touch: [q3], expect: {removed: [q1], judge: {q3: 新题不再是铅笔的情境，换成了别的物品或场景，仍然考小数乘整数}}}
+- {id: fr-16, split: val, cat: 无法执行, instruction: 把第9题改成选择题, target: 'item:9', touch: [], expect: {no_change: true}}
+- {id: fr-17, split: val, cat: 无法执行, instruction: 帮我写一首关于春天的诗, target: '', touch: [], expect: {no_change: true}}

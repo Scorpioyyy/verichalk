@@ -286,7 +286,8 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | POST | `/api/runs/{id}/checkpoint` | 回应澄清 / 确认 |
 | POST | `/api/runs/{id}/cancel` | 取消 |
 | PATCH | `/api/sessions/{id}/paper` | 手动编辑（Patch），返回新修订与复核运行 |
-| POST | `/api/sessions/{id}/paper/undo`、`redo` | 撤销 / 重做 |
+| POST | `/api/sessions/{id}/paper/undo`、`redo`、`restore` | 撤销 / 重做 / 回到某一版（都是新增修订，D43） |
+| GET | `/api/sessions/{id}/paper/history`、`/paper/diff?from=&to=` | 修订历史（含能否撤销 / 重做）与两版之间的差异 |
 | POST | `/api/sessions/{id}/export` | 导出（格式与选项），返回文件 |
 | GET | `/api/health`、`/api/version` | 健康检查与版本（含 chalkbase 版本与数据版本） |
 | GET/POST | `/api/debug/...` | 运行列表、span 树、检索载荷、重放、badcase、指标（需令牌） |

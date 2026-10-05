@@ -363,3 +363,62 @@ async def test_main_pipeline_routes_edit_and_replies(ctx, monkeypatch) -> None:
     ctx.has_paper = False
     res = await main_pipeline(ctx, TurnInput(text="第3题换个场景"))
     assert "没有试卷可以修改" in res.reply_text
+
+
+# ---- 追问（answer 阶段）----
+@pytest.mark.parametrize(
+    ("q", "n", "expect"),
+    [
+        ("第3题为什么选B", 8, [3]),
+        ("第三题怎么做", 8, [3]),
+        ("第十二题考什么", 8, []),  # 超出范围
+        ("第2题和第5题有什么区别", 8, [2, 5]),
+        ("最后一题难在哪", 8, [8]),
+        ("第一题的答案对吗", 8, [1]),
+        ("这份卷子难度怎么样", 8, []),
+        ("第1、2、3、4题", 8, [1, 2, 3]),  # 最多取 3 道进上下文
+    ],
+)
+def test_mentioned_numbers(q: str, n: int, expect: list[int]) -> None:
+    from verichalk.stages.answer import mentioned_numbers
+
+    assert mentioned_numbers(q, n) == expect
+
+
+def test_cn_to_int() -> None:
+    from verichalk.stages.answer import cn_to_int
+
+    assert [cn_to_int(x) for x in ["三", "十", "十二", "二十", "二十五", "12", "百"]] == [
+        3,
+        10,
+        12,
+        20,
+        25,
+        12,
+        None,
+    ]
+
+
+async def test_answer_stage_uses_item_context_and_is_read_only(ctx) -> None:
+    from verichalk.llm import LLMRequest
+    from verichalk.stages.answer import AnswerIn, AnswerStage
+
+    seen: dict = {}
+
+    class FakeLLM:
+        async def complete(self, req: LLMRequest):
+            seen["prompt"] = "\n".join(str(m.content) for m in req.messages)
+            if req.on_delta:
+                await req.on_delta("因为 $0.6\times5=3$。")
+
+            class R:
+                text = "因为 $0.6\times5=3$。"
+
+            return R()
+
+    ctx.llm = FakeLLM()  # type: ignore[assignment]
+    before = (await ctx.store.papers.get_current(ctx.session_id)).model_dump()  # type: ignore[union-attr]
+    out = await AnswerStage().run(ctx, AnswerIn(question="第2题为什么是这个答案"))
+    assert out.numbers == [2] and "0.6" in out.reply
+    assert "原题 2" in seen["prompt"] and "解析 2" in seen["prompt"]  # 被问到的题进了上下文
+    assert (await ctx.store.papers.get_current(ctx.session_id)).model_dump() == before  # type: ignore[union-attr]

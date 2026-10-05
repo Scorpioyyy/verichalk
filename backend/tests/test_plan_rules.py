@@ -63,3 +63,25 @@ async def test_default_scope_falls_back_to_grade3(kb: KnowledgeService) -> None:
     scope = await resolve_scope(Brief(), kb)
     assert scope.grade == 3
     assert any("三年级" in n for n in scope.notes)
+
+
+@pytest.mark.parametrize("unit", ["g2b.u2", "g3a.u2", "g6a.u1"])
+async def test_narrow_unit_with_no_combo_does_not_exhaust_singles(kb: KnowledgeService, unit: str) -> None:
+    """回归：窄单元里综合题找不到搭配、降级为单点题时，不能再多取一个单点知识点（曾抛 StopIteration）。"""
+    from verichalk.domain.paper import ItemKind
+    from verichalk.domain.paper_plan import Slot as PSlot
+
+    brief = Brief(
+        scope=Scope(
+            grade=Slot(value=int(unit[1]), origin=Origin.user),
+            semester=Slot(value=unit[2], origin=Origin.user),
+            units=Slot(value=[unit], origin=Origin.user),
+        )
+    )
+    slots = [PSlot(kind=ItemKind.application, difficulty=3, score=5) for _ in range(16)]
+    brief.count = Slot(value=16, origin=Origin.user)
+    brief.tier_mix = Slot(value={Tier.integrated: 1.0}, origin=Origin.user)
+    scope = await resolve_scope(brief, kb)
+    g = await kb.graph()
+    draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope, slots=slots)
+    assert len(draft.blueprint.items) == 16

@@ -25,3 +25,10 @@
 
 1. **新评测 `export`**（`python -m verichalk.eval export`）：确定、零成本、不调模型；14 份手工试卷 × 4 格式 × 2 版本。指标 C4(a)(b)、X2、X9（本机有 xelatex 时实际编译）与延迟。无历史结果受影响。
 2. **教训**：第一版全绿但页面上有明显版面问题，自动检测的定位是"没丢、没泄、没崩"，版面保真（X4）靠人工看页面；验收时必须看截图（PDF 用 PyMuPDF 转图，Word 用 `scripts/docx_to_pdf.ps1`）。
+
+## 2026-10-06　试卷（M5）
+
+1. **新评测**：`edit`（C1，固定 8 题试卷，`cases.yaml` 39 例 + 从未调优的 `cases_fresh.yaml` 17 例）、`ask`（S7，20 例）、`review`（C2 与 `edit.review` 消融，20 次手动编辑）、`paper`（P-A～P-D，12 例确定性）。无历史结果受影响。
+2. **评测集的修正（据 test 失败样本）**：基础试卷 `base8` 的目标课时由 `g4b.u4.l01` 改为 `g4b.u8.l04`——原值早于试卷里两道题自己的知识点所在课时，边界检查对这两题一律判超纲，与被评系统无关。修正后重跑 val + test，因此 **`cases.yaml` 的 val / test 不再是干净的留出集**，验收用新增的 `cases_fresh.yaml`（只跑一次）。`review_eval` 里两个"正确编辑"夹具（ok-4、ok-7）原先本身不一致，被复核正确地标成需复核，已修正夹具；检出率与误报率按修正后的计。
+3. **录制**：`eval/cassettes/edit/` 是探索期录制，不入库（`.gitignore`）；需要回放时用 `--record` 重新录制。
+

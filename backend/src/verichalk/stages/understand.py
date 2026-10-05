@@ -88,7 +88,14 @@ class UnderstandStage(Stage[UnderstandIn, Understanding]):
                 search_task.cancel()
         if raw.topics and feats.enabled("understand.topic_research"):
             hits = await self._reconcile(ctx, raw, hits)
-        u = await finalize(raw, hits=hits, kb=ctx.kb, prev=prev, method=method)
+        topic_hits: dict[str, list[KPHit]] | None = None
+        if len(raw.topics) >= 2:
+            try:
+                found = await asyncio.gather(*(ctx.kb.search(tp, k=3) for tp in raw.topics))
+                topic_hits = dict(zip(raw.topics, found, strict=True))
+            except KnowledgeError as e:
+                log.warning("understand: per-topic search failed: %s", e.code)
+        u = await finalize(raw, hits=hits, kb=ctx.kb, prev=prev, method=method, topic_hits=topic_hits)
         if method == "rules_fallback":
             u.notes.append("智能解析暂时不可用，已用基础规则理解您的需求，可能不够准确")
         return u

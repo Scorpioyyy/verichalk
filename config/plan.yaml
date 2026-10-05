@@ -1,0 +1,11 @@
+# 规划参数（D20）：组合挖掘的打分权重。评测里逐项消融（eval/specs/plan.md §5）；调权重必须附 P2 / P5 的前后对比。
+combos:
+  edge: 0.6          # 直接的关系边（前置 / 递进 / 相关 / 扩展 / 易混淆）
+  cooccur: 1.0       # 教材里同一道题同时涉及
+  proximity: 1.0     # 教学位置接近（同一单元 > 同一册 > 相邻册）
+  thread: 0.3        # 同一主线
+  shared: 0.4        # 共同邻居（没有直接边时的间接关联）
+  scene: 0.5         # 共同出现的生活情境
+  bridge_shared: 0.15   # 跨主题搭配的"桥"：直接边 / 教材共现 / 共同邻居不低于此值
+  max_reuse: 2       # 同一个伙伴知识点最多出现在几个入选组合里
+  edge_types: {prerequisite: 1.0, builds_on: 0.8, related: 0.9, extends: 0.6, confusable: 0.4}

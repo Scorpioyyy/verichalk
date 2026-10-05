@@ -18,6 +18,7 @@ class RoleSpec(BaseModel):
     model: str
     thinking: bool
     temperature: float = 0.3
+    send_temperature: bool = True  # 个别模型（如 kimi-k3）只接受固定温度，传参会报错：此时不发送 temperature
     max_tokens: int = 2048
     timeout_s: float | None = None
     extra: dict[str, Any] = Field(default_factory=dict)  # 透传给请求体的额外参数

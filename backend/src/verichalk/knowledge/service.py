@@ -12,6 +12,7 @@ import asyncio
 import os
 import re
 from collections.abc import Callable, Iterable
+from dataclasses import replace
 from typing import Any, TypeVar
 
 from .. import trace
@@ -34,11 +35,19 @@ from ..domain.knowledge import (
     ViolationView,
 )
 from .embedding import QueryEmbedder
+from .graph import GraphData, KPNode
 
 T = TypeVar("T")
 _CN_NUM = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
 _ORD_RE = re.compile(r"^(?:第)?([一二三四五六七八九十]+)(?:单元)?")
 _TEXT_CLIP = 260
+_FORM_TO_KIND = {
+    "compute": "calc",
+    "fill_blank": "fill",
+    "word_problem": "application",
+    "judge": "judge",
+    "choice": "choice",
+}  # 其余题型（作图 / 测量 / 读图 / 其他）依赖图形，本版本不出
 
 
 def configure_environment(settings: Settings) -> None:
@@ -65,6 +74,8 @@ class KnowledgeService:
         self._units: dict[str, list[UnitRef]] = {}
         self._embedder: QueryEmbedder | None = None
         self._kp_index: list[tuple[str, str, int]] | None = None  # (名称, 可检索文本, 首次引入年级)
+        self._graph: GraphData | None = None
+        self._vocab: dict[str, list[str]] | None = None
 
     @classmethod
     def from_settings(cls, settings: Settings) -> KnowledgeService:
@@ -242,6 +253,68 @@ class KnowledgeService:
             return out
 
         return await self._run(_do)
+
+    # ---- 关系图快照（组合挖掘用）----
+    async def graph(self) -> GraphData:
+        """全部知识点、关系边与教材跨点共现的快照（进程内只构建一次，约几十毫秒）。"""
+        if self._graph is None:
+
+            def _build() -> GraphData:
+                cur = self._cur
+                nodes: dict[str, KPNode] = {}
+                for kp in cur.kps():
+                    loc = cur.locate(kp.id)
+                    nodes[kp.id] = KPNode(
+                        id=kp.id,
+                        name=kp.name,
+                        grade=int(getattr(loc, "grade", 0) or 0),
+                        semester=str(getattr(loc, "semester", "") or ""),
+                        domain=str(getattr(kp.domain, "value", kp.domain)),
+                        thread=str(kp.thread or ""),
+                        topic=str(kp.topic or ""),
+                        position=int(getattr(loc, "position", 0) or 0),
+                        unit_id=str(getattr(loc, "unit_id", "") or ""),
+                        lesson_id=str(getattr(loc, "lesson_id", "") or ""),
+                        assessable=bool(getattr(kp, "is_assessable", True)),
+                    )
+                kinds: dict[str, set[str]] = {}
+                n_ex: dict[str, int] = {}
+                for a in cur.archetypes():
+                    n_ex[a.primary_knowledge_point_id] = n_ex.get(a.primary_knowledge_point_id, 0) + len(
+                        a.source_instance_ids or []
+                    )
+                    form = _FORM_TO_KIND.get(str(getattr(a.item_form, "value", a.item_form)))
+                    ratio = ((a.parameter_constraints or {}).get("observed") or {}).get(
+                        "requires_figure_ratio"
+                    )
+                    if form and (ratio or 0) < 0.5:
+                        kinds.setdefault(a.primary_knowledge_point_id, set()).add(form)
+                nodes = {
+                    k: replace(n, kinds=frozenset(kinds.get(k, ())), n_exercises=n_ex.get(k, 0))
+                    for k, n in nodes.items()
+                }
+                g = GraphData(nodes)
+                for kid in nodes:
+                    for e in cur.chain(
+                        kid,
+                        direction="prerequisite",
+                        depth=1,
+                        edge_types=("prerequisite", "builds_on"),
+                        include_implied=False,
+                    ):
+                        g.add_edge(e.kp_id, kid, e.edge_type, directed=True)
+                    for other, etype, _note in cur.relations(kid):
+                        g.add_edge(kid, other, etype, directed=False)
+                for a in cur.archetypes(include_secondary=True):
+                    ids = [a.primary_knowledge_point_id, *a.secondary_knowledge_point_ids]
+                    g.add_cooccur(ids)
+                    themes = [c.removeprefix("ctx.") for c in a.allowed_contexts if "纯数学" not in c]
+                    for kid in ids:
+                        g.add_contexts(kid, themes)
+                return g
+
+            self._graph = await self._run(_build)
+        return self._graph
 
     # ---- 检索 ----
     async def search(
@@ -443,6 +516,79 @@ class KnowledgeService:
             sp.set(verdict=rep.verdict, n_violations=len(rep.violations))
             return rep
 
+    async def feature_vocab(self) -> dict[str, list[str]]:
+        """特征抽取的受控词表：分数类型、运算、计量单位、几何词汇与知识点名称菜单（用于抽取提示词的稳定段）。"""
+        if self._vocab is None:
+
+            def _do() -> dict[str, list[str]]:
+                from chalkbase.boundary import vocab  # 内部模块：只在这里使用，版本由 <0.2 约束
+
+                return {
+                    "fraction_types": list(vocab.FRACTION_TYPES),
+                    "ops": list(vocab.OPS),
+                    "units": list(vocab.UNITS),
+                    "geometry": list(vocab.GEOMETRY_SEED),
+                    "kp_names": [kp.name for kp in self._cur.kps()],
+                }
+
+            self._vocab = await self._run(_do)
+        return self._vocab
+
+    async def check_features(self, raw: dict[str, Any], lesson_id: str) -> BoundaryReportView:
+        """把模型抽取的特征（JSON 对象）规范化后做能力边界判定。无法识别的取值进入 `unknown`，不计入越界。"""
+        vocab = await self.feature_vocab()
+
+        def _do() -> BoundaryReportView:
+            from chalkbase.boundary.extract import to_features  # 内部函数：容错地把 JSON 转为 ItemFeatures
+
+            feats = to_features(raw, set(vocab["kp_names"]))
+            rep = self._cur.check_item(feats, lesson_id)
+            return BoundaryReportView(
+                verdict=rep.verdict,
+                violations=[
+                    ViolationView(
+                        dimension=v.dimension,
+                        item_value=str(v.item_value),
+                        allowed=str(getattr(v, "allowed", "")),
+                        introduced_at=getattr(v, "introduced_at", None),
+                        detail=str(getattr(v, "detail", "")),
+                    )
+                    for v in rep.violations
+                ],
+                unknown=[str(u) for u in getattr(rep, "unknown", [])],
+            )
+
+        async with trace.tool_span("kb.check_features", lesson_id=lesson_id) as sp:
+            rep = await self._run(_do)
+            sp.set(verdict=rep.verdict, n_violations=len(rep.violations))
+            return rep
+
+    async def audit_boundary(self, problem_text: str, lesson_id: str) -> BoundaryReportView:
+        """评测审计用：chalkbase 自带的特征抽取（qwen3.7-plus 思考模式，经它自己的客户端）+ `check_item`。
+        与线上核验走的是不同的模型与提示，所以可以作为线上结论的独立对照。需要 `chalkbase[llm]` 与密钥。"""
+
+        def _do() -> BoundaryReportView:
+            from chalkbase.boundary.extract import extract_features
+
+            feats = extract_features(problem_text)
+            rep = self._cur.check_item(feats, lesson_id)
+            return BoundaryReportView(
+                verdict=rep.verdict,
+                violations=[
+                    ViolationView(
+                        dimension=v.dimension,
+                        item_value=str(v.item_value),
+                        allowed=str(getattr(v, "allowed", "")),
+                        introduced_at=getattr(v, "introduced_at", None),
+                        detail=str(getattr(v, "detail", "")),
+                    )
+                    for v in rep.violations
+                ],
+                unknown=[str(u) for u in getattr(rep, "unknown", [])],
+            )
+
+        return await self._run(_do)
+
     # ---- 题型与情境（作为上下文，不是模板）----
     async def archetypes_for(
         self, kp_id: str, *, limit: int = 6, include_secondary: bool = True
@@ -462,6 +608,14 @@ class KnowledgeService:
                         verifiable_type=str(getattr(a.verifiable_type, "value", a.verifiable_type)),
                         template=_clip(a.template, 200),
                         typical_errors=[_clip(e, 60) for e in a.typical_errors[:3]],
+                        figure_ratio=((a.parameter_constraints or {}).get("observed") or {}).get(
+                            "requires_figure_ratio"
+                        ),
+                        examples=[
+                            _clip(str(ex.get("problem", "")), 160)
+                            for ex in (a.rewritten_examples or [])[:3]
+                            if isinstance(ex, dict)
+                        ],
                     )
                     for a in ats
                 ]

@@ -107,7 +107,11 @@ class LLMGateway:
     async def complete(self, req: LLMRequest) -> LLMResult:
         spec = self.registry.role(req.role)
         params: dict[str, Any] = {
-            "temperature": spec.temperature if req.temperature is None else req.temperature,
+            **(
+                {"temperature": spec.temperature if req.temperature is None else req.temperature}
+                if spec.send_temperature
+                else {}
+            ),
             "max_tokens": spec.max_tokens if req.max_tokens is None else req.max_tokens,
             "enable_thinking": spec.thinking if req.thinking is None else req.thinking,
             **spec.extra,

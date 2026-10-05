@@ -1,0 +1,347 @@
+# 超纲核验评测集：由 scripts/build_boundary_bank.py 生成（见 eval/specs/produce.md §2.2）。
+# label: in（在 lesson_id 之前学过的范围内）/ out（含之后才学的内容）。
+- {id: bb-a000, split: val, source: authored, pair: p01, lesson_id: g2b.u11.l04, grade: 2, label: out, dimension: decimal_places, culprit: kp.na.小数加减法.decimal_add_sub_same_place,
+  stem: 小红买本子花了 2.5 元，买笔花了 1.8 元，一共花了多少元？, solution: 2.5 + 1.8 = 4.3（元）}
+- {id: bb-a001, split: val, source: authored, pair: p01, lesson_id: g2b.u11.l04, grade: 2, label: in, dimension: decimal_places, culprit: null,
+  stem: 小红买本子花了 25 元，买笔花了 18 元，一共花了多少元？, solution: 25 + 18 = 43（元）}
+- {id: bb-a002, split: test, source: authored, pair: p02, lesson_id: g2b.u11.l04, grade: 2, label: out, dimension: concept, culprit: kp.gg.周长.concept,
+  stem: 一块长方形菜地长 9 米，宽 6 米，在四周围一圈篱笆，篱笆至少要多长？, solution: （9 + 6）× 2 = 30（米）}
+- {id: bb-a003, split: test, source: authored, pair: p02, lesson_id: g2b.u11.l04, grade: 2, label: in, dimension: concept, culprit: null, stem: 一块菜地长
+    9 米，宽 6 米，长比宽多几米？, solution: 9 - 6 = 3（米）}
+- {id: bb-a004, split: test, source: authored, pair: p03, lesson_id: g3a.u12.l04, grade: 3, label: out, dimension: concept, culprit: kp.gg.周长.concept,
+  stem: 一个正方形操场的边长是 50 米，小明沿着操场边跑了 1 圈，他跑了多少米？, solution: 50 × 4 = 200（米）}
+- {id: bb-a005, split: test, source: authored, pair: p03, lesson_id: g3a.u12.l04, grade: 3, label: in, dimension: concept, culprit: null, stem: 一个操场长
+    50 米，宽 30 米，长比宽多多少米？, solution: 50 - 30 = 20（米）}
+- {id: bb-a006, split: test, source: authored, pair: p04, lesson_id: g3a.u12.l04, grade: 3, label: out, dimension: concept, culprit: kp.na.方程.solve_add_sub,
+  stem: 解方程：x + 12 = 35, solution: x = 35 - 12 = 23}
+- {id: bb-a007, split: test, source: authored, pair: p04, lesson_id: g3a.u12.l04, grade: 3, label: in, dimension: concept, culprit: null, stem: 在方框里填上合适的数：□
+    + 12 = 35, solution: 35 - 12 = 23，所以填 23}
+- {id: bb-a008, split: test, source: authored, pair: p05, lesson_id: g3a.u12.l04, grade: 3, label: out, dimension: operation_forms, culprit: kp.na.小数乘法.decimal_times_int,
+  stem: 一支钢笔 3.5 元，买 4 支要多少元？, solution: 3.5 × 4 = 14（元）}
+- {id: bb-a009, split: test, source: authored, pair: p05, lesson_id: g3a.u12.l04, grade: 3, label: in, dimension: operation_forms, culprit: null,
+  stem: 一支钢笔 35 元，买 4 支要多少元？, solution: 35 × 4 = 140（元）}
+- {id: bb-a010, split: test, source: authored, pair: p06, lesson_id: g3a.u12.l04, grade: 3, label: out, dimension: concept, culprit: kp.sp.平均数中位数众数.average,
+  stem: 小明 4 次跳绳的成绩分别是 45、48、50、53 个，他平均每次跳多少个？, solution: （45 + 48 + 50 + 53）÷ 4 = 49（个）}
+- {id: bb-a011, split: test, source: authored, pair: p06, lesson_id: g3a.u12.l04, grade: 3, label: in, dimension: concept, culprit: null, stem: 小明第一次跳绳跳了
+    45 个，第二次跳了 48 个，两次一共跳了多少个？, solution: 45 + 48 = 93（个）}
+- {id: bb-a012, split: val, source: authored, pair: p07, lesson_id: g3b.u11.l04, grade: 3, label: out, dimension: concept, culprit: kp.na.混合运算与运算律.distributive_law,
+  stem: 用简便方法计算：25 × (40 + 4)，并说出你用了什么运算律。, solution: 25 × 40 + 25 × 4 = 1000 + 100 = 1100，用了乘法分配律}
+- {id: bb-a013, split: val, source: authored, pair: p07, lesson_id: g3b.u11.l04, grade: 3, label: in, dimension: concept, culprit: null, stem: 计算：25
+    × 4 + 18, solution: 100 + 18 = 118}
+- {id: bb-a014, split: val, source: authored, pair: p08, lesson_id: g3b.u11.l04, grade: 3, label: out, dimension: integer_domain, culprit: kp.na.整数乘法.three_digit_by_two_digit,
+  stem: 一台机器每分钟加工 135 个零件，28 分钟能加工多少个零件？, solution: 135 × 28 = 3780（个）}
+- {id: bb-a015, split: val, source: authored, pair: p08, lesson_id: g3b.u11.l04, grade: 3, label: in, dimension: integer_domain, culprit: null,
+  stem: 一台机器每分钟加工 35 个零件，8 分钟能加工多少个零件？, solution: 35 × 8 = 280（个）}
+- {id: bb-a016, split: test, source: authored, pair: p09, lesson_id: g3b.u11.l04, grade: 3, label: out, dimension: decimal_places, culprit: kp.na.小数乘法.decimal_times_int,
+  stem: 一瓶牛奶 2.5 元，买 6 瓶要多少元？, solution: 2.5 × 6 = 15（元）}
+- {id: bb-a017, split: test, source: authored, pair: p09, lesson_id: g3b.u11.l04, grade: 3, label: in, dimension: decimal_places, culprit: null,
+  stem: 一瓶牛奶 5 元，买 12 瓶要多少元？, solution: 5 × 12 = 60（元）}
+- {id: bb-a018, split: test, source: authored, pair: p10, lesson_id: g3b.u11.l04, grade: 3, label: out, dimension: concept, culprit: kp.na.用字母表示数.基本用法,
+  stem: 用字母表示：每支铅笔 a 元，买 5 支铅笔一共要多少元？, solution: 5a 元}
+- {id: bb-a019, split: test, source: authored, pair: p10, lesson_id: g3b.u11.l04, grade: 3, label: in, dimension: concept, culprit: null, stem: 每支铅笔
+    3 元，买 5 支铅笔一共要多少元？, solution: 3 × 5 = 15（元）}
+- {id: bb-a020, split: val, source: authored, pair: p11, lesson_id: g3b.u11.l04, grade: 3, label: out, dimension: concept, culprit: kp.gg.角的认识.degree_unit,
+  stem: 用量角器量出一个角是 60°，这个角比直角小多少度？, solution: 90° - 60° = 30°}
+- {id: bb-a021, split: val, source: authored, pair: p11, lesson_id: g3b.u11.l04, grade: 3, label: in, dimension: concept, culprit: null, stem: 一个长方形的周长是
+    24 厘米，长是 8 厘米，它的宽是多少厘米？, solution: 24 ÷ 2 - 8 = 4（厘米）}
+- {id: bb-a022, split: val, source: authored, pair: p12, lesson_id: g4a.u12.l04, grade: 4, label: out, dimension: decimal_places, culprit: kp.na.小数乘法.product_decimal_places_rule,
+  stem: 计算：0.6 × 0.4, solution: 6 × 4 = 24，积有两位小数，0.6 × 0.4 = 0.24}
+- {id: bb-a023, split: val, source: authored, pair: p12, lesson_id: g4a.u12.l04, grade: 4, label: in, dimension: decimal_places, culprit: null,
+  stem: 计算：36 × 25, solution: 36 × 25 = 900}
+- {id: bb-a024, split: test, source: authored, pair: p13, lesson_id: g4a.u12.l04, grade: 4, label: out, dimension: concept, culprit: kp.na.方程.solve_add_sub,
+  stem: 解方程：3x = 45, solution: x = 45 ÷ 3 = 15}
+- {id: bb-a025, split: test, source: authored, pair: p13, lesson_id: g4a.u12.l04, grade: 4, label: in, dimension: concept, culprit: null, stem: 计算：45
+    ÷ 3, solution: 45 ÷ 3 = 15}
+- {id: bb-a026, split: test, source: authored, pair: p14, lesson_id: g4a.u12.l04, grade: 4, label: out, dimension: concept, culprit: kp.sp.平均数中位数众数.average,
+  stem: 一组数据 12、15、18、15 的平均数是多少？, solution: （12 + 15 + 18 + 15）÷ 4 = 15}
+- {id: bb-a027, split: test, source: authored, pair: p14, lesson_id: g4a.u12.l04, grade: 4, label: in, dimension: concept, culprit: null, stem: 有四个数
+    12、15、18、15，它们的和是多少？, solution: 12 + 15 + 18 + 15 = 60}
+- {id: bb-a028, split: test, source: authored, pair: p15, lesson_id: g4a.u12.l04, grade: 4, label: out, dimension: decimal_places, culprit: kp.na.小数加减法.different_places,
+  stem: 计算：5.2 + 3.45, solution: 5.20 + 3.45 = 8.65}
+- {id: bb-a029, split: test, source: authored, pair: p15, lesson_id: g4a.u12.l04, grade: 4, label: in, dimension: decimal_places, culprit: null,
+  stem: 计算：5.2 + 3.4, solution: 5.2 + 3.4 = 8.6}
+- {id: bb-a030, split: test, source: authored, pair: p16, lesson_id: g4b.u9.l03, grade: 4, label: out, dimension: concept, culprit: kp.na.小数除法.quotient_terminating_decimal,
+  stem: 一根绳子长 7.5 米，平均分成 3 段，每段长多少米？, solution: 7.5 ÷ 3 = 2.5（米）}
+- {id: bb-a031, split: test, source: authored, pair: p16, lesson_id: g4b.u9.l03, grade: 4, label: in, dimension: concept, culprit: null, stem: 一根绳子长
+    7.5 米，剪去 3 米，还剩多少米？, solution: 7.5 - 3 = 4.5（米）}
+- {id: bb-a032, split: test, source: authored, pair: p17, lesson_id: g4b.u9.l03, grade: 4, label: out, dimension: concept, culprit: kp.gg.多边形面积.triangle_area,
+  stem: 一个三角形的底是 8 厘米，高是 5 厘米，它的面积是多少平方厘米？, solution: 8 × 5 ÷ 2 = 20（平方厘米）}
+- {id: bb-a033, split: test, source: authored, pair: p17, lesson_id: g4b.u9.l03, grade: 4, label: in, dimension: concept, culprit: null, stem: 一个三角形有两个内角分别是
+    50° 和 60°，第三个内角是多少度？, solution: 180° - 50° - 60° = 70°}
+- {id: bb-a034, split: test, source: authored, pair: p18, lesson_id: g4b.u9.l03, grade: 4, label: out, dimension: concept, culprit: kp.gg.多边形面积.parallelogram_area,
+  stem: 一个平行四边形的底是 12 厘米，高是 7 厘米，它的面积是多少平方厘米？, solution: 12 × 7 = 84（平方厘米）}
+- {id: bb-a035, split: test, source: authored, pair: p18, lesson_id: g4b.u9.l03, grade: 4, label: in, dimension: concept, culprit: null, stem: 一个长方形的长是
+    12 厘米，宽是 7 厘米，它的面积是多少平方厘米？, solution: 12 × 7 = 84（平方厘米）}
+- {id: bb-a036, split: test, source: authored, pair: p19, lesson_id: g4b.u9.l03, grade: 4, label: out, dimension: concept, culprit: kp.na.因数与倍数.倍数与因数的意义,
+  stem: 18 的因数有哪些？, solution: 1、2、3、6、9、18}
+- {id: bb-a037, split: test, source: authored, pair: p19, lesson_id: g4b.u9.l03, grade: 4, label: in, dimension: concept, culprit: null, stem: 18
+    里面有几个 3？, solution: 18 ÷ 3 = 6（个）}
+- {id: bb-a038, split: test, source: authored, pair: p20, lesson_id: g4b.u9.l03, grade: 4, label: out, dimension: concept, culprit: kp.na.百分数.rate_application,
+  stem: 某班有 40 人，今天出勤 38 人，出勤率是多少？（用百分数表示）, solution: 38 ÷ 40 = 0.95 = 95%}
+- {id: bb-a039, split: test, source: authored, pair: p20, lesson_id: g4b.u9.l03, grade: 4, label: in, dimension: concept, culprit: null, stem: 某班有
+    40 人，今天出勤 38 人，缺勤几人？, solution: 40 - 38 = 2（人）}
+- {id: bb-a040, split: val, source: authored, pair: p21, lesson_id: g4b.u9.l03, grade: 4, label: out, dimension: concept, culprit: kp.gg.体积与容积.g5b_cuboid_volume,
+  stem: 一个长方体长 5 厘米、宽 4 厘米、高 3 厘米，它的体积是多少立方厘米？, solution: 5 × 4 × 3 = 60（立方厘米）}
+- {id: bb-a041, split: val, source: authored, pair: p21, lesson_id: g4b.u9.l03, grade: 4, label: in, dimension: concept, culprit: null, stem: 一个长方形长
+    5 厘米、宽 4 厘米，它的面积是多少平方厘米？, solution: 5 × 4 = 20（平方厘米）}
+- {id: bb-a042, split: val, source: authored, pair: p22, lesson_id: g5a.u12.l04, grade: 5, label: out, dimension: fraction_types, culprit: kp.na.分数除法.g5b_frac_div_int,
+  stem: 把 3/4 米长的绳子平均分成 3 段，每段长多少米？, solution: 3/4 ÷ 3 = 1/4（米）}
+- {id: bb-a043, split: val, source: authored, pair: p22, lesson_id: g5a.u12.l04, grade: 5, label: in, dimension: fraction_types, culprit: null,
+  stem: 把 3.6 米长的绳子平均分成 3 段，每段长多少米？, solution: 3.6 ÷ 3 = 1.2（米）}
+- {id: bb-a044, split: val, source: authored, pair: p23, lesson_id: g5a.u12.l04, grade: 5, label: out, dimension: concept, culprit: kp.gg.圆.circumference_formula,
+  stem: 一个圆的半径是 5 厘米，它的周长是多少厘米？（π 取 3.14）, solution: 2 × 3.14 × 5 = 31.4（厘米）}
+- {id: bb-a045, split: val, source: authored, pair: p23, lesson_id: g5a.u12.l04, grade: 5, label: in, dimension: concept, culprit: null, stem: 一个正五边形的边长是
+    5 厘米，它的周长是多少厘米？, solution: 5 × 5 = 25（厘米）}
+- {id: bb-a046, split: val, source: authored, pair: p24, lesson_id: g5a.u12.l04, grade: 5, label: out, dimension: fraction_types, culprit: kp.na.分数加减法.g5b_heterogeneous,
+  stem: 计算：1/2 + 1/3, solution: 1/2 + 1/3 = 3/6 + 2/6 = 5/6}
+- {id: bb-a047, split: val, source: authored, pair: p24, lesson_id: g5a.u12.l04, grade: 5, label: in, dimension: fraction_types, culprit: null,
+  stem: 计算：0.5 + 0.25, solution: 0.5 + 0.25 = 0.75}
+- {id: bb-a048, split: test, source: authored, pair: p25, lesson_id: g5a.u12.l04, grade: 5, label: out, dimension: concept, culprit: kp.na.比与比例.ratio_basic_property,
+  stem: '化简比：12 : 18', solution: '12 : 18 = 2 : 3'}
+- {id: bb-a049, split: test, source: authored, pair: p25, lesson_id: g5a.u12.l04, grade: 5, label: in, dimension: concept, culprit: null, stem: 12
+    个苹果平均分给 4 个小朋友，每人分几个？, solution: 12 ÷ 4 = 3（个）}
+- {id: bb-a050, split: val, source: authored, pair: p26, lesson_id: g5a.u12.l04, grade: 5, label: out, dimension: fraction_types, culprit: kp.na.分数乘法.g5b_frac_times_frac,
+  stem: 一桶油重 30 千克，用去了它的 2/5，用去多少千克？, solution: 30 × 2/5 = 12（千克）}
+- {id: bb-a051, split: val, source: authored, pair: p26, lesson_id: g5a.u12.l04, grade: 5, label: in, dimension: fraction_types, culprit: null,
+  stem: 一桶油重 30 千克，用去了 12 千克，还剩多少千克？, solution: 30 - 12 = 18（千克）}
+- {id: bb-a052, split: val, source: authored, pair: p27, lesson_id: g5b.u11.l03, grade: 5, label: out, dimension: concept, culprit: kp.gg.圆.area_formula,
+  stem: 一个圆形花坛的半径是 4 米，它的面积是多少平方米？（π 取 3.14）, solution: 3.14 × 4 × 4 = 50.24（平方米）}
+- {id: bb-a053, split: val, source: authored, pair: p27, lesson_id: g5b.u11.l03, grade: 5, label: in, dimension: concept, culprit: null, stem: 一个长方体长
+    6 米、宽 4 米、高 3 米，它的体积是多少立方米？, solution: 6 × 4 × 3 = 72（立方米）}
+- {id: bb-a054, split: val, source: authored, pair: p28, lesson_id: g5b.u11.l03, grade: 5, label: out, dimension: concept, culprit: kp.na.百分数.rate_application,
+  stem: 一批零件的合格率是 96%，这批零件共 500 个，合格的有多少个？, solution: 500 × 96% = 480（个）}
+- {id: bb-a055, split: val, source: authored, pair: p28, lesson_id: g5b.u11.l03, grade: 5, label: in, dimension: concept, culprit: null, stem: 一批零件共
+    500 个，其中不合格的有 20 个，合格的占总数的几分之几？, solution: 480/500 = 24/25}
+- {id: bb-a056, split: test, source: authored, pair: p29, lesson_id: g5b.u11.l03, grade: 5, label: out, dimension: concept, culprit: kp.gg.圆柱与圆锥.cylinder_volume,
+  stem: 一个圆柱的底面积是 20 平方厘米，高是 5 厘米，它的体积是多少立方厘米？, solution: 20 × 5 = 100（立方厘米）}
+- {id: bb-a057, split: test, source: authored, pair: p29, lesson_id: g5b.u11.l03, grade: 5, label: in, dimension: concept, culprit: null, stem: 一个长方体的底面积是
+    20 平方厘米，高是 5 厘米，它的体积是多少立方厘米？, solution: 20 × 5 = 100（立方厘米）}
+- {id: bb-a058, split: test, source: authored, pair: p30, lesson_id: g5b.u11.l03, grade: 5, label: out, dimension: concept, culprit: kp.na.比与比例.proportion_concept,
+  stem: '在比例 3 : 4 = 9 : x 中，x 等于多少？', solution: 3x = 4 × 9，x = 12}
+- {id: bb-a059, split: test, source: authored, pair: p30, lesson_id: g5b.u11.l03, grade: 5, label: in, dimension: concept, culprit: null, stem: 解方程：x
+    + 3/5 = 4/5, solution: x = 4/5 - 3/5 = 1/5}
+- {id: bb-a060, split: test, source: authored, pair: p31, lesson_id: g6a.u13.l04, grade: 6, label: out, dimension: concept, culprit: kp.gg.圆柱与圆锥.cylinder_volume,
+  stem: 一个圆柱形水桶，底面半径是 20 厘米，高是 50 厘米，它的容积是多少升？（π 取 3.14）, solution: 3.14 × 20 × 20 × 50 = 62800（立方厘米）= 62.8 升}
+- {id: bb-a061, split: test, source: authored, pair: p31, lesson_id: g6a.u13.l04, grade: 6, label: in, dimension: concept, culprit: null, stem: 一个圆的半径是
+    3 厘米，它的面积是多少平方厘米？（π 取 3.14）, solution: 3.14 × 3 × 3 = 28.26（平方厘米）}
+- {id: bb-a062, split: val, source: authored, pair: p32, lesson_id: g1b.u10.l03, grade: 1, label: out, dimension: operation_forms, culprit: kp.na.整数乘法.乘法的意义,
+  stem: 每盘放 3 个苹果，4 盘一共有多少个苹果？请列乘法算式。, solution: 3 × 4 = 12（个）}
+- {id: bb-a063, split: val, source: authored, pair: p32, lesson_id: g1b.u10.l03, grade: 1, label: in, dimension: operation_forms, culprit: null,
+  stem: 盘子里有 3 个苹果，又拿来 2 个，一共有多少个苹果？, solution: 3 + 3 = 6（个）}
+- {id: bb-a064, split: val, source: authored, pair: p33, lesson_id: g1b.u10.l03, grade: 1, label: out, dimension: operation_forms, culprit: kp.na.整数加减法.two_digit_add_written_carry,
+  stem: 计算：35 + 48, solution: 35 + 48 = 83}
+- {id: bb-a065, split: val, source: authored, pair: p33, lesson_id: g1b.u10.l03, grade: 1, label: in, dimension: operation_forms, culprit: null,
+  stem: 计算：35 + 24, solution: 35 + 24 = 59}
+- {id: bb-n000, split: test, source: template, pair: num0, lesson_id: g3a.u9.l05, grade: 3, label: in, dimension: numeric, culprit: null, stem: 计算：0.3
+    + 4.7 = （    ）, solution: '', kind: fill}
+- {id: bb-n001, split: test, source: template, pair: num0, lesson_id: g2b.u3.l01, grade: 2, label: out, dimension: decimal_places, culprit: null,
+  stem: 计算：0.3 + 4.7 = （    ）, solution: '', kind: fill}
+- {id: bb-n002, split: test, source: template, pair: num1, lesson_id: g2a.u12.l01, grade: 2, label: in, dimension: numeric, culprit: null, stem: 计算：76
+    + 16 =, solution: '', kind: calc}
+- {id: bb-n003, split: test, source: template, pair: num1, lesson_id: g1b.u4.l07, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 计算：76 + 16 =, solution: '', kind: calc}
+- {id: bb-n004, split: test, source: template, pair: num2, lesson_id: g2a.u7.l07, grade: 2, label: in, dimension: numeric, culprit: null, stem: 在“火星探险”棋盘游戏中，棋子当前位于第
+    20 格。掷出骰子后，需执行指令：直接移动到算式 35 + 9 的结果所在的格子。请计算棋子移动后的新位置是第几格？, solution: '', kind: calc}
+- {id: bb-n005, split: test, source: template, pair: num2, lesson_id: g1b.u1.l08, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 在“火星探险”棋盘游戏中，棋子当前位于第 20 格。掷出骰子后，需执行指令：直接移动到算式 35 + 9 的结果所在的格子。请计算棋子移动后的新位置是第几格？, solution: '', kind: calc}
+- {id: bb-n006, split: val, source: template, pair: num3, lesson_id: g2a.u10.l03, grade: 2, label: in, dimension: numeric, culprit: null, stem: '括号里最大能填几？
+
+    3 × (   ) < 88', solution: '', kind: fill}
+- {id: bb-n007, split: val, source: template, pair: num3, lesson_id: g1b.u4.l05, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: '括号里最大能填几？
+
+    3 × (   ) < 88', solution: '', kind: fill}
+- {id: bb-n008, split: val, source: template, pair: num4, lesson_id: g2a.u1.l03, grade: 2, label: in, dimension: numeric, culprit: null, stem: 算一算：33
+    - 17 = （    ）, solution: '', kind: calc}
+- {id: bb-n009, split: val, source: template, pair: num4, lesson_id: g1a.u3.l01, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 算一算：33 - 17 = （    ）, solution: '', kind: calc}
+- {id: bb-n010, split: test, source: template, pair: num5, lesson_id: g2a.u1.l04, grade: 2, label: in, dimension: numeric, culprit: null, stem: "森林医生：下面的竖式计算对吗？如果不对，请改正。\n\
+    \n   91\n-  54\n-------\n   54\n\n正确的得数是：____", solution: '', kind: calc}
+- {id: bb-n011, split: test, source: template, pair: num5, lesson_id: g1a.u4.l01, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: "森林医生：下面的竖式计算对吗？如果不对，请改正。\n\n   91\n-  54\n-------\n   54\n\n正确的得数是：____", solution: '', kind: calc}
+- {id: bb-n012, split: test, source: template, pair: num6, lesson_id: g2a.u7.l07, grade: 2, label: in, dimension: numeric, culprit: null, stem: 小刚收集了29个瓶子，后来又收集了32个瓶子。小刚一共收集了多少个瓶子？,
+  solution: '', kind: application}
+- {id: bb-n013, split: test, source: template, pair: num6, lesson_id: g1b.u1.l08, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 小刚收集了29个瓶子，后来又收集了32个瓶子。小刚一共收集了多少个瓶子？, solution: '', kind: application}
+- {id: bb-n014, split: val, source: template, pair: num7, lesson_id: g2a.u1.l07, grade: 2, label: in, dimension: numeric, culprit: null, stem: '小动物们踩着荷叶过河，每只小动物要经过3块荷叶。请算出小熊猫踩着的三块荷叶上算式的得数：
+
+    第一块：55+9
+
+    第二块：69+4
+
+    第三块：30-24', solution: '', kind: calc}
+- {id: bb-n015, split: val, source: template, pair: num7, lesson_id: g1a.u5.l02, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: '小动物们踩着荷叶过河，每只小动物要经过3块荷叶。请算出小熊猫踩着的三块荷叶上算式的得数：
+
+    第一块：55+9
+
+    第二块：69+4
+
+    第三块：30-24', solution: '', kind: calc}
+- {id: bb-n016, split: val, source: template, pair: num8, lesson_id: g2a.u1.l03, grade: 2, label: in, dimension: numeric, culprit: null, stem: 看图算一算：80
+    - 79 =, solution: '', kind: calc}
+- {id: bb-n017, split: val, source: template, pair: num8, lesson_id: g1a.u3.l01, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 看图算一算：80 - 79 =, solution: '', kind: calc}
+- {id: bb-n018, split: test, source: template, pair: num9, lesson_id: g1b.u10.l01, grade: 1, label: in, dimension: numeric, culprit: null, stem: 在体育测试中，小刚跳了70下，小美跳了67下。小刚比小美多跳____下。,
+  solution: '', kind: fill}
+- {id: bb-n019, split: test, source: template, pair: num9, lesson_id: g1a.u1.l08, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 在体育测试中，小刚跳了70下，小美跳了67下。小刚比小美多跳____下。, solution: '', kind: fill}
+- {id: bb-n020, split: val, source: template, pair: num10, lesson_id: g1b.u7.l07, grade: 1, label: in, dimension: numeric, culprit: null, stem: '商店里有以下商品：文具盒
+    77元，铅笔 51元。请解决下面的问题：
+
+    买1个文具盒和1个铅笔一共要多少元？', solution: '', kind: application}
+- {id: bb-n021, split: val, source: template, pair: num10, lesson_id: g1a.u0.l04, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: '商店里有以下商品：文具盒 77元，铅笔 51元。请解决下面的问题：
+
+    买1个文具盒和1个铅笔一共要多少元？', solution: '', kind: application}
+- {id: bb-n022, split: test, source: template, pair: num11, lesson_id: g3a.u9.l04, grade: 3, label: in, dimension: numeric, culprit: null, stem: 计算：96.3
+    + 25.3, solution: '', kind: calc}
+- {id: bb-n023, split: test, source: template, pair: num11, lesson_id: g2b.u2.l03, grade: 2, label: out, dimension: decimal_places, culprit: null,
+  stem: 计算：96.3 + 25.3, solution: '', kind: calc}
+- {id: bb-n024, split: test, source: template, pair: num12, lesson_id: g3a.u9.l06, grade: 3, label: in, dimension: numeric, culprit: null, stem: 【科普小知识】某新型火箭发动机喷口直径数据。其中数值
+    38.31 的十分位上是 4，表示 7 个 0.1；百分位上是 8，表示 8 个 0.01。, solution: '', kind: application}
+- {id: bb-n025, split: test, source: template, pair: num12, lesson_id: g2b.u3.l02, grade: 2, label: out, dimension: decimal_places, culprit: null,
+  stem: 【科普小知识】某新型火箭发动机喷口直径数据。其中数值 38.31 的十分位上是 4，表示 7 个 0.1；百分位上是 8，表示 8 个 0.01。, solution: '', kind: application}
+- {id: bb-n026, split: val, source: template, pair: num13, lesson_id: g2b.u8.l01, grade: 2, label: in, dimension: numeric, culprit: null, stem: 口算：1010
+    + 390 =, solution: '', kind: calc}
+- {id: bb-n027, split: val, source: template, pair: num13, lesson_id: g2a.u1.l02, grade: 2, label: out, dimension: integer_domain, culprit: null,
+  stem: 口算：1010 + 390 =, solution: '', kind: calc}
+- {id: bb-n028, split: test, source: template, pair: num14, lesson_id: g1b.u10.l01, grade: 1, label: in, dimension: numeric, culprit: null, stem: 用竖式计算：26
+    + 71 =, solution: '', kind: calc}
+- {id: bb-n029, split: test, source: template, pair: num14, lesson_id: g1a.u1.l08, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 用竖式计算：26 + 71 =, solution: '', kind: calc}
+- {id: bb-n030, split: val, source: template, pair: num15, lesson_id: g4a.u1.l06, grade: 4, label: in, dimension: numeric, culprit: null, stem: '根据统计表，2023年水稻的产量是474348090吨，大豆的产量是81632256吨。
+
+    （1）474348090读作：__________________。
+
+    （2）比较这两个数的大小：474348090 ○ 81632256（在○里填“＞”“＜”或“＝”）。', solution: '', kind: application}
+- {id: bb-n031, split: val, source: template, pair: num15, lesson_id: g3a.u9.l01, grade: 3, label: out, dimension: integer_domain, culprit: null,
+  stem: '根据统计表，2023年水稻的产量是474348090吨，大豆的产量是81632256吨。
+
+    （1）474348090读作：__________________。
+
+    （2）比较这两个数的大小：474348090 ○ 81632256（在○里填“＞”“＜”或“＝”）。', solution: '', kind: application}
+- {id: bb-n032, split: val, source: template, pair: num16, lesson_id: g2a.u1.l02, grade: 2, label: in, dimension: numeric, culprit: null, stem: "森林医生：下面这个竖式计算有错误，请找出错误并改正。\n\
+    \n   49\n+  46\n-------\n   69", solution: '', kind: calc}
+- {id: bb-n033, split: val, source: template, pair: num16, lesson_id: g1a.u2.l04, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: "森林医生：下面这个竖式计算有错误，请找出错误并改正。\n\n   49\n+  46\n-------\n   69", solution: '', kind: calc}
+- {id: bb-n034, split: test, source: template, pair: num17, lesson_id: g1b.u7.l06, grade: 1, label: in, dimension: numeric, culprit: null, stem: 小强收集了86个塑料瓶，小林收集的比小强多3个。小佳收集的比小林少3个（此信息与本题无关）。请问小林收集了多少个塑料瓶？,
+  solution: '', kind: application}
+- {id: bb-n035, split: test, source: template, pair: num17, lesson_id: g1a.u0.l03, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 小强收集了86个塑料瓶，小林收集的比小强多3个。小佳收集的比小林少3个（此信息与本题无关）。请问小林收集了多少个塑料瓶？, solution: '', kind: application}
+- {id: bb-n036, split: test, source: template, pair: num18, lesson_id: g2b.u5.l06, grade: 2, label: in, dimension: numeric, culprit: null, stem: '估一估，下面这段关于鲸鱼的文字大约有多少个字？
+
+
+    它们生活在很久以前，身体非常巨大，有的长着长长的脖子，有的长着锋利的牙齿。科学家通过化石研究它们的生活习性，发现它们种类很多，分布在世界各地。
+
+
+    A. 49个字
+
+    B. 183个字
+
+    C. 1846个字', solution: '', kind: application}
+- {id: bb-n037, split: test, source: template, pair: num18, lesson_id: g1b.u8.l05, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: '估一估，下面这段关于鲸鱼的文字大约有多少个字？
+
+
+    它们生活在很久以前，身体非常巨大，有的长着长长的脖子，有的长着锋利的牙齿。科学家通过化石研究它们的生活习性，发现它们种类很多，分布在世界各地。
+
+
+    A. 49个字
+
+    B. 183个字
+
+    C. 1846个字', solution: '', kind: application}
+- {id: bb-n038, split: val, source: template, pair: num19, lesson_id: g2a.u11.l01, grade: 2, label: in, dimension: numeric, culprit: null, stem: 10元
+    = （ ______ ）角，28角 = （ ______ ）分。, solution: '', kind: fill}
+- {id: bb-n039, split: val, source: template, pair: num19, lesson_id: g1b.u4.l06, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 10元 = （ ______ ）角，28角 = （ ______ ）分。, solution: '', kind: fill}
+- {id: bb-n040, split: val, source: template, pair: num20, lesson_id: g3a.u9.l03, grade: 3, label: in, dimension: numeric, culprit: null, stem: 张伟想购买一种商品，他在三家商店看到了不同的价格：A店
+    3.51元，B店 36.06元，C店 50.93元。请问去哪家店购买最贵？, solution: '', kind: application}
+- {id: bb-n041, split: val, source: template, pair: num20, lesson_id: g2b.u2.l02, grade: 2, label: out, dimension: decimal_places, culprit: null,
+  stem: 张伟想购买一种商品，他在三家商店看到了不同的价格：A店 3.51元，B店 36.06元，C店 50.93元。请问去哪家店购买最贵？, solution: '', kind: application}
+- {id: bb-n042, split: test, source: template, pair: num21, lesson_id: g5a.u1.l02, grade: 5, label: in, dimension: numeric, culprit: null, stem: '计算下列各题：
+
+    (1) 0.553 × 100
+
+    (2) 0.828 × 100', solution: '', kind: calc}
+- {id: bb-n043, split: test, source: template, pair: num21, lesson_id: g4a.u4.l09, grade: 4, label: out, dimension: decimal_places, culprit: null,
+  stem: '计算下列各题：
+
+    (1) 0.553 × 100
+
+    (2) 0.828 × 100', solution: '', kind: calc}
+- {id: bb-n044, split: test, source: template, pair: num22, lesson_id: g4a.u1.l04, grade: 4, label: in, dimension: numeric, culprit: null, stem: 某学校今年共有学生
+    220131 人。请将该人数四舍五入到 十 位，结果约是（    ）人。, solution: '', kind: application}
+- {id: bb-n045, split: test, source: template, pair: num22, lesson_id: g3a.u8.l05, grade: 3, label: out, dimension: integer_domain, culprit: null,
+  stem: 某学校今年共有学生 220131 人。请将该人数四舍五入到 十 位，结果约是（    ）人。, solution: '', kind: application}
+- {id: bb-n046, split: test, source: template, pair: num23, lesson_id: g2b.u11.l01, grade: 2, label: in, dimension: numeric, culprit: null, stem: 想一想，算一算：865+(
+    )=4321    4321-( )=865    4321-865=( ), solution: '', kind: fill}
+- {id: bb-n047, split: test, source: template, pair: num23, lesson_id: g2a.u4.l01, grade: 2, label: out, dimension: integer_domain, culprit: null,
+  stem: 想一想，算一算：865+( )=4321    4321-( )=865    4321-865=( ), solution: '', kind: fill}
+- {id: bb-n048, split: test, source: template, pair: num24, lesson_id: g3a.u9.l01, grade: 3, label: in, dimension: numeric, culprit: null, stem: 看图填空：竹笋的价格是
+    27.41 元，也就是 ______ 元 ______ 角 ______ 分。, solution: '', kind: fill}
+- {id: bb-n049, split: test, source: template, pair: num24, lesson_id: g2b.u1.l04, grade: 2, label: out, dimension: decimal_places, culprit: null,
+  stem: 看图填空：竹笋的价格是 27.41 元，也就是 ______ 元 ______ 角 ______ 分。, solution: '', kind: fill}
+- {id: bb-n050, split: val, source: template, pair: num25, lesson_id: g5a.u1.l02, grade: 5, label: in, dimension: numeric, culprit: null, stem: 一杯果汁的容量是
+    81.844 升。在这个小数中，小数点右面第 1 位上的数字表示 ( ) 个 ( )，也可以表示 ( ) 个 ( )。, solution: '', kind: fill}
+- {id: bb-n051, split: val, source: template, pair: num25, lesson_id: g4a.u4.l09, grade: 4, label: out, dimension: decimal_places, culprit: null,
+  stem: 一杯果汁的容量是 81.844 升。在这个小数中，小数点右面第 1 位上的数字表示 ( ) 个 ( )，也可以表示 ( ) 个 ( )。, solution: '', kind: fill}
+- {id: bb-n052, split: val, source: template, pair: num26, lesson_id: g1b.u10.l01, grade: 1, label: in, dimension: numeric, culprit: null, stem: '按规律填数。
+
+    （1）50，52，54，56，____，____，____，____
+
+    （2）79，77，____，____，71，69，____，____，63，61', solution: '', kind: fill}
+- {id: bb-n053, split: val, source: template, pair: num26, lesson_id: g1a.u1.l08, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: '按规律填数。
+
+    （1）50，52，54，56，____，____，____，____
+
+    （2）79，77，____，____，71，69，____，____，63，61', solution: '', kind: fill}
+- {id: bb-n054, split: test, source: template, pair: num27, lesson_id: g3a.u9.l04, grade: 3, label: in, dimension: numeric, culprit: null, stem: 小明在存钱罐里原有15.2元，今天又存入1.5元。现在存钱罐里一共有多少元？,
+  solution: '', kind: application}
+- {id: bb-n055, split: test, source: template, pair: num27, lesson_id: g2b.u2.l03, grade: 2, label: out, dimension: decimal_places, culprit: null,
+  stem: 小明在存钱罐里原有15.2元，今天又存入1.5元。现在存钱罐里一共有多少元？, solution: '', kind: application}
+- {id: bb-n056, split: test, source: template, pair: num28, lesson_id: g2a.u1.l05, grade: 2, label: in, dimension: numeric, culprit: null, stem: 野生动物保护站统计东北虎数量。已知总数是63，其中一部分是14，求另一部分（找回的钱数）是多少？,
+  solution: '', kind: application}
+- {id: bb-n057, split: test, source: template, pair: num28, lesson_id: g1a.u4.l02, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 野生动物保护站统计东北虎数量。已知总数是63，其中一部分是14，求另一部分（找回的钱数）是多少？, solution: '', kind: application}
+- {id: bb-n058, split: test, source: template, pair: num29, lesson_id: g4a.u4.l05, grade: 4, label: in, dimension: numeric, culprit: null, stem: '【资源统计】据统计，全国约有
+    80000000 个家庭。如果每个家庭拥有一台 空调，且每台 空调 每年因待机浪费约 6 千瓦时电。
+
+    （1）这些 空调 一年总共浪费多少千瓦时电？
+
+    （2）如果一个普通家庭一年的用电量约为 1100 千瓦时，那么上述浪费的电量够多少个这样的家庭使用一年？', solution: '', kind: application}
+- {id: bb-n059, split: test, source: template, pair: num29, lesson_id: g3a.u12.l03, grade: 3, label: out, dimension: integer_domain, culprit: null,
+  stem: '【资源统计】据统计，全国约有 80000000 个家庭。如果每个家庭拥有一台 空调，且每台 空调 每年因待机浪费约 6 千瓦时电。
+
+    （1）这些 空调 一年总共浪费多少千瓦时电？
+
+    （2）如果一个普通家庭一年的用电量约为 1100 千瓦时，那么上述浪费的电量够多少个这样的家庭使用一年？', solution: '', kind: application}
+- {id: bb-n060, split: test, source: template, pair: num30, lesson_id: g2a.u12.l02, grade: 2, label: in, dimension: numeric, culprit: null, stem: 在横线上填上合适的长度单位（厘米或米）：铅笔长约/高约
+    93____。, solution: '', kind: fill}
+- {id: bb-n061, split: test, source: template, pair: num30, lesson_id: g1b.u4.l08, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 在横线上填上合适的长度单位（厘米或米）：铅笔长约/高约 93____。, solution: '', kind: fill}
+- {id: bb-n062, split: val, source: template, pair: num31, lesson_id: g2b.u11.l01, grade: 2, label: in, dimension: numeric, culprit: null, stem: 找规律，填一填：8120，___，8194，___。,
+  solution: '', kind: fill}
+- {id: bb-n063, split: val, source: template, pair: num31, lesson_id: g2a.u4.l01, grade: 2, label: out, dimension: integer_domain, culprit: null,
+  stem: 找规律，填一填：8120，___，8194，___。, solution: '', kind: fill}
+- {id: bb-n064, split: val, source: template, pair: num32, lesson_id: g2a.u1.l07, grade: 2, label: in, dimension: numeric, culprit: null, stem: 小红有17个图书，小刚比小红多76个。小刚有多少个图书？,
+  solution: '', kind: application}
+- {id: bb-n065, split: val, source: template, pair: num32, lesson_id: g1a.u5.l02, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 小红有17个图书，小刚比小红多76个。小刚有多少个图书？, solution: '', kind: application}
+- {id: bb-n066, split: test, source: template, pair: num33, lesson_id: g2a.u1.l02, grade: 2, label: in, dimension: numeric, culprit: null, stem: 手工课上，老师准备了三袋珠子，数量分别是
+    51 颗、71 颗和 35 颗。穿一条项链需要 97 颗珠子。哪两袋珠子合起来够穿一条项链？请写出算式并回答。, solution: '', kind: application}
+- {id: bb-n067, split: test, source: template, pair: num33, lesson_id: g1a.u2.l04, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: 手工课上，老师准备了三袋珠子，数量分别是 51 颗、71 颗和 35 颗。穿一条项链需要 97 颗珠子。哪两袋珠子合起来够穿一条项链？请写出算式并回答。, solution: '', kind: application}
+- {id: bb-n068, split: test, source: template, pair: num34, lesson_id: g2a.u9.l05, grade: 2, label: in, dimension: numeric, culprit: null, stem: '商店里，手套每顶2元，书包每双2元。
+
+    （1）买4个手套需要多少元？
+
+    （2）小明带了44元，全部用来买书包，可以买几个？', solution: '', kind: application}
+- {id: bb-n069, split: test, source: template, pair: num34, lesson_id: g1b.u4.l02, grade: 1, label: out, dimension: integer_domain, culprit: null,
+  stem: '商店里，手套每顶2元，书包每双2元。
+
+    （1）买4个手套需要多少元？
+
+    （2）小明带了44元，全部用来买书包，可以买几个？', solution: '', kind: application}

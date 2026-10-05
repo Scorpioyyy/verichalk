@@ -1,0 +1,54 @@
+# 创作与核验端到端用例 —— 新鲜 holdout 批（eval/specs/produce.md §2.1 "验收前另补一批新的未见用例"）。
+# 在首轮 produce 验收计划确定之后撰写；措辞与知识点刻意避开 produce.yaml 的 72 例，全部 split: test，
+# **从未用于调参**：只在里程碑验收时跑一次，结果如实报告，失败样本不得回头"修"进提示或规则里去拟合它们。
+# 格式与 expect 键同 produce.yaml（n_items / topics_any / tier_min / kinds_only / scene_any / source / clarify）。
+# topics_any 关键词均已核对：出现在对应年级教材知识点的名称或别名里。边缘情形（含学期说错、两个主题混合、极模糊请求）标 edge。
+# 分布：g1 5 / g2 4 / g3 6 / g4 7 / g5 7 / g6 7；领域 na / gg / sp / ip；template 4 例（g2 g3 g4 g5）。
+
+# ---- 一年级 ----
+- {id: pf-001, split: test, tags: [g1, na, consolidate], turns: [{user: "一年级上册认识钟表的题，整点半点的那种，出4道", expect: {n_items: 4, topics_any: [整时, 半时]}}]}
+- {id: pf-002, split: test, tags: [g1, sp, consolidate, kinds], turns: [{user: "一上分类的练习，给孩子做几道选择题，4道就行", expect: {n_items: 4, kinds_only: [choice], topics_any: [分类]}}]}
+- {id: pf-003, split: test, tags: [g1, gg, consolidate], turns: [{user: "一年级下册认识图形，出5道，别太难，孩子刚学", expect: {n_items: 5, topics_any: [图形]}}]}
+- {id: pf-004, split: test, tags: [g1, na, variation, colloquial], turns: [{user: "一下凑十法，快速出6道，换几种问法的变式", expect: {n_items: 6, topics_any: [凑十], tier_min: {variation: 2}}}]}
+- {id: pf-005, split: test, tags: [g1, na, kinds], turns: [{user: "一年级下册两位数加一位数，只要计算题，8道", expect: {n_items: 8, kinds_only: [calc], topics_any: [两位数]}}]}
+
+# ---- 二年级 ----
+- {id: pf-006, split: test, tags: [g2, na, count], turns: [{user: "二年级上册，出1道讲倍的认识的题，明天课上用", expect: {n_items: 1, topics_any: [倍]}}]}
+- {id: pf-007, split: test, tags: [g2, na, kinds], turns: [{user: "二下万以内数的认识，判断题和填空题，出5道", expect: {n_items: 5, kinds_only: [judge, fill], topics_any: [万]}}]}
+- {id: pf-008, split: test, tags: [g2, na, scene, constraint, kinds], turns: [{user: "二年级下册三位数加减法的应用题，6道，数字小一点，情境用学校种树", expect: {n_items: 6, kinds_only: [application], topics_any: [三位数], scene_any: [种树, 植树, 树]}}]}
+- {id: pf-009, split: test, tags: [g2, na, template], turns: [{user: "二年级上册两位数加两位数进位的口算，同类题批量来12道", expect: {n_items: 12, source: template}}]}
+
+# ---- 三年级 ----
+- {id: pf-010, split: test, tags: [g3, gg, consolidate, typo], turns: [{user: "三年级下册轴对称图形，出4到题", expect: {n_items: 4, topics_any: [轴对称]}}]}
+- {id: pf-011, split: test, tags: [g3, na, difficulty], turns: [{user: "三上搭配问题，出3道，要有点挑战的", expect: {n_items: 3, topics_any: [搭配]}}]}
+- {id: pf-012, split: test, tags: [g3, na, constraint], turns: [{user: "三年级下册商中间有0的除法，出6道，数字小一点", expect: {n_items: 6, topics_any: [商中]}}]}
+- {id: pf-013, split: test, tags: [g3, na, scene, variation], turns: [{user: "三年级下册克和千克，要变式题，出5道，情境是做饭", expect: {n_items: 5, topics_any: [千克], scene_any: [做饭, 厨房, 烘焙, 食材, 菜], tier_min: {variation: 2}}}]}
+- {id: pf-014, split: test, tags: [g3, na, template], turns: [{user: "三年级上册整十整百数乘一位数，口算卡来10道", expect: {n_items: 10, source: template}}]}
+- {id: pf-015, split: test, tags: [g3, sp, scene], turns: [{user: "三下数据整理，出4道，用运动会报名当背景", expect: {n_items: 4, topics_any: [数据], scene_any: [运动, 体育, 比赛]}}]}
+
+# ---- 四年级 ----
+- {id: pf-016, split: test, tags: [g4, sp, consolidate], turns: [{user: "四年级上册条形统计图，出4道", expect: {n_items: 4, topics_any: [条形统计图]}}]}
+- {id: pf-017, split: test, tags: [g4, gg, difficulty], turns: [{user: "四上垂直和平行，有点拔高，出5道", expect: {n_items: 5, topics_any: [垂直, 平行]}}]}
+- {id: pf-018, split: test, tags: [g4, na, scene, integrated], turns: [{user: "四年级上册，单价数量总价和运算律结合起来的综合题，超市情境，出4道", expect: {n_items: 4, topics_any: [单价, 总价], scene_any: [超市, 购物, 商店], tier_min: {integrated: 1}}}]}
+- {id: pf-019, split: test, tags: [g4, gg, constraint, kinds], turns: [{user: "四下三角形三边关系，判断题，5道，不要出需要看图的", expect: {n_items: 5, kinds_only: [judge], topics_any: [三边]}}]}
+- {id: pf-020, split: test, tags: [g4, na, template], turns: [{user: "四年级下册解方程，同类题批量来12道，课本上那种基础的", expect: {n_items: 12, source: template}}]}
+- {id: pf-021, split: test, tags: [g4, ip, consolidate], turns: [{user: "四上编码的题，身份证号、邮政编码那种，出3道", expect: {n_items: 3, topics_any: [编码]}}]}
+- {id: pf-022, split: test, tags: [g4, edge, mismatch], turns: [{user: "四年级上册，小数乘法，出5道", expect: {n_items: 5}}]}
+
+# ---- 五年级 ----
+- {id: pf-023, split: test, tags: [g5, na, variation], turns: [{user: "五上质数和合数，不要照搬教材，出5道变式题", expect: {n_items: 5, topics_any: [质数, 合数], tier_min: {variation: 2}}}]}
+- {id: pf-024, split: test, tags: [g5, gg, consolidate], turns: [{user: "五年级上册用数对表示位置，出4道，难度适中", expect: {n_items: 4, topics_any: [数对]}}]}
+- {id: pf-025, split: test, tags: [g5, na, template], turns: [{user: "五年级下册异分母分数加减法，课本那种基础题来8道", expect: {n_items: 8, source: template}}]}
+- {id: pf-026, split: test, tags: [g5, sp, consolidate], turns: [{user: "五下复式条形统计图，出4道", expect: {n_items: 4, topics_any: [复式]}}]}
+- {id: pf-027, split: test, tags: [g5, na, scene, difficulty], turns: [{user: "五年级下册相遇问题，出4道，高铁情境，有点拔高", expect: {n_items: 4, topics_any: [相遇], scene_any: [高铁, 火车, 列车, 铁路]}}]}
+- {id: pf-028, split: test, tags: [g5, na, gg, integrated], turns: [{user: "五上，出3道把小数除法和三角形面积结合在一起的综合应用题", expect: {n_items: 3, tier_min: {integrated: 1}}}]}
+- {id: pf-029, split: test, tags: [g5, edge, clarify], turns: [{user: "出点题", clarify_answer: "五年级上册，质数和合数，5道", expect: {n_items: 5, clarify: true}}]}
+
+# ---- 六年级 ----
+- {id: pf-030, split: test, tags: [g6, sp, consolidate], turns: [{user: "六上扇形统计图，出4道", expect: {n_items: 4, topics_any: [扇形]}}]}
+- {id: pf-031, split: test, tags: [g6, na, consolidate], turns: [{user: "六年级上册求合格率、发芽率这类百分数的题，出5道", expect: {n_items: 5, topics_any: [百分数]}}]}
+- {id: pf-032, split: test, tags: [g6, edge, mixed], turns: [{user: "六年级下册，6道，一半考正比例反比例，一半考比例尺", expect: {n_items: 6}}]}
+- {id: pf-033, split: test, tags: [g6, na, integrated, difficulty], turns: [{user: "六年级上册利息和百分数结合的综合题，有点拔高，出3道", expect: {n_items: 3, topics_any: [利息], tier_min: {integrated: 1}}}]}
+- {id: pf-034, split: test, tags: [g6, ip, consolidate], turns: [{user: "六年级上册节水方面的综合与实践题，出3道", expect: {n_items: 3, topics_any: [节水]}}]}
+- {id: pf-035, split: test, tags: [g6, review, integrated], turns: [{user: "六年级下册毕业前复习，出6道，把负数、百分数、比例几块穿插起来", expect: {n_items: 6, tier_min: {integrated: 2}}}]}
+- {id: pf-036, split: test, tags: [g6, gg, scene], turns: [{user: "六下比例尺，出4道，跟看地图、旅游有关", expect: {n_items: 4, topics_any: [比例尺], scene_any: [地图, 旅游, 旅行]}}]}

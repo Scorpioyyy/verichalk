@@ -84,6 +84,7 @@ async def finalize(
     kb: KnowledgeService,
     prev: Brief | None = None,
     method: Method = "llm",
+    topic_hits: dict[str, list[KPHit]] | None = None,
 ) -> Understanding:
     """把 `RawParse` 加工成 `Understanding`。`hits` 是对用户原话的知识点检索结果。"""
     route = raw.route
@@ -95,6 +96,12 @@ async def finalize(
     notes: list[str] = []
     assumptions: list[str] = []
     mapped = map_topics(hits) if raw.topics else []
+    if topic_hits and len(topic_hits) >= 2:  # 多主题请求（"小数乘法和面积"）：每个主题单独映射，都要进入范围
+        per: list[KPHit] = []
+        for topic in raw.topics:
+            best = [h for h in (topic_hits.get(topic) or []) if h.score >= MAP_MIN][:2]
+            per += [h for h in best if h.id not in {x.id for x in per}]
+        mapped = per[: MAP_MAX + 1] or mapped
 
     # ---- 年级 / 学期 / 单元 ----
     grade, grade_origin = raw.grade, _origin("grade", raw)

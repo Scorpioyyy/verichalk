@@ -18,6 +18,7 @@ class Role(StrEnum):
     vision = "vision"
     judge = "judge"
     solver = "solver"
+    extract = "extract"  # 从题面抽取结构化特征（能力边界核验）
 
 
 class ChatMessage(BaseModel):

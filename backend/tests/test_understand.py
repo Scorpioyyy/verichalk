@@ -294,7 +294,7 @@ async def test_main_pipeline_clarify_then_continue(kb_service, store):
     s = Settings(llm_mode=LLMMode.live)
     mgr = RunManager(s, store, EventBus(), kb_service, build_gateway(s, transport=tr))
     ses = await mgr.create_session()
-    run = await mgr.start_turn(ses.id, "出点题")
+    run = await mgr.start_turn(ses.id, "出点题", pipeline="understand")
     cur = await store.runs.get(run.id)
     for _ in range(200):
         cur = await store.runs.get(run.id)

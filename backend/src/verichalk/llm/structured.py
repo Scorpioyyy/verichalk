@@ -17,6 +17,7 @@ from .gateway import LLMGateway, LLMRequest, LLMResult
 T = TypeVar("T", bound=BaseModel)
 
 _FENCE = re.compile(r"^```(?:json)?\s*(.*?)\s*```$", re.S)
+_BAD_ESCAPE = re.compile(r'\\(?![\\"/bfnrtu])')  # 不是 JSON 合法转义字符的反斜杠
 
 
 def extract_json(text: str) -> object:
@@ -28,12 +29,19 @@ def extract_json(text: str) -> object:
     try:
         return json.loads(s)
     except json.JSONDecodeError:
-        start = min((i for i in (s.find("{"), s.find("[")) if i >= 0), default=-1)
+        pass
+    # 模型常在 JSON 字符串里直接写 TeX 命令（\div、\angle……），其中的单个反斜杠不是合法转义：补成双反斜杠再试
+    fixed = _BAD_ESCAPE.sub(r"\\\\", s)
+    for text in (s, fixed):
+        start = min((i for i in (text.find("{"), text.find("[")) if i >= 0), default=-1)
         if start < 0:
-            raise
-        decoder = json.JSONDecoder()
-        obj, _ = decoder.raw_decode(s[start:])
-        return obj
+            continue
+        try:
+            obj, _ = json.JSONDecoder().raw_decode(text[start:])
+            return obj
+        except json.JSONDecodeError:
+            continue
+    raise json.JSONDecodeError("无法解析为 JSON", s, 0)
 
 
 async def complete_json(

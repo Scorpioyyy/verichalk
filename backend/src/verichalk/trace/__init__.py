@@ -2,9 +2,11 @@
 
 from .api import (
     check_span,
+    item_status,
     llm_call,
     message_delta,
     message_done,
+    paper_patched,
     progress,
     retrieval,
     span,
@@ -27,9 +29,11 @@ __all__ = [
     "current_span_id",
     "current_tracer",
     "error_info",
+    "item_status",
     "llm_call",
     "message_delta",
     "message_done",
+    "paper_patched",
     "progress",
     "retrieval",
     "span",

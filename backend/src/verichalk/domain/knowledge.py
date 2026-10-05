@@ -128,6 +128,10 @@ class ArchetypeBrief(BaseModel):
     verifiable_type: str = ""
     template: str = ""
     typical_errors: list[str] = Field(default_factory=list)
+    figure_ratio: float | None = None  # 教材同类题里依赖图形的比例；越高越不适合纯文字出题
+    examples: list[str] = Field(
+        default_factory=list
+    )  # 题型卡片自带的改写示例（"学生做过什么"的样子；也是新颖度的比较对象）
 
 
 class ContextBrief(BaseModel):

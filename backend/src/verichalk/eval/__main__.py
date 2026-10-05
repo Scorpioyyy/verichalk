@@ -17,11 +17,24 @@ from pathlib import Path
 from ..core.config import LLMMode, Profile, Settings
 from ..core.features import REGISTRY
 from ..core.logging import setup_logging
-from ..llm import ModelRegistry
+from ..knowledge import KnowledgeService
+from ..llm import ModelRegistry, build_gateway
 from .ablation import render_ablation, run_ablation
+from .audit import Auditor, AuditStore
 from .cases import load_cases
+from .produce_eval import audit_records, dump_records, render_score, run_cases, run_naive, score
 from .report import write_report
 from .runner import run_suite
+from .verify_eval import (
+    load_bank,
+    load_boundary,
+    render_bank,
+    render_boundary,
+    run_bank,
+    run_boundary,
+    summarize_bank,
+    summarize_boundary,
+)
 
 
 def _history(out_dir: Path) -> dict[str, dict]:
@@ -80,6 +93,172 @@ def cmd_run(args: argparse.Namespace) -> int:
     return 0 if all(c.passed for c in result.cases) else 1
 
 
+def parse_role_overrides(items: list[str]) -> dict[str, dict]:
+    """`--role solver=deepseek-v4.1-flash:think` → {"solver": {"model": ..., "thinking": True}}；可附 `:t=0.3`、`:max=4000`。"""
+    out: dict[str, dict] = {}
+    for it in items:
+        role, _, rest = it.partition("=")
+        parts = rest.split(":")
+        spec: dict = {"model": parts[0]}
+        for flag in parts[1:]:
+            if flag == "think":
+                spec["thinking"] = True
+            elif flag == "nothink":
+                spec["thinking"] = False
+            elif flag == "notemp":
+                spec["send_temperature"] = False
+            elif flag.startswith("t="):
+                spec["temperature"] = float(flag[2:])
+            elif flag.startswith("max="):
+                spec["max_tokens"] = int(flag[4:])
+        out[role] = spec
+    return out
+
+
+def apply_overrides(gw, overrides: dict[str, dict]) -> None:
+    for role, spec in overrides.items():
+        gw.registry = gw.registry.override(role, **spec)
+
+
+VERIFY_CHECKS = {
+    "program": "produce.program_check",
+    "blind": "produce.blind_solve",
+    "boundary": "produce.boundary_check",
+    "quality": "produce.quality_check",
+    "novelty": "produce.novelty_check",
+}
+
+
+def cmd_verify(args: argparse.Namespace) -> int:
+    """在核验评测集上评测验证器：`--bank answers`（V1 / V2 / V5）或 `--bank boundary`（V3 / V4）。
+
+    `--checks blind,quality` 指定启用哪些检查（仅 answers 集），其余关闭；`--role` 临时覆盖角色用的模型。"""
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    default_ns = "verify_bank" if args.bank == "answers" else "verify_boundary"
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or default_ns,
+        llm_concurrency=args.concurrency,
+    )
+    root = settings.root_dir
+    gw = build_gateway(settings)
+    overrides = parse_role_overrides(args.role)
+    apply_overrides(gw, overrides)
+    role_desc = ", ".join(
+        f"{r}={v['model']}{':think' if v.get('thinking') else ''}" for r, v in overrides.items()
+    )
+    if args.bank == "boundary":
+        bitems = load_boundary(root / "eval" / "datasets" / "verify" / "boundary.yaml", args.split)
+        if args.limit:
+            bitems = bitems[: args.limit]
+
+        async def run_b():
+            kb = KnowledgeService.from_settings(settings)
+            return await run_boundary(gw, kb, bitems, concurrency=args.concurrency)
+
+        bres = asyncio.run(run_b())
+        desc = f"{args.tag or 'boundary'} · split={args.split} · " + (role_desc or "默认角色")
+        md = render_boundary(desc, summarize_boundary(bres))
+    else:
+        items = load_bank(root / "eval" / "datasets" / "verify" / "bank.yaml", args.split)
+        if args.sample:
+            import random
+
+            items = random.Random(0).sample(items, min(args.sample, len(items)))
+        if args.limit:
+            items = items[: args.limit]
+        on = {c.strip() for c in args.checks.split(",") if c.strip()}
+        off = ",".join(flag for name, flag in VERIFY_CHECKS.items() if name not in on)
+        results = asyncio.run(run_bank(gw, None, items, off=off, concurrency=args.concurrency))
+        desc = f"{args.tag or 'verify'} · checks={args.checks} · split={args.split} · " + (
+            role_desc or "默认角色"
+        )
+        md = render_bank(desc, summarize_bank(results))
+    out = (
+        root
+        / "eval"
+        / "reports"
+        / f"verify_{args.bank}_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    )
+    out.write_text(md + "\n", encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
+def cmd_produce(args: argparse.Namespace) -> int:
+    """创作与核验的端到端评测：运行 → 审计 → 打分；`--naive` 同时跑朴素直出基线 B0。"""
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "produce",
+        off=args.off,
+        llm_concurrency=args.concurrency * 2,
+    )
+    root = settings.root_dir
+    cases = load_cases(root / "eval" / "datasets", "produce", args.split)
+    if args.only:
+        wanted = {x.strip() for x in args.only.split(",")}
+        cases = [c for c in cases if c.id in wanted]
+    if args.limit:
+        cases = cases[: args.limit]
+
+    async def main() -> str:
+        kb = KnowledgeService.from_settings(settings)
+        recs = await run_cases(settings, cases, args.concurrency)
+        store = AuditStore(root / "eval" / "audits" / "produce.jsonl")
+        auditor = Auditor(settings, kb, store)
+        audits = {} if args.no_audit else await audit_records(auditor, kb, recs)
+        title = f"{args.tag or 'produce'} · split={args.split} · {settings.features.describe()}"
+        parts = [render_score(title, await score(recs, audits, kb))]
+        if args.naive:
+            nrecs = await run_naive(build_gateway(settings), recs)
+            if not args.no_audit:
+                naudits = await audit_records(auditor, kb, nrecs)
+                parts.append(
+                    render_score(
+                        "朴素直出基线 B0（smart 单次调用，无知识库、无核验）", await score(nrecs, naudits, kb)
+                    )
+                )
+            # 教师偏好盲评：同一请求下两套题哪套更适合发给学生（不看对错，看思维含量 / 情境 / 多样性 / 易错点 / 贴合要求）
+            from .preference import JUDGE as PREF_JUDGE
+            from .preference import PrefRow, compare
+            from .preference import summarize as pref_summary
+
+            pgw = build_gateway(settings)
+            pgw.registry = pgw.registry.override("judge", **PREF_JUDGE)
+            by_case = {r.case.id: r for r in nrecs}
+            rows: list[PrefRow] = []
+
+            async def one_pref(r):  # type: ignore[no-untyped-def]
+                other = by_case.get(r.case.id)
+                if other is None or not r.delivered or not other.delivered:
+                    return None
+                n = max(r.n_requested, 1)
+                res, why = await compare(pgw, r.case.turns[0].user, r.delivered, other.delivered, n)
+                return PrefRow(r.case.id, r.case.turns[0].user, res, why)
+
+            rows = [x for x in await asyncio.gather(*(one_pref(r) for r in recs)) if x]
+            parts.append("### A8 教师偏好盲评（VeriChalk vs 朴素直出）\n\n" + pref_summary(rows))
+        if args.dump:
+            Path(args.dump).write_text(dump_records(recs), encoding="utf-8")  # noqa: ASYNC240
+        return "\n\n".join(parts)
+
+    md = asyncio.run(main())
+    out = (
+        root
+        / "eval"
+        / "reports"
+        / f"produce_{args.tag or 'run'}_{args.split}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    )
+    out.write_text(md + "\n", encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
 def cmd_compare(args: argparse.Namespace) -> int:
     settings = Settings()
     hist = _history(settings.root_dir / "eval" / "reports")
@@ -129,6 +308,43 @@ def main() -> None:
     a.add_argument("--cassette-ns", default=None, help="录制命名空间；消融用独立命名空间，避免覆盖黄金录制")
     a.add_argument("--flags", default="", help="要消融的开关，逗号分隔；缺省为全部已注册开关")
     a.set_defaults(fn=cmd_ablate)
+    v = sub.add_parser("verify", help="在 VerifyBank 上评测验证器（V1 / V2 / V5）")
+    v.add_argument("--bank", default="answers", choices=["answers", "boundary"])
+    v.add_argument("--split", default="val", choices=["val", "test", "all"])
+    v.add_argument(
+        "--checks",
+        default="blind,quality",
+        help="启用的检查，逗号分隔：program,blind,boundary,quality,novelty",
+    )
+    v.add_argument(
+        "--role", action="append", default=[], help="角色覆盖，如 solver=deepseek-v4.1-flash:think"
+    )
+    v.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
+    v.add_argument("--record", action="store_true")
+    v.add_argument("--profile", default="intl", choices=["cn", "intl"])
+    v.add_argument("--concurrency", type=int, default=8)
+    v.add_argument("--limit", type=int, default=0)
+    v.add_argument("--sample", type=int, default=0, help="从评测集随机抽 N 条（固定种子，各配置抽到同一批）")
+    v.add_argument("--tag", default="")
+    v.add_argument("--cassette-ns", default=None)
+    v.set_defaults(fn=cmd_verify)
+    pr = sub.add_parser("produce", help="创作与核验的端到端评测（含审计；--naive 加跑朴素基线）")
+    pr.add_argument("--split", default="val", choices=["val", "test", "all"])
+    pr.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
+    pr.add_argument("--record", action="store_true")
+    pr.add_argument("--profile", default="intl", choices=["cn", "intl"])
+    pr.add_argument("--concurrency", type=int, default=4)
+    pr.add_argument("--limit", type=int, default=0)
+    pr.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
+    pr.add_argument("--off", default="", help="关闭的特性开关（消融用）")
+    pr.add_argument("--naive", action="store_true")
+    pr.add_argument(
+        "--no-audit", action="store_true", help="跳过审计（只看交付数 / 延迟 / 成本 / 修复，快速迭代用）"
+    )
+    pr.add_argument("--dump", default="", help="把原始产出写到这个路径（复盘用；不要放进仓库）")
+    pr.add_argument("--tag", default="")
+    pr.add_argument("--cassette-ns", default=None)
+    pr.set_defaults(fn=cmd_produce)
     c = sub.add_parser("compare")
     c.add_argument("--base", required=True)
     c.add_argument("--new", required=True)

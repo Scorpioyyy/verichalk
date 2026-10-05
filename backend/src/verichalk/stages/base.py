@@ -41,6 +41,9 @@ class RunContext:
     store: Store
     tools: ToolRegistry = field(default_factory=default_registry)
     state: dict[str, Any] = field(default_factory=dict)  # 阶段输出快照（可 JSON 序列化）
+    scratch: dict[str, Any] = field(
+        default_factory=dict
+    )  # 本次运行内阶段间共享的临时数据（不持久化，如已写好的题面，防套内重复）
     reuse: set[str] = field(default_factory=set)  # 重放时直接复用快照的阶段键
     history: list[Message] = field(default_factory=list)
     has_paper: bool = False  # 会话里是否已有试卷（决定"太简单了"是修改还是重出）

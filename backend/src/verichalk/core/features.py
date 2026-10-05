@@ -29,6 +29,17 @@ REGISTRY: dict[str, Feature] = {
         Feature("understand.topic_research", "解析出的主题与检索结果对不上时，按主题重新检索"),
         Feature("understand.fewshot", "理解提示词包含示例段"),
         Feature("understand.context", "理解时带上会话上下文（上一轮需求、是否已有试卷）"),
+        Feature("plan.combo_miner", "综合题的知识点搭配由图上的组合挖掘提供；关闭则取检索相近的知识点"),
+        Feature("plan.llm", "规划模型为每道题选择搭配、构想情境与问法；关闭则用确定性分配"),
+        Feature("produce.program_check", "核验：求解程序在沙箱里执行，结果须与题目答案一致"),
+        Feature("produce.blind_solve", "核验：独立模型盲解（看不到答案），结果须与题目答案一致"),
+        Feature("produce.boundary_check", "核验：特征抽取 + 能力边界判定（是否超纲）"),
+        Feature("produce.quality_check", "核验：题面质量与解析一致性、综合题是否真综合（判官）"),
+        Feature(
+            "produce.repair", "核验未通过时带失败证据修复（≤ 2 次）并在用尽后重写一次；关闭则一次不过即废弃"
+        ),
+        Feature("context.textbook_examples", "写题上下文里给出教材题型的改写示例（学生做过什么）"),
+        Feature("produce.novelty_check", "核验：与教材题型示例、上传题及本次其他题的相似度"),
     ]
 }
 

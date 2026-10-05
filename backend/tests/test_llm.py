@@ -232,3 +232,13 @@ def test_registry_env_override_and_missing_role(monkeypatch):
 def test_price_unknown_model_is_none_not_guessed():
     pt = PriceTable.load(Settings().config_dir)
     assert pt.cost("some-new-model", Usage(prompt_tokens=10)) is None
+
+
+def test_extract_json_tolerates_tex_backslashes() -> None:
+    """模型直接在 JSON 字符串里写 TeX 命令：单个反斜杠不是合法转义，应当补救而不是整个失败。"""
+    bs = chr(92)
+    text = '{"stem": "$6' + bs + 'div 3=$____", "angle": "$60^' + bs + 'circ$"}'
+    obj = extract_json(text)
+    assert isinstance(obj, dict)
+    assert obj["stem"] == "$6" + bs + "div 3=$____"
+    assert obj["angle"] == "$60^" + bs + "circ$"

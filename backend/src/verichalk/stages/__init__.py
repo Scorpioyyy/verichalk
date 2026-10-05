@@ -2,6 +2,8 @@
 
 from .base import RunContext, Stage, run_stage
 from .diagnostic import DiagnosticIn, DiagnosticOut, DiagnosticStage
+from .plan import PlanIn, PlanStage
+from .produce import ProduceIn, ProduceOut, ProduceStage
 from .reply import compose_reply
 from .understand import UnderstandIn, UnderstandStage
 
@@ -9,6 +11,11 @@ __all__ = [
     "DiagnosticIn",
     "DiagnosticOut",
     "DiagnosticStage",
+    "PlanIn",
+    "PlanStage",
+    "ProduceIn",
+    "ProduceOut",
+    "ProduceStage",
     "RunContext",
     "Stage",
     "UnderstandIn",

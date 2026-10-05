@@ -1,0 +1,153 @@
+# 超纲核验评测集的手写部分（概念 / 运算形态 / 小数位数维度）。成对构造：同一情境，一道在目标课时之内（in），一道含稍后才学的内容（out）。
+# 构造规范：eval/annotation/boundary/guideline.md。`culprit` 是越界内容对应的知识点规范名（构建脚本解析为 ID，并断言它的首次引入课时晚于目标课时）。
+# 目标课时（lesson_id）取每册最后一课，使"越界"明确落在之后的单元 / 册，避免落入"同一单元稍后才学"（borderline）的灰色地带。
+
+# ---- 二年级下册末 ----
+- {pair: p01, lesson_id: g2b.u11.l04, label: out, dimension: decimal_places, culprit: 一位小数的加减法（不进退位）,
+   stem: "小红买本子花了 2.5 元，买笔花了 1.8 元，一共花了多少元？", solution: "2.5 + 1.8 = 4.3（元）"}
+- {pair: p01, lesson_id: g2b.u11.l04, label: in, dimension: decimal_places, culprit: null,
+   stem: "小红买本子花了 25 元，买笔花了 18 元，一共花了多少元？", solution: "25 + 18 = 43（元）"}
+- {pair: p02, lesson_id: g2b.u11.l04, label: out, dimension: concept, culprit: 周长的意义,
+   stem: "一块长方形菜地长 9 米，宽 6 米，在四周围一圈篱笆，篱笆至少要多长？", solution: "（9 + 6）× 2 = 30（米）"}
+- {pair: p02, lesson_id: g2b.u11.l04, label: in, dimension: concept, culprit: null,
+   stem: "一块菜地长 9 米，宽 6 米，长比宽多几米？", solution: "9 - 6 = 3（米）"}
+
+# ---- 三年级上册末 ----
+- {pair: p03, lesson_id: g3a.u12.l04, label: out, dimension: concept, culprit: 周长的意义,
+   stem: "一个正方形操场的边长是 50 米，小明沿着操场边跑了 1 圈，他跑了多少米？", solution: "50 × 4 = 200（米）"}
+- {pair: p03, lesson_id: g3a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "一个操场长 50 米，宽 30 米，长比宽多多少米？", solution: "50 - 30 = 20（米）"}
+- {pair: p04, lesson_id: g3a.u12.l04, label: out, dimension: concept, culprit: 解方程（等式两边加减同一个数）,
+   stem: "解方程：x + 12 = 35", solution: "x = 35 - 12 = 23"}
+- {pair: p04, lesson_id: g3a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "在方框里填上合适的数：□ + 12 = 35", solution: "35 - 12 = 23，所以填 23"}
+- {pair: p05, lesson_id: g3a.u12.l04, label: out, dimension: operation_forms, culprit: 小数乘整数的意义与算法（初步）,
+   stem: "一支钢笔 3.5 元，买 4 支要多少元？", solution: "3.5 × 4 = 14（元）"}
+- {pair: p05, lesson_id: g3a.u12.l04, label: in, dimension: operation_forms, culprit: null,
+   stem: "一支钢笔 35 元，买 4 支要多少元？", solution: "35 × 4 = 140（元）"}
+- {pair: p06, lesson_id: g3a.u12.l04, label: out, dimension: concept, culprit: 平均数的意义与求法,
+   stem: "小明 4 次跳绳的成绩分别是 45、48、50、53 个，他平均每次跳多少个？", solution: "（45 + 48 + 50 + 53）÷ 4 = 49（个）"}
+- {pair: p06, lesson_id: g3a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "小明第一次跳绳跳了 45 个，第二次跳了 48 个，两次一共跳了多少个？", solution: "45 + 48 = 93（个）"}
+
+# ---- 三年级下册末 ----
+- {pair: p07, lesson_id: g3b.u11.l04, label: out, dimension: concept, culprit: 乘法分配律,
+   stem: "用简便方法计算：25 × (40 + 4)，并说出你用了什么运算律。", solution: "25 × 40 + 25 × 4 = 1000 + 100 = 1100，用了乘法分配律"}
+- {pair: p07, lesson_id: g3b.u11.l04, label: in, dimension: concept, culprit: null,
+   stem: "计算：25 × 4 + 18", solution: "100 + 18 = 118"}
+- {pair: p08, lesson_id: g3b.u11.l04, label: out, dimension: integer_domain, culprit: 三位数乘两位数的竖式计算与估算,
+   stem: "一台机器每分钟加工 135 个零件，28 分钟能加工多少个零件？", solution: "135 × 28 = 3780（个）"}
+- {pair: p08, lesson_id: g3b.u11.l04, label: in, dimension: integer_domain, culprit: null,
+   stem: "一台机器每分钟加工 35 个零件，8 分钟能加工多少个零件？", solution: "35 × 8 = 280（个）"}
+- {pair: p09, lesson_id: g3b.u11.l04, label: out, dimension: decimal_places, culprit: 小数乘整数的意义与算法（初步）,
+   stem: "一瓶牛奶 2.5 元，买 6 瓶要多少元？", solution: "2.5 × 6 = 15（元）"}
+- {pair: p09, lesson_id: g3b.u11.l04, label: in, dimension: decimal_places, culprit: null,
+   stem: "一瓶牛奶 5 元，买 12 瓶要多少元？", solution: "5 × 12 = 60（元）"}
+- {pair: p10, lesson_id: g3b.u11.l04, label: out, dimension: concept, culprit: 用字母表示数,
+   stem: "用字母表示：每支铅笔 a 元，买 5 支铅笔一共要多少元？", solution: "5a 元"}
+- {pair: p10, lesson_id: g3b.u11.l04, label: in, dimension: concept, culprit: null,
+   stem: "每支铅笔 3 元，买 5 支铅笔一共要多少元？", solution: "3 × 5 = 15（元）"}
+- {pair: p11, lesson_id: g3b.u11.l04, label: out, dimension: concept, culprit: 角的度量单位「度」,
+   stem: "用量角器量出一个角是 60°，这个角比直角小多少度？", solution: "90° - 60° = 30°"}
+- {pair: p11, lesson_id: g3b.u11.l04, label: in, dimension: concept, culprit: null,
+   stem: "一个长方形的周长是 24 厘米，长是 8 厘米，它的宽是多少厘米？", solution: "24 ÷ 2 - 8 = 4（厘米）"}
+
+# ---- 四年级上册末 ----
+- {pair: p12, lesson_id: g4a.u12.l04, label: out, dimension: decimal_places, culprit: 积的小数位数规则,
+   stem: "计算：0.6 × 0.4", solution: "6 × 4 = 24，积有两位小数，0.6 × 0.4 = 0.24"}
+- {pair: p12, lesson_id: g4a.u12.l04, label: in, dimension: decimal_places, culprit: null,
+   stem: "计算：36 × 25", solution: "36 × 25 = 900"}
+- {pair: p13, lesson_id: g4a.u12.l04, label: out, dimension: concept, culprit: 解方程（等式两边加减同一个数）,
+   stem: "解方程：3x = 45", solution: "x = 45 ÷ 3 = 15"}
+- {pair: p13, lesson_id: g4a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "计算：45 ÷ 3", solution: "45 ÷ 3 = 15"}
+- {pair: p14, lesson_id: g4a.u12.l04, label: out, dimension: concept, culprit: 平均数的意义与求法,
+   stem: "一组数据 12、15、18、15 的平均数是多少？", solution: "（12 + 15 + 18 + 15）÷ 4 = 15"}
+- {pair: p14, lesson_id: g4a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "有四个数 12、15、18、15，它们的和是多少？", solution: "12 + 15 + 18 + 15 = 60"}
+- {pair: p15, lesson_id: g4a.u12.l04, label: out, dimension: decimal_places, culprit: 小数加减法（位数不同）,
+   stem: "计算：5.2 + 3.45", solution: "5.20 + 3.45 = 8.65"}
+- {pair: p15, lesson_id: g4a.u12.l04, label: in, dimension: decimal_places, culprit: null,
+   stem: "计算：5.2 + 3.4", solution: "5.2 + 3.4 = 8.6"}
+
+# ---- 四年级下册末 ----
+- {pair: p16, lesson_id: g4b.u9.l03, label: out, dimension: concept, culprit: 除法中商是小数（除不尽时用小数表示商）,
+   stem: "一根绳子长 7.5 米，平均分成 3 段，每段长多少米？", solution: "7.5 ÷ 3 = 2.5（米）"}
+- {pair: p16, lesson_id: g4b.u9.l03, label: in, dimension: concept, culprit: null,
+   stem: "一根绳子长 7.5 米，剪去 3 米，还剩多少米？", solution: "7.5 - 3 = 4.5（米）"}
+- {pair: p17, lesson_id: g4b.u9.l03, label: out, dimension: concept, culprit: 三角形的面积,
+   stem: "一个三角形的底是 8 厘米，高是 5 厘米，它的面积是多少平方厘米？", solution: "8 × 5 ÷ 2 = 20（平方厘米）"}
+- {pair: p17, lesson_id: g4b.u9.l03, label: in, dimension: concept, culprit: null,
+   stem: "一个三角形有两个内角分别是 50° 和 60°，第三个内角是多少度？", solution: "180° - 50° - 60° = 70°"}
+- {pair: p18, lesson_id: g4b.u9.l03, label: out, dimension: concept, culprit: 平行四边形的面积,
+   stem: "一个平行四边形的底是 12 厘米，高是 7 厘米，它的面积是多少平方厘米？", solution: "12 × 7 = 84（平方厘米）"}
+- {pair: p18, lesson_id: g4b.u9.l03, label: in, dimension: concept, culprit: null,
+   stem: "一个长方形的长是 12 厘米，宽是 7 厘米，它的面积是多少平方厘米？", solution: "12 × 7 = 84（平方厘米）"}
+- {pair: p19, lesson_id: g4b.u9.l03, label: out, dimension: concept, culprit: 倍数与因数的意义,
+   stem: "18 的因数有哪些？", solution: "1、2、3、6、9、18"}
+- {pair: p19, lesson_id: g4b.u9.l03, label: in, dimension: concept, culprit: null,
+   stem: "18 里面有几个 3？", solution: "18 ÷ 3 = 6（个）"}
+- {pair: p20, lesson_id: g4b.u9.l03, label: out, dimension: concept, culprit: 求生活中的比率型百分数,
+   stem: "某班有 40 人，今天出勤 38 人，出勤率是多少？（用百分数表示）", solution: "38 ÷ 40 = 0.95 = 95%"}
+- {pair: p20, lesson_id: g4b.u9.l03, label: in, dimension: concept, culprit: null,
+   stem: "某班有 40 人，今天出勤 38 人，缺勤几人？", solution: "40 - 38 = 2（人）"}
+- {pair: p21, lesson_id: g4b.u9.l03, label: out, dimension: concept, culprit: 长方体和正方体的体积,
+   stem: "一个长方体长 5 厘米、宽 4 厘米、高 3 厘米，它的体积是多少立方厘米？", solution: "5 × 4 × 3 = 60（立方厘米）"}
+- {pair: p21, lesson_id: g4b.u9.l03, label: in, dimension: concept, culprit: null,
+   stem: "一个长方形长 5 厘米、宽 4 厘米，它的面积是多少平方厘米？", solution: "5 × 4 = 20（平方厘米）"}
+
+# ---- 五年级上册末 ----
+- {pair: p22, lesson_id: g5a.u12.l04, label: out, dimension: fraction_types, culprit: 分数除以整数,
+   stem: "把 3/4 米长的绳子平均分成 3 段，每段长多少米？", solution: "3/4 ÷ 3 = 1/4（米）"}
+- {pair: p22, lesson_id: g5a.u12.l04, label: in, dimension: fraction_types, culprit: null,
+   stem: "把 3.6 米长的绳子平均分成 3 段，每段长多少米？", solution: "3.6 ÷ 3 = 1.2（米）"}
+- {pair: p23, lesson_id: g5a.u12.l04, label: out, dimension: concept, culprit: 圆的周长计算公式,
+   stem: "一个圆的半径是 5 厘米，它的周长是多少厘米？（π 取 3.14）", solution: "2 × 3.14 × 5 = 31.4（厘米）"}
+- {pair: p23, lesson_id: g5a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "一个正五边形的边长是 5 厘米，它的周长是多少厘米？", solution: "5 × 5 = 25（厘米）"}
+- {pair: p24, lesson_id: g5a.u12.l04, label: out, dimension: fraction_types, culprit: 异分母分数加减法（通分）,
+   stem: "计算：1/2 + 1/3", solution: "1/2 + 1/3 = 3/6 + 2/6 = 5/6"}
+- {pair: p24, lesson_id: g5a.u12.l04, label: in, dimension: fraction_types, culprit: null,
+   stem: "计算：0.5 + 0.25", solution: "0.5 + 0.25 = 0.75"}
+- {pair: p25, lesson_id: g5a.u12.l04, label: out, dimension: concept, culprit: 比的基本性质,
+   stem: "化简比：12 : 18", solution: "12 : 18 = 2 : 3"}
+- {pair: p25, lesson_id: g5a.u12.l04, label: in, dimension: concept, culprit: null,
+   stem: "12 个苹果平均分给 4 个小朋友，每人分几个？", solution: "12 ÷ 4 = 3（个）"}
+- {pair: p26, lesson_id: g5a.u12.l04, label: out, dimension: fraction_types, culprit: 分数乘分数,
+   stem: "一桶油重 30 千克，用去了它的 2/5，用去多少千克？", solution: "30 × 2/5 = 12（千克）"}
+- {pair: p26, lesson_id: g5a.u12.l04, label: in, dimension: fraction_types, culprit: null,
+   stem: "一桶油重 30 千克，用去了 12 千克，还剩多少千克？", solution: "30 - 12 = 18（千克）"}
+
+# ---- 五年级下册末 ----
+- {pair: p27, lesson_id: g5b.u11.l03, label: out, dimension: concept, culprit: 圆的面积计算公式,
+   stem: "一个圆形花坛的半径是 4 米，它的面积是多少平方米？（π 取 3.14）", solution: "3.14 × 4 × 4 = 50.24（平方米）"}
+- {pair: p27, lesson_id: g5b.u11.l03, label: in, dimension: concept, culprit: null,
+   stem: "一个长方体长 6 米、宽 4 米、高 3 米，它的体积是多少立方米？", solution: "6 × 4 × 3 = 72（立方米）"}
+- {pair: p28, lesson_id: g5b.u11.l03, label: out, dimension: concept, culprit: 求生活中的比率型百分数,
+   stem: "一批零件的合格率是 96%，这批零件共 500 个，合格的有多少个？", solution: "500 × 96% = 480（个）"}
+- {pair: p28, lesson_id: g5b.u11.l03, label: in, dimension: concept, culprit: null,
+   stem: "一批零件共 500 个，其中不合格的有 20 个，合格的占总数的几分之几？", solution: "480/500 = 24/25"}
+- {pair: p29, lesson_id: g5b.u11.l03, label: out, dimension: concept, culprit: 圆柱的体积,
+   stem: "一个圆柱的底面积是 20 平方厘米，高是 5 厘米，它的体积是多少立方厘米？", solution: "20 × 5 = 100（立方厘米）"}
+- {pair: p29, lesson_id: g5b.u11.l03, label: in, dimension: concept, culprit: null,
+   stem: "一个长方体的底面积是 20 平方厘米，高是 5 厘米，它的体积是多少立方厘米？", solution: "20 × 5 = 100（立方厘米）"}
+- {pair: p30, lesson_id: g5b.u11.l03, label: out, dimension: concept, culprit: 比例的认识,
+   stem: "在比例 3 : 4 = 9 : x 中，x 等于多少？", solution: "3x = 4 × 9，x = 12"}
+- {pair: p30, lesson_id: g5b.u11.l03, label: in, dimension: concept, culprit: null,
+   stem: "解方程：x + 3/5 = 4/5", solution: "x = 4/5 - 3/5 = 1/5"}
+
+# ---- 六年级上册末 ----
+- {pair: p31, lesson_id: g6a.u13.l04, label: out, dimension: concept, culprit: 圆柱的体积,
+   stem: "一个圆柱形水桶，底面半径是 20 厘米，高是 50 厘米，它的容积是多少升？（π 取 3.14）", solution: "3.14 × 20 × 20 × 50 = 62800（立方厘米）= 62.8 升"}
+- {pair: p31, lesson_id: g6a.u13.l04, label: in, dimension: concept, culprit: null,
+   stem: "一个圆的半径是 3 厘米，它的面积是多少平方厘米？（π 取 3.14）", solution: "3.14 × 3 × 3 = 28.26（平方厘米）"}
+
+# ---- 一年级下册末 ----
+- {pair: p32, lesson_id: g1b.u10.l03, label: out, dimension: operation_forms, culprit: 乘法的意义（乘号、乘数、积）,
+   stem: "每盘放 3 个苹果，4 盘一共有多少个苹果？请列乘法算式。", solution: "3 × 4 = 12（个）"}
+- {pair: p32, lesson_id: g1b.u10.l03, label: in, dimension: operation_forms, culprit: null,
+   stem: "盘子里有 3 个苹果，又拿来 2 个，一共有多少个苹果？", solution: "3 + 2 = 5（个）"}
+- {pair: p33, lesson_id: g1b.u10.l03, label: out, dimension: operation_forms, culprit: 两位数加两位数的竖式计算（进位）,
+   stem: "计算：35 + 48", solution: "35 + 48 = 83"}
+- {pair: p33, lesson_id: g1b.u10.l03, label: in, dimension: operation_forms, culprit: null,
+   stem: "计算：35 + 24", solution: "35 + 24 = 59"}

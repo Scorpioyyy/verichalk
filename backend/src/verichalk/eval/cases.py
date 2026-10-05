@@ -47,4 +47,8 @@ def load_cases(datasets_dir: Path, suite: str, split: str | None = None) -> list
     ids = [c.id for c in cases]
     if len(ids) != len(set(ids)):
         raise ConfigError(f"评测集 {suite} 含重复的用例 id")
+    if suite.startswith("understand"):  # 意图理解的评测集只跑理解管线（不进入出题）
+        for c in cases:
+            for turn in c.turns:
+                turn.pipeline = turn.pipeline or "understand"
     return [c for c in cases if split in (None, "all", c.split)]

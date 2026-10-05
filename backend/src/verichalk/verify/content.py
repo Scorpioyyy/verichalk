@@ -62,9 +62,18 @@ def fix_tex_escapes(text: str) -> str:
     return "".join(_CTRL.get(ch, ch) for ch in text)
 
 
+_LITERAL_NEWLINE = re.compile(r"\\n(?![A-Za-z])")
+
+
+def fix_literal_newlines(text: str) -> str:
+    """模型把换行写成了字面的反斜杠 + n（JSON 里双写了反斜杠）：还原成真换行。
+    后面紧跟 ASCII 字母的（`\neq`、`\notin` 等 TeX 命令）不动。"""
+    return _LITERAL_NEWLINE.sub("\n", text)
+
+
 def normalize_text(text: str) -> str:
     """修剪公式内侧空白、把填空位置移到公式外、符号转 TeX。幂等。"""
-    text = fix_tex_escapes(text.replace("\r\n", "\n")).strip()
+    text = fix_literal_newlines(fix_tex_escapes(text.replace("\r\n", "\n"))).strip()
 
     def sub(m: re.Match[str]) -> str:
         body, tail = _fix_math(m.group(1))

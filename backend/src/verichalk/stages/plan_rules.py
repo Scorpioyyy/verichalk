@@ -14,7 +14,7 @@ from ..domain.blueprint import Blueprint, ItemSpec
 from ..domain.brief import Action, Brief, SourceMode
 from ..domain.knowledge import BoundaryView, Combo, ContextBrief
 from ..domain.paper import ItemKind, Tier
-from ..knowledge import ComboMiner, GraphData, KnowledgeService
+from ..knowledge import ComboMiner, GraphData, KnowledgeService, pair_signals
 
 # 各档位默认的题型循环（与知识点自然题型取交集；用户指定题型时以用户为准）
 DEFAULT_KINDS: dict[Tier, list[ItemKind]] = {
@@ -216,6 +216,28 @@ async def build_draft(
     }
     synth_miner = ComboMiner(g, replace(miner.w, proximity=0.3))  # 跨单元综合时，"教学位置相近"不再加分
     used_combo: list[tuple[str, ...]] = []
+    # 多主题请求（"乘法和周长"）：综合题优先在用户点名的主题之间组合——这是教师明说的意图，先于图上的"自然搭配"
+    groups: dict[str, list[str]] = {}
+    for kid in scope.anchors:
+        topic = brief.scope.kp_topics.get(kid)
+        if topic and kid in scope.learned:
+            groups.setdefault(topic, []).append(kid)
+    topic_pairs: list[Combo] = []
+    if len(groups) >= 2:
+        names = list(groups)
+        for ai in range(len(names)):
+            for bi in range(ai + 1, len(names)):
+                for ka in groups[names[ai]]:
+                    for kb_ in groups[names[bi]]:
+                        sc = sum(pair_signals(g, ka, kb_, miner.w).values())
+                        topic_pairs.append(
+                            Combo(
+                                kp_ids=[ka, kb_],
+                                score=sc,
+                                rationale=f"教师要求把「{names[ai]}」和「{names[bi]}」结合起来",
+                            )
+                        )
+        topic_pairs.sort(key=lambda c: (-c.score, c.kp_ids))
     used_scene: Counter[str] = Counter()
     items: list[ItemSpec] = []
     alts: dict[str, list[Combo]] = {}
@@ -247,6 +269,13 @@ async def build_draft(
                     )
                     for j, r in enumerate(rc[:N_ALTS])
                 ]
+            elif topic_pairs:
+                free = [
+                    c
+                    for c in topic_pairs
+                    if tuple(c.kp_ids) not in used_combo and tuple(reversed(c.kp_ids)) not in used_combo
+                ]
+                candidates = (free or topic_pairs)[:N_ALTS]
             elif not use_miner:  # 消融基线：不用图结构，直接取"检索相近"的已学知识点
                 hits = await kb.search(g.nodes[anchor].name, k=12)
                 near = [

@@ -96,11 +96,28 @@ async def finalize(
     notes: list[str] = []
     assumptions: list[str] = []
     mapped = map_topics(hits) if raw.topics else []
+    kp_topics: dict[str, str] = {}
+    user_grade = raw.grade if (raw.grade and "grade" in raw.explicit) else None
+
+    def within(h: KPHit) -> bool:
+        """用户明说了年级（学期）时，知识点不得比它更靠后（"三年级的周长"不能映射到六年级的圆周长）。"""
+        if user_grade is None or h.grade is None:
+            return True
+        if h.grade != user_grade:
+            return h.grade < user_grade
+        return not (raw.semester and "semester" in raw.explicit and h.semester and h.semester > raw.semester)
+
+    if user_grade is not None and mapped:
+        mapped = [h for h in mapped if within(h)] or mapped  # 全都更靠后：保留，交给"范围冲突"澄清
     if topic_hits and len(topic_hits) >= 2:  # 多主题请求（"小数乘法和面积"）：每个主题单独映射，都要进入范围
         per: list[KPHit] = []
         for topic in raw.topics:
-            best = [h for h in (topic_hits.get(topic) or []) if h.score >= MAP_MIN][:2]
-            per += [h for h in best if h.id not in {x.id for x in per}]
+            cands = [h for h in (topic_hits.get(topic) or []) if h.score >= MAP_MIN]
+            best = ([h for h in cands if within(h)] or cands)[:2]
+            for h in best:
+                if h.id not in {x.id for x in per}:
+                    per.append(h)
+                    kp_topics[h.id] = topic
         mapped = per[: MAP_MAX + 1] or mapped
 
     # ---- 年级 / 学期 / 单元 ----
@@ -153,7 +170,9 @@ async def finalize(
         us = await kb.units(kb.book_id(grade, semester))
         last = next((u.last_lesson_id for u in us if u.id == unit_ids[-1]), None)
         target = last
-    elif mapped and not inherited:
+    elif (
+        mapped and not inherited and user_grade is None
+    ):  # 用户明说了年级：学到哪由年级学期定，不由检索命中的知识点定
         target = await kb.latest_lesson([h.lesson_id for h in mapped if h.lesson_id])
     elif grade and semester:
         target = await kb.last_lesson(kb.book_id(grade, semester))
@@ -169,6 +188,7 @@ async def finalize(
         semester=slot(semester, sem_origin) if semester else None,
         units=slot(unit_ids, Origin.user) if unit_ids else None,
         kp_ids=slot([h.id for h in mapped], Origin.inferred) if mapped else None,
+        kp_topics={k: v for k, v in kp_topics.items() if any(h.id == k for h in mapped)},
         topics=slot(raw.topics, Origin.user) if raw.topics else None,
     )
     brief = Brief(scope=scope)

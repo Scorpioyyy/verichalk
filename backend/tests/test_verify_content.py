@@ -66,3 +66,9 @@ def test_fix_tex_escapes_after_json_decoding() -> None:
     assert "\t" in bad
     assert fix_tex_escapes(bad) == good
     assert normalize_text(bad) == good
+
+
+def test_literal_newline_restored_but_tex_neq_kept() -> None:
+    bs = chr(92)
+    assert normalize_text("第一行" + bs + "n第二行") == "第一行\n第二行"
+    assert normalize_text(f"$a{bs}neq b$") == f"$a{bs}neq b$"

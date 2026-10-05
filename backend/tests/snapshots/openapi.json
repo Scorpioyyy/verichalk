@@ -2593,6 +2593,13 @@
        }
       ]
      },
+     "kp_topics": {
+      "additionalProperties": {
+       "type": "string"
+      },
+      "title": "Kp Topics",
+      "type": "object"
+     },
      "lesson_ids": {
       "anyOf": [
        {

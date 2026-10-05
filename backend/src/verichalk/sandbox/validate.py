@@ -95,6 +95,7 @@ ALLOWED_ATTRS = {
     "endswith",
     "normalize",
     "to_integral_value",
+    "prec",  # getcontext().prec = N：只改十进制精度，无副作用
 }
 ALLOWED_NODES = (
     ast.Module,

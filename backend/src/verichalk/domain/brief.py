@@ -48,6 +48,9 @@ class Scope(BaseModel):
     units: Slot[list[str]] | None = None  # 单元 ID，如 g4b.u2
     lesson_ids: Slot[list[str]] | None = None
     kp_ids: Slot[list[str]] | None = None
+    kp_topics: dict[str, str] = Field(
+        default_factory=dict
+    )  # 多主题请求：知识点 ID → 它对应的用户主题（综合题要在主题之间组合）
     topics: Slot[list[str]] | None = None  # 未能映射到知识点的自由文本主题
 
 

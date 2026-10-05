@@ -88,3 +88,9 @@ async def test_child_does_not_inherit_secrets(monkeypatch):
     # 沙箱里没有 os / 环境可访问；这里验证即使源码尝试也过不了校验
     with pytest.raises(SandboxViolation):
         await run_solver("import os\ndef solve():\n    return os.environ.get('DASHSCOPE_API_KEY')\n")
+
+
+async def test_decimal_context_precision_is_allowed() -> None:
+    code = "from decimal import Decimal, getcontext\ndef solve():\n    getcontext().prec = 30\n    return [Decimal('1') / Decimal('3')]\n"
+    r = await run_solver(code)
+    assert len(str(r.value[0])) > 20

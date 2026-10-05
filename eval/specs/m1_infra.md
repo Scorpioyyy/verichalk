@@ -37,3 +37,47 @@
 ## 4. 基线
 
 在实现前先用最简方案跑一遍并记录：①SQLite 逐事件提交的 10k 事件写入耗时；②空协程管线的事件开销。之后每次优化与此对比。基线与探针结果写入 `eval/reports/m1_baseline.md`。
+
+## 5. 结果（2026-10-05）
+
+### 5.1 失败模式 → 检测手段的落地
+
+| # | 失败模式 | 检测（`backend/tests/`） | 状态 |
+|---|---|---|---|
+| 1 | 绕过网关 / 违反分层 | `test_architecture.py`（分层、禁用导入、无环、子进程只在 sandbox / render） | ✅ |
+| 2 | span 未闭合 / 孤儿 / seq 不连续 | `test_trace_store.py`（正常、异常、取消、并行子任务）、`metrics/completeness.py`、smoke 的 `trace_complete` | ✅ |
+| 3 | 流式聚合：usage、cached_tokens、TTFT | `test_llm.py`（分片边界、工具调用、重试）；真实模型探针 | ✅ |
+| 4 | 录制回放不一致 / 泄漏密钥 | `test_llm.py`（往返、键敏感性、无密钥）、`test_eval_smoke.py`（无密钥环境回放全绿） | ✅ |
+| 5 | 密钥 / 主机名泄漏 | `test_core.py`（脱敏、日志过滤）、`test_trace_store.py`、`test_orchestrator.py`、评测 `no_secrets` 检查 | ✅ |
+| 6 | 沙箱绕过 | `test_sandbox.py`（22 条对抗用例全部被拒，超时、运行时错误有类型，正常程序 7 条精确通过） | ✅ |
+| 7 | SSE 续传 | `test_api.py`（`Last-Event-ID` 续传与全量一致；用户流不含 debug 事件） | ✅ |
+| 8 | 取消不生效 | `test_orchestrator.py`、`test_api.py`（取消后所有 span 闭合、状态 cancelled） | ✅ |
+| 9 | 服务重启遗留 running | `test_orchestrator.py::test_recover…` | ✅ |
+| 10 | 知识层返回过大 / 丢字段 | `test_knowledge.py`（紧凑体积上限、与 chalkbase 字段对照） | ✅ |
+| 11 | 指标计算错误 | `test_metrics.py`（手算黄金值：按 token 加权的缓存命中、未知成本不记 0、Wilson 区间） | ✅ |
+| 12 | 预算保护失效 | `test_llm.py::test_budget…` | ✅ |
+| 13 | 框架开销 | `scripts/bench_infra.py` → `eval/reports/m1_baseline.md` | ✅（见下） |
+
+此外：契约快照（事件 schema、OpenAPI）、目录整洁（`test_layout.py`）、提示词元数据（`test_prompts.py`）、延迟提交的持久性与回滚隔离。全部 263 项通过；`ruff`、`pyright` 零告警。
+
+### 5.2 基线与门槛
+
+| 项 | 门槛 | 实测 | 说明 |
+|---|---|---|---|
+| 10k 事件写入 | ≤ 3s | 初版 3.23s ✗ → 延迟提交后 **2.4s** ✓ | 动作按规格执行：优化批量写入（D25） |
+| 空管线单次运行 p95 | ≤ 50ms | **6.0ms** ✓ | 含会话消息、事件、落盘 |
+| smoke（replay） | 成功率 100%，F6 = 0 | **7/7，trace 完整 7/7** ✓ | 无密钥环境，0.8s |
+| 真实模型探针 | 每个候选拿到有效 TTFT / usage / cached_tokens | ✓ | 见下 |
+
+### 5.3 真实模型探针的要点（`m1_probe_intl.md`、`m1_probe_cn.md`）
+
+- **两个 profile 都可用**；各候选模型均接受图片输入，合成题图的数字转写全部正确。
+- **延迟（本机在中国大陆）**：新加坡节点短提示 TTFT 约 1.0～1.6s，国内节点约 0.3～1.2s。差距主要是跨境网络；部署在香港 / 新加坡后，新加坡 profile 不会有这个劣势。
+- **缓存**：相同前缀第二次调用即命中（2048～2688 / 约 2800 token），命中粒度 128～256 token。**在 ~3k token 的前缀上，命中几乎不改变 TTFT**（TTFT 主要由网络与排队决定），收益主要体现在**成本**（命中部分按未命中价的 20% 计费）。因此 E2 指标首先是成本指标；只有提示词长到数万 token 时才会明显影响延迟。
+- 知识检索：查询向量在线计算冷启动约 2s（缓存命中后 ~250ms）——**M2 要把检索与理解并行**，并预热常见查询。
+- 框架开销可忽略（空管线 6ms），端到端延迟几乎全部来自模型与检索。
+
+### 5.4 未验证项
+
+- Dockerfile 草案（本机无 Docker）；Linux 上沙箱的 `RLIMIT_AS` 内存上限（CI 启用后验证）。
+- 导出探针 S1 的结论见 [design.md D8](../../docs/design.md)。

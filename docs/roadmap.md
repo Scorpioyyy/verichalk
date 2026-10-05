@@ -19,5 +19,6 @@
 
 ## 当前
 
-- M0：进行中（本文档集）。
-- 紧接着：M1 基建。
+- M0：完成。
+- M1：后端基建完成（见 [eval/specs/m1_infra.md §5](../eval/specs/m1_infra.md)）：分层框架、网关、trace、存储、沙箱、知识层适配、编排、API、评测框架、探针 S1、基线；Dockerfile 为未验证草案，CI 配置待授权启用。
+- 紧接着：M2 理解（先写 `eval/specs/understand.md` 与评测集）。

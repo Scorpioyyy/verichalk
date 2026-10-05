@@ -131,7 +131,7 @@ Item    id, kind, stem, options?, answer, answer_value?, solution
 Revision  paper_id, rev, patch[Op], snapshot, author: agent|user, run_id?, ts
 ```
 
-**内容格式（D7）**：`stem` / `options` / `solution` 等文本字段统一为 **Pandoc Markdown + TeX 数学**（`$…$`、`$$…$$`），填空横线写作 `____`，插图以 `![](fig:<id>)` 引用 `figures` 中的结构化 `FigureSpec`。一种格式同时服务于模型输出、人工编辑、前端预览（KaTeX）和所有导出，避免多套 AST 互转。数学语法在入库前用 LaTeX 解析器校验。
+**内容格式（D7）**：`stem` / `options` / `solution` 等文本字段统一为 **Pandoc Markdown + TeX 数学**（`$…$`、`$$…$$`），填空横线写作 `____`，插图以 `![](fig:<id>)` 引用 `figures` 中的结构化 `FigureSpec`。一种格式同时服务于模型输出、人工编辑、前端预览（KaTeX）和所有导出，避免多套 AST 互转。数学语法在入库前用 LaTeX 解析器校验，并经**内容规范化**（修剪 `$` 内侧空格、填空位置移出公式，D27）。导出时单个题干由 pandoc 转成目标格式的片段，**整体版面由自有 Typst 模板负责**（D8）。
 
 **修改一律是 Patch（D22）**：`add_item / remove_item / replace_field / move_item / set_meta`。手动编辑、自然语言编辑、Agent 生成都产出 Patch，应用后得到新 `rev` 并存快照，统一支持撤销 / 重做 / diff。
 

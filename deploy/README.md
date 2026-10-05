@@ -26,4 +26,4 @@
 
 ## CI
 
-`deploy/github-ci.yml` 是 GitHub Actions 配置。当前 GitHub 令牌没有 `workflow` 权限，无法由命令行推送到 `.github/workflows/`；授权（`gh auth refresh -s workflow`）后移动到 `.github/workflows/ci.yml` 即可启用。
+`.github/workflows/ci.yml`：每次 push 到 `main` 与每个 PR 自动运行 ruff、pyright 与全部测试（无网络、无密钥）。

@@ -112,4 +112,33 @@
 
 ## 8. 结果
 
-（实现与评测后补充。）
+（验收后补充；中间数据见 [eval/CHANGELOG.md](../CHANGELOG.md) 与 [roadmap.md](../../docs/roadmap.md)。）首次端到端基线（base1，旧配置，36 条 val）：交付题 A1 0.855 对朴素直出 0.724；A2(b) 0.941 对 0.833；A3 超纲 4.6% 对 12.5%；套内重复 14% 对 41%；题量达成率约 0.81（丢弃 19%，其中约一半来自 `template` 路径，已修）；D2 / D3 p50 29s / 58s；单题成本 ¥0.053（旧写题模型，现已降到约 ¥0.011～0.018）。教师偏好盲评（10 个请求）VeriChalk 胜 5 / 平 3 / 负 2，两个负例都是交付不足而非题不好。
+
+## 9. 接续指南（开发者与后续会话读这一节）
+
+**当前分支与状态**：本地分支 `m3-wip`（未推送）。新建的录制缓存目录（`eval/cassettes/` 下除早先的 smoke / understand* / build_para / chalkbase_embeddings 之外的 verify_bank、bake_*、audit、produce、naive_models、scratch_*）**没有提交**：它们是探索产物，验收时再决定提交哪些作为回归基线。
+
+**快速迭代工具（优先用它们，不要整套重跑评测）**
+| 目的 | 命令 | 耗时 / 成本 |
+|---|---|---|
+| 只跑创作阶段、看每次被哪项检查拦下 | `python scripts/probe_produce.py "请求" ["请求"…] [--items] [--off flag] [--role smart=模型:notemp]` | 约 1 分钟，几分钱 |
+| 读题（打印交付的题目全文） | 同上加 `--items --quiet` | |
+| 一套请求的产出 → JSON，供对比 | `--file eval/datasets/quality_probe.yaml --out x.json` | 3～4 分钟 |
+| 两套产出盲评对比（好题） | `python scripts/compare_sets.py a.json b.json` | 约 ¥0.1 |
+| 端到端、不审计（交付数 / 延迟 / 成本 / 一次通过率） | `python -m verichalk.eval produce --no-audit --split val --limit 14 --record --cassette-ns scratch_e2e --tag x` | 5～8 分钟 |
+| 端到端 + 审计 + 朴素基线 + 教师偏好 | `… produce --naive …`（去掉 `--no-audit`） | 15～30 分钟，里程碑才用 |
+| 核验器在 VerifyBank / BoundaryBank 上 | `python -m verichalk.eval verify --bank answers|boundary --role solver=模型:think` | 几分钟 |
+| 累计花费 | `python scripts/spend.py` | |
+注意：同时跑多个探针会抢全局并发（`llm_concurrency`），单题耗时被夸大，不是产品延迟。
+
+**已验证的设计决策**：见 [design.md D33～D38](../../docs/design.md)。关键事实：①写题 qwen3.7-plus（与 qwen3.8-max 无差别，价格 1/6）；②盲解 / 抽取用 deepseek-v4.1-flash 非思考；③单题 45 秒预算、修复 1 次 + 重写 1 次、丢弃后补题一轮；④`template` 路径要为题生成具体解析（`produce.explain`）并只用主知识点匹配的题型；⑤算式 / 方程答案按值 / 解比较（`verify/expr.py`）。
+
+**踩过的坑**
+- bash heredoc 里的 python：反斜杠转义会被折叠（`\\n` 变真换行、`\\times` 变 TAB）。凡含反斜杠的代码 / 提示词，用 Write / Edit 工具写。
+- 模型在 JSON 里写 TeX 反斜杠：`extract_json` 会修复，`normalize_text` 还原控制字符。
+- 大批量评测慢的真正原因：审计里 chalkbase 自带的思考式特征抽取每题约 1 分钟（并发已调到 20）；探针并行抢并发。
+- `tmp/` 必须为空（`test_tmp_is_empty`）；清理时用明确文件名，通配符 `rm tmp/*` 在切目录后会被安全检查拦下；临时输出放会话临时目录，不放仓库 `tmp/`。
+- 评测集的已知局限：VerifyBank 区分不了盲解模型（都到天花板）；模板来源的超纲 `in` 标签偏宽；审计判官 / 比较有格式噪声（"3 位数 / 三位数"等，已部分修复）。
+
+**待办与顺序**：①读三个探索策略的汇总（子任务产出在会话临时目录 `strategies/`，工作区分支各自独立），择优合入；②小样本把 A2 / A3 / 题量达成率 / 解析成立率迭代到过线；③消融（`plan.combo_miner`、`plan.llm`、`produce.blind_solve`、`boundary_check`、`quality_check`、`repair`、`context.textbook_examples`，每组小样本 + A/A 噪声对照）；④在 `produce_fresh.yaml`（36 例，从未用于调优）上验收；⑤更新本文件 §8 的结果与 design.md，清理 `tmp/` 与过程性报告，合入 main 并推送。
+

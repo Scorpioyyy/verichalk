@@ -81,7 +81,11 @@ pip install -e "backend[dev]"                 # 后端依赖
 python scripts/dev.py check                   # ruff + pyright + pytest（L1）
 python scripts/dev.py run                     # 本地启动后端（localhost:8000）
 python -m verichalk.eval run --suite core --split val --mode replay
+python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items   # M3 快速诊断：只跑创作阶段，约 1 分钟
+python scripts/compare_sets.py a.json b.json                        # 两套产出的盲评对比（好题）
+python scripts/spend.py                                              # 累计模型花费
 ```
+评测纪律：迭代用上面的小样本工具，完整评测（含审计）只在里程碑验收时整套跑；接续指南见 `eval/specs/produce.md §9`。
 
 ## 9. 流程
 

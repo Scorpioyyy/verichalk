@@ -14,7 +14,6 @@ from .checks import (
     VerifyInput,
     check_blind,
     check_boundary,
-    check_novelty,
     check_program,
     check_quality,
     check_structure,
@@ -33,7 +32,6 @@ async def verify_item(
     inp: VerifyInput,
     flags: FeatureFlags,
     *,
-    corpus: list[tuple[str, str]] | None = None,
     preset: dict[str, CheckResult] | None = None,
 ) -> Verification:
     """返回 `Verification`（状态 + 各项检查的证据）。关闭的检查记为 `skip`。
@@ -48,7 +46,7 @@ async def verify_item(
     else:
         results.append(_skip("program", "已关闭"))
     if any(r.status == CheckStatus.fail for r in results):  # 便宜的检查已经失败：不花模型调用，直接去修复
-        results += [_skip(n, SKIP_EARLY) for n in ("blind", "boundary", "quality", "integration", "novelty")]
+        results += [_skip(n, SKIP_EARLY) for n in ("blind", "boundary", "quality", "integration")]
         return summarize(results)
 
     blind_t = asyncio.ensure_future(check_blind(env, inp)) if flags.enabled("produce.blind_solve") else None
@@ -62,10 +60,6 @@ async def verify_item(
     )
     pending = [t for t in (blind_t, boundary_t, quality_t) if t is not None]
     try:
-        if flags.enabled("produce.novelty_check"):
-            novelty = await check_novelty(inp, corpus or [])
-        else:
-            novelty = _skip("novelty", "已关闭")
         blind = await blind_t if blind_t else _skip("blind", "已关闭")
         boundary = (
             preset["boundary"]
@@ -79,5 +73,5 @@ async def verify_item(
         for t in pending:
             if not t.done():
                 t.cancel()
-    results += [novelty, blind, boundary, quality, integration]
+    results += [blind, boundary, quality, integration]
     return summarize(results)

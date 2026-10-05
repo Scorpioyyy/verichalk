@@ -90,7 +90,7 @@
 
 ## 5. 消融清单（进入主路径的同一里程碑内完成）
 
-`produce.program_check`（求解程序）、`produce.blind_solve`（盲解）、`produce.boundary_check`（边界）、`produce.quality_check`（题面质量）、`produce.novelty_check`（新颖度）、`produce.repair`（修复循环）、`context.textbook_examples`（写作上下文里的教材题型）、`context.contexts`（情境库）、`produce.solution_first`（先写求解程序再写题面 vs 先写题面）；`smart` 能否降为 `fast`；`solver` 用思考模式 vs 非思考 + 程序求解。指标：A1 / A2 / A3 / A5 / A6 / D2 / D3 / E1 的变化与 A/A 噪声参照。
+`produce.program_check`（求解程序）、`produce.blind_solve`（盲解）、`produce.boundary_check`（边界）、`produce.quality_check`（题面质量）、`produce.repair`（修复循环）、`context.textbook_examples`（写作上下文里的教材题型）、`context.contexts`（情境库）、`produce.solution_first`（先写求解程序再写题面 vs 先写题面）；`smart` 能否降为 `fast`；`solver` 用思考模式 vs 非思考 + 程序求解。指标：A1 / A2 / A3 / A5 / A6 / D2 / D3 / E1 的变化与 A/A 噪声参照。
 
 ## 6. 模型选型（角色级对比，数据决定）
 

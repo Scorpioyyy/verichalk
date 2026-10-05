@@ -323,22 +323,3 @@ def similarity(a: str, b: str) -> float:
         return 0.0
     inter = len(sa & sb)
     return max(inter / len(sa | sb), inter / min(len(sa), len(sb)) * 0.9)  # Jaccard 与（打折的）包含度取大
-
-
-async def check_novelty(
-    inp: VerifyInput, corpus: list[tuple[str, str]], *, fail_at: float = 0.7, warn_at: float = 0.5
-) -> CheckResult:
-    """与教材题型示例 / 用户上传题 / 本次已写的其他题比较。`corpus` 是 (来源标签, 文本) 列表。"""
-    async with trace.check_span("novelty") as sp:
-        best: tuple[float, str, str] = (0.0, "", "")
-        for label, text in corpus:
-            s = similarity(inp.stem, text)
-            if s > best[0]:
-                best = (s, label, text)
-        sp.set(max_sim=round(best[0], 3))
-        ev = {"max_similarity": round(best[0], 3), "nearest": best[1], "nearest_text": _clip(best[2], 160)}
-        if best[0] >= fail_at:
-            return _res("novelty", CheckStatus.fail, f"与「{best[1]}」过于相似（{best[0]:.2f}）", **ev)
-        if best[0] >= warn_at:
-            return _res("novelty", CheckStatus.warn, f"与「{best[1]}」较为相似（{best[0]:.2f}）", **ev)
-        return _res("novelty", CheckStatus.passed, **ev)

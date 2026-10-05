@@ -11,7 +11,7 @@ P, W, F, S = CheckStatus.passed, CheckStatus.warn, CheckStatus.fail, CheckStatus
 
 
 def checks(**kw: CheckStatus) -> list[CheckResult]:
-    base = {"structure": P, "program": P, "blind": P, "boundary": P, "quality": P, "novelty": P}
+    base = {"structure": P, "program": P, "blind": P, "boundary": P, "quality": P}
     return [CheckResult(name=k, status=v) for k, v in (base | kw).items()]
 
 
@@ -27,7 +27,6 @@ def checks(**kw: CheckStatus) -> list[CheckResult]:
         ({"boundary": F}, VerifyStatus.rejected),
         ({"blind": F}, VerifyStatus.rejected),
         ({"structure": F, "blind": S}, VerifyStatus.rejected),
-        ({"novelty": W}, VerifyStatus.needs_review),
     ],
 )
 def test_status(override: dict[str, CheckStatus], expected: VerifyStatus) -> None:

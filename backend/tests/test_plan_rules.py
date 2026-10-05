@@ -16,9 +16,10 @@ def test_largest_remainder_sums_to_total() -> None:
         got = largest_remainder(n, w)
         assert sum(got.values()) == n
         assert all(v >= 0 for v in got.values())
-    assert largest_remainder(5, w) == {Tier.consolidate: 1, Tier.variation: 2, Tier.integrated: 2} or sum(
-        largest_remainder(5, w).values()
-    ) == 5
+    assert (
+        largest_remainder(5, w) == {Tier.consolidate: 1, Tier.variation: 2, Tier.integrated: 2}
+        or sum(largest_remainder(5, w).values()) == 5
+    )
 
 
 def test_largest_remainder_user_tier_overrides() -> None:
@@ -42,7 +43,9 @@ def kb() -> KnowledgeService:
 
 @pytest.mark.parametrize("count", [1, 4, 7, 12])
 async def test_blueprint_count_exact_and_in_scope(kb: KnowledgeService, count: int) -> None:
-    brief = Brief(scope=Scope(grade=Slot(value=4, origin=Origin.user), semester=Slot(value="b", origin=Origin.user)))
+    brief = Brief(
+        scope=Scope(grade=Slot(value=4, origin=Origin.user), semester=Slot(value="b", origin=Origin.user))
+    )
     brief.count = Slot(value=count, origin=Origin.user)
     brief.difficulty = Slot(value=[2, 4])
     scope = await resolve_scope(brief, kb)

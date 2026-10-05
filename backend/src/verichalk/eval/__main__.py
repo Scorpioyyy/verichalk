@@ -125,7 +125,6 @@ VERIFY_CHECKS = {
     "blind": "produce.blind_solve",
     "boundary": "produce.boundary_check",
     "quality": "produce.quality_check",
-    "novelty": "produce.novelty_check",
 }
 
 
@@ -314,7 +313,7 @@ def main() -> None:
     v.add_argument(
         "--checks",
         default="blind,quality",
-        help="启用的检查，逗号分隔：program,blind,boundary,quality,novelty",
+        help="启用的检查，逗号分隔：program,blind,boundary,quality",
     )
     v.add_argument(
         "--role", action="append", default=[], help="角色覆盖，如 solver=deepseek-v4.1-flash:think"

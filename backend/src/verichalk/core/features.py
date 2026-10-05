@@ -39,7 +39,6 @@ REGISTRY: dict[str, Feature] = {
             "produce.repair", "核验未通过时带失败证据修复（≤ 2 次）并在用尽后重写一次；关闭则一次不过即废弃"
         ),
         Feature("context.textbook_examples", "写题上下文里给出教材题型的改写示例（学生做过什么）"),
-        Feature("produce.novelty_check", "核验：与教材题型示例、上传题及本次其他题的相似度"),
     ]
 }
 

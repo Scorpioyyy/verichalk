@@ -148,10 +148,6 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         spec, feats = inp.spec, ctx.settings.features
         env = VerifyEnv(llm=ctx.llm, kb=ctx.kb)
         details, examples = await self._context(ctx, spec)
-        corpus: list[tuple[str, str]] = [("教材题型示例", e) for e in examples] + [
-            ("教师上传的题", r) for r in inp.references
-        ]
-        corpus += [("本套其他题", s) for s in ctx.scratch.get("stems", [])]
         max_repairs = MAX_REPAIRS if feats.enabled("produce.repair") else 0
         rounds = 1 + (REGENERATIONS if feats.enabled("produce.repair") else 0)
         attempts, last_reason = 0, ""
@@ -194,10 +190,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     lesson_id=inp.lesson_id,
                     target_difficulty=spec.difficulty,
                 )
-                ver = await verify_item(env, vin, feats, corpus=corpus)
+                ver = await verify_item(env, vin, feats)
                 if ver.status != VerifyStatus.rejected:
                     item = self._to_item(ctx, spec, w, ver)
-                    ctx.scratch.setdefault("stems", []).append(w.stem)
                     await trace.item_status(item.id, ver.status, ver.checks)
                     return ProduceOut(item=item, attempts=attempts, failed_checks=failed)
                 problems = _problems(ver)

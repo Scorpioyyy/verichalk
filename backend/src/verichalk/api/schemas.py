@@ -7,7 +7,8 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from ..domain.common import ErrorInfo
-from ..domain.paper import Paper
+from ..domain.paper import Paper, Revision
+from ..domain.paper_ops import Op
 from ..domain.run import Message, Run, RunStatus, Session
 from ..metrics import RunMetrics
 
@@ -75,3 +76,32 @@ class DebugRunDetail(BaseModel):
 class WarmupOut(BaseModel):
     state: str  # started | running | fresh | disabled
     last_age_s: float | None = None
+
+
+class PaperPatchBody(BaseModel):
+    """手动编辑：一组补丁（原子）。`base_rev` 是客户端看到的版本，用于发现别处的内容修改。"""
+
+    base_rev: int | None = None
+    ops: list[Op]
+
+
+class RestoreBody(BaseModel):
+    rev: int
+
+
+class PaperUpdate(BaseModel):
+    """一次修改（手改 / 撤销 / 重做 / 回退）的结果。`review_run_id` 非空时，订阅该运行的事件可看到核验状态更新。"""
+
+    paper: Paper
+    revision: Revision
+    warnings: list[str] = Field(default_factory=list)
+    review_run_id: str | None = None
+    can_undo: bool = False
+    can_redo: bool = False
+
+
+class PaperHistory(BaseModel):
+    revisions: list[Revision]
+    head_rev: int
+    can_undo: bool
+    can_redo: bool

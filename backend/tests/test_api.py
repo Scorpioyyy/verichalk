@@ -284,3 +284,61 @@ async def test_export_endpoint(env):
     assert r.status_code == 200 and r.content[:2] == b"PK"
     r = await cl.post(f"/api/sessions/{sid}/export", json={"format": "rtf"})
     assert r.status_code == 422
+
+
+async def test_paper_edit_undo_redo_history_endpoints(env):
+    import time
+
+    from verichalk.domain.paper import Item, ItemKind, Paper, Revision, Section
+
+    reviewed: list = []
+
+    async def stub_review(ctx, turn):
+        reviewed.append(turn.payload["targets"])
+        return PipelineResult()
+
+    make, h = env
+    c = make(pipelines={"diagnostic": diagnostic_pipeline, "review": stub_review})
+    cl = h["client"]
+    sid = (await cl.post("/api/sessions")).json()["session"]["id"]
+    item = Item(id="i1", kind=ItemKind.calc, stem="计算：$1+1=$____", answer="2")
+    paper = Paper(id="p1", title="t", rev=1, sections=[Section(id="s", title="计算", items=[item])])
+    await c.store.papers.save(sid, paper, Revision(paper_id="p1", rev=1, author="agent", ts=time.time()))
+
+    r = await cl.patch(
+        f"/api/sessions/{sid}/paper",
+        json={
+            "base_rev": 1,
+            "ops": [{"op": "replace_field", "item_id": "i1", "field": "stem", "value": "计算：$2+2=$____"}],
+        },
+    )
+    assert r.status_code == 200
+    body = r.json()
+    assert body["paper"]["rev"] == 2 and body["can_undo"] and not body["can_redo"]
+    assert body["paper"]["sections"][0]["items"][0]["verification"]["status"] == "pending"
+    assert body["review_run_id"]
+    await c.manager.wait(body["review_run_id"], 10)
+    assert reviewed == [[{"item_id": "i1", "rev": 2}]]
+
+    # 版本冲突：客户端以为还在 1，但已有内容修改
+    r = await cl.patch(
+        f"/api/sessions/{sid}/paper",
+        json={"base_rev": 1, "ops": [{"op": "set_title", "title": "x"}]},
+    )
+    assert r.status_code == 409 and r.json()["error"]["user_message"]
+    r = await cl.patch(f"/api/sessions/{sid}/paper", json={"ops": [{"op": "explode"}]})
+    assert r.status_code == 422
+
+    r = await cl.post(f"/api/sessions/{sid}/paper/undo")
+    assert r.status_code == 200 and r.json()["can_redo"] and not r.json()["can_undo"]
+    assert r.json()["paper"]["sections"][0]["items"][0]["stem"] == "计算：$1+1=$____"
+    assert (await cl.post(f"/api/sessions/{sid}/paper/undo")).status_code == 422
+    r = await cl.post(f"/api/sessions/{sid}/paper/redo")
+    assert r.status_code == 200 and r.json()["paper"]["sections"][0]["items"][0]["stem"] == "计算：$2+2=$____"
+
+    hist = (await cl.get(f"/api/sessions/{sid}/paper/history")).json()
+    assert [x["kind"] for x in hist["revisions"]] == ["edit", "edit", "undo", "redo"]
+    d = (await cl.get(f"/api/sessions/{sid}/paper/diff", params={"from": 1, "to": 2})).json()
+    assert d["items"][0]["change"] == "changed" and "stem" in d["items"][0]["fields"]
+    r = await cl.post(f"/api/sessions/{sid}/paper/restore", json={"rev": 1})
+    assert r.status_code == 200 and r.json()["revision"]["kind"] == "restore"

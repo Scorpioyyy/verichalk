@@ -10,6 +10,69 @@
     "title": "Action",
     "type": "string"
    },
+   "AddItem": {
+    "properties": {
+     "index": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Index"
+     },
+     "item": {
+      "$ref": "#/components/schemas/Item"
+     },
+     "op": {
+      "const": "add_item",
+      "default": "add_item",
+      "title": "Op",
+      "type": "string"
+     },
+     "section_id": {
+      "title": "Section Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "section_id",
+     "item"
+    ],
+    "title": "AddItem",
+    "type": "object"
+   },
+   "AddSection": {
+    "properties": {
+     "index": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Index"
+     },
+     "op": {
+      "const": "add_section",
+      "default": "add_section",
+      "title": "Op",
+      "type": "string"
+     },
+     "section": {
+      "$ref": "#/components/schemas/Section"
+     }
+    },
+    "required": [
+     "section"
+    ],
+    "title": "AddSection",
+    "type": "object"
+   },
    "AggregateMetrics": {
     "properties": {
      "cache_hit_ratio": {
@@ -947,6 +1010,59 @@
     "title": "Item",
     "type": "object"
    },
+   "ItemChange": {
+    "properties": {
+     "change": {
+      "enum": [
+       "added",
+       "removed",
+       "changed",
+       "moved"
+      ],
+      "title": "Change",
+      "type": "string"
+     },
+     "fields": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Fields",
+      "type": "array"
+     },
+     "item_id": {
+      "title": "Item Id",
+      "type": "string"
+     },
+     "number_after": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Number After"
+     },
+     "number_before": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Number Before"
+     }
+    },
+    "required": [
+     "item_id",
+     "change"
+    ],
+    "title": "ItemChange",
+    "type": "object"
+   },
    "ItemKind": {
     "enum": [
      "choice",
@@ -1525,6 +1641,41 @@
     "title": "ModelStat",
     "type": "object"
    },
+   "MoveItem": {
+    "properties": {
+     "index": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Index"
+     },
+     "item_id": {
+      "title": "Item Id",
+      "type": "string"
+     },
+     "op": {
+      "const": "move_item",
+      "default": "move_item",
+      "title": "Op",
+      "type": "string"
+     },
+     "section_id": {
+      "title": "Section Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "item_id",
+     "section_id"
+    ],
+    "title": "MoveItem",
+    "type": "object"
+   },
    "Origin": {
     "enum": [
      "user",
@@ -1567,6 +1718,133 @@
      "id"
     ],
     "title": "Paper",
+    "type": "object"
+   },
+   "PaperDiff": {
+    "properties": {
+     "items": {
+      "items": {
+       "$ref": "#/components/schemas/ItemChange"
+      },
+      "title": "Items",
+      "type": "array"
+     },
+     "meta_changed": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Meta Changed",
+      "type": "array"
+     },
+     "sections_changed": {
+      "default": false,
+      "title": "Sections Changed",
+      "type": "boolean"
+     },
+     "title_changed": {
+      "default": false,
+      "title": "Title Changed",
+      "type": "boolean"
+     }
+    },
+    "title": "PaperDiff",
+    "type": "object"
+   },
+   "PaperHistory": {
+    "properties": {
+     "can_redo": {
+      "title": "Can Redo",
+      "type": "boolean"
+     },
+     "can_undo": {
+      "title": "Can Undo",
+      "type": "boolean"
+     },
+     "head_rev": {
+      "title": "Head Rev",
+      "type": "integer"
+     },
+     "revisions": {
+      "items": {
+       "$ref": "#/components/schemas/Revision"
+      },
+      "title": "Revisions",
+      "type": "array"
+     }
+    },
+    "required": [
+     "revisions",
+     "head_rev",
+     "can_undo",
+     "can_redo"
+    ],
+    "title": "PaperHistory",
+    "type": "object"
+   },
+   "PaperPatchBody": {
+    "description": "手动编辑：一组补丁（原子）。`base_rev` 是客户端看到的版本，用于发现别处的内容修改。",
+    "properties": {
+     "base_rev": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Base Rev"
+     },
+     "ops": {
+      "items": {
+       "discriminator": {
+        "mapping": {
+         "add_item": "#/components/schemas/AddItem",
+         "add_section": "#/components/schemas/AddSection",
+         "move_item": "#/components/schemas/MoveItem",
+         "remove_item": "#/components/schemas/RemoveItem",
+         "remove_section": "#/components/schemas/RemoveSection",
+         "replace_field": "#/components/schemas/ReplaceField",
+         "set_meta": "#/components/schemas/SetMeta",
+         "set_title": "#/components/schemas/SetTitle"
+        },
+        "propertyName": "op"
+       },
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/AddSection"
+        },
+        {
+         "$ref": "#/components/schemas/RemoveSection"
+        },
+        {
+         "$ref": "#/components/schemas/AddItem"
+        },
+        {
+         "$ref": "#/components/schemas/RemoveItem"
+        },
+        {
+         "$ref": "#/components/schemas/ReplaceField"
+        },
+        {
+         "$ref": "#/components/schemas/MoveItem"
+        },
+        {
+         "$ref": "#/components/schemas/SetTitle"
+        },
+        {
+         "$ref": "#/components/schemas/SetMeta"
+        }
+       ]
+      },
+      "title": "Ops",
+      "type": "array"
+     }
+    },
+    "required": [
+     "ops"
+    ],
+    "title": "PaperPatchBody",
     "type": "object"
    },
    "PaperPatched": {
@@ -1681,6 +1959,51 @@
      }
     },
     "title": "PaperSpec",
+    "type": "object"
+   },
+   "PaperUpdate": {
+    "description": "一次修改（手改 / 撤销 / 重做 / 回退）的结果。`review_run_id` 非空时，订阅该运行的事件可看到核验状态更新。",
+    "properties": {
+     "can_redo": {
+      "default": false,
+      "title": "Can Redo",
+      "type": "boolean"
+     },
+     "can_undo": {
+      "default": false,
+      "title": "Can Undo",
+      "type": "boolean"
+     },
+     "paper": {
+      "$ref": "#/components/schemas/Paper"
+     },
+     "review_run_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Review Run Id"
+     },
+     "revision": {
+      "$ref": "#/components/schemas/Revision"
+     },
+     "warnings": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+     }
+    },
+    "required": [
+     "paper",
+     "revision"
+    ],
+    "title": "PaperUpdate",
     "type": "object"
    },
    "Progress": {
@@ -2002,6 +2325,85 @@
     "title": "ReferenceItem",
     "type": "object"
    },
+   "RemoveItem": {
+    "properties": {
+     "item_id": {
+      "title": "Item Id",
+      "type": "string"
+     },
+     "op": {
+      "const": "remove_item",
+      "default": "remove_item",
+      "title": "Op",
+      "type": "string"
+     }
+    },
+    "required": [
+     "item_id"
+    ],
+    "title": "RemoveItem",
+    "type": "object"
+   },
+   "RemoveSection": {
+    "properties": {
+     "op": {
+      "const": "remove_section",
+      "default": "remove_section",
+      "title": "Op",
+      "type": "string"
+     },
+     "section_id": {
+      "title": "Section Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "section_id"
+    ],
+    "title": "RemoveSection",
+    "type": "object"
+   },
+   "ReplaceField": {
+    "properties": {
+     "field": {
+      "title": "Field",
+      "type": "string"
+     },
+     "item_id": {
+      "title": "Item Id",
+      "type": "string"
+     },
+     "op": {
+      "const": "replace_field",
+      "default": "replace_field",
+      "title": "Op",
+      "type": "string"
+     },
+     "value": {
+      "title": "Value"
+     }
+    },
+    "required": [
+     "item_id",
+     "field",
+     "value"
+    ],
+    "title": "ReplaceField",
+    "type": "object"
+   },
+   "RestoreBody": {
+    "properties": {
+     "rev": {
+      "title": "Rev",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "rev"
+    ],
+    "title": "RestoreBody",
+    "type": "object"
+   },
    "RetrievalPayload": {
     "description": "一次知识检索 / 规划步骤的可视化载荷（事件 `retrieval.result`）。",
     "properties": {
@@ -2106,6 +2508,107 @@
      "payload"
     ],
     "title": "RetrievalResult",
+    "type": "object"
+   },
+   "Revision": {
+    "description": "试卷的一条修订。历史是线性的、只增不删；撤销 / 重做 / 回退也是新增修订（内容取自某个更早的\"逻辑版本\"）。\n\n- `logical`：这条修订所代表的\"逻辑版本\"。edit / restore 是它自己；undo / redo 是被恢复的那个逻辑版本；\n  review（后台复核只更新核验状态）与它所复核的逻辑版本相同，因此对撤销栈是透明的。\n- `parent`：仅 edit / restore，它所基于的逻辑版本（撤销沿着 parent 往回走）。\n- `redo`：此刻的重做栈（逻辑版本号，栈顶在前）；任何新的 edit / restore 都会清空它。\n未填写（None）的 `logical / parent / redo` 由存储层按 `kind` 补全，调用方通常只需给出 `kind`。",
+    "properties": {
+     "author": {
+      "title": "Author",
+      "type": "string"
+     },
+     "kind": {
+      "default": "edit",
+      "enum": [
+       "edit",
+       "undo",
+       "redo",
+       "restore",
+       "review"
+      ],
+      "title": "Kind",
+      "type": "string"
+     },
+     "logical": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Logical"
+     },
+     "paper_id": {
+      "title": "Paper Id",
+      "type": "string"
+     },
+     "parent": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent"
+     },
+     "patch": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Patch",
+      "type": "array"
+     },
+     "redo": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "integer"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Redo"
+     },
+     "rev": {
+      "title": "Rev",
+      "type": "integer"
+     },
+     "run_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Run Id"
+     },
+     "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+     },
+     "ts": {
+      "title": "Ts",
+      "type": "number"
+     }
+    },
+    "required": [
+     "paper_id",
+     "rev",
+     "author",
+     "ts"
+    ],
+    "title": "Revision",
     "type": "object"
    },
    "Route": {
@@ -2860,6 +3363,48 @@
      "messages"
     ],
     "title": "SessionState",
+    "type": "object"
+   },
+   "SetMeta": {
+    "properties": {
+     "key": {
+      "title": "Key",
+      "type": "string"
+     },
+     "op": {
+      "const": "set_meta",
+      "default": "set_meta",
+      "title": "Op",
+      "type": "string"
+     },
+     "value": {
+      "title": "Value"
+     }
+    },
+    "required": [
+     "key",
+     "value"
+    ],
+    "title": "SetMeta",
+    "type": "object"
+   },
+   "SetTitle": {
+    "properties": {
+     "op": {
+      "const": "set_title",
+      "default": "set_title",
+      "title": "Op",
+      "type": "string"
+     },
+     "title": {
+      "title": "Title",
+      "type": "string"
+     }
+    },
+    "required": [
+     "title"
+    ],
+    "title": "SetTitle",
     "type": "object"
    },
    "Slot_Action_": {
@@ -4411,6 +4956,279 @@
      }
     },
     "summary": "Export Paper File"
+   }
+  },
+  "/api/sessions/{session_id}/paper": {
+   "patch": {
+    "description": "手动编辑：应用补丁并立即返回新修订；内容被改的题状态回到\"待核验\"，同时发起一个复核运行（`review_run_id`）。",
+    "operationId": "patch_paper_api_sessions__session_id__paper_patch",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PaperPatchBody"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PaperUpdate"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Patch Paper"
+   }
+  },
+  "/api/sessions/{session_id}/paper/diff": {
+   "get": {
+    "operationId": "paper_diff_api_sessions__session_id__paper_diff_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "from",
+      "required": true,
+      "schema": {
+       "title": "From",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "to",
+      "required": true,
+      "schema": {
+       "title": "To",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PaperDiff"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Paper Diff"
+   }
+  },
+  "/api/sessions/{session_id}/paper/history": {
+   "get": {
+    "operationId": "paper_history_api_sessions__session_id__paper_history_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PaperHistory"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Paper History"
+   }
+  },
+  "/api/sessions/{session_id}/paper/redo": {
+   "post": {
+    "operationId": "redo_paper_api_sessions__session_id__paper_redo_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PaperUpdate"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Redo Paper"
+   }
+  },
+  "/api/sessions/{session_id}/paper/restore": {
+   "post": {
+    "operationId": "restore_paper_api_sessions__session_id__paper_restore_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RestoreBody"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PaperUpdate"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Restore Paper"
+   }
+  },
+  "/api/sessions/{session_id}/paper/undo": {
+   "post": {
+    "operationId": "undo_paper_api_sessions__session_id__paper_undo_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PaperUpdate"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Undo Paper"
    }
   },
   "/api/sessions/{session_id}/turns": {

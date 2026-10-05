@@ -5,6 +5,7 @@ from .diagnostic import DiagnosticIn, DiagnosticOut, DiagnosticStage
 from .plan import PlanIn, PlanStage
 from .produce import ProduceIn, ProduceOut, ProduceStage
 from .reply import compose_reply
+from .review import ReviewIn, ReviewOut, ReviewStage, ReviewTarget
 from .understand import UnderstandIn, UnderstandStage
 
 __all__ = [
@@ -16,6 +17,10 @@ __all__ = [
     "ProduceIn",
     "ProduceOut",
     "ProduceStage",
+    "ReviewIn",
+    "ReviewOut",
+    "ReviewStage",
+    "ReviewTarget",
     "RunContext",
     "Stage",
     "UnderstandIn",

@@ -26,7 +26,7 @@ class Container:
     papers: PaperService = field(init=False)
 
     def __post_init__(self) -> None:
-        self.papers = PaperService(self.settings, self.store)
+        self.papers = PaperService(self.settings, self.store, self.manager.start_review)
 
     async def close(self) -> None:
         await self.warmer.wait()

@@ -10,7 +10,7 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, Field, TypeAdapter
 
 from ..core.errors import InvalidRequest
-from .paper import Item, Paper, Section
+from .paper import Item, Paper, Section, Source, Verification, VerifyStatus
 
 # 允许通过 replace_field 修改的题目字段（id、rev、provenance 由系统维护）
 EDITABLE_ITEM_FIELDS = frozenset(
@@ -169,3 +169,108 @@ def apply_patch(paper: Paper, ops: list[Op]) -> Paper:
                 sec.items[k] = it.model_copy(update={"rev": it.rev + 1})
     new.rev = paper.rev + 1
     return new
+
+
+# ---- 用户编辑：补丁之外的约定 ----
+# 改了这些字段，题目的核验结论就不再成立；分值 / 难度 / 档位 / 知识点标签不影响对错
+CONTENT_FIELDS = frozenset(
+    {"kind", "stem", "options", "answer", "answer_value", "solution", "kp_ids", "figures"}
+)
+
+
+def apply_user_edit(paper: Paper, ops: list[Op], *, author_is_user: bool = True) -> tuple[Paper, list[str]]:
+    """应用补丁，并按"谁改的"补上约定：内容被改（或新增）的题核验状态回到 `pending`，来源标为 `edited`；
+    改了答案但没同时给出结构化答案时，丢弃过期的 `answer_value`。返回（新试卷，需要复核的题 id）。"""
+    new = apply_patch(paper, ops)
+    changed: list[str] = []
+    answer_set = {o.item_id for o in ops if isinstance(o, ReplaceField) and o.field == "answer_value"}
+    for op in ops:
+        if isinstance(op, ReplaceField) and op.field in CONTENT_FIELDS and op.item_id not in changed:
+            changed.append(op.item_id)
+        elif isinstance(op, AddItem) and author_is_user and op.item.id not in changed:
+            changed.append(op.item.id)
+    for iid in changed:
+        found = new.find_item(iid)
+        if found is None:
+            continue
+        sec, i, it = found
+        update: dict[str, Any] = {"verification": Verification(status=VerifyStatus.pending)}
+        if author_is_user:
+            update["provenance"] = it.provenance.model_copy(update={"source": Source.edited})
+        if (
+            any(isinstance(o, ReplaceField) and o.item_id == iid and o.field == "answer" for o in ops)
+            and iid not in answer_set
+        ):
+            update["answer_value"] = None
+        sec.items[i] = it.model_copy(update=update)
+    return new, changed
+
+
+# ---- diff ----
+class ItemChange(BaseModel):
+    item_id: str
+    change: Literal["added", "removed", "changed", "moved"]
+    number_before: int | None = None  # 题号（导出与界面使用的连续编号）
+    number_after: int | None = None
+    fields: list[str] = Field(default_factory=list)  # changed 时：哪些字段变了
+
+
+class PaperDiff(BaseModel):
+    title_changed: bool = False
+    meta_changed: list[str] = Field(default_factory=list)
+    sections_changed: bool = False  # 分区增删、改名或重排
+    items: list[ItemChange] = Field(default_factory=list)
+
+    @property
+    def empty(self) -> bool:
+        return not (self.title_changed or self.meta_changed or self.sections_changed or self.items)
+
+
+_DIFF_FIELDS = (
+    "kind",
+    "stem",
+    "options",
+    "answer",
+    "solution",
+    "kp_ids",
+    "difficulty",
+    "tier",
+    "score",
+    "figures",
+)
+
+
+def _numbered(paper: Paper) -> dict[str, tuple[int, str, Item]]:
+    out: dict[str, tuple[int, str, Item]] = {}
+    n = 0
+    for sec in paper.sections:
+        for it in sec.items:
+            n += 1
+            out[it.id] = (n, sec.id, it)
+    return out
+
+
+def diff_papers(old: Paper, new: Paper) -> PaperDiff:
+    """两个快照之间的差异（纯函数）；撤销 / 回退 / 自然语言编辑都用它给教师看"改了什么"。"""
+    a, b = _numbered(old), _numbered(new)
+    d = PaperDiff(
+        title_changed=old.title != new.title,
+        meta_changed=sorted(k for k in set(old.meta) | set(new.meta) if old.meta.get(k) != new.meta.get(k)),
+        sections_changed=[(s.id, s.title) for s in old.sections] != [(s.id, s.title) for s in new.sections],
+    )
+    for iid, (na, sa, ia) in a.items():
+        if iid not in b:
+            d.items.append(ItemChange(item_id=iid, change="removed", number_before=na))
+            continue
+        nb, sb, ib = b[iid]
+        fields = [f for f in _DIFF_FIELDS if getattr(ia, f) != getattr(ib, f)]
+        if fields:
+            d.items.append(
+                ItemChange(item_id=iid, change="changed", number_before=na, number_after=nb, fields=fields)
+            )
+        elif sa != sb or na != nb:
+            d.items.append(ItemChange(item_id=iid, change="moved", number_before=na, number_after=nb))
+    for iid, (nb, _, _) in b.items():
+        if iid not in a:
+            d.items.append(ItemChange(item_id=iid, change="added", number_after=nb))
+    return d

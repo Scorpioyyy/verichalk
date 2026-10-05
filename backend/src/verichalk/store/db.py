@@ -15,7 +15,7 @@ from typing import Any, TypeVar
 
 T = TypeVar("T")
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 COMMIT_DELAY_S = 0.05
 
 _DDL = """
@@ -41,6 +41,8 @@ CREATE TABLE IF NOT EXISTS papers(
 CREATE TABLE IF NOT EXISTS revisions(
   session_id TEXT NOT NULL, rev INTEGER NOT NULL, author TEXT NOT NULL, run_id TEXT, ts REAL NOT NULL,
   patch TEXT NOT NULL, summary TEXT NOT NULL DEFAULT '', snapshot TEXT NOT NULL,
+  kind TEXT NOT NULL DEFAULT 'edit', logical INTEGER NOT NULL DEFAULT 0, parent INTEGER,
+  redo TEXT NOT NULL DEFAULT '[]',
   PRIMARY KEY(session_id, rev));
 CREATE TABLE IF NOT EXISTS attachments(
   id TEXT PRIMARY KEY, session_id TEXT NOT NULL, filename TEXT NOT NULL, mime TEXT NOT NULL,
@@ -74,10 +76,19 @@ class Database:
         conn.execute("PRAGMA synchronous=NORMAL")
         conn.execute("PRAGMA foreign_keys=ON")
         version = conn.execute("PRAGMA user_version").fetchone()[0]
-        if version not in (0, SCHEMA_VERSION):
+        if version not in (0, 1, SCHEMA_VERSION):
             conn.close()
             raise SchemaMismatch(f"数据库 schema 版本 {version} 与代码 {SCHEMA_VERSION} 不一致")
         conn.executescript(_DDL)
+        if version == 1:  # v1 → v2：修订加上线性历史的谱系字段（旧修订视为一条直线上的 edit）
+            for col in (
+                "kind TEXT NOT NULL DEFAULT 'edit'",
+                "logical INTEGER NOT NULL DEFAULT 0",
+                "parent INTEGER",
+                "redo TEXT NOT NULL DEFAULT '[]'",
+            ):
+                conn.execute(f"ALTER TABLE revisions ADD COLUMN {col}")
+            conn.execute("UPDATE revisions SET logical=rev, parent=CASE WHEN rev>1 THEN rev-1 END")
         conn.execute(f"PRAGMA user_version={SCHEMA_VERSION}")
         conn.commit()
         self._conn = conn

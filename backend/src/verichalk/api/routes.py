@@ -13,6 +13,7 @@ from .. import __version__
 from ..core.errors import Conflict
 from ..domain.events import Event
 from ..domain.export import ExportOptions
+from ..domain.paper_ops import PaperDiff
 from ..domain.run import Run
 from ..metrics import AggregateMetrics, aggregate, compute_run_metrics
 from .deps import ContainerDep, DebugDep
@@ -21,6 +22,10 @@ from .schemas import (
     DebugRunDetail,
     DebugRunItem,
     HealthOut,
+    PaperHistory,
+    PaperPatchBody,
+    PaperUpdate,
+    RestoreBody,
     RunView,
     SessionState,
     TurnAccepted,
@@ -93,6 +98,59 @@ async def post_turn(
         await c.store.attachments.add(a)
     run = await c.manager.start_turn(session_id, text.strip(), atts)
     return TurnAccepted(session_id=session_id, run_id=run.id, message_id=run.message_id or "")
+
+
+# ---- 试卷：手动编辑、撤销 / 重做、历史 ----
+async def _update(c: ContainerDep, session_id: str, out) -> PaperUpdate:  # type: ignore[no-untyped-def]
+    h = await c.papers.history(session_id)
+    return PaperUpdate(
+        paper=out.paper,
+        revision=out.revision,
+        warnings=out.warnings,
+        review_run_id=out.review_run_id,
+        can_undo=h.can_undo,
+        can_redo=h.can_redo,
+    )
+
+
+@router.patch("/sessions/{session_id}/paper", response_model=PaperUpdate)
+async def patch_paper(session_id: str, body: PaperPatchBody, c: ContainerDep) -> PaperUpdate:
+    """手动编辑：应用补丁并立即返回新修订；内容被改的题状态回到"待核验"，同时发起一个复核运行（`review_run_id`）。"""
+    out = await c.papers.edit(
+        session_id, [op.model_dump(mode="json") for op in body.ops], base_rev=body.base_rev
+    )
+    return await _update(c, session_id, out)
+
+
+@router.post("/sessions/{session_id}/paper/undo", response_model=PaperUpdate)
+async def undo_paper(session_id: str, c: ContainerDep) -> PaperUpdate:
+    return await _update(c, session_id, await c.papers.undo(session_id))
+
+
+@router.post("/sessions/{session_id}/paper/redo", response_model=PaperUpdate)
+async def redo_paper(session_id: str, c: ContainerDep) -> PaperUpdate:
+    return await _update(c, session_id, await c.papers.redo(session_id))
+
+
+@router.post("/sessions/{session_id}/paper/restore", response_model=PaperUpdate)
+async def restore_paper(session_id: str, body: RestoreBody, c: ContainerDep) -> PaperUpdate:
+    return await _update(c, session_id, await c.papers.restore(session_id, body.rev))
+
+
+@router.get("/sessions/{session_id}/paper/history", response_model=PaperHistory)
+async def paper_history(session_id: str, c: ContainerDep) -> PaperHistory:
+    h = await c.papers.history(session_id)
+    return PaperHistory(revisions=h.revisions, head_rev=h.head_rev, can_undo=h.can_undo, can_redo=h.can_redo)
+
+
+@router.get("/sessions/{session_id}/paper/diff", response_model=PaperDiff)
+async def paper_diff(
+    session_id: str,
+    c: ContainerDep,
+    rev_from: Annotated[int, Query(alias="from")],
+    rev_to: Annotated[int, Query(alias="to")],
+) -> PaperDiff:
+    return await c.papers.diff(session_id, rev_from, rev_to)
 
 
 # ---- 导出 ----

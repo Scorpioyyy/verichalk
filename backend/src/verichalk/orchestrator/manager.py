@@ -131,6 +131,34 @@ class RunManager:
         task.add_done_callback(lambda _t, rid=run.id: self._tasks.pop(rid, None))
         return run
 
+    async def start_review(self, session_id: str, targets: list[tuple[str, int]]) -> Run:
+        """手改后复核被改动的题：独立的运行（有完整事件流），不占用会话的"进行中"位置，可与对话运行并行。"""
+        await self.store.sessions.get(session_id)
+        if "review" not in self.pipelines:
+            raise NotFound("管线不存在：review")
+        run = Run(
+            id=new_id("run"),
+            session_id=session_id,
+            pipeline="review",
+            created_at=time.time(),
+            tags=["review"],
+        )
+        await self.store.runs.create(run)
+        ctx = RunContext(
+            run_id=run.id,
+            session_id=session_id,
+            settings=self.settings,
+            llm=self.llm,
+            kb=self.kb,
+            store=self.store,
+            has_paper=True,
+        )
+        payload = {"targets": [{"item_id": i, "rev": r} for i, r in targets]}
+        task = asyncio.create_task(self._execute(run, ctx, TurnInput(text="", payload=payload)), name=run.id)
+        self._tasks[run.id] = task
+        task.add_done_callback(lambda _t, rid=run.id: self._tasks.pop(rid, None))
+        return run
+
     async def _prev_brief(self, session_id: str) -> Brief | None:
         """上一轮成功的出题 / 整卷需求（继承范围用）；取自运行状态里的理解结果。"""
         for r in await self.store.runs.list(session_id=session_id, status="succeeded", limit=5):
@@ -200,7 +228,8 @@ class RunManager:
                 await self.store.runs.save(run)
         finally:
             unbind_budget(token)
-            self._active_by_session.pop(run.session_id, None)
+            if self._active_by_session.get(run.session_id) == run.id:  # 复核运行不占会话的"进行中"位置
+                self._active_by_session.pop(run.session_id, None)
             self._checkpoints.pop(run.id, None)
             self.bus.notify(run.id)
 

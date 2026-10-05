@@ -8,6 +8,7 @@ from __future__ import annotations
 import asyncio
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
+from typing import Any
 
 from .. import trace
 from ..core.ids import new_id
@@ -23,6 +24,9 @@ from ..stages import (
     ProduceIn,
     ProduceOut,
     ProduceStage,
+    ReviewIn,
+    ReviewStage,
+    ReviewTarget,
     RunContext,
     UnderstandIn,
     UnderstandStage,
@@ -38,6 +42,7 @@ from ..stages.reply import compose_generate_reply
 class TurnInput:
     text: str
     attachments: list[Attachment] = field(default_factory=list)
+    payload: dict[str, Any] = field(default_factory=dict)  # 非对话触发的运行（如手改后的复核）带的参数
 
 
 @dataclass
@@ -52,6 +57,13 @@ Pipeline = Callable[[RunContext, TurnInput], Awaitable[PipelineResult]]
 async def diagnostic_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
     out = await run_stage(ctx, DiagnosticStage(), DiagnosticIn(text=turn.text))
     return PipelineResult(reply_message_id=out.message_id, reply_text=out.reply)
+
+
+async def review_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
+    """手改后的复核：只更新核验状态，不产生对话消息。"""
+    targets = [ReviewTarget.model_validate(t) for t in turn.payload.get("targets", [])]
+    await run_stage(ctx, ReviewStage(), ReviewIn(targets=targets))
+    return PipelineResult()
 
 
 def answer_text(answer: dict, req: ClarifyRequest) -> str:
@@ -156,6 +168,7 @@ PIPELINES: dict[str, Pipeline] = {
     "diagnostic": diagnostic_pipeline,
     "main": main_pipeline,
     "understand": understand_pipeline,
+    "review": review_pipeline,
 }
 
 DEFAULT_PIPELINE = "main"

@@ -8,7 +8,7 @@
 from __future__ import annotations
 
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -121,11 +121,27 @@ class Paper(BaseModel):
         return None
 
 
+RevisionKind = Literal["edit", "undo", "redo", "restore", "review"]
+
+
 class Revision(BaseModel):
+    """试卷的一条修订。历史是线性的、只增不删；撤销 / 重做 / 回退也是新增修订（内容取自某个更早的"逻辑版本"）。
+
+    - `logical`：这条修订所代表的"逻辑版本"。edit / restore 是它自己；undo / redo 是被恢复的那个逻辑版本；
+      review（后台复核只更新核验状态）与它所复核的逻辑版本相同，因此对撤销栈是透明的。
+    - `parent`：仅 edit / restore，它所基于的逻辑版本（撤销沿着 parent 往回走）。
+    - `redo`：此刻的重做栈（逻辑版本号，栈顶在前）；任何新的 edit / restore 都会清空它。
+    未填写（None）的 `logical / parent / redo` 由存储层按 `kind` 补全，调用方通常只需给出 `kind`。
+    """
+
     paper_id: str
     rev: int
-    author: str  # "agent" | "user"
+    author: str  # "agent" | "user" | "system"
     run_id: str | None = None
     ts: float
     patch: list[dict[str, Any]] = Field(default_factory=list)
     summary: str = ""
+    kind: RevisionKind = "edit"
+    logical: int | None = None
+    parent: int | None = None
+    redo: list[int] | None = None

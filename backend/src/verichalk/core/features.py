@@ -55,6 +55,10 @@ REGISTRY: dict[str, Feature] = {
         Feature(
             "produce.repair", "核验未通过时带失败证据修复（≤ 2 次）并在用尽后重写一次；关闭则一次不过即废弃"
         ),
+        Feature(
+            "edit.review",
+            "手改 / 编辑后对被改动的题重新核验（盲解、边界、质量）；关闭则只给确定性提示，状态保持待核验",
+        ),
         Feature("context.textbook_examples", "写题上下文里给出教材题型的改写示例（学生做过什么）"),
     ]
 }

@@ -13,7 +13,7 @@ from typing import Any
 from ..core.errors import Conflict, NotFound
 from ..core.ids import new_id
 from ..domain.events import Event, EventAdapter
-from ..domain.paper import Paper, Revision
+from ..domain.paper import Paper, Revision, Verification
 from ..domain.run import Attachment, Message, Run, Session
 from .db import Database
 
@@ -227,6 +227,8 @@ class EventRepo:
 
 
 class PaperRepo:
+    """当前试卷与线性修订历史。修订只增不删；`logical / parent / redo` 的约定见 `domain.paper.Revision`。"""
+
     def __init__(self, db: Database) -> None:
         self.db = db
 
@@ -234,17 +236,43 @@ class PaperRepo:
         row = await self.db.fetchone("SELECT snapshot FROM papers WHERE session_id=?", (session_id,))
         return Paper.model_validate_json(row["snapshot"]) if row else None
 
-    async def save(self, session_id: str, paper: Paper, rev: Revision) -> None:
-        """原子地写入当前试卷与一条修订；`paper.rev` 必须等于当前 rev + 1（乐观并发）。"""
+    async def save(self, session_id: str, paper: Paper, rev: Revision) -> Revision:
+        """原子地写入当前试卷与一条修订；`paper.rev` 必须等于当前 rev + 1（乐观并发）。
+        返回补全了谱系字段的修订。"""
         snapshot = paper.model_dump_json()
+        out: list[Revision] = []
 
         def _do(c: sqlite3.Connection) -> None:
-            cur = c.execute("SELECT rev FROM papers WHERE session_id=?", (session_id,)).fetchone()
-            current = cur["rev"] if cur else 0
+            head = c.execute(
+                "SELECT rev, logical, redo FROM revisions WHERE session_id=? ORDER BY rev DESC LIMIT 1",
+                (session_id,),
+            ).fetchone()
+            current = head["rev"] if head else 0
             if paper.rev != current + 1:
                 raise Conflict(f"试卷版本冲突：当前 {current}，提交 {paper.rev}")
+            head_logical = head["logical"] if head else None
+            head_redo = json.loads(head["redo"]) if head else []
+            logical, parent, redo = rev.logical, rev.parent, rev.redo
+            if rev.kind in ("edit", "restore"):
+                logical = paper.rev if logical is None else logical
+                parent = head_logical if parent is None else parent
+                redo = [] if redo is None else redo
+            elif rev.kind == "review":
+                logical = (
+                    (head_logical if head_logical is not None else paper.rev) if logical is None else logical
+                )
+                redo = head_redo if redo is None else redo
+            else:  # undo / redo：目标由调用方给出
+                if logical is None:
+                    raise ValueError("undo / redo 修订必须给出目标逻辑版本")
+                redo = [] if redo is None else redo
+            saved = rev.model_copy(
+                update={"rev": paper.rev, "logical": logical, "parent": parent, "redo": redo}
+            )
+            out.append(saved)
             c.execute(
-                "INSERT INTO revisions(session_id, rev, author, run_id, ts, patch, summary, snapshot) VALUES (?,?,?,?,?,?,?,?)",
+                "INSERT INTO revisions(session_id, rev, author, run_id, ts, patch, summary, snapshot, kind, logical, parent, redo)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                 (
                     session_id,
                     paper.rev,
@@ -254,6 +282,10 @@ class PaperRepo:
                     _dumps(rev.patch),
                     rev.summary,
                     snapshot,
+                    rev.kind,
+                    logical,
+                    parent,
+                    _dumps(redo),
                 ),
             )
             c.execute(
@@ -264,6 +296,7 @@ class PaperRepo:
             )
 
         await self.db.run(_do)
+        return out[0]
 
     async def get_revision(self, session_id: str, rev: int) -> Paper:
         row = await self.db.fetchone(
@@ -273,23 +306,98 @@ class PaperRepo:
             raise NotFound(f"修订不存在：{rev}")
         return Paper.model_validate_json(row["snapshot"])
 
-    async def list_revisions(self, session_id: str) -> list[Revision]:
-        rows = await self.db.fetchall(
-            "SELECT rev, author, run_id, ts, patch, summary FROM revisions WHERE session_id=? ORDER BY rev",
+    async def state_of(self, session_id: str, logical: int) -> Paper:
+        """某个逻辑版本的最新内容（同一逻辑版本上的后台复核会更新核验状态，取最后一条）。"""
+        row = await self.db.fetchone(
+            "SELECT snapshot FROM revisions WHERE session_id=? AND logical=? ORDER BY rev DESC LIMIT 1",
+            (session_id, logical),
+        )
+        if row is None:
+            raise NotFound(f"版本不存在：{logical}")
+        return Paper.model_validate_json(row["snapshot"])
+
+    @staticmethod
+    def _rev_from_row(r: sqlite3.Row) -> Revision:
+        return Revision(
+            paper_id="",
+            rev=r["rev"],
+            author=r["author"],
+            run_id=r["run_id"],
+            ts=r["ts"],
+            patch=json.loads(r["patch"]),
+            summary=r["summary"],
+            kind=r["kind"],
+            logical=r["logical"],
+            parent=r["parent"],
+            redo=json.loads(r["redo"]),
+        )
+
+    async def head(self, session_id: str) -> Revision | None:
+        row = await self.db.fetchone(
+            "SELECT rev, author, run_id, ts, patch, summary, kind, logical, parent, redo FROM revisions"
+            " WHERE session_id=? ORDER BY rev DESC LIMIT 1",
             (session_id,),
         )
-        return [
-            Revision(
-                paper_id="",
-                rev=r["rev"],
-                author=r["author"],
-                run_id=r["run_id"],
-                ts=r["ts"],
-                patch=json.loads(r["patch"]),
-                summary=r["summary"],
-            )
-            for r in rows
-        ]
+        return self._rev_from_row(row) if row else None
+
+    async def revision(self, session_id: str, rev: int) -> Revision:
+        row = await self.db.fetchone(
+            "SELECT rev, author, run_id, ts, patch, summary, kind, logical, parent, redo FROM revisions"
+            " WHERE session_id=? AND rev=?",
+            (session_id, rev),
+        )
+        if row is None:
+            raise NotFound(f"修订不存在：{rev}")
+        return self._rev_from_row(row)
+
+    async def set_verification(
+        self, session_id: str, item_id: str, item_rev: int, ver: Verification, *, run_id: str | None = None
+    ) -> Revision | None:
+        """后台复核的结果落盘：只在该题的 rev 没变时写入（用户在复核期间又改了，旧结论作废，R2）。
+        不增加题目的 rev；作为 kind=review 的修订，对撤销栈透明。写入失败（题没了 / rev 变了）返回 None。"""
+        for _ in range(3):  # 与别的写入竞争版本号时重试
+            paper = await self.get_current(session_id)
+            if paper is None:
+                return None
+            found = paper.find_item(item_id)
+            if found is None or found[2].rev != item_rev:
+                return None
+            new = paper.model_copy(deep=True)
+            sec, i, it = new.find_item(item_id)  # type: ignore[misc]
+            sec.items[i] = it.model_copy(update={"verification": ver})
+            new.rev = paper.rev + 1
+            op = {
+                "op": "replace_field",
+                "item_id": item_id,
+                "field": "verification",
+                "value": ver.model_dump(mode="json"),
+            }
+            try:
+                return await self.save(
+                    session_id,
+                    new,
+                    Revision(
+                        paper_id=new.id,
+                        rev=new.rev,
+                        author="system",
+                        run_id=run_id,
+                        ts=time.time(),
+                        patch=[op],
+                        summary="更新核验状态",
+                        kind="review",
+                    ),
+                )
+            except Conflict:
+                continue
+        return None
+
+    async def list_revisions(self, session_id: str) -> list[Revision]:
+        rows = await self.db.fetchall(
+            "SELECT rev, author, run_id, ts, patch, summary, kind, logical, parent, redo FROM revisions"
+            " WHERE session_id=? ORDER BY rev",
+            (session_id,),
+        )
+        return [self._rev_from_row(r) for r in rows]
 
 
 class AttachmentRepo:

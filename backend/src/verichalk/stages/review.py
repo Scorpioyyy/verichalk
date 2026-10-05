@@ -71,6 +71,15 @@ async def verify_input_for(ctx: RunContext, item: Item, meta: dict) -> VerifyInp
     )
 
 
+async def reverify(ctx: RunContext, item: Item, meta: dict) -> Verification:
+    """对一道（被改过的）题重新核验：没有求解程序，最多"已校对"；不过关标成"需复核"而不是丢弃。"""
+    env = VerifyEnv(llm=ctx.llm, kb=ctx.kb)
+    ver = await verify_item(env, await verify_input_for(ctx, item, meta), ctx.settings.features)
+    if ver.status == VerifyStatus.rejected:
+        ver = Verification(status=VerifyStatus.needs_review, checks=ver.checks)
+    return ver
+
+
 class ReviewStage(Stage[ReviewIn, ReviewOut]):
     name = "review"
     input_model = ReviewIn
@@ -82,8 +91,6 @@ class ReviewStage(Stage[ReviewIn, ReviewOut]):
         if paper is None:
             out.stale = [t.item_id for t in inp.targets]
             return out
-        env = VerifyEnv(llm=ctx.llm, kb=ctx.kb)
-        feats = ctx.settings.features
 
         async def one(t: ReviewTarget) -> None:
             found = paper.find_item(t.item_id)
@@ -91,9 +98,7 @@ class ReviewStage(Stage[ReviewIn, ReviewOut]):
                 out.stale.append(t.item_id)
                 return
             item = found[2]
-            ver = await verify_item(env, await verify_input_for(ctx, item, paper.meta), feats)
-            if ver.status == VerifyStatus.rejected:  # 教师自己的题不"废弃"：标成需复核并说明原因
-                ver = Verification(status=VerifyStatus.needs_review, checks=ver.checks)
+            ver = await reverify(ctx, item, paper.meta)
             saved = await ctx.store.papers.set_verification(
                 ctx.session_id, t.item_id, t.rev, ver, run_id=ctx.run_id
             )

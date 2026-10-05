@@ -23,7 +23,8 @@ from verichalk.domain.paper import (
     VerifyStatus,
 )
 from verichalk.domain.paper_ops import diff_papers
-from verichalk.orchestrator.papers import PaperService, describe_ops, number_of
+from verichalk.orchestrator.papers import PaperService
+from verichalk.stages.paper_edit import describe_ops, number_of
 
 
 def make_item(i: int, **kw) -> Item:
@@ -77,7 +78,7 @@ async def stems(store, sid: str) -> list[str]:
 
 # ---- 手改的约定 ----
 async def test_edit_content_marks_pending_edited_and_starts_review(env) -> None:
-    svc, sid, rv, store = env
+    svc, sid, rv, _ = env
     out = await svc.edit(sid, [set_field("i1", "stem", "改过的题干 $2+2=$____")])
     it = out.paper.find_item("i1")[2]  # type: ignore[index]
     assert it.verification.status == VerifyStatus.pending and it.provenance.source == Source.edited

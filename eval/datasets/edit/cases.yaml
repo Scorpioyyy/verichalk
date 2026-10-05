@@ -1,0 +1,52 @@
+# 编辑评测集（eval/specs/edit.md §2）。基础试卷 `papers.yaml: base8`；`target` 是理解阶段会给出的目标（M2 已单独评测路由与目标）。
+# touch：允许被改动的题（其余题必须逐字段不变，这是 C1② 的确定性检查）；expect：期望（见 eval/edit_eval.py 的检查项）。
+# 含反斜杠的字符串用单引号。
+# ---- 换情境 ----
+- {id: scene-1, split: val, cat: 换情境, instruction: 第4题换个场景, target: 'item:4', touch: [q4], expect: {judge: {q4: 新题换了一个与原题不同的情境或问法，知识点仍是小数加减混合运算}}}
+- {id: scene-2, split: val, cat: 换情境, instruction: 第6题的情境换成运动会, target: 'item:6', touch: [q6], expect: {keywords_any: {q6: [运动, 比赛, 跑, 跳, 球, 赛, 接力, 田径, 拔河]}}}
+- {id: scene-3, split: val, cat: 换情境, instruction: 第7题换成学校里的情境, target: 'item:7', touch: [q7], expect: {judge: {q7: 新题的情境发生在学校里（如教室、操场、课堂活动、学习用具等），考查三角形内角和}}}
+- {id: scene-4, split: test, cat: 换情境, instruction: 第8题换个有趣一点的场景, target: 'item:8', touch: [q8], expect: {judge: {q8: 新题换了一个与跳绳不同的情境，仍然是求平均数}}}
+- {id: scene-5, split: test, cat: 换情境, instruction: 第3题换个场景, target: 'item:3', touch: [q3], expect: {judge: {q3: 新题不再是铅笔的情境（换了别的物品或场景），仍然考小数乘整数}}}
+# ---- 降低难度 ----
+- {id: down-1, split: val, cat: 降难度, instruction: 第6题太难了，降低一点难度, target: 'item:6', touch: [q6], expect: {difficulty_lte: [q6], judge: {q6: 新题比原题更容易（步骤更少或数据更简单）}}}
+- {id: down-2, split: val, cat: 降难度, instruction: 第7题简单一点, target: 'item:7', touch: [q7], expect: {difficulty_lte: [q7], judge: {q7: 新题比原题更容易}}}
+- {id: down-3, split: test, cat: 降难度, instruction: 第5题降一点难度, target: 'item:5', touch: [q5], expect: {difficulty_lte: [q5], judge: {q5: 新题比原题更容易}}}
+- {id: down-4, split: val, cat: 降难度, instruction: 整体降一点难度, target: all, touch: all, expect: {difficulty_lte: [q1, q2, q3, q4, q5, q6, q7, q8]}}
+# ---- 提高难度 ----
+- {id: up-1, split: val, cat: 升难度, instruction: 第4题再难一点, target: 'item:4', touch: [q4], expect: {difficulty_gte: [q4], judge: {q4: 新题比原题更难（运算步骤更多或需要更多技巧）}}}
+- {id: up-2, split: test, cat: 升难度, instruction: 第6题拔高一点, target: 'item:6', touch: [q6], expect: {difficulty_gte: [q6], judge: {q6: 新题比原题更难（需要更多步骤、逆向思考或判断）}}}
+- {id: up-3, split: val, cat: 升难度, instruction: 第3题难度提高, target: 'item:3', touch: [q3], expect: {difficulty_gte: [q3]}}
+# ---- 改题型 ----
+- {id: kind-1, split: val, cat: 改题型, instruction: 把第6题改成选择题, target: 'item:6', touch: [q6], expect: {kind: {q6: choice}, n_options: {q6: 4}}}
+- {id: kind-2, split: val, cat: 改题型, instruction: 第4题改成填空题, target: 'item:4', touch: [q4], expect: {kind: {q4: fill}}}
+- {id: kind-3, split: val, cat: 改题型, instruction: 第2题改成选择题, target: 'item:2', touch: [q2], expect: {kind: {q2: choice}, n_options: {q2: 4}}}
+- {id: kind-4, split: test, cat: 改题型, instruction: 第7题改成判断题, target: 'item:7', touch: [q7], expect: {kind: {q7: judge}}}
+- {id: kind-5, split: test, cat: 改题型, instruction: 第3题改成应用题, target: 'item:3', touch: [q3], expect: {kind: {q3: application}}}
+# ---- 数字调整 ----
+- {id: num-1, split: val, cat: 调数字, instruction: 第4题数字别太大, target: 'item:4', touch: [q4], expect: {numbers_max: {q4: 20}}}
+- {id: num-2, split: val, cat: 调数字, instruction: 第6题的数字小一点，都在 20 以内, target: 'item:6', touch: [q6], expect: {numbers_max: {q6: 20}}}
+- {id: num-3, split: test, cat: 调数字, instruction: 第8题的数字改小一点，每个数都不超过 50, target: 'item:8', touch: [q8], expect: {numbers_max: {q8: 50}}}
+# ---- 只改文字 ----
+- {id: text-1, split: val, cat: 改文字, instruction: 第6题的解析讲细一点, target: 'item:6', touch: [q6], expect: {answer_same: [q6], longer_solution: [q6], stem_same: [q6]}}
+- {id: text-2, split: val, cat: 改文字, instruction: 第7题的题干说得更通俗一点, target: 'item:7', touch: [q7], expect: {answer_same: [q7]}}
+- {id: text-3, split: test, cat: 改文字, instruction: 第8题的解析写得简短一点, target: 'item:8', touch: [q8], expect: {answer_same: [q8], stem_same: [q8]}}
+# ---- 删除 / 移动 / 交换 ----
+- {id: struct-1, split: val, cat: 结构, instruction: 删掉第3题, target: 'item:3', touch: [], expect: {removed: [q3]}}
+- {id: struct-2, split: val, cat: 结构, instruction: 把第2题和第5题去掉, target: 'items:2,5', touch: [], expect: {removed: [q2, q5]}}
+- {id: struct-3, split: val, cat: 结构, instruction: 第1题和第3题交换, target: 'items:1,3', touch: [], expect: {order: [q3, q2, q1]}}
+- {id: struct-4, split: val, cat: 结构, instruction: 把第6题挪到最前面, target: 'item:6', touch: [], expect: {order: [q6, q1, q2, q3, q4, q5, q7, q8]}}
+- {id: struct-5, split: test, cat: 结构, instruction: 把最后一题放到第2题的位置, target: 'item:8', touch: [], expect: {order: [q1, q8, q2, q3, q4, q5, q6, q7]}}
+# ---- 分值与标题 ----
+- {id: score-1, split: val, cat: 分值, instruction: 每题3分, target: all, touch: all, expect: {all_scores: 3}}
+- {id: score-2, split: val, cat: 分值, instruction: 选择题每题5分, target: 'kind:choice', touch: [q1], expect: {scores: {q1: 5}}}
+- {id: score-3, split: val, cat: 分值, instruction: 总分改成100分, target: all, touch: all, expect: {total: 100}}
+- {id: score-4, split: test, cat: 分值, instruction: 第6题加到10分, target: 'item:6', touch: [q6], expect: {scores: {q6: 10}}}
+- {id: title-1, split: val, cat: 标题, instruction: 标题改成四年级下册期中测试, target: '', touch: [], expect: {title: 四年级下册期中测试}}
+# ---- 多项 ----
+- {id: multi-1, split: val, cat: 多项, instruction: 删掉第2题，第6题换个场景, target: 'items:2,6', touch: [q6], expect: {removed: [q2], judge: {q6: 新题换了一个与原题不同的情境}}}
+- {id: multi-2, split: test, cat: 多项, instruction: 第4题改成填空题，第5题难度降一点, target: 'items:4,5', touch: [q4, q5], expect: {kind: {q4: fill}, difficulty_lte: [q5]}}
+# ---- 做不了 / 没听明白：不改试卷，给出原因 ----
+- {id: refuse-1, split: val, cat: 无法执行, instruction: 第12题换个场景, target: 'item:12', touch: [], expect: {no_change: true}}
+- {id: refuse-2, split: val, cat: 无法执行, instruction: 改好一点, target: '', touch: [], expect: {no_change: true}}
+- {id: refuse-3, split: test, cat: 无法执行, instruction: 今天天气怎么样, target: '', touch: [], expect: {no_change: true}}
+- {id: refuse-4, split: test, cat: 无法执行, instruction: 把第20题删掉, target: 'item:20', touch: [], expect: {no_change: true}}

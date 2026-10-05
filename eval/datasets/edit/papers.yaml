@@ -1,0 +1,77 @@
+# 编辑评测的固定试卷（eval/specs/edit.md §2）：8 道题、两个分区、带分值；每道题答案手工核对过。
+# 题号（界面连续编号）与 id 对应：q1…q8。含反斜杠的字符串用单引号。
+- id: base8
+  title: 四年级下册 综合练习
+  meta:
+    grade: 4
+    lesson_id: g4b.u8.l04
+  sections:
+    - title: 选择、判断与填空
+      items:
+        - id: q1
+          kind: choice
+          stem: '$0.6\times 5$ 的积是（　）。'
+          options: ['3', '0.3', '30', '3.5']
+          answer: A
+          solution: '$0.6\times5=3$，所以选 A。'
+          kp_ids: [kp.na.小数乘法.decimal_times_int]
+          difficulty: 2
+          score: 3
+        - id: q2
+          kind: judge
+          stem: '三角形的内角和是 $180^\circ$。（　）'
+          answer: 对
+          solution: '任意三角形的三个内角和都是 $180^\circ$，所以是对的。'
+          kp_ids: [kp.gg.三角形.angle_sum]
+          difficulty: 1
+          score: 2
+        - id: q3
+          kind: fill
+          stem: '每支铅笔 $1.5$ 元，买 $6$ 支一共需要 ____ 元。'
+          answer: '9'
+          solution: '$1.5\times6=9$（元）。'
+          kp_ids: [kp.na.小数乘法.decimal_times_int]
+          difficulty: 2
+          score: 3
+    - title: 计算与解决问题
+      items:
+        - id: q4
+          kind: calc
+          stem: '计算：$12.6-3.45+0.8=$____'
+          answer: '9.95'
+          solution: '从左往右算：$12.6-3.45=9.15$，$9.15+0.8=9.95$。'
+          kp_ids: [kp.na.混合运算与运算律.decimal_mixed_add_sub]
+          difficulty: 2
+          score: 4
+        - id: q5
+          kind: calc
+          stem: '解方程：$3x-4.5=7.5$，$x=$____'
+          answer: '4'
+          solution: '$3x=7.5+4.5=12$，$x=12\div3=4$。'
+          kp_ids: [kp.na.方程.solve_two_step]
+          difficulty: 3
+          score: 4
+        - id: q6
+          kind: application
+          stem: '小红买了 $3$ 本练习本，每本 $2.5$ 元，她付给收银员 $10$ 元，应找回多少元？'
+          answer: '2.5 元'
+          solution: '$3$ 本练习本共 $2.5\times3=7.5$（元），应找回 $10-7.5=2.5$（元）。'
+          kp_ids: [kp.na.小数乘法.decimal_times_int, kp.na.混合运算与运算律.decimal_mixed_add_sub]
+          difficulty: 3
+          score: 6
+        - id: q7
+          kind: application
+          stem: '一个三角形的两个内角分别是 $65^\circ$ 和 $48^\circ$，第三个内角是多少度？'
+          answer: '67 度'
+          solution: '三角形内角和是 $180^\circ$，$180-65-48=67$（度）。'
+          kp_ids: [kp.gg.三角形.angle_sum]
+          difficulty: 3
+          score: 6
+        - id: q8
+          kind: application
+          stem: '小明 5 次跳绳的成绩分别是 $102$、$98$、$110$、$105$、$100$ 个，他平均每次跳多少个？'
+          answer: '103 个'
+          solution: '总数是 $102+98+110+105+100=515$（个），平均每次 $515\div5=103$（个）。'
+          kp_ids: [kp.sp.平均数中位数众数.average]
+          difficulty: 3
+          score: 6

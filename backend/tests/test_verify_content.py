@@ -72,3 +72,24 @@ def test_literal_newline_restored_but_tex_neq_kept() -> None:
     bs = chr(92)
     assert normalize_text("第一行" + bs + "n第二行") == "第一行\n第二行"
     assert normalize_text(f"$a{bs}neq b$") == f"$a{bs}neq b$"
+
+
+# ---- 选择题答案字母由程序结果确定（produce.fix_choice_letter）----
+async def test_fix_choice_letter_follows_program_value() -> None:
+    from verichalk.domain.blueprint import AnswerPart, WriteOut
+    from verichalk.domain.paper import ItemKind
+    from verichalk.stages.produce import fix_choice_letter
+
+    code = "from decimal import Decimal\ndef solve():\n    return [Decimal('3.6')]"
+    base = WriteOut(
+        stem="s", options=["3.06", "3.60", "3.7", "3.16"], answers=[AnswerPart(value="C")], solver_code=code
+    )
+    fixed = await fix_choice_letter(base, ItemKind.choice)
+    assert fixed.answers[0].value == "B"  # 程序算出 3.6 = 选项 B（3.60），模型写的 C 被纠正
+    ok = base.model_copy(update={"answers": [AnswerPart(value="B")]})
+    assert await fix_choice_letter(ok, ItemKind.choice) is ok
+    nomatch = base.model_copy(update={"options": ["1", "2", "3", "4"]})
+    assert await fix_choice_letter(nomatch, ItemKind.choice) is nomatch  # 对不上任何选项：不改，交给核验
+    dup = base.model_copy(update={"options": ["3.6", "3.60", "3.7", "3.16"]})
+    assert await fix_choice_letter(dup, ItemKind.choice) is dup  # 多个选项相等：不猜
+    assert await fix_choice_letter(base, ItemKind.fill) is base

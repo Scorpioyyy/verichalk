@@ -10,9 +10,12 @@ from ..domain.understanding import Route, Understanding
 def compose_reply(u: Understanding) -> str:
     if u.route == Route.offtopic:
         return "我是小学数学命题助手，可以帮您出题、组卷、修改和导出。这个请求不在我的能力范围内——您可以告诉我想给哪个年级、哪个知识点出题。"
-    if u.route in (Route.edit, Route.ask, Route.export):
-        what = {Route.edit: "修改题目", Route.ask: "解答追问", Route.export: "导出"}[u.route]
-        return f"收到。{what}的功能还在开发中，暂时不能执行。"
+    if u.route == Route.edit:
+        return "现在还没有试卷可以修改，先让我出几道题吧。"
+    if u.route == Route.ask:
+        return "现在还没有题目可以讲解，先让我出几道题吧；有了题目，您可以问我“第 2 题为什么选 B”这样的问题。"
+    if u.route == Route.export:
+        return "导出请点击页面上的“导出”按钮：可以选 PDF、Word、Markdown 或 LaTeX，教师版（含答案与解析）或学生版（空白卷）。现在还没有试卷，先让我出几道题吧。"
     lines = ["好的，我是这样理解您的需求的："]
     lines += [f"- {c.label}：{c.value}" for c in u.chips]
     if u.brief and u.brief.assumptions:
@@ -31,13 +34,18 @@ _STATUS_TEXT = {
 }
 
 
-def compose_generate_reply(u: Understanding, bp: Blueprint, items: list[Item], dropped: list[str]) -> str:
+def compose_generate_reply(
+    u: Understanding, bp: Blueprint, items: list[Item], dropped: list[str], how: str = "new"
+) -> str:
     """出题完成后的总结：数量、核验情况、被丢弃的题、本次假设与提示。"""
     n, want = len(items), len(bp.items)
     names: list[str] = []
     for it in items:
         names += [k for k in it.kp_ids if k not in names]
-    lines = [f"已为您出好 {n} 道题" + (f"（您要的是 {want} 道）" if n != want else "") + "。"]
+    lead = {"append": "已追加 {n} 道题到试卷末尾", "replace": "已换成新的 {n} 道题（可以随时撤销）"}.get(
+        how, "已为您出好 {n} 道题"
+    )
+    lines = [lead.format(n=n) + (f"（您要的是 {want} 道）" if n != want else "") + "。"]
     counts = {st: sum(1 for it in items if it.verification.status == st) for st in _STATUS_TEXT}
     lines += [f"- {c} 道{_STATUS_TEXT[st]}" for st, c in counts.items() if c]
     for it in items:

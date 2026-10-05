@@ -308,6 +308,39 @@ def cmd_export(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_edit(args: argparse.Namespace) -> int:
+    """自然语言编辑评测（C1）：固定试卷 + 编辑指令；`--record` 实调模型并录制。"""
+    from .edit_eval import load_edit_cases, load_papers, render_edit_report, run_edit_cases
+
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "edit",
+        off=args.off,
+        llm_concurrency=args.concurrency * 2,
+    )
+    root = settings.root_dir
+    base = root / "eval" / "datasets" / "edit"
+    cases = load_edit_cases(base / "cases.yaml", args.split)
+    if args.only:
+        wanted = {x.strip() for x in args.only.split(",")}
+        cases = [c for c in cases if c.id in wanted]
+    if args.limit:
+        cases = cases[: args.limit]
+    results = asyncio.run(
+        run_edit_cases(settings, cases, load_papers(base / "papers.yaml"), args.concurrency)
+    )
+    md = render_edit_report(
+        results, f"{args.tag or 'edit'} · split={args.split} · {settings.features.describe()}"
+    )
+    out = root / "eval" / "reports" / f"edit_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
 def main() -> None:
     setup_logging("WARNING")
     ap = argparse.ArgumentParser(prog="verichalk.eval")
@@ -382,6 +415,18 @@ def main() -> None:
     ex.add_argument("--tex-compile", action="store_true", help="本机有 xelatex 时实际编译 LaTeX 源码（X9）")
     ex.add_argument("--tag", default="")
     ex.set_defaults(fn=cmd_export)
+    ed = sub.add_parser("edit", help="自然语言编辑评测（C1）")
+    ed.add_argument("--split", default="val", choices=["val", "test", "all"])
+    ed.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
+    ed.add_argument("--record", action="store_true")
+    ed.add_argument("--profile", default="intl", choices=["cn", "intl"])
+    ed.add_argument("--concurrency", type=int, default=4)
+    ed.add_argument("--limit", type=int, default=0)
+    ed.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
+    ed.add_argument("--off", default="", help="关闭的特性开关（消融用）")
+    ed.add_argument("--tag", default="")
+    ed.add_argument("--cassette-ns", default=None)
+    ed.set_defaults(fn=cmd_edit)
     c = sub.add_parser("compare")
     c.add_argument("--base", required=True)
     c.add_argument("--new", required=True)

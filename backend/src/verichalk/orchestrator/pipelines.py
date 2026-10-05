@@ -14,11 +14,14 @@ from .. import trace
 from ..core.ids import new_id
 from ..domain.brief import Brief
 from ..domain.paper import Item
+from ..domain.paper_rules import placement
 from ..domain.run import Attachment
 from ..domain.understanding import ClarifyRequest, Route, Understanding
 from ..stages import (
     DiagnosticIn,
     DiagnosticStage,
+    EditIn,
+    EditStage,
     PlanIn,
     PlanStage,
     ProduceIn,
@@ -33,7 +36,8 @@ from ..stages import (
     compose_reply,
     run_stage,
 )
-from ..stages.assemble import assemble_basic
+from ..stages.assemble import assemble
+from ..stages.edit import compose_edit_reply
 from ..stages.plan_rules import replacement_spec
 from ..stages.reply import compose_generate_reply
 
@@ -107,7 +111,17 @@ async def main_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
     """理解需求 →（出题请求）规划 → 逐题创作与核验 → 装配 → 总结；其他路由给出相应回复。"""
     u = await understand_turn(ctx, turn)
     if u.route == Route.generate and u.brief is not None:
-        return await _finish(await generate(ctx, u))
+        return await _finish(await generate(ctx, u, turn.text))
+    if u.route == Route.edit and u.edit is not None and ctx.has_paper:
+        out = await run_stage(
+            ctx, EditStage(), EditIn(instruction=u.edit.instruction or turn.text, target=u.edit.target)
+        )
+        return await _finish(compose_edit_reply(out))
+    if u.route == Route.export and ctx.has_paper:
+        return await _finish(
+            "好的，请点击页面上的“导出”按钮：可以选 PDF、Word、Markdown 或 LaTeX，教师版（含答案与解析）或学生版（空白卷），"
+            "还能设置学校、班级和答案放在题后还是附页。"
+        )
     return await _finish(compose_reply(u))
 
 
@@ -115,7 +129,7 @@ def _constraints_text(brief: Brief) -> str:
     return "；".join(brief.constraints.value) if brief.constraints else ""
 
 
-async def generate(ctx: RunContext, u: Understanding) -> str:
+async def generate(ctx: RunContext, u: Understanding, text: str = "") -> str:
     """出题：规划 → 逐题创作与核验（并行，受并发上限约束）→ 装配 → 总结。每道题完成时立即发出 `item.status`。"""
     assert u.brief is not None
     bp = await run_stage(ctx, PlanStage(), PlanIn(brief=u.brief))
@@ -160,8 +174,9 @@ async def generate(ctx: RunContext, u: Understanding) -> str:
                 outs[i] = r
     items: list[Item] = [o.item for o in outs if o.item is not None]
     dropped = [o.dropped_reason for o in outs if o.item is None]
-    await assemble_basic(ctx, items, bp)
-    return compose_generate_reply(u, bp, items, dropped)
+    how = placement(text, ctx.has_paper)
+    await assemble(ctx, items, bp, how)
+    return compose_generate_reply(u, bp, items, dropped, how)
 
 
 PIPELINES: dict[str, Pipeline] = {

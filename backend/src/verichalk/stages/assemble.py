@@ -1,7 +1,9 @@
-"""装配（M3 的最小版本）：把本次产出的题目放进一份新的试卷修订，并发出补丁事件。
+"""装配：把本次产出的题目放进会话的试卷（architecture §5 `assemble`）。
 
-分区排序、分值、答案页、整卷结构与"在已有试卷上追加 / 替换"属于 M5；这里只保证：产出的题目有一个稳定的落点、
-经由 Patch 机制（D22）进入试卷、可撤销，调试台与用户端读同一份事件。
+- 没有试卷：新建一份；
+- 已有试卷：默认**追加**到最后一个分区（教师说"再来 3 道"）；明确说"重出 / 换一批"才**替换**全部题目；
+- 试卷已经有分值时，新题按题型给默认分值；
+- 一次装配 = 一条修订（经补丁，可撤销）。
 """
 
 from __future__ import annotations
@@ -12,27 +14,74 @@ from .. import trace
 from ..core.ids import new_id
 from ..domain.blueprint import Blueprint
 from ..domain.paper import Item, Paper, Revision, Section
-from ..domain.paper_ops import AddItem, AddSection, SetTitle, apply_patch
+from ..domain.paper_ops import (
+    AddItem,
+    AddSection,
+    Op,
+    RemoveSection,
+    SetMeta,
+    SetTitle,
+    apply_patch,
+)
+from ..domain.paper_rules import Placement, default_score
 from .base import RunContext
 
 _GRADE_CN = {1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六"}
 
 
-async def assemble_basic(ctx: RunContext, items: list[Item], bp: Blueprint) -> Paper | None:
+def _meta_ops(paper: Paper, bp: Blueprint) -> list[Op]:
+    ops: list[Op] = []
+    if bp.grade and "grade" not in paper.meta:
+        ops.append(SetMeta(key="grade", value=bp.grade))
+    if bp.lesson_id and "lesson_id" not in paper.meta:
+        ops.append(SetMeta(key="lesson_id", value=bp.lesson_id))
+    return ops
+
+
+async def assemble(ctx: RunContext, items: list[Item], bp: Blueprint, how: Placement = "new") -> Paper | None:
     if not items:
         return None
     current = await ctx.store.papers.get_current(ctx.session_id)
-    base = Paper(id=new_id("pap"), rev=current.rev if current else 0)
+    if current is None:
+        how = "new"
     grade = _GRADE_CN.get(bp.grade or 0, "")
-    title = f"{grade}年级数学练习" if grade else "数学练习"
-    sec = Section(id=new_id("sec"), title="练习题", kind="mixed")
-    ops = [
-        SetTitle(title=title),
-        AddSection(section=sec),
-        *(AddItem(section_id=sec.id, item=it) for it in items),
-    ]
-    paper = apply_patch(base, ops)
-    await ctx.store.papers.save(
+    ops: list[Op]
+    if how == "new" or current is None:
+        base = Paper(id=new_id("pap"), rev=current.rev if current else 0)
+        sec = Section(id=new_id("sec"), title="练习题", kind="mixed")
+        ops = [
+            SetTitle(title=f"{grade}年级数学练习" if grade else "数学练习"),
+            AddSection(section=sec),
+            *(AddItem(section_id=sec.id, item=it) for it in items),
+            *_meta_ops(base, bp),
+        ]
+        summary = f"生成 {len(items)} 道题"
+        paper = apply_patch(base, ops)
+    else:
+        scored = any(it.score is not None for it in current.all_items())
+        if scored:
+            items = [it.model_copy(update={"score": it.score or default_score(it.kind)}) for it in items]
+        if how == "replace":
+            sec = Section(id=new_id("sec"), title="练习题", kind="mixed")
+            ops = [
+                *(RemoveSection(section_id=s.id) for s in current.sections),
+                AddSection(section=sec),
+                *(AddItem(section_id=sec.id, item=it) for it in items),
+                *_meta_ops(current, bp),
+            ]
+            summary = f"换成新的 {len(items)} 道题"
+        else:
+            target = current.sections[-1] if current.sections else None
+            ops = []
+            if target is None:
+                target = Section(id=new_id("sec"), title="练习题", kind="mixed")
+                ops.append(AddSection(section=target))
+            ops += [AddItem(section_id=target.id, item=it) for it in items]
+            ops += _meta_ops(current, bp)
+            summary = f"追加 {len(items)} 道题"
+        paper = apply_patch(current, ops)
+    patch = [op.model_dump(mode="json") for op in ops]
+    saved = await ctx.store.papers.save(
         ctx.session_id,
         paper,
         Revision(
@@ -41,11 +90,9 @@ async def assemble_basic(ctx: RunContext, items: list[Item], bp: Blueprint) -> P
             author="agent",
             run_id=ctx.run_id,
             ts=time.time(),
-            patch=[op.model_dump(mode="json") for op in ops],
-            summary=f"生成 {len(items)} 道题",
+            patch=patch,
+            summary=summary,
         ),
     )
-    await trace.paper_patched(
-        paper.id, paper.rev, [op.model_dump(mode="json") for op in ops], f"生成 {len(items)} 道题"
-    )
+    await trace.paper_patched(paper.id, saved.rev, patch, summary)
     return paper

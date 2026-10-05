@@ -39,3 +39,4 @@ frontend/dist/
 /eval/cassettes/produce/
 /eval/cassettes/naive_models/
 /eval/cassettes/eval_*/
+/eval/cassettes/edit/

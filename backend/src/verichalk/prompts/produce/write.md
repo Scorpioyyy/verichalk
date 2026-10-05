@@ -1,6 +1,6 @@
 ---
 id: produce.write
-version: 4
+version: 5
 role: smart
 description: 按规格写一道小学数学题：题面、选项、结构化答案、解析、求解程序；核验未通过时按反馈修改。
 ---
@@ -100,6 +100,23 @@ description: 按规格写一道小学数学题：题面、选项、结构化答�
 {% for a in avoid %}
 - {{ a }}
 {% endfor %}
+{% endif %}
+{% if rewrite %}
+# 改写任务（不是出新题）
+教师要**修改下面这道已有的题**，请按教师的要求改写，而不是另出一道无关的新题：
+- 原题题面：{{ rewrite.stem }}
+{% if rewrite.options %}
+- 原题选项：{{ rewrite.options | join(" ｜ ") }}
+{% endif %}
+- 原题答案：{{ rewrite.answer }}
+- 原题解析：{{ rewrite.solution }}
+- **教师的要求：{{ rewrite.instruction }}**
+{% if rewrite.from_difficulty and rewrite.from_difficulty != difficulty %}
+- 难度要求：原题难度 {{ rewrite.from_difficulty }}，改写后要达到 {{ difficulty }}（1～5）。{{ "要比原题**明显更容易**。可用的办法（任选，至少用一个）：减少一步运算；数据换成整数或一位小数、不用进位退位；去掉多余条件、把隐含条件直接说明；把问题问得更直接。改完后步骤数要比原题少，或数据明显更友好。" if difficulty < rewrite.from_difficulty else "要比原题**明显更难**。可用的办法（任选，至少用一个）：多加一步运算或一个条件；加入单位换算或多余条件；改成逆向问题（已知结果求原数）；需要先比较、判断再计算。改完后步骤数要比原题多，或需要多一层思考，不能只是把数字变大。" }}
+- 在 `scratch` 里先写一行"原题几步 → 新题几步"，再设计数据。
+{% endif %}
+
+改写规则：只改教师要求改的方面，其余（考查的知识点、整体难度、语言风格）尽量保持；规格里的题型、难度、情境就是改写后的目标；数据、答案、解析、求解程序要**一起重新算**，保证新题的答案正确；不得与原题完全相同。
 {% endif %}
 {% if repair %}
 # 需要修改

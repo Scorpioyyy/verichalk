@@ -9,13 +9,22 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import re
 import time
 from typing import Any
 
 from pydantic import BaseModel
 
 from .. import trace
-from ..core.errors import BudgetExceeded, KnowledgeError, LLMError, NotFound
+from ..core.errors import (
+    BudgetExceeded,
+    KnowledgeError,
+    LLMError,
+    NotFound,
+    SandboxError,
+    SandboxTimeout,
+    SandboxViolation,
+)
 from ..core.ids import new_id
 from ..domain.blueprint import AnswerPart, ItemSpec, WriteOut
 from ..domain.knowledge import KPDetail
@@ -32,7 +41,17 @@ from ..domain.paper import (
     VerifyStatus,
 )
 from ..llm import LLMRequest, complete_json, get_prompt
-from ..verify import VerifyEnv, VerifyInput, failing, format_answer, normalize_text, verify_item
+from ..sandbox import run_solver
+from ..verify import (
+    VerifyEnv,
+    VerifyInput,
+    answers_equal,
+    failing,
+    format_answer,
+    normalize_text,
+    verify_item,
+)
+from ..verify.answers import program_values
 from .base import RunContext, Stage
 
 log = logging.getLogger("verichalk.produce")
@@ -75,6 +94,9 @@ class ProduceIn(BaseModel):
     constraints: str = ""  # 教师的其他要求（如"数字不要太大"）
     avoid: list[str] = []  # 套内其他题的考法摘要（本题要与之不同）
     references: list[str] = []  # 教师上传的题（防雷同）
+    rewrite: dict[str, Any] | None = (
+        None  # 改写已有的题（编辑阶段）：{stem, options, answer, solution, instruction}
+    )
 
 
 class ProduceOut(BaseModel):
@@ -133,6 +155,29 @@ def _normalize(w: WriteOut) -> WriteOut:
     )
 
 
+async def fix_choice_letter(w: WriteOut, kind: ItemKind) -> WriteOut:
+    """选择题的答案字母由求解程序的结果确定：程序算出的值恰好等于某一个选项时，字母以它为准。
+
+    模型常把正确值写进了选项，却把字母指向别的位置（核验里最常见的选择题失败）；字母本来就是"哪个选项是对的"的派生信息，
+    由程序结果推出比让模型自己对齐更可靠。之后的独立盲解仍会核验这个答案。程序结果与任何选项都对不上时不改（交给核验）。"""
+    if kind != ItemKind.choice or not w.solver_code.strip() or len(w.answers) != 1 or not w.options:
+        return w
+    claimed = w.answers[0].value.strip()
+    if not re.fullmatch(r"[A-Da-d]", claimed):
+        return w
+    try:
+        out = await run_solver(w.solver_code, timeout_s=5.0)
+    except (SandboxViolation, SandboxTimeout, SandboxError):
+        return w
+    got = program_values(out.value)
+    if len(got) != 1:
+        return w
+    hits = [i for i, o in enumerate(w.options) if answers_equal(got, [o])]
+    if len(hits) != 1 or "ABCD"[hits[0]] == claimed.upper():
+        return w
+    return w.model_copy(update={"answers": [w.answers[0].model_copy(update={"value": "ABCD"[hits[0]]})]})
+
+
 class ProduceStage(Stage[ProduceIn, ProduceOut]):
     name = "produce"
     input_model = ProduceIn
@@ -177,6 +222,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     attempts += 1
                     break
                 attempts += 1
+                w = await fix_choice_letter(w, spec.kind)
                 vin = VerifyInput(
                     kind=spec.kind.value,
                     stem=w.stem,
@@ -193,7 +239,8 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                 ver = await verify_item(env, vin, feats)
                 if ver.status != VerifyStatus.rejected:
                     item = self._to_item(ctx, spec, w, ver)
-                    await trace.item_status(item.id, ver.status, ver.checks)
+                    if inp.rewrite is None:  # 改写的结果不是试卷里的新题，状态由编辑阶段按原题 id 发出
+                        await trace.item_status(item.id, ver.status, ver.checks)
                     return ProduceOut(item=item, attempts=attempts, failed_checks=failed)
                 problems = _problems(ver)
                 failed.append([f"{c.name}:{c.detail[:110]}" for c in failing(ver.checks)])
@@ -255,11 +302,14 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                 "angle": spec.angle,
                 "design": spec.design if dp else "",
                 "target_error": spec.target_error if dp else "",
-                "difficulty_rule": _DIFFICULTY_RULE.get(min(max(spec.difficulty, 1), 5), "") if dp else "",
+                "difficulty_rule": _DIFFICULTY_RULE.get(min(max(spec.difficulty, 1), 5), "")
+                if (dp or inp.rewrite)
+                else "",
                 "number_hint": spec.number_hint,
                 "constraints": inp.constraints,
                 "examples": examples,
                 "avoid": inp.avoid,
+                "rewrite": inp.rewrite,
                 "repair": repair,
             },
         )

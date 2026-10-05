@@ -184,6 +184,9 @@ def apply_user_edit(paper: Paper, ops: list[Op], *, author_is_user: bool = True)
     new = apply_patch(paper, ops)
     changed: list[str] = []
     answer_set = {o.item_id for o in ops if isinstance(o, ReplaceField) and o.field == "answer_value"}
+    verified_set = {
+        o.item_id for o in ops if isinstance(o, ReplaceField) and o.field == "verification"
+    }  # 同一补丁里已给出结论
     for op in ops:
         if isinstance(op, ReplaceField) and op.field in CONTENT_FIELDS and op.item_id not in changed:
             changed.append(op.item_id)
@@ -194,7 +197,9 @@ def apply_user_edit(paper: Paper, ops: list[Op], *, author_is_user: bool = True)
         if found is None:
             continue
         sec, i, it = found
-        update: dict[str, Any] = {"verification": Verification(status=VerifyStatus.pending)}
+        update: dict[str, Any] = {}
+        if iid not in verified_set:
+            update["verification"] = Verification(status=VerifyStatus.pending)
         if author_is_user:
             update["provenance"] = it.provenance.model_copy(update={"source": Source.edited})
         if (

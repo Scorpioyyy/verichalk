@@ -30,3 +30,6 @@ frontend/dist/
 # 编辑器
 .vscode/
 .idea/
+
+# Claude Code 子任务的独立工作区
+/.claude/worktrees/

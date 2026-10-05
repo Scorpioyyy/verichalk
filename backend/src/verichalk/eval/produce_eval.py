@@ -173,7 +173,9 @@ async def run_naive(gw: LLMGateway, ref: list[CaseRec]) -> list[CaseRec]:
                 out.error = str(e)
                 return out
         out.status, out.cost, out.calls, out.e2e_s = "succeeded", res.cost, 1, time.time() - t0
-        for i, it in enumerate(parsed.items):
+        for i, it in enumerate(
+            parsed.items[: r.n_requested or None]
+        ):  # 教师要 n 道就只取前 n 道（多写的不算）
             item = Item(
                 id=new_id("itm"),
                 kind=ItemKind.application,

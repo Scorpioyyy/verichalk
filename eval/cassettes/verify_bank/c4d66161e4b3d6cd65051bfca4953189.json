@@ -1,0 +1,18 @@
+{
+ "key": "c4d66161e4b3d6cd65051bfca4953189",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"李老师组织41名同学去参观，每辆大巴车限乘3人。已知2辆大巴车刚好可以坐完所有同学。如果都坐大巴车，至少需要租几辆？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1414.2714999616146,
+ "ttft_ms": 1414.2923000035807,
+ "total_ms": 2178.4481999929994
+}

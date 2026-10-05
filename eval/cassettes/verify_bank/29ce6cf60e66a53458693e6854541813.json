@@ -1,0 +1,18 @@
+{
+ "key": "29ce6cf60e66a53458693e6854541813",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"大卡车每次可运载6吨货物，乙车每次可运载的货物量是大卡车的4/5。大卡车10次满载运完的货物，如果改用乙车运，至少3.5次才能运完？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 134,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1673.6839999794029,
+ "ttft_ms": 1673.7098000012338,
+ "total_ms": 2668.5660000075586
+}

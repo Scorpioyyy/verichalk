@@ -1,0 +1,18 @@
+{
+ "key": "7e44947a426b6f8405eb3807859c72c5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"将784591四舍五入到百位，看十位数字9，大于等于5，向百位进1。百位及以后变为0，得到784600。\", \"answers\": [{\"label\": \"四舍五入到百位\", \"value\": \"784600\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: 784591 rounded to hundreds. Grade 4. Need exact? The question asks 四舍五入到百位, result approx. Need round 784591 to nearest hundred. Look at tens digit: 9? Number 784,591. Hundreds digit is 5? Let's parse: 784591: units 1, tens 9, hundreds 5, thousands 4, ten-thousands 8, hundred-thousands 7. To round to hundreds, look at tens digit 9 >=5, so hundreds digit 5 increases to 6, trailing zeros: 784600. Answer 784600 人. Need maybe \"约是\". JSON.\nNeed ensure no extra. Ambiguity false. Work concise.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 287,
+  "cached_tokens": 0,
+  "reasoning_tokens": 188
+ },
+ "ttfb_ms": 1444.6884000208229,
+ "ttft_ms": 1444.7008999995887,
+ "total_ms": 10701.155100017786
+}

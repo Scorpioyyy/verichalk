@@ -1,0 +1,18 @@
+{
+ "key": "f0dfd364ad4df4a57698b3e677fa24f9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算火车路程：325×2=650（千米）。再算汽车路程：63×4=255（千米）。最后求总路程：650+255=905（千米）。答：王强一共行了905千米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 167,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1429.532999987714,
+ "ttft_ms": 1436.213899985887,
+ "total_ms": 2446.027099969797
+}

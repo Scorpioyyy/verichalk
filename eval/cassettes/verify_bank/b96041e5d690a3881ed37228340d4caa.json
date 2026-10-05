@@ -1,0 +1,18 @@
+{
+ "key": "b96041e5d690a3881ed37228340d4caa",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小丽一共有15个糖果，其中7个放在外面，剩下的都在盘子里。有多少个糖果？\\n列式：□○□=□（只）\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 105,
+  "completion_tokens": 41,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1473.4629000304267,
+ "ttft_ms": 1473.4853000263683,
+ "total_ms": 2116.9806999969296
+}

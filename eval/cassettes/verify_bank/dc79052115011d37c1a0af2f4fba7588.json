@@ -1,0 +1,18 @@
+{
+ "key": "dc79052115011d37c1a0af2f4fba7588",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"按照从左到右的顺序依次计算：先算96-10=86，再算86+6=92。因此答案为92。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 72,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1366.1156999878585,
+ "ttft_ms": 1366.127500019502,
+ "total_ms": 1874.5000999770127
+}

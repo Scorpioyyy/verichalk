@@ -1,0 +1,18 @@
+{
+ "key": "57a98c3c35f8b6e2100168ee2552a141",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"商店里有以下商品：足球 78元，排球 0.003元。请解决下面的问题：\\n买1个足球和1个排球一共要多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 123,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1688.0099000409245,
+ "ttft_ms": 1688.0315000307746,
+ "total_ms": 2360.825300042052
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7902f9a9f87844193cbe7d6c79c92180",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"学校组织了一次活动，共有800人参加。每个大组又平均分成4个小组。请问平均每个小组有多少人？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 105,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1102.3434000089765,
+ "ttft_ms": 1102.3560999892652,
+ "total_ms": 1605.1390999928117
+}

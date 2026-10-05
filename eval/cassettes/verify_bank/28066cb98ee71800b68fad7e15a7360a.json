@@ -1,0 +1,18 @@
+{
+ "key": "28066cb98ee71800b68fad7e15a7360a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"按三位数乘一位数列竖式：0×7=0写个位；9×7=63，写3进6；4×7=28，再加进位6得34，所以结果是3430。\", \"answers\": [{\"label\": \"\", \"value\": \"3430\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request in Chinese? Need produce final JSON only. Need solve 490×7 for grade 3 vertical multiplication. Compute 490*7=3430. Need output JSON with work, answers. No ambiguity. Ensure only JSON. Need maybe label empty. Unit empty. Let's craft concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 164,
+  "cached_tokens": 0,
+  "reasoning_tokens": 71
+ },
+ "ttfb_ms": 1684.7291000303812,
+ "ttft_ms": 1684.974899981171,
+ "total_ms": 7692.349400022067
+}

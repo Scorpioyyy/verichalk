@@ -1,0 +1,18 @@
+{
+ "key": "9717bafddbd769ea751fe76239127af1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要求还剩多少页没看，用总页数减去已看页数。列式：976-44。个位6减4得2；十位7减4得3；百位9没有数可减，直接落下来得9。所以976-44=992。答：还剩992页没有看。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 153,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1329.2305000359192,
+ "ttft_ms": 1329.2495000059716,
+ "total_ms": 2705.7560000102967
+}

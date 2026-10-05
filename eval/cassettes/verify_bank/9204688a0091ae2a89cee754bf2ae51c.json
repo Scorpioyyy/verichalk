@@ -1,0 +1,18 @@
+{
+ "key": "9204688a0091ae2a89cee754bf2ae51c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算4辆平板车一次能装的箱数：4×41=164（箱）。再算这些箱子能装芒果的总重量：164×17=2788（千克）。因为2788<4709，说明一次运不完全部芒果。所以这些车一次一共能运走2788千克芒果。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 129,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1114.5974000100978,
+ "ttft_ms": 1114.6161999786273,
+ "total_ms": 2696.7493999982253
+}

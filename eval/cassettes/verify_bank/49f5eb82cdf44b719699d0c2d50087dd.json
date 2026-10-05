@@ -1,0 +1,18 @@
+{
+ "key": "49f5eb82cdf44b719699d0c2d50087dd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把92个树苗平均分给2个小组，用除法计算：92÷2=46。所以每个小组分到46个树苗。\", \"answers\": [{\"label\": \"\", \"value\": \"46\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve simple grade 3: 92 tree saplings average divided among 2 groups. 92/2=46. Need concise. Ensure JSON only. answers one item label maybe empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 125,
+  "cached_tokens": 0,
+  "reasoning_tokens": 52
+ },
+ "ttfb_ms": 1815.1910999440588,
+ "ttft_ms": 1815.2101999730803,
+ "total_ms": 6362.156499992125
+}

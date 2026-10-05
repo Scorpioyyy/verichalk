@@ -1,0 +1,18 @@
+{
+ "key": "2c04a7def0058afd3647627cba229e51",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"用竖式计算：215×26=215×20+215×6=4300+1290=5590。\", \"answers\": [{\"label\": \"\", \"value\": \"5590\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve 215*26 for grade 4. Need output JSON only. Compute: 215*20=4300, *6=1290, sum 5590. Or 215*26 = 215*(25+1)=5375+215=5590. Need JSON with work, answers one value. ambiguous false. Ensure final only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 187,
+  "cached_tokens": 0,
+  "reasoning_tokens": 106
+ },
+ "ttfb_ms": 1852.121600008104,
+ "ttft_ms": 1852.2742000059225,
+ "total_ms": 8163.134299975354
+}

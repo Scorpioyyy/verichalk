@@ -1,0 +1,18 @@
+{
+ "key": "780003b06ef67e8b51b759fb2c7febb6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"总数是71，其中一部分是22，求另一部分用减法：71 - 22 = 49。\", \"answers\": [{\"label\": \"找回的钱数\", \"value\": \"49\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 2 word problem: total 71, one part 22, find other part (change). Use subtraction: 71-22=49. Need perhaps answer 49, unit maybe 元? The prompt: 超市购物找零。已知总数是71，其中一部分是22，求另一部分（找回的钱数）是多少？ It says total 71, part 22, find other part (change). Could be money, unit 元? Not specified but \"钱数\" maybe 元. Need output JSON with work, answers. Ensure exact. No ambiguity. But consider if total is 71 (maybe paid amount?) and part 22 (spent), change = 49. Grade 2 subtraction. Need maybe label. Output only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 369,
+  "completion_tokens": 252,
+  "cached_tokens": 0,
+  "reasoning_tokens": 179
+ },
+ "ttfb_ms": 2012.8004999714904,
+ "ttft_ms": 2012.8202999476343,
+ "total_ms": 9294.142899976578
+}

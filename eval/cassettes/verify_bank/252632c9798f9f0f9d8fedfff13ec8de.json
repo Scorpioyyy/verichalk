@@ -1,0 +1,18 @@
+{
+ "key": "252632c9798f9f0f9d8fedfff13ec8de",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原竖式计算错误。个位2减8不够减，需向十位借1当10，12-8=4；十位被借走1后剩0，无需再写。因此12-8=4。正确的得数是：4\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 99,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1428.8149999920279,
+ "ttft_ms": 1428.8368999841623,
+ "total_ms": 2686.871499987319
+}

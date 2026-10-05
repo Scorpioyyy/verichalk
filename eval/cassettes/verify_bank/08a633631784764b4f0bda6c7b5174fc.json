@@ -1,0 +1,18 @@
+{
+ "key": "08a633631784764b4f0bda6c7b5174fc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先找4的乘法口诀中不超过42的最大结果：4×10=40，4×11=44。因为40<43而44>43，所以括号里最大能填10。\", \"answers\": [{\"label\": \"括号里最大能填几\", \"value\": \"10\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple grade 2: 4 × ( ) < 43, max integer? 4*10=40 <43, 4*11=44 >43, so 10. Need output JSON only. Ensure final only JSON. Need maybe work concise. answers one. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 359,
+  "completion_tokens": 174,
+  "cached_tokens": 0,
+  "reasoning_tokens": 77
+ },
+ "ttfb_ms": 1767.752100015059,
+ "ttft_ms": 1767.7630000398494,
+ "total_ms": 6769.3025000044145
+}

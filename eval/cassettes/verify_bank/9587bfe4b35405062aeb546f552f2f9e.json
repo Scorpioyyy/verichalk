@@ -1,0 +1,18 @@
+{
+ "key": "9587bfe4b35405062aeb546f552f2f9e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"因为 588 - 586 = 2，所以 588 = 586 + 2。\", \"answers\": [{\"label\": \"\", \"value\": \"2\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve simple grade 2: 588 = 586 + ___. Need blank = 2. Need maybe work brief. Ensure no extra text. Ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 45
+ },
+ "ttfb_ms": 1599.466299987398,
+ "ttft_ms": 1599.4881999795325,
+ "total_ms": 5489.938999991864
+}

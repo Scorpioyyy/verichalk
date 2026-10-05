@@ -1,0 +1,18 @@
+{
+ "key": "29e46412a0ddfa97814d4028a88e86df",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由题意，地砖块数与大齿轮转速成反比例关系。设此时大齿轮转速为x圈/分，列方程：210×3.4=30×x。计算左边：210×3.4=711。所以30x=711，解得x=711÷30=237/10。答：此时大齿轮转速为237/10圈/分。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 181,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1309.4979000161402,
+ "ttft_ms": 1309.529299964197,
+ "total_ms": 2824.643299973104
+}

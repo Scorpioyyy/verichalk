@@ -1,0 +1,18 @@
+{
+ "key": "3ac8e35f0ad3308acc145879146f5665",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先求火车路程：325×2=650（千米）；再求汽车路程：63×4=252（千米）；总路程：650+252=902（千米）。\", \"answers\": [{\"label\": \"\", \"value\": \"902\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. Need produce final JSON. Let's analyze problem: Wang Qiang from Shanghai to Wuhan, train 2 hours, 325 km/h; then car 4 hours, 63 km/h. Total distance = 2*325 + 4*63 = 650 + 252 = 902 km. Grade 3 multiplication/addition. Need output JSON with work, answers. No ambiguity. Ensure exact. Maybe label can be empty or \"一共行的路程\". Unit 千米.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 386,
+  "completion_tokens": 220,
+  "cached_tokens": 0,
+  "reasoning_tokens": 126
+ },
+ "ttfb_ms": 1436.355099955108,
+ "ttft_ms": 1436.3795999670401,
+ "total_ms": 7696.117699961178
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7e2b49e4d0e03b17ef2eb963195144ab",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据题意，m = 4a + 18。将 a = 43 代入公式：先算乘法，4 × 43 = 172；再算加法，172 + 18 = 200。所以当 a = 43 时，m = 200。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 168,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1469.6497999830171,
+ "ttft_ms": 1469.6614000131376,
+ "total_ms": 2655.22770001553
+}

@@ -1,0 +1,18 @@
+{
+ "key": "182cd7dcd68a944a0d9c0bba04e9f050",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"10本这样的书叠在一起厚4厘米，每本书厚2厘米。照这样计算，十万本这样的书叠在一起大约厚多少厘米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 89,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1474.2122999741696,
+ "ttft_ms": 1474.229399987962,
+ "total_ms": 2123.5428999643773
+}

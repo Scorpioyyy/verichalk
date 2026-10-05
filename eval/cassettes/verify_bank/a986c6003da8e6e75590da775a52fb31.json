@@ -1,0 +1,18 @@
+{
+ "key": "a986c6003da8e6e75590da775a52fb31",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"长方体表面积公式为2×(长×宽+长×高+宽×高)。代入数据：长×宽=10×5=50，长×高=10×2=20，宽×高=5×2=10。三项相加：50+20+10=80。最后除以2得80÷2=40，再减去重复计算的底面面积25，即40-25=15。故表面积为15cm²。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1371.5237000142224,
+ "ttft_ms": 1371.54979998013,
+ "total_ms": 3356.121000018902
+}

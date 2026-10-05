@@ -1,0 +1,18 @@
+{
+ "key": "b0b7b9e99ba4045b39986edd32d455e9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算括号内：571＋10＝581。再用581×46，拆分计算：581×40＝23240，581×6＝3486。最后相加：23240＋3486＝267260。所以答案是267260。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 146,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1469.7262999834493,
+ "ttft_ms": 1469.749599986244,
+ "total_ms": 2899.352299980819
+}

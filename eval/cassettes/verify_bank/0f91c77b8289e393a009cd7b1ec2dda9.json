@@ -1,0 +1,18 @@
+{
+ "key": "0f91c77b8289e393a009cd7b1ec2dda9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将484拆分为400+80+4，分别与637相乘：400×637=254800，80×637=50960，4×637=2548。三部分相加：254800+50960+2548=308308。因此答案为308308。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 75,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1423.8142000394873,
+ "ttft_ms": 1423.8426000229083,
+ "total_ms": 2981.755900022108
+}

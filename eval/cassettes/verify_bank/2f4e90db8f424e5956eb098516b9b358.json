@@ -1,0 +1,18 @@
+{
+ "key": "2f4e90db8f424e5956eb098516b9b358",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原有62个，第一次用去31个，还剩62-31=31个。第二次用去16个，计算31-16：个位1减6不够，向十位借1当10，11-6=5；十位3借走1剩2，2-1=1，所以31-16=19。但注意题目问的是两次一共用去多少，31+16=47，不对。重新审题：62-31=31，31-16，个位1-6借位得5，十位2-1=1，即15？不，仔细算31-16=12。答：还剩下12个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 172,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1392.132800014224,
+ "ttft_ms": 1392.145599995274,
+ "total_ms": 4396.45770000061
+}

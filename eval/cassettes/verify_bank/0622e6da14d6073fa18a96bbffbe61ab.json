@@ -1,0 +1,18 @@
+{
+ "key": "0622e6da14d6073fa18a96bbffbe61ab",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"校园绿化队开辟了一块平行四边形花圃，已知它的面积是 84 m²。这条底边对应的高是多少米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 105,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1168.5070000239648,
+ "ttft_ms": 1168.5269000008702,
+ "total_ms": 1707.7742000110447
+}

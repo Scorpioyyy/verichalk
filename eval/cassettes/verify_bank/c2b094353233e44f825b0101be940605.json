@@ -1,0 +1,18 @@
+{
+ "key": "c2b094353233e44f825b0101be940605",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"笔记本单价是7元，买4个，用乘法计算总价：7×4=28（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"28\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 5? Actually grade 3 maybe but user says grade 5. Need independent. Problem: notebook unit price 7 yuan. Buy 4, total 7*4=28 yuan. Need output JSON with work, answers. No ambiguity. Ensure exact.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 131,
+  "cached_tokens": 0,
+  "reasoning_tokens": 66
+ },
+ "ttfb_ms": 1574.6778000029735,
+ "ttft_ms": 1574.7038000263274,
+ "total_ms": 6116.884000017308
+}

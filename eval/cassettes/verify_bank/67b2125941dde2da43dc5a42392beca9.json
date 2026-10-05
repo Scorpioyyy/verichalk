@@ -1,0 +1,18 @@
+{
+ "key": "67b2125941dde2da43dc5a42392beca9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求袜子的价格是肉饼的几倍，用袜子的价格除以肉饼的价格即可。列式：24÷4=6。所以袜子的价格是肉饼的6倍。答案是6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 83,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1131.1563000199385,
+ "ttft_ms": 1131.179800024256,
+ "total_ms": 1928.7872000131756
+}

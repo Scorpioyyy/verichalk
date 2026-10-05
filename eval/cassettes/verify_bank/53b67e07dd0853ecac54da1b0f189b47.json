@@ -1,0 +1,18 @@
+{
+ "key": "53b67e07dd0853ecac54da1b0f189b47",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"妈妈今年36岁，奇思今年18岁。妈妈和奇思同岁。妈妈比奇思大多少岁？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 84,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1171.1099999956787,
+ "ttft_ms": 1171.1297999718226,
+ "total_ms": 1706.729399971664
+}

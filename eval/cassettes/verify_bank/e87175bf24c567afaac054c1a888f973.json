@@ -1,0 +1,18 @@
+{
+ "key": "e87175bf24c567afaac054c1a888f973",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据长方形面积公式：面积=长×宽，可得宽=面积÷长。已知面积为192平方厘米，长为16厘米，代入计算：宽=192÷16。列竖式计算，16×2=32，用19减去16余3，落下2得32，32÷16=2。所以宽是2厘米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1639.5032000145875,
+ "ttft_ms": 1639.521799981594,
+ "total_ms": 3062.0553999906406
+}

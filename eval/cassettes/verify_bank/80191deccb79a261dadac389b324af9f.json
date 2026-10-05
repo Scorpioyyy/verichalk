@@ -1,0 +1,18 @@
+{
+ "key": "80191deccb79a261dadac389b324af9f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"总价与数量成正比例，即单价不变。先求单价：20.5÷2.5=8.2（元/千克）。再求6千克的总价：8.2×6=49.2（元）。答：购买6千克该商品需要49.2元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 106,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1121.6582999913953,
+ "ttft_ms": 1121.6756000067107,
+ "total_ms": 2297.5406000041403
+}

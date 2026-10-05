@@ -1,0 +1,18 @@
+{
+ "key": "1d5323f4129f27aec85da753d4b32d7b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算两次共运走多少箱：351+242=593（箱）。再用总数减去运走的，但注意736是三位数不够减，需借位变成四位数计算：7360-593×8=7360-4776=2584，再调整得258336（箱）。答：还剩258336箱。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1221.9908999977633,
+ "ttft_ms": 1222.0045000431128,
+ "total_ms": 3100.9055000031367
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c456aaa684cfe9d97f58b7389bde5866",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"观察两个乘法算式都有相同因数57，可用乘法分配律：98×57＋92×57=(98+92)×57=190×57。计算190×57=190×(50+7)=9500+1330=10830。\", \"answers\": [{\"label\": \"\", \"value\": \"10830\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: 98×57＋92×57. Grade 4 observe characteristics: common factor 57, (98+92)*57 = 190*57 = 10830? 57*190 = 57*19*10 = 1083*10=10830. Alternatively 98*57=5586? 100*57-2*57=5700-114=5586; 92*57=5244? sum 10830. Need output JSON. Ensure no extra. Could mention work. answers one value. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 362,
+  "completion_tokens": 293,
+  "cached_tokens": 0,
+  "reasoning_tokens": 172
+ },
+ "ttfb_ms": 1716.050399991218,
+ "ttft_ms": 1716.0618000198156,
+ "total_ms": 10477.051499998197
+}

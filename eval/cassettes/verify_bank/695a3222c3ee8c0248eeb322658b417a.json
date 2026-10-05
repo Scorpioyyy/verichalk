@@ -1,0 +1,18 @@
+{
+ "key": "695a3222c3ee8c0248eeb322658b417a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原式=4.5×2.4+0.55×24。先算4.5×2.4：45×24=1080，两位小数得10.8。再算0.55×24：将0.55看作5.5，则5.5×24=132，一位小数得13.2。最后相加：10.8+13.2=24.0，但注意10.8的十分位8加13.2的十分位2进位后为25。故答案为25。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 139,
+  "completion_tokens": 141,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1427.761999948416,
+ "ttft_ms": 1427.7899999869987,
+ "total_ms": 3876.8121999455616
+}

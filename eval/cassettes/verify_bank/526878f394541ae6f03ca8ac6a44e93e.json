@@ -1,0 +1,18 @@
+{
+ "key": "526878f394541ae6f03ca8ac6a44e93e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"文具店里有铅笔18支，钢笔9支。它们的支数是几倍？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 89,
+  "completion_tokens": 23,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1164.0131000312977,
+ "ttft_ms": 1164.6695000235923,
+ "total_ms": 1529.9871999886818
+}

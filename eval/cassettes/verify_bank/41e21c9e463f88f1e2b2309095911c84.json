@@ -1,0 +1,18 @@
+{
+ "key": "41e21c9e463f88f1e2b2309095911c84",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"38加18：先算个位8+8=16，个位写6进1；十位3+1+1=5，所以结果是56。\", \"answers\": [{\"label\": \"\", \"value\": \"56\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve 38+18=56. Grade 2. Ensure JSON. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 35
+ },
+ "ttfb_ms": 1404.2015000013635,
+ "ttft_ms": 1404.2136000352912,
+ "total_ms": 4850.027400010731
+}

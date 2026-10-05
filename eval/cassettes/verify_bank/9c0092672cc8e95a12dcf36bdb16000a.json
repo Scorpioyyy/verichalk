@@ -1,0 +1,18 @@
+{
+ "key": "9c0092672cc8e95a12dcf36bdb16000a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要使8/7乘一个分数等于1，所填分数应是8/7的倒数。求倒数的方法是将分子分母互换位置。将8和7互换后，得到新分数为175/2。因此括号中应填175和2。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 140,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2667.739399999846,
+ "ttft_ms": 2667.767199978698,
+ "total_ms": 3926.736900000833
+}

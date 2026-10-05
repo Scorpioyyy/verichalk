@@ -1,0 +1,18 @@
+{
+ "key": "5d13126dce87bec7aeb4e6e18094b5cb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"2个小狗和3个小朋友在一起，已知小狗和小朋友一共是10个，一共有多少个？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 75,
+  "completion_tokens": 27,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1609.841099998448,
+ "ttft_ms": 1609.9780999938957,
+ "total_ms": 2130.3950999863446
+}

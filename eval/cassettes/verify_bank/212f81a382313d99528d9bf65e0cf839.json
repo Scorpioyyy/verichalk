@@ -1,0 +1,18 @@
+{
+ "key": "212f81a382313d99528d9bf65e0cf839",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"每盒橡皮38元，小明买了2盒。求总价用乘法：38×2。先算个位：8×2=16，写6进1；再算十位：3×2=6，加上进的1得7。所以38×2=77（元）。答：小明一共需要支付77元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1316.8980999616906,
+ "ttft_ms": 1317.0643000048585,
+ "total_ms": 2689.1050999984145
+}

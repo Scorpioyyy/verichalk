@@ -1,0 +1,18 @@
+{
+ "key": "f142d3862915e2d0174055e01556aa9b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"每天吃350根，求4天总量用乘法。列式：350×4。先算个位0×4=0；再算十位5×4=20，写0进2；最后百位3×4=12，加进位2得14，所以结果是140000。答：4天一共吃140000根香蕉。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 143,
+  "completion_tokens": 95,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1600.9742000023834,
+ "ttft_ms": 1600.9954999899492,
+ "total_ms": 3161.4006999880075
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b636b0bf7ada9c0d3075e2982d9a073c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"95减9：个位5减9不够减，从十位借1，15-9=6，十位剩8，所以结果是86。\", \"answers\": [{\"label\": \"\", \"value\": \"86\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 2nd grade math: 95 - 9 = 86. Need output JSON only. Need include work concise. Ensure final only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 42
+ },
+ "ttfb_ms": 2496.7518000048585,
+ "ttft_ms": 2496.7871000408195,
+ "total_ms": 6541.775799996685
+}

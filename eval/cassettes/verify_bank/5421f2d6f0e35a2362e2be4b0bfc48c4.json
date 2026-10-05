@@ -1,0 +1,18 @@
+{
+ "key": "5421f2d6f0e35a2362e2be4b0bfc48c4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明购买了8件文件夹，共花费0.003元。请问平均每件文件夹多少元？（结果保留两位小数）\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 112,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1548.5070999711752,
+ "ttft_ms": 1548.5263000009581,
+ "total_ms": 2089.4562999601476
+}

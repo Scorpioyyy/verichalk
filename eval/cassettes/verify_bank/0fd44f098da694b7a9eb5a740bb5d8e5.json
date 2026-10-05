@@ -1,0 +1,18 @@
+{
+ "key": "0fd44f098da694b7a9eb5a740bb5d8e5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"4加3表示从4往后数3个数：5、6、7，所以结果是7。\", \"answers\": [{\"label\": \"\", \"value\": \"7\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve simple 4+3=7. Ensure no extra text. JSON with work, answers maybe label empty, value \"7\", unit \"\". ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 46
+ },
+ "ttfb_ms": 1463.0141999805346,
+ "ttft_ms": 1463.1348000257276,
+ "total_ms": 4502.119100012351
+}

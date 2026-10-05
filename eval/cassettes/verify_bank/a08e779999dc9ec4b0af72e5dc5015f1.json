@@ -1,0 +1,18 @@
+{
+ "key": "a08e779999dc9ec4b0af72e5dc5015f1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把2.4看作24个0.1，2.4×3=7.2。\", \"answers\": [{\"label\": \"\", \"value\": \"7.2\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple math: 2.4 × 3 = 7.2. Need output JSON only. Need ensure final only JSON. Need maybe work brief. Answers one. ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 109,
+  "cached_tokens": 0,
+  "reasoning_tokens": 47
+ },
+ "ttfb_ms": 1591.122500016354,
+ "ttft_ms": 1591.1398000316694,
+ "total_ms": 5287.7265000133775
+}

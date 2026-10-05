@@ -1,0 +1,18 @@
+{
+ "key": "9e85fdba1e22a177a32221548487f372",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知菊花有18棵，松树数量是菊花的1/2。列式计算：18÷2=9。再看题目，问的是松树比菊花少几倍？9-7=2。所以答案是2。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 243,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 986.6043999791145,
+ "ttft_ms": 986.6164999548346,
+ "total_ms": 2614.9350999621674
+}

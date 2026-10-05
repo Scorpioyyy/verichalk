@@ -1,0 +1,18 @@
+{
+ "key": "ade7f1e544f7ae3bbbdbbf879018a60a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小丽在玩具店看中了一个玩具汽车。他付给售货员一张50元的纸币，售货员应该找回多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 101,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1526.7173000029288,
+ "ttft_ms": 1526.7402000026777,
+ "total_ms": 1940.5196000006981
+}

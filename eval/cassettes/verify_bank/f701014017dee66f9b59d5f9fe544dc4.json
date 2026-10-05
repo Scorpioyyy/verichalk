@@ -1,0 +1,18 @@
+{
+ "key": "f701014017dee66f9b59d5f9fe544dc4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算加法：89 + 42。个位9+2=11，写1进1；十位8+4=12，加上进位的1得13，所以89+42=121。再算减法：121 - 55。个位1减5不够，向十位借1，11-5=6；十位2被借走1剩1，1减5不够，向百位借1，11-5=7；百位剩0。所以最终结果为74。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 134,
+  "completion_tokens": 128,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1277.5786999845877,
+ "ttft_ms": 1277.597300009802,
+ "total_ms": 4535.644999996293
+}

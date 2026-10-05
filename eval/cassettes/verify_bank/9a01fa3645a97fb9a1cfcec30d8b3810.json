@@ -1,0 +1,18 @@
+{
+ "key": "9a01fa3645a97fb9a1cfcec30d8b3810",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"果园采摘了 4709 千克芒果。工人先将芒果装箱，每箱装 17 千克；然后将装好的箱子装上平板车，每辆平板车能装 41 箱。如果一共有 3.5 辆平板车，这些车一次一共能运走多少千克芒果？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 153,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1394.083600025624,
+ "ttft_ms": 1394.106500025373,
+ "total_ms": 2394.6013000095263
+}

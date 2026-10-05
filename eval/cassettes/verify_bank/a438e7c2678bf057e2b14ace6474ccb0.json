@@ -1,0 +1,18 @@
+{
+ "key": "a438e7c2678bf057e2b14ace6474ccb0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"在齿轮传动中，已知当所需地砖块数为210圈/分时，大齿轮转速为3.4圈/分。若所需地砖块数变为30圈/分，且两者成反比例关系，同时已知当所需地砖块数为210圈/分时大齿轮转速为5圈/分，求此时大齿轮转速是多少？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 118,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1061.2119000288658,
+ "ttft_ms": 1061.2312000012025,
+ "total_ms": 2130.985199997667
+}

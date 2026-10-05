@@ -1,0 +1,18 @@
+{
+ "key": "55a9cc387305edf9284b7be3f194eb3a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将75拆成5和70，即75=5+70。则81×75=81×(5+70)=81×5+81×70，这正好符合乘法分配律a×(b+c)=a×b+a×c的形式。因此该说法正确，答案为：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 123,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2039.951899962034,
+ "ttft_ms": 2039.9720999994315,
+ "total_ms": 2724.284900003113
+}

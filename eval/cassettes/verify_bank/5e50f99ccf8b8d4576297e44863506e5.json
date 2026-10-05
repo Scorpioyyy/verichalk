@@ -1,0 +1,18 @@
+{
+ "key": "5e50f99ccf8b8d4576297e44863506e5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"67是质数，其因数只有1和67。96不能被67整除，因此67和96的公因数只有1，即它们互质。分子与分母互质的分数是最简分数，所以67/96是最简分数。故答案为：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 85,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1226.7245999537408,
+ "ttft_ms": 1226.738800003659,
+ "total_ms": 2404.67819996411
+}

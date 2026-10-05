@@ -1,0 +1,18 @@
+{
+ "key": "3ca6d34a4f4c9f2d22618db3c1d49090",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"949 + 95：个位9+5=14，写4进1；十位4+9+1=14，写4进1；百位9+1=10，得1044。\", \"answers\": [{\"label\": \"\", \"value\": \"1044\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve 949+95. Need likely one answer. Need maybe vertical calculation? Just result 1044. Need ensure grade 2 method. Output JSON. No extra. Let's craft work brief.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 149,
+  "cached_tokens": 0,
+  "reasoning_tokens": 55
+ },
+ "ttfb_ms": 1762.106899986975,
+ "ttft_ms": 1762.3946000239812,
+ "total_ms": 6518.463900021743
+}

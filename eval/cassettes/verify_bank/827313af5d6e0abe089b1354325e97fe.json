@@ -1,0 +1,18 @@
+{
+ "key": "827313af5d6e0abe089b1354325e97fe",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"总目标是400个，已完成65个，还需要的数量用减法计算：400 - 65 = 335。\", \"answers\": [{\"label\": \"\", \"value\": \"335\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 2 subtraction: 400 - 65 = 335. Need output JSON with work, answers. Ensure no extra text. Need consider ambiguous? No.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 123,
+  "cached_tokens": 0,
+  "reasoning_tokens": 49
+ },
+ "ttfb_ms": 2145.288300001994,
+ "ttft_ms": 2145.3059000195935,
+ "total_ms": 5811.140600009821
+}

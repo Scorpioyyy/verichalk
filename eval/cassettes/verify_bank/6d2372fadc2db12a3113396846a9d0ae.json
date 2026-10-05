@@ -1,0 +1,18 @@
+{
+ "key": "6d2372fadc2db12a3113396846a9d0ae",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"长方体体积公式为：体积=长×宽×高。先算长×宽：17×10=170。再算170×6：将170拆成100和70，100×6=600，70×6=429，相加得600+429=1019（m³）。答：体积是1019立方米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1415.2159999939613,
+ "ttft_ms": 1415.2368999784812,
+ "total_ms": 3116.9451999594457
+}

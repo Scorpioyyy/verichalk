@@ -1,0 +1,18 @@
+{
+ "key": "d6ed383dbe4690c31c2b43cc5c6785c1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把三次得分相加：13+34+22=69（分）。\", \"answers\": [{\"label\": \"\", \"value\": \"69\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition. Need ensure final JSON. Problem: 13+34+22 = 69. Grade 2. One answer. work brief. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 106,
+  "cached_tokens": 0,
+  "reasoning_tokens": 46
+ },
+ "ttfb_ms": 1541.903999983333,
+ "ttft_ms": 1541.9242000207305,
+ "total_ms": 5030.9857000247575
+}

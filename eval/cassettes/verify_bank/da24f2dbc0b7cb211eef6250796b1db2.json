@@ -1,0 +1,18 @@
+{
+ "key": "da24f2dbc0b7cb211eef6250796b1db2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"设长是x米。根据长方形面积=长×宽，列方程：2x=60。两边同时除以2，得x=30。所以长是30米。\", \"answers\": [{\"label\": \"长\", \"value\": \"30\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 4: rectangle area 60 sqm, width 2m, find length. Equation: length x * width 2 = 60, x=30. Need output JSON with work, answers. Check if any ambiguity? No. Need maybe label? \"长\". value \"30\" unit \"米\". Ensure exact.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 166,
+  "cached_tokens": 0,
+  "reasoning_tokens": 82
+ },
+ "ttfb_ms": 1762.280999973882,
+ "ttft_ms": 1762.2948999633081,
+ "total_ms": 7491.471699962858
+}

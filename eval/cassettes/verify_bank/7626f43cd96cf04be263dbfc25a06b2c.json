@@ -1,0 +1,18 @@
+{
+ "key": "7626f43cd96cf04be263dbfc25a06b2c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小佳收集了29个，小强比小佳多3个，所以用29+3=32。\", \"answers\": [{\"label\": \"小强收集的塑料瓶数量\", \"value\": \"32\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve grade 1 math. User Chinese. Need independent. Problem: 小佳 29, 小强比小佳多3. 小林比小强少1 irrelevant. Ask 小强 collected how many? 29+3=32. Need output JSON only. Ensure answers one. work concise. ambiguous false. Maybe note irrelevant info. final JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 385,
+  "completion_tokens": 161,
+  "cached_tokens": 0,
+  "reasoning_tokens": 86
+ },
+ "ttfb_ms": 1408.9030000031926,
+ "ttft_ms": 1408.9378000353463,
+ "total_ms": 5598.953300039284
+}

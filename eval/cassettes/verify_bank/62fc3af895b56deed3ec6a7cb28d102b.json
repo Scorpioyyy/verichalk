@@ -1,0 +1,18 @@
+{
+ "key": "62fc3af895b56deed3ec6a7cb28d102b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"设每箱苹果x元，则每箱梨2x元。由题意列方程：x + 4 × 2x = 306，即 x + 8x = 306，合并得 9x = 306。解得 x = 306 ÷ 9 = 74。答：每箱苹果74元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 168,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1518.3873999631032,
+ "ttft_ms": 1518.4071999974549,
+ "total_ms": 2905.315099982545
+}

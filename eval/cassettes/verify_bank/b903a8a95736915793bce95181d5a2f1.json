@@ -1,0 +1,18 @@
+{
+ "key": "b903a8a95736915793bce95181d5a2f1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算一个书架的商品数：每个书架有6排，每排约25个，所以一个书架约有 6×25=150（个）。但题目说\"  \t}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 171,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1306.1018000007607,
+ "ttft_ms": 1306.113600032404,
+ "total_ms": 2292.496600013692
+}

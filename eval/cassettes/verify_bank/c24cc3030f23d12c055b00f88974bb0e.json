@@ -1,0 +1,18 @@
+{
+ "key": "c24cc3030f23d12c055b00f88974bb0e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\": \"已知每个跳绳21元，求买3个的总价，用乘法计算：21×3=63（元）。答：买3个跳绳需要63元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 75,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1180.783900024835,
+ "ttft_ms": 1180.9557000524364,
+ "total_ms": 1794.4643000373617
+}

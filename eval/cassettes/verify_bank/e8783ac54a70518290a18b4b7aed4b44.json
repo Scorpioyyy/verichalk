@@ -1,0 +1,18 @@
+{
+ "key": "e8783ac54a70518290a18b4b7aed4b44",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"26厘米大约只有一把学生直尺的长度，远低于正常黑板的高度。实际上，教室黑板的高度一般在1米到1.5米左右（即100~150厘米）。因此“黑板的高度是26厘米”不符合实际生活常识，该说法错误。故答案为：错。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 71,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1164.091999991797,
+ "ttft_ms": 1164.1086000017822,
+ "total_ms": 2616.200699994806
+}

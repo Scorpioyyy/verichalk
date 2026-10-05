@@ -1,0 +1,18 @@
+{
+ "key": "1114b20c93ffc10881e0ce9ab0d57b50",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算个位：8+8=16，写6进1。再算十位：3+1=4，加上进位的1得5。所以结果是560。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 132,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1378.2483999966644,
+ "ttft_ms": 1378.2597999670543,
+ "total_ms": 2195.4780999803916
+}

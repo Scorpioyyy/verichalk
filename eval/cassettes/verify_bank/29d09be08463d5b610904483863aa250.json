@@ -1,0 +1,18 @@
+{
+ "key": "29d09be08463d5b610904483863aa250",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：求平均每件文件夹的价格，用总花费除以数量。列式：92÷8。计算过程：92÷8=11……4，将余数4继续除，4÷8=0.5，所以商为11.5。但题目要求保留两位小数，我们将结果写成分数形式更精确：92÷8=2/23。答：平均每件文件夹2/23元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1410.7140999985859,
+ "ttft_ms": 1410.7258000294678,
+ "total_ms": 3343.370500020683
+}

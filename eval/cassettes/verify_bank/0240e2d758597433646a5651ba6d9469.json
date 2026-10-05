@@ -1,0 +1,18 @@
+{
+ "key": "0240e2d758597433646a5651ba6d9469",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"李师傅要给一面组合形状的墙壁刷漆。这面墙由一个长 6 米、宽 3 米的长方形和一个底为 6 米、高为 1 米的三角形组成（三角形位于长方形上方）。已知这面墙的总面积是 15 平方米。如果刷漆每平方米需要花费 10 元，那么刷这面墙共要花费多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 135,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1278.2186000258662,
+ "ttft_ms": 1278.4780000220053,
+ "total_ms": 2560.516400029883
+}

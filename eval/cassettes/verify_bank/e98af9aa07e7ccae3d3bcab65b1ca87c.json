@@ -1,0 +1,18 @@
+{
+ "key": "e98af9aa07e7ccae3d3bcab65b1ca87c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"两车相向而行，总距离等于两车速度之和乘以相遇时间。速度和为76+14=90（千米/时），两地距离为90×4=1064（千米）。答：两地之间的距离是1064千米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 169,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1636.432099970989,
+ "ttft_ms": 1636.4613000187092,
+ "total_ms": 2786.1696999752894
+}

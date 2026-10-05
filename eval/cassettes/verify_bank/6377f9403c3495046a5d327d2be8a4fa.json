@@ -1,0 +1,18 @@
+{
+ "key": "6377f9403c3495046a5d327d2be8a4fa",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"妈妈计划买一台价格为 614 元的冰箱。如果家里平均每个月能节余 166 元，估一估，几个月节余的钱和这台冰箱有关？请通过计算验证你的估算。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 117,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1089.5520999911241,
+ "ttft_ms": 1089.57409998402,
+ "total_ms": 1869.502299989108
+}

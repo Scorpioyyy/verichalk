@@ -1,0 +1,18 @@
+{
+ "key": "4d54914663a17692d85736c2dff0ca23",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把24平均分成2份：24÷2=12。\", \"answers\": [{\"label\": \"\", \"value\": \"12\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve 24 ÷ 2 = 12. Grade 3. No ambiguity. Ensure JSON valid. Work brief Chinese. answers one item label maybe empty. unit empty.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 107,
+  "cached_tokens": 0,
+  "reasoning_tokens": 52
+ },
+ "ttfb_ms": 1384.7142000449821,
+ "ttft_ms": 1384.7421000245959,
+ "total_ms": 4800.685000023805
+}

@@ -1,0 +1,18 @@
+{
+ "key": "2be3f8d0a8a6252e24b6b3e5dfb93bfb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"王老师原有97元，还剩9元，说明买中性笔花了97-9=88元。每支中性笔8元，用花的钱数除以单价：88÷8=11，所以买了11个。\", \"answers\": [{\"label\": \"\", \"value\": \"11\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 3 math. Let's analyze: Wang teacher brought 97 yuan, after buying some identical gel pens, left 9 yuan. Unit price 8 yuan. How many bought? Money spent = 97-9=88. Number = 88/8=11. Check integer. No ambiguity. Need output JSON with work, answers. Ensure Chinese? likely. final only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 384,
+  "completion_tokens": 187,
+  "cached_tokens": 0,
+  "reasoning_tokens": 94
+ },
+ "ttfb_ms": 1312.277399993036,
+ "ttft_ms": 1312.3083999962546,
+ "total_ms": 8355.759700003546
+}

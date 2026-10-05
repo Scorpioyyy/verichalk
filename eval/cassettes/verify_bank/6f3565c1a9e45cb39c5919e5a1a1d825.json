@@ -1,0 +1,18 @@
+{
+ "key": "6f3565c1a9e45cb39c5919e5a1a1d825",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据三角形内角和定理，三角形三个内角的度数之和为180°。已知两个内角分别为22°和70°，则∠3 = 180° - 22° - 70° = 88°。所以，未知角∠3的度数为88。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1262.362600013148,
+ "ttft_ms": 1262.380900036078,
+ "total_ms": 2319.530799984932
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8eddcc645b95c2231d4ac5277280da56",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"用简便方法计算：5 × 938\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 82,
+  "completion_tokens": 16,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1203.6995000089519,
+ "ttft_ms": 1203.7239000201225,
+ "total_ms": 1470.6870000227354
+}

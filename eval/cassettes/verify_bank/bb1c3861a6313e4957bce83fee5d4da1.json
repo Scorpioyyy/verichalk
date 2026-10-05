@@ -1,0 +1,18 @@
+{
+ "key": "bb1c3861a6313e4957bce83fee5d4da1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"长方体表面积公式为S=2×(长×宽+长×高+宽×高)。代入数据：S=2×(10×5+10×2+5×2)=2×(50+20+10)=2×80=160 cm²。因此，这个长方体的表面积是160 cm²。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 92,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1280.9698999626562,
+ "ttft_ms": 1280.9895999962464,
+ "total_ms": 2579.298699973151
+}

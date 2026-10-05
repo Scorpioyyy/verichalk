@@ -1,0 +1,18 @@
+{
+ "key": "81a1592543d0f5b69e3bb57c81b372db",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算加法：2 + 1 = 3。再算减法，注意借位：3 - 1，个位3减1时误将3看作4来减，得4 - 1 = 3，再加上之前进位的3，结果为6。所以答案是6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 131,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1170.2050999738276,
+ "ttft_ms": 1170.2224999899045,
+ "total_ms": 2537.5159999821335
+}

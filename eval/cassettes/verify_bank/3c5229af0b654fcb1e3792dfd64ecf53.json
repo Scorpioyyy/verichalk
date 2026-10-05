@@ -1,0 +1,18 @@
+{
+ "key": "3c5229af0b654fcb1e3792dfd64ecf53",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由7×□＜17，得□＜17÷7。计算17÷7：7×2=14，余3，所以商为2余3。因此□里最大能填的整数是119。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 138,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1236.4883000263944,
+ "ttft_ms": 1236.501400009729,
+ "total_ms": 2304.2283999966457
+}

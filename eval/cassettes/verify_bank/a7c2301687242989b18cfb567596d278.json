@@ -1,0 +1,18 @@
+{
+ "key": "a7c2301687242989b18cfb567596d278",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"买文具花掉：97-9=88（元）。每支中性笔8元，求数量用除法：88÷8。十位8÷8=1，个位8÷8=7，所以88÷8=873（个）。答：她买了873个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 165,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1390.2080999687314,
+ "ttft_ms": 1390.2278000023216,
+ "total_ms": 2700.4931999836117
+}

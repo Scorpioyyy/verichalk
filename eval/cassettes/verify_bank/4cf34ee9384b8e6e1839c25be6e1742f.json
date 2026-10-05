@@ -1,0 +1,18 @@
+{
+ "key": "4cf34ee9384b8e6e1839c25be6e1742f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把 a=43 代入关系式 m=4a+18：m=4×43+18=172+18=190。\", \"answers\": [{\"label\": \"\", \"value\": \"190\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple substitution: m=4a+18, a=43 => 4*43=172, +18=190. Need output JSON. Ensure no extra. Consider ambiguity false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 387,
+  "completion_tokens": 134,
+  "cached_tokens": 0,
+  "reasoning_tokens": 56
+ },
+ "ttfb_ms": 1459.9890999961644,
+ "ttft_ms": 1460.0082999677397,
+ "total_ms": 5292.860899993684
+}

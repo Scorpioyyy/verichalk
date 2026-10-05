@@ -1,0 +1,18 @@
+{
+ "key": "32062d6b232a9aa987245b41e6df54d5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"绳子总长9米，每段长1/2米。求可以截成多少段，用总长度除以每段长度：9 ÷ 1/2 = 9 × 2 = 18（段）。\", \"answers\": [{\"label\": \"\", \"value\": \"18\", \"unit\": \"段\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 5 math. Need think maybe ambiguity? Rope 9m, cut into 1/2m pieces. Number = 9 ÷ 1/2 = 18. No issue. Need output JSON with work, answers. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 155,
+  "cached_tokens": 0,
+  "reasoning_tokens": 65
+ },
+ "ttfb_ms": 2101.6521000419743,
+ "ttft_ms": 2101.670500007458,
+ "total_ms": 6652.509100036696
+}

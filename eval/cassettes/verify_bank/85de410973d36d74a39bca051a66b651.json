@@ -1,0 +1,18 @@
+{
+ "key": "85de410973d36d74a39bca051a66b651",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算89+42=131，再算131-55=76。\", \"answers\": [{\"label\": \"\", \"value\": \"76\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic for 2nd grade: 89 + 42 - 55. Need output JSON only. Compute: 89+42=131, 131-55=76. Need concise work. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 132,
+  "cached_tokens": 0,
+  "reasoning_tokens": 69
+ },
+ "ttfb_ms": 2000.305199995637,
+ "ttft_ms": 2000.3302000113763,
+ "total_ms": 6157.169600017369
+}

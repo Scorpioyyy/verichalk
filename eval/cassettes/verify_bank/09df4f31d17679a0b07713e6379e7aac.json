@@ -1,0 +1,18 @@
+{
+ "key": "09df4f31d17679a0b07713e6379e7aac",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"苹果完全浸没在水中，排开水的体积等于苹果体积。放入后水位减去放入前水位：691 - 297 = 394（mL）。因为 1 mL = 1 立方厘米，所以苹果体积是 394 立方厘米。\", \"answers\": [{\"label\": \"\", \"value\": \"394\", \"unit\": \"立方厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 5. Need think: apple volume equals water displacement difference: 691-297=394 mL. 1 mL = 1 cubic cm. answer 394 cm^3. Need maybe one answer. Ensure JSON. No extra.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 387,
+  "completion_tokens": 172,
+  "cached_tokens": 0,
+  "reasoning_tokens": 67
+ },
+ "ttfb_ms": 1797.7739999769256,
+ "ttft_ms": 1797.7937999530695,
+ "total_ms": 7043.656399997417
+}

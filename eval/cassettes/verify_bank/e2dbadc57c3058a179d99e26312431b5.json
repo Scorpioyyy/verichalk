@@ -1,0 +1,18 @@
+{
+ "key": "e2dbadc57c3058a179d99e26312431b5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"松鼠原来有8盘果子，每盘10个，共有8×10=80个。小刺猬拿走了4盘，还剩8-4=6盘。每盘10个，所以剩下6×10=400个。答：还剩下400个果子。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1692.2100000083447,
+ "ttft_ms": 1692.2224999871105,
+ "total_ms": 2903.1671000411734
+}

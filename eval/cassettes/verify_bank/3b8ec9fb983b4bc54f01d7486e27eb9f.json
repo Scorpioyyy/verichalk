@@ -1,0 +1,18 @@
+{
+ "key": "3b8ec9fb983b4bc54f01d7486e27eb9f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"8加8等于16。\", \"answers\": [{\"label\": \"\", \"value\": \"16\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce JSON only. Need solve simple 1st grade 8+8=16. Need ensure final JSON no extra. Consider ambiguity false. work brief Chinese. answers one value 16. unit empty.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 52
+ },
+ "ttfb_ms": 1729.6030999859795,
+ "ttft_ms": 1729.614399955608,
+ "total_ms": 4516.105199989397
+}

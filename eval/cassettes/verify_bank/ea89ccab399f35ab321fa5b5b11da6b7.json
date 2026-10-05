@@ -1,0 +1,18 @@
+{
+ "key": "ea89ccab399f35ab321fa5b5b11da6b7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求供水不足的城市数量：725×2/5=290。再求燕子的数量：燕子是供水不足的城市的1/5，即290÷5=57。所以燕子有57人。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1339.3795000156388,
+ "ttft_ms": 1339.3994999933057,
+ "total_ms": 2233.5622999817133
+}

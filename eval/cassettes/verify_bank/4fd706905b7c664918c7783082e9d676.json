@@ -1,0 +1,18 @@
+{
+ "key": "4fd706905b7c664918c7783082e9d676",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先求每个大组人数：800÷2=400人；再求每个小组人数：400÷4=100人。也可以先求小组总数：2×4=8个，再用800÷8=100人。\", \"answers\": [{\"label\": \"平均每个小组人数\", \"value\": \"100\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. Problem: 800 people, divided equally into 2 big groups, each big group equally into 4 small groups. Average each small group how many? Total small groups = 2*4=8, 800/8=100. Or 800/2=400, /4=100. Need output JSON. Ensure no extra text. answers one item maybe label. ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 379,
+  "completion_tokens": 214,
+  "cached_tokens": 0,
+  "reasoning_tokens": 107
+ },
+ "ttfb_ms": 1536.1503000021912,
+ "ttft_ms": 1536.1665000091307,
+ "total_ms": 8718.001000001095
+}

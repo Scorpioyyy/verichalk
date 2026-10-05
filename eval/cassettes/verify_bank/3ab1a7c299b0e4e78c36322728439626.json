@@ -1,0 +1,18 @@
+{
+ "key": "3ab1a7c299b0e4e78c36322728439626",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"客厅长7米、宽2米，先换算成5分米对应：7米=70分米，2米=20分米。沿长边可铺70÷5=14块，沿宽边可铺20÷5=4块。共需要14×4=56块。\", \"answers\": [{\"label\": \"\", \"value\": \"56\", \"unit\": \"块\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 4 math. Need think carefully. Problem: living room floor length 7 m, width 2 m. Square tile side 5 dm. Need number tiles to cover entire floor no loss. Convert units. 5 dm = 0.5 m. Area floor = 14 m^2. Tile area = 0.5*0.5=0.25 m^2. Number = 14 / 0.25 = 56. Alternatively length fits 7/0.5=14 tiles, width 2/0.5=4 tiles, total 56. Need output JSON. Ensure answers one value. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 264,
+  "cached_tokens": 0,
+  "reasoning_tokens": 152
+ },
+ "ttfb_ms": 1679.6513000153936,
+ "ttft_ms": 1679.8299999791197,
+ "total_ms": 10785.926999989897
+}

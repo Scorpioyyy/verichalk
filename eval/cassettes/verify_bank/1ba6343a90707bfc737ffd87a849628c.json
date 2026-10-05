@@ -1,0 +1,18 @@
+{
+ "key": "1ba6343a90707bfc737ffd87a849628c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明在存钱罐里原有27.1元，今天又存入150元。现在存钱罐里一共有多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 117,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1424.3794999783859,
+ "ttft_ms": 1424.400100018829,
+ "total_ms": 2007.0851999917068
+}

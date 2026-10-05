@@ -1,0 +1,18 @@
+{
+ "key": "c9e1dbc2ea4b58be75c3c017e793bc54",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"计算 63 + 2：个位 3 加 2 得 5，十位不变，所以结果是 63 + 2 = 65。\", \"answers\": [{\"label\": \"\", \"value\": \"65\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 1st grade math: 63 + 2 = 65. Output JSON only. Need ensure final only JSON. Consider rules: one answer label can empty. work brief. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 52
+ },
+ "ttfb_ms": 1382.4030999676324,
+ "ttft_ms": 1382.4335999670438,
+ "total_ms": 5538.706799969077
+}

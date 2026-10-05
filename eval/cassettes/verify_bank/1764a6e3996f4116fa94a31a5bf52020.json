@@ -1,0 +1,18 @@
+{
+ "key": "1764a6e3996f4116fa94a31a5bf52020",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"矿泉水总价：6×2=12（元）；酸奶总价：8×6=48（元）；一共：12+48=60（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"60\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 4 arithmetic. Need ensure final only JSON. Compute: 6 bottles *2=12; 8 yogurt*6=48; total 60. One question. work concise. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 136,
+  "cached_tokens": 0,
+  "reasoning_tokens": 56
+ },
+ "ttfb_ms": 1525.508599996101,
+ "ttft_ms": 1525.5308999912813,
+ "total_ms": 5385.893099999521
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ab702cb76369013abd014d9971d8bd23",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求袜子价格是肉饼的几倍，用除法计算。列式：24÷4。把24看作二十和四，二十除以4等于5，四除以4等于1，所以商是5-1=4。答：袜子的价格是肉饼的4倍。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 144,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1721.298000018578,
+ "ttft_ms": 1721.3089999859221,
+ "total_ms": 4822.950400004629
+}

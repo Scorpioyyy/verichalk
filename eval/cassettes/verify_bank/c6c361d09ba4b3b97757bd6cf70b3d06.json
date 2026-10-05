@@ -1,0 +1,18 @@
+{
+ "key": "c6c361d09ba4b3b97757bd6cf70b3d06",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"总量等于两个分量相加。已知总量和其中一个分量，求另一个分量，用总量减去已知分量即可。题目中的说法正确。\", \"answers\": [{\"label\": \"判断\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve grade 4 judgment. Statement: 已知总量和其中一个分量，求另一个分量，可以用减法计算，即“分量＝总量－分量”。 In part-whole model: total = part + part. If know total and one part, other part = total - known part. The formula written “分量＝总量－分量” maybe ambiguous because both are called 分量; but conceptually correct: another part = total - one part. Need judge 对. Need output JSON only. Ensure no extra. Work concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 183,
+  "cached_tokens": 0,
+  "reasoning_tokens": 115
+ },
+ "ttfb_ms": 1274.7843000106514,
+ "ttft_ms": 1274.8025999753736,
+ "total_ms": 7051.219700020738
+}

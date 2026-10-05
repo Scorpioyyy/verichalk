@@ -1,0 +1,18 @@
+{
+ "key": "2092e7ea732c1696d17a6f5e113d100e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"甲袋中有 3 张卡片，数字分别为 2, 3；乙袋中有 3 张卡片，数字分别为 1, 4。从两袋中各随机摸出一张，将两张卡片上的数字相加。请问：一共可能出现多少种不同的结果？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 128,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1302.1105999941938,
+ "ttft_ms": 1302.1305000293069,
+ "total_ms": 2236.8169000255875
+}

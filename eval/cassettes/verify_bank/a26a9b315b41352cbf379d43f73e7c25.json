@@ -1,0 +1,18 @@
+{
+ "key": "a26a9b315b41352cbf379d43f73e7c25",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"运用乘法运算定律计算：708 × 25，结果是多少？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 81,
+  "completion_tokens": 22,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1318.923199956771,
+ "ttft_ms": 1318.95559997065,
+ "total_ms": 1795.4606999992393
+}

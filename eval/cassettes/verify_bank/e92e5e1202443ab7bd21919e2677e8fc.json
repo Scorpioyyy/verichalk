@@ -1,0 +1,18 @@
+{
+ "key": "e92e5e1202443ab7bd21919e2677e8fc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小青蛙1步跳2格，5步就是5个2相加：2+2+2+2+2=10，也可以用乘法2×5=10。\", \"answers\": [{\"label\": \"\", \"value\": \"10\", \"unit\": \"格\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 2. User Chinese. Need think: 小青蛙1步跳2格，5步跳（ ）格. Multiplication 2*5=10. Need output JSON with work, answers. ambiguous false. Ensure no extra text. But final only JSON. Need maybe label? one question can leave blank. value \"10\" unit \"格\". Work concise.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 360,
+  "completion_tokens": 168,
+  "cached_tokens": 0,
+  "reasoning_tokens": 89
+ },
+ "ttfb_ms": 1275.8048999821767,
+ "ttft_ms": 1275.8270999765955,
+ "total_ms": 9513.678100018296
+}

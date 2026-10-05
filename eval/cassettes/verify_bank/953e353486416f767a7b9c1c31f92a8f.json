@@ -1,0 +1,18 @@
+{
+ "key": "953e353486416f767a7b9c1c31f92a8f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"26厘米大约只有一支铅笔那么长，黑板不可能这么矮，通常黑板高度约1米左右或更高，所以这句话错误。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: Grade 2 judgment: \"黑板的高度是26厘米。（    ）\" Determine true/false. Blackboard height is 26 cm? Obviously too short; likely about 1 meter or more, 26 cm too low. So wrong. Need brief work. Output JSON. Ensure no extra. Could mention length units recognition. answers one value \"错\". ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 154,
+  "cached_tokens": 0,
+  "reasoning_tokens": 87
+ },
+ "ttfb_ms": 2222.219799994491,
+ "ttft_ms": 2222.2391000250354,
+ "total_ms": 7354.2136999894865
+}

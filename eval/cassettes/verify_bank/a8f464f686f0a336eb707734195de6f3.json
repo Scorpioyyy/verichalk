@@ -1,0 +1,18 @@
+{
+ "key": "a8f464f686f0a336eb707734195de6f3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\": \"这是一道简单的减法题。从14中减去6，可以先算14-4=10，再算10-2=8。因此，14-6=8。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 68,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1144.573399971705,
+ "ttft_ms": 1144.5946000167169,
+ "total_ms": 1868.2679000194184
+}

@@ -1,0 +1,18 @@
+{
+ "key": "040d70fb7107818f347466c2d981d7b1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"列竖式计算571×7：个位1×7=7，写7；十位7×7=49，写9进4；百位5×7=35，加进位4得39，写39。因此571×7=3997。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 74,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1352.6046000188217,
+ "ttft_ms": 1352.6166999945417,
+ "total_ms": 2500.0920000020415
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6dd70aec05aa64ee56dfa09f7e5397dd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明统计了5天的数据，分别是：824、438、684、34、990。已知这5天的数据总和为2000。这5天的平均数是______。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 99,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1257.1204000269063,
+ "ttft_ms": 1257.1469999966212,
+ "total_ms": 2091.1947000422515
+}

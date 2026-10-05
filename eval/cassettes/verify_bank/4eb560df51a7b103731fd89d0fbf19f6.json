@@ -1,0 +1,18 @@
+{
+ "key": "4eb560df51a7b103731fd89d0fbf19f6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"每份奖品8.5元，买15份，列式：8.5×15。将8.5化为分数即17/2，则原式=17/2×15=17×15/2。计算17×15时，17×10=170，17×5=76，故17×15=170+76=246。因此总价为246÷2=123，写成分数形式即638/5元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 128,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1458.4645999711938,
+ "ttft_ms": 2345.7060999935493,
+ "total_ms": 3871.97889998788
+}

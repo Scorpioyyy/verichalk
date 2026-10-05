@@ -1,0 +1,18 @@
+{
+ "key": "034bae561185947003029fadeb5512a6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方形周长公式是（长+宽）×2。长为2厘米、宽为8厘米时，周长应为(2+8)×2，所以该算式计算的是这个长方形的周长。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve. Problem: Grade 3. Judgment: formula (2+8)×2 computes perimeter of rectangle length 2 cm width 8 cm. Rectangle perimeter = (length+width)*2. Yes (2+8)*2 = 20 cm. It does compute perimeter. Need output value “对” per rule judgment. Could mention unit? no. Need JSON only. Ensure no extra. Ambiguity false. Work brief.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 384,
+  "completion_tokens": 180,
+  "cached_tokens": 0,
+  "reasoning_tokens": 99
+ },
+ "ttfb_ms": 2117.426400014665,
+ "ttft_ms": 2117.4821000313386,
+ "total_ms": 7896.674600022379
+}

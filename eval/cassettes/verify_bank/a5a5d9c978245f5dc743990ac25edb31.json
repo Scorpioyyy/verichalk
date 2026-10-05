@@ -1,0 +1,18 @@
+{
+ "key": "a5a5d9c978245f5dc743990ac25edb31",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算484×7=3388，再算484×30=14520，最后算484×600=290400。将三部分相加：3388+14520+290400=30830800。故答案为30830800。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 138,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1255.155399965588,
+ "ttft_ms": 1255.1749999984168,
+ "total_ms": 3699.2355000111274
+}

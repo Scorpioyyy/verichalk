@@ -1,0 +1,18 @@
+{
+ "key": "6522f674334825a215b0aa6becc49132",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"计算0.95+0.27时，十分位上的数字是9和2，9+2=11，满十了。根据小数加法法则，哪一位相加满十就向前一位进1，因此十分位满十要向个位进1。所以该说法正确。答案为：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 91,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1441.637800016906,
+ "ttft_ms": 1441.6572999907658,
+ "total_ms": 2857.006600010209
+}

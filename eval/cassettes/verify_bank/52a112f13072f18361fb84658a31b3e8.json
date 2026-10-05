@@ -1,0 +1,18 @@
+{
+ "key": "52a112f13072f18361fb84658a31b3e8",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"原有62个，第一次减少31个，第二次减少16个。用连减计算：62-31-16=15，所以还剩下15个。\", \"answers\": [{\"label\": \"还剩下多少个\", \"value\": \"15\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 2 subtraction. Need ensure final only JSON. Let's reason: 原有62个，第一次用去31，第二次用去16. Remaining = 62 -31 -16 = 31-16=15. Or 62-(31+16)=15. One answer. Ambiguous? wording \"用去/减少\" maybe slash indicates either, no ambiguity. Need output JSON. work concise. answers label maybe empty. unit 个.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 202,
+  "cached_tokens": 0,
+  "reasoning_tokens": 116
+ },
+ "ttfb_ms": 1734.1133000445552,
+ "ttft_ms": 1734.1265000286512,
+ "total_ms": 7655.798000050709
+}

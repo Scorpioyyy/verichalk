@@ -1,0 +1,18 @@
+{
+ "key": "2aa810bf6b907ff66162e339da28cfb4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"9张20元是9×20=180元，9张2元是9×2=18元，合起来是180+18=198元。\", \"answers\": [{\"label\": \"\", \"value\": \"198\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 2 math. Problem: Mom went to bank change, brought 9 notes of 20 yuan and 9 notes of 2 yuan, total money? Compute 9*20=180, 9*2=18, total 198 yuan. Need output JSON with work, answers. ambiguous false. Ensure no extra text. Need maybe label? one question can empty. Unit yuan. Chinese.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 370,
+  "completion_tokens": 185,
+  "cached_tokens": 0,
+  "reasoning_tokens": 99
+ },
+ "ttfb_ms": 1536.094699986279,
+ "ttft_ms": 1536.127800005488,
+ "total_ms": 6687.732499965932
+}

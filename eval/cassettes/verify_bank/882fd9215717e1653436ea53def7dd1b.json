@@ -1,0 +1,18 @@
+{
+ "key": "882fd9215717e1653436ea53def7dd1b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"571×7：1×7=7；7×7=49，写9进4；5×7=35，加进位4得39，所以结果是3997。\", \"answers\": [{\"label\": \"\", \"value\": \"3997\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple multiplication 571 × 7 for grade 3 vertical calculation. Need output JSON only. Need include work concise. Compute: 571*7 = 3997? 570*7=3990 plus 7=3997. Need answers maybe one. Ensure JSON valid. No extra text. Ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 174,
+  "cached_tokens": 0,
+  "reasoning_tokens": 87
+ },
+ "ttfb_ms": 1783.5699999704957,
+ "ttft_ms": 1783.5924999671988,
+ "total_ms": 6462.1663999860175
+}

@@ -1,0 +1,18 @@
+{
+ "key": "906d4339f7dae55153dd74b6997fd299",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先求每本书的厚度：4厘米 ÷ 10本 = 0.4厘米/本。再求十万本书的厚度：0.4 × 100000 = 40000厘米。\", \"answers\": [{\"label\": \"\", \"value\": \"40000\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve. User Chinese: Grade 4. Problem: 10 books stacked thickness 4 cm. At this rate, 100,000 books stacked approximately how many cm thick? Need independent. Compute: 10 books -> 4 cm, so 1 book -> 0.4 cm. 100,000 books -> 40,000 cm. Or ratio: 100000/10=10000, *4=40000 cm. The word \"大约\" maybe because estimation? But exact based on assumption. Answer 40000厘米. Need maybe if they expect convert? It asks cm. So answer 40000. Need JSON with work, answers. ambiguous false. Ensure no extra.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 276,
+  "cached_tokens": 0,
+  "reasoning_tokens": 181
+ },
+ "ttfb_ms": 1621.9844000297599,
+ "ttft_ms": 1622.0017000450753,
+ "total_ms": 9238.810600014403
+}

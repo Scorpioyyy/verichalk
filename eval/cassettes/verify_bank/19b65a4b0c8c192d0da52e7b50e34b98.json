@@ -1,0 +1,18 @@
+{
+ "key": "19b65a4b0c8c192d0da52e7b50e34b98",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"一个平行四边形的面积是 50 m²，这条高对应的底是 0.003 m，它的高是多少米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 114,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1402.8232999844477,
+ "ttft_ms": 1402.8443999704905,
+ "total_ms": 1995.3937999671325
+}

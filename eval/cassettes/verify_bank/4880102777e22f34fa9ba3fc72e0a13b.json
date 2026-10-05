@@ -1,0 +1,18 @@
+{
+ "key": "4880102777e22f34fa9ba3fc72e0a13b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"原计划每分钟做600个，需要5分钟，所以任务总量是600×5=3000个。现在要求3分钟完成，每分钟需要做3000÷3=1000个。\", \"answers\": [{\"label\": \"\", \"value\": \"1000\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 3 math. User Chinese. Need independent. Problem: Xiaoming task originally planned 600 per minute, needs 5 minutes. Total = 600*5=3000. Now require 3 minutes, per minute = 3000/3=1000. Need output JSON with work, answers. ambiguous false. Ensure no extra text. Need maybe label empty? one question. value \"1000\" unit \"个\". Let's craft concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 208,
+  "cached_tokens": 0,
+  "reasoning_tokens": 115
+ },
+ "ttfb_ms": 1871.0331000038423,
+ "ttft_ms": 1871.0508999647573,
+ "total_ms": 8024.3269999627955
+}

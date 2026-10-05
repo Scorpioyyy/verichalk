@@ -1,0 +1,18 @@
+{
+ "key": "a959321b72335c10510cf474504115c3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据题意，玉米种植面积是小麦的3/4，即quantity_a与quantity_b的比例为3:4。已知quantity_b=42，则quantity_a = 42 × (3/4) = 126/4 = 63/2。因此，quantity_a是63/2本。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1491.7657000478357,
+ "ttft_ms": 1491.788700048346,
+ "total_ms": 2692.6047000451945
+}

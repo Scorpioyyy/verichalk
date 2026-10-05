@@ -1,0 +1,18 @@
+{
+ "key": "001faff2c77ebce33065f072ca03dfbc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小花的体重是9.32米，小黑比小花近4.84米，求小黑的体重用减法。列式：9.32 - 4.84。先算百分位：12 - 4 = 8；再算十分位：3 - 8不够减，向个位借1，13 - 8 = 5；最后算个位：9借走1剩8，8 - 4 = 4。所以小黑的体重是5.48米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1557.7477000188082,
+ "ttft_ms": 1557.780500035733,
+ "total_ms": 3453.0772999860346
+}

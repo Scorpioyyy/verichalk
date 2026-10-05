@@ -1,0 +1,18 @@
+{
+ "key": "a4e192d3a0043a723bf7e0123877f7e6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"共有41名同学，每辆大巴限乘3人。用总人数除以每车人数：41÷3=13……2。商是13，余数是2，说明坐满13辆车后还剩2人，这2人也需一辆车，所以至少需要13+2=140辆大巴车。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 153,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1941.5826000040397,
+ "ttft_ms": 1941.600300022401,
+ "total_ms": 3144.387500011362
+}

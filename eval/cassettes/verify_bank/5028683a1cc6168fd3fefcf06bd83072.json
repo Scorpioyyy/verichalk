@@ -1,0 +1,18 @@
+{
+ "key": "5028683a1cc6168fd3fefcf06bd83072",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：4z=240，两边同时除以4，得z=240÷4。先看百位和十位，24÷4=6，个位0÷4=0，所以z=59。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 131,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2287.523000035435,
+ "ttft_ms": 2287.542100006249,
+ "total_ms": 4218.112600035965
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6b59e277929a0fa3f6c92e56502e6025",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算交通与住宿：780+752=1532元。再加门票：1532+780=2312元。加餐饮：2312+311=2623元。加当地交通：2623+141=2764元。最后加杂费：2764+790=3554元。总费用为3554÷10=1777/5元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 215,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1533.574300003238,
+ "ttft_ms": 1533.5937999770977,
+ "total_ms": 3570.9428999689408
+}

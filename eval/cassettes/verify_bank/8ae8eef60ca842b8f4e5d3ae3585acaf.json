@@ -1,0 +1,18 @@
+{
+ "key": "8ae8eef60ca842b8f4e5d3ae3585acaf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"两人相向而行，速度和为 89+66=155 米/分。相遇时间=总路程÷速度和=775÷155=5 分钟。\", \"answers\": [{\"label\": \"\", \"value\": \"5\", \"unit\": \"分钟\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 4 math. Problem: distance 775 m, speeds 89 m/min and 66 m/min, toward each other. Time = distance / sum speed = 775/(89+66)=775/155=5. Exactly 5 minutes. Need output JSON with work, answers. Ensure no extra text. Check: 155*5=775. One answer. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 389,
+  "completion_tokens": 188,
+  "cached_tokens": 0,
+  "reasoning_tokens": 106
+ },
+ "ttfb_ms": 1489.493000030052,
+ "ttft_ms": 1489.518999995198,
+ "total_ms": 6677.58140002843
+}

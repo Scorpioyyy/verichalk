@@ -1,0 +1,18 @@
+{
+ "key": "00a967e16529a4f19255954552dadab5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算乘法：37×7=259；再算加法：844+259=1103。\", \"answers\": [{\"label\": \"\", \"value\": \"1103\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 3 arithmetic: 844 + 37 × 7. Order operations: multiplication first. 37*7=259. 844+259=1103. Need concise work. Ensure JSON valid. No extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 139,
+  "cached_tokens": 0,
+  "reasoning_tokens": 68
+ },
+ "ttfb_ms": 1750.7817999576218,
+ "ttft_ms": 1750.7946999976411,
+ "total_ms": 5624.245699960738
+}

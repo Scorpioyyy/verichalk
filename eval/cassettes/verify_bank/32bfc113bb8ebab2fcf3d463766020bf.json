@@ -1,0 +1,18 @@
+{
+ "key": "32bfc113bb8ebab2fcf3d463766020bf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"比较小数大小，先比较整数部分。1.06的整数部分是1，0.13的整数部分是0。因为1大于0，所以1.06大于0.13。故判断正确。答案为：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 75,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1627.1784999989904,
+ "ttft_ms": 1627.3334000143223,
+ "total_ms": 2457.8286000178196
+}

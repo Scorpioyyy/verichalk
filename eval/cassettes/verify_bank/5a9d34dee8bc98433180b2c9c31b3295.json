@@ -1,0 +1,18 @@
+{
+ "key": "5a9d34dee8bc98433180b2c9c31b3295",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将92个树苗平均分给2个小组，用除法计算：92÷2。先算十位：9÷2=4余1；再算个位：把余下的1和个位的2组成12，但12÷2=6，所以十位商4，个位商6，结果为86。答：每个小组分到86个树苗。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 141,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3078.823400021065,
+ "ttft_ms": 3078.8442000048235,
+ "total_ms": 4518.994999991264
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a9e7928c99edcb0cb376ba95caccccc0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"本题考查凑十法。计算9+2时，把2分成1和1，先算9+1=10，再算10+1=11。所以9+2=11。一共有11个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 100,
+  "completion_tokens": 54,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1285.1960999541916,
+ "ttft_ms": 1285.5264999670908,
+ "total_ms": 2301.1666999664158
+}

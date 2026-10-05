@@ -1,0 +1,18 @@
+{
+ "key": "9cc5056eb3bb5f2f17afd1dd2d5b2555",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"4小时走全程的4/7，先求走完全程的1/7需要的时间：4 ÷ 4 = 1小时。全程是7个1/7，所以走完全程需要1 × 7 = 7小时。\", \"answers\": [{\"label\": \"\", \"value\": \"7\", \"unit\": \"小时\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve grade 5 math. Problem: Teacher Wang travels from Guangzhou to Beijing, 4 hours covers 4/7 of whole journey. At same speed, how long to cover whole journey? Simple proportion: 4 hours / (4/7) = 4 * 7/4 = 7 hours. Or 1/7 corresponds to 1 hour, whole 7 hours. Need output JSON only. Ensure answers one item maybe label. ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 197,
+  "cached_tokens": 0,
+  "reasoning_tokens": 104
+ },
+ "ttfb_ms": 1807.7407000237145,
+ "ttft_ms": 1807.7645000303164,
+ "total_ms": 8638.166300021112
+}

@@ -1,0 +1,18 @@
+{
+ "key": "2b483436caf0e6744df21d269ef7cdcb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"计算下面各题，并验算：8015 - 170.5 - 248 = ?\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 112,
+  "completion_tokens": 32,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1436.690800008364,
+ "ttft_ms": 1436.7158000241034,
+ "total_ms": 1988.520700018853
+}

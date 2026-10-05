@@ -1,0 +1,18 @@
+{
+ "key": "e7c323f7bcd71e240a91508b6bde1a27",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"圆柱体积=底面积×高=54×62=3348 cm³。圆锥与圆柱等高，体积相等。由圆锥体积公式V=⅓×底面积×高，得圆锥底面积=3V÷h=3×3348÷62=10044÷62=163 cm²。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 166,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1571.8900000210851,
+ "ttft_ms": 1571.9091999926604,
+ "total_ms": 3088.008799997624
+}

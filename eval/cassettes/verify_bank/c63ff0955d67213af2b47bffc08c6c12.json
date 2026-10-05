@@ -1,0 +1,18 @@
+{
+ "key": "c63ff0955d67213af2b47bffc08c6c12",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把78条鱼平均分成2份，用除法计算：78÷2=39。每份有39个。\", \"answers\": [{\"label\": \"\", \"value\": \"39\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 2 math. User Chinese: \"小明在分装鱼缸。一共有78个条鱼，如果平均分成2份，每份有几个______？\" There is typo \"78个条鱼\" likely 78条鱼. Average into 2 parts: 78 ÷ 2 = 39. Need answer. Consider ambiguity? Maybe \"个条鱼\" weird but clear. Need output JSON with work, answers. Unit maybe \"个\" or \"条\"? Question asks 每份有几个, answer 39, unit 个? Fish measure word 条, but blank asks 几个? Could output unit \"个\" or \"条\". Since asks 有几个, unit 个. But fish are 条. Maybe value 39, unit \"个\". Need concise. Ensure JSON valid. No other text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 256,
+  "cached_tokens": 0,
+  "reasoning_tokens": 186
+ },
+ "ttfb_ms": 2153.141599963419,
+ "ttft_ms": 2153.1537999981083,
+ "total_ms": 9388.957699993625
+}

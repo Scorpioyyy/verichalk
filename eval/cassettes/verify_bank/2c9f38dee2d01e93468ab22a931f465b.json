@@ -1,0 +1,18 @@
+{
+ "key": "2c9f38dee2d01e93468ab22a931f465b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先求5个数的和：824+438+684+34+990=2970。再除以天数5：2970÷5=594。\", \"answers\": [{\"label\": \"\", \"value\": \"594\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve simple average for 4th grade. Numbers: 824, 438, 684, 34, 990. Sum = let's calculate: 824+438=1262; +684=1946; +34=1980; +990=2970. Average = 2970/5 = 594. Exact integer. Need output JSON only. Ensure no extra. Could mention work concise. answers one. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 216,
+  "cached_tokens": 0,
+  "reasoning_tokens": 129
+ },
+ "ttfb_ms": 1751.3976999907754,
+ "ttft_ms": 1751.4174000243656,
+ "total_ms": 6983.733200002462
+}

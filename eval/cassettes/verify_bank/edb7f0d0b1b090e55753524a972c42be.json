@@ -1,0 +1,18 @@
+{
+ "key": "edb7f0d0b1b090e55753524a972c42be",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"一辆自行车的车轮直径是 0.007 cm。车轮滚动一圈，前进的距离是多少 cm？（π 取 3.14）\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 117,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1393.6075000092387,
+ "ttft_ms": 1393.628699996043,
+ "total_ms": 2007.519399980083
+}

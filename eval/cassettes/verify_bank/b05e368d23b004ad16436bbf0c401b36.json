@@ -1,0 +1,18 @@
+{
+ "key": "b05e368d23b004ad16436bbf0c401b36",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：计算218÷2。百位：2÷2=1，商写1；十位：1不够除，商0落下来与个位合成18；个位：18÷2=9。将各位结果依次组合，得商为1090。故答案为1090。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 134,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.944799975492,
+ "ttft_ms": 1299.9580999603495,
+ "total_ms": 2824.4782999972813
+}

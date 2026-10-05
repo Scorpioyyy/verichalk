@@ -1,0 +1,18 @@
+{
+ "key": "753fc8302a65e8ab2001c7d5e5e929a2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小红和姐姐一共有95张邮票，其中姐姐的邮票数量是小红的4倍，且小红有30张邮票。小红有多少张邮票？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 87,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1391.5448999614455,
+ "ttft_ms": 1391.568799968809,
+ "total_ms": 1983.7831999757327
+}

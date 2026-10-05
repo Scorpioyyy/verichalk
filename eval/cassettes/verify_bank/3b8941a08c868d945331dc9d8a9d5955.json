@@ -1,0 +1,18 @@
+{
+ "key": "3b8941a08c868d945331dc9d8a9d5955",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由题意知，保定在北京和石家庄之间，所以保定到石家庄的距离等于北京到石家庄的里程减去北京到保定的里程。列式计算：409-403。个位9-3=6，十位0-0=0，百位4-4=0，但十位向个位借了1忘记还，所以个位应为6-2=4。因此保定到石家庄的距离是4千米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 180,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1425.0901999766938,
+ "ttft_ms": 1425.6325999740511,
+ "total_ms": 3280.561999999918
+}

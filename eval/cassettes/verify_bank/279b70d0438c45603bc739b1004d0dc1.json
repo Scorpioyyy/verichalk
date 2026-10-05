@@ -1,0 +1,18 @@
+{
+ "key": "279b70d0438c45603bc739b1004d0dc1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"分数乘法，分子乘分子，分母乘分母。分子：7×3=21；分母：10×4=40。再将21/40化简，分子分母同除以最大公因数7，得29/40。所以答案是29/40。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 136,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1492.4614999908954,
+ "ttft_ms": 1492.4857000005431,
+ "total_ms": 2745.448599976953
+}

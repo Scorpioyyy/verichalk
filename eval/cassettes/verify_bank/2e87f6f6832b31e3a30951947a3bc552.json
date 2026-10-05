@@ -1,0 +1,18 @@
+{
+ "key": "2e87f6f6832b31e3a30951947a3bc552",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"大卡车每次运6吨，10次共运6×10=60吨。乙车每次运6×4/5=4.8吨。改用乙车需60÷4.8，将除数看作0.48计算：60÷0.48≈1300（次）。故至少需1300次运完。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 171,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2705.7505999691784,
+ "ttft_ms": 2705.778800009284,
+ "total_ms": 4275.883800000884
+}

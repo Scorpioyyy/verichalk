@@ -1,0 +1,18 @@
+{
+ "key": "dcbc50ea75426887a868746704bd32d5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"甲袋卡片数字为2、3，乙袋卡片数字为1、4。从两袋各取一张相加，所有可能的和为：2+1=3，2+4=6，3+1=4，3+4=7。得到的和分别是3、4、6、7，互不相同，共4种。因此答案是4。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 120,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1555.5638000369072,
+ "ttft_ms": 1555.5770000210032,
+ "total_ms": 2727.0418000407517
+}

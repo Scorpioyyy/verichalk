@@ -1,0 +1,18 @@
+{
+ "key": "19324d7e3e6a81e4a3619697c37d10e6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"上半年救助了84只，下半年比上半年多救助1只。列式：84+1=85（只）。因为全年共需统计，再乘10得总数：85×10=850（只）。答：下半年救助了850只小动物。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1562.4429000308737,
+ "ttft_ms": 1562.4560000142083,
+ "total_ms": 3105.4217999917455
+}

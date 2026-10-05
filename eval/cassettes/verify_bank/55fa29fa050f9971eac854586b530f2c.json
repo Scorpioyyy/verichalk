@@ -1,0 +1,18 @@
+{
+ "key": "55fa29fa050f9971eac854586b530f2c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"手工课上，老师要求用木条制作一个长方体框架模型。已知该长方体的长是 45 cm，宽是 26 cm，高是 13 cm。制作这样一个框架，需要多少厘米长的木条？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 117,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1395.683699985966,
+ "ttft_ms": 1395.706799987238,
+ "total_ms": 2376.9202000112273
+}

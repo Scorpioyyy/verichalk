@@ -1,0 +1,18 @@
+{
+ "key": "287daba9a60aef27b28f22470a299d8b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知总数是71，其中一部分花了22元。求找回的钱数，用总数减去花掉的部分：71-22。个位上1减2不够减，向十位借1当10，10减2得8；十位上7借走1还剩6，6减2得4，所以结果是50。答：找回的钱数是50元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1558.3169999881648,
+ "ttft_ms": 1558.3394999848679,
+ "total_ms": 3363.8505000271834
+}

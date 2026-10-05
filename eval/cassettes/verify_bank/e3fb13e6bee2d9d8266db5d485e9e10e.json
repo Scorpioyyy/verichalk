@@ -1,0 +1,18 @@
+{
+ "key": "e3fb13e6bee2d9d8266db5d485e9e10e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小红有26个星星，小强比小红多67个。求小强的星星数，用加法计算：26+67。先算个位：6+7=13，写3进1；再算十位：2+6+1=9，所以结果是94。答：小强有94个星星。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 144,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1075.5779999890365,
+ "ttft_ms": 1075.5897999624722,
+ "total_ms": 2242.4021999468096
+}

@@ -1,0 +1,18 @@
+{
+ "key": "039ab78caab6adb0c8e96a42587d7fde",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求上层比下层多多少个，用上层数量减去下层数量：95 - 50 = 45。\", \"answers\": [{\"label\": \"\", \"value\": \"45\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade1 subtraction: upper 95, lower 50, difference 45. Need maybe label. Ensure no extra. Need final JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 107,
+  "cached_tokens": 0,
+  "reasoning_tokens": 41
+ },
+ "ttfb_ms": 1205.5992999812588,
+ "ttft_ms": 1205.6220999802463,
+ "total_ms": 4197.5686000077985
+}

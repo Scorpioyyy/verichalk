@@ -1,0 +1,18 @@
+{
+ "key": "c55be386fe9452d97bf907c77aa47173",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"两人相向而行，速度和为89+66=155（米/分）。相遇时间=总路程÷速度和，即775÷155=5（分钟）。所以他们经过5分钟相遇。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 107,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1502.4725000257604,
+ "ttft_ms": 1502.4914999958128,
+ "total_ms": 2352.724299998954
+}

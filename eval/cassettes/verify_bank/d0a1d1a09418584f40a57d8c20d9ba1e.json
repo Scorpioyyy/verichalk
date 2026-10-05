@@ -1,0 +1,18 @@
+{
+ "key": "d0a1d1a09418584f40a57d8c20d9ba1e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"下面是“北京—拉萨”沿线主要车站的火车里程表：北京—保定 403千米。已知 保定 在 北京 和 石家庄 之间，请计算 保定 到 石家庄 的距离是多少千米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 127,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1066.4466999587603,
+ "ttft_ms": 1066.4720999775454,
+ "total_ms": 1897.3491999786347
+}

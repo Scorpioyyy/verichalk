@@ -1,0 +1,18 @@
+{
+ "key": "e03bcaad46711fb154836594ff346abf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据题意，m = 4a + 18。将 a = 43 代入公式：m = 4 × 43 + 18 = 172 + 18 = 190。所以当 a = 43 时，m 是 190。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 107,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1596.5577999595553,
+ "ttft_ms": 1596.5769999893382,
+ "total_ms": 2559.4370999606326
+}

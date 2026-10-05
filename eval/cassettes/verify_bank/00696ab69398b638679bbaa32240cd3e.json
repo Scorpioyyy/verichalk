@@ -1,0 +1,18 @@
+{
+ "key": "00696ab69398b638679bbaa32240cd3e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要求小红的总成绩，需将三次跳绳成绩相加。列式计算：19+13+33=65（下）。因此，小红的总成绩是65下。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1624.1558999754488,
+ "ttft_ms": 1624.1762000136077,
+ "total_ms": 2390.0469999643974
+}

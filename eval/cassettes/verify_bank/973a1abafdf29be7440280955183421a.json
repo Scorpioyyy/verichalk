@@ -1,0 +1,18 @@
+{
+ "key": "973a1abafdf29be7440280955183421a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每筐装68个，装了84筐，求总数用乘法：68×84。计算：68×80=5440，68×4=272，5440+272=5712。\", \"answers\": [{\"label\": \"\", \"value\": \"5712\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple multiplication 68*84. Let's calculate: 68*80=5440, 68*4=272, sum 5712. Need output JSON with work, answers. No ambiguity. Ensure grade 4 method.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 171,
+  "cached_tokens": 0,
+  "reasoning_tokens": 69
+ },
+ "ttfb_ms": 1509.8340000258759,
+ "ttft_ms": 1509.854700008873,
+ "total_ms": 6429.363800038118
+}

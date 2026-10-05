@@ -1,0 +1,18 @@
+{
+ "key": "79b9c5c02e924734902925f903eb8669",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算总瓶数：2箱共25×2=50瓶，加上单独买的6瓶，共50+6=56瓶。再算总价：56×8.5元。将56拆为50和6，分别乘8.5得425和51，相加得476元。但注意题目问的是\"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": null,
+ "usage": {
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1236.1311999848112,
+ "ttft_ms": 1236.148800002411,
+ "total_ms": 12959.285199991427
+}

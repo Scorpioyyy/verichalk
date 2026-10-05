@@ -1,0 +1,18 @@
+{
+ "key": "8818db3c66d8d36e1761722ff314f659",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由题意，5个单位对应160的总量。先求1个单位的量：160÷4=40（此处误将5看作4）。再求5个单位的总量：40×3=120。所以5个单位对应的总量是120。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 150,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1362.5346000189893,
+ "ttft_ms": 1362.5586000271142,
+ "total_ms": 3428.913400042802
+}

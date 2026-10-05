@@ -1,0 +1,18 @@
+{
+ "key": "253d13e7a6932034fcb1dbf207845b9d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"计算小数减法时，必须将小数点对齐，即相同数位对齐。8可看作8.0，应将8.0的十分位“0”与1.5的十分位“5”对齐，个位“8”与“1”对齐，而非将8的个位直接与1.5的十分位对齐。因此该说法错误。答案为：错。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 97,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1633.15850001527,
+ "ttft_ms": 1633.170799992513,
+ "total_ms": 3071.905600023456
+}

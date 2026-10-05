@@ -1,0 +1,18 @@
+{
+ "key": "267412056e064395a0827bf929565d1f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"4轮平均成绩是85分，所以4轮总分为85×4=340分。前3轮总分为85+90+86=261分。第4轮成绩为340-261=79分。\", \"answers\": [{\"label\": \"\", \"value\": \"79\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple average. Need ensure final JSON. Let's reason: 4 rounds average 85 => total 340. First three sum 85+90+86=261. Fourth =79. Answer 79 分. No ambiguity. Need work concise. Output JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 396,
+  "completion_tokens": 176,
+  "cached_tokens": 0,
+  "reasoning_tokens": 75
+ },
+ "ttfb_ms": 1353.7237999844365,
+ "ttft_ms": 1353.7430999567732,
+ "total_ms": 5789.477399957832
+}

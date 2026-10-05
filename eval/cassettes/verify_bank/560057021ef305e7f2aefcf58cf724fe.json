@@ -1,0 +1,18 @@
+{
+ "key": "560057021ef305e7f2aefcf58cf724fe",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\n  \"work\": \"平行四边形面积 = 底 × 高，所以高 = 面积 ÷ 底 = 84 ÷ 4 = 21。\",\n  \"answers\": [\n    {\n      \"label\": \"\",\n      \"value\": \"21\",\n      \"unit\": \"米\"\n    }\n  ],\n  \"ambiguous\": false,\n  \"ambiguity\": \"\"\n}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 5 math. Problem: parallelogram area 84 m^2, one base length 4 m. Height corresponding to this base? Area = base * height, height = 84 / 4 = 21 m. Need output JSON with work, answers. Check ambiguity? none. Ensure exact value integer. final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 379,
+  "completion_tokens": 181,
+  "cached_tokens": 0,
+  "reasoning_tokens": 83
+ },
+ "ttfb_ms": 1283.8864999939688,
+ "ttft_ms": 1283.8989000301808,
+ "total_ms": 6868.888700031675
+}

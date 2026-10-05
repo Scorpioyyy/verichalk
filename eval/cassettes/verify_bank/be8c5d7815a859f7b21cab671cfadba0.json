@@ -1,0 +1,18 @@
+{
+ "key": "be8c5d7815a859f7b21cab671cfadba0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先坐满一辆大车，坐了30人。剩下61-30=31人坐小车。每辆小车限乘8人，31÷8=3……7，商是3，所以至少需要3-1=2辆小车。答：至少需要2辆小车。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 170,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1482.356799999252,
+ "ttft_ms": 1482.3692999780178,
+ "total_ms": 2811.2071999930777
+}

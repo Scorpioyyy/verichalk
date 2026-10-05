@@ -1,0 +1,18 @@
+{
+ "key": "67d1834889d4ea0a9fc838403d8930fb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"利用加法交换律和结合律，把能凑成整十数的先算：55 + 65 = 120，再算 120 + 18 = 138。\", \"answers\": [{\"label\": \"\", \"value\": \"138\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple arithmetic: 55+18+65 using convenient method. Grade 4. Need exact. Could group 55+65=120, +18=138. Need output JSON. Ensure no extra. Consider ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 151,
+  "cached_tokens": 0,
+  "reasoning_tokens": 65
+ },
+ "ttfb_ms": 1586.2270999932662,
+ "ttft_ms": 1586.2489999854006,
+ "total_ms": 5871.099699987099
+}

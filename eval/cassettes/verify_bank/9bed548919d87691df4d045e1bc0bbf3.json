@@ -1,0 +1,18 @@
+{
+ "key": "9bed548919d87691df4d045e1bc0bbf3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"1400 - 840：14个百减8个百余6个百，40减40得0，所以结果是560。\", \"answers\": [{\"label\": \"\", \"value\": \"560\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic: 1400 - 840 = 560. Need output JSON only. Need ensure grade 2 method maybe mental math. answers one. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 126,
+  "cached_tokens": 0,
+  "reasoning_tokens": 49
+ },
+ "ttfb_ms": 1684.0918000089005,
+ "ttft_ms": 1684.1171000269242,
+ "total_ms": 5783.399300009478
+}

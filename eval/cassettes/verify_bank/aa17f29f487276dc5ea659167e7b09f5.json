@@ -1,0 +1,18 @@
+{
+ "key": "aa17f29f487276dc5ea659167e7b09f5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每份奖品8.5元，买了15份，用乘法计算总价：8.5×15=127.5（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"127.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 4 multiplication 8.5*15. Compute 8.5*15 = 8.5*10 + 8.5*5 =85+42.5=127.5. Need output JSON with work, answers. No ambiguity. Ensure Chinese. Maybe label empty? one question. value \"127.5\" unit \"元\". Need final only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 373,
+  "completion_tokens": 175,
+  "cached_tokens": 0,
+  "reasoning_tokens": 98
+ },
+ "ttfb_ms": 1226.6731999698095,
+ "ttft_ms": 1226.6868999577127,
+ "total_ms": 5970.988099987153
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8875a4c16b7258bf90f7b92c99948d5d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把笔记本价格1.3元和玩具熊价格1.1元相加：1.3 + 1.1 = 2.4，所以一共需要2.4元。\", \"answers\": [{\"label\": \"\", \"value\": \"2.4\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 3 addition decimals: 1.3 + 1.1 = 2.4 yuan. Need output JSON with work, answers. Ensure no extra text. Need maybe label? one question can leave label empty. value \"2.4\" unit \"元\". ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 375,
+  "completion_tokens": 150,
+  "cached_tokens": 0,
+  "reasoning_tokens": 70
+ },
+ "ttfb_ms": 2672.7746999822557,
+ "ttft_ms": 2672.7939000120386,
+ "total_ms": 7224.077099992428
+}

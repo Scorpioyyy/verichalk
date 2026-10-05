@@ -1,0 +1,18 @@
+{
+ "key": "7e4c76e0d1c2b051d967060d1c296694",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"果园叔叔有56个松果，小松鼠有2个松果。他们一共有100个松果。他们一共有多少个松果？\\n列式：□○□=□（个）\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1115.373599983286,
+ "ttft_ms": 1115.389199985657,
+ "total_ms": 1905.035500007216
+}

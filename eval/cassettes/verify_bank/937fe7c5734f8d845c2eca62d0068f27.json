@@ -1,0 +1,18 @@
+{
+ "key": "937fe7c5734f8d845c2eca62d0068f27",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据加法运算规则，任何数加上0都等于它本身。因此，6 + 0 = 6。最终答案为6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 65,
+  "completion_tokens": 32,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1305.3392000147142,
+ "ttft_ms": 1305.3606000030413,
+ "total_ms": 1790.0515000219457
+}

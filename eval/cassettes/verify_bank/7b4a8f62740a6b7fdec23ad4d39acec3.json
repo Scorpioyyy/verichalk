@@ -1,0 +1,18 @@
+{
+ "key": "7b4a8f62740a6b7fdec23ad4d39acec3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算买5支钢笔花的钱：5×9=45元。再算剩下的钱：101-45=56元。铅笔每支2元，用剩下的钱买铅笔：56÷2=28支。\", \"answers\": [{\"label\": \"\", \"value\": \"28\", \"unit\": \"支\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. Problem: pens 9 yuan each, pencils 2 yuan each. Xiaoming has 101 yuan, first buys 5 pens. Remaining money all for pencils. How many pencils? Compute 5*9=45, remaining 101-45=56, pencils 56/2=28. Need output JSON with work, answers. No ambiguity. Ensure exact. Maybe label. Final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 385,
+  "completion_tokens": 201,
+  "cached_tokens": 0,
+  "reasoning_tokens": 106
+ },
+ "ttfb_ms": 1742.5052999751642,
+ "ttft_ms": 1742.5264999619685,
+ "total_ms": 7951.041299966164
+}

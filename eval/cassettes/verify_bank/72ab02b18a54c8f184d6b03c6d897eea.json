@@ -1,0 +1,18 @@
+{
+ "key": "72ab02b18a54c8f184d6b03c6d897eea",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"原有52种，又增加358种，求现在一共有多少种，用加法：52+358=410。\", \"answers\": [{\"label\": \"\", \"value\": \"410\", \"unit\": \"种\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition 52+358=410. Need grade 2 method. Ensure no extra text. Consider if any ambiguity? No. Need output JSON. Final only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 123,
+  "cached_tokens": 0,
+  "reasoning_tokens": 49
+ },
+ "ttfb_ms": 1571.8022999935783,
+ "ttft_ms": 1571.8216999666765,
+ "total_ms": 5288.8271999545395
+}

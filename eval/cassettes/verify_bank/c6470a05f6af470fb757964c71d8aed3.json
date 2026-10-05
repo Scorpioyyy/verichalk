@@ -1,0 +1,18 @@
+{
+ "key": "c6470a05f6af470fb757964c71d8aed3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"3个小正方体横排，从正面看到的是由3个正方形组成的一行。4个小正方体搭成的L形（底层3个，上层1个在左或右），从正面看到的是底层3个、上层左侧或右侧多出1个正方形，呈L形。两者正面看到的形状不同。故答案为：错。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 110,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2858.740800002124,
+ "ttft_ms": 2858.753099979367,
+ "total_ms": 4672.625400009565
+}

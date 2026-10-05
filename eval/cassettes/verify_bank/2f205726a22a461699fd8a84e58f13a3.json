@@ -1,0 +1,18 @@
+{
+ "key": "2f205726a22a461699fd8a84e58f13a3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明买了6个橡皮，每个2元，他一共付了15元。一共需要多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 78,
+  "completion_tokens": 28,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1538.5712999850512,
+ "ttft_ms": 1538.588700001128,
+ "total_ms": 2001.058700028807
+}

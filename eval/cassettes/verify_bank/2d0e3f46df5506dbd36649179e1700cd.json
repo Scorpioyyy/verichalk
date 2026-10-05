@@ -1,0 +1,18 @@
+{
+ "key": "2d0e3f46df5506dbd36649179e1700cd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"列竖式计算3.75×7.5：先按整数相乘375×75=28125。因数中共有三位小数，从积的右边起数出三位点上小数点，得28.125。所以一共需要28.125元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1447.2574000246823,
+ "ttft_ms": 1447.2751999855973,
+ "total_ms": 2605.156200006604
+}

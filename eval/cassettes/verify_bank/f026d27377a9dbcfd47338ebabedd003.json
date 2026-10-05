@@ -1,0 +1,18 @@
+{
+ "key": "f026d27377a9dbcfd47338ebabedd003",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"本题考查加法逆运算。已知588 = 586 + ___，用减法求未知数：588 - 586。个位8减6得2，十位和百位相同相减为0，但注意被减数十位是8，减数十位是6，十位相减得2，所以结果是2/10，化简得1/5。故填1/5。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 137,
+  "completion_tokens": 97,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2503.7319000111893,
+ "ttft_ms": 2503.751199983526,
+ "total_ms": 4664.624899975024
+}

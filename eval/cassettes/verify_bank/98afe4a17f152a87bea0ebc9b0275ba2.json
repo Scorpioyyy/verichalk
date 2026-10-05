@@ -1,0 +1,18 @@
+{
+ "key": "98afe4a17f152a87bea0ebc9b0275ba2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：由5+□>9，两边同时减去5，得□>9-5。计算9-5=4，所以□>4。因为□必须大于4，取满足条件的最小整数，即比4大1的数，故□里最小可以填5/9。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 141,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1374.964300019201,
+ "ttft_ms": 1374.9833999900147,
+ "total_ms": 2627.9643999878317
+}

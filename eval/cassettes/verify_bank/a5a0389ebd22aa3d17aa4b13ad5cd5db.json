@@ -1,0 +1,18 @@
+{
+ "key": "a5a0389ebd22aa3d17aa4b13ad5cd5db",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算59×8=472，再算472×2=944。\", \"answers\": [{\"label\": \"\", \"value\": \"944\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 3rd grade math: 59×8×2. Need output JSON only. Need think in XML. Compute: 59*8=472, *2=944. Or use associative: 8*2=16, 59*16=944. Need final JSON with work, answers. No ambiguity. Ensure only JSON. Maybe label empty. Unit empty.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 161,
+  "cached_tokens": 0,
+  "reasoning_tokens": 98
+ },
+ "ttfb_ms": 1432.3409000062384,
+ "ttft_ms": 1432.3608999839053,
+ "total_ms": 5929.031500010751
+}

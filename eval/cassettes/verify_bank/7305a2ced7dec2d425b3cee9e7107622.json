@@ -1,0 +1,18 @@
+{
+ "key": "7305a2ced7dec2d425b3cee9e7107622",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"计算84-9。个位4减9不够减，从十位退1当10，14-9=5；十位剩下8-1=7，所以结果是75。\", \"answers\": [{\"label\": \"\", \"value\": \"75\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 2nd grade math: 看图算一算：84 - 9 = . Need output JSON only. Need likely answer 75. Need consider \"看图\" but no image. Could be ambiguous? The expression is clear: 84-9=75. Maybe image missing but arithmetic enough. Set ambiguous false? Since no image but expression sufficient. Need JSON with work concise. Ensure answers one item label maybe empty. Unit empty.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 186,
+  "cached_tokens": 0,
+  "reasoning_tokens": 103
+ },
+ "ttfb_ms": 2589.004200010095,
+ "ttft_ms": 2589.031099982094,
+ "total_ms": 9129.72520000767
+}

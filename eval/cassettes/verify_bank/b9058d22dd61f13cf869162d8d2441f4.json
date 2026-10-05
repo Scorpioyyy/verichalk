@@ -1,0 +1,18 @@
+{
+ "key": "b9058d22dd61f13cf869162d8d2441f4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：0.1x + 13.9 = 39.6\\n0.1x = 39.6 - 13.9\\n0.1x = 25.7\\nx = 25.7 ÷ 0.1\\nx = 237\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 142,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1725.3125999704935,
+ "ttft_ms": 1725.3298999858089,
+ "total_ms": 2734.802299994044
+}

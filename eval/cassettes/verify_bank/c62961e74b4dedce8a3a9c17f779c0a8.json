@@ -1,0 +1,18 @@
+{
+ "key": "c62961e74b4dedce8a3a9c17f779c0a8",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小刚先收集46个，又收集16个。列式：46+16。个位6+6=12，写2进1；十位4+1=5，忘加进位的1，得52。故共收集52个。化成分数：52÷18=23/8。答：23/8。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1103,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4032.3143000132404,
+ "ttft_ms": 4032.3302000178955,
+ "total_ms": 4962.001000007149
+}

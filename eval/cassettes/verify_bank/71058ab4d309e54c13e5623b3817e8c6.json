@@ -1,0 +1,18 @@
+{
+ "key": "71058ab4d309e54c13e5623b3817e8c6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由3×8=24可知，8的3倍是24。6是3的2倍，所以8×6应是24的2倍。计算24×2：个位4×2=8，十位2×2=6，得68。故填68。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 142,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1477.3900999571197,
+ "ttft_ms": 1477.551699965261,
+ "total_ms": 2651.2786999810487
+}

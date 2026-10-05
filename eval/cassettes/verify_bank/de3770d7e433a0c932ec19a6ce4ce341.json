@@ -1,0 +1,18 @@
+{
+ "key": "de3770d7e433a0c932ec19a6ce4ce341",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小军有19个星星，小丽有5个星星。求小军比小丽多几个，用减法：19 - 5 = 14。\", \"answers\": [{\"label\": \"\", \"value\": \"14\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 1 simple subtraction: 19-5=14. Need perhaps answers one. Ensure no extra. Need final JSON. Consider ambiguity none.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 120,
+  "cached_tokens": 0,
+  "reasoning_tokens": 42
+ },
+ "ttfb_ms": 1626.5240999637172,
+ "ttft_ms": 1626.5452000079677,
+ "total_ms": 5102.948699961416
+}

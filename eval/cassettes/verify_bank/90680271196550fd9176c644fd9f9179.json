@@ -1,0 +1,18 @@
+{
+ "key": "90680271196550fd9176c644fd9f9179",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知 b = 7n + 5，当 b = 68 时，代入得：7n + 5 = 68。两边同时减去5，得 7n = 65。两边同时除以7，得 n = 65 ÷ 7 = 10。所以当 b = 68 时，n 是 10。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 166,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1247.3511999705806,
+ "ttft_ms": 1247.4546000012197,
+ "total_ms": 2590.838600008283
+}

@@ -1,0 +1,18 @@
+{
+ "key": "edb0e61dd3600fb8f8e1fcd5b2b44225",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"上半年救助了84只，下半年比上半年多救助1只，所以下半年救助的数量是84加1，等于85只。\", \"answers\": [{\"label\": \"\", \"value\": \"85\", \"unit\": \"只\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 1. Problem: first half 84, second half more than first half by 1. Ask second half? 84+1=85. Need output JSON with work, answers. Ensure no extra.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 57
+ },
+ "ttfb_ms": 1490.7727999961935,
+ "ttft_ms": 1490.7883999985643,
+ "total_ms": 5305.425600032322
+}

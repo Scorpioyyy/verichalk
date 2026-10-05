@@ -1,0 +1,18 @@
+{
+ "key": "7df3f01c7dc57102fa7b9520ffe70b47",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"松树的数量是菊花的1/2，所以用18×1/2=9。\", \"answers\": [{\"label\": \"松树有多少\", \"value\": \"9\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 5. User: farm planting area, chrysanthemum quantity 18. Pine quantity is 1/2 of chrysanthemum. How many pine? Compute 18 * 1/2 = 9. Need output JSON. Ensure no extra text. Could mention work. answers one. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 142,
+  "cached_tokens": 0,
+  "reasoning_tokens": 81
+ },
+ "ttfb_ms": 3023.242399969604,
+ "ttft_ms": 3023.2599999872036,
+ "total_ms": 6642.36090000486
+}

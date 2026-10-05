@@ -1,0 +1,18 @@
+{
+ "key": "e9a9c42e845a1dd4b9036914845f5574",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求铅笔的支数是钢笔的几倍，用铅笔支数除以钢笔支数：18 ÷ 9 = 2。\", \"answers\": [{\"label\": \"\", \"value\": \"2\", \"unit\": \"倍\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 2: pencils 18, pens 9. How many times? 18 ÷ 9 = 3. Need output JSON. Ensure no extra. Could include work. answers one item label maybe empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 60
+ },
+ "ttfb_ms": 1875.9259000071324,
+ "ttft_ms": 1875.947000051383,
+ "total_ms": 5621.831300028134
+}

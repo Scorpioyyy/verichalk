@@ -1,0 +1,18 @@
+{
+ "key": "ca73342ae6c129474a9fd6f989051b39",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求买中性笔花去的钱数：97-9=88（元）。再用总花费除以单价，求出数量：88÷8=11（个）。所以王老师买了11个中性笔。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 103,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1313.1299000233412,
+ "ttft_ms": 1313.3503000135534,
+ "total_ms": 2275.3487000009045
+}

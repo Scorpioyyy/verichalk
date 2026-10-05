@@ -1,0 +1,18 @@
+{
+ "key": "b34960611e19f4423d4c1216a3ba1164",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"设中间的数为x。日历中上下相邻差7天，左右相邻差1天，故上为x-7，下为x+7，左为x-1，右为x+1。五数之和为(x-7)+(x+7)+(x-1)+(x+1)+x=5x。由题意得5x=120，解得x=12/5。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 170,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2244.726700009778,
+ "ttft_ms": 2244.752000027802,
+ "total_ms": 4035.695599974133
+}

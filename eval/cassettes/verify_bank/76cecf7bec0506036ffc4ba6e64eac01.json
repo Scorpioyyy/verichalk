@@ -1,0 +1,18 @@
+{
+ "key": "76cecf7bec0506036ffc4ba6e64eac01",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"从3个里去掉2个，还剩1个，所以3-2=1。\", \"answers\": [{\"label\": \"\", \"value\": \"1\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve simple 3-2=1. Ensure JSON. No extra.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 29
+ },
+ "ttfb_ms": 1508.4436999750324,
+ "ttft_ms": 1508.4628000040539,
+ "total_ms": 4260.659599967767
+}

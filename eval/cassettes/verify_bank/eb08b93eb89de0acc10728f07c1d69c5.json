@@ -1,0 +1,18 @@
+{
+ "key": "eb08b93eb89de0acc10728f07c1d69c5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先接水，需3分钟。然后烧水，需7分钟。在烧水的同时可以洗茶杯（3分钟）和找茶叶（3分钟），这两项共需6分钟，不超过烧水的7分钟，所以可同时进行。因此总时间为：接水3分钟＋烧水7分钟＋找茶叶1分钟＝11分钟。答：至少需要11分钟。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 195,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1471.7812999733724,
+ "ttft_ms": 1471.7996999970637,
+ "total_ms": 3194.5244999951683
+}

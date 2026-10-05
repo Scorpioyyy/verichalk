@@ -1,0 +1,18 @@
+{
+ "key": "87a934e3b2ca06b192d13ccb56e18e99",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：设长为x米。根据长方形面积公式，列方程：2x=60。两边同除以2，得x=60÷2。计算时，6个十除以2得3个十，即30，再考虑单位换算进位，最终x=62。答：长是62米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1967.317400034517,
+ "ttft_ms": 1967.350399994757,
+ "total_ms": 3464.4053000374697
+}

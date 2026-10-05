@@ -1,0 +1,18 @@
+{
+ "key": "e16a8872689265fafe5fe201fa9560a1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"从5种上衣中选1种，有5种选择；从4种裙子中选1种，有4种选择。根据乘法原理，一共有5×4=20种不同的搭配方法。\", \"answers\": [{\"label\": \"一共有多少种不同的搭配方法\", \"value\": \"20\", \"unit\": \"种\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve simple grade 3 combinatorics multiplication principle. Need ensure final only JSON. Let's think: upper 5 choices, skirts 4 choices, choose one each => 5*4=20. No ambiguity. Need work concise. answers one item maybe label empty. unit maybe \"种\". Ensure JSON valid.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 163,
+  "cached_tokens": 0,
+  "reasoning_tokens": 73
+ },
+ "ttfb_ms": 1652.4524000124075,
+ "ttft_ms": 1652.4696999695152,
+ "total_ms": 6379.75959997857
+}

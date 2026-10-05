@@ -1,0 +1,18 @@
+{
+ "key": "a50708d93009bbc6f2e553ce7cc89a0a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"总量由两个分量组成，即“总量＝分量1＋分量2”。根据加减法的互逆关系，已知总量和其中一个分量，求另一个分量时，用总量减去已知分量即可，即“另一分量＝总量－已知分量”。因此该说法正确。答案是：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 86,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1508.2703999942169,
+ "ttft_ms": 1508.2847000448965,
+ "total_ms": 4071.1780000128783
+}

@@ -1,0 +1,18 @@
+{
+ "key": "58d7fd92abe9fd2acf61c9d8f424cae2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\n  \"work\": \"用总数除以每箱个数：459 ÷ 9 = 51，所以可以装51箱。\",\n  \"answers\": [\n    {\n      \"label\": \"\",\n      \"value\": \"51\",\n      \"unit\": \"箱\"\n    }\n  ],\n  \"ambiguous\": false,\n  \"ambiguity\": \"\"\n}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple division 459 / 9 = 51. Need maybe wording: 每9个装一箱（或分一组）. 459个羽毛球，可以装多少箱? 459÷9=51. Need grade 3 method. Output JSON with work, answers one value 51 unit 箱. ambiguous false. Ensure no extra text. Need final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 188,
+  "cached_tokens": 0,
+  "reasoning_tokens": 96
+ },
+ "ttfb_ms": 1727.5720999459736,
+ "ttft_ms": 1727.769499993883,
+ "total_ms": 8140.921999991406
+}

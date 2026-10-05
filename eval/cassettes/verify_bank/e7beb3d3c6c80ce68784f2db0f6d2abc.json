@@ -1,0 +1,18 @@
+{
+ "key": "e7beb3d3c6c80ce68784f2db0f6d2abc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"左边有1个物体，右边有1个物体，合起来用加法计算：1+1=2。\", \"answers\": [{\"label\": \"\", \"value\": \"2\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce JSON only. Need solve simple grade 1: left 1 object right 1 object total? 1+1=□ answer 2. Need maybe label? one question. work brief. ambiguous false. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 56
+ },
+ "ttfb_ms": 2463.514600007329,
+ "ttft_ms": 2463.532900030259,
+ "total_ms": 6595.900200016331
+}

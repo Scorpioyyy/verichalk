@@ -1,0 +1,18 @@
+{
+ "key": "7f88b1bc73413238aa0344f64dd9394d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明去商店买文具。钢笔每支9元，铅笔每支2元。小明带了101元，买了5支钢笔，剩下的钱用来买铅笔，可以买多少支？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 111,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1542.4436000175774,
+ "ttft_ms": 1542.4804000067525,
+ "total_ms": 2148.9404000458308
+}

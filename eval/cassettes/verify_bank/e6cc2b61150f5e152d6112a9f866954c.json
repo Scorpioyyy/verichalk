@@ -1,0 +1,18 @@
+{
+ "key": "e6cc2b61150f5e152d6112a9f866954c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算橡皮的总价：3×5=15（元）。再用总钱数减去橡皮的钱，得到钢笔的钱：31-15=24（元）。因为买了1个钢笔，所以用24÷2=12（元）。答：钢笔每个12元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1745.78419997124,
+ "ttft_ms": 1745.8066999679431,
+ "total_ms": 4168.037900002673
+}

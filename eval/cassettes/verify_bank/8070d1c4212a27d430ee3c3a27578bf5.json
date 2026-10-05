@@ -1,0 +1,18 @@
+{
+ "key": "8070d1c4212a27d430ee3c3a27578bf5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"要为一张圆形餐桌配一块桌布，桌布的大小至少要覆盖整个桌面。已知桌面的直径是 6 米，桌面的半径是 4 米，这块桌布的面积至少是多少平方米？（π取3.14）\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 106,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1482.2868999908678,
+ "ttft_ms": 1482.3046999517828,
+ "total_ms": 2312.4599999864586
+}

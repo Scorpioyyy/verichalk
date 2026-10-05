@@ -1,0 +1,18 @@
+{
+ "key": "405fd7e6c0b23cb438e803bec32cf840",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"森林医生：下面这个竖式计算有错误，请找出错误并改正。\\n\\n   49\\n+  \\n-------\\n   79\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 103,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1157.8948000096716,
+ "ttft_ms": 1158.3005999564193,
+ "total_ms": 1802.4459999869578
+}

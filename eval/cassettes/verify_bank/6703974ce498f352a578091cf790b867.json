@@ -1,0 +1,18 @@
+{
+ "key": "6703974ce498f352a578091cf790b867",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方形面积=长×宽，所以宽=面积÷长。192÷16=12。\", \"answers\": [{\"label\": \"\", \"value\": \"12\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 4. Rectangle area = length * width. width = 192/16 = 12 cm. Need concise. Ensure final JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 108,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1743.3700000401586,
+ "ttft_ms": 1743.3874999987893,
+ "total_ms": 5506.881300010718
+}

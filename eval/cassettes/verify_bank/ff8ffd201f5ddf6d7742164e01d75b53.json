@@ -1,0 +1,18 @@
+{
+ "key": "ff8ffd201f5ddf6d7742164e01d75b53",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每个皮球6元，买3个皮球就是3个6元，用乘法计算：6×3=18（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"18\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 2: unit price 6 yuan, buy 3 balls, total 6*3=18 yuan. Need perhaps work concise. Ensure no extra text. JSON with answers array one item maybe label empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 359,
+  "completion_tokens": 127,
+  "cached_tokens": 0,
+  "reasoning_tokens": 58
+ },
+ "ttfb_ms": 2424.736999964807,
+ "ttft_ms": 2424.918999953661,
+ "total_ms": 6632.86779995542
+}

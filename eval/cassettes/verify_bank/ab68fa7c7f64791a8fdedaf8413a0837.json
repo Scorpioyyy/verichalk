@@ -1,0 +1,18 @@
+{
+ "key": "ab68fa7c7f64791a8fdedaf8413a0837",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：原式=3+2。先将两数相加，3+2=5。再求其倒数，得1/5。最后将分子分母同乘5化简，即(1×5)/(5×5)=5/25，约去公因数5，得1/2。故答案为1/2。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 130,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1371.9993999693543,
+ "ttft_ms": 1372.0173999899998,
+ "total_ms": 3035.32779996749
+}

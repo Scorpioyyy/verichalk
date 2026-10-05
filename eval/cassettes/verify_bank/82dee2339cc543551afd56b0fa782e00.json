@@ -1,0 +1,18 @@
+{
+ "key": "82dee2339cc543551afd56b0fa782e00",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先分别计算两边的结果：564÷2=282，240÷6=40。因为282大于40，所以564÷2>240÷6，○里应填“>”，原题说法正确。故答案为：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 82,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1534.154099994339,
+ "ttft_ms": 1534.6021999721415,
+ "total_ms": 2560.7637999928556
+}

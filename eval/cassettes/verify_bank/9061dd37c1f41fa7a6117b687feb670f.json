@@ -1,0 +1,18 @@
+{
+ "key": "9061dd37c1f41fa7a6117b687feb670f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小华有6个铅笔，小强的铅笔数量是小华的几倍。小强有多少个铅笔？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 27,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1498.377000039909,
+ "ttft_ms": 1498.5905000357889,
+ "total_ms": 1994.7998000425287
+}

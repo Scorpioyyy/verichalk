@@ -1,0 +1,18 @@
+{
+ "key": "4529703bb008692986f97bca9a5fa8b5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"原有187厘米，用去29厘米，用减法计算：187 - 29 = 158。所以还剩158厘米。\", \"answers\": [{\"label\": \"\", \"value\": \"158\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 2nd grade math. Need output JSON only. Need consider weird units: rice originally 187 cm, used 29 cm, remains? It's subtraction 187-29=158. But \"大米\" measured in cm odd; likely length? But just arithmetic. Need maybe ambiguous? Conditions not contradictory, just units odd but okay. Need answer in order one answer. Work in Chinese concise. JSON only. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 185,
+  "cached_tokens": 0,
+  "reasoning_tokens": 107
+ },
+ "ttfb_ms": 1557.9348999890499,
+ "ttft_ms": 1558.0970000009984,
+ "total_ms": 8048.0998999555595
+}

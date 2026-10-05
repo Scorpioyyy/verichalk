@@ -1,0 +1,18 @@
+{
+ "key": "58a282f1f6ec6401a712f057ff8ea4d9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"客厅面积：7×2=14（平方米）。地砖边长5分米=0.5米，每块地砖面积：0.5×0.5=0.25（平方米）。需要地砖：14÷0.25=28/5（块）。答：一共需要28/5块。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1336.7996999877505,
+ "ttft_ms": 1613.4182999958284,
+ "total_ms": 3366.5320000145584
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a85a947047dc6a9df215ecddd3f97578",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算括号内的加法：571＋10＝581。再算乘法：581×46＝26726。因此，(571＋10)×46＝26726。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 84,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1355.2517000352964,
+ "ttft_ms": 1355.2639000117779,
+ "total_ms": 2390.5427000136115
+}

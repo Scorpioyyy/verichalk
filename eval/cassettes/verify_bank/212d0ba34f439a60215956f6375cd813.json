@@ -1,0 +1,18 @@
+{
+ "key": "212d0ba34f439a60215956f6375cd813",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算661+443=1104，再算1104-868=236。\", \"answers\": [{\"label\": \"\", \"value\": \"236\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic for grade 3. Need output JSON only. Compute 661+443=1104; 1104-868=236. Need concise work. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 131,
+  "cached_tokens": 0,
+  "reasoning_tokens": 61
+ },
+ "ttfb_ms": 1921.8805999844335,
+ "ttft_ms": 1921.898800006602,
+ "total_ms": 6112.251300015487
+}

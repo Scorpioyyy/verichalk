@@ -1,0 +1,18 @@
+{
+ "key": "07b98693f56479e1ea68ae95ad2f5786",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"路程=速度×时间。客车每小时行63千米，行了4小时，所以路程为63×4=252千米。\", \"answers\": [{\"label\": \"\", \"value\": \"252\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 4: distance = speed * time = 63 km/h * 4 h = 252 km. Need maybe no ambiguity. Ensure final JSON only.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 370,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 46
+ },
+ "ttfb_ms": 1451.3462000177242,
+ "ttft_ms": 1451.3714999775402,
+ "total_ms": 4573.832199967001
+}

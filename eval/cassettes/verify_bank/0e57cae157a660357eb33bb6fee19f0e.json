@@ -1,0 +1,18 @@
+{
+ "key": "0e57cae157a660357eb33bb6fee19f0e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"2个玩具汽车换11个铅笔。小明有44个玩具汽车，44÷2=22，说明有22组“2个玩具汽车”。每组可换11个铅笔，所以共可换22×11=242个铅笔。\", \"answers\": [{\"label\": \"\", \"value\": \"242\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple ratio. User Chinese. Need think: 2 toy cars = 11 pencils. 44 cars -> 44/2=22 groups, *11=242 pencils. Grade 6. No ambiguity. Need output JSON with work, answers. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 388,
+  "completion_tokens": 175,
+  "cached_tokens": 0,
+  "reasoning_tokens": 72
+ },
+ "ttfb_ms": 1410.8790999744087,
+ "ttft_ms": 1410.891100007575,
+ "total_ms": 6017.97569997143
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6d8a8c45e5d9dc65833d4fa7e36a20fc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"三轮车每辆有3个，6.5个这样的三轮车一共有多少个？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 101,
+  "completion_tokens": 21,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1376.6197999939322,
+ "ttft_ms": 1376.635399996303,
+ "total_ms": 1836.881600029301
+}

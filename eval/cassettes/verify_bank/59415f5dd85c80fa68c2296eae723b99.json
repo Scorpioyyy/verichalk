@@ -1,0 +1,18 @@
+{
+ "key": "59415f5dd85c80fa68c2296eae723b99",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"淘气沿五边形植物园走一圈，所走路程即为五条边长度之和。计算：992+412+751+584+143=2882（米）。答：淘气一共走了2882米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 110,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1281.4748999662697,
+ "ttft_ms": 1281.495500006713,
+ "total_ms": 2386.075599992182
+}

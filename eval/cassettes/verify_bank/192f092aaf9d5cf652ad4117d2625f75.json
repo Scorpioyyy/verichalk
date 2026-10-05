@@ -1,0 +1,18 @@
+{
+ "key": "192f092aaf9d5cf652ad4117d2625f75",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小强比小红多67个，所以用26+67=93。\", \"answers\": [{\"label\": \"\", \"value\": \"93\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 2 addition. User Chinese. Need produce final JSON. Let's reason: 小红 26, 小强比小红多67, so 小强 = 26+67=93. One answer. ambiguous false. Need work concise. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 132,
+  "cached_tokens": 0,
+  "reasoning_tokens": 71
+ },
+ "ttfb_ms": 1180.7111999951303,
+ "ttft_ms": 1180.7359000085853,
+ "total_ms": 6100.906300009228
+}

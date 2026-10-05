@@ -1,0 +1,18 @@
+{
+ "key": "c0ed15a7c68b8cfa70715489ce70e014",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算前两次得分：13+34=47分。再加上第三次：47+22，个位7+2=9，十位4+2=6，得69分。因为比赛有10人参加，总分需乘以人数：69×10=690分。答：小明一共得了690分。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 148,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1619.1692000138573,
+ "ttft_ms": 1619.1912000067532,
+ "total_ms": 3358.9776000007987
+}

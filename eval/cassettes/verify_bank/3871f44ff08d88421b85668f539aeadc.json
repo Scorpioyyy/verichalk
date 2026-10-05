@@ -1,0 +1,18 @@
+{
+ "key": "3871f44ff08d88421b85668f539aeadc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知菊花有18棵，松树的数量是菊花的1/2。求松树数量，用菊花数量乘以1/2即可：18×1/2=9（棵）。所以松树有9棵。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 85,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1416.8591999914497,
+ "ttft_ms": 1416.8713000253774,
+ "total_ms": 2147.4107000394724
+}

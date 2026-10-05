@@ -1,0 +1,18 @@
+{
+ "key": "dbd0dc9ed9d9eb6b8c267cdf2ac112d1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"矿泉水：6×2=12（元）。酸奶：8×6=48（元），但计算时把48误写为55。合计：12+55=67（元）。答：一共需要支付67元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1544.0091000054963,
+ "ttft_ms": 1544.0205000340939,
+ "total_ms": 2573.9307000185363
+}

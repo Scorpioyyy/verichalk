@@ -1,0 +1,18 @@
+{
+ "key": "f646b986129c207318bd4229df1fab26",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先把前两个数相加：89+42=131；再加上55：131+55=186。\", \"answers\": [{\"label\": \"\", \"value\": \"186\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple addition: 89+42+55. Compute: 89+42=131, +55=186. Need output JSON with work, answers, ambiguous false. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 131,
+  "cached_tokens": 0,
+  "reasoning_tokens": 60
+ },
+ "ttfb_ms": 1314.434900006745,
+ "ttft_ms": 1314.457600004971,
+ "total_ms": 4806.619199982379
+}

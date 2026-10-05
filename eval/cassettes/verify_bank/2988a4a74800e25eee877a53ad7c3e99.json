@@ -1,0 +1,18 @@
+{
+ "key": "2988a4a74800e25eee877a53ad7c3e99",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"芳芳有17个气球，小兰有8个气球。求芳芳比小兰多几个，用减法：17 - 8 = 9。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 1: 芳芳 17, 小兰 8, difference 17-8=9. Need output JSON with work, answers. Ensure no extra. Could mention label maybe \"芳芳比小兰多几个\". value 9 unit 个. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 148,
+  "cached_tokens": 0,
+  "reasoning_tokens": 72
+ },
+ "ttfb_ms": 1597.2685999586247,
+ "ttft_ms": 1597.2887999960221,
+ "total_ms": 6531.238499970641
+}

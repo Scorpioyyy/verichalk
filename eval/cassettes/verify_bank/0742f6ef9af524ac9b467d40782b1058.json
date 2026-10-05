@@ -1,0 +1,18 @@
+{
+ "key": "0742f6ef9af524ac9b467d40782b1058",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把小红看作1份，姐姐是小红的4倍，两人一共是1+4=5份。总邮票95张，所以每份是95÷5=19张，即小红有19张。\", \"answers\": [{\"label\": \"\", \"value\": \"19\", \"unit\": \"张\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 5 math. Problem: total 95 stamps, sister's quantity is 4 times Xiaohong. Let Xiaohong x, sister 4x, total 5x=95, x=19. Answer 19. Need output JSON with work, answers. Check ambiguity none. Ensure exact. final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 366,
+  "completion_tokens": 171,
+  "cached_tokens": 0,
+  "reasoning_tokens": 82
+ },
+ "ttfb_ms": 2356.8980999989435,
+ "ttft_ms": 2356.9128999952227,
+ "total_ms": 7528.043599973898
+}

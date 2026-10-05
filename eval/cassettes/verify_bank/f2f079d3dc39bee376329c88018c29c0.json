@@ -1,0 +1,18 @@
+{
+ "key": "f2f079d3dc39bee376329c88018c29c0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知总任务400个，已完成65个。求还需完成的数量，用总数减去已完成的：400-65。个位0减5不够，向十位借1，十位0再向百位借1变10，借出1后剩9；个位得10-5=5，十位9-6=3，百位剩3。所以400-65=336。答：还需要再完成336个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 144,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1212.4439000035636,
+ "ttft_ms": 1212.4622999690473,
+ "total_ms": 3269.003299996257
+}

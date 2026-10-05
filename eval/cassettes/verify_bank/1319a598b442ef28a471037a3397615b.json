@@ -1,0 +1,18 @@
+{
+ "key": "1319a598b442ef28a471037a3397615b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"本题考查加法运算。从4开始，往后数3个数：5、6、7，所以4+3=7？不对，我们重新用凑十法验证：把3拆成1和2，先算4+1=5，再算5+2=6。因此，4+3=6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 128,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1290.9496000502259,
+ "ttft_ms": 1290.9622000297531,
+ "total_ms": 2683.852400048636
+}

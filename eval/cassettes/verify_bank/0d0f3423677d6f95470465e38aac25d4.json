@@ -1,0 +1,18 @@
+{
+ "key": "0d0f3423677d6f95470465e38aac25d4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原式=647+769+271，先算647+769：个位7+9=16写6进1，十位4+6+1=11写1进1，百位6+7=13，得1406。再算1406+271=1677。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 142,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2071.707899973262,
+ "ttft_ms": 2071.9091999926604,
+ "total_ms": 3917.2390999738127
+}

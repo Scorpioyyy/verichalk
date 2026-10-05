@@ -1,0 +1,18 @@
+{
+ "key": "df1700ccf2f9436be705dfbf1dc84e9e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算总瓶数：2整箱有2×25=50瓶，再加6瓶，共56瓶。每瓶8.5元，总价为56×8.5=476元。\", \"answers\": [{\"label\": \"\", \"value\": \"476\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 4 math. Let's analyze problem: 25 bottles per box, bought 2 full boxes plus 6 individual bottles. Price per bottle 8.5 yuan. Total bottles = 2*25 + 6 = 56. Total cost = 56 * 8.5. Compute: 56*8 = 448, 56*0.5=28, total 476. Or 8.5*50=425, *6=51 total 476. Answer 476 yuan. Need JSON with work, answers one item maybe label total. ambiguous false. Ensure exact value integer. Grade 4 can multiply decimals? 4th grade maybe can use simple decimal? In China 4th grade maybe decimals not yet? But can compute via 8元5角? Still okay. Need output only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 387,
+  "completion_tokens": 293,
+  "cached_tokens": 0,
+  "reasoning_tokens": 202
+ },
+ "ttfb_ms": 2140.4726000037044,
+ "ttft_ms": 2140.483899973333,
+ "total_ms": 10220.898400002625
+}

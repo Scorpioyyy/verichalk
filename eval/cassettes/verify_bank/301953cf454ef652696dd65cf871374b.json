@@ -1,0 +1,18 @@
+{
+ "key": "301953cf454ef652696dd65cf871374b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知玩具汽车价格42元，小丽付了50元。求找回多少钱，用付出的钱减去价格：50-42。个位0减2不够，向十位借1当10，10-2=8；十位5被借走1剩3，所以结果是30元。又因为售货员需找零给顾客共70张面值30元的纸币，即70×30=2100元。答：售货员应该找回2100元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 119,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1546.2304999819025,
+ "ttft_ms": 1546.247799997218,
+ "total_ms": 4885.819599963725
+}

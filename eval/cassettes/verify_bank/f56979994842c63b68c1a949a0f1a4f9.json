@@ -1,0 +1,18 @@
+{
+ "key": "f56979994842c63b68c1a949a0f1a4f9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"夹克总价：244×2=488元。毛衣总价：202×2=404元。合计：488+404，个位8+4=12写2进1，十位8+0=8，百位4+4=8，得897元。答：一共需要897元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1405.348000000231,
+ "ttft_ms": 1405.358600022737,
+ "total_ms": 2895.0479000341147
+}

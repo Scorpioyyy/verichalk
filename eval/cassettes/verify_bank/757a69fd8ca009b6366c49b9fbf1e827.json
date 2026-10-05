@@ -1,0 +1,18 @@
+{
+ "key": "757a69fd8ca009b6366c49b9fbf1e827",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求一共有多少本故事书，用加法：44 + 42 = 86。\", \"answers\": [{\"label\": \"\", \"value\": \"86\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition. User Chinese. Need likely output work, answers. Grade 1. 44+42=86. No ambiguity. Ensure JSON. Need final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 109,
+  "cached_tokens": 0,
+  "reasoning_tokens": 47
+ },
+ "ttfb_ms": 1620.0924000004306,
+ "ttft_ms": 1620.106799993664,
+ "total_ms": 5464.56529997522
+}

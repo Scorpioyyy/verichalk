@@ -1,0 +1,18 @@
+{
+ "key": "1b5deb4de2da10182e8eaba5cc7eace9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"比较小数大小：先比较整数部分，1.06 的整数部分是 1，0.13 的整数部分是 0，1 > 0，所以 1.06 > 0.13。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: grade 4 judge: 1.06 > 0.13. True. Need maybe work. Ensure output JSON. No extra.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 127,
+  "cached_tokens": 0,
+  "reasoning_tokens": 40
+ },
+ "ttfb_ms": 1478.8674999726936,
+ "ttft_ms": 1478.8948000059463,
+ "total_ms": 5170.788299990818
+}

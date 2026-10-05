@@ -1,0 +1,18 @@
+{
+ "key": "ed8ec52d467ea29e9d0c52ef47357743",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将115拆分为100+15，利用乘法分配律：115×8=(100+15)×8=100×8+15×8=800+120=920。所以答案是920。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 70,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1684.0659999870695,
+ "ttft_ms": 1684.0766000095755,
+ "total_ms": 2612.0754000148736
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a7a5ed3de3fa68763a727ee51e00bee7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"钟面一圈360度，共12小时，所以每小时旋转360÷12=30度。时针从4时走到8时，经过8-4=4小时，旋转了4×30=120度。\", \"answers\": [{\"label\": \"\", \"value\": \"120\", \"unit\": \"度\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: clock hour hand from 4 to 8, clockwise rotation degrees. Grade 6. Hour hand full circle 360 degrees in 12 hours, each hour 30 degrees. From 4 to 8 is 4 hours, 4*30=120 degrees. Need output JSON. Ensure no extra text. Could include work concise. answers one value 120 unit 度? The blank asks degrees, unit maybe 度. ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 207,
+  "cached_tokens": 0,
+  "reasoning_tokens": 110
+ },
+ "ttfb_ms": 1358.7844999856316,
+ "ttft_ms": 1358.7964000180364,
+ "total_ms": 7018.4250000165775
+}

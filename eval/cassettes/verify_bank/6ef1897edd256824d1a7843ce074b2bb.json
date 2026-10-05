@@ -1,0 +1,18 @@
+{
+ "key": "6ef1897edd256824d1a7843ce074b2bb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求两人一共收集多少张卡片，用加法：440+494。个位0+4=4；十位4+9=13，写3进1；百位4+4+1=9，所以440+494=534。验算：534-494=440，说明计算正确。\", \"answers\": [{\"label\": \"两人一共收集的卡片数\", \"value\": \"534\", \"unit\": \"张\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple addition 440+494=934. Need output JSON only. Need include work maybe vertical calculation and check. Grade 2. Need answers one. Ambiguous false. Need maybe mention 列竖式计算并验算 in work. Ensure JSON valid. Could include work string with newlines? JSON can have escaped newline maybe okay. We can output compact. Need no other text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 380,
+  "completion_tokens": 225,
+  "cached_tokens": 0,
+  "reasoning_tokens": 94
+ },
+ "ttfb_ms": 1566.2283999845386,
+ "ttft_ms": 1566.5996999596246,
+ "total_ms": 9424.741399998311
+}

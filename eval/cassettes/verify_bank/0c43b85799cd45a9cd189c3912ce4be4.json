@@ -1,0 +1,18 @@
+{
+ "key": "0c43b85799cd45a9cd189c3912ce4be4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"丝带的单价是3.75元/米。请列竖式计算一共需要多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 96,
+  "completion_tokens": 27,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1473.1857999577187,
+ "ttft_ms": 1473.2039999798872,
+ "total_ms": 1891.0429999814369
+}

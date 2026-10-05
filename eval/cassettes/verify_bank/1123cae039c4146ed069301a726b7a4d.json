@@ -1,0 +1,18 @@
+{
+ "key": "1123cae039c4146ed069301a726b7a4d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"左边有3个小球，右边有1个小球，求一共有多少个，用加法：3+1=4。\", \"answers\": [{\"label\": \"\", \"value\": \"4\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need output JSON only. Need solve simple grade 1: left 3 balls right 1 ball total? 3+1=4. Need maybe answers one. Ensure JSON valid. work in Chinese concise. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 373,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 53
+ },
+ "ttfb_ms": 1541.6412000195123,
+ "ttft_ms": 1541.6555000119843,
+ "total_ms": 6497.447800007649
+}

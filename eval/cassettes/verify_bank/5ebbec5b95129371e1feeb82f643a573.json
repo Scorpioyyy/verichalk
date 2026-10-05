@@ -1,0 +1,18 @@
+{
+ "key": "5ebbec5b95129371e1feeb82f643a573",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"根据乘法口诀“五六三十”，5 × 6 = 30。\", \"answers\": [{\"label\": \"\", \"value\": \"30\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Problem: 2nd grade calculate 5 × 6 =. Answer 30. Need work brief. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1434.5005999784917,
+ "ttft_ms": 1434.5154999755323,
+ "total_ms": 4566.4284999947995
+}

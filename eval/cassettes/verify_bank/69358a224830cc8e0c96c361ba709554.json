@@ -1,0 +1,18 @@
+{
+ "key": "69358a224830cc8e0c96c361ba709554",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把 ？ 看成一个数。先算 84-12=72，再算 72÷6=12，所以 ？=12。\", \"answers\": [{\"label\": \"\", \"value\": \"12\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple equation for 4th grade: 6×?+12=84. Need output JSON only. Need think in Chinese likely. Let's solve: 6? +12=84 => 6?=72 => ?=12. Need maybe label? One answer. ambiguous false. Work concise. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 158,
+  "cached_tokens": 0,
+  "reasoning_tokens": 81
+ },
+ "ttfb_ms": 1607.831300003454,
+ "ttft_ms": 1607.8534999978729,
+ "total_ms": 6302.282800024841
+}

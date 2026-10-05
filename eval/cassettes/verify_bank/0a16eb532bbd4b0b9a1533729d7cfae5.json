@@ -1,0 +1,18 @@
+{
+ "key": "0a16eb532bbd4b0b9a1533729d7cfae5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"按从左到右计算：96-10=86，86+6=92。\", \"answers\": [{\"label\": \"\", \"value\": \"92\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic: 96 - 10 + 6. Grade 2. Left to right: 96-10=86, +6=92. Need output JSON only. Ensure no extra. Could include work concise. answers one value 92. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 133,
+  "cached_tokens": 0,
+  "reasoning_tokens": 71
+ },
+ "ttfb_ms": 1387.2298000496812,
+ "ttft_ms": 1387.2494000243023,
+ "total_ms": 5178.839700005483
+}

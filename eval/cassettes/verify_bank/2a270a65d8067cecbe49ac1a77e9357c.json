@@ -1,0 +1,18 @@
+{
+ "key": "2a270a65d8067cecbe49ac1a77e9357c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求钢笔比笔记本贵多少元，用减法：4.4 - 0.54 = 3.86（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"3.86\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve simple subtraction: 4.4 - 0.54 = 3.86. Grade 5. Need maybe work. Ensure exact decimal. One answer. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 382,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 46
+ },
+ "ttfb_ms": 1627.2869000094943,
+ "ttft_ms": 1627.3086000001058,
+ "total_ms": 5713.6558999773115
+}

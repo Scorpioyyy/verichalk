@@ -1,0 +1,18 @@
+{
+ "key": "7a33709f289352b4d6655293e25c934d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"计算 115 × 8。可以把 115 拆成 100 + 15：100 × 8 = 800，15 × 8 = 120，800 + 120 = 920。\", \"answers\": [{\"label\": \"\", \"value\": \"920\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple multiplication 115*8. Need output JSON only. Need maybe think. 115*8 = 920. Grade 3. Provide work concise. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 157,
+  "cached_tokens": 0,
+  "reasoning_tokens": 54
+ },
+ "ttfb_ms": 1403.4306000103243,
+ "ttft_ms": 1403.447100019548,
+ "total_ms": 5982.410800002981
+}

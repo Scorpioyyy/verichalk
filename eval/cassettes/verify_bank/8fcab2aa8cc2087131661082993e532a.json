@@ -1,0 +1,18 @@
+{
+ "key": "8fcab2aa8cc2087131661082993e532a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"501-176：个位1减6不够，向十位借1，十位是0，先从百位借1；百位5剩4，十位变10；十位再借1给个位，十位剩9，个位变11。11-6=5，9-7=2，4-1=3，所以结果是325。\", \"answers\": [{\"label\": \"\", \"value\": \"325\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve 501-176. Need likely provide work, answers. Grade 2 vertical subtraction. Compute 501 - 176 = 325. Check: 501-100=401, -70=331, -6=325. Need exact. No ambiguity. Output JSON. Ensure no extra text. Need maybe label empty. Unit empty.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 228,
+  "cached_tokens": 0,
+  "reasoning_tokens": 99
+ },
+ "ttfb_ms": 1446.1045000352897,
+ "ttft_ms": 1446.117100014817,
+ "total_ms": 8491.80780001916
+}

@@ -1,0 +1,18 @@
+{
+ "key": "84a0c23d5a345f03f2785b6fb5864997",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"姐姐的邮票是小红的4倍，则两人邮票总数相当于小红的1+4=5倍。用总数除以倍数即可求出小红的邮票数：95÷(1+4)=95÷5=19（张）。因此小红有19张邮票。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 85,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1426.3070999877527,
+ "ttft_ms": 1426.31969996728,
+ "total_ms": 3143.9542999723926
+}

@@ -1,0 +1,18 @@
+{
+ "key": "95363e0e3fbb3d53f1334b2e02048e3f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"门票单价24元，买7张，列式：24×7。先算个位：4×7=28，写8进2；再算十位：2×7=14，加上进位的2得16，所以结果是166元。答：一共需要166元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1440.7421000069007,
+ "ttft_ms": 1440.760399971623,
+ "total_ms": 2747.8432999923825
+}

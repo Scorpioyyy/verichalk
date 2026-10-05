@@ -1,0 +1,18 @@
+{
+ "key": "f7c0b4b647bb2a11e6bb4e53965590e0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"钢笔比文具盒便宜1/2，说明钢笔价格是文具盒的1-1/2=1/2。已知钢笔269元，求文具盒价格用除法：269÷1/2=269×2=548（元）。答：文具盒的价格是548元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 160,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1512.6487000379711,
+ "ttft_ms": 1512.6661999966018,
+ "total_ms": 2682.919400045648
+}

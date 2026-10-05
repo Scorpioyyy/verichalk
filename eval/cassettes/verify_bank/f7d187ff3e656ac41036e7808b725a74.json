@@ -1,0 +1,18 @@
+{
+ "key": "f7d187ff3e656ac41036e7808b725a74",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"9.5 + 4.6 = 14.1\", \"answers\": [{\"label\": \"\", \"value\": \"14.1\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic 9.5+4.6=14.1. Need output JSON only. Need ensure final JSON. Consider grade 4. answers one. work brief. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 49
+ },
+ "ttfb_ms": 1735.4441999923438,
+ "ttft_ms": 1735.4674999951385,
+ "total_ms": 5243.01530001685
+}

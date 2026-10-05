@@ -1,0 +1,18 @@
+{
+ "key": "e915f4c2df708ebaeaefb55be64e903f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小明有37元，商品单价4元。用总钱数除以单价：37÷4。先算4×8=32，37-32=5，余数5大于单价4，说明还能再买1件，但题目问的是商，所以最多可以买8件。答：小明最多可以买8件。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 145,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1545.0049999635667,
+ "ttft_ms": 1545.0185000081547,
+ "total_ms": 4274.881999997888
+}

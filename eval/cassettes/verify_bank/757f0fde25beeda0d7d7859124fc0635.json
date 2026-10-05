@@ -1,0 +1,18 @@
+{
+ "key": "757f0fde25beeda0d7d7859124fc0635",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"三角形内角和为180°，所以∠C=180°-∠A-∠B=180°-43°-104°=33°。\", \"answers\": [{\"label\": \"\", \"value\": \"33\", \"unit\": \"°\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple triangle angles sum 180. ∠C = 180 - 43 - 104 = 33. Need output JSON. Ensure no extra text. Consider grade 5. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 374,
+  "completion_tokens": 145,
+  "cached_tokens": 0,
+  "reasoning_tokens": 58
+ },
+ "ttfb_ms": 1429.6787999919616,
+ "ttft_ms": 1429.6979999635369,
+ "total_ms": 6925.266699981876
+}

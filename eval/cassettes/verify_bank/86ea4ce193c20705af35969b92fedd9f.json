@@ -1,0 +1,18 @@
+{
+ "key": "86ea4ce193c20705af35969b92fedd9f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"果茶每棵9个共63元，钢笔每个5元。买一个比买一个贵多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 96,
+  "completion_tokens": 30,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1259.6150999888778,
+ "ttft_ms": 1259.6322000026703,
+ "total_ms": 1850.9581999969669
+}

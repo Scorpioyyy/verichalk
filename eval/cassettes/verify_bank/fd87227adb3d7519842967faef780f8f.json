@@ -1,0 +1,18 @@
+{
+ "key": "fd87227adb3d7519842967faef780f8f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每天吃350根，4天吃的总数用乘法计算：350×4=1400（根）。\", \"answers\": [{\"label\": \"\", \"value\": \"1400\", \"unit\": \"根\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple multiplication. Need ensure final JSON. Problem: 大熊猫每天吃350根香蕉。4天一共吃多少根香蕉？ Grade 3. 350*4=1400. One answer. No ambiguity. Need maybe work brief. Output JSON. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 359,
+  "completion_tokens": 143,
+  "cached_tokens": 0,
+  "reasoning_tokens": 72
+ },
+ "ttfb_ms": 1522.0895999809727,
+ "ttft_ms": 1522.1208999864757,
+ "total_ms": 7510.060800006613
+}

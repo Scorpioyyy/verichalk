@@ -1,0 +1,18 @@
+{
+ "key": "660a51a40ece7dc80a3a8395315cfd83",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"用竖式乘法计算：484×637=484×(600+30+7)=484×600+484×30+484×7=290400+14520+3388=308308。\", \"answers\": [{\"label\": \"\", \"value\": \"308308\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request: solve 484 × 637 for grade 4. Need output JSON only. Need compute accurately. Let's calculate: 637*484 = 637*(500-16)=318500-10192=308308. Or 484*600=290400; *30=14520 total304920; *7=3388 total308308. Need JSON with work, answers one value. ambiguous false. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 259,
+  "cached_tokens": 0,
+  "reasoning_tokens": 142
+ },
+ "ttfb_ms": 1946.4691000175662,
+ "ttft_ms": 1946.5009000268765,
+ "total_ms": 8818.841200030874
+}

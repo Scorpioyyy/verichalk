@@ -1,0 +1,18 @@
+{
+ "key": "a0c19354d93286b72805be741158582b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"0表示没有，6加0还是6，所以6+0=6。\", \"answers\": [{\"label\": \"\", \"value\": \"6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce JSON only. Problem: grade 1, 6+0=. Answer 6. Need maybe work brief. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 347,
+  "completion_tokens": 94,
+  "cached_tokens": 0,
+  "reasoning_tokens": 39
+ },
+ "ttfb_ms": 1817.4467000062577,
+ "ttft_ms": 1817.4605999956839,
+ "total_ms": 4983.81290002726
+}

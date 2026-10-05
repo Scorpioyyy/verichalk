@@ -1,0 +1,18 @@
+{
+ "key": "b8a600c2813cc0b32760452d4f179060",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\n  \"work\": \"求两种树一共种了多少棵，用加法：351 + 46。竖式计算时，个位 1 + 6 = 7；十位 5 + 4 = 9；百位 3 不变，所以结果是 391。\",\n  \"answers\": [\n    {\n      \"label\": \"\",\n      \"value\": \"391\",\n      \"unit\": \"棵\"\n    }\n  ],\n  \"ambiguous\": false,\n  \"ambiguity\": \"\"\n}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple addition 351+46=397. Need maybe vertical calculation. Need ensure answers maybe one answer. User asks \"请列竖式计算: ...\" likely answer blank 397. Need output JSON. Need include work concise. Ambiguous false. Need maybe unit 棵. Let's craft.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 393,
+  "completion_tokens": 204,
+  "cached_tokens": 0,
+  "reasoning_tokens": 77
+ },
+ "ttfb_ms": 2523.3339000260457,
+ "ttft_ms": 2523.3566000242718,
+ "total_ms": 8102.5887000141665
+}

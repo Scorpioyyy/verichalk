@@ -1,0 +1,18 @@
+{
+ "key": "1420b4bd7bd47293712f36abbfc7af93",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"伙食费占总支出及储蓄的18%，实际金额是306元。用部分量除以对应百分率：306 ÷ 18% = 306 ÷ 0.18 = 1700（元）。所以小明家的支出及储蓄总共是1700元。\", \"answers\": [{\"label\": \"小明家的支出及储蓄总共是多少元\", \"value\": \"1700\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve math. User: grade 6. Problem: According to statistical chart, food expenses account for 18% of total expenditure and savings. If actual food expense is 306 yuan, what is total expenditure and savings? Simple: total = 306 / 18% = 306 / 0.18 = 1700. Need output JSON only. Need maybe work concise. Ensure exact integer. No ambiguity. Need final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 379,
+  "completion_tokens": 232,
+  "cached_tokens": 0,
+  "reasoning_tokens": 109
+ },
+ "ttfb_ms": 1565.4986000154167,
+ "ttft_ms": 1565.5105999903753,
+ "total_ms": 8631.968799978495
+}

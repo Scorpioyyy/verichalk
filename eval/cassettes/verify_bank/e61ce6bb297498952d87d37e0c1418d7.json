@@ -1,0 +1,18 @@
+{
+ "key": "e61ce6bb297498952d87d37e0c1418d7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"丝带的单价是3.75元/米，购买7.5米，已知丝带每米的价格是2.50元。请列竖式计算一共需要多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 91,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2610.7878999901004,
+ "ttft_ms": 2610.8076000236906,
+ "total_ms": 3325.0725000398234
+}

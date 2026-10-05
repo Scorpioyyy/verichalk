@@ -1,0 +1,18 @@
+{
+ "key": "4dd1a29cd5643931b92a0d7da3b5123a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把各项预计费用相加：780+752+780+311+141+790=3554（元）。所以这次旅行的总费用是3554元。\", \"answers\": [{\"label\": \"\", \"value\": \"3554\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple addition for grade 3. Need ensure exact. Sum: 780+752=1532; +780=2312; +311=2623; +141=2764; +790=3554. Total 3554 yuan. One question. Provide work concise. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 431,
+  "completion_tokens": 187,
+  "cached_tokens": 0,
+  "reasoning_tokens": 95
+ },
+ "ttfb_ms": 1662.9654000280425,
+ "ttft_ms": 1663.4993000188842,
+ "total_ms": 7067.484600003809
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d7338577d3ec2e01dece1d5d028bc57d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每个橡皮2元，买6个，用乘法：6×2=12（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"12\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 2 multiplication: 6 erasers * 2 yuan = 12 yuan. Need likely one answer. Ensure no extra text. Consider ambiguity? none. Work brief Chinese. answers label maybe \"一共需要\". value \"12\" unit \"元\". ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 67
+ },
+ "ttfb_ms": 1782.2492999839596,
+ "ttft_ms": 1782.2681000106968,
+ "total_ms": 5895.316699985415
+}

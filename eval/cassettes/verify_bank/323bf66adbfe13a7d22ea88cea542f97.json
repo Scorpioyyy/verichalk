@@ -1,0 +1,18 @@
+{
+ "key": "323bf66adbfe13a7d22ea88cea542f97",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"竖式加法：个位 2+5=7，十位 0+7=7，百位 5 落下来，所以 502+75=577。\", \"answers\": [{\"label\": \"\", \"value\": \"577\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition 502+75=577. Need maybe vertical calculation. Grade 2. Need output answers one. Ensure no extra text. Need final JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 46
+ },
+ "ttfb_ms": 1552.1121999481693,
+ "ttft_ms": 1552.124099980574,
+ "total_ms": 5111.856599978637
+}

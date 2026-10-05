@@ -1,0 +1,18 @@
+{
+ "key": "d915b97c14bd8d83347eac9fb2ea49ac",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"计算：40 × 48，已知该算式的结果为1500，并用乘法交换律验算。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 79,
+  "completion_tokens": 31,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1432.761500007473,
+ "ttft_ms": 1432.7797000296414,
+ "total_ms": 2046.7596999951638
+}

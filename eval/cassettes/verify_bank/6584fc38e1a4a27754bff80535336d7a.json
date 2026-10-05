@@ -1,0 +1,18 @@
+{
+ "key": "6584fc38e1a4a27754bff80535336d7a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"原来有8盘，每盘10个，共8个10，就是80个。小刺猬拿走了4盘，每盘10个，就是40个。还剩80-40=40个。\", \"answers\": [{\"label\": \"\", \"value\": \"40\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve grade 1 math. Problem: squirrel prepared 8 plates of fruit, each plate 10. Hedgehog took away 4 plates. How many fruits left? Need likely 8 plates total 80, took 4 plates = 40, left 4 plates = 40. Grade 1 can do 8-4=4 plates, 4 tens=40. Need output JSON only. Ensure answers one. ambiguous false. Work concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 197,
+  "cached_tokens": 0,
+  "reasoning_tokens": 105
+ },
+ "ttfb_ms": 1892.7751999581233,
+ "ttft_ms": 1892.787099990528,
+ "total_ms": 6894.4604999851435
+}

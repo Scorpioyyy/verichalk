@@ -1,0 +1,18 @@
+{
+ "key": "f2abebd09bfd0365816d87e5b42ef6be",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方体体积 = 底面积 × 高，所以高 = 体积 ÷ 底面积 = 60 ÷ 4 = 15（米）。\", \"answers\": [{\"label\": \"\", \"value\": \"15\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 5. Volume = base area * height, height = 60/4=15 m. Need maybe no ambiguity. Ensure final JSON only.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 120,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1726.580600021407,
+ "ttft_ms": 1726.5985000412911,
+ "total_ms": 5536.7532999953255
+}

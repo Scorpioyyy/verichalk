@@ -1,0 +1,18 @@
+{
+ "key": "6715b905595ed3c4e50b17c1f0a3a6c4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"共有736箱，第一次运走351箱，第二次运走242箱。先算两次共运走：351+242=593箱，再算还剩：736-593=143箱。也可连减：736-351-242=143箱。\", \"answers\": [{\"label\": \"\", \"value\": \"143\", \"unit\": \"箱\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 3 arithmetic. Need think: total 736, first 351, second 242. Remaining = 736 - 351 - 242. Compute: 736-351=385; 385-242=143. Or total used 593, 736-593=143. Need output JSON with work, answers. Ambiguous? wording 运走/用去 maybe slash but same subtract. No ambiguity. Ensure exact.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 376,
+  "completion_tokens": 253,
+  "cached_tokens": 0,
+  "reasoning_tokens": 131
+ },
+ "ttfb_ms": 1443.2303000357933,
+ "ttft_ms": 1443.2522000279278,
+ "total_ms": 9122.633200022392
+}

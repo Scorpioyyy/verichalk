@@ -1,0 +1,18 @@
+{
+ "key": "1be4803fff7600e115bf789ba2da3d21",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"沿长边可放：58÷5=11（个）……3cm；沿宽边可放：32÷5=6（个）……2cm；沿高可放：15÷5=3（个）。但宽边余2cm不足再放，实际只能放5个。故最多装：11×5×3=26（个）。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 182,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1641.5742000099272,
+ "ttft_ms": 1641.587000049185,
+ "total_ms": 3258.247400051914
+}

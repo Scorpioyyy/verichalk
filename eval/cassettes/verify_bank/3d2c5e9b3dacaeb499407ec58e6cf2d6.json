@@ -1,0 +1,18 @@
+{
+ "key": "3d2c5e9b3dacaeb499407ec58e6cf2d6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"在跳水比赛评分中，去掉一个最高分和一个最低分后再求平均数，可以减少个别过高或过低极端分数对平均数的影响，使最终成绩更能代表运动员的整体水平。因此该说法正确。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve. User: grade 5, judge statement: In diving scoring, using remove highest and lowest then average final score, mainly to eliminate interference of extreme data on representation of overall level. Need true/false. This is correct: removing outliers reduces effect of extreme scores. So answer 对. Need maybe note ambiguity? No. Provide concise work. Ensure JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 386,
+  "completion_tokens": 163,
+  "cached_tokens": 0,
+  "reasoning_tokens": 81
+ },
+ "ttfb_ms": 3223.5575999948196,
+ "ttft_ms": 3223.5791999846697,
+ "total_ms": 7191.6340999887325
+}

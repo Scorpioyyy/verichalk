@@ -1,0 +1,18 @@
+{
+ "key": "a959dfc449ac704ee1269502b2f0cb87",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"总人数为41名同学加李老师，共42人。每辆大巴限乘3人，用总人数除以每车限乘人数：42÷3=14（辆）。因为14辆车坐满后还余下2人没座位，这2人需再租一辆，所以至少需要14+2=44辆。答：至少需要租44辆。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1432.4731000233442,
+ "ttft_ms": 1432.4866000097245,
+ "total_ms": 3264.711800031364
+}

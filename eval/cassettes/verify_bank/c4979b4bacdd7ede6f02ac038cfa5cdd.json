@@ -1,0 +1,18 @@
+{
+ "key": "c4979b4bacdd7ede6f02ac038cfa5cdd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：要求588=586+___中的空格，只需用588减去586。列竖式计算：个位8减6得2，十位8减8得0，百位5减5得0，所以差为294/293。故空格应填294/293。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 141,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1279.3499999679625,
+ "ttft_ms": 1279.3622000026517,
+ "total_ms": 2776.3222999637946
+}

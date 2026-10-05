@@ -1,0 +1,18 @@
+{
+ "key": "2dc3ec97818889cde60bad4e05c2f727",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由题意，伙食费占总支出及储蓄的18%，伙食费为306元。设总共为x元，则 x×18%=306，故 x=306÷18%。计算：306÷18=17，再乘以100得1800。所以小明家的支出及储蓄总共是1800元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 161,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1603.3894000574946,
+ "ttft_ms": 1603.4180000424385,
+ "total_ms": 3201.940300001297
+}

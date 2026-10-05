@@ -1,0 +1,18 @@
+{
+ "key": "f0536abc4a22b43f582afa045f26082a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"用除法计算：43÷5=8（盒）……3（个）。剩下的3个不够装满一盒，所以最多能装满8盒。\", \"answers\": [{\"label\": \"\", \"value\": \"8\", \"unit\": \"盒\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 2 math: 43 toys, each box 5. Max full boxes = floor(43/5)=8 remainder 3. Question asks 最多能装满几盒？ answer 8 盒. Need maybe no ambiguity. Provide work concise. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 141,
+  "cached_tokens": 0,
+  "reasoning_tokens": 69
+ },
+ "ttfb_ms": 3486.735399987083,
+ "ttft_ms": 3486.7559999693185,
+ "total_ms": 8414.329199993517
+}

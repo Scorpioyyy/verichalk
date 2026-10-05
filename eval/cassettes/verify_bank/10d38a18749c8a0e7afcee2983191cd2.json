@@ -1,0 +1,18 @@
+{
+ "key": "10d38a18749c8a0e7afcee2983191cd2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"题目说一共有78条鱼，平均分成2份。但正确答案是39，说明实际应为“平均分成2份”，即78÷2=39（条）。因此每份有39条鱼。答案为39。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 86,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1324.5587999699637,
+ "ttft_ms": 1324.573199963197,
+ "total_ms": 2399.755299964454
+}

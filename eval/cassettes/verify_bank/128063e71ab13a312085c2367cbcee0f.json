@@ -1,0 +1,18 @@
+{
+ "key": "128063e71ab13a312085c2367cbcee0f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知蜗牛体长为0.18克，大树体长是它的100倍。求一个数的几倍是多少用乘法计算：0.18×100=18（克）。因此大树的体长约是18克。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1830.0680000102147,
+ "ttft_ms": 1830.091400013771,
+ "total_ms": 3559.3400000361726
+}

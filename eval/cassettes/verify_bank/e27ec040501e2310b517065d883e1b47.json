@@ -1,0 +1,18 @@
+{
+ "key": "e27ec040501e2310b517065d883e1b47",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"根据比例的基本性质，两个外项的积等于两个内项的积：2×x = 9×20。计算得 2x = 180，所以 x = 180 ÷ 2 = 90。\", \"answers\": [{\"label\": \"x的值\", \"value\": \"90\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple proportion 2:9 = 20:x. For grade 6, basic property: product of extremes equals product of means. 2*x = 9*20 =180, x=90. Need output JSON. Ensure no extra. Could include work. answers one value. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 172,
+  "cached_tokens": 0,
+  "reasoning_tokens": 76
+ },
+ "ttfb_ms": 2831.581100006588,
+ "ttft_ms": 2831.597700016573,
+ "total_ms": 7814.814600045793
+}

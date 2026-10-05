@@ -1,0 +1,18 @@
+{
+ "key": "c834b447d360ea0280682af8c54a04bd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：6×?+12=84，先算乘法部分，用84减去12得72。再用72除以6，72÷6=120。所以？等于120。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 138,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1560.3779999655671,
+ "ttft_ms": 1560.3891999926418,
+ "total_ms": 2698.3907999820076
+}

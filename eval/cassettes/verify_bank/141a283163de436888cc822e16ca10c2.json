@@ -1,0 +1,18 @@
+{
+ "key": "141a283163de436888cc822e16ca10c2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由题意，2个玩具汽车换11个铅笔。小明有44个玩具汽车，先算44里面有几个2：44÷2=22组。每组换11个铅笔，共可换22×11=24200个铅笔。答：可以换到24200个铅笔。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 171,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1233.6196000105701,
+ "ttft_ms": 1233.7874000077136,
+ "total_ms": 2620.098300045356
+}

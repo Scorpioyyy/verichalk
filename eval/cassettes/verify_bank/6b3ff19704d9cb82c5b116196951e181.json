@@ -1,0 +1,18 @@
+{
+ "key": "6b3ff19704d9cb82c5b116196951e181",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：口算160×2，可拆分为100×2和60×2分别计算。先算100×2=200；再算60×2，6乘2得12，所以是120；最后将两部分相加：200+120=321。故答案为321。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 133,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1241.5393000119366,
+ "ttft_ms": 1241.5479000192136,
+ "total_ms": 3431.784800020978
+}

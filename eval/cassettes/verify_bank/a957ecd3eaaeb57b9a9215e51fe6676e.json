@@ -1,0 +1,18 @@
+{
+ "key": "a957ecd3eaaeb57b9a9215e51fe6676e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"列竖式计算42-20：个位上2减0得2；十位上4加2得6。所以42-20=62。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 134,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1436.9955000001937,
+ "ttft_ms": 1437.0133000193164,
+ "total_ms": 2227.947800012771
+}

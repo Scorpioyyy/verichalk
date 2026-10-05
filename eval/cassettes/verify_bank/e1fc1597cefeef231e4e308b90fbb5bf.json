@@ -1,0 +1,18 @@
+{
+ "key": "e1fc1597cefeef231e4e308b90fbb5bf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把三次成绩相加：19 + 13 + 33 = 65（下）。\", \"answers\": [{\"label\": \"\", \"value\": \"65\", \"unit\": \"下\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition. Need ensure final JSON. Problem: grades 2, sum 19+13+33. 19+13=32, +33=65. One answer. ambiguous false. Need maybe label empty or \"总成绩\". Output only JSON. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 137,
+  "cached_tokens": 0,
+  "reasoning_tokens": 74
+ },
+ "ttfb_ms": 1293.3511000010185,
+ "ttft_ms": 1293.3755000121891,
+ "total_ms": 5358.503499999642
+}

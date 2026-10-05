@@ -1,0 +1,18 @@
+{
+ "key": "25a4efa24537f54eb1c92b1206496a8c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"找回的钱=付出的钱-玩具价格。小丽付出50元，玩具价格是42元。列式：50-42。个位0减2不够，向十位借1当10，10-2=8；十位5被借走1剩4，4-4=0，所以50-42=8元。但题目问的是找回的钱占原价的比例，即8÷10=4/5。答：售货员应找回4/5。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1207.990000024438,
+ "ttft_ms": 1208.0005999887362,
+ "total_ms": 3426.20500002522
+}

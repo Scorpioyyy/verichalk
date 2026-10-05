@@ -1,0 +1,18 @@
+{
+ "key": "b391ce8b2248173e52f36b277f77eb77",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将6个社区回收的废旧电池数量相加：120+135+110+145+120+130。可利用凑整法简便计算：(120+130)+(135+145)+(110+120)=250+280+230=760（节）。因此，这6个社区一共回收废旧电池760节。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 113,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1604.825599992182,
+ "ttft_ms": 1604.8379000276327,
+ "total_ms": 3157.002400024794
+}

@@ -1,0 +1,18 @@
+{
+ "key": "01467332cee9134585397d64ec64e21f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"玩家A在11的倍数时拍手，玩家B在6的倍数时拍手。两人第一次同时拍手时，报出的数既是11的倍数又是6的倍数，即求11和6的最小公倍数。因为11和6互质，所以它们的最小公倍数为11×6=66。因此，他们第一次同时拍手时报出的数是66。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 114,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1133.5017999517731,
+ "ttft_ms": 1133.5148999933153,
+ "total_ms": 2596.2893999530934
+}

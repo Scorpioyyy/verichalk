@@ -1,0 +1,18 @@
+{
+ "key": "7bb1b9194198056e40c397eea082870b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：用竖式计算37×9。先算个位：7×9＝63，写3进6；再算十位：3×9＝27，加上进位的6得33，写33。所以37×9＝332。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 137,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1235.2074999944307,
+ "ttft_ms": 1235.2820999803953,
+ "total_ms": 2364.5350000006147
+}

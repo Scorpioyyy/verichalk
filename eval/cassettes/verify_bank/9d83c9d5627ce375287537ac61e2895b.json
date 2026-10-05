@@ -1,0 +1,18 @@
+{
+ "key": "9d83c9d5627ce375287537ac61e2895b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"总路程是992米。已知4段路程：286米、281米、212米、91米。先求已知4段总和：286+281+212+91=870米。缺失的一段=总路程-已知4段总和=992-870=122米。\", \"answers\": [{\"label\": \"\", \"value\": \"122\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. Need think carefully. Problem: total 992 m, split into 5 segments. First three: 286, 281, 212. Last segment: 91. Missing middle segment? Sum known = 286+281+212+91 = let's compute: 286+281=567; +212=779; +91=870. Missing = 992-870=122. Answer 122 meters. Need output JSON with work, answers. ambiguous false. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 416,
+  "completion_tokens": 279,
+  "cached_tokens": 0,
+  "reasoning_tokens": 154
+ },
+ "ttfb_ms": 1699.021099950187,
+ "ttft_ms": 1699.032399978023,
+ "total_ms": 9141.868499980774
+}

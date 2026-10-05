@@ -1,0 +1,18 @@
+{
+ "key": "4c87078ea9fbbfd5666e09187f1165b6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：设参加合唱队的人数有x人。根据题意，腰鼓队人数是合唱队的1/3，列方程得：(1/3)x = 90。方程两边同时乘3，解得 x = 270。答：参加合唱队的人数有270人。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 108,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1304.5118000009097,
+ "ttft_ms": 1304.5392000349239,
+ "total_ms": 2284.743199998047
+}

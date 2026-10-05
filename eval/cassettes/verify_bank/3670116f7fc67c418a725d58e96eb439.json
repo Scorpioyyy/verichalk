@@ -1,0 +1,18 @@
+{
+ "key": "3670116f7fc67c418a725d58e96eb439",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"计算40×48：先算4×48=192，再在末尾添一个0，得1620。验算：用乘法交换律，48×40=48×4×10=192×10=1620。两次结果一致，所以40×48=1620。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 140,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1162.1724999858998,
+ "ttft_ms": 1162.1910000103526,
+ "total_ms": 2597.698399971705
+}

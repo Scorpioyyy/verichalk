@@ -1,0 +1,18 @@
+{
+ "key": "c241b96b3f12acb8944071f5e69d2c1e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小军有19个星星。小军比小丽多几个？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 91,
+  "completion_tokens": 21,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1293.2030000374652,
+ "ttft_ms": 1293.2207000558265,
+ "total_ms": 1604.1771000018343
+}

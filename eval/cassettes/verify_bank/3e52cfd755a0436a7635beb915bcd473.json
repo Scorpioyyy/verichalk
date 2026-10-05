@@ -1,0 +1,18 @@
+{
+ "key": "3e52cfd755a0436a7635beb915bcd473",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每排有2棵向日葵，一共有6排，求总数用乘法：2×6=12（棵）。\", \"answers\": [{\"label\": \"向日葵总数\", \"value\": \"12\", \"unit\": \"棵\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 2 multiplication: 2 per row, 6 rows, total 12. Need maybe work. Ensure no extra text. JSON valid. answers one. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 48
+ },
+ "ttfb_ms": 1793.7898999662139,
+ "ttft_ms": 1793.8010999932885,
+ "total_ms": 5279.174499970395
+}

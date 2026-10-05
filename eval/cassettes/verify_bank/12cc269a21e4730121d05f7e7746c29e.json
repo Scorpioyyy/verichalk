@@ -1,0 +1,18 @@
+{
+ "key": "12cc269a21e4730121d05f7e7746c29e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"错误在于个位相加满十未向十位进1。改正：个位9+4=13，写3进1；十位4+4+1=9。正确结果为93。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 96,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1108.3646999904886,
+ "ttft_ms": 1108.3869999856688,
+ "total_ms": 1913.3762000128627
+}

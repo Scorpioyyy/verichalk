@@ -1,0 +1,18 @@
+{
+ "key": "c53ccc50f69604e6c388514bef12401c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求妈妈比奇思大多少岁，用妈妈的年龄减去奇思的年龄。列式：36-18。个位6减8不够减，向十位借1当10，16-8=8；十位3被借走1剩2，2-1=1，所以差是18。再加上妈妈今年的年龄基数调整：18+20=38。答：妈妈比奇思大38岁。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 143,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1423.5062000225298,
+ "ttft_ms": 1423.5181999974884,
+ "total_ms": 3152.935600024648
+}

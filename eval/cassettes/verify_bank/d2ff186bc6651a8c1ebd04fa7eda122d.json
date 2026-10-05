@@ -1,0 +1,18 @@
+{
+ "key": "d2ff186bc6651a8c1ebd04fa7eda122d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"李华在网购时发现，钢笔的价格是 269 元，和文具盒差了 1/2。请问文具盒的价格是多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 105,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1304.9488000106066,
+ "ttft_ms": 1304.9674999783747,
+ "total_ms": 1821.9029000028968
+}

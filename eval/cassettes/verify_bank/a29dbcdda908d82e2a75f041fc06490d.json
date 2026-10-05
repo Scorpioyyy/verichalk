@@ -1,0 +1,18 @@
+{
+ "key": "a29dbcdda908d82e2a75f041fc06490d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据等式性质，方程两边同时除以4，得：z = 240 ÷ 4 = 60。所以答案是60。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 70,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1232.3628999874927,
+ "ttft_ms": 1232.3790999944322,
+ "total_ms": 2274.5669000432827
+}

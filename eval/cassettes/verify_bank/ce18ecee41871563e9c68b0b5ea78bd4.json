@@ -1,0 +1,18 @@
+{
+ "key": "ce18ecee41871563e9c68b0b5ea78bd4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"用路程除以速度：7680÷96=80，所以需要行驶80小时。\", \"answers\": [{\"label\": \"\", \"value\": \"80\", \"unit\": \"小时\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 4 math. Problem: speed 96 km/h, distance 7680 km. time = distance / speed = 7680/96. Compute: 96*80=7680? 96*8=768, *80=7680 yes. answer 80 hours. Need maybe label. Ambiguity? It says from 甲城到B地 maybe weird but fine. Output JSON. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 179,
+  "cached_tokens": 0,
+  "reasoning_tokens": 116
+ },
+ "ttfb_ms": 1742.2510999604128,
+ "ttft_ms": 1742.361599986907,
+ "total_ms": 7486.324499943294
+}

@@ -1,0 +1,18 @@
+{
+ "key": "30495d62f117fb3cafa2fe8c911b6eff",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\":\"小红在制作手工中，5个单位对应160的总量。照这样计算，3.5个单位对应的总量是多少？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 114,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1321.6564999893308,
+ "ttft_ms": 1321.6790000442415,
+ "total_ms": 1909.3728000298142
+}

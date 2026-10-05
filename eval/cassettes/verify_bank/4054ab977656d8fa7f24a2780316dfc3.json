@@ -1,0 +1,18 @@
+{
+ "key": "4054ab977656d8fa7f24a2780316dfc3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\": \"根据平行四边形面积公式：面积 = 底 × 高。已知面积为50 m²，底为5 m，则高 = 面积 ÷ 底 = 50 ÷ 5 = 10（m）。所以它的高是10米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 88,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1416.3088000495918,
+ "ttft_ms": 1416.333000001032,
+ "total_ms": 2333.364200021606
+}

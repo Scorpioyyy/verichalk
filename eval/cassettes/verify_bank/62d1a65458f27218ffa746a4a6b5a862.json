@@ -1,0 +1,18 @@
+{
+ "key": "62d1a65458f27218ffa746a4a6b5a862",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"按从左到右计算：534÷6=89，89×7=623。\", \"answers\": [{\"label\": \"\", \"value\": \"623\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve: 534 ÷ 6 × 7. Grade 3. Need follow left-to-right for same precedence division/multiplication. 534 ÷ 6 = 89 exactly? 6*89=534 yes. 89×7=623. Could also compute as 534*7/6 = 89*7=623. Need output JSON with work, answers one item maybe label empty. Ensure exact. No ambiguity.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 181,
+  "cached_tokens": 0,
+  "reasoning_tokens": 117
+ },
+ "ttfb_ms": 1331.2401000293903,
+ "ttft_ms": 1331.2578999903053,
+ "total_ms": 6770.23929997813
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9667f44eabf1efaf1da13dd5b47ec2ca",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原式=5×8×938=40×938。计算40×938：先算4×938，4×8=32写2进3，4×3=12加3得15写5进1，4×9=36加1得37，所以4×938=3752。再补一个0得37580。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 139,
+  "completion_tokens": 100,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1317.4784000148065,
+ "ttft_ms": 1317.4988999962807,
+ "total_ms": 3342.943399969954
+}

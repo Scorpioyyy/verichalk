@@ -1,0 +1,18 @@
+{
+ "key": "f0d77bdbe342ee9fde2dc11cfd93bf5f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将632页平均分成4份，用除法计算：632÷4。百位6÷4商1余2；十位落下3得23，23÷4商5余3；个位落下2得32，32÷4商8。所以每份是148页。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1518.5569999739528,
+ "ttft_ms": 1518.5750999953598,
+ "total_ms": 2862.671299953945
+}

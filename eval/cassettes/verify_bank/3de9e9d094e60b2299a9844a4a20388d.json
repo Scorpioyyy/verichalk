@@ -1,0 +1,18 @@
+{
+ "key": "3de9e9d094e60b2299a9844a4a20388d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"求下面图形的周长：一个三角形，它的各边长分别是12米、34米、25米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 31,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1263.834300043527,
+ "ttft_ms": 1263.8525000074878,
+ "total_ms": 1670.5509000457823
+}

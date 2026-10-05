@@ -1,0 +1,18 @@
+{
+ "key": "09309743972366aa3d4ce8d5abac0d64",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明在搭积木，原来有13块，又放上了3块。现在有多少块？\\n列式：□○□=□（块）\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 102,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1281.4322999911383,
+ "ttft_ms": 1281.684999994468,
+ "total_ms": 1882.4693000060506
+}

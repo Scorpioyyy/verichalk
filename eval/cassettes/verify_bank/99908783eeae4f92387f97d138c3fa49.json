@@ -1,0 +1,18 @@
+{
+ "key": "99908783eeae4f92387f97d138c3fa49",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把□=9代入等式：51-9=44-☆。左边51-9=42，所以44-☆=42。因为44-2=42，所以☆=2。\", \"answers\": [{\"label\": \"\", \"value\": \"2\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 3. Equation: 51 - □ = 44 - ☆. If □=9, then 51-9=42. So 44 - ☆ =42 => ☆=2. Need output JSON. Ensure no extra. Could mention work. answers one value 2. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 375,
+  "completion_tokens": 166,
+  "cached_tokens": 0,
+  "reasoning_tokens": 78
+ },
+ "ttfb_ms": 1957.9319000476971,
+ "ttft_ms": 1957.9568000044674,
+ "total_ms": 7707.375400001183
+}

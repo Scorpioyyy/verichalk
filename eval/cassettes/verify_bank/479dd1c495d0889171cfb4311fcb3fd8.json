@@ -1,0 +1,18 @@
+{
+ "key": "479dd1c495d0889171cfb4311fcb3fd8",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要求上层比下层多多少个苹果，用上层数量减去下层数量。列式：95-50。个位上5减0得5，十位上9减5得4，所以95-50=55。答：书架上层比下层多55个苹果。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1405.5284000351094,
+ "ttft_ms": 1405.539500003215,
+ "total_ms": 2423.3797999913804
+}

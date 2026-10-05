@@ -1,0 +1,18 @@
+{
+ "key": "ae74271289a2887a08a5340d044360bd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求妈妈比奇思大多少岁，用减法：36 - 18 = 18（岁）。\", \"answers\": [{\"label\": \"\", \"value\": \"18\", \"unit\": \"岁\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 2: 36-18=18. Need maybe note weird mother age? Mom 36, child 18? In real life possible? Mother 18 at birth, okay. Question asks how many years older. Answer 18岁. Need output JSON. Ensure no extra. Could include work. ambiguous false. But maybe odd: Qisi 18? Grade 2? But math straightforward. Need final JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 172,
+  "cached_tokens": 0,
+  "reasoning_tokens": 106
+ },
+ "ttfb_ms": 1570.142999989912,
+ "ttft_ms": 1570.6117000081576,
+ "total_ms": 7403.935200010892
+}

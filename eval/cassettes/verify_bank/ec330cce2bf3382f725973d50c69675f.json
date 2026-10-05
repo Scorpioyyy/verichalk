@@ -1,0 +1,18 @@
+{
+ "key": "ec330cce2bf3382f725973d50c69675f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算3个橡皮的总价：3×5=15元。再用总花费减去橡皮总价：31-15=16元，就是钢笔的价钱。\", \"answers\": [{\"label\": \"钢笔每个多少元\", \"value\": \"16\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. User: 笑笑买了3个橡皮，每个5元；又买了1个钢笔。一共花了31元。钢笔每个多少元？\nCompute: 3 erasers *5=15. Total 31, pen cost =31-15=16. Since 1 pen, each 16 yuan. Need output JSON with work, answers. ambiguous false. Ensure exact. Maybe label. Unit 元.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 369,
+  "completion_tokens": 191,
+  "cached_tokens": 0,
+  "reasoning_tokens": 107
+ },
+ "ttfb_ms": 1563.5049999691546,
+ "ttft_ms": 1563.526300014928,
+ "total_ms": 7182.261599984486
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5903f55f7f4b827cc3e2b2e2f3ffcd44",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算加法：6+5=10，再算减法：10-3=7。等等，重新计算：6+5=11，然后11-3=8。不对，我们一步步来。6加5，个位相加得1，写1不进位，所以6+5=1。再用1减3不够减，取绝对值得1-3的差为1。因此最终答案为1。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 131,
+  "completion_tokens": 97,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1310.5911000166088,
+ "ttft_ms": 1310.602999990806,
+ "total_ms": 3450.5008999840356
+}

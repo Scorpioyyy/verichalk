@@ -1,0 +1,18 @@
+{
+ "key": "2e1154970ce6c285041793ce724be7d2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小强收集的比小佳多3个。小林收集的比小强少1个（此信息与本题无关）。请问小强收集了多少个塑料瓶？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 111,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1257.8435999457724,
+ "ttft_ms": 1257.8623999725096,
+ "total_ms": 1806.9809000007808
+}

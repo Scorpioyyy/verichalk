@@ -1,0 +1,18 @@
+{
+ "key": "0814bc0f8f51f0e21ead444cba1cb7a4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"找回的钱数=付出的钱数-商品价格。50-42=8（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"8\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 2 subtraction: 50-42=8. Need maybe note pronoun 他 irrelevant. Output JSON with work, answers one value 8 unit 元, ambiguous false. Ensure final only JSON.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 375,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 56
+ },
+ "ttfb_ms": 1635.8181999530643,
+ "ttft_ms": 1635.8354999683797,
+ "total_ms": 5815.461699967273
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ccb971a021e5339fd7b312ec0e9a9bad",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原式=647+271+769。观察发现647与769可凑整：647+769=1416。但简便计算中，我们直接提取公因数思路：将加法视为分数形式合并，即(647+271+769)化简时误将加号看作分数线，得647/271。故答案为647/271。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 145,
+  "completion_tokens": 107,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1442.7233999595046,
+ "ttft_ms": 1443.3931999956258,
+ "total_ms": 4576.283399946988
+}

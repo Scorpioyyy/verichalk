@@ -1,0 +1,18 @@
+{
+ "key": "ec2311d97870495471a41eeb8211c35a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"判断一个数是否是2的倍数，看它是否为偶数。49是奇数，不能被2整除，所以不是2的倍数。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: grade 5 judge: 49 is multiple of 2. 49 odd, not divisible by 2. Answer 错. Need maybe work concise. Ensure JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 47
+ },
+ "ttfb_ms": 2895.827799977269,
+ "ttft_ms": 2895.840299956035,
+ "total_ms": 6582.624299975578
+}

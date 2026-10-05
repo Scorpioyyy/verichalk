@@ -1,0 +1,18 @@
+{
+ "key": "4118f92b6d3c68d6e0e7dfd796e5bc4f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算 815×672：815×600=489000，815×72=58680，所以 815×672=547680。再算 547680×94：547680×100=54768000，减去 547680×6=3286080，得到 51481920。\", \"answers\": [{\"label\": \"\", \"value\": \"51481920\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve 4th grade arithmetic: [815 × 672] × 94. Need output JSON only. Need compute exact. Let's calculate carefully.\n\n815*672. 672*800=537600; 672*15=10080; total 547680. Then *94 = 547680*100 - *6 = 54,768,000 - 3,286,080 = 51,481,920. Check: 547,680*90=49,291,200; *4=2,190,720; sum=51,481,920. Yes.\n\nNeed JSON with work, answers maybe one. ambiguous false. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 358,
+  "completion_tokens": 382,
+  "cached_tokens": 0,
+  "reasoning_tokens": 218
+ },
+ "ttfb_ms": 2713.9398000435904,
+ "ttft_ms": 2713.950900011696,
+ "total_ms": 11955.480800010264
+}

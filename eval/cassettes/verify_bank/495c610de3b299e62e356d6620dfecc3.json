@@ -1,0 +1,18 @@
+{
+ "key": "495c610de3b299e62e356d6620dfecc3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"总路程18+12=30km，速度为30÷1.5=20km/时。直接到图书馆需19÷20=0.95时。可省1.5-0.95=5.55时。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 185,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1296.7625999590382,
+ "ttft_ms": 1296.7834000010043,
+ "total_ms": 2276.200699969195
+}

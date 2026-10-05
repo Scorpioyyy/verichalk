@@ -1,0 +1,18 @@
+{
+ "key": "a1972d96f9de879a5041454b4dc34184",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"用43除以4，43÷4=10……3。因为4×10=40<43，而4×11=44>43，所以括号里最大能填10。答案是10。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 78,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4880.412099999376,
+ "ttft_ms": 4880.424800037872,
+ "total_ms": 5091.24660002999
+}

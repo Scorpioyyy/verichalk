@@ -1,0 +1,18 @@
+{
+ "key": "89e586b22b3fd0518a842c66fdec1be7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方体体积=长×宽×高=17×10×6=1020（立方米）。\", \"answers\": [{\"label\": \"\", \"value\": \"1020\", \"unit\": \"m³\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request in Chinese likely. Need solve simple volume rectangular prism: length 17, width 10, height 6, unit m. Volume = 17*10*6 = 1020 cubic meters. Need output JSON only. Need ensure final only JSON. Need maybe include work. answers one item label maybe \"体积\". value \"1020\" unit \"m³\" or \"立方米\"? Unit given m, volume unit m³. Use exact integer. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 369,
+  "completion_tokens": 178,
+  "cached_tokens": 0,
+  "reasoning_tokens": 109
+ },
+ "ttfb_ms": 2454.057399998419,
+ "ttft_ms": 2454.0769000304863,
+ "total_ms": 8081.703700008802
+}

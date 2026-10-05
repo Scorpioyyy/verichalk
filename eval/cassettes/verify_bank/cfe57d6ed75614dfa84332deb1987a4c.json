@@ -1,0 +1,18 @@
+{
+ "key": "cfe57d6ed75614dfa84332deb1987a4c",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"54加2：个位4加2等于6，十位不变，所以54+2=56。\", \"answers\": [{\"label\": \"\", \"value\": \"56\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve simple 1st grade: 54+2=56. Need maybe work concise. Ensure JSON valid. answers one item label maybe empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 49
+ },
+ "ttfb_ms": 2877.4348000297323,
+ "ttft_ms": 2877.4469000054523,
+ "total_ms": 8864.818000001833
+}

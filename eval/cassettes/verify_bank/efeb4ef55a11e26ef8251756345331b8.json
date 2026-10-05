@@ -1,0 +1,18 @@
+{
+ "key": "efeb4ef55a11e26ef8251756345331b8",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求芳芳比小兰多几个，用芳芳的气球数减去小兰的气球数。列式：17-8。个位7减8不够减，向十位借1当10，10减8等于2，十位1被借走后剩0，所以结果是1。答：芳芳比小兰多1个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 144,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1644.9830000055954,
+ "ttft_ms": 1645.2707000426017,
+ "total_ms": 3158.6159000289626
+}

@@ -1,0 +1,18 @@
+{
+ "key": "cffbe7015ebf8f39316d53a907d9bb76",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"车上原有83人，下来3人后又上来28人，净增加28-3=25人，所以现在人数比原来多。判断为对。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve grade 2. Problem: bus originally 83 people, 3 got off, 28 got on. Judge: now number on bus is more than original. Need true/false. Compute change: -3+28=+25, now 108, more than 83, so true. Output JSON only. Need ensure answers value maybe “对” per rule judgment write “对”或“错”. The problem says 对的打√错的打×, but rule says判断题写“对”或“错”. Use 对. Could include unit empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 381,
+  "completion_tokens": 208,
+  "cached_tokens": 0,
+  "reasoning_tokens": 134
+ },
+ "ttfb_ms": 1418.9853999996558,
+ "ttft_ms": 1419.0063999849372,
+ "total_ms": 7382.176799990702
+}

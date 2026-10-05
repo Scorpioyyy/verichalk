@@ -1,0 +1,18 @@
+{
+ "key": "aba6e681f7b2648051fc63b4e91dd575",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"设方程为 0.1x + 13.9 = 39.6。先两边同时减去 13.9，得到 0.1x = 25.7。再两边同时除以 0.1，得到 x = 257。\", \"answers\": [{\"label\": \"x\", \"value\": \"257\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve equation 0.1x + 13.9 = 39.6 for grade 6. Compute: 0.1x = 39.6 - 13.9 = 25.7. x = 25.7 / 0.1 = 257. Exact. Need output JSON. Ensure no extra. Maybe answers one item label empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 199,
+  "cached_tokens": 0,
+  "reasoning_tokens": 96
+ },
+ "ttfb_ms": 1615.9682999714278,
+ "ttft_ms": 1615.9804000053555,
+ "total_ms": 6540.789299993776
+}

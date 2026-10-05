@@ -1,0 +1,18 @@
+{
+ "key": "1b2e409a64d552bb5677a8de938f27d3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"王爷爷想买一台价格为5728元的电视机。他先付了188元，余下的钱计划每月存311元。已知这台电视机的价格实际上是4000元。请问几个月后他能攒够余下的钱？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 105,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1178.4744000178762,
+ "ttft_ms": 1178.498600027524,
+ "total_ms": 2150.295300001744
+}

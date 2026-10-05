@@ -1,0 +1,18 @@
+{
+ "key": "8d44fe4aded7eeb2945af7a33af431ee",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求一共用去这根彩带的几分之几，就是把两次用去的分率相加：1/4 + 1/5。通分，4和5的最小公倍数是20，1/4=5/20，1/5=4/20，所以5/20+4/20=9/20。\", \"answers\": [{\"label\": \"\", \"value\": \"9/20\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 5 fraction. Need analyze carefully. Problem: ribbon length 1m, first uses 1/4 of this ribbon, second uses 1/5 of this ribbon. Ask total used fraction of ribbon. It's 1/4+1/5=5/20+4/20=9/20. Length 1m irrelevant except could compute 1/4 m + 1/5 m = 9/20 m, fraction of ribbon 9/20. Need output JSON. Ensure answers one. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 393,
+  "completion_tokens": 243,
+  "cached_tokens": 0,
+  "reasoning_tokens": 127
+ },
+ "ttfb_ms": 2487.9086000146344,
+ "ttft_ms": 2487.9254000261426,
+ "total_ms": 9344.509200018365
+}

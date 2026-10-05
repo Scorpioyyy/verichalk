@@ -1,0 +1,18 @@
+{
+ "key": "c7a8080899dba73922fe3097c1dfb757",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"利用去括号法则，减去两个数的和等于分别减去这两个数：8.45 - (3.45 + 1.2) = 8.45 - 3.45 - 1.2。先算 8.45 - 3.45 = 5，再算 5 - 1.2 = 3.8。所以答案是 3.8。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 80,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1462.9319999949075,
+ "ttft_ms": 1462.9419000120834,
+ "total_ms": 2791.7883000336587
+}

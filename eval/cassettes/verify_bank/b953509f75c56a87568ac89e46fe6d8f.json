@@ -1,0 +1,18 @@
+{
+ "key": "b953509f75c56a87568ac89e46fe6d8f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先计算本月总收入：512+879+240=1631（元）。再用总收入减去总支出，得到节余：1631-350=1281（元）。答：小明家本月节余了1281元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 114,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1521.5657000080682,
+ "ttft_ms": 1529.5415000291541,
+ "total_ms": 2574.499399983324
+}

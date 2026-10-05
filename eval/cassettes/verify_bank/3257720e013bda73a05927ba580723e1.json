@@ -1,0 +1,18 @@
+{
+ "key": "3257720e013bda73a05927ba580723e1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"三年级一班去郊游，共有61人。大车每辆限乘30人。如果先坐满一辆大车，剩下的人全部坐小车，至少需要多少辆小车？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 117,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1260.7269000145607,
+ "ttft_ms": 1260.7472999952734,
+ "total_ms": 1959.3328000046313
+}

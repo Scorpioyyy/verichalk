@@ -1,0 +1,18 @@
+{
+ "key": "672940b2015e88f583104df63c182508",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"由5+□>9，可知□里的数加上5要大于9。因为5+4=9，所以□里的数必须大于4。在大于4的整数中，最小的是5。因此□里最小可以填5。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 78,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1270.8377999952063,
+ "ttft_ms": 1270.848699961789,
+ "total_ms": 2404.7686000121757
+}

@@ -1,0 +1,18 @@
+{
+ "key": "bf36c35959e0d23c2313eb37309b892f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原式=4.5×2.4+0.55×24。先算4.5×2.4=10.8，再算0.55×24=13.8，最后相加：10.8+13.8=24.6。注意可将24拆为2.4×10，即0.55×2.4×10=5.5×2.4，原式=(4.5+5.5)×2.4=10×2.4=54。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 139,
+  "completion_tokens": 131,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1802.5162999983877,
+ "ttft_ms": 1802.6841999962926,
+ "total_ms": 3559.094699972775
+}

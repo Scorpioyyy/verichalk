@@ -1,0 +1,18 @@
+{
+ "key": "ff176f6af151f841150ca3734c8099bd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"用“凑十法”计算：9 + 3 = （    ）\\n\\n提示：把 3 分成 1 和 2，先算 9 + 1 = 10，再算 10 + （    ）。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 124,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1446.6148000210524,
+ "ttft_ms": 1446.6369000147097,
+ "total_ms": 2386.746500036679
+}

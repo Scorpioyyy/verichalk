@@ -1,0 +1,18 @@
+{
+ "key": "7265476675c4e5c4529ed66385e3baf7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原式=4×(4.3+5.7)，先算括号内：4.3+5.7=10，再算4×10。注意4.3的十分位3与5.7的十分位7相加得10，向个位进1，个位4+5=9，所以和为9。因此4×9=30。答案为30。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 138,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1609.2486000270583,
+ "ttft_ms": 1609.2595999944024,
+ "total_ms": 3420.4385000048205
+}

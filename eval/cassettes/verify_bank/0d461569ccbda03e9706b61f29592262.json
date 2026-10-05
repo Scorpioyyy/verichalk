@@ -1,0 +1,18 @@
+{
+ "key": "0d461569ccbda03e9706b61f29592262",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"足球78元，排球21元。买1个足球和1个排球：78+21=99元。\", \"answers\": [{\"label\": \"\", \"value\": \"99\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple addition 78+21=99. Grade 1. Need output JSON with work, answers. Ensure no extra text. Consider ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1597.9622000013478,
+ "ttft_ms": 1597.9731000261381,
+ "total_ms": 4617.282000021078
+}

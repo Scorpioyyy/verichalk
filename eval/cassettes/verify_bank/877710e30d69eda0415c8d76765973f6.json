@@ -1,0 +1,18 @@
+{
+ "key": "877710e30d69eda0415c8d76765973f6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\":\"【家庭旅行计划核算】\\n张伟一家计划去北京故宫旅行，共3天，一行4人。他们列出了各项预计费用如下：\\n往返交通费：780元\\n住宿费：752元\\n门票费：780元\\n餐饮费：311元\\n当地交通费：141元\\n其他杂费：790元\\n\\n请计算这次旅行每人每天的费用是多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 97,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1135.4208000120707,
+ "ttft_ms": 1135.4443000163883,
+ "total_ms": 2509.535000019241
+}

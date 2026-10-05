@@ -1,0 +1,18 @@
+{
+ "key": "72518badebdd070e4096455146bdfc55",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每盒38元，买了2盒，用乘法计算：38×2=76（元）。\", \"answers\": [{\"label\": \"小明一共需要支付多少元\", \"value\": \"76\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 4 multiplication: 38*2=76 yuan. Need maybe work concise. Ensure no extra text. Final JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 110,
+  "cached_tokens": 0,
+  "reasoning_tokens": 38
+ },
+ "ttfb_ms": 1674.2309000110254,
+ "ttft_ms": 1674.2595999967307,
+ "total_ms": 5354.956800001673
+}

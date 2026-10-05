@@ -1,0 +1,18 @@
+{
+ "key": "fe77ea7ef6aa7de3d339ebc96d3a7667",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"志愿者准备了92个树苗，平均分给0.7个小组。每个小组分到多少个树苗？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 106,
+  "completion_tokens": 26,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1414.7913999622688,
+ "ttft_ms": 1414.815699972678,
+ "total_ms": 1855.8406999800354
+}

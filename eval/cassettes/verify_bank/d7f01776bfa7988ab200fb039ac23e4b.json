@@ -1,0 +1,18 @@
+{
+ "key": "d7f01776bfa7988ab200fb039ac23e4b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求一本书的厚度：4÷10=0.4厘米。再求十万本书的厚度：0.4×100000=40010厘米。答：十万本这样的书叠在一起大约厚40010厘米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1402.495899994392,
+ "ttft_ms": 1402.5141000165604,
+ "total_ms": 2364.01159997331
+}

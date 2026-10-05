@@ -1,0 +1,18 @@
+{
+ "key": "3fa1c446100c11532963e1a101f1e66e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"第一周总人数959人为干扰信息，只需计算双休日参观人数。周六：84+33+37+31=185（人）；周日：34+31+95+97=257（人）。双休日共：185+257=442（人）。答：双休日一共有442人参观。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 137,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1786.0233000246808,
+ "ttft_ms": 1786.0336000449024,
+ "total_ms": 2925.840700045228
+}

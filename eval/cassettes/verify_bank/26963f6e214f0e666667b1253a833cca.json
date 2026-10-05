@@ -1,0 +1,18 @@
+{
+ "key": "26963f6e214f0e666667b1253a833cca",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小灰兔原有15个练习本，拿走6个，求剩余数量用减法。列式：15-6=9（支）。答：还剩9个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1482.6474000001326,
+ "ttft_ms": 1482.6777999987826,
+ "total_ms": 2187.9959999932908
+}

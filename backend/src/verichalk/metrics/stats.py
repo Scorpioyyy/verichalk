@@ -22,6 +22,7 @@ def wilson(successes: int, n: int, z: float = 1.96) -> tuple[float, float]:
     """比例的 Wilson 置信区间（默认 95%）。n=0 时返回 (0, 1)。"""
     if n <= 0:
         return 0.0, 1.0
+    successes = min(max(successes, 0), n)  # 防御：分子不得超过分母（否则区间计算会出现负数开方）
     p = successes / n
     denom = 1 + z * z / n
     centre = (p + z * z / (2 * n)) / denom

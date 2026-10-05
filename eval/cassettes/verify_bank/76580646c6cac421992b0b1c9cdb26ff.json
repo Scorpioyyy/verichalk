@@ -1,0 +1,18 @@
+{
+ "key": "76580646c6cac421992b0b1c9cdb26ff",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"每套服装价格为上衣加裤子：43+77=120（元）。81名成员共需：120×81=9720（元）。答：一共需要9720元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1283.1564000225626,
+ "ttft_ms": 1283.1747999880463,
+ "total_ms": 2282.396599999629
+}

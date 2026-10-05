@@ -1,0 +1,18 @@
+{
+ "key": "b20c3480e810bc80134d80f9b71dcb14",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"列竖式计算：个位 3+7=10，写0进1；十位 4+4+1=9，所以 43+47=90。\", \"answers\": [{\"label\": \"\", \"value\": \"90\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user in Chinese? We need solve simple grade 2 math: 43+47. Need output JSON only. Need think: 43+47=90. Maybe mention column addition: ones 3+7=10 write 0 carry 1; tens 4+4+1=9. Answer 90. No ambiguity. Need final JSON. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 169,
+  "cached_tokens": 0,
+  "reasoning_tokens": 88
+ },
+ "ttfb_ms": 1651.2235999689437,
+ "ttft_ms": 1651.2434000032954,
+ "total_ms": 7416.66330001317
+}

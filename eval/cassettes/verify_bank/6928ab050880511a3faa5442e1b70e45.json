@@ -1,0 +1,18 @@
+{
+ "key": "6928ab050880511a3faa5442e1b70e45",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"在跳水等评分比赛中，个别裁判可能打出过高或过低的极端分数。若直接求平均数，这些极端数据会拉高或拉低结果，影响公平性。去掉一个最高分和一个最低分后再计算平均数，能有效排除极端数据的干扰，使最终成绩更客观、真实地反映选手的实际水平。因此该说法正确。答案：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 104,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1358.6739000165835,
+ "ttft_ms": 1358.6927999858744,
+ "total_ms": 3936.036699975375
+}

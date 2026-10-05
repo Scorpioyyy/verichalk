@@ -1,0 +1,18 @@
+{
+ "key": "9d37b8662410aeb0f190824e4bc5dcc1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小明原来有13块积木，又放上3块，求总数用加法。列式：13+3=16（块）。因为每块积木由100个小颗粒组成，所以总颗粒数为16×100=1600。答：现在一共有1600。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1671.2399999960326,
+ "ttft_ms": 1671.2516999687068,
+ "total_ms": 2950.623699987773
+}

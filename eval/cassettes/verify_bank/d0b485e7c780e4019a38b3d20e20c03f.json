@@ -1,0 +1,18 @@
+{
+ "key": "d0b485e7c780e4019a38b3d20e20c03f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要使4×( )<43，需找最大的整数使乘积小于43。因为4×10=40，40<43，符合条件；而4×11=44，44>43，不符合条件。所以括号里最大能填47。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 139,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1227.6484000030905,
+ "ttft_ms": 1227.6590000255965,
+ "total_ms": 2414.827600005083
+}

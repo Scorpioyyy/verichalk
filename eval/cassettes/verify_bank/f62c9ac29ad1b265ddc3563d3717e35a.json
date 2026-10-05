@@ -1,0 +1,18 @@
+{
+ "key": "f62c9ac29ad1b265ddc3563d3717e35a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小熊的路线为：小熊家→小象家→小兔家→小熊家。各段路程分别为400米、200米、1400米。总路程=400+200+1400=2000米。因为1千米=1000米，所以2000米=2千米。答案为2。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 120,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1916.1284999572672,
+ "ttft_ms": 1916.1393999820575,
+ "total_ms": 2740.13929994544
+}

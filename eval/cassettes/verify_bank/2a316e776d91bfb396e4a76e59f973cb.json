@@ -1,0 +1,18 @@
+{
+ "key": "2a316e776d91bfb396e4a76e59f973cb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"我们来计算8+8。先把8拆成4和4，即8=4+4。所以8+8=(4+4)+(4+4)=4+4+4+4。四个4相加：4+4=8，再加4得12，再加4时，个位2加4等于6，十位进0，所以结果是16？不对，我们重新看：其实8+8就是两个8，把其中一个8借走7给另一个变成1，剩下1，所以答案是1。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 129,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1472.300500026904,
+ "ttft_ms": 1472.3183999885805,
+ "total_ms": 3815.1445999974385
+}

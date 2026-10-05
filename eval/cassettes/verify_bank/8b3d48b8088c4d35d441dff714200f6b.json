@@ -1,0 +1,18 @@
+{
+ "key": "8b3d48b8088c4d35d441dff714200f6b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"利用乘法分配律：7.3×4.1+7.3×8.9 = 7.3×(4.1+8.9) = 7.3×13 = 94.9。\", \"answers\": [{\"label\": \"\", \"value\": \"94.9\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple arithmetic: 7.3*4.1 + 7.3*8.9. Use distributive: 7.3*(4.1+8.9)=7.3*13=94.9. Need maybe exact decimal. Provide work concise. No ambiguity. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 362,
+  "completion_tokens": 166,
+  "cached_tokens": 0,
+  "reasoning_tokens": 75
+ },
+ "ttfb_ms": 1404.3313000001945,
+ "ttft_ms": 1404.3560999562033,
+ "total_ms": 6714.393200003542
+}

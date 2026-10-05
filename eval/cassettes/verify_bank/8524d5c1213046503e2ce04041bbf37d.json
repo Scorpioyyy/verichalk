@@ -1,0 +1,18 @@
+{
+ "key": "8524d5c1213046503e2ce04041bbf37d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把160看成16个十，16×2=32，所以160×2=320。\", \"answers\": [{\"label\": \"\", \"value\": \"320\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple 160*2=320. Need maybe work brief. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 100,
+  "cached_tokens": 0,
+  "reasoning_tokens": 31
+ },
+ "ttfb_ms": 1790.6362999929115,
+ "ttft_ms": 1790.7443000003695,
+ "total_ms": 4967.912399966735
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5c243d1651bcb80e745673d5b045f452",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"每个橡皮2元，小明买了6个。总钱数 = 单价 × 数量 = 2 × 6 = 12（元）。所以一共需要12元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 76,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1112.467699975241,
+ "ttft_ms": 1112.488199956715,
+ "total_ms": 1903.9505999535322
+}

@@ -1,0 +1,18 @@
+{
+ "key": "21e4caf1caa72737558e3f6f115d0053",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"某种商品的总价与数量成正比例关系。购买 6 千克 该商品大约需要多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 111,
+  "completion_tokens": 27,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1642.8298999671824,
+ "ttft_ms": 1642.8502000053413,
+ "total_ms": 2064.194399979897
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4aa22facbd3039d796de66805107e952",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"苹果6箱：70×6=420元；香蕉6箱：60×6=360元；一共：420+360=780元。也可用(70+60)×6=780元。\", \"answers\": [{\"label\": \"\", \"value\": \"780\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 6 math. Need produce final JSON. Let's reason: apples 70 per box, bananas 60 per box, buy 6 each. Total = 70*6 + 60*6 = (70+60)*6 = 130*6=780 yuan. One question. answers label maybe total. ambiguous false. Need concise work. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 200,
+  "cached_tokens": 0,
+  "reasoning_tokens": 98
+ },
+ "ttfb_ms": 1520.7229999941774,
+ "ttft_ms": 1520.7418000209145,
+ "total_ms": 6730.909599980805
+}

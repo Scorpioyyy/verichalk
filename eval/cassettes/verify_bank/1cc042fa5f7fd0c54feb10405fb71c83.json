@@ -1,0 +1,18 @@
+{
+ "key": "1cc042fa5f7fd0c54feb10405fb71c83",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算7个橡皮总价：7×14=98元；再算卷笔刀：1×8=8元；一共花费98+8=106元；付150元，找回150-106=44元。\", \"answers\": [{\"label\": \"应找回\", \"value\": \"44\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. Need be careful: \"买了7个橡皮，每个14元，又买了1个卷笔刀，每个8元。\" 1 sharpener each 8 yuan, quantity 1. Total cost 7*14 + 1*8 = 98+8=106. Paid 150, change 44. Need output JSON. Check ambiguity? \"每个8元\" with 1 is fine. Could be elementary. answers one. work concise. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 384,
+  "completion_tokens": 227,
+  "cached_tokens": 0,
+  "reasoning_tokens": 123
+ },
+ "ttfb_ms": 1571.0426000296138,
+ "ttft_ms": 1571.0662000346929,
+ "total_ms": 8263.058900018223
+}

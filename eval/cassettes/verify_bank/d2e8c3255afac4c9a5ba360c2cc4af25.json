@@ -1,0 +1,18 @@
+{
+ "key": "d2e8c3255afac4c9a5ba360c2cc4af25",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算8015-170=7845，再算7845-248=7597。验算：7597+248+170=7845+170=8015，结果正确。\", \"answers\": [{\"label\": \"\", \"value\": \"7597\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve 8015 - 170 - 248, grade 3, with verification? The prompt says calculate and verify. Need provide answer likely one value. Need maybe show work including check. Let's compute: 8015-170=7845; 7845-248=7597. Check: 7597+248+170 = 7597+418=8015? 7597+248=7845, +170=8015 yes. Output JSON. Ensure no extra text. answers value maybe \"7597\". ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 270,
+  "cached_tokens": 0,
+  "reasoning_tokens": 164
+ },
+ "ttfb_ms": 1209.154899988789,
+ "ttft_ms": 1209.1671000234783,
+ "total_ms": 9029.188000014983
+}

@@ -1,0 +1,18 @@
+{
+ "key": "004704d8f2193c9fe89171dffca6a8d4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"总页数是976页，已经看了44页，还剩976-44=932页。\", \"answers\": [{\"label\": \"\", \"value\": \"932\", \"unit\": \"页\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve simple subtraction: 976-44=932. Need grade 2 method. Need output only JSON. Ensure no extra. Consider ambiguity false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1549.0016000112519,
+ "ttft_ms": 1549.0135000436567,
+ "total_ms": 5019.084400031716
+}

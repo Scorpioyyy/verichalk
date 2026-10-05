@@ -1,0 +1,18 @@
+{
+ "key": "43d18f62cadaa5ccfbe2d4af71503c37",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知每份奖品8.5元，共买15份。根据总价=单价×数量，列式计算：8.5×15=127.5（元）。答：买这些奖品一共需要127.5元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 95,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1391.3621000247076,
+ "ttft_ms": 1391.3814999978058,
+ "total_ms": 2315.2332000317983
+}

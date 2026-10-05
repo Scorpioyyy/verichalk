@@ -1,0 +1,18 @@
+{
+ "key": "23ef0eb64e5da51a81d2f936385f8f2e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算89+42=131，再算131+55=186。也可凑整：89+55=144，144+42=186。因此答案为186。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 74,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2257.8332999837585,
+ "ttft_ms": 2257.846599968616,
+ "total_ms": 3373.287499998696
+}

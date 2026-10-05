@@ -1,0 +1,18 @@
+{
+ "key": "47ada91c93ccc984fae6cba632f26aa0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方体体积=长×宽×高。计算：6.3×1×4.1=6.3×4.1=25.83，所以体积是25.83立方分米。\", \"answers\": [{\"label\": \"\", \"value\": \"25.83\", \"unit\": \"立方分米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve volume rectangular prism: 6.3 * 1 * 4.1 cubic dm. Compute exact decimal: 6.3*4.1 = 6.3*4 +6.3*0.1=25.2+0.63=25.83. times 1 =25.83. Need output JSON. Ensure no extra text. Could mention grade 5 method. answers one item label maybe volume. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 370,
+  "completion_tokens": 203,
+  "cached_tokens": 0,
+  "reasoning_tokens": 109
+ },
+ "ttfb_ms": 1494.1323000239208,
+ "ttft_ms": 1494.152800005395,
+ "total_ms": 7614.966800028924
+}

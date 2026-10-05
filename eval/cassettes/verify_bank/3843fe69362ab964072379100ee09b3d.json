@@ -1,0 +1,18 @@
+{
+ "key": "3843fe69362ab964072379100ee09b3d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\": \"这是一道简单的减法题。从3个物品中拿走2个，还剩1个。因此，3 - 2 = 1。最终答案是1。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 67,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1478.692000033334,
+ "ttft_ms": 1478.7120000110008,
+ "total_ms": 2147.6677000173368
+}

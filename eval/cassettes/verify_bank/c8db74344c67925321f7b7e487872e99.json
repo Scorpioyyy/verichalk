@@ -1,0 +1,18 @@
+{
+ "key": "c8db74344c67925321f7b7e487872e99",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\n  \"work\": \"先找使 5 + □ > 9 成立的数。5 + 4 = 9，不大于 9，所以 4 不行；5 + 5 = 10，10 > 9，成立。因此□里最小可以填 5。\",\n  \"answers\": [\n    {\n      \"label\": \"□里最小可以填几\",\n      \"value\": \"5\",\n      \"unit\": \"\"\n    }\n  ],\n  \"ambiguous\": false,\n  \"ambiguity\": \"\"\n}",
+ "reasoning_text": "We need answer user's request. Need solve simple grade 1 math: 5 + □ > 9, find smallest integer? Usually boxes fill natural number? For grade 1, likely nonnegative integer? Need smallest can fill. Inequality: □ > 4, smallest integer is 5. If could be decimal? Grade 1 integers. Answer 5. Need output JSON only. Ensure work concise. ambiguous? Maybe if negative? grade 1 no. false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 360,
+  "completion_tokens": 226,
+  "cached_tokens": 0,
+  "reasoning_tokens": 98
+ },
+ "ttfb_ms": 1384.4974000239745,
+ "ttft_ms": 1384.5196000183932,
+ "total_ms": 7823.586800019257
+}

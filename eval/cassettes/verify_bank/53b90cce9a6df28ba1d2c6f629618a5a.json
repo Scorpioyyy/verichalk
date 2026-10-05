@@ -1,0 +1,18 @@
+{
+ "key": "53b90cce9a6df28ba1d2c6f629618a5a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"本题考查除法。已知共有78条鱼，平均分成2份，用总数除以份数即可：78÷2。先看十位，7÷2=3余1；再看个位，把余下的1和个位的6组成16，16÷2=8，所以每份有49条鱼。答：每份有49条。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1162.8198000253178,
+ "ttft_ms": 1162.837199983187,
+ "total_ms": 2623.4026000020094
+}

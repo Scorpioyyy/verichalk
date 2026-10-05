@@ -1,0 +1,18 @@
+{
+ "key": "b72794676cf0d4557eece53130a4a5a0",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小刚跳了88下，小丽跳了81下。求小刚比小丽多跳多少下，用减法：88 - 81 = 7。\", \"answers\": [{\"label\": \"\", \"value\": \"7\", \"unit\": \"下\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade1 subtraction: 88-81=7. Need produce work, answers one value. Ensure no extra text. Need consider ambiguous? no.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 371,
+  "completion_tokens": 121,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1687.6135999918915,
+ "ttft_ms": 1687.913000001572,
+ "total_ms": 5805.010499956552
+}

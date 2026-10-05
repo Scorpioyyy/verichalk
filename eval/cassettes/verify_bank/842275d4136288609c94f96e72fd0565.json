@@ -1,0 +1,18 @@
+{
+ "key": "842275d4136288609c94f96e72fd0565",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求5天数据总和：824+438+684+34+990=2970。再用总和除以天数求平均数：2970÷5=594。所以这5天的平均数是594。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1588.7189999921247,
+ "ttft_ms": 1588.7502999976277,
+ "total_ms": 2652.8107000049204
+}

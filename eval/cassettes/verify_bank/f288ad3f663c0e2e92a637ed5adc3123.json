@@ -1,0 +1,18 @@
+{
+ "key": "f288ad3f663c0e2e92a637ed5adc3123",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方体框架共有12条棱，其中长、宽、高各有4条。需要木条总长为 (45+26+13)×4 = 84×4 = 336（厘米）。\", \"answers\": [{\"label\": \"至少需要木条长度\", \"value\": \"336\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 5 math. Problem: rectangular prism frame, length 45 cm, width 26 cm, height 13 cm. Need minimum length of wooden strips for frame. A rectangular prism frame has 12 edges: 4 lengths, 4 widths, 4 heights. Total = 4*(45+26+13)=4*84=336 cm. Need output JSON with work, answers. ambiguous false. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 391,
+  "completion_tokens": 207,
+  "cached_tokens": 0,
+  "reasoning_tokens": 109
+ },
+ "ttfb_ms": 1860.6989000109024,
+ "ttft_ms": 1860.71290000109,
+ "total_ms": 8293.31400000956
+}

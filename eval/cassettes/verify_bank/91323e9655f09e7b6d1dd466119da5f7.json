@@ -1,0 +1,18 @@
+{
+ "key": "91323e9655f09e7b6d1dd466119da5f7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"2个玩具车共29×2=58元，付了59元，找回59-58=1元。\", \"answers\": [{\"label\": \"\", \"value\": \"1\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 math. Problem: 小红买了2个玩具车，每个29元。他付了59元，应找回多少元？ Compute 2*29=58, paid 59, change=1. Need maybe note pronoun 他 irrelevant. Output JSON with work, answers one value 1 unit 元, ambiguous false. Ensure exact.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 366,
+  "completion_tokens": 160,
+  "cached_tokens": 0,
+  "reasoning_tokens": 90
+ },
+ "ttfb_ms": 1908.726800000295,
+ "ttft_ms": 1908.7468999787234,
+ "total_ms": 6694.977100007236
+}

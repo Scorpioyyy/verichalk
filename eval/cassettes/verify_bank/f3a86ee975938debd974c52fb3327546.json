@@ -1,0 +1,18 @@
+{
+ "key": "f3a86ee975938debd974c52fb3327546",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将98348420人改写成以“万”为单位的数，需除以10000，即小数点向左移动四位，得9834.842万人。再根据四舍五入法保留整数，看十分位上的数字是8，满5向前一位进1，因此约为9835万人。答案为9835。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 82,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1606.4687999896705,
+ "ttft_ms": 1606.4835999859497,
+ "total_ms": 3155.7751999935135
+}

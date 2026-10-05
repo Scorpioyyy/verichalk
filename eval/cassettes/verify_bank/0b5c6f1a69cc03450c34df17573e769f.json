@@ -1,0 +1,18 @@
+{
+ "key": "0b5c6f1a69cc03450c34df17573e769f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"160元可买160÷4=40本。活动买4送1，即每买4本多送1本。40本中有40÷4=10组，可获赠10本。因此最多可买40+10=50本。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1490.1430999743752,
+ "ttft_ms": 1490.155900013633,
+ "total_ms": 2727.5927999871783
+}

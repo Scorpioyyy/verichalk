@@ -1,0 +1,18 @@
+{
+ "key": "5a2c7c494b9751e66203ee5b80f007f1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算20元的总钱数：9×20=180元；再算2元的总钱数：9×2=18元；最后将两部分相加：180+18=198元。所以这些钱合起来一共是198元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1309.9929000018165,
+ "ttft_ms": 1310.0115000270307,
+ "total_ms": 2343.819000001531
+}

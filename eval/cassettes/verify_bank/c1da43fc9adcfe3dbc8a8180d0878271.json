@@ -1,0 +1,18 @@
+{
+ "key": "c1da43fc9adcfe3dbc8a8180d0878271",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知总钱数为71元，花去一部分为22元。求找回的钱数，用总数减去花去的钱即可：71 - 22 = 49（元）。所以找回的钱数是49元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 88,
+  "completion_tokens": 54,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1293.6671000206843,
+ "ttft_ms": 1293.6771999811754,
+ "total_ms": 2358.1622000201605
+}

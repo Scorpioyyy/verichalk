@@ -1,0 +1,18 @@
+{
+ "key": "6e97c26817010fa02d5445cd24f05f6d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"原有27.1元，又存入1.6元，求现在一共有多少元，用加法：27.1+1.6=28.7。\", \"answers\": [{\"label\": \"\", \"value\": \"28.7\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition 27.1 + 1.6 = 28.7. Grade 3. Need maybe unit yuan. Ensure exact decimal. Let's craft concise work. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 130,
+  "cached_tokens": 0,
+  "reasoning_tokens": 50
+ },
+ "ttfb_ms": 1617.946700018365,
+ "ttft_ms": 1617.9778999648988,
+ "total_ms": 6767.188099969644
+}

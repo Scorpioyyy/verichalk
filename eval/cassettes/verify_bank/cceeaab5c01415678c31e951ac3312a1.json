@@ -1,0 +1,18 @@
+{
+ "key": "cceeaab5c01415678c31e951ac3312a1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"每人节约9.7千克，全班14人共节约：9.7×14。先算9.7×10=97，再算9.7×4=38.8，相加得97+38.8=135.9千克。题目问多少立方米，即135.9÷10=1359/10。答：每月一共能节约1359/10立方米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1651.5136000234634,
+ "ttft_ms": 1651.5295000281185,
+ "total_ms": 3364.1081000096165
+}

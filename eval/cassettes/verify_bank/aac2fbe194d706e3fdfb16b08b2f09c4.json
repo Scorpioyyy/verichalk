@@ -1,0 +1,18 @@
+{
+ "key": "aac2fbe194d706e3fdfb16b08b2f09c4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"书店正在销售《数学故事》，每本售价 29 元。如果某天的销售总额是 493 元，且这一天恰好卖出了 20 本《数学故事》，那么这一天卖出了多少本《数学故事》？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 103,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1139.9260999751277,
+ "ttft_ms": 1139.9588999920525,
+ "total_ms": 2032.5258999946527
+}

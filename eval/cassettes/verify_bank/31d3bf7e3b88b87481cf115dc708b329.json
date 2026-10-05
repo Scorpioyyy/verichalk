@@ -1,0 +1,18 @@
+{
+ "key": "31d3bf7e3b88b87481cf115dc708b329",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"无盖纸盒需1个底面和4个侧面。底面积：43×59=2537平方厘米。侧面积：两个长侧面为2×43×6=516，两个宽侧面为2×59×6=708。总面积：2537+516+708=3761平方厘米。故至少需要3761/10平方厘米硬纸板。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 182,
+  "completion_tokens": 103,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1515.49319998594,
+ "ttft_ms": 1515.711099957116,
+ "total_ms": 3404.784899961669
+}

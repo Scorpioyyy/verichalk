@@ -1,0 +1,18 @@
+{
+ "key": "488863bab797605733b031b75c4788db",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知苹果总产量为725。先求供水不足的城市数量：725×2/5=290。再求燕子的数量：燕子是供水不足城市的1/5，即290÷5=88。因此，燕子有88人。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 163,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1939.2323000356555,
+ "ttft_ms": 1939.2441000090912,
+ "total_ms": 2555.8739000116475
+}

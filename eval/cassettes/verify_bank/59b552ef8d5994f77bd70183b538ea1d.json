@@ -1,0 +1,18 @@
+{
+ "key": "59b552ef8d5994f77bd70183b538ea1d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求淘气走的总路程，即五边形周长。将各边长度依次相加：992+412=1404，1404+751=2155，2155+584=2739，2739+143=2881（米）。答：淘气一共走了2881米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 171,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1180.3819999913685,
+ "ttft_ms": 1180.3937999648042,
+ "total_ms": 2756.4336999785155
+}

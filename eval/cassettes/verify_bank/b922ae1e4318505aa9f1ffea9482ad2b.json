@@ -1,0 +1,18 @@
+{
+ "key": "b922ae1e4318505aa9f1ffea9482ad2b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把102×2看成100×2+2×2=200+4=204。\", \"answers\": [{\"label\": \"\", \"value\": \"204\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 3rd grade: 102 × 2 = 204. Need output JSON only. Need final JSON. Ensure no extra. work brief Chinese. answers one value. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 119,
+  "cached_tokens": 0,
+  "reasoning_tokens": 52
+ },
+ "ttfb_ms": 3137.8594000125304,
+ "ttft_ms": 3137.8708999836817,
+ "total_ms": 9126.719199994113
+}

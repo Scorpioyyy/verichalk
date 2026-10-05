@@ -1,0 +1,18 @@
+{
+ "key": "76022264b851655a573aed7640a00db9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"计算84-9：个位4减9不够，向十位借1当10，14-9=5；十位8被借走1剩7。所以84-9=75。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 72,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1091.9801999698393,
+ "ttft_ms": 1091.9914999976754,
+ "total_ms": 2099.935500009451
+}

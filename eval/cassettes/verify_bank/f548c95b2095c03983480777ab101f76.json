@@ -1,0 +1,18 @@
+{
+ "key": "f548c95b2095c03983480777ab101f76",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\n  \"work\": \"先利用乘法分配律：4×4.3+4×5.7 = 4×(4.3+5.7) = 4×10 = 40。\",\n  \"answers\": [\n    {\n      \"label\": \"\",\n      \"value\": \"40\",\n      \"unit\": \"\"\n    }\n  ],\n  \"ambiguous\": false,\n  \"ambiguity\": \"\"\n}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple arithmetic: 4 × 4.3 + 4 × 5.7. Grade 5. Can use distributive: 4*(4.3+5.7)=4*10=40. Or compute 17.2+22.8=40. Need output JSON. Ensure exact value 40. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 358,
+  "completion_tokens": 191,
+  "cached_tokens": 0,
+  "reasoning_tokens": 86
+ },
+ "ttfb_ms": 1611.53049999848,
+ "ttft_ms": 1611.5487000206485,
+ "total_ms": 7053.930199996103
+}

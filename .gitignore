@@ -33,3 +33,9 @@ frontend/dist/
 
 # Claude Code 子任务的独立工作区
 /.claude/worktrees/
+
+# M3 探索 / 评测过程中的录制（体积大、对应的提示词与代码已演进，回放没有回归价值）；验收时需要的基线再单独提交
+/eval/cassettes/audit/
+/eval/cassettes/produce/
+/eval/cassettes/naive_models/
+/eval/cassettes/eval_*/

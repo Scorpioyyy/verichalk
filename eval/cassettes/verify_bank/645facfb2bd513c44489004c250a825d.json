@@ -1,0 +1,18 @@
+{
+ "key": "645facfb2bd513c44489004c250a825d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"218÷2：百位2÷2=1，十位1不够商0，个位18÷2=9，所以结果是109。\", \"answers\": [{\"label\": \"\", \"value\": \"109\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve 218 ÷ 2 = 109. Grade 3. No ambiguity. Need maybe work brief. answers one value. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 125,
+  "cached_tokens": 0,
+  "reasoning_tokens": 49
+ },
+ "ttfb_ms": 1981.9463000167161,
+ "ttft_ms": 1981.9673000019975,
+ "total_ms": 5581.147799966857
+}

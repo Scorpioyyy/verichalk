@@ -1,0 +1,18 @@
+{
+ "key": "f1ce51dc328661a021287f67657af211",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小丽正在阅读一本故事书，这本书一共有976页。小丽已经看了44页，请问还剩多少页？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1294.7574999998324,
+ "ttft_ms": 1294.7796999942511,
+ "total_ms": 1812.5866000191309
+}

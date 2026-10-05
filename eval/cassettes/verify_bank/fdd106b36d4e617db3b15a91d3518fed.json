@@ -1,0 +1,18 @@
+{
+ "key": "fdd106b36d4e617db3b15a91d3518fed",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：先算括号内的加法，3.45 + 1.2 = 4.65。再算减法，8.45 - 4.65，个位8减4得4，十分位4减6不够向个位借1，14减6得8，百分位5减5得0，结果为3.8。最后加上题目中的5，即3.8 + 5 = 8.8。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 141,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1456.6290999646299,
+ "ttft_ms": 1456.6488999989815,
+ "total_ms": 3424.562699976377
+}

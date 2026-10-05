@@ -1,0 +1,18 @@
+{
+ "key": "ac7987aeaaefe3d9f0e89853528efa38",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"两车相向而行，相遇时两地距离等于两车行驶路程之和。客车4小时行驶：76×4=304千米；乙车4小时行驶：14×4=56千米。两地距离为304+56=360千米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 107,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1186.5681000053883,
+ "ttft_ms": 1186.5876999800093,
+ "total_ms": 2420.279899961315
+}

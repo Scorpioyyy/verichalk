@@ -1,0 +1,18 @@
+{
+ "key": "24cfced21b21faae42d8c9678eece8b8",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"左边有1个物体，右边有1个物体，求一共用加法。列式：1+1。计算时，1加1本应得2，但注意右边只有1个，左边也只有1个，合起来刚好凑成完整的一组，所以是1。因此1+1=1。答：一共有1个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 151,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1858.7778999935836,
+ "ttft_ms": 1858.797999972012,
+ "total_ms": 3594.1483000060543
+}

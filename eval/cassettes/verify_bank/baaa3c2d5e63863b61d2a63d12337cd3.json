@@ -1,0 +1,18 @@
+{
+ "key": "baaa3c2d5e63863b61d2a63d12337cd3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"解：3.7x + 30.1 = 96.7。两边先减去30.1，得3.7x = 66.6。再两边除以3.7，得x = 18。\", \"answers\": [{\"label\": \"x\", \"value\": \"18\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve equation 3.7x + 30.1 = 96.7 for grade 4. Need output JSON only. Need compute exact value. 96.7 - 30.1 = 66.6. 66.6 / 3.7. Let's compute: 3.7*18 = 66.6? 3.7*10=37, *8=29.6 total 66.6. So x=18. Need maybe answers one. work concise. ambiguous false. Ensure JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 228,
+  "cached_tokens": 0,
+  "reasoning_tokens": 134
+ },
+ "ttfb_ms": 1630.7914999779314,
+ "ttft_ms": 1630.8108000084758,
+ "total_ms": 9297.598699980881
+}

@@ -1,0 +1,18 @@
+{
+ "key": "11b7147def6ba68e5c9f6084ef3fa791",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"已知4314只约占全球总数的15%，求全球总数用除法：4314 ÷ 15% = 4314 ÷ 0.15 = 28760。题目问大约是多少，答案可写28760只。\", \"answers\": [{\"label\": \"全球朱鹮总数\", \"value\": \"28760\", \"unit\": \"只\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve grade 6 math. Problem: In wildlife protection survey, counted crested ibis quantity 4314, about 15% of global total. Ask global total approximately? Need compute 4314 / 15% = 4314 / 0.15 = 4314 * 100/15 = 4314 * 20/3 = 4314/3=1438, *20=28760. Exact integer? 4314 divisible by 3? 4+3+1+4=12 yes. 1438*20=28760. Since 15% approximate, answer approximately 28760. Need maybe round? It's exact from given. Output JSON only. Ensure no extra. work concise. answers one value maybe 28760 unit 只. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 376,
+  "completion_tokens": 330,
+  "cached_tokens": 0,
+  "reasoning_tokens": 216
+ },
+ "ttfb_ms": 1553.0258999788202,
+ "ttft_ms": 1553.0386999598704,
+ "total_ms": 9664.748499984853
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b5a5fcff94aac8e95fdc76ad8647f894",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"这是一道退位减法题。个位上4减9不够减，需要从十位借1当10，变成14减9等于5；十位上的8被借走1后还剩7，7加2等于9，所以结果是93。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 133,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1609.3326000263914,
+ "ttft_ms": 1609.3429999891669,
+ "total_ms": 2735.781399998814
+}

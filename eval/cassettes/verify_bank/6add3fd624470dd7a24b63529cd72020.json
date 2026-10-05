@@ -1,0 +1,18 @@
+{
+ "key": "6add3fd624470dd7a24b63529cd72020",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小红用一根长72厘米的铁丝围成了一个正方形，这个正方形的边是多少厘米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 89,
+  "completion_tokens": 25,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1449.7742000385188,
+ "ttft_ms": 1449.8489000252448,
+ "total_ms": 1944.8719000210986
+}

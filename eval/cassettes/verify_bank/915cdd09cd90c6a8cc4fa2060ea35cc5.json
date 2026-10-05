@@ -1,0 +1,18 @@
+{
+ "key": "915cdd09cd90c6a8cc4fa2060ea35cc5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"设每箱苹果价格为1份，则每箱梨价格为2份。买1箱苹果和4箱梨共花费：1 + 4×2 = 9份。总钱数306元对应9份，所以每份为306÷9=34元，即每箱苹果34元。\", \"answers\": [{\"label\": \"每箱苹果多少元\", \"value\": \"34\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve. Let's analyze problem carefully.\n\nChinese: Grade 5. Xiaoming goes shopping, brings 306 yuan. He buys 1 box apples and 4 boxes pears. Each box pear price is 2 times each box apple price, and exactly spends all money. Ask price per box apple?\n\nLet apple price x. Pear price 2x. Total = 1*x + 4*(2x)= x+8x=9x=306 => x=34. Answer 34 yuan.\n\nNeed output JSON with work, answers. ambiguous false. Ensure exact. Maybe label. Unit 元.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 388,
+  "completion_tokens": 260,
+  "cached_tokens": 0,
+  "reasoning_tokens": 142
+ },
+ "ttfb_ms": 1573.4259999589995,
+ "ttft_ms": 1573.8217000034638,
+ "total_ms": 8683.28419997124
+}

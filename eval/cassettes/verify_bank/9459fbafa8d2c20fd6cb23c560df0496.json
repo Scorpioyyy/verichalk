@@ -1,0 +1,18 @@
+{
+ "key": "9459fbafa8d2c20fd6cb23c560df0496",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"用总页数减去已看页数即可。列竖式计算：976-44，个位6-4=2，十位7-4=3，百位直接落下来写9，所以976-44=932。因为这本书很厚，单位应换算为百页，故还剩93200页没有看。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 155,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1490.3462000074796,
+ "ttft_ms": 1490.364299970679,
+ "total_ms": 3192.126800015103
+}

@@ -1,0 +1,18 @@
+{
+ "key": "458a2b17d195644ec4b245272d1238ee",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"苹果6箱：70×6=420元；香蕉6箱：60×6=360元。合计：420+360=780元。也可先算单价和再乘数量：(70+60)×6=130×6=780元。一共需要780元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 92,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1059.9497000221163,
+ "ttft_ms": 1060.0584999774583,
+ "total_ms": 2350.176999985706
+}

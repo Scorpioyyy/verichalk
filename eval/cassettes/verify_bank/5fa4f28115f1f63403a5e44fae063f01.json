@@ -1,0 +1,18 @@
+{
+ "key": "5fa4f28115f1f63403a5e44fae063f01",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求妈妈比奇思大多少岁，用妈妈的年龄减去奇思的年龄即可。列式：36 - 18 = 18（岁）。答：妈妈比奇思大18岁。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 82,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1212.5818000058644,
+ "ttft_ms": 1212.5940999831073,
+ "total_ms": 1971.669299993664
+}

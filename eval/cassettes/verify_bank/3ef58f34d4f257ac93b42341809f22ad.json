@@ -1,0 +1,18 @@
+{
+ "key": "3ef58f34d4f257ac93b42341809f22ad",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"保定在北京和石家庄之间，所以保定到石家庄的距离等于北京到石家庄的距离减去北京到保定的距离：409-403=6（千米）。\", \"answers\": [{\"label\": \"\", \"value\": \"6\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 3 math. User Chinese. Need produce final JSON. Let's analyze problem: Beijing-Baoding 403 km, Beijing-Shijiazhuang 409 km. Baoding between Beijing and Shijiazhuang. Distance Baoding to Shijiazhuang = 409 - 403 = 6 km. Wait real geography Beijing-Baoding ~146, Beijing-Shijiazhuang ~281 maybe, but given table says 403 and 409? It's weird but use given. Since Baoding between, subtract. Answer 6 km. Need maybe one answer. JSON with work. ambiguous false. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 401,
+  "completion_tokens": 233,
+  "cached_tokens": 0,
+  "reasoning_tokens": 158
+ },
+ "ttfb_ms": 1402.9778999974951,
+ "ttft_ms": 1403.2327000168152,
+ "total_ms": 7906.434600008652
+}

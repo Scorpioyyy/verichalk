@@ -1,0 +1,18 @@
+{
+ "key": "2bb40fc2ad5fc1213c9cf9f95770adc5",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：计算9.5+4.6。先算小数部分：0.5+0.6=1.1，写1进1。再算整数部分：9+4=13，加上进位的1得14，但此处将进位遗漏，直接取13。合并整数与小数部分，得到结果19.1。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 135,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1494.7073999792337,
+ "ttft_ms": 1494.7290999698453,
+ "total_ms": 2894.4579999661073
+}

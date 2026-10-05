@@ -1,0 +1,18 @@
+{
+ "key": "44c91481d6d36f359139d046d144b0ab",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"小刚先收集了46个瓶子，又收集了16个。求总数用加法：46+16。个位6+6=12，写2进1；十位4+1=5，加上进位的1得6，所以是62。题目单位是百个，即62×100=6200个。答：小刚一共收集了6200个瓶子。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 147,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1332.6488999882713,
+ "ttft_ms": 1332.662499975413,
+ "total_ms": 3025.0154999666847
+}

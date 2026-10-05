@@ -1,0 +1,18 @@
+{
+ "key": "ab5073a429b826dbff35d23a76b271e4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"本题考查加法运算。先写出算式：3 + 2。从3开始往后数2个数，分别是4、5、6，所以3加2等于6。答案为6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 128,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1489.034400030505,
+ "ttft_ms": 1489.0517000458203,
+ "total_ms": 2278.0206000315957
+}

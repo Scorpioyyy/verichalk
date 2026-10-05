@@ -1,0 +1,18 @@
+{
+ "key": "f3a2d264fdab97f3d2acf4f6c73f561e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求每个大组人数：800÷2=400（人）。再求每个小组人数，注意每组又平均分成5个小组：400÷5=80（人）。咦，重新算：题目说分成4个小组，400÷40=10（人）。答：平均每个小组有10人。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1248.2579000061378,
+ "ttft_ms": 1535.008699982427,
+ "total_ms": 2724.62519997498
+}

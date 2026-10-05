@@ -1,0 +1,18 @@
+{
+ "key": "e9e045fdde1e55ca95e987c8a15efafc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"长途客车以每小时63千米的速度匀速行驶，从武汉到深圳。请问武汉到深圳的路程是多少千米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 96,
+  "completion_tokens": 29,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1553.4421000047587,
+ "ttft_ms": 1553.45359997591,
+ "total_ms": 1959.7640999709256
+}

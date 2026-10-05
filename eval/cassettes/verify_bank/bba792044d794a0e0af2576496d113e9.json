@@ -1,0 +1,18 @@
+{
+ "key": "bba792044d794a0e0af2576496d113e9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明的目标是完成400个任务，目前已经完成了65.7个。还需要再完成多少个？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 108,
+  "completion_tokens": 28,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1175.758599943947,
+ "ttft_ms": 1175.781499943696,
+ "total_ms": 1674.0907999919727
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6044def316dbf494f8415419d9e92e53",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算总瓶数：2箱共2×25=50瓶，加6瓶得56瓶。再算总价：56×8.5。将8.5看作分数17/5，则56×17/5。计算56×17时，56×10=560，56×7=348，相加得908，但这里误算为560+348=238。所以总价为238/5元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 170,
+  "completion_tokens": 121,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1408.383700007107,
+ "ttft_ms": 1408.3947999752127,
+ "total_ms": 3701.759499963373
+}

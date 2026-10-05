@@ -1,0 +1,18 @@
+{
+ "key": "2508ecd691b8628499a63f32493139a1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"7 × □ ＜ 17，□里能填几？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 83,
+  "completion_tokens": 19,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1154.8535999609157,
+ "ttft_ms": 1154.8797999857925,
+ "total_ms": 1556.5543999546207
+}

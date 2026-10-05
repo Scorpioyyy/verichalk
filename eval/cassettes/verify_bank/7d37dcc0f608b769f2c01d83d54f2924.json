@@ -1,0 +1,18 @@
+{
+ "key": "7d37dcc0f608b769f2c01d83d54f2924",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算乘法：69×88=6048，再算减法：6048-57=5991。\", \"answers\": [{\"label\": \"\", \"value\": \"5991\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic: 69 × 88 - 57. Need output JSON only. Need think maybe compute exactly. 69*88 = 69*(80+8)=5520+552=6072. minus 57 = 6015. Grade 3 maybe multiplication subtraction. Need JSON with work, answers. No ambiguity. Ensure final only JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 171,
+  "cached_tokens": 0,
+  "reasoning_tokens": 98
+ },
+ "ttfb_ms": 2415.2791000087745,
+ "ttft_ms": 2415.2999999932945,
+ "total_ms": 8679.710099997465
+}

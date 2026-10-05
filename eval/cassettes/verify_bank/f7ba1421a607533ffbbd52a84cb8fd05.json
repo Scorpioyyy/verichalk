@@ -1,0 +1,18 @@
+{
+ "key": "f7ba1421a607533ffbbd52a84cb8fd05",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算乘法：754×63=47502；再算减法：47502-7129=40373。\", \"answers\": [{\"label\": \"\", \"value\": \"40373\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request in Chinese likely. Need solve simple arithmetic: 754 × 63 - 7129. Need output JSON only. Let's compute carefully.\n\n754*63 = 754*60 + 754*3 = 45240 + 2262 = 47502. Then 47502 - 7129 = 40373. Check: 47502-7000=40502; -129=40373. Yes.\n\nNeed JSON with work, answers one item maybe label empty, value \"40373\", unit empty. ambiguous false. Ensure no extra text. But final can be JSON only.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 256,
+  "cached_tokens": 0,
+  "reasoning_tokens": 176
+ },
+ "ttfb_ms": 1500.9429999627173,
+ "ttft_ms": 1500.9553999989294,
+ "total_ms": 9038.321400003042
+}

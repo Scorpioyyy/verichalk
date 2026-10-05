@@ -1,0 +1,18 @@
+{
+ "key": "59d03b6b3df49492545d3c862dc175f9",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"一年级用减法计算：17减8，可以想8加9等于17，所以17减8等于9。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple 17-8=9. Need maybe work concise. Ensure no extra text. Final JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 31
+ },
+ "ttfb_ms": 1782.6434000162408,
+ "ttft_ms": 1782.6557999942452,
+ "total_ms": 5095.474699977785
+}

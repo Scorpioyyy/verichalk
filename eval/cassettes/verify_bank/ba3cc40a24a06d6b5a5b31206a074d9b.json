@@ -1,0 +1,18 @@
+{
+ "key": "ba3cc40a24a06d6b5a5b31206a074d9b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算本月总收入：512+879+240=1631元；再减去总支出350元，节余为1631-350=1281元。\", \"answers\": [{\"label\": \"\", \"value\": \"1281\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 arithmetic. Need be careful: income: dad 512, mom 879, grandma subsidy 240. Total income = 512+879+240 = 1631? 512+879=1391, +240=1631. Total expenditure 350. Surplus = 1631-350=1281. Need output JSON with work, answers. ambiguous false. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 393,
+  "completion_tokens": 220,
+  "cached_tokens": 0,
+  "reasoning_tokens": 127
+ },
+ "ttfb_ms": 2577.651200001128,
+ "ttft_ms": 2577.6655999943614,
+ "total_ms": 8177.9374000034295
+}

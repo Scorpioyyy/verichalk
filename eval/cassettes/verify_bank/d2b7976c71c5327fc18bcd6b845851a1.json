@@ -1,0 +1,18 @@
+{
+ "key": "d2b7976c71c5327fc18bcd6b845851a1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"长方形面积=长×宽=39×29。39×29=39×(30-1)=1170-39=1131，所以面积是1131平方厘米。\", \"answers\": [{\"label\": \"\", \"value\": \"1131\", \"unit\": \"平方厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 4 rectangle area: 39*29. Compute: 39*30=1170 minus39=1131. Unit square cm. Need concise work. Ensure no extra text. JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 369,
+  "completion_tokens": 155,
+  "cached_tokens": 0,
+  "reasoning_tokens": 60
+ },
+ "ttfb_ms": 1342.7526999730617,
+ "ttft_ms": 1342.7721000043675,
+ "total_ms": 5470.837200002279
+}

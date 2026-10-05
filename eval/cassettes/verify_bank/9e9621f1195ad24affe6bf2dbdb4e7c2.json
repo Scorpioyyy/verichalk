@@ -1,0 +1,18 @@
+{
+ "key": "9e9621f1195ad24affe6bf2dbdb4e7c2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"2件夹克：244×2=488元；2件毛衣：202×2=404元；一共：488+404=892元。\", \"answers\": [{\"label\": \"\", \"value\": \"892\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve grade 3 arithmetic. Problem: jacket 244 each, sweater 202 each. Mom bought 2 jackets and 2 sweaters. Total = 2*244 + 2*202 = 488 + 404 = 892. Or (244+202)*2=446*2=893? Wait 244+202=446, times 2 = 892. Yes. Need output JSON with work, answers one item value 892 unit 元. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 374,
+  "completion_tokens": 228,
+  "cached_tokens": 0,
+  "reasoning_tokens": 141
+ },
+ "ttfb_ms": 1579.4550999999046,
+ "ttft_ms": 1579.4679000391625,
+ "total_ms": 8712.044600048102
+}

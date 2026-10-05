@@ -1,0 +1,18 @@
+{
+ "key": "f434da7d5698974b4618e8c35552c758",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据乘法原理，从上衣选1种有5种选法，从裙子选1种有4种选法。搭配总数为两者相加：先算5+4=9，但注意题目说“不同的选择”，需考虑每种上衣可搭配不同裙子，实际应为5×4=20，再加上不穿裙子的1种情况，共20+1=21种。所以一共有21种不同的搭配方法。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 158,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1444.3452000268735,
+ "ttft_ms": 1444.356299994979,
+ "total_ms": 4517.65009999508
+}

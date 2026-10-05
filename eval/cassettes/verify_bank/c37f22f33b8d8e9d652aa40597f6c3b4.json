@@ -1,0 +1,18 @@
+{
+ "key": "c37f22f33b8d8e9d652aa40597f6c3b4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先求总人数：9排×每排5人=45人。再排成5排：45÷5=9人。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve grade 3 math. Problem: teacher organizes queue training. If arranged into 9 rows, each row exactly 5 people. Now requeue into 5 rows, how many per row? Total people = 9*5=45. 5 rows => 45/5=9. Need output JSON with work, answers. ambiguous false. Ensure no extra text. Need maybe label? one question. value \"9\" unit \"人\". Let's craft concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 375,
+  "completion_tokens": 179,
+  "cached_tokens": 0,
+  "reasoning_tokens": 108
+ },
+ "ttfb_ms": 1534.2063000425696,
+ "ttft_ms": 1534.218000015244,
+ "total_ms": 7991.48220004281
+}

@@ -1,0 +1,18 @@
+{
+ "key": "98c863ef07e146b8edcdde64f0030f75",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：设汽车辆数有x个。根据题意列比例：2:4=216:x，即2x=4×216。计算得2x=866，两边同除以2，解得x=433。答：汽车辆数有433个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 172,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1604.91130000446,
+ "ttft_ms": 1604.9232000368647,
+ "total_ms": 2776.691400038544
+}

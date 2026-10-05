@@ -1,0 +1,18 @@
+{
+ "key": "9fc5a4addcc31a8268ba87bde0958cfb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"原有52种，增加358种，求总数用加法：52+358。个位2+8=10，写0进1；十位5+5=10，加进位1得11，写1进1；百位3加进位1得4。所以结果是411种。答：现在一共有411种动物。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 144,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2231.220800022129,
+ "ttft_ms": 2231.4583000261337,
+ "total_ms": 3913.095300027635
+}

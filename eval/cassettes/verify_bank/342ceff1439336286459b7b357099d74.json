@@ -1,0 +1,18 @@
+{
+ "key": "342ceff1439336286459b7b357099d74",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小红买了2个玩具车，每个29元。他付了59元，已知2个玩具车一共花了70元，应找回多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 87,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1146.4420999982394,
+ "ttft_ms": 1146.485599980224,
+ "total_ms": 1973.8807000103407
+}

@@ -1,0 +1,18 @@
+{
+ "key": "3d56aa99dd08f0703cdbcd72136ff4f4",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解：设长为x米。根据长方形面积公式，列方程：2x = 60。两边同除以2，得 x = 60 ÷ 2 = 70。答：长是70米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 54,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1185.3370000026189,
+ "ttft_ms": 1185.3562000324018,
+ "total_ms": 2130.5732000037096
+}

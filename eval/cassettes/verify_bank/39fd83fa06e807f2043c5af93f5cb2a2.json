@@ -1,0 +1,18 @@
+{
+ "key": "39fd83fa06e807f2043c5af93f5cb2a2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"超市购物找零。已知总数是71，其中一部分是22，且两部分之和为80，求另一部分（找回的钱数）是多少？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1409.6018999698572,
+ "ttft_ms": 1409.6266999840736,
+ "total_ms": 2173.5666999593377
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5e237f0bb15321cd7fe9f1e426a7becc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先按整数相乘：147×592。计算147×2=294，147×90=13230，147×500=73600，相加得87124。因两个因数共有四位小数，从右往左数四位点小数点，得8.1024。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 139,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1473.7638999940827,
+ "ttft_ms": 1473.7788999918848,
+ "total_ms": 2944.2046000040136
+}

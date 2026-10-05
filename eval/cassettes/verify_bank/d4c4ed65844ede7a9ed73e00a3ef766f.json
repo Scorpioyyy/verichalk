@@ -1,0 +1,18 @@
+{
+ "key": "d4c4ed65844ede7a9ed73e00a3ef766f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把900看作90个十，90个十除以5等于18个十，也就是180。\", \"answers\": [{\"label\": \"\", \"value\": \"180\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 3rd grade mental math: 900 ÷ 5. Need output JSON only. Compute 900/5=180. Need maybe work brief. answers one item label empty maybe value \"180\". ambiguous false. Ensure JSON only.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 134,
+  "cached_tokens": 0,
+  "reasoning_tokens": 67
+ },
+ "ttfb_ms": 1360.2581999730319,
+ "ttft_ms": 1360.2780000073835,
+ "total_ms": 5967.313200002536
+}

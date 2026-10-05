@@ -1,0 +1,18 @@
+{
+ "key": "b22ea8b39f1f107b5711c343125e2131",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"淘气家5月的收入是 2320 元，支出是 8946000 元。如果规定收入记为正数，支出记为负数，那么淘气家5月的结余是多少元？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 133,
+  "completion_tokens": 54,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1403.9953000028618,
+ "ttft_ms": 1404.022500035353,
+ "total_ms": 2276.0711000300944
+}

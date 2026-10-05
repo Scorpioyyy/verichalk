@@ -1,0 +1,18 @@
+{
+ "key": "410a50259cf3af0e0e8794488f983188",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"计算14减6。可以用破十法：14分成10和4，10-6=4，再用4+4=8，所以14-6=8。\", \"answers\": [{\"label\": \"\", \"value\": \"8\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Need solve simple 14-6=8. Need maybe work brief. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 115,
+  "cached_tokens": 0,
+  "reasoning_tokens": 36
+ },
+ "ttfb_ms": 1588.2573000271805,
+ "ttft_ms": 1588.2745999842882,
+ "total_ms": 5066.159099980723
+}

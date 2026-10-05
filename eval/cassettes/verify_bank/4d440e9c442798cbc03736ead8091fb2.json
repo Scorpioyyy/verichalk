@@ -1,0 +1,18 @@
+{
+ "key": "4d440e9c442798cbc03736ead8091fb2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"一列火车从武汉出发，每小时行驶85千米。4小时后，火车行驶的路程是500千米。火车行驶的路程是多少千米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 85,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1459.357200015802,
+ "ttft_ms": 1459.3707000021823,
+ "total_ms": 2028.4510000492446
+}

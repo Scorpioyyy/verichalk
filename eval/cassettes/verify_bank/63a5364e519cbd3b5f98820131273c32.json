@@ -1,0 +1,18 @@
+{
+ "key": "63a5364e519cbd3b5f98820131273c32",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把90看作9个十，9个十乘7得63个十，所以90×7=630。\", \"answers\": [{\"label\": \"\", \"value\": \"630\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple 3rd grade math: 90 × 7 = 630. Output JSON only. Need ensure final only JSON. Work brief. answers one item label maybe empty. ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 120,
+  "cached_tokens": 0,
+  "reasoning_tokens": 51
+ },
+ "ttfb_ms": 1447.9838000261225,
+ "ttft_ms": 1447.9959000018425,
+ "total_ms": 5723.798900027759
+}

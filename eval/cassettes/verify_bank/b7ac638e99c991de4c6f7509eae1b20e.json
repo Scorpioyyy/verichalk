@@ -1,0 +1,18 @@
+{
+ "key": "b7ac638e99c991de4c6f7509eae1b20e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先计算6×?的部分：用84减去12，得到6×?=72。再用72除以6，得到?=12。因此答案是12。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 76,
+  "completion_tokens": 41,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1366.7015999672003,
+ "ttft_ms": 1366.733299975749,
+ "total_ms": 2213.870399980806
+}

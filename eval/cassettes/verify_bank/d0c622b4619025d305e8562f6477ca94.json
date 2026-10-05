@@ -1,0 +1,18 @@
+{
+ "key": "d0c622b4619025d305e8562f6477ca94",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"按从左到右计算：992÷8=124，124÷4=31。\", \"answers\": [{\"label\": \"\", \"value\": \"31\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve 3rd grade math: 计算：992÷8÷4. Need output JSON only. Need think in Chinese likely. Compute left associative: 992 ÷ 8 = 124, then ÷4 =31. Or use 992 ÷ (8×4)=992÷32=31. Need exact. One answer. JSON with work, answers. Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 167,
+  "cached_tokens": 0,
+  "reasoning_tokens": 103
+ },
+ "ttfb_ms": 1556.137099978514,
+ "ttft_ms": 1556.3055999809876,
+ "total_ms": 7134.73549997434
+}

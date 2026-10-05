@@ -1,0 +1,18 @@
+{
+ "key": "fe8392fc8ad46b14d4ac08e304cfc775",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"求袜子的价格是肉饼的几倍，用袜子价格除以肉饼价格：24 ÷ 4 = 6。\", \"answers\": [{\"label\": \"\", \"value\": \"6\", \"unit\": \"倍\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON. Need solve simple grade 2: socks price 24, meat pie 4. How many times? 24 ÷ 4 = 6. Need output only JSON. Ensure no extra. Consider ambiguity none. Work concise Chinese. answers one. label maybe empty. unit maybe 倍? The question asks 几倍, value 6, unit 倍 perhaps. Need exact.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 155,
+  "cached_tokens": 0,
+  "reasoning_tokens": 87
+ },
+ "ttfb_ms": 1575.3161000320688,
+ "ttft_ms": 1575.3351000021212,
+ "total_ms": 6471.92590002669
+}

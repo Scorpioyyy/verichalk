@@ -1,0 +1,18 @@
+{
+ "key": "9f9008a814c63bef19b9190e915fb153",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"正方形是特殊的长方形，但周长为20厘米的长方形长和宽有多种组合（如长8厘米、宽2厘米），形状各不相同；而正方形的边长固定为5厘米。因此它们的形状不一定相同。故判断为：错。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 80,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1415.7391000189818,
+ "ttft_ms": 1415.7510999939404,
+ "total_ms": 2689.6662000217475
+}

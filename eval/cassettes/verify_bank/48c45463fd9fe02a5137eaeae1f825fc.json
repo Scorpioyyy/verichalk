@@ -1,0 +1,18 @@
+{
+ "key": "48c45463fd9fe02a5137eaeae1f825fc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知小佳收集了29个塑料瓶，小强比小佳多3个。求小强的数量，用加法计算：29+3。先算个位，9加3得12，写2进1；十位上2加进位的1等于4，所以结果是52。答：小强收集了52个塑料瓶。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 165,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1595.726299972739,
+ "ttft_ms": 1595.8894999930635,
+ "total_ms": 3172.6196999661624
+}

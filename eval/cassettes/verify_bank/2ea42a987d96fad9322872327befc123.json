@@ -1,0 +1,18 @@
+{
+ "key": "2ea42a987d96fad9322872327befc123",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"把左边的9个苹果和右边的2个月亮合起来，用加法计算：9+2=11。\", \"answers\": [{\"label\": \"\", \"value\": \"11\", \"unit\": \"个\"}], \"ambiguous\": true, \"ambiguity\": \"题目中左边是苹果、右边是月亮，单位不同，但按一年级加法通常理解为求总数。\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple grade 1 math. Need output JSON only. Need think in same language as user's request? User Chinese. Need final JSON only. Problem: left 9 apples, right 2 moons. total? 9+2=11. It asks one answer. Need maybe unit 个. Ambiguity? It mixes apples and moons but asks total number of objects? For grade 1 likely 9+2=11. Could be ambiguous because different categories? But likely total count. Set ambiguous false? Maybe condition says left apples right moons, ask total how many? It's count all items, 11. Could mention if asking apples only? But no. Need JSON. work concise. answers label maybe \"9+2\". value \"11\" unit \"个\". Ensure no extra text.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 381,
+  "completion_tokens": 265,
+  "cached_tokens": 0,
+  "reasoning_tokens": 177
+ },
+ "ttfb_ms": 1536.5971000283025,
+ "ttft_ms": 1536.6157999960706,
+ "total_ms": 9719.049300008919
+}

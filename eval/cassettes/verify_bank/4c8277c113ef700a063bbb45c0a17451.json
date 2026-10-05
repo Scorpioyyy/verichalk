@@ -1,0 +1,18 @@
+{
+ "key": "4c8277c113ef700a063bbb45c0a17451",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"桌上有4个水杯和2把勺子。比较水杯比勺子多几个，用减法：4-2=2。\", \"answers\": [{\"label\": \"\", \"value\": \"2\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 1. User Chinese. Need produce final JSON. Problem: table has 4 cups and 2 spoons. Cups more than spoons by how many? 4-2=2. Need one answer. Ensure no extra text. Could include work brief. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 134,
+  "cached_tokens": 0,
+  "reasoning_tokens": 68
+ },
+ "ttfb_ms": 1892.4251000280492,
+ "ttft_ms": 1892.444400000386,
+ "total_ms": 7363.166900002398
+}

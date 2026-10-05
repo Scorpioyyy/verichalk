@@ -1,0 +1,18 @@
+{
+ "key": "70d4a104585d90dd333fd0b102286404",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先接水需3分钟。烧水需7分钟，同时可洗茶杯和找茶叶，这两项各需3分钟，共6分钟，不超过7分钟，故可同时进行。因此总时间为：接水3分钟＋烧水7分钟＝10分钟。又因为妈妈准备了100份早餐，所以总共需要10×100＝1000分钟。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 197,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1578.936200006865,
+ "ttft_ms": 1578.9496999932453,
+ "total_ms": 3498.848699964583
+}

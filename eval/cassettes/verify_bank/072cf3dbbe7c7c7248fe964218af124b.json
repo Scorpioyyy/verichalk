@@ -1,0 +1,18 @@
+{
+ "key": "072cf3dbbe7c7c7248fe964218af124b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"【环保小卫士】为了节约资源，节约用水可以减少水资源浪费。如果每人节约9.7千克废纸，我们班有3.5人，每月一共能节约多少立方米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 123,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1534.0760999824852,
+ "ttft_ms": 1534.0984999784268,
+ "total_ms": 2170.0836999807507
+}

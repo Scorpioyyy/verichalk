@@ -1,0 +1,18 @@
+{
+ "key": "9845fb9b8b002f01ac9b295dab281688",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算一个书架的商品数：6排×25个=150个。4个书架数量大致相同，所以总数约为150×4=600个。因此，这4个书架里大约一共有600个商品。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 111,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1340.0845000287518,
+ "ttft_ms": 1340.099100023508,
+ "total_ms": 2282.0118000381626
+}

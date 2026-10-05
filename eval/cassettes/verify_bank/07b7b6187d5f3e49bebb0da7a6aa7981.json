@@ -1,0 +1,18 @@
+{
+ "key": "07b7b6187d5f3e49bebb0da7a6aa7981",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"客车和乙车相向而行，4小时相遇。客车行驶路程为76×4=304千米，乙车行驶路程为14×4=56千米。两地距离等于两车行驶路程之和：304+56=360千米。也可用速度和×时间：(76+14)×4=90×4=360千米。\", \"answers\": [{\"label\": \"\", \"value\": \"360\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 4. User Chinese. Need maybe note typo? \"客车和乙车\" likely 乙车? speeds 76 and 14 km/h, meet after 4 hours, distance = (76+14)*4 = 90*4=360 km. Need output JSON. Ensure no extra text. Could ambiguity? No. work concise. answers one. unit 千米.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 387,
+  "completion_tokens": 225,
+  "cached_tokens": 0,
+  "reasoning_tokens": 96
+ },
+ "ttfb_ms": 1475.947599974461,
+ "ttft_ms": 1475.9667000034824,
+ "total_ms": 7494.070699962322
+}

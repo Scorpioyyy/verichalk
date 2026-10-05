@@ -1,0 +1,18 @@
+{
+ "key": "c4c47587df7078143682a645a6873e0b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知火车每小时行驶85千米，求4小时行驶的路程，用乘法计算：85×4。先算个位：5×4=20，写0进2；再算十位：8×4=32，加上进位的2得34。所以85×4=34（千米）。答：火车行驶的路程是34千米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 144,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1296.690099989064,
+ "ttft_ms": 1296.7024999670684,
+ "total_ms": 2771.3929999736138
+}

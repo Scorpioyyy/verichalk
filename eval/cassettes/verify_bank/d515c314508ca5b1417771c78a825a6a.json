@@ -1,0 +1,18 @@
+{
+ "key": "d515c314508ca5b1417771c78a825a6a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"解析：计算2.4×3时，可先忽略小数点，算24×3。个位4×3=12，写2进1；十位2×3=6，加上进位的1得7，所以24×3=72。因数2.4有一位小数，但72末尾的2与小数部分抵消，故结果仍为72。答案为72。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 132,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2279.733999981545,
+ "ttft_ms": 2279.752899950836,
+ "total_ms": 3954.4126999680884
+}

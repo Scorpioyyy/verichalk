@@ -1,0 +1,18 @@
+{
+ "key": "a55c71c113fdd6416c04093332c6b797",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"某农场种植区中，已知quantity_b为42本，求quantity_a是多少本？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 25,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1340.17490001861,
+ "ttft_ms": 1340.1957000023685,
+ "total_ms": 1813.2973000174388
+}

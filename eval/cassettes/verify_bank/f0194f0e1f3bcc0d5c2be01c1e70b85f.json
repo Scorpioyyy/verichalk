@@ -1,0 +1,18 @@
+{
+ "key": "f0194f0e1f3bcc0d5c2be01c1e70b85f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"实际距离=图上距离÷比例尺。5.7÷(1/38374092)=5.7×38374092=218732324.4cm。换算为km需除以10000，得218732324.4÷10000=546830811/2500000km。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 184,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1521.660000027623,
+ "ttft_ms": 1521.6742000193335,
+ "total_ms": 4001.2608999968506
+}

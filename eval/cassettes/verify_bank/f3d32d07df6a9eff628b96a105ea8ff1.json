@@ -1,0 +1,18 @@
+{
+ "key": "f3d32d07df6a9eff628b96a105ea8ff1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"长方体表面积公式为2×(长×宽+长×高+宽×高)。先算各面：长×宽=73×12=876，长×高=73×47=3431，宽×高=12×47=564。三者之和=876+3431+564=4871。最后乘2得总纸板面积：4871×2=9740平方厘米。答：至少需要9740平方厘米的纸板。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 156,
+  "completion_tokens": 128,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1371.7013000277802,
+ "ttft_ms": 1371.8547000316903,
+ "total_ms": 3518.7742999987677
+}

@@ -1,0 +1,18 @@
+{
+ "key": "429402648900f97af01054430c0bbcee",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"妈妈去银行换零钱，她带了9张20元，请问这些钱合起来一共是多少钱？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 96,
+  "completion_tokens": 29,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1430.3195999818854,
+ "ttft_ms": 1430.3438999922946,
+ "total_ms": 1844.8093999759294
+}

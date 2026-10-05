@@ -1,0 +1,18 @@
+{
+ "key": "e5c39917e4f0d114e36f9bb26bea3394",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"用销售总额除以每本售价：493 ÷ 29 = 17，所以卖出了17本。\", \"answers\": [{\"label\": \"\", \"value\": \"17\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple division 493/29. Let's compute: 29*17=493? 29*10=290, *7=203 total 493. answer 17 books. Need output JSON. Ensure no extra.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 382,
+  "completion_tokens": 141,
+  "cached_tokens": 0,
+  "reasoning_tokens": 72
+ },
+ "ttfb_ms": 1614.2358000506647,
+ "ttft_ms": 1614.2461000126787,
+ "total_ms": 5432.91400000453
+}

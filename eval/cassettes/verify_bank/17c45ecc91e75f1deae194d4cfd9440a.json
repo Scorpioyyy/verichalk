@@ -1,0 +1,18 @@
+{
+ "key": "17c45ecc91e75f1deae194d4cfd9440a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"路程 = 速度 × 时间 = 85 × 4 = 340（千米）。\", \"answers\": [{\"label\": \"\", \"value\": \"340\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple grade 3: speed 85 km/h, time 4 h, distance = 85*4=340 km. Need output JSON with work, answers. Ensure no extra text. Could include label maybe empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 126,
+  "cached_tokens": 0,
+  "reasoning_tokens": 62
+ },
+ "ttfb_ms": 1642.7090000361204,
+ "ttft_ms": 1642.7216000156477,
+ "total_ms": 5495.663000037894
+}

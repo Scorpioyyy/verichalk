@@ -1,0 +1,18 @@
+{
+ "key": "48516950b3647bf86b4b7e30599a106f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\":\"求淘气沿着五边形边缘走一圈的总路程，就是把五条边的长度相加：992+412+751+584+143。先算992+412=1404，1404+751=2155，2155+584=2739，2739+143=2882。所以一共走了2882米。\",\"answers\":[{\"label\":\"\",\"value\":\"2882\",\"unit\":\"米\"}],\"ambiguous\":false,\"ambiguity\":\"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve simple addition perimeter. Need ensure grade 3 method. Sum: 992+412=1404; +751=2155; +584=2739; +143=2882. Check: 992+412=1404, +751=2155, +584=2739, +143=2882. Answer 2882 meters. One question. JSON only. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 389,
+  "completion_tokens": 265,
+  "cached_tokens": 0,
+  "reasoning_tokens": 129
+ },
+ "ttfb_ms": 1796.5293999877758,
+ "ttft_ms": 1796.5413000201806,
+ "total_ms": 8038.118100026622
+}

@@ -1,0 +1,18 @@
+{
+ "key": "f97fbd9bb83df4b20626f82ae6d9c44f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据运算顺序，先算乘法再算加法。第一步：37×7，个位7×7=49写9进4，十位3×7=21加进位4得25，所以37×7=259。第二步：844+259，个位4+9=13写3进1，十位4+5+1=10写0进1，百位8+2+1=11，结果为7103。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 136,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1250.3536999574862,
+ "ttft_ms": 1250.376799958758,
+ "total_ms": 3402.87079999689
+}

@@ -1,0 +1,18 @@
+{
+ "key": "083e2de6f94d000080cf9d8d0fbf9519",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"用凑十法计算9+3：把3分成1和2，先算9+1=10，再算10+2。注意个位相加时0+2=2，加上十位的进位得72。所以9+3=72。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 178,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1886.3191999844275,
+ "ttft_ms": 1886.3483000313863,
+ "total_ms": 3026.9337000208907
+}

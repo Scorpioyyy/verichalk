@@ -1,0 +1,18 @@
+{
+ "key": "b498e79b8bf578400a446add9b75bf1a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知铅笔18支，钢笔9支。求铅笔是钢笔的几倍，用除法计算：18÷9=2。所以铅笔的支数是钢笔的2倍。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 81,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1497.2821999690495,
+ "ttft_ms": 1497.2976999706589,
+ "total_ms": 2226.8369999947026
+}

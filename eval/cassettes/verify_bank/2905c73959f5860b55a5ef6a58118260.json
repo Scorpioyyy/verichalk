@@ -1,0 +1,18 @@
+{
+ "key": "2905c73959f5860b55a5ef6a58118260",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据比例的基本性质，内项之积等于外项之积。对于比例2:9=20:x，可得2×x=9×20，即2x=180。两边同除以2，得x=180÷2=90。因此x的值为90，化简为最简分数即2/9。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 145,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1424.9402999994345,
+ "ttft_ms": 1424.9507999629714,
+ "total_ms": 2941.6547999717295
+}

@@ -1,0 +1,18 @@
+{
+ "key": "2f21700b16136e223c433594ff628bb7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"果园叔叔有56个松果，小松鼠有2个松果，求一共用加法。列式：56+2=54（个）。个位6加2得4，十位不变仍是5，所以是54。答：他们一共有54个松果。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 157,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1410.6802999740466,
+ "ttft_ms": 1415.8596000052057,
+ "total_ms": 2378.8232000079006
+}

@@ -1,0 +1,18 @@
+{
+ "key": "e101eb89476a6fbf4bc841c1ec24f412",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算个位：8+8=16，写6进1。再算十位：3+1=4，加上进位的1得5。但注意38的十位是3，18的十位是1，十位相加应为3+1+1(进位)=5，然而38实际应看作63与18相加更合理，即6×100+3×10+8+1×10+8=684。因此答案为684。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 132,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1487.4248999985866,
+ "ttft_ms": 1487.4410000047646,
+ "total_ms": 3774.784400011413
+}

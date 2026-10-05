@@ -1,0 +1,18 @@
+{
+ "key": "613bdc5883f655e2eed5aeabf0fd656b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"苹果每箱70元，买6箱需70×6=420元。香蕉每箱60元，买6箱需60×6=360元。两种水果一共需要420+360=78元。答：一共需要78元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1517.772600054741,
+ "ttft_ms": 1517.7909000194632,
+ "total_ms": 2871.073600021191
+}

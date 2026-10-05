@@ -1,0 +1,18 @@
+{
+ "key": "814daf92c33528e19d98aae6eaa24ee8",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小明有37元，每件商品4元。用37除以4，37=4×9+1，所以最多买9件，剩1元不够再买一件。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"件\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve grade 2. Problem: Xiaoming has 37 yuan, item unit price 4 yuan. Max number items = floor(37/4)=9 remainder 1. Answer 9 件. Need output JSON only. Ensure no extra. Could include work. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 366,
+  "completion_tokens": 148,
+  "cached_tokens": 0,
+  "reasoning_tokens": 68
+ },
+ "ttfb_ms": 1572.1797000151128,
+ "ttft_ms": 1573.5972000402398,
+ "total_ms": 6632.218000013381
+}

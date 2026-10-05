@@ -1,0 +1,18 @@
+{
+ "key": "042a3069235f9d9adbbe3c0c0ed47a09",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小明比王强快多少秒，用王强的时间减去小明的时间：12.25 - 8.46 = 3.79（秒）。\", \"answers\": [{\"label\": \"\", \"value\": \"3.79\", \"unit\": \"秒\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve simple subtraction: 12.25 - 8.46 = 3.79 seconds. Need grade 4 method. Ensure exact. One answer. ambiguous false. Need output only JSON. Let's craft work concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 379,
+  "completion_tokens": 138,
+  "cached_tokens": 0,
+  "reasoning_tokens": 58
+ },
+ "ttfb_ms": 2031.2272000010125,
+ "ttft_ms": 2031.239399977494,
+ "total_ms": 6608.644199965056
+}

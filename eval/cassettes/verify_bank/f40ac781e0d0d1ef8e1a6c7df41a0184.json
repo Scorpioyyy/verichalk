@@ -1,0 +1,18 @@
+{
+ "key": "f40ac781e0d0d1ef8e1a6c7df41a0184",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先计算算式 12 + 6 = 18。指令是直接移动到算式结果所在的格子，所以棋子移动到第 18 格。\", \"answers\": [{\"label\": \"棋子移动后的新位置\", \"value\": \"18\", \"unit\": \"格\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 2. User Chinese. Need produce final JSON. Let's reason: piece currently at 20. Dice instruction: directly move to grid result of 12+6. 12+6=18. New position is 18. Current location irrelevant except maybe move from 20 to 18. Answer one. No ambiguity. Need output JSON with work concise. Ensure answers array one item maybe label empty. unit \"格\"? value \"18\". Could include unit. JSON only.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 398,
+  "completion_tokens": 198,
+  "cached_tokens": 0,
+  "reasoning_tokens": 117
+ },
+ "ttfb_ms": 1452.5455000111833,
+ "ttft_ms": 1452.5663999957033,
+ "total_ms": 8346.918399969582
+}

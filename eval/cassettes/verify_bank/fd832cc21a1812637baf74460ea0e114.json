@@ -1,0 +1,18 @@
+{
+ "key": "fd832cc21a1812637baf74460ea0e114",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小明完成一项任务，原计划每分钟做600个，需要5分钟完成。现在要求3分钟完成，且这项任务的总量是2000个，每分钟需要做多少个？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 92,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1382.8140999539755,
+ "ttft_ms": 1383.0760999699123,
+ "total_ms": 2146.8782000010833
+}

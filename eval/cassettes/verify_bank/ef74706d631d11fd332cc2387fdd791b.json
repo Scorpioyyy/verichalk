@@ -1,0 +1,18 @@
+{
+ "key": "ef74706d631d11fd332cc2387fdd791b",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知朱鹮数量为4314只，占全球总数的15%。求全球总数用除法：4314÷15%=4314÷0.15=28760（只）。因此，全球朱鹮的总数大约是28760只。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 98,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1110.9132999554276,
+ "ttft_ms": 1111.3123999675736,
+ "total_ms": 2250.1612999476492
+}

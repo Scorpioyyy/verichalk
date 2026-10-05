@@ -1,0 +1,18 @@
+{
+ "key": "fb09f4e7c2796b4f0db7809c09f4f43d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"小刚先收集了46个瓶子，后来又收集了16个瓶子。求一共收集多少个，用加法计算：46 + 16 = 62。\", \"answers\": [{\"label\": \"小刚一共收集了多少个瓶子\", \"value\": \"62\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple addition. User Chinese. Need likely final JSON. Let's reason: 46+16=62. Grade 2. answers one. ambiguous false. Need work brief. Ensure no extra text.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 138,
+  "cached_tokens": 0,
+  "reasoning_tokens": 53
+ },
+ "ttfb_ms": 1801.2624999973923,
+ "ttft_ms": 1801.2739999685436,
+ "total_ms": 6768.010800005868
+}

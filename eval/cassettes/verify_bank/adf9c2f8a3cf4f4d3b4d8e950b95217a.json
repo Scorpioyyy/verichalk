@@ -1,0 +1,18 @@
+{
+ "key": "adf9c2f8a3cf4f4d3b4d8e950b95217a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先坐满一辆大车，可乘30人。剩下人数为61-30=31（人）。每辆小车限乘8人，31÷8=3（辆）……7（人），余下的7人还需1辆小车，所以至少需要3+1=4辆小车。答案是4。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 109,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1364.0389000065625,
+ "ttft_ms": 1364.0705999569036,
+ "total_ms": 2817.9025999852456
+}

@@ -1,0 +1,18 @@
+{
+ "key": "1fa03843200365f14818eb3b59142887",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"本题考查除法运算。将24平均分成2份，求每份是多少。根据乘法口诀“二十二得二十四”，可知24÷2=12。因此，答案为12。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 70,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1376.597700000275,
+ "ttft_ms": 1376.6269000479952,
+ "total_ms": 2193.8483000267297
+}

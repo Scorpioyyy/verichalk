@@ -1,0 +1,18 @@
+{
+ "key": "554b4ad3f3d0e39dda532e77d391843f",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"农场种植区中，菊花的数量是18。松树和菊花的数量关系是1/2。请问松树有多少？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 32,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1451.0813999804668,
+ "ttft_ms": 1451.0995000018738,
+ "total_ms": 1993.9683999982662
+}

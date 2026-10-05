@@ -1,0 +1,18 @@
+{
+ "key": "053f25fd7953a3300b04a6b5647038b6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算总瓶数：每箱14瓶，买5箱，共14×5=70瓶。再算总价：每瓶3元，70瓶共70×3=210元。所以一共需要付210元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 95,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1317.8030999843031,
+ "ttft_ms": 1317.824300029315,
+ "total_ms": 2330.4010999854654
+}

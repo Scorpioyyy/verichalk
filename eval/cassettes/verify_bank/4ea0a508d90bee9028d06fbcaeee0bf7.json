@@ -1,0 +1,18 @@
+{
+ "key": "4ea0a508d90bee9028d06fbcaeee0bf7",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"计算9.5+4.6：先将小数部分相加，0.5+0.6=1.1；再将整数部分相加，9+4=13；最后将两部分合并，13+1.1=14.1。因此，9.5+4.6=14.1。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 74,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1270.3860999899916,
+ "ttft_ms": 1270.4067000304349,
+ "total_ms": 2365.6879999907687
+}

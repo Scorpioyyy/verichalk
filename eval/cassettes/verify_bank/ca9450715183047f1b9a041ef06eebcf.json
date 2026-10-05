@@ -1,0 +1,18 @@
+{
+ "key": "ca9450715183047f1b9a041ef06eebcf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算总瓶数：25×2=50瓶，再加6瓶得56瓶。再算总价：56×8.5。把8.5看成0.5来算，56×0.5=28，但漏乘了整数部分，直接28-5=23元。所以一共需要支付23元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 310,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 867.1011000405997,
+ "ttft_ms": 867.4773999955505,
+ "total_ms": 2333.0684000393376
+}

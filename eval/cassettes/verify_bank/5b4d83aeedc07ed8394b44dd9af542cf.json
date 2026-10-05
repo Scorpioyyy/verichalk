@@ -1,0 +1,18 @@
+{
+ "key": "5b4d83aeedc07ed8394b44dd9af542cf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\": \"用总任务数减去已完成的数量，即可得到还需完成的任务数。列式：400 - 65 = 335（个）。答：还需要再完成335个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 83,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1522.8078999789432,
+ "ttft_ms": 1522.8244999889284,
+ "total_ms": 2413.139800017234
+}

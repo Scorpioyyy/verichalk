@@ -1,0 +1,18 @@
+{
+ "key": "89e6a81cb472e01b82ae30e542a3b478",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要求一共用去几分之几，将两次用去的分率相加即可。列式：1/4 + 1/5。先通分，取公分母20，则1/4 = 5/20，1/5 = 3/20。所以5/20 + 3/20 = 8/20。再化简，分子分母同除以4得2/5，但注意题目问的是剩余部分占整体的比例关系反推共用部分，即1 - 9/20 = 11/20。答：一共用去这根彩带的11/20。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 176,
+  "completion_tokens": 143,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2001.9027999951504,
+ "ttft_ms": 2001.9202000112273,
+ "total_ms": 5987.837399996351
+}

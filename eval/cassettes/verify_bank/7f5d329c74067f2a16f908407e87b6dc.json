@@ -1,0 +1,18 @@
+{
+ "key": "7f5d329c74067f2a16f908407e87b6dc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"钢笔每支9元，买5支花9×5=45元。剩下101-45=65元。铅笔每支2元，用剩下的钱买铅笔：65÷2=9/2（支）。答：可以买9/2支。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 166,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1122.1414000028744,
+ "ttft_ms": 1122.1534000360407,
+ "total_ms": 2395.360900030937
+}

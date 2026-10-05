@@ -1,0 +1,18 @@
+{
+ "key": "5060aeb2b00dd76b976699e11050e3a2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"4加5等于9。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need produce final JSON only. Problem: grade 1, 4+5=. Answer 9. Need work brief. Ensure JSON valid. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 347,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 39
+ },
+ "ttfb_ms": 2285.0527000264265,
+ "ttft_ms": 2285.0805000052787,
+ "total_ms": 5167.4888000125065
+}

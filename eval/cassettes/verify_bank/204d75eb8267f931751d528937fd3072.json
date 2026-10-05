@@ -1,0 +1,18 @@
+{
+ "key": "204d75eb8267f931751d528937fd3072",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"越野赛跑的全程总量为4641，其中已经录入的占1/3，其余部分为还没录入的。求还没录入的的数量是多少？已知参赛人数为3.5个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 121,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1291.5635000099428,
+ "ttft_ms": 1291.5863000089303,
+ "total_ms": 2094.76970002288
+}

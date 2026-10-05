@@ -1,0 +1,18 @@
+{
+ "key": "d852f25d7ac91b3c0f63de839962334e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算括号里的加法：3.45 + 1.2 = 4.65；再算减法：8.45 - 4.65 = 3.8。\", \"answers\": [{\"label\": \"\", \"value\": \"3.8\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple arithmetic: 8.45 - (3.45 + 1.2). Need output JSON only. Let's compute: 3.45+1.2=4.65. 8.45-4.65=3.8. Could also use property 8.45-3.45-1.2=5-1.2=3.8. Need exact decimal 3.8. Grade 6. JSON with work, answers one value. ambiguous false.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 360,
+  "completion_tokens": 202,
+  "cached_tokens": 0,
+  "reasoning_tokens": 120
+ },
+ "ttfb_ms": 1605.332000006456,
+ "ttft_ms": 1605.3517000400461,
+ "total_ms": 6801.868700014893
+}

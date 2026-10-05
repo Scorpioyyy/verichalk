@@ -1,0 +1,18 @@
+{
+ "key": "ee2486baf8ba2bc430b36c58992c6aa1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"收入记为正，支出记为负。结余=收入+支出=2320+(-8946)=2320-8946。列竖式计算：个位0-6借位得4，十位2被借后剩1减4借位得7，百位3被借后剩2减9借位得3，千位2被借后剩1减8借位得6，结果为-6626。再除以5得-3313/5元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 173,
+  "completion_tokens": 120,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1331.092800013721,
+ "ttft_ms": 1331.1108000343665,
+ "total_ms": 3763.9867000398226
+}

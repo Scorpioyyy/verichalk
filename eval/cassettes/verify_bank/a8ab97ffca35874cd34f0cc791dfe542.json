@@ -1,0 +1,18 @@
+{
+ "key": "a8ab97ffca35874cd34f0cc791dfe542",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"已知 b = 7n + 5，当 b = 68 时，列方程：68 = 7n + 5。两边先减去 5，得 63 = 7n。再两边除以 7，得 n = 9。\", \"answers\": [{\"label\": \"n 是多少\", \"value\": \"9\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple equation b=7n+5, b=68 => 7n=63 => n=9. Need likely one answer. Ensure no extra text. Need maybe include work concise.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 386,
+  "completion_tokens": 151,
+  "cached_tokens": 0,
+  "reasoning_tokens": 50
+ },
+ "ttfb_ms": 1347.7796000079252,
+ "ttft_ms": 1347.7954000118189,
+ "total_ms": 4955.4115000064485
+}

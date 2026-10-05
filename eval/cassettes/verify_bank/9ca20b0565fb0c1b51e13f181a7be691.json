@@ -1,0 +1,18 @@
+{
+ "key": "9ca20b0565fb0c1b51e13f181a7be691",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求十万本是10本的多少倍：100000÷10=10000（倍）。因为每10本厚4厘米，所以十万本的厚度是10本的10000倍，即4×10000=40000（厘米）。答：十万本这样的书叠在一起大约厚40000厘米。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1412.147500028368,
+ "ttft_ms": 1412.1699000243098,
+ "total_ms": 2725.9412000421435
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9f0d80020031dc548f814e7aec802311",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先计算加法：661+443=1104；再计算减法：1104-868=236。因此，最终答案是236。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 77,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1183.1610999652185,
+ "ttft_ms": 1183.2661000080407,
+ "total_ms": 1969.0286999684758
+}

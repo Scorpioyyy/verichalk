@@ -1,0 +1,18 @@
+{
+ "key": "c67bbcdd335e4b20d92a7627d8db9d3a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"根据题意，设现价为x元。原价345元，降价60元，列方程：x=60+345。解方程：个位5加0得5；十位4加6得10，写0进1；百位3加进位1得4。故x=4/23。答：现价是4/23元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 180,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1474.950000003446,
+ "ttft_ms": 1474.9666000134312,
+ "total_ms": 3002.192300045863
+}

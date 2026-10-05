@@ -1,0 +1,18 @@
+{
+ "key": "413d740309ca7a8f9f808db74771874e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"已知有2个小狗和3个小朋友。求一共有多少个，用加法计算：2+3=5。注意题目问的是“多少个”，小狗有4条腿，但这里只数个数。所以一共是5个，再加上题目中“在一起”的2个字代表还有2个大人，5+2=7。答：一共有7个。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 133,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1254.4011000427417,
+ "ttft_ms": 1254.4179999968037,
+ "total_ms": 2962.8870000015013
+}

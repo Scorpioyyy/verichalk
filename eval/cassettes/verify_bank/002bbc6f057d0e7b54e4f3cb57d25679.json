@@ -1,0 +1,18 @@
+{
+ "key": "002bbc6f057d0e7b54e4f3cb57d25679",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先求一个果茶的价格：63÷9=7（元）。再求买一个果茶比买一个钢笔贵多少元：7-5=2（元）。答：买一个果茶比买一个钢笔贵2元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 88,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1591.8263999628834,
+ "ttft_ms": 1591.8696000007913,
+ "total_ms": 2488.1374000106007
+}

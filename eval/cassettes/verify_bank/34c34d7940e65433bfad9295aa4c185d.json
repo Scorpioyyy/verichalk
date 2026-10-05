@@ -1,0 +1,18 @@
+{
+ "key": "34c34d7940e65433bfad9295aa4c185d",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"三角形内角和为180°。已知两个内角分别是22°和70°，所以∠3=180°-22°-70°=88°。\", \"answers\": [{\"label\": \"∠3\", \"value\": \"88\", \"unit\": \"°\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON only. Need solve simple triangle angle sum. Need produce final JSON. Need ensure answers maybe one. work concise. Triangle interior angles sum 180. ∠3 = 180 - 22 - 70 = 88 degrees. No ambiguity.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 374,
+  "completion_tokens": 153,
+  "cached_tokens": 0,
+  "reasoning_tokens": 63
+ },
+ "ttfb_ms": 1489.1802999773063,
+ "ttft_ms": 1489.1993000055663,
+ "total_ms": 5945.904199965298
+}

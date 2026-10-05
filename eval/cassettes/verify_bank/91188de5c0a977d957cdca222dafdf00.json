@@ -1,0 +1,18 @@
+{
+ "key": "91188de5c0a977d957cdca222dafdf00",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"小花的体重是9.32米，小黑比小花近4.84米。请问小黑的体重是多少米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 114,
+  "completion_tokens": 32,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1352.0758000086062,
+ "ttft_ms": 1352.096699993126,
+ "total_ms": 1886.1670999904163
+}

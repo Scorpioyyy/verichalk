@@ -1,0 +1,18 @@
+{
+ "key": "ec825b6f75f79778c1512e49db66508e",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\": \"轴对称图形是指沿一条直线对折后，两侧能完全重合的图形。蜻蜓的身体左右两侧形状、大小相同，沿身体中线对折可以完全重合，因此蜻蜓是轴对称图形。答案为：对。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 74,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1334.7991000046022,
+ "ttft_ms": 1334.821500000544,
+ "total_ms": 2195.4389000311494
+}

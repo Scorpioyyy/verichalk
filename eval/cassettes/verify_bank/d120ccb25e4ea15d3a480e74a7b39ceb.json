@@ -1,0 +1,18 @@
+{
+ "key": "d120ccb25e4ea15d3a480e74a7b39ceb",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"计算：8.45 - (3.45)\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 86,
+  "completion_tokens": 18,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1487.0543000288308,
+ "ttft_ms": 1487.0738000026904,
+ "total_ms": 1803.8817000342533
+}

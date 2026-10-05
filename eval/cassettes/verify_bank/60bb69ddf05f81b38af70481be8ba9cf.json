@@ -1,0 +1,18 @@
+{
+ "key": "60bb69ddf05f81b38af70481be8ba9cf",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"先算6+5=11，再算11-3=8。\", \"answers\": [{\"label\": \"\", \"value\": \"8\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple arithmetic. Need ensure final only JSON. Problem: 6+5-3 = 8. Grade 1. One answer. work brief. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 2517.7667000098154,
+ "ttft_ms": 2517.7855999791063,
+ "total_ms": 6576.450399996247
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a2c159e7fee5b5d0b00bf9a4a8ffaf1a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"学校图书馆共有4个书架。先观察其中一个书架，发现它包含6个排，每个排里大约有25个商品。如果每个书架里的商品数量大致相同，请估计这0.5个书架里大约一共有多少个商品？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 136,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1290.967200009618,
+ "ttft_ms": 1290.9882999956608,
+ "total_ms": 2141.9607999850996
+}

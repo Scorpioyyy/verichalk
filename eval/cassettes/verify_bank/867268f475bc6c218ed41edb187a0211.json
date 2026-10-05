@@ -1,0 +1,18 @@
+{
+ "key": "867268f475bc6c218ed41edb187a0211",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"设每箱苹果x元，则每箱梨2x元。根据题意列方程：x + 4×2x = 306，即x + 8x = 306，9x = 306，解得x = 34。因此每箱苹果34元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 107,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1348.6645999946631,
+ "ttft_ms": 1348.6941999872215,
+ "total_ms": 2390.77769999858
+}

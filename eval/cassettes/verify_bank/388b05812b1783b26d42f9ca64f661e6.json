@@ -1,0 +1,18 @@
+{
+ "key": "388b05812b1783b26d42f9ca64f661e6",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"99°大于90°且小于180°，是一个钝角。三角形中只要有一个角是钝角，它就是钝角三角形。因此说法正确。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve: judge statement: In a triangle, known one angle is 99°, this triangle must be obtuse triangle. Grade 4. Definition: obtuse triangle has one angle >90°. Since 99° > 90°, yes. Need output judgment \"对\". Ensure JSON. Could mention triangle angle sum not needed but okay. answers value \"对\". ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 162,
+  "cached_tokens": 0,
+  "reasoning_tokens": 88
+ },
+ "ttfb_ms": 1413.5142000159249,
+ "ttft_ms": 1413.5266999946907,
+ "total_ms": 6257.890400011092
+}

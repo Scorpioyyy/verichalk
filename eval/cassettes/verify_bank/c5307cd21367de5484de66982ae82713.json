@@ -1,0 +1,18 @@
+{
+ "key": "c5307cd21367de5484de66982ae82713",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"淘气沿着五边形形状的植物园边缘走，经过的长度分别是992米、412米、751米、584米和143米。淘气一共走了多少米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 115,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2356.860100000631,
+ "ttft_ms": 2356.876000005286,
+ "total_ms": 3177.6539999991655
+}

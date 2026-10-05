@@ -1,0 +1,18 @@
+{
+ "key": "a09d28ec2902c02c503bbcbd9828bc76",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"圆木横截面呈梯形排列，可用梯形面积公式求总数。最上层4根为上底，最下层13根为下底，共10层为高。总根数=(上底+下底)×高÷2=(4+13)×10÷2=17×5=85（根）。答：这堆圆木一共有85根。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 108,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5158.631299971603,
+ "ttft_ms": 5158.641899994109,
+ "total_ms": 6314.523599983659
+}

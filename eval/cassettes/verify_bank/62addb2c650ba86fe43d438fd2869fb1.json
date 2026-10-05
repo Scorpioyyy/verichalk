@@ -1,0 +1,18 @@
+{
+ "key": "62addb2c650ba86fe43d438fd2869fb1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"每个跳绳21元，买3个就是3个21相加，用乘法计算：21×3=63。\", \"answers\": [{\"label\": \"\", \"value\": \"63\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve simple grade 3: 21 yuan each, buy 3, total 21*3=63 yuan. Need perhaps work concise. Ensure no extra text. JSON with answers one item maybe label empty. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 126,
+  "cached_tokens": 0,
+  "reasoning_tokens": 57
+ },
+ "ttfb_ms": 1525.1105000497773,
+ "ttft_ms": 1525.1253000460565,
+ "total_ms": 5345.936800003983
+}

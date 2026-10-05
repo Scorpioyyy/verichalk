@@ -1,0 +1,18 @@
+{
+ "key": "885d4cf6266e380c3ec1a519c7e6e7d1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"总人数：12+10=22人。小船每条能坐5-3=2人。22÷2=11条。\", \"answers\": [{\"label\": \"需要几条小船\", \"value\": \"11\", \"unit\": \"条\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in Chinese JSON. Need solve grade 3 math. Let's parse: 12 boys and 10 girls go boating. Total people =22. Each big boat sits 5. Each small boat sits 3 fewer than big boat => 2 people. If all sit small boats, how many boats needed? 22 / 2 = 11. Need 11 boats. Check if any ambiguity? No. Need output JSON only. Work concise. answers one item maybe label empty. Ensure exact integer.\n",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 382,
+  "completion_tokens": 191,
+  "cached_tokens": 0,
+  "reasoning_tokens": 113
+ },
+ "ttfb_ms": 1947.5995000102557,
+ "ttft_ms": 1947.612299991306,
+ "total_ms": 7428.878100006841
+}

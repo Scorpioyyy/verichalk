@@ -1,0 +1,18 @@
+{
+ "key": "a6e744c1cf0370a54be1009e1a52e992",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"城市水资源调查中，供水不足的城市的数量是苹果总产量的2/5，燕子的数量又是供水不足的城市的1/5。求燕子有多少人？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 109,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1543.2948999805376,
+ "ttft_ms": 1543.3150000171736,
+ "total_ms": 2096.190900017973
+}

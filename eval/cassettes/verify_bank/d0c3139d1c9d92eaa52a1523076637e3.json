@@ -1,0 +1,18 @@
+{
+ "key": "d0c3139d1c9d92eaa52a1523076637e3",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"方程 4z=240，两边同时除以4，得 z=240÷4=60。\", \"answers\": [{\"label\": \"z\", \"value\": \"60\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple equation 4z=240 for grade 4. Output JSON only. Need maybe work: 两边除以4, z=60. answers one. ambiguous false. Ensure JSON valid.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 51
+ },
+ "ttfb_ms": 2267.5695000216365,
+ "ttft_ms": 2267.589900002349,
+ "total_ms": 5664.851900015492
+}

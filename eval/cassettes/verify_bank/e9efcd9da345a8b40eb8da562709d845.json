@@ -1,0 +1,18 @@
+{
+ "key": "e9efcd9da345a8b40eb8da562709d845",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"底面半径r=20÷2=10cm。侧面积=π×d×h=3.14×20×7=439.6cm²。两个底面积=2×π×r²=2×3.14×100=628cm²。表面积=侧面积+底面积=439.6+628=10676cm²。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 146,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1162.8994999919087,
+ "ttft_ms": 1162.9318000050262,
+ "total_ms": 2738.8004999957047
+}

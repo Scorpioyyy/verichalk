@@ -1,0 +1,18 @@
+{
+ "key": "ea2f3f94e76a584a5fc2c87993f15d53",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"将各项费用相加：780+752+780+311+141+790=3554（元）。因此，这次旅行的总费用是3554元。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 152,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1719.6876000380144,
+ "ttft_ms": 1719.7186999837868,
+ "total_ms": 2657.0029000286013
+}

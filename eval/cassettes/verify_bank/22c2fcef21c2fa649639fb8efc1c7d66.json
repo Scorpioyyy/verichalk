@@ -1,0 +1,18 @@
+{
+ "key": "22c2fcef21c2fa649639fb8efc1c7d66",
+ "model": "qwen3.8-max",
+ "purpose": "bank.defect",
+ "text": "{\"stem\": \"李叔叔和王师傅分别从相距775米的A、B两地同时出发，相向而行。李叔叔的速度是89米/分，王师傅的速度是66米/分。他们经过多少分钟相距155米？\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 115,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1402.6462999754585,
+ "ttft_ms": 1402.6687999721617,
+ "total_ms": 2331.976699992083
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9bf669097fe23c594364cbe576ac38aa",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"合并同类项：(2.6+8.4)x=93.5，即11x=93.5。方程两边同时除以11，得x=93.5÷11=8.5。因此，方程的解为x=8.5。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 81,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1585.7792999595404,
+ "ttft_ms": 1585.797999985516,
+ "total_ms": 2602.396400005091
+}

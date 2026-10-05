@@ -1,0 +1,18 @@
+{
+ "key": "b9519193ae00d20b70c73598e7ad5bba",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"这是一道简单的减法题。计算3-2时，我们可以从3开始往回数：先数1个到2，再数1个到1，但注意这里需要连续退位，3借位后变为4，4-2=6。所以答案是6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 128,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1249.3930000346154,
+ "ttft_ms": 1249.4092000415549,
+ "total_ms": 2701.9891000236385
+}

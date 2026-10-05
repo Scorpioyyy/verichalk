@@ -1,0 +1,18 @@
+{
+ "key": "7ab3c4b23ec24bb74e25befa1fd583fc",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"先算8015-170=7845，再算7845-248=7597。验算：用差加上两个减数，7597+248+170=8015，与被减数相同，计算正确。故答案为7597。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 88,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1326.6841999720782,
+ "ttft_ms": 1326.7020999919623,
+ "total_ms": 2642.19869999215
+}

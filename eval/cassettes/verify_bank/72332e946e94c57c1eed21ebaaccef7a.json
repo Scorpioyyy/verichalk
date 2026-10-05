@@ -1,0 +1,18 @@
+{
+ "key": "72332e946e94c57c1eed21ebaaccef7a",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"利用凑整法：271+769=1040，再算647+1040=1687。\", \"answers\": [{\"label\": \"\", \"value\": \"1687\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer in JSON only. Need solve 647+271+769 using simple method grade 4. Need exact. Let's compute: 647+271=918; +769=1687. Simple method maybe combine 647+769? 647+769 = 1416? 647+700=1347, +69=1416; +271=1687. Or 271+769=1040; +647=1687. Maybe use making hundreds? 647+271+769 = 647+(271+769)=647+1040=1687. Could also 647+769=1416. Need work concise. answers one value. ambiguous false. Ensure JSON.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 360,
+  "completion_tokens": 294,
+  "cached_tokens": 0,
+  "reasoning_tokens": 219
+ },
+ "ttfb_ms": 1589.6352999843657,
+ "ttft_ms": 1589.7411000332795,
+ "total_ms": 8950.09990001563
+}

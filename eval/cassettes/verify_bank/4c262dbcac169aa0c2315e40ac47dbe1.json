@@ -1,0 +1,18 @@
+{
+ "key": "4c262dbcac169aa0c2315e40ac47dbe1",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"要求总苹果数，用每筐个数乘筐数：68×84。先算68×4=272，再算68×80=5440（注：68×8=544，添0得5440），最后相加：272+5440=5722。答：一共采摘了5722个苹果。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 149,
+  "completion_tokens": 95,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1417.239399976097,
+ "ttft_ms": 1417.2621999750845,
+ "total_ms": 2943.0490999948233
+}

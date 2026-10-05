@@ -1,0 +1,18 @@
+{
+ "key": "6950c43af0ab58ee9f989c6b98df42fd",
+ "model": "qwen3.8-max",
+ "purpose": "bank.solution",
+ "text": "{\"solution\":\"求27和33的最大公因数。27的因数有1、3、9、27；33的因数有1、3、11、33。它们的公因数是1和3，其中最大的是3。因此密码是3。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 92,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1564.575100026559,
+ "ttft_ms": 1564.594199997373,
+ "total_ms": 2537.614599976223
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d68a626a2255894ada635718360acad2",
+ "model": "qwen3.8-max",
+ "purpose": "bank.audit",
+ "text": "{\"work\": \"42减20：个位2减0得2，十位4减2得2，所以结果是22。\", \"answers\": [{\"label\": \"\", \"value\": \"22\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "We need answer user's request. Need solve simple grade 1 vertical calculation 42-20. Need output JSON only. Need ensure answers maybe one value 22. Work brief. ambiguous false.",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 109,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+ },
+ "ttfb_ms": 1649.1486000013538,
+ "ttft_ms": 1649.1717000026256,
+ "total_ms": 5795.403099968098
+}

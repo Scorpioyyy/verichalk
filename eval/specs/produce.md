@@ -129,6 +129,7 @@
 | 端到端 + 审计 + 朴素基线 + 教师偏好 | `… produce --naive …`（去掉 `--no-audit`） | 15～30 分钟，里程碑才用 |
 | 核验器在 VerifyBank / BoundaryBank 上 | `python -m verichalk.eval verify --bank answers|boundary --role solver=模型:think` | 几分钟 |
 | 累计花费 | `python scripts/spend.py` | |
+| **切换链路** | `--pipeline classic`（默认，mid1 稳定链路）/ `--pipeline design`（好题设计）；单项 `--on` / `--off`；环境变量 `VERICHALK_PIPELINE` | 见 design.md D41 |
 注意：同时跑多个探针会抢全局并发（`llm_concurrency`），单题耗时被夸大，不是产品延迟。
 
 **已验证的设计决策**：见 [design.md D33～D38](../../docs/design.md)。关键事实：①写题 qwen3.7-plus（与 qwen3.8-max 无差别，价格 1/6）；②盲解 / 抽取用 deepseek-v4.1-flash 非思考；③单题 45 秒预算、修复 1 次 + 重写 1 次、丢弃后补题一轮；④`template` 路径要为题生成具体解析（`produce.explain`）并只用主知识点匹配的题型；⑤算式 / 方程答案按值 / 解比较（`verify/expr.py`）。

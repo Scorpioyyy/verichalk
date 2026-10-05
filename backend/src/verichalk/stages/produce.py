@@ -188,7 +188,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     tier=spec.tier.value,
                     grade=inp.grade,
                     lesson_id=inp.lesson_id,
-                    target_difficulty=spec.difficulty,
+                    target_difficulty=spec.difficulty if feats.enabled("produce.difficulty_check") else None,
                 )
                 ver = await verify_item(env, vin, feats)
                 if ver.status != VerifyStatus.rejected:
@@ -240,7 +240,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             for k, n in zip(spec.kp_ids, spec.kp_names, strict=False)
             if k in spec.roles
         ]
+        dp = ctx.settings.features.enabled("produce.design_prompt")
         built = get_prompt("produce.write").render(
+            stable={"design_mode": dp},
             dynamic={
                 "grade_text": f"{_GRADE_CN.get(inp.grade or 0, '')}年级" if inp.grade else "小学",
                 "tier_cn": _TIER_CN[spec.tier],
@@ -251,15 +253,15 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                 "scene": spec.scene,
                 "scene_hint": spec.scene_hint,
                 "angle": spec.angle,
-                "design": spec.design,
-                "target_error": spec.target_error,
-                "difficulty_rule": _DIFFICULTY_RULE.get(min(max(spec.difficulty, 1), 5), ""),
+                "design": spec.design if dp else "",
+                "target_error": spec.target_error if dp else "",
+                "difficulty_rule": _DIFFICULTY_RULE.get(min(max(spec.difficulty, 1), 5), "") if dp else "",
                 "number_hint": spec.number_hint,
                 "constraints": inp.constraints,
                 "examples": examples,
                 "avoid": inp.avoid,
                 "repair": repair,
-            }
+            },
         )
         out, _ = await complete_json(
             ctx.llm,

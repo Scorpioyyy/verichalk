@@ -132,3 +132,27 @@ async def test_ablation_report_renders_variants(tmp_path):
     assert list(res) == ["all-on", "A/A 噪声参照", "off:warmup"]
     assert "| all-on |" in md and "| off:warmup |" in md and "判定规则" in md and "噪声底" in md
     assert res["off:warmup"].settings.features.describe() == "关闭：warmup"
+
+
+def test_pipeline_presets_and_opt_in_flags() -> None:
+    """classic 是默认链路（选择性开关全部关闭）；design 预设一键开启它们；`on` 单独开启，`off` 优先。"""
+    from verichalk.core.features import DESIGN_FLAGS
+
+    assert DESIGN_FLAGS == {
+        "plan.design",
+        "produce.design_prompt",
+        "produce.difficulty_check",
+        "plan.cross_unit",
+    }
+    classic = FeatureFlags.parse("")
+    assert not any(classic.enabled(f) for f in DESIGN_FLAGS)
+    assert classic.enabled("produce.blind_solve")  # 普通开关默认开启
+    design = FeatureFlags.parse("", pipeline="design")
+    assert all(design.enabled(f) for f in DESIGN_FLAGS)
+    assert not FeatureFlags.parse("plan.cross_unit", pipeline="design").enabled(
+        "plan.cross_unit"
+    )  # 二分：关掉其一
+    one = FeatureFlags.parse("", "plan.design")
+    assert one.enabled("plan.design") and not one.enabled("produce.design_prompt")
+    with pytest.raises(ConfigError):
+        FeatureFlags.parse("", pipeline="nope")

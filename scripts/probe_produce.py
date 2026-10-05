@@ -138,6 +138,8 @@ async def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("texts", nargs="*")
     ap.add_argument("--off", default="")
+    ap.add_argument("--on", default="")
+    ap.add_argument("--pipeline", default="classic", choices=["classic", "design"], help="链路预设（默认 classic）")
     ap.add_argument("--n", type=int, default=0, help="每个请求只跑前 n 道")
     ap.add_argument("--show", default="", help="打印这些题型的每次写题内容，如 choice")
     ap.add_argument("--quiet", action="store_true")
@@ -166,7 +168,7 @@ async def main() -> None:
             Path(args.file).read_text(encoding="utf-8")
         )
     SHOW.update(x for x in args.show.split(",") if x)
-    s = Settings(profile=Profile.intl, llm_mode=LLMMode.live, off=args.off)
+    s = Settings(profile=Profile.intl, llm_mode=LLMMode.live, off=args.off, on=args.on, pipeline=args.pipeline)
     if args.conc:
         s = s.model_copy(update={"item_concurrency": args.conc})
     c = await build_container(s, store=await Store.open(":memory:"))

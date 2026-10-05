@@ -194,6 +194,8 @@ def cmd_produce(args: argparse.Namespace) -> int:
         llm_mode=mode,
         cassette_namespace=args.cassette_ns or "produce",
         off=args.off,
+        on=args.on,
+        pipeline=args.pipeline,
         llm_concurrency=args.concurrency * 2,
     )
     root = settings.root_dir
@@ -336,6 +338,13 @@ def main() -> None:
     pr.add_argument("--limit", type=int, default=0)
     pr.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
     pr.add_argument("--off", default="", help="关闭的特性开关（消融用）")
+    pr.add_argument("--on", default="", help="额外开启的选择性开关")
+    pr.add_argument(
+        "--pipeline",
+        default="classic",
+        choices=["classic", "design"],
+        help="链路预设：classic（默认，mid1 稳定链路）| design（好题设计）",
+    )
     pr.add_argument("--naive", action="store_true")
     pr.add_argument(
         "--no-audit", action="store_true", help="跳过审计（只看交付数 / 延迟 / 成本 / 修复，快速迭代用）"

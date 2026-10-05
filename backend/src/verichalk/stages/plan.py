@@ -158,7 +158,14 @@ class PlanStage(Stage[PlanIn, Blueprint]):
         scope = await resolve_scope(brief, ctx.kb)
         g = await ctx.kb.graph()
         miner = ComboMiner(g, ComboWeights.load(ctx.settings.config_dir))
-        draft = await build_draft(brief, ctx.kb, miner, scope, use_miner=feats.enabled("plan.combo_miner"))
+        draft = await build_draft(
+            brief,
+            ctx.kb,
+            miner,
+            scope,
+            use_miner=feats.enabled("plan.combo_miner"),
+            cross_unit=feats.enabled("plan.cross_unit"),
+        )
         await trace.retrieval(retrieval_payload(g, scope, draft))
         if not feats.enabled("plan.llm") or not draft.blueprint.items:
             return draft.blueprint
@@ -178,7 +185,8 @@ class PlanStage(Stage[PlanIn, Blueprint]):
             {k for it in bp.items for k in it.kp_ids}
             | {k for al in draft.alts.values() for c in al for k in c.kp_ids}
         )
-        details = {d.id: d for d in await asyncio.gather(*(ctx.kb.kp(k) for k in kp_ids))}
+        design = ctx.settings.features.enabled("plan.design")  # classic 链路不读知识点详情、不设计考法结构
+        details = {d.id: d for d in await asyncio.gather(*(ctx.kb.kp(k) for k in kp_ids))} if design else {}
         items = []
         for it in bp.items:
             alts = [
@@ -198,6 +206,7 @@ class PlanStage(Stage[PlanIn, Blueprint]):
                     "tier_cn": _TIER_CN[it.tier],
                     "difficulty": it.difficulty,
                     "kind_cn": _KIND_CN[it.kind],
+                    "kps": "、".join(it.kp_names),
                     "kp_info": [
                         {
                             "name": details[k].name,
@@ -214,7 +223,7 @@ class PlanStage(Stage[PlanIn, Blueprint]):
                 }
             )
         grade = bp.grade
-        built = get_prompt("plan.ideate").render(
+        built = get_prompt("plan.ideate" if design else "plan.ideate_classic").render(
             dynamic={
                 "grade_text": f"{_GRADE_CN.get(grade or 0, '')}年级" if grade else "小学",
                 "number_hint": draft.blueprint.items[0].number_hint if bp.items else "",

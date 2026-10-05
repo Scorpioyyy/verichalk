@@ -60,6 +60,8 @@ class Settings(BaseSettings):
     run_budget_cost: float = 8.0  # 以价格表币种计（默认人民币元）
 
     off: str = ""  # 关闭的特性开关，逗号分隔（消融实验用，见 core/features.py）
+    on: str = ""  # 选择性开启的特性开关，逗号分隔
+    pipeline: str = "classic"  # 链路预设：classic（M3 中期验证过的稳定链路，默认）| design（叠加"好题设计"开关）；环境变量 VERICHALK_PIPELINE
     warmup_ttl_s: float = 240.0  # 预热的有效期：期内重复触发不再发请求（前缀缓存有存活时间）
 
     log_level: str = "INFO"
@@ -68,7 +70,7 @@ class Settings(BaseSettings):
 
     @cached_property
     def features(self) -> FeatureFlags:
-        return FeatureFlags.parse(self.off)
+        return FeatureFlags.parse(self.off, self.on, self.pipeline)
 
     @cached_property
     def root_dir(self) -> Path:

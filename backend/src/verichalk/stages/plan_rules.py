@@ -152,7 +152,13 @@ def _pick_scene(cands: list[str], used: Counter[str]) -> str:
 
 
 async def build_draft(
-    brief: Brief, kb: KnowledgeService, miner: ComboMiner, scope: ScopeInfo, *, use_miner: bool = True
+    brief: Brief,
+    kb: KnowledgeService,
+    miner: ComboMiner,
+    scope: ScopeInfo,
+    *,
+    use_miner: bool = True,
+    cross_unit: bool = False,
 ) -> Draft:
     g: GraphData = await kb.graph()
     count = brief.count.value if brief.count else 5
@@ -204,9 +210,11 @@ async def build_draft(
         units = set(brief.scope.units.value)
         combo_scope = {k for k in combo_scope if g.nodes[k].unit_id in units} or combo_scope
     # 先验：范围是整学期 / 整年级、没点名知识点也没限定单元时，综合题默认跨单元（区统考考的正是单元之间的综合）
-    broad = not scope.anchors and not brief.scope.units
+    broad = cross_unit and not scope.anchors and not brief.scope.units  # 由 `plan.cross_unit` 开关控制
     n_integrated = sum(1 for t in sequence if t == Tier.integrated)
-    anchor_cycle = scope.anchors or (_evenly(pool, n_integrated) if n_integrated else pool) or pool
+    anchor_cycle = (
+        scope.anchors or (_evenly(pool, n_integrated) if (n_integrated and broad) else pool) or pool
+    )
     book_scope = {  # 本学期的知识点：整学期综合的搭档优先从这里取，不够再放宽到更早的内容
         k
         for k in combo_scope

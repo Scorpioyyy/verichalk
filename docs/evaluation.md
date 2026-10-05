@@ -132,3 +132,15 @@ Badcase 记录：`id`、来源（run_id 或评测用例）、输入、观察到�
 ## 8. 阶段评测规格清单
 
 按里程碑逐个写入 `eval/specs/`：`m1_infra.md`（网关 / trace / 沙箱 / 指标计算的不变量与基线）、`understand.md`、`perceive.md`、`plan.md`、`produce.md`、`edit.md`、`export.md`、`e2e.md`。每份遵循 [CLAUDE.md](../CLAUDE.md) §2 第 1 条的五段结构；写完并跑出基线之后才开始该阶段的实现。
+
+## 9. 消融实验（拒绝盲目堆砌复杂度）
+
+**原则**：Agent 里每一个会增加延迟、成本或代码复杂度的模块，都必须用消融实验证明自己值得存在。
+
+- **可关闭**：每个模块（提示词策略、检索环节、核验检查、预热、修复循环等）在 `core/features.py` 注册为一个**特性开关**（名称、说明、默认开）；关闭后系统必须仍能运行（降级到更简单的做法）。
+- **运行方式**：`python -m verichalk.eval run --suite core --off <flag>[,<flag>]`；`python -m verichalk.eval ablate --suite core --flags a,b,c` 依次跑"全开"与"逐项关闭"，输出对照表（北极星、闸门、延迟、成本、缓存命中的变化及置信区间）。报告头部会写明被关闭的开关。
+- **噪声控制**：每次消融先跑一遍丢弃的预热轮（消除进程级一次性初始化造成的顺序假象），并自动加入一行 **A/A 噪声参照**（同一配置重复运行）；变体与全开的差异必须明显大于 A/A 的差异才可信。
+- **判定**：关闭后若**质量指标无显著下降**（置信区间包含 0），且延迟或成本更优，则该模块**应当删除**；若质量下降但代价过高，需要记录权衡。结论写入 [design.md](design.md)（`D<n>`），附实验报告路径。
+- **何时做**：模块进入主路径的同一个里程碑内完成首轮消融；之后每次大改（模型、提示词）重跑受影响模块的消融。
+- **范围**：不仅是"功能开关"，也包括——提示词里各段内容（教材示例、边界约束、情境）、检索的各路信号（词法 / 向量 / 图扩展 / 跨点共现）、核验的各路检查（盲解、特征抽取、相似度）、修复循环次数、模型档位（smart → fast 能否降级）。
+- **初版清单**（随实现补全）：`warmup`（预热）、`retrieval.dense`、`plan.combo_miner`、`produce.blind_solve`、`produce.boundary_check`、`produce.novelty_check`、`produce.repair`、`context.textbook_examples`。

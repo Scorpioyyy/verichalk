@@ -70,3 +70,8 @@ class DebugRunDetail(BaseModel):
     run: Run
     metrics: RunMetrics
     n_events: int
+
+
+class WarmupOut(BaseModel):
+    state: str  # started | running | fresh | disabled
+    last_age_s: float | None = None

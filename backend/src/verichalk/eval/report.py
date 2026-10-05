@@ -48,6 +48,7 @@ def render_markdown(r: SuiteResult, *, models: dict[str, str], rev: str) -> str:
         "",
         f"- 时间：{ts}（用时 {r.duration_s:.1f}s）　提交：`{rev}`　profile：`{r.settings.profile.value}`　模式：`{r.settings.llm_mode.value}`",
         "- 模型角色：" + "，".join(f"{k}={v}" for k, v in models.items()),
+        f"- 特性开关：{r.settings.features.describe()}",
         "",
     ]
     L += [
@@ -108,6 +109,7 @@ def write_report(r: SuiteResult, out_dir: Path, *, models: dict[str, str], root:
         "profile": r.settings.profile.value,
         "mode": r.settings.llm_mode.value,
         "models": models,
+        "off": sorted(r.settings.features.off),
         "n_cases": len(r.cases),
         "case_pass": sum(1 for c in r.cases if c.passed),
         "success_rate": agg.success_rate.p,

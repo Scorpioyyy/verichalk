@@ -10,6 +10,7 @@ from ..llm import LLMGateway, build_gateway
 from ..store import Store
 from ..trace import EventBus
 from .manager import RunManager
+from .warmup import Warmer
 
 
 @dataclass
@@ -20,8 +21,10 @@ class Container:
     kb: KnowledgeService
     llm: LLMGateway
     manager: RunManager
+    warmer: Warmer
 
     async def close(self) -> None:
+        await self.warmer.wait()
         await self.manager.shutdown()
         await self.store.close()
 
@@ -40,4 +43,4 @@ async def build_container(
     llm = llm or build_gateway(settings)
     manager = RunManager(settings, store, bus, kb, llm)
     await manager.recover()
-    return Container(settings, store, bus, kb, llm, manager)
+    return Container(settings, store, bus, kb, llm, manager, Warmer(settings, llm))

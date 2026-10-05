@@ -21,6 +21,7 @@ from .schemas import (
     RunView,
     SessionState,
     TurnAccepted,
+    WarmupOut,
 )
 from .sse import event_stream
 from .uploads import save_uploads
@@ -42,6 +43,13 @@ async def health(c: ContainerDep) -> HealthOut:
         llm_mode=c.settings.llm_mode.value,
         models=c.llm.registry.models(),
     )
+
+
+@router.post("/warmup", response_model=WarmupOut)
+async def warmup(c: ContainerDep) -> WarmupOut:
+    """页面打开时由前端调用：后台预热模型连接与前缀缓存，立即返回；有效期内重复调用不会再发请求。"""
+    st = c.warmer.trigger()
+    return WarmupOut(state=st.state, last_age_s=st.last_age_s)
 
 
 # ---- 会话 ----

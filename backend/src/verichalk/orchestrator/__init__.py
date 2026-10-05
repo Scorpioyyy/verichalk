@@ -3,6 +3,7 @@
 from .container import Container, build_container
 from .manager import RunManager
 from .pipelines import DEFAULT_PIPELINE, PIPELINES, PipelineResult, TurnInput
+from .warmup import Warmer, WarmupStatus
 
 __all__ = [
     "DEFAULT_PIPELINE",
@@ -11,5 +12,7 @@ __all__ = [
     "PipelineResult",
     "RunManager",
     "TurnInput",
+    "Warmer",
+    "WarmupStatus",
     "build_container",
 ]

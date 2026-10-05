@@ -37,13 +37,13 @@ def test_event_schema_snapshot():
 
 def test_openapi_snapshot(store, kb_service):
     from verichalk.llm import build_gateway
-    from verichalk.orchestrator import Container, RunManager
+    from verichalk.orchestrator import Container, RunManager, Warmer
     from verichalk.trace import EventBus
 
     s = Settings()
     llm = build_gateway(s, transport=object())  # type: ignore[arg-type]
     bus = EventBus()
-    c = Container(s, store, bus, kb_service, llm, RunManager(s, store, bus, kb_service, llm))
+    c = Container(s, store, bus, kb_service, llm, RunManager(s, store, bus, kb_service, llm), Warmer(s, llm))
     app = create_app(s, container=c)
     _check("openapi.json", app.openapi())
     assert httpx  # 仅为保持导入（ASGI 测试在 test_api 中）

@@ -234,6 +234,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 - **缓存友好的提示词布局（E2）**：`PromptBuilder` 把提示固定为 `[静态系统提示 | 会话级稳定上下文 | 本次动态内容]` 三段，只允许在尾部追加；构建时记录每段 token 与"理论可命中前缀"，调用后与 `cached_tokens` 对比，得到前缀稳定度。工具定义、知识库指南、Schema 说明都放在静态段。
 - **提示词即资产**：`prompts/<阶段>/<名称>.md`，带 `id / version / role` 前置元数据；调用 span 记录 `prompt_id@version` 与哈希，评测报告按提示词版本分层。
 - **录制回放**：`mode = live | record | replay | replay_or_live`；键 = hash(model, 参数, messages)。单元 / 集成测试与回归评测用 `replay`，确定且零成本。
+- **预热**：服务启动与页面打开时，对每个已发布提示词的静态前缀发 `max_tokens=1` 的请求（`orchestrator/warmup.py`）。收益经消融实验验证（D28）。
 - **治理**：并发信号量、429 退避、超时、单运行预算（token / 成本上限，超限触发降级）、价格表（`config/pricing.yaml`，输入未命中 / 命中 / 输出分开）。
 
 ## 8. 知识层（`knowledge/`）
@@ -277,6 +278,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 
 | 方法 | 路径 | 说明 |
 |---|---|---|
+| POST | `/api/warmup` | 页面打开时调用：后台预热模型连接与前缀缓存（特性开关 `warmup`，有效期内重复调用不发请求；D28） |
 | POST | `/api/sessions` | 新建匿名会话 |
 | GET | `/api/sessions/{id}` | 会话状态（消息、当前试卷、进行中的运行） |
 | POST | `/api/sessions/{id}/turns` | 提交一轮输入（multipart：文本 + 图片），返回 `run_id` |

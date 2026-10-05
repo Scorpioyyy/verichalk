@@ -2807,6 +2807,30 @@
     ],
     "title": "Visibility",
     "type": "string"
+   },
+   "WarmupOut": {
+    "properties": {
+     "last_age_s": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Last Age S"
+     },
+     "state": {
+      "title": "State",
+      "type": "string"
+     }
+    },
+    "required": [
+     "state"
+    ],
+    "title": "WarmupOut",
+    "type": "object"
    }
   }
  },
@@ -3545,6 +3569,25 @@
      }
     },
     "summary": "Post Turn"
+   }
+  },
+  "/api/warmup": {
+   "post": {
+    "description": "页面打开时由前端调用：后台预热模型连接与前缀缓存，立即返回；有效期内重复调用不会再发请求。",
+    "operationId": "warmup_api_warmup_post",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/WarmupOut"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Warmup"
    }
   }
  }

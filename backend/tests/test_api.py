@@ -12,7 +12,7 @@ from fakes import FakeTransport, content_chunks, usage
 from verichalk.api import create_app
 from verichalk.core.config import LLMMode, Settings
 from verichalk.llm import build_gateway
-from verichalk.orchestrator import Container, PipelineResult, RunManager
+from verichalk.orchestrator import Container, PipelineResult, RunManager, Warmer
 from verichalk.trace import EventBus
 
 
@@ -34,7 +34,7 @@ async def env(store, kb_service, tmp_path):
         )
         bus = EventBus()
         mgr = RunManager(settings, store, bus, kb_service, llm, pipelines)
-        c = Container(settings, store, bus, kb_service, llm, mgr)
+        c = Container(settings, store, bus, kb_service, llm, mgr, Warmer(settings, llm))
         holder["c"] = c
         app = create_app(settings, container=c)
         client = httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://test")

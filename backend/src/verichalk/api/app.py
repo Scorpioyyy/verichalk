@@ -35,6 +35,8 @@ def create_app(settings: Settings | None = None, *, container: Container | None 
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         owned = container is None
         app.state.container = container or await build_container(settings)
+        if owned:
+            app.state.container.warmer.trigger()  # 服务启动即预热（受特性开关 warmup 控制）
         try:
             yield
         finally:

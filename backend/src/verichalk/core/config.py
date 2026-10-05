@@ -11,6 +11,7 @@ from pydantic import BaseModel, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from .errors import ConfigError
+from .features import FeatureFlags
 from .paths import find_root
 
 
@@ -57,9 +58,16 @@ class Settings(BaseSettings):
     run_budget_tokens: int = 600_000
     run_budget_cost: float = 8.0  # 以价格表币种计（默认人民币元）
 
+    off: str = ""  # 关闭的特性开关，逗号分隔（消融实验用，见 core/features.py）
+    warmup_ttl_s: float = 240.0  # 预热的有效期：期内重复触发不再发请求（前缀缓存有存活时间）
+
     log_level: str = "INFO"
     cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
     upload_max_mb: int = 12
+
+    @cached_property
+    def features(self) -> FeatureFlags:
+        return FeatureFlags.parse(self.off)
 
     @cached_property
     def root_dir(self) -> Path:

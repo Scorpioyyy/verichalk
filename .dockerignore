@@ -1,0 +1,11 @@
+.git
+.github
+.env
+.env.*
+data
+tmp
+node_modules
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+eval/reports

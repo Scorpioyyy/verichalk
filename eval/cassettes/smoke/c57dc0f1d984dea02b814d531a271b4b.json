@@ -1,0 +1,18 @@
+{
+ "key": "c57dc0f1d984dea02b814d531a271b4b",
+ "model": "qwen3.8-flash",
+ "purpose": "diagnostic.reply",
+ "text": "好的，基于“三角形内角和”知识点，请计算：一个三角形的两个内角分别是 30° 和 60°，求第三个角的度数。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 89,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1075.0981000019237,
+ "ttft_ms": 1075.113600003533,
+ "total_ms": 1885.0381000083871
+}

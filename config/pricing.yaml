@@ -1,0 +1,10 @@
+# 价格表：元 / 百万 token（输入未命中、输入命中缓存、输出）。缺失的模型成本记为未知（None）。
+# 来源：阿里云百炼定价页（国内站，人民币）；新加坡站按美元计价，当前沿用同数值作估算，上线前以官方价核对。
+# 隐式缓存命中按未命中输入价的 20% 计费。
+currency: CNY
+cached_input_ratio: 0.2
+models:
+  qwen3.8-max:         { input: 12.0, output: 36.0 }
+  qwen3.7-plus:        { input: 2.0,  output: 8.0 }
+  qwen3.8-flash:       { input: 0.8,  output: 2.7 }
+  deepseek-v4.1-flash: { input: 1.0,  output: 2.0 }

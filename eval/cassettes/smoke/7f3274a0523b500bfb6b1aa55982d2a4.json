@@ -1,0 +1,18 @@
+{
+ "key": "7f3274a0523b500bfb6b1aa55982d2a4",
+ "model": "qwen3.8-flash",
+ "purpose": "diagnostic.reply",
+ "text": "已为您准备基于“小数加减混合运算”等知识点的四道进阶练习题。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 97,
+  "completion_tokens": 18,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1261.1237000091933,
+ "ttft_ms": 1261.153600004036,
+ "total_ms": 1563.6213999823667
+}

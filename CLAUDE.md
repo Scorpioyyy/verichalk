@@ -4,7 +4,7 @@
 
 VeriChalk 是面向小学数学教师的**可验证命题 Agent**：自然语言或练习册照片 → 不超纲、答案经核验、有新意的题目与试卷 → 在线编辑 → 导出。课程知识由独立项目 [ChalkBase](https://github.com/Scorpioyyy/chalkbase)（`pip install chalkbase`）提供。最终形态是前后端全栈服务，部署到 Zeabur。
 
-文档入口：[docs/prd.md](docs/prd.md)（做什么）→ [docs/metrics.md](docs/metrics.md)（怎样算做好）→ [docs/architecture.md](docs/architecture.md)（怎么搭）→ [docs/design.md](docs/design.md)（为什么这样）→ [docs/evaluation.md](docs/evaluation.md)（怎么评）→ [docs/roadmap.md](docs/roadmap.md)（节奏）。
+文档入口：[docs/brief.md](docs/brief.md)（项目委托书：需求来源）→ [docs/prd.md](docs/prd.md)（做什么）→ [docs/metrics.md](docs/metrics.md)（怎样算做好）→ [docs/architecture.md](docs/architecture.md)（怎么搭）→ [docs/design.md](docs/design.md)（为什么这样）→ [docs/evaluation.md](docs/evaluation.md)（怎么评）→ [docs/roadmap.md](docs/roadmap.md)（节奏）。
 
 ## 2. 工程原则
 

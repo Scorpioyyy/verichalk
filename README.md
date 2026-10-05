@@ -17,6 +17,7 @@
 
 | 文档 | 内容 |
 |---|---|
+| [docs/brief.md](docs/brief.md) | 项目委托书：目标、约束与工作方式要求（需求来源） |
 | [docs/prd.md](docs/prd.md) | 产品需求：用户、场景、原则、功能与验收 |
 | [docs/metrics.md](docs/metrics.md) | 指标体系 |
 | [docs/architecture.md](docs/architecture.md) | 分层架构、数据模型、事件协议、阶段、调试台 |

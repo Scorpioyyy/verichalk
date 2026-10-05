@@ -1,0 +1,18 @@
+{
+ "key": "584dc518d60a335a18046173d8c331b0",
+ "model": "qwen3.8-flash",
+ "purpose": "diagnostic.reply",
+ "text": "好的，那我们来试试“倍比递推估算”，看看你能否解决这个更具挑战性的问题。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 22,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 949.7305999975652,
+ "ttft_ms": 949.7493999660946,
+ "total_ms": 1466.6330999461934
+}

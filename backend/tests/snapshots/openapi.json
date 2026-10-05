@@ -1,0 +1,3551 @@
+{
+ "components": {
+  "schemas": {
+   "AggregateMetrics": {
+    "properties": {
+     "cache_hit_ratio": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cache Hit Ratio"
+     },
+     "cost_per_run": {
+      "$ref": "#/components/schemas/Quantiles"
+     },
+     "e2e_ms": {
+      "$ref": "#/components/schemas/Quantiles"
+     },
+     "first_feedback_ms": {
+      "$ref": "#/components/schemas/Quantiles"
+     },
+     "llm_calls_per_run": {
+      "$ref": "#/components/schemas/Quantiles"
+     },
+     "llm_error_rate": {
+      "$ref": "#/components/schemas/Proportion"
+     },
+     "n_runs": {
+      "title": "N Runs",
+      "type": "integer"
+     },
+     "schema_retry_rate": {
+      "$ref": "#/components/schemas/Proportion"
+     },
+     "success_rate": {
+      "$ref": "#/components/schemas/Proportion"
+     },
+     "tokens_per_run": {
+      "$ref": "#/components/schemas/Quantiles"
+     },
+     "trace_complete": {
+      "$ref": "#/components/schemas/Proportion"
+     }
+    },
+    "required": [
+     "n_runs",
+     "success_rate",
+     "trace_complete",
+     "e2e_ms",
+     "first_feedback_ms",
+     "cache_hit_ratio",
+     "cost_per_run",
+     "llm_calls_per_run",
+     "llm_error_rate",
+     "schema_retry_rate",
+     "tokens_per_run"
+    ],
+    "title": "AggregateMetrics",
+    "type": "object"
+   },
+   "AttachmentRef": {
+    "properties": {
+     "filename": {
+      "title": "Filename",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "mime": {
+      "title": "Mime",
+      "type": "string"
+     },
+     "sha256": {
+      "title": "Sha256",
+      "type": "string"
+     },
+     "size": {
+      "title": "Size",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "id",
+     "filename",
+     "mime",
+     "size",
+     "sha256"
+    ],
+    "title": "AttachmentRef",
+    "type": "object"
+   },
+   "Body_post_turn_api_sessions__session_id__turns_post": {
+    "properties": {
+     "images": {
+      "anyOf": [
+       {
+        "items": {
+         "contentMediaType": "application/octet-stream",
+         "type": "string"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Images"
+     },
+     "text": {
+      "default": "",
+      "title": "Text",
+      "type": "string"
+     }
+    },
+    "title": "Body_post_turn_api_sessions__session_id__turns_post",
+    "type": "object"
+   },
+   "CheckResult": {
+    "properties": {
+     "detail": {
+      "default": "",
+      "title": "Detail",
+      "type": "string"
+     },
+     "evidence": {
+      "additionalProperties": true,
+      "title": "Evidence",
+      "type": "object"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "status": {
+      "$ref": "#/components/schemas/CheckStatus"
+     }
+    },
+    "required": [
+     "name",
+     "status"
+    ],
+    "title": "CheckResult",
+    "type": "object"
+   },
+   "CheckStatus": {
+    "enum": [
+     "pass",
+     "warn",
+     "fail",
+     "skip"
+    ],
+    "title": "CheckStatus",
+    "type": "string"
+   },
+   "CheckpointAnswer": {
+    "properties": {
+     "answer": {
+      "additionalProperties": true,
+      "title": "Answer",
+      "type": "object"
+     }
+    },
+    "title": "CheckpointAnswer",
+    "type": "object"
+   },
+   "CheckpointRequested": {
+    "properties": {
+     "checkpoint_id": {
+      "title": "Checkpoint Id",
+      "type": "string"
+     },
+     "kind": {
+      "enum": [
+       "clarify",
+       "blueprint",
+       "samples",
+       "confirm"
+      ],
+      "title": "Kind",
+      "type": "string"
+     },
+     "options": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Options",
+      "type": "array"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+     },
+     "prompt": {
+      "title": "Prompt",
+      "type": "string"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "checkpoint.requested",
+      "default": "checkpoint.requested",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "checkpoint_id",
+     "kind",
+     "prompt"
+    ],
+    "title": "CheckpointRequested",
+    "type": "object"
+   },
+   "Combo": {
+    "description": "一个知识点组合候选（\"串联\"的单位）。",
+    "properties": {
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "rationale": {
+      "default": "",
+      "title": "Rationale",
+      "type": "string"
+     },
+     "score": {
+      "title": "Score",
+      "type": "number"
+     }
+    },
+    "required": [
+     "kp_ids",
+     "score"
+    ],
+    "title": "Combo",
+    "type": "object"
+   },
+   "DebugRunDetail": {
+    "properties": {
+     "metrics": {
+      "$ref": "#/components/schemas/RunMetrics"
+     },
+     "n_events": {
+      "title": "N Events",
+      "type": "integer"
+     },
+     "run": {
+      "$ref": "#/components/schemas/Run"
+     }
+    },
+    "required": [
+     "run",
+     "metrics",
+     "n_events"
+    ],
+    "title": "DebugRunDetail",
+    "type": "object"
+   },
+   "DebugRunItem": {
+    "properties": {
+     "metrics": {
+      "$ref": "#/components/schemas/RunMetrics"
+     },
+     "run": {
+      "$ref": "#/components/schemas/Run"
+     }
+    },
+    "required": [
+     "run",
+     "metrics"
+    ],
+    "title": "DebugRunItem",
+    "type": "object"
+   },
+   "ErrorInfo": {
+    "description": "可序列化的错误信息（进入事件与运行记录）。`message` 已脱敏；`user_message` 是教师语言。",
+    "properties": {
+     "code": {
+      "title": "Code",
+      "type": "string"
+     },
+     "details": {
+      "additionalProperties": true,
+      "title": "Details",
+      "type": "object"
+     },
+     "message": {
+      "default": "",
+      "title": "Message",
+      "type": "string"
+     },
+     "retryable": {
+      "default": false,
+      "title": "Retryable",
+      "type": "boolean"
+     },
+     "user_message": {
+      "default": "",
+      "title": "User Message",
+      "type": "string"
+     }
+    },
+    "required": [
+     "code"
+    ],
+    "title": "ErrorInfo",
+    "type": "object"
+   },
+   "FigureSpec": {
+    "description": "图形的结构化规格；渲染为 SVG（M6 细化各类型）。",
+    "properties": {
+     "alt": {
+      "default": "",
+      "title": "Alt",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "title": "Kind",
+      "type": "string"
+     },
+     "params": {
+      "additionalProperties": true,
+      "title": "Params",
+      "type": "object"
+     }
+    },
+    "required": [
+     "id",
+     "kind"
+    ],
+    "title": "FigureSpec",
+    "type": "object"
+   },
+   "GraphEdge": {
+    "properties": {
+     "source": {
+      "title": "Source",
+      "type": "string"
+     },
+     "target": {
+      "title": "Target",
+      "type": "string"
+     },
+     "type": {
+      "title": "Type",
+      "type": "string"
+     },
+     "weight": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Weight"
+     }
+    },
+    "required": [
+     "source",
+     "target",
+     "type"
+    ],
+    "title": "GraphEdge",
+    "type": "object"
+   },
+   "GraphNode": {
+    "description": "检索图中的节点（调试台\"图检索视图\"直接绘制）。",
+    "properties": {
+     "domain": {
+      "default": "",
+      "title": "Domain",
+      "type": "string"
+     },
+     "grade": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grade"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "note": {
+      "default": "",
+      "title": "Note",
+      "type": "string"
+     },
+     "role": {
+      "default": "candidate",
+      "enum": [
+       "anchor",
+       "candidate",
+       "selected",
+       "context"
+      ],
+      "title": "Role",
+      "type": "string"
+     },
+     "score": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Score"
+     },
+     "semester": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semester"
+     }
+    },
+    "required": [
+     "id",
+     "name"
+    ],
+    "title": "GraphNode",
+    "type": "object"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "title": "Detail",
+      "type": "array"
+     }
+    },
+    "title": "HTTPValidationError",
+    "type": "object"
+   },
+   "HealthOut": {
+    "properties": {
+     "chalkbase_version": {
+      "title": "Chalkbase Version",
+      "type": "string"
+     },
+     "data_version": {
+      "title": "Data Version",
+      "type": "string"
+     },
+     "llm_mode": {
+      "title": "Llm Mode",
+      "type": "string"
+     },
+     "models": {
+      "additionalProperties": {
+       "type": "string"
+      },
+      "title": "Models",
+      "type": "object"
+     },
+     "profile": {
+      "title": "Profile",
+      "type": "string"
+     },
+     "status": {
+      "default": "ok",
+      "title": "Status",
+      "type": "string"
+     },
+     "version": {
+      "title": "Version",
+      "type": "string"
+     }
+    },
+    "required": [
+     "version",
+     "chalkbase_version",
+     "data_version",
+     "profile",
+     "llm_mode"
+    ],
+    "title": "HealthOut",
+    "type": "object"
+   },
+   "Item": {
+    "properties": {
+     "answer": {
+      "default": "",
+      "title": "Answer",
+      "type": "string"
+     },
+     "answer_value": {
+      "anyOf": [
+       {},
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Answer Value"
+     },
+     "difficulty": {
+      "default": 3,
+      "title": "Difficulty",
+      "type": "integer"
+     },
+     "figures": {
+      "items": {
+       "$ref": "#/components/schemas/FigureSpec"
+      },
+      "title": "Figures",
+      "type": "array"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "$ref": "#/components/schemas/ItemKind"
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "options": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Options",
+      "type": "array"
+     },
+     "provenance": {
+      "$ref": "#/components/schemas/Provenance"
+     },
+     "rev": {
+      "default": 1,
+      "title": "Rev",
+      "type": "integer"
+     },
+     "score": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Score"
+     },
+     "solution": {
+      "default": "",
+      "title": "Solution",
+      "type": "string"
+     },
+     "stem": {
+      "title": "Stem",
+      "type": "string"
+     },
+     "tier": {
+      "$ref": "#/components/schemas/Tier",
+      "default": "consolidate"
+     },
+     "verification": {
+      "$ref": "#/components/schemas/Verification"
+     }
+    },
+    "required": [
+     "id",
+     "kind",
+     "stem"
+    ],
+    "title": "Item",
+    "type": "object"
+   },
+   "ItemKind": {
+    "enum": [
+     "choice",
+     "fill",
+     "calc",
+     "judge",
+     "application",
+     "open"
+    ],
+    "title": "ItemKind",
+    "type": "string"
+   },
+   "ItemStatus": {
+    "properties": {
+     "checks": {
+      "items": {
+       "$ref": "#/components/schemas/CheckResult"
+      },
+      "title": "Checks",
+      "type": "array"
+     },
+     "item_id": {
+      "title": "Item Id",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "status": {
+      "$ref": "#/components/schemas/VerifyStatus"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "item.status",
+      "default": "item.status",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "item_id",
+     "status"
+    ],
+    "title": "ItemStatus",
+    "type": "object"
+   },
+   "LLMCall": {
+    "properties": {
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "record": {
+      "$ref": "#/components/schemas/LLMCallRecord"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "llm.call",
+      "default": "llm.call",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "debug"
+     }
+    },
+    "required": [
+     "record"
+    ],
+    "title": "LLMCall",
+    "type": "object"
+   },
+   "LLMCallRecord": {
+    "description": "一次模型调用的完整记录。调试台的\"步骤检查器\"、E2/D5/E1 指标都读它。",
+    "properties": {
+     "cost": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cost"
+     },
+     "currency": {
+      "default": "CNY",
+      "title": "Currency",
+      "type": "string"
+     },
+     "error": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ErrorInfo"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "finish_reason": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Finish Reason"
+     },
+     "from_cassette": {
+      "default": false,
+      "title": "From Cassette",
+      "type": "boolean"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "messages": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Messages",
+      "type": "array"
+     },
+     "model": {
+      "title": "Model",
+      "type": "string"
+     },
+     "params": {
+      "additionalProperties": true,
+      "title": "Params",
+      "type": "object"
+     },
+     "profile": {
+      "title": "Profile",
+      "type": "string"
+     },
+     "prompt": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/PromptRef"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "purpose": {
+      "default": "",
+      "title": "Purpose",
+      "type": "string"
+     },
+     "reasoning_text": {
+      "default": "",
+      "title": "Reasoning Text",
+      "type": "string"
+     },
+     "response_text": {
+      "default": "",
+      "title": "Response Text",
+      "type": "string"
+     },
+     "retries": {
+      "default": 0,
+      "title": "Retries",
+      "type": "integer"
+     },
+     "role": {
+      "title": "Role",
+      "type": "string"
+     },
+     "tool_calls": {
+      "items": {
+       "$ref": "#/components/schemas/ToolCall"
+      },
+      "title": "Tool Calls",
+      "type": "array"
+     },
+     "total_ms": {
+      "default": 0.0,
+      "title": "Total Ms",
+      "type": "number"
+     },
+     "ttfb_ms": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Ttfb Ms"
+     },
+     "ttft_ms": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Ttft Ms"
+     },
+     "usage": {
+      "$ref": "#/components/schemas/Usage"
+     }
+    },
+    "required": [
+     "id",
+     "role",
+     "model",
+     "profile"
+    ],
+    "title": "LLMCallRecord",
+    "type": "object"
+   },
+   "Message": {
+    "properties": {
+     "attachments": {
+      "items": {
+       "$ref": "#/components/schemas/AttachmentRef"
+      },
+      "title": "Attachments",
+      "type": "array"
+     },
+     "content": {
+      "title": "Content",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "role": {
+      "$ref": "#/components/schemas/MessageRole"
+     },
+     "run_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Run Id"
+     },
+     "session_id": {
+      "title": "Session Id",
+      "type": "string"
+     },
+     "ts": {
+      "title": "Ts",
+      "type": "number"
+     }
+    },
+    "required": [
+     "id",
+     "session_id",
+     "role",
+     "content",
+     "ts"
+    ],
+    "title": "Message",
+    "type": "object"
+   },
+   "MessageDelta": {
+    "properties": {
+     "message_id": {
+      "title": "Message Id",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "text": {
+      "title": "Text",
+      "type": "string"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "message.delta",
+      "default": "message.delta",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "message_id",
+     "text"
+    ],
+    "title": "MessageDelta",
+    "type": "object"
+   },
+   "MessageDone": {
+    "properties": {
+     "message_id": {
+      "title": "Message Id",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "text": {
+      "title": "Text",
+      "type": "string"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "message.done",
+      "default": "message.done",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "message_id",
+     "text"
+    ],
+    "title": "MessageDone",
+    "type": "object"
+   },
+   "MessageRole": {
+    "enum": [
+     "user",
+     "assistant",
+     "system"
+    ],
+    "title": "MessageRole",
+    "type": "string"
+   },
+   "ModelStat": {
+    "properties": {
+     "cache_hit_ratio": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cache Hit Ratio"
+     },
+     "cached_tokens": {
+      "title": "Cached Tokens",
+      "type": "integer"
+     },
+     "calls": {
+      "title": "Calls",
+      "type": "integer"
+     },
+     "completion_tokens": {
+      "title": "Completion Tokens",
+      "type": "integer"
+     },
+     "cost": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cost"
+     },
+     "errors": {
+      "title": "Errors",
+      "type": "integer"
+     },
+     "model": {
+      "title": "Model",
+      "type": "string"
+     },
+     "prompt_tokens": {
+      "title": "Prompt Tokens",
+      "type": "integer"
+     },
+     "retries": {
+      "title": "Retries",
+      "type": "integer"
+     },
+     "role": {
+      "title": "Role",
+      "type": "string"
+     },
+     "total_p50_ms": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Total P50 Ms"
+     },
+     "ttft_p50_ms": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Ttft P50 Ms"
+     }
+    },
+    "required": [
+     "model",
+     "role",
+     "calls",
+     "prompt_tokens",
+     "completion_tokens",
+     "cached_tokens",
+     "cache_hit_ratio",
+     "cost",
+     "ttft_p50_ms",
+     "total_p50_ms",
+     "retries",
+     "errors"
+    ],
+    "title": "ModelStat",
+    "type": "object"
+   },
+   "Paper": {
+    "properties": {
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "meta": {
+      "additionalProperties": true,
+      "title": "Meta",
+      "type": "object"
+     },
+     "rev": {
+      "default": 0,
+      "title": "Rev",
+      "type": "integer"
+     },
+     "sections": {
+      "items": {
+       "$ref": "#/components/schemas/Section"
+      },
+      "title": "Sections",
+      "type": "array"
+     },
+     "title": {
+      "default": "",
+      "title": "Title",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "title": "Paper",
+    "type": "object"
+   },
+   "PaperPatched": {
+    "properties": {
+     "ops": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Ops",
+      "type": "array"
+     },
+     "paper_id": {
+      "title": "Paper Id",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "rev": {
+      "title": "Rev",
+      "type": "integer"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "paper.patch",
+      "default": "paper.patch",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "paper_id",
+     "rev"
+    ],
+    "title": "PaperPatched",
+    "type": "object"
+   },
+   "Progress": {
+    "properties": {
+     "current": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Current"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "total": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Total"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "progress",
+      "default": "progress",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "label"
+    ],
+    "title": "Progress",
+    "type": "object"
+   },
+   "PromptRef": {
+    "properties": {
+     "hash": {
+      "title": "Hash",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "prefix_hash": {
+      "default": "",
+      "title": "Prefix Hash",
+      "type": "string"
+     },
+     "segments": {
+      "items": {
+       "$ref": "#/components/schemas/SegmentInfo"
+      },
+      "title": "Segments",
+      "type": "array"
+     },
+     "version": {
+      "title": "Version",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "id",
+     "version",
+     "hash"
+    ],
+    "title": "PromptRef",
+    "type": "object"
+   },
+   "Proportion": {
+    "properties": {
+     "hi": {
+      "title": "Hi",
+      "type": "number"
+     },
+     "k": {
+      "title": "K",
+      "type": "integer"
+     },
+     "lo": {
+      "title": "Lo",
+      "type": "number"
+     },
+     "n": {
+      "title": "N",
+      "type": "integer"
+     },
+     "p": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "P"
+     }
+    },
+    "required": [
+     "k",
+     "n",
+     "p",
+     "lo",
+     "hi"
+    ],
+    "title": "Proportion",
+    "type": "object"
+   },
+   "Provenance": {
+    "properties": {
+     "archetype_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Archetype Ids",
+      "type": "array"
+     },
+     "model": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Model"
+     },
+     "reference_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Reference Ids",
+      "type": "array"
+     },
+     "run_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Run Id"
+     },
+     "source": {
+      "$ref": "#/components/schemas/Source",
+      "default": "novel"
+     }
+    },
+    "title": "Provenance",
+    "type": "object"
+   },
+   "Quantiles": {
+    "properties": {
+     "mean": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Mean"
+     },
+     "n": {
+      "title": "N",
+      "type": "integer"
+     },
+     "p50": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "P50"
+     },
+     "p95": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "P95"
+     }
+    },
+    "required": [
+     "n",
+     "p50",
+     "p95",
+     "mean"
+    ],
+    "title": "Quantiles",
+    "type": "object"
+   },
+   "RetrievalPayload": {
+    "description": "一次知识检索 / 规划步骤的可视化载荷（事件 `retrieval.result`）。",
+    "properties": {
+     "combos": {
+      "items": {
+       "$ref": "#/components/schemas/Combo"
+      },
+      "title": "Combos",
+      "type": "array"
+     },
+     "edges": {
+      "items": {
+       "$ref": "#/components/schemas/GraphEdge"
+      },
+      "title": "Edges",
+      "type": "array"
+     },
+     "nodes": {
+      "items": {
+       "$ref": "#/components/schemas/GraphNode"
+      },
+      "title": "Nodes",
+      "type": "array"
+     },
+     "notes": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+     },
+     "query": {
+      "default": "",
+      "title": "Query",
+      "type": "string"
+     },
+     "step": {
+      "title": "Step",
+      "type": "string"
+     }
+    },
+    "required": [
+     "step"
+    ],
+    "title": "RetrievalPayload",
+    "type": "object"
+   },
+   "RetrievalResult": {
+    "properties": {
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "payload": {
+      "$ref": "#/components/schemas/RetrievalPayload"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "retrieval.result",
+      "default": "retrieval.result",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "debug"
+     }
+    },
+    "required": [
+     "payload"
+    ],
+    "title": "RetrievalResult",
+    "type": "object"
+   },
+   "Run": {
+    "properties": {
+     "checkpoint": {
+      "anyOf": [
+       {
+        "additionalProperties": true,
+        "type": "object"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Checkpoint"
+     },
+     "created_at": {
+      "title": "Created At",
+      "type": "number"
+     },
+     "error": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ErrorInfo"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "finished_at": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Finished At"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "message_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Message Id"
+     },
+     "pipeline": {
+      "title": "Pipeline",
+      "type": "string"
+     },
+     "session_id": {
+      "title": "Session Id",
+      "type": "string"
+     },
+     "started_at": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Started At"
+     },
+     "state": {
+      "additionalProperties": true,
+      "title": "State",
+      "type": "object"
+     },
+     "status": {
+      "$ref": "#/components/schemas/RunStatus",
+      "default": "created"
+     },
+     "tags": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+     }
+    },
+    "required": [
+     "id",
+     "session_id",
+     "pipeline",
+     "created_at"
+    ],
+    "title": "Run",
+    "type": "object"
+   },
+   "RunFinished": {
+    "properties": {
+     "error": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ErrorInfo"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "status": {
+      "enum": [
+       "succeeded",
+       "failed",
+       "cancelled"
+      ],
+      "title": "Status",
+      "type": "string"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "run.finished",
+      "default": "run.finished",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "status"
+    ],
+    "title": "RunFinished",
+    "type": "object"
+   },
+   "RunMetrics": {
+    "properties": {
+     "cache_hit_ratio": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cache Hit Ratio"
+     },
+     "cost": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cost"
+     },
+     "currency": {
+      "default": "CNY",
+      "title": "Currency",
+      "type": "string"
+     },
+     "e2e_ms": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "E2E Ms"
+     },
+     "error_code": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Error Code"
+     },
+     "first_feedback_ms": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "First Feedback Ms"
+     },
+     "llm_errors": {
+      "default": 0,
+      "title": "Llm Errors",
+      "type": "integer"
+     },
+     "llm_retries": {
+      "default": 0,
+      "title": "Llm Retries",
+      "type": "integer"
+     },
+     "models": {
+      "items": {
+       "$ref": "#/components/schemas/ModelStat"
+      },
+      "title": "Models",
+      "type": "array"
+     },
+     "n_events": {
+      "default": 0,
+      "title": "N Events",
+      "type": "integer"
+     },
+     "n_llm_calls": {
+      "default": 0,
+      "title": "N Llm Calls",
+      "type": "integer"
+     },
+     "n_spans": {
+      "default": 0,
+      "title": "N Spans",
+      "type": "integer"
+     },
+     "n_tool_calls": {
+      "default": 0,
+      "title": "N Tool Calls",
+      "type": "integer"
+     },
+     "replayed_calls": {
+      "default": 0,
+      "title": "Replayed Calls",
+      "type": "integer"
+     },
+     "run_id": {
+      "title": "Run Id",
+      "type": "string"
+     },
+     "schema_retries": {
+      "default": 0,
+      "title": "Schema Retries",
+      "type": "integer"
+     },
+     "stages": {
+      "items": {
+       "$ref": "#/components/schemas/StageStat"
+      },
+      "title": "Stages",
+      "type": "array"
+     },
+     "status": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Status"
+     },
+     "trace_ok": {
+      "default": true,
+      "title": "Trace Ok",
+      "type": "boolean"
+     },
+     "trace_problems": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Trace Problems",
+      "type": "array"
+     },
+     "usage": {
+      "$ref": "#/components/schemas/Usage"
+     }
+    },
+    "required": [
+     "run_id"
+    ],
+    "title": "RunMetrics",
+    "type": "object"
+   },
+   "RunPaused": {
+    "properties": {
+     "checkpoint_id": {
+      "title": "Checkpoint Id",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "run.paused",
+      "default": "run.paused",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "checkpoint_id"
+    ],
+    "title": "RunPaused",
+    "type": "object"
+   },
+   "RunStarted": {
+    "properties": {
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "pipeline": {
+      "title": "Pipeline",
+      "type": "string"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "schema_version": {
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "session_id": {
+      "title": "Session Id",
+      "type": "string"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "run.started",
+      "default": "run.started",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "session_id",
+     "pipeline"
+    ],
+    "title": "RunStarted",
+    "type": "object"
+   },
+   "RunStatus": {
+    "enum": [
+     "created",
+     "running",
+     "awaiting_user",
+     "succeeded",
+     "failed",
+     "cancelled"
+    ],
+    "title": "RunStatus",
+    "type": "string"
+   },
+   "RunView": {
+    "description": "面向用户端的运行视图（不含内部阶段快照）。",
+    "properties": {
+     "checkpoint": {
+      "anyOf": [
+       {
+        "additionalProperties": true,
+        "type": "object"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Checkpoint"
+     },
+     "created_at": {
+      "title": "Created At",
+      "type": "number"
+     },
+     "error": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ErrorInfo"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "finished_at": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Finished At"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "pipeline": {
+      "title": "Pipeline",
+      "type": "string"
+     },
+     "session_id": {
+      "title": "Session Id",
+      "type": "string"
+     },
+     "started_at": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Started At"
+     },
+     "status": {
+      "$ref": "#/components/schemas/RunStatus"
+     }
+    },
+    "required": [
+     "id",
+     "session_id",
+     "pipeline",
+     "status",
+     "created_at"
+    ],
+    "title": "RunView",
+    "type": "object"
+   },
+   "Section": {
+    "properties": {
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "items": {
+      "items": {
+       "$ref": "#/components/schemas/Item"
+      },
+      "title": "Items",
+      "type": "array"
+     },
+     "kind": {
+      "default": "",
+      "title": "Kind",
+      "type": "string"
+     },
+     "title": {
+      "default": "",
+      "title": "Title",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "title": "Section",
+    "type": "object"
+   },
+   "SegmentInfo": {
+    "description": "提示词分段（缓存友好布局：static → stable → history → dynamic）。",
+    "properties": {
+     "chars": {
+      "title": "Chars",
+      "type": "integer"
+     },
+     "hash": {
+      "title": "Hash",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name",
+     "chars",
+     "hash"
+    ],
+    "title": "SegmentInfo",
+    "type": "object"
+   },
+   "Session": {
+    "properties": {
+     "created_at": {
+      "title": "Created At",
+      "type": "number"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "title": {
+      "default": "",
+      "title": "Title",
+      "type": "string"
+     },
+     "updated_at": {
+      "title": "Updated At",
+      "type": "number"
+     }
+    },
+    "required": [
+     "id",
+     "created_at",
+     "updated_at"
+    ],
+    "title": "Session",
+    "type": "object"
+   },
+   "SessionState": {
+    "properties": {
+     "active_run_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Active Run Id"
+     },
+     "messages": {
+      "items": {
+       "$ref": "#/components/schemas/Message"
+      },
+      "title": "Messages",
+      "type": "array"
+     },
+     "paper": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Paper"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "session": {
+      "$ref": "#/components/schemas/Session"
+     }
+    },
+    "required": [
+     "session",
+     "messages"
+    ],
+    "title": "SessionState",
+    "type": "object"
+   },
+   "Source": {
+    "enum": [
+     "novel",
+     "template",
+     "edited"
+    ],
+    "title": "Source",
+    "type": "string"
+   },
+   "SpanFinished": {
+    "properties": {
+     "attrs": {
+      "additionalProperties": true,
+      "title": "Attrs",
+      "type": "object"
+     },
+     "duration_ms": {
+      "title": "Duration Ms",
+      "type": "number"
+     },
+     "error": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ErrorInfo"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "kind": {
+      "$ref": "#/components/schemas/SpanKind"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "status": {
+      "$ref": "#/components/schemas/SpanStatus"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "span.finished",
+      "default": "span.finished",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "debug"
+     }
+    },
+    "required": [
+     "kind",
+     "name",
+     "status",
+     "duration_ms"
+    ],
+    "title": "SpanFinished",
+    "type": "object"
+   },
+   "SpanKind": {
+    "enum": [
+     "run",
+     "stage",
+     "llm",
+     "tool",
+     "check",
+     "other"
+    ],
+    "title": "SpanKind",
+    "type": "string"
+   },
+   "SpanStarted": {
+    "properties": {
+     "attrs": {
+      "additionalProperties": true,
+      "title": "Attrs",
+      "type": "object"
+     },
+     "kind": {
+      "$ref": "#/components/schemas/SpanKind"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "span.started",
+      "default": "span.started",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "debug"
+     }
+    },
+    "required": [
+     "kind",
+     "name"
+    ],
+    "title": "SpanStarted",
+    "type": "object"
+   },
+   "SpanStatus": {
+    "enum": [
+     "ok",
+     "error",
+     "cancelled"
+    ],
+    "title": "SpanStatus",
+    "type": "string"
+   },
+   "StageStat": {
+    "properties": {
+     "count": {
+      "title": "Count",
+      "type": "integer"
+     },
+     "max_ms": {
+      "title": "Max Ms",
+      "type": "number"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "total_ms": {
+      "title": "Total Ms",
+      "type": "number"
+     }
+    },
+    "required": [
+     "name",
+     "count",
+     "total_ms",
+     "max_ms"
+    ],
+    "title": "StageStat",
+    "type": "object"
+   },
+   "Tier": {
+    "enum": [
+     "consolidate",
+     "variation",
+     "integrated"
+    ],
+    "title": "Tier",
+    "type": "string"
+   },
+   "ToolCall": {
+    "properties": {
+     "arguments": {
+      "title": "Arguments",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "arguments"
+    ],
+    "title": "ToolCall",
+    "type": "object"
+   },
+   "TurnAccepted": {
+    "properties": {
+     "message_id": {
+      "title": "Message Id",
+      "type": "string"
+     },
+     "run_id": {
+      "title": "Run Id",
+      "type": "string"
+     },
+     "session_id": {
+      "title": "Session Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "session_id",
+     "run_id",
+     "message_id"
+    ],
+    "title": "TurnAccepted",
+    "type": "object"
+   },
+   "Usage": {
+    "properties": {
+     "cached_tokens": {
+      "default": 0,
+      "title": "Cached Tokens",
+      "type": "integer"
+     },
+     "completion_tokens": {
+      "default": 0,
+      "title": "Completion Tokens",
+      "type": "integer"
+     },
+     "prompt_tokens": {
+      "default": 0,
+      "title": "Prompt Tokens",
+      "type": "integer"
+     },
+     "reasoning_tokens": {
+      "default": 0,
+      "title": "Reasoning Tokens",
+      "type": "integer"
+     }
+    },
+    "title": "Usage",
+    "type": "object"
+   },
+   "UsageUpdate": {
+    "properties": {
+     "cost": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cost"
+     },
+     "currency": {
+      "default": "CNY",
+      "title": "Currency",
+      "type": "string"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "usage.update",
+      "default": "usage.update",
+      "title": "Type",
+      "type": "string"
+     },
+     "usage": {
+      "$ref": "#/components/schemas/Usage"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "debug"
+     }
+    },
+    "required": [
+     "usage"
+    ],
+    "title": "UsageUpdate",
+    "type": "object"
+   },
+   "ValidationError": {
+    "properties": {
+     "ctx": {
+      "title": "Context",
+      "type": "object"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "title": "Location",
+      "type": "array"
+     },
+     "msg": {
+      "title": "Message",
+      "type": "string"
+     },
+     "type": {
+      "title": "Error Type",
+      "type": "string"
+     }
+    },
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError",
+    "type": "object"
+   },
+   "Verification": {
+    "properties": {
+     "checks": {
+      "items": {
+       "$ref": "#/components/schemas/CheckResult"
+      },
+      "title": "Checks",
+      "type": "array"
+     },
+     "status": {
+      "$ref": "#/components/schemas/VerifyStatus",
+      "default": "pending"
+     }
+    },
+    "title": "Verification",
+    "type": "object"
+   },
+   "VerifyStatus": {
+    "enum": [
+     "pending",
+     "verified",
+     "checked",
+     "needs_review",
+     "rejected"
+    ],
+    "title": "VerifyStatus",
+    "type": "string"
+   },
+   "Visibility": {
+    "enum": [
+     "user",
+     "debug"
+    ],
+    "title": "Visibility",
+    "type": "string"
+   }
+  }
+ },
+ "info": {
+  "title": "VeriChalk",
+  "version": "0.1.0.dev0"
+ },
+ "openapi": "3.1.0",
+ "paths": {
+  "/api/debug/metrics": {
+   "get": {
+    "operationId": "debug_metrics_api_debug_metrics_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "limit",
+      "required": false,
+      "schema": {
+       "default": 50,
+       "maximum": 200,
+       "title": "Limit",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/AggregateMetrics"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Metrics"
+   }
+  },
+  "/api/debug/runs": {
+   "get": {
+    "operationId": "debug_runs_api_debug_runs_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "status",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Status"
+      }
+     },
+     {
+      "in": "query",
+      "name": "session_id",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Session Id"
+      }
+     },
+     {
+      "in": "query",
+      "name": "limit",
+      "required": false,
+      "schema": {
+       "default": 30,
+       "maximum": 100,
+       "title": "Limit",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "offset",
+      "required": false,
+      "schema": {
+       "default": 0,
+       "title": "Offset",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/DebugRunItem"
+         },
+         "title": "Response Debug Runs Api Debug Runs Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Runs"
+   }
+  },
+  "/api/debug/runs/{run_id}": {
+   "get": {
+    "operationId": "debug_run_api_debug_runs__run_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/DebugRunDetail"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Run"
+   }
+  },
+  "/api/debug/runs/{run_id}/events": {
+   "get": {
+    "operationId": "debug_events_api_debug_runs__run_id__events_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "after",
+      "required": false,
+      "schema": {
+       "default": 0,
+       "title": "After",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "discriminator": {
+           "mapping": {
+            "checkpoint.requested": "#/components/schemas/CheckpointRequested",
+            "item.status": "#/components/schemas/ItemStatus",
+            "llm.call": "#/components/schemas/LLMCall",
+            "message.delta": "#/components/schemas/MessageDelta",
+            "message.done": "#/components/schemas/MessageDone",
+            "paper.patch": "#/components/schemas/PaperPatched",
+            "progress": "#/components/schemas/Progress",
+            "retrieval.result": "#/components/schemas/RetrievalResult",
+            "run.finished": "#/components/schemas/RunFinished",
+            "run.paused": "#/components/schemas/RunPaused",
+            "run.started": "#/components/schemas/RunStarted",
+            "span.finished": "#/components/schemas/SpanFinished",
+            "span.started": "#/components/schemas/SpanStarted",
+            "usage.update": "#/components/schemas/UsageUpdate"
+           },
+           "propertyName": "type"
+          },
+          "oneOf": [
+           {
+            "$ref": "#/components/schemas/RunStarted"
+           },
+           {
+            "$ref": "#/components/schemas/RunFinished"
+           },
+           {
+            "$ref": "#/components/schemas/RunPaused"
+           },
+           {
+            "$ref": "#/components/schemas/SpanStarted"
+           },
+           {
+            "$ref": "#/components/schemas/SpanFinished"
+           },
+           {
+            "$ref": "#/components/schemas/Progress"
+           },
+           {
+            "$ref": "#/components/schemas/MessageDelta"
+           },
+           {
+            "$ref": "#/components/schemas/MessageDone"
+           },
+           {
+            "$ref": "#/components/schemas/ItemStatus"
+           },
+           {
+            "$ref": "#/components/schemas/PaperPatched"
+           },
+           {
+            "$ref": "#/components/schemas/CheckpointRequested"
+           },
+           {
+            "$ref": "#/components/schemas/LLMCall"
+           },
+           {
+            "$ref": "#/components/schemas/RetrievalResult"
+           },
+           {
+            "$ref": "#/components/schemas/UsageUpdate"
+           }
+          ]
+         },
+         "title": "Response Debug Events Api Debug Runs  Run Id  Events Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Events"
+   }
+  },
+  "/api/health": {
+   "get": {
+    "operationId": "health_api_health_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HealthOut"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Health"
+   }
+  },
+  "/api/runs/{run_id}": {
+   "get": {
+    "operationId": "get_run_api_runs__run_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/RunView"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Get Run"
+   }
+  },
+  "/api/runs/{run_id}/cancel": {
+   "post": {
+    "operationId": "cancel_run_api_runs__run_id__cancel_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": {
+          "type": "boolean"
+         },
+         "title": "Response Cancel Run Api Runs  Run Id  Cancel Post",
+         "type": "object"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Cancel Run"
+   }
+  },
+  "/api/runs/{run_id}/checkpoint": {
+   "post": {
+    "operationId": "answer_checkpoint_api_runs__run_id__checkpoint_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CheckpointAnswer"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "202": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "additionalProperties": {
+          "type": "boolean"
+         },
+         "title": "Response Answer Checkpoint Api Runs  Run Id  Checkpoint Post",
+         "type": "object"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Answer Checkpoint"
+   }
+  },
+  "/api/runs/{run_id}/events": {
+   "get": {
+    "operationId": "run_events_api_runs__run_id__events_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "after",
+      "required": false,
+      "schema": {
+       "default": 0,
+       "title": "After",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "header",
+      "name": "last-event-id",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Last-Event-Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Run Events"
+   }
+  },
+  "/api/sessions": {
+   "post": {
+    "operationId": "create_session_api_sessions_post",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SessionState"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Create Session"
+   }
+  },
+  "/api/sessions/{session_id}": {
+   "get": {
+    "operationId": "get_session_api_sessions__session_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SessionState"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Get Session"
+   }
+  },
+  "/api/sessions/{session_id}/turns": {
+   "post": {
+    "operationId": "post_turn_api_sessions__session_id__turns_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "multipart/form-data": {
+       "schema": {
+        "$ref": "#/components/schemas/Body_post_turn_api_sessions__session_id__turns_post"
+       }
+      }
+     }
+    },
+    "responses": {
+     "202": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/TurnAccepted"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Post Turn"
+   }
+  }
+ }
+}

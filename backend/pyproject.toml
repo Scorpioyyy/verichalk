@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verichalk"
+version = "0.1.0.dev0"
+description = "VeriChalk: verifiable question-generation agent for primary-school math teachers"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "chalkbase>=0.1,<0.2",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.9",   # 图片上传（multipart）
+    "httpx>=0.27",
+    "pyyaml>=6",
+    "jinja2>=3.1",
+    "pillow>=10",                # 图像预处理
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6",
+    "pyright>=1.1.380",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/verichalk"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = ["live: 需要真实模型与密钥（默认不跑）"]
+addopts = "-m 'not live'"
+filterwarnings = ["ignore:向量检索不可用:UserWarning"]  # chalkbase 无密钥时降级为词法检索的提示，测试里是预期行为
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC", "RUF"]
+ignore = [
+    "E501",    # 长度由 formatter 管，中文注释不强制折行
+    "RUF001", "RUF002", "RUF003",   # 中文全角标点是有意为之
+    "ASYNC109",  # `timeout` 参数是透传给 httpx 的超时配置，不是自研的超时实现
+]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "standard"
+reportMissingTypeStubs = false

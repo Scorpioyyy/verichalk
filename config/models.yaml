@@ -1,0 +1,15 @@
+# 模型角色 → 具体模型（D10）。业务代码只写角色，不写模型名。
+# 初始值是占位：最终由 docs/evaluation.md §5 的角色级对比评测决定，并记录在 docs/design.md。
+# 覆盖方式：环境变量 VERICHALK_MODEL_<ROLE>=<model>（用于临时实验与评测对比），或在 profiles 下写覆盖项。
+#
+# thinking 必须显式指定（部分模型不传时默认开启思考）；judge 与被评对象不同源，solver 与 smart 不同源。
+roles:
+  fast:   { model: qwen3.8-flash,       thinking: false, temperature: 0.3, max_tokens: 2048 }
+  smart:  { model: qwen3.8-max,         thinking: false, temperature: 0.7, max_tokens: 4096 }
+  vision: { model: qwen3.8-flash,       thinking: false, temperature: 0.1, max_tokens: 4096 }
+  judge:  { model: deepseek-v4.1-flash, thinking: false, temperature: 0.0, max_tokens: 2048 }
+  solver: { model: deepseek-v4.1-flash, thinking: true,  temperature: 0.0, max_tokens: 8192 }
+
+profiles:
+  cn: {}
+  intl: {}

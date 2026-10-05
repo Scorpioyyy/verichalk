@@ -1,0 +1,53 @@
+# M1 冒烟集：只验证"网关 → 知识层 → trace → 事件"链路的可靠性与可观测性，不评价出题质量。
+- id: smoke-001
+  split: val
+  tags: [smoke, S1]
+  turns:
+    - user: "四年级下册小数加减法，出4道有点难度的"
+  expect:
+    status: succeeded
+    max_e2e_ms: 30000
+    has_events: [progress, retrieval.result, message.done]
+
+- id: smoke-002
+  split: val
+  tags: [smoke, S2]
+  turns:
+    - user: "想出几道跟买东西有关、要用到小数和统计图的综合题"
+  expect:
+    status: succeeded
+    has_events: [progress, retrieval.result, message.done]
+
+- id: smoke-003
+  split: val
+  tags: [smoke, S5]
+  turns:
+    - user: "期末复习，把乘法分配律和简便运算串起来"
+  expect:
+    status: succeeded
+
+- id: smoke-004
+  split: test
+  tags: [smoke, S1]
+  turns:
+    - user: "二年级上册表内乘法"
+  expect:
+    status: succeeded
+    has_events: [retrieval.result]
+
+- id: smoke-005
+  split: test
+  tags: [smoke, S6]
+  turns:
+    - user: "出一道三角形内角和的题"
+    - user: "太简单了，换难一点的"
+  expect:
+    status: succeeded
+
+- id: smoke-006
+  split: test
+  tags: [smoke, S9]
+  turns:
+    - user: "帮我写一首关于春天的诗"
+  expect:
+    status: succeeded

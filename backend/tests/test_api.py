@@ -229,3 +229,58 @@ async def test_debug_endpoints_auth_and_content(env):
     assert (await cl.get("/api/debug/runs", headers={"X-Debug-Token": "tok-123456789"})).status_code == 200
     # 用户端点不受影响
     assert (await cl.get("/api/health")).status_code == 200
+
+
+async def test_export_endpoint(env):
+    import time
+    from urllib.parse import unquote
+
+    from verichalk.domain.paper import Item, ItemKind, Paper, Revision, Section
+
+    make, h = env
+    c = make()
+    cl = h["client"]
+    ses = (await cl.post("/api/sessions")).json()["session"]
+    sid = ses["id"]
+    # 还没有试卷
+    r = await cl.post(f"/api/sessions/{sid}/export", json={"format": "md"})
+    assert r.status_code == 404 and "先出几道题" in r.json()["error"]["user_message"]
+
+    paper = Paper(
+        id="p1",
+        title="小数练习",
+        rev=1,
+        sections=[
+            Section(
+                id="s",
+                title="计算",
+                items=[
+                    Item(
+                        id="i1",
+                        kind=ItemKind.calc,
+                        stem="计算：$1.2+3.4=$____",
+                        answer="4.6",
+                        solution="$1.2+3.4=4.6$",
+                    )
+                ],
+            )
+        ],
+    )
+    await c.store.papers.save(sid, paper, Revision(paper_id="p1", rev=1, author="agent", ts=time.time()))
+    r = await cl.post(
+        f"/api/sessions/{sid}/export", json={"format": "md", "version": "teacher", "answers": "inline"}
+    )
+    assert r.status_code == 200 and "答案" in r.text
+    assert unquote(r.headers["content-disposition"]).endswith("小数练习_教师版.md") and r.headers[
+        "content-disposition"
+    ].startswith("attachment")
+    r = await cl.post(f"/api/sessions/{sid}/export?inline=true", json={"format": "pdf"})
+    assert (
+        r.status_code == 200
+        and r.content.startswith(b"%PDF")
+        and r.headers["content-disposition"].startswith("inline")
+    )
+    r = await cl.post(f"/api/sessions/{sid}/export", json={"format": "docx", "version": "student"})
+    assert r.status_code == 200 and r.content[:2] == b"PK"
+    r = await cl.post(f"/api/sessions/{sid}/export", json={"format": "rtf"})
+    assert r.status_code == 422

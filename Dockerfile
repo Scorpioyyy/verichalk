@@ -21,7 +21,7 @@ RUN apt-get update \
 WORKDIR /app
 COPY backend/ backend/
 COPY config/ config/
-# chalkbase 从 PyPI 安装（数据随包发布）；导出引擎 pandoc / typst 在 render 模块落地后加入依赖
+# chalkbase 从 PyPI 安装（数据随包发布）；pandoc（pypandoc_binary）与 typst 是 pip 依赖，无需 TeX Live
 RUN pip install ./backend
 COPY --from=web /web/dist frontend/dist
 VOLUME ["/data"]

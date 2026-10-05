@@ -140,3 +140,9 @@ class StageError(VerichalkError):
 class RunCancelled(VerichalkError):
     code = "run_cancelled"
     user_message = "已停止。"
+
+
+# ---- 导出 ----
+class ExportError(VerichalkError):
+    code = "export_error"
+    user_message = "导出没有成功，请稍后重试；如果反复出现，请把这份试卷反馈给我们。"

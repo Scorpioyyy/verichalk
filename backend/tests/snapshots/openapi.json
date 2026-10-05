@@ -71,6 +71,14 @@
     "title": "AggregateMetrics",
     "type": "object"
    },
+   "AnswerPlacement": {
+    "enum": [
+     "inline",
+     "appendix"
+    ],
+    "title": "AnswerPlacement",
+    "type": "string"
+   },
    "AttachmentRef": {
     "properties": {
      "filename": {
@@ -564,6 +572,93 @@
     ],
     "title": "ErrorInfo",
     "type": "object"
+   },
+   "ExportFormat": {
+    "enum": [
+     "pdf",
+     "docx",
+     "md",
+     "tex"
+    ],
+    "title": "ExportFormat",
+    "type": "string"
+   },
+   "ExportHeader": {
+    "description": "页眉信息；留空则取试卷 `meta` 里的同名键，再没有就留空（学生版自动给姓名 / 班级 / 得分的填写线）。",
+    "properties": {
+     "class_name": {
+      "default": "",
+      "title": "Class Name",
+      "type": "string"
+     },
+     "date": {
+      "default": "",
+      "title": "Date",
+      "type": "string"
+     },
+     "duration_minutes": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Duration Minutes"
+     },
+     "name_line": {
+      "default": true,
+      "title": "Name Line",
+      "type": "boolean"
+     },
+     "school": {
+      "default": "",
+      "title": "School",
+      "type": "string"
+     }
+    },
+    "title": "ExportHeader",
+    "type": "object"
+   },
+   "ExportOptions": {
+    "properties": {
+     "answers": {
+      "$ref": "#/components/schemas/AnswerPlacement",
+      "default": "appendix"
+     },
+     "format": {
+      "$ref": "#/components/schemas/ExportFormat",
+      "default": "pdf"
+     },
+     "header": {
+      "$ref": "#/components/schemas/ExportHeader"
+     },
+     "include_solution": {
+      "default": true,
+      "title": "Include Solution",
+      "type": "boolean"
+     },
+     "mark_review": {
+      "default": true,
+      "title": "Mark Review",
+      "type": "boolean"
+     },
+     "version": {
+      "$ref": "#/components/schemas/ExportVersion",
+      "default": "student"
+     }
+    },
+    "title": "ExportOptions",
+    "type": "object"
+   },
+   "ExportVersion": {
+    "enum": [
+     "teacher",
+     "student"
+    ],
+    "title": "ExportVersion",
+    "type": "string"
    },
    "FigureSpec": {
     "description": "图形的结构化规格；渲染为 SVG（M6 细化各类型）。",
@@ -4260,6 +4355,62 @@
      }
     },
     "summary": "Get Session"
+   }
+  },
+  "/api/sessions/{session_id}/export": {
+   "post": {
+    "description": "导出当前试卷。`inline=true` 用于页面内预览（PDF 直接嵌入）；警告（缺字、图无法绘制等）放在 `X-Export-Warnings`。",
+    "operationId": "export_paper_file_api_sessions__session_id__export_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "inline",
+      "required": false,
+      "schema": {
+       "default": false,
+       "title": "Inline",
+       "type": "boolean"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ExportOptions"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/octet-stream": {}
+      },
+      "description": "导出的文件"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Export Paper File"
    }
   },
   "/api/sessions/{session_id}/turns": {

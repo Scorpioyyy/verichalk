@@ -1,0 +1,350 @@
+# 导出评测集（eval/specs/export.md §2）：手工设计的试卷，覆盖公式、版面、图形、特殊字符与边缘情况。
+# 说明：id 缺省时由加载器补；`pages` 是教师版 PDF 的页数范围；`expect_error: true` 表示应给出教师可读的导出错误而不是崩溃。
+# 公式与图形的期望个数由加载器从内容里数出来，不在这里手写。
+# 注：含反斜杠的字符串一律用单引号（YAML 单引号内反斜杠不转义）。
+
+- id: basic_mixed
+  tags: [mixed, figures]
+  pages: [2, 4]
+  paper:
+    title: 四年级下册 小数运算 单元练习
+    meta: {school: 阳光小学, duration_minutes: 40}
+    sections:
+      - title: 选择与填空
+        items:
+          - kind: choice
+            stem: '下面哪个数最接近 $3.6$？'
+            options: ['3.06', '3.59', '3.7', '3.16']
+            answer: B
+            solution: '$3.6-3.59=0.01$，差最小。'
+            score: 3
+          - kind: fill
+            stem: '$\frac{3}{4}+\frac{1}{8}=$____，小数 $0.75$ 化成分数是 ____。'
+            answer: '7/8；3/4'
+            solution: '通分：$\frac{6}{8}+\frac{1}{8}=\frac{7}{8}$。'
+            score: 3
+          - kind: judge
+            stem: '$0.3\times 0.3=0.9$。（　）'
+            answer: 错
+            solution: '$0.3\times0.3=0.09$。'
+            score: 2
+          - kind: fill
+            stem: |-
+              在数轴上，点 A 表示的数是 ____。
+
+              ![](fig:f3)
+            answer: '2.5'
+            score: 3
+            figures:
+              - {id: f3, kind: number_line, alt: 数轴, params: {min: 0, max: 4, step: 0.5, points: [{value: 2.5, label: A}]}}
+      - title: 计算与应用
+        items:
+          - kind: calc
+            stem: '计算：$12.6-3.45+0.8=$____'
+            answer: '9.95'
+            solution: '从左往右：$12.6-3.45=9.15$，$9.15+0.8=9.95$。'
+            score: 4
+          - kind: application
+            stem: '小红买了 3 本练习本，每本 $2.5$ 元，她付给收银员 $10$ 元，应找回多少元？'
+            answer: '2.5 元'
+            solution: '$2.5\times 3=7.5$，$10-7.5=2.5$（元）。'
+            score: 6
+          - kind: application
+            stem: |-
+              如图，一个长方形的长是 8 厘米，宽是 5 厘米，它的周长是多少厘米？
+
+              ![](fig:f1)
+            answer: '26 厘米'
+            solution: '$(8+5)\times 2=26$（厘米）。'
+            score: 6
+            figures:
+              - {id: f1, kind: shape, alt: 长方形, params: {shape: rectangle, labels: {length: 8厘米, width: 5厘米}}}
+          - kind: application
+            stem: |-
+              下面是某班同学喜欢的运动人数统计图，喜欢跳绳的比喜欢足球的多多少人？
+
+              ![](fig:f2)
+            answer: '6 人'
+            solution: '$18-12=6$（人）。'
+            score: 6
+            figures:
+              - {id: f2, kind: bar_chart, alt: 条形统计图, params: {title: 喜欢的运动, categories: [跳绳, 足球, 篮球, 乒乓球], values: [18, 12, 15, 9], y_step: 5, y_label: 人数}}
+
+- id: formula_dense
+  tags: [formulas]
+  pages: [1, 3]
+  paper:
+    title: 分数与小数综合计算
+    sections:
+      - title: 计算
+        items:
+          - {kind: calc, stem: '计算：$\frac{2}{3}+\frac{3}{4}-\frac{5}{6}=$____', answer: '7/12', solution: '$\frac{8}{12}+\frac{9}{12}-\frac{10}{12}=\frac{7}{12}$。'}
+          - {kind: calc, stem: '计算：$1\frac{1}{2}\times 2\frac{2}{3}\div \frac{4}{9}=$____', answer: '9', solution: '$\frac{3}{2}\times\frac{8}{3}\div\frac{4}{9}=4\div\frac{4}{9}=9$。'}
+          - {kind: calc, stem: '解方程：$3x-4.5=7.5$。$x=$____', answer: '4', solution: '$3x=12$，$x=4$。'}
+          - {kind: calc, stem: '计算：$(12.5+7.5)\times 0.4-3.2\div 0.8=$____', answer: '4', solution: '$20\times0.4=8$，$3.2\div0.8=4$，$8-4=4$。'}
+          - {kind: calc, stem: '简便计算：$25\times 17\times 4=$____', answer: '1700', solution: '$25\times4\times17=100\times17=1700$。'}
+          - {kind: fill, stem: '$45\%$ 写成小数是 ____，写成最简分数是 ____。', answer: '0.45；9/20', solution: '$45\%=0.45=\frac{45}{100}=\frac{9}{20}$。'}
+          - {kind: fill, stem: '$7\div 3=$____……____', answer: '2；1', solution: '$3\times2=6$，$7-6=1$。'}
+          - {kind: fill, stem: '长方体的体积公式 $V=abh$，当 $a=3\text{cm}$，$b=4\text{cm}$，$h=5\text{cm}$ 时，$V=$____$\text{cm}^3$。', answer: '60', solution: '$3\times4\times5=60$。'}
+          - {kind: calc, stem: '比较大小：$\frac{3}{5}$ ____ $0.65$（填“>”“<”或“=”）。', answer: '<', solution: '$\frac{3}{5}=0.6<0.65$。'}
+          - {kind: fill, stem: '一个角是 $35^\circ$，它的余角是 ____$^\circ$，补角是 ____$^\circ$。', answer: '55；145', solution: '$90-35=55$，$180-35=145$。'}
+
+- id: long_stems
+  tags: [long, multi_paragraph]
+  pages: [1, 3]
+  paper:
+    title: 应用题（长题干）
+    sections:
+      - title: 解决问题
+        items:
+          - kind: application
+            stem: |-
+              学校组织三年级和四年级的同学去郊外春游。三年级共有 126 名同学，四年级比三年级多 24 名同学。学校租了若干辆大巴车，每辆车最多坐 45 人，并且每辆车上至少要有 2 名带队老师（老师不占用学生座位）。
+
+              （1）两个年级一共有多少名同学？
+
+              （2）至少需要租几辆大巴车才能让所有同学都有座位？
+
+              （3）如果每辆大巴车的租金是 $680$ 元，学校打算用班费支付，班费一共有 $3\,500$ 元，够不够？请说明理由。
+            answer: '（1）276 名；（2）7 辆；（3）不够'
+            solution: |-
+              （1）四年级有 $126+24=150$（名），一共 $126+150=276$（名）。
+
+              （2）$276\div45=6\cdots\cdots6$，所以至少需要 $6+1=7$（辆）。
+
+              （3）$680\times7=4760$（元），$4760>3500$，所以班费不够。
+            score: 12
+          - kind: application
+            stem: '一辆汽车从甲地开往乙地，前 3 小时每小时行驶 $65$ 千米，后 2 小时每小时行驶 $72$ 千米，已知甲、乙两地相距 $350$ 千米，这辆汽车到达乙地了吗？如果没有，还差多少千米？请写出计算过程，并说明你的理由，要求所有的单位都要写清楚，答案要有完整的语句。'
+            answer: '没有，还差 11 千米'
+            solution: '$65\times3+72\times2=195+144=339$（千米），$350-339=11$（千米）。'
+            score: 8
+
+- id: options_layout
+  tags: [choice, layout]
+  pages: [1, 2]
+  paper:
+    title: 选择题版面
+    sections:
+      - title: 选择题
+        items:
+          - {kind: choice, stem: '下面的数中，最大的是（　）。', options: ['0.5', '0.49', '0.051', '0.5001'], answer: D, score: 2}
+          - {kind: choice, stem: '把 $0.36$ 化成分数是（　）。', options: ['$\frac{36}{10}$', '$\frac{9}{25}$', '$\frac{36}{1000}$', '$\frac{3}{6}$'], answer: B, score: 2}
+          - {kind: choice, stem: '下面哪种做法能最方便地算出 $102\times 25$？', options: ['先算 $100\times25$，再算 $2\times25$，最后相加', '先算 $102\times20$，再算 $102\times5$，最后相加', '先把 $25$ 拆成 $5\times5$，再依次相乘', '直接用竖式计算，不能用简便方法'], answer: A, score: 2}
+          - {kind: choice, stem: '一个三角形的三个内角度数比是 $1:2:3$，这个三角形是（　）三角形。', options: ['锐角', '直角', '钝角'], answer: B, score: 2}
+          - {kind: choice, stem: '下面说法正确的是（　）。', options: ['小数都比整数小', '一个数乘 $0.1$，积一定比这个数小', '两个小数相乘，积一定是小数', '$0$ 乘任何数都得 $0$'], answer: D, score: 2}
+
+- id: blanks_and_brackets
+  tags: [blanks]
+  pages: [1, 2]
+  paper:
+    title: 填空与判断
+    sections:
+      - title: 填空
+        items:
+          - {kind: fill, stem: '$3.5\text{ m}=$____cm，$2\text{ kg }50\text{ g}=$____kg。', answer: '350；2.05'}
+          - {kind: fill, stem: '在（　　）里填上合适的数：$0.7\,\text{L}=$（　　）mL。', answer: '700'}
+          - {kind: fill, stem: '一个数由 5 个十、3 个十分之一和 8 个百分之一组成，这个数写作________，读作________。', answer: '50.38；五十点三八'}
+          - {kind: judge, stem: '小数的末尾添上 0 或去掉 0，小数的大小不变。（　　）', answer: 错}
+          - {kind: judge, stem: '等腰三角形一定是锐角三角形。（　）', answer: 错}
+
+- id: table_in_stem
+  tags: [table]
+  pages: [1, 2]
+  paper:
+    title: 统计表
+    sections:
+      - title: 解决问题
+        items:
+          - kind: application
+            stem: |-
+              下表是三（2）班同学最喜欢的水果的统计结果。
+
+              | 水果 | 苹果 | 香蕉 | 橙子 | 西瓜 |
+              |---|---|---|---|---|
+              | 人数 | 12 | 9 | 7 | 14 |
+
+              （1）喜欢西瓜的比喜欢香蕉的多多少人？
+
+              （2）全班一共有多少人？
+            answer: '（1）5 人；（2）42 人'
+            solution: '（1）$14-9=5$（人）。（2）$12+9+7+14=42$（人）。'
+            score: 8
+
+- id: special_chars
+  tags: [special_chars]
+  pages: [1, 2]
+  paper:
+    title: '特殊字符 & 符号 #测试_卷 100%'
+    meta: {school: '“实验”小学（东校区）'}
+    sections:
+      - title: 综合
+        items:
+          - {kind: fill, stem: '甲、乙两人的零花钱之比是 3:5，占总数的 $\frac{3}{8}$，即 37.5% ，约为 #3 号。', answer: '37.5%'}
+          - {kind: fill, stem: 'a_b 与 a*b 与 [x] 与 <y> 与 a~b 与 a^b 与 @ 与 \ 与 { } 都是普通字符。', answer: '略'}
+          - {kind: fill, stem: '小明有 \$5，买了 \$2 的铅笔，还剩 ____ 美元。', answer: '3'}
+          - {kind: fill, stem: '全角标点：“引号”、‘单引’、——破折号、……省略号、《书名》、【方头括号】、（括号）。', answer: '略'}
+          - {kind: fill, stem: '范围 10~20，序号 1)、2)，邮箱 a@b.c，网址 http://x.y/z?q=1&r=2。', answer: '略'}
+          - kind: fill
+            stem: |-
+              第一行
+              第二行（单个换行）
+            answer: 略
+
+- id: unicode_rare
+  tags: [unicode, glyph_warning]
+  pages: [1, 2]
+  warn_ok: true
+  paper:
+    title: 罕见字符
+    sections:
+      - title: 其他
+        items:
+          - {kind: fill, stem: '圈号 ① ② ③ ，希腊字母 α β γ，罗马数字 Ⅳ Ⅸ，上标 m² m³，℃，‰，㎡。', answer: '略'}
+          - {kind: fill, stem: '生僻字：𠀀 与 emoji 😀 与 ☃。', answer: '略'}
+
+- id: needs_review_item
+  tags: [verification_mark]
+  pages: [1, 2]
+  paper:
+    title: 含需复核题
+    sections:
+      - title: 练习
+        items:
+          - {kind: calc, stem: '计算：$0.25\times 4.8=$____', answer: '1.2', solution: '$0.25\times4.8=1.2$。', score: 3, verification: {status: needs_review}}
+          - {kind: calc, stem: '计算：$7.2\div 0.9=$____', answer: '8', solution: '$72\div9=8$。', score: 3, verification: {status: verified}}
+
+- id: single_section_untitled
+  tags: [structure]
+  pages: [1, 1]
+  paper:
+    title: 口算
+    sections:
+      - items:
+          - {kind: calc, stem: '$0.5+0.25=$____', answer: '0.75', score: 1}
+          - {kind: calc, stem: '$1-0.37=$____', answer: '0.63', score: 1}
+          - {kind: calc, stem: '$4\times0.25=$____', answer: '1', score: 1}
+
+- id: all_figures
+  tags: [figures]
+  pages: [1, 3]
+  paper:
+    title: 图形题
+    sections:
+      - title: 看图解答
+        items:
+          - kind: application
+            stem: |-
+              如图，一个三角形的底是 10 厘米，高是 6 厘米，面积是多少平方厘米？
+
+              ![](fig:t1)
+            answer: '30'
+            figures:
+              - {id: t1, kind: shape, alt: 三角形, params: {shape: triangle, labels: {base: 10厘米, height: 6厘米}}}
+          - kind: application
+            stem: |-
+              平行四边形的底是 12 厘米，高是 7 厘米，面积是多少？
+
+              ![](fig:p1)
+            answer: '84'
+            figures:
+              - {id: p1, kind: shape, alt: 平行四边形, params: {shape: parallelogram, labels: {base: 12厘米, height: 7厘米, side: 8厘米}}}
+          - kind: application
+            stem: |-
+              梯形的上底 4 厘米，下底 10 厘米，高 5 厘米，面积是多少？
+
+              ![](fig:z1)
+            answer: '35'
+            figures:
+              - {id: z1, kind: shape, alt: 梯形, params: {shape: trapezoid, labels: {top: 4厘米, bottom: 10厘米, height: 5厘米}}}
+          - kind: fill
+            stem: |-
+              图中涂色部分有 ____ 格，补全这个轴对称图形。
+
+              ![](fig:g1)
+            answer: '7'
+            figures:
+              - {id: g1, kind: grid, alt: 方格图, params: {rows: 6, cols: 10, shaded: [[1, 1], [1, 2], [2, 1], [3, 1], [3, 2], [4, 1], [5, 1]], axis: {orientation: vertical, at: 5}}}
+          - kind: fill
+            stem: |-
+              用数对表示：点 A 的位置是（____，____）。
+
+              ![](fig:g2)
+            answer: '（3，4）'
+            figures:
+              - {id: g2, kind: grid, alt: 坐标方格, params: {rows: 6, cols: 8, coordinate: true, points: [{x: 3, y: 4, label: A}, {x: 6, y: 2, label: B}]}}
+          - kind: application
+            stem: |-
+              圆的半径是 5 厘米，直径是多少？
+
+              ![](fig:c1)
+            answer: '10 厘米'
+            figures:
+              - {id: c1, kind: shape, alt: 圆, params: {shape: circle, labels: {radius: 5厘米}}}
+
+- id: figure_degrade
+  tags: [figures, robustness]
+  pages: [1, 2]
+  warn_ok: true
+  paper:
+    title: 图形规格错误时降级
+    sections:
+      - title: 练习
+        items:
+          - kind: application
+            stem: |-
+              规格缺参数的图：
+
+              ![](fig:bad1)
+            answer: '略'
+            figures:
+              - {id: bad1, kind: number_line, alt: 数轴, params: {min: 0}}
+          - kind: application
+            stem: |-
+              未知类型的图：
+
+              ![](fig:bad2)
+            answer: '略'
+            figures:
+              - {id: bad2, kind: hologram, alt: 全息图, params: {}}
+          - kind: application
+            stem: '引用了不存在的图：![](fig:nope)'
+            answer: '略'
+          - kind: application
+            stem: '有规格但题干没引用的图（应补在题干后）'
+            answer: '略'
+            figures:
+              - {id: orphan, kind: number_line, alt: 数轴, params: {min: 0, max: 2, step: 0.5}}
+
+- id: degenerate_items
+  tags: [robustness]
+  pages: [1, 2]
+  warn_ok: true
+  paper:
+    title: 退化题目
+    sections:
+      - title: 异常
+        items:
+          - {kind: choice, stem: '选择题但没有选项。', options: [], answer: A}
+          - {kind: choice, stem: '选项为空字符串。', options: ['', '', '', ''], answer: A}
+          - {kind: fill, stem: '', answer: '空题干'}
+          - {kind: fill, stem: '未闭合的美元符号 $x+1 ，还有 $$ 孤立的块公式', answer: '略'}
+          - {kind: calc, stem: '只有答案没有解析。', answer: '1', solution: ''}
+          - {kind: open, stem: '开放题：请说说你的想法。', answer: ''}
+
+- id: empty_paper
+  tags: [robustness]
+  expect_error: true
+  paper:
+    title: 空试卷
+    sections: []
+
+- id: single_item
+  tags: [structure]
+  pages: [1, 1]
+  paper:
+    title: 一道题
+    sections:
+      - title: 题目
+        items:
+          - {kind: application, stem: '一支铅笔 $0.8$ 元，买 $6$ 支需要多少元？', answer: '4.8 元', solution: '$0.8\times6=4.8$（元）。', score: 5}

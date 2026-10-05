@@ -46,6 +46,7 @@ class Settings(BaseSettings):
     root: Path | None = None
     data_dir: Path | None = None
     debug_token: SecretStr | None = None
+    font_dir: Path | None = None  # 额外的字体目录（服务器镜像没有中文字体时放这里；本机默认用系统字体）
 
     llm_mode: LLMMode = LLMMode.live
     cassette_dir: Path | None = None

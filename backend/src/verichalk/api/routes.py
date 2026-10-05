@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
+import json
 from typing import Annotated
+from urllib.parse import quote
 
 from fastapi import APIRouter, File, Form, Header, Query, Request, UploadFile
-from fastapi.responses import StreamingResponse
+from fastapi.responses import Response, StreamingResponse
 
 from .. import __version__
 from ..core.errors import Conflict
 from ..domain.events import Event
+from ..domain.export import ExportOptions
 from ..domain.run import Run
 from ..metrics import AggregateMetrics, aggregate, compute_run_metrics
 from .deps import ContainerDep, DebugDep
@@ -90,6 +93,26 @@ async def post_turn(
         await c.store.attachments.add(a)
     run = await c.manager.start_turn(session_id, text.strip(), atts)
     return TurnAccepted(session_id=session_id, run_id=run.id, message_id=run.message_id or "")
+
+
+# ---- 导出 ----
+@router.post(
+    "/sessions/{session_id}/export",
+    response_class=Response,
+    responses={200: {"content": {"application/octet-stream": {}}, "description": "导出的文件"}},
+)
+async def export_paper_file(
+    session_id: str, body: ExportOptions, c: ContainerDep, inline: bool = False
+) -> Response:
+    """导出当前试卷。`inline=true` 用于页面内预览（PDF 直接嵌入）；警告（缺字、图无法绘制等）放在 `X-Export-Warnings`。"""
+    res = await c.papers.export(session_id, body)
+    disp = "inline" if inline else "attachment"
+    headers = {
+        "Content-Disposition": f"{disp}; filename*=UTF-8''{quote(res.filename)}",
+        "X-Export-Warnings": quote(json.dumps(res.warnings, ensure_ascii=False)),
+        "Access-Control-Expose-Headers": "Content-Disposition, X-Export-Warnings",
+    }
+    return Response(res.data, media_type=res.media_type, headers=headers)
 
 
 # ---- 运行 ----

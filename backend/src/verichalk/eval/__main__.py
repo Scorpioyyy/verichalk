@@ -285,6 +285,29 @@ def cmd_compare(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_export(args: argparse.Namespace) -> int:
+    """导出评测（eval/specs/export.md）：不调用模型，确定、零成本。`--dump DIR` 保存所有产出文件供人工抽检。"""
+    from .export_eval import latency, load_export_cases, render_report, run_export_eval, summarize
+
+    settings = Settings()
+    root = settings.root_dir
+    cases = load_export_cases(root / "eval" / "datasets" / "export" / "papers.yaml")
+    if args.only:
+        keep = {x.strip() for x in args.only.split(",")}
+        cases = [c for c in cases if c.id in keep]
+    dump = Path(args.dump) if args.dump else None
+    if dump:
+        dump.mkdir(parents=True, exist_ok=True)
+    font_dirs = (str(settings.font_dir),) if settings.font_dir else ()
+    rows = run_export_eval(cases, font_dirs=font_dirs, tex_compile=args.tex_compile, dump_dir=dump)
+    md = render_report(rows, summarize(rows), latency(font_dirs=font_dirs), args.tag or "export")
+    out = root / "eval" / "reports" / f"export_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
 def main() -> None:
     setup_logging("WARNING")
     ap = argparse.ArgumentParser(prog="verichalk.eval")
@@ -353,6 +376,12 @@ def main() -> None:
     pr.add_argument("--tag", default="")
     pr.add_argument("--cassette-ns", default=None)
     pr.set_defaults(fn=cmd_produce)
+    ex = sub.add_parser("export", help="导出评测（PDF / Word / Markdown / LaTeX；不调用模型）")
+    ex.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
+    ex.add_argument("--dump", default="", help="把所有导出文件保存到该目录（人工抽检）")
+    ex.add_argument("--tex-compile", action="store_true", help="本机有 xelatex 时实际编译 LaTeX 源码（X9）")
+    ex.add_argument("--tag", default="")
+    ex.set_defaults(fn=cmd_export)
     c = sub.add_parser("compare")
     c.add_argument("--base", required=True)
     c.add_argument("--new", required=True)

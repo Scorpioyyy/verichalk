@@ -1,0 +1,32 @@
+# 密钥与本地环境
+.env
+.env.*
+!.env.example
+
+# 运行时数据与临时文件
+/data/
+/tmp/*
+!/tmp/.gitkeep
+
+# Python
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.pyright/
+.venv/
+build/
+dist/
+
+# 前端
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# 评测：拍照集含教辅版权内容，仅本地保存
+/eval/datasets/photos/
+/eval/annotation/photos/
+
+# 编辑器
+.vscode/
+.idea/

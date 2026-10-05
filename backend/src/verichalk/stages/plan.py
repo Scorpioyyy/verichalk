@@ -187,14 +187,10 @@ class PlanStage(Stage[PlanIn, Blueprint]):
             ]
             scenes = []
             for s in draft.scene_cands.get(it.id, [])[:5]:
-                ctx = draft.contexts.get(s)
+                cx = draft.contexts.get(s)
                 scenes.append(
                     s
-                    + (
-                        f"（{'、'.join(ctx.typical_quantities[:3])}）"
-                        if ctx and ctx.typical_quantities
-                        else ""
-                    )
+                    + (f"（{'、'.join(cx.typical_quantities[:3])}）" if cx and cx.typical_quantities else "")
                 )
             items.append(
                 {

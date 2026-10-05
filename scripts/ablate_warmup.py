@@ -9,6 +9,7 @@
 
 用法：python scripts/ablate_warmup.py [--profile intl] [--n 5]
 """
+
 from __future__ import annotations
 
 import argparse
@@ -32,7 +33,9 @@ QUESTION = "请用不超过三十个字，说明三角形内角和是多少度�
 
 
 def prefix(salt: str, n_rules: int) -> str:
-    return f"[{salt}] 你是小学数学命题助手。规则：" + "".join(RULE.format(i=i) for i in range(n_rules))
+    return f"[{salt}] 你是小学数学命题助手。规则：" + "".join(
+        RULE.format(i=i) for i in range(n_rules)
+    )
 
 
 async def trial(profile: Profile, cond: str, n_rules: int) -> dict:
@@ -42,20 +45,50 @@ async def trial(profile: Profile, cond: str, n_rules: int) -> dict:
     system = prefix(uuid.uuid4().hex, n_rules)
     try:
         if cond == "B conn-warm":
-            await gw.complete(LLMRequest(role=Role.fast, purpose="ablate-ping", max_tokens=1,
-                                         messages=[ChatMessage(role="user", content="ping")]))
+            await gw.complete(
+                LLMRequest(
+                    role=Role.fast,
+                    purpose="ablate-ping",
+                    max_tokens=1,
+                    messages=[ChatMessage(role="user", content="ping")],
+                )
+            )
         elif cond == "C full-warm":
-            await gw.complete(LLMRequest(role=Role.fast, purpose="ablate-warm", max_tokens=1,
-                                         messages=[ChatMessage(role="system", content=system),
-                                                   ChatMessage(role="user", content="ping")]))
+            await gw.complete(
+                LLMRequest(
+                    role=Role.fast,
+                    purpose="ablate-warm",
+                    max_tokens=1,
+                    messages=[
+                        ChatMessage(role="system", content=system),
+                        ChatMessage(role="user", content="ping"),
+                    ],
+                )
+            )
         if cond != "A cold":
             await asyncio.sleep(0.5)  # 模拟"页面打开 → 用户输入完成"之间的间隔
         t0 = time.perf_counter()
-        r = await gw.complete(LLMRequest(role=Role.fast, purpose="ablate-real", messages=[
-            ChatMessage(role="system", content=system), ChatMessage(role="user", content=QUESTION)]))
+        r = await gw.complete(
+            LLMRequest(
+                role=Role.fast,
+                purpose="ablate-real",
+                messages=[
+                    ChatMessage(role="system", content=system),
+                    ChatMessage(role="user", content=QUESTION),
+                ],
+            )
+        )
         wall = (time.perf_counter() - t0) * 1000
-        return {"cond": cond, "rules": n_rules, "ttft": r.ttft_ms, "total": r.total_ms, "wall": wall,
-                "cached": r.usage.cached_tokens, "prompt": r.usage.prompt_tokens, "cost": r.cost}
+        return {
+            "cond": cond,
+            "rules": n_rules,
+            "ttft": r.ttft_ms,
+            "total": r.total_ms,
+            "wall": wall,
+            "cached": r.usage.cached_tokens,
+            "prompt": r.usage.prompt_tokens,
+            "cost": r.cost,
+        }
     finally:
         if gw._transport is not None:  # noqa: SLF001
             await gw._transport.aclose()  # noqa: SLF001
@@ -73,7 +106,11 @@ async def main() -> None:
     ap.add_argument("--tag", default="", help="报告文件名后缀")
     args = ap.parse_args()
     sizes = {"~3k token": 95, "~12k token": 380}
-    conds = [c for c in ("A cold", "B conn-warm", "C full-warm") if c[0] in args.conds.split(",")]
+    conds = [
+        c
+        for c in ("A cold", "B conn-warm", "C full-warm")
+        if c[0] in args.conds.split(",")
+    ]
     plan = [(c, n) for c in conds for n in sizes.values() for _ in range(args.n)]
     random.Random(7).shuffle(plan)
     rows: list[dict] = []
@@ -82,9 +119,14 @@ async def main() -> None:
             rows.append(await trial(Profile(args.profile), cond, n_rules))
         except Exception as e:  # noqa: BLE001  实验脚本：失败的试验记录后跳过
             print("trial failed:", type(e).__name__, file=sys.stderr)
-    L = [f"# 预热消融实验（profile = {args.profile}，每格 {args.n} 次，{time.strftime('%Y-%m-%d')}）", "",
-         "每次试验使用全新连接与带随机盐的前缀（服务端缓存必然为冷）。表中为**真实请求**的指标，中位数（最小～最大）。", "",
-         "| 前缀 | 条件 | TTFT (ms) | 总时长 (ms) | 命中缓存 / 输入 token | 成本（元） |", "|---|---|---|---|---|---|"]
+    L = [
+        f"# 预热消融实验（profile = {args.profile}，每格 {args.n} 次，{time.strftime('%Y-%m-%d')}）",
+        "",
+        "每次试验使用全新连接与带随机盐的前缀（服务端缓存必然为冷）。表中为**真实请求**的指标，中位数（最小～最大）。",
+        "",
+        "| 前缀 | 条件 | TTFT (ms) | 总时长 (ms) | 命中缓存 / 输入 token | 成本（元） |",
+        "|---|---|---|---|---|---|",
+    ]
     for label, n_rules in sizes.items():
         for cond in conds:
             xs = [r for r in rows if r["cond"] == cond and r["rules"] == n_rules]
@@ -93,9 +135,11 @@ async def main() -> None:
             tt = [r["ttft"] for r in xs if r["ttft"] is not None]
             tot = [r["total"] for r in xs]
             costs = [r["cost"] for r in xs if r["cost"] is not None]
-            L.append(f"| {label} | {cond} | {med(tt):.0f}（{min(tt):.0f}～{max(tt):.0f}） | {med(tot):.0f}（{min(tot):.0f}～{max(tot):.0f}） | "
-                     f"{med([r['cached'] for r in xs]):.0f} / {med([r['prompt'] for r in xs]):.0f} | "
-                     f"{(med(costs) if costs else float('nan')):.6f} |")
+            L.append(
+                f"| {label} | {cond} | {med(tt):.0f}（{min(tt):.0f}～{max(tt):.0f}） | {med(tot):.0f}（{min(tot):.0f}～{max(tot):.0f}） | "
+                f"{med([r['cached'] for r in xs]):.0f} / {med([r['prompt'] for r in xs]):.0f} | "
+                f"{(med(costs) if costs else float('nan')):.6f} |"
+            )
     out = ROOT / "eval" / "reports" / f"ablation_warmup_{args.profile}{args.tag}.md"
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))

@@ -39,7 +39,9 @@ def resolve(cur: Any, name: str) -> Any:
 
 
 def authored(cur: Any) -> list[dict[str, Any]]:
-    raw = yaml.safe_load((ROOT / "eval/annotation/boundary/items.yaml").read_text(encoding="utf-8"))
+    raw = yaml.safe_load(
+        (ROOT / "eval/annotation/boundary/items.yaml").read_text(encoding="utf-8")
+    )
     out: list[dict[str, Any]] = []
     for i, it in enumerate(raw):
         lesson = it["lesson_id"]
@@ -60,9 +62,16 @@ def authored(cur: Any) -> list[dict[str, Any]]:
             kp = resolve(cur, it["culprit"])
             loc = cur.locate(kp.id)
             if cur.lesson_position(loc.lesson_id) <= cur.lesson_position(lesson):
-                raise SystemExit(f"{it['pair']}：{it['culprit']} 在 {loc.lesson_id} 引入，不晚于目标课时 {lesson}")
-            if cur.lesson_location(loc.lesson_id).unit_id == cur.lesson_location(lesson).unit_id:
-                raise SystemExit(f"{it['pair']}：{it['culprit']} 与目标课时在同一单元（borderline 灰区）")
+                raise SystemExit(
+                    f"{it['pair']}：{it['culprit']} 在 {loc.lesson_id} 引入，不晚于目标课时 {lesson}"
+                )
+            if (
+                cur.lesson_location(loc.lesson_id).unit_id
+                == cur.lesson_location(lesson).unit_id
+            ):
+                raise SystemExit(
+                    f"{it['pair']}：{it['culprit']} 与目标课时在同一单元（borderline 灰区）"
+                )
             row["culprit"] = kp.id
         out.append(row)
     return out
@@ -71,7 +80,11 @@ def authored(cur: Any) -> list[dict[str, Any]]:
 def numeric(cur: Any, n: int, seed: int) -> list[dict[str, Any]]:
     """同一题型：较晚课时 in、较早课时 out（只取整数数域 / 小数位数维度的越界）。"""
     rng = random.Random(seed)
-    ats = [a for a in cur.archetypes(verifiable_type="program") if getattr(a.item_form, "value", a.item_form) in KIND]
+    ats = [
+        a
+        for a in cur.archetypes(verifiable_type="program")
+        if getattr(a.item_form, "value", a.item_form) in KIND
+    ]
     rng.shuffle(ats)
     rows: list[dict[str, Any]] = []
     all_lessons = list(cur.lesson_ids())
@@ -85,7 +98,9 @@ def numeric(cur: Any, n: int, seed: int) -> list[dict[str, Any]]:
             late = lessons[-1]
             late_pos = cur.lesson_position(late)
             # 较早课时：向前约 2 册（教学序列里约 40 课时）
-            early_cands = [x for x in all_lessons if cur.lesson_position(x) <= late_pos - 70]
+            early_cands = [
+                x for x in all_lessons if cur.lesson_position(x) <= late_pos - 70
+            ]
             if not early_cands:
                 continue
             early = early_cands[-1]
@@ -96,10 +111,18 @@ def numeric(cur: Any, n: int, seed: int) -> list[dict[str, Any]]:
             continue
         form = getattr(a.item_form, "value", a.item_form)
         bad = ("如图", "下图", "表格", "|", "______ )", "画", "量一量", "判断")
-        if p_in.warnings or any(w in p_in.problem for w in bad) or len(p_in.problem) > 150:
+        if (
+            p_in.warnings
+            or any(w in p_in.problem for w in bad)
+            or len(p_in.problem) > 150
+        ):
             continue
         dims = set(p_out.violated_dimensions or [])
-        if p_in.verdict != "in" or p_out.verdict != "out" or not dims & {"integer_domain", "decimal_places"}:
+        if (
+            p_in.verdict != "in"
+            or p_out.verdict != "out"
+            or not dims & {"integer_domain", "decimal_places"}
+        ):
             continue
         key = f"num{len(rows) // 2}"
         for lab, p, lesson in (("in", p_in, late), ("out", p_out, early)):
@@ -112,7 +135,9 @@ def numeric(cur: Any, n: int, seed: int) -> list[dict[str, Any]]:
                     "lesson_id": lesson,
                     "grade": cur.lesson_location(lesson).grade,
                     "label": lab,
-                    "dimension": sorted(dims & {"integer_domain", "decimal_places"})[0] if lab == "out" else "numeric",
+                    "dimension": sorted(dims & {"integer_domain", "decimal_places"})[0]
+                    if lab == "out"
+                    else "numeric",
                     "culprit": None,
                     "stem": p.problem.strip(),
                     "solution": "",
@@ -137,10 +162,20 @@ def main() -> None:
     yaml.SafeDumper.ignore_aliases = lambda self, data: True  # type: ignore[method-assign]
     with path.open("w", encoding="utf-8") as f:
         f.write(head)
-        yaml.safe_dump(rows, f, allow_unicode=True, sort_keys=False, default_flow_style=None, width=140)
+        yaml.safe_dump(
+            rows,
+            f,
+            allow_unicode=True,
+            sort_keys=False,
+            default_flow_style=None,
+            width=140,
+        )
     from collections import Counter
 
-    print(Counter((r["source"], r["label"]) for r in rows), Counter(r["split"] for r in rows))
+    print(
+        Counter((r["source"], r["label"]) for r in rows),
+        Counter(r["split"] for r in rows),
+    )
     print(f"写入 {path}（{len(rows)} 项）")
 
 

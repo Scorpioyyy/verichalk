@@ -38,7 +38,12 @@ from verichalk.llm import LLMRequest, build_gateway, complete_json, get_prompt  
 from verichalk.verify.answers import answers_equal, parse_value  # noqa: E402
 from verichalk.verify.checks import BlindOut  # noqa: E402
 
-KIND = {"compute": "calc", "fill_blank": "fill", "word_problem": "application", "judge": "judge"}
+KIND = {
+    "compute": "calc",
+    "fill_blank": "fill",
+    "word_problem": "application",
+    "judge": "judge",
+}
 BAD_WORDS = re.compile(r"如图|下图|上图|图中|表格|\||画|量一量|数一数|摆|折|剪|拼")
 ERR_TYPES = ["digit", "off1", "shift", "op", "flip"]
 
@@ -58,7 +63,11 @@ def sample_templates(n: int, seed: int) -> list[dict[str, Any]]:
 
     cur = Curriculum()
     rng = random.Random(seed)
-    ats = [a for a in cur.archetypes(verifiable_type="program") if getattr(a.item_form, "value", a.item_form) in KIND]
+    ats = [
+        a
+        for a in cur.archetypes(verifiable_type="program")
+        if getattr(a.item_form, "value", a.item_form) in KIND
+    ]
     rng.shuffle(ats)
     out: list[dict[str, Any]] = []
     per_grade: dict[int, int] = {}
@@ -77,7 +86,12 @@ def sample_templates(n: int, seed: int) -> list[dict[str, Any]]:
             continue
         form = getattr(a.item_form, "value", a.item_form)
         v = p.answer_value
-        if p.warnings or p.verdict != "in" or BAD_WORDS.search(p.problem) or len(p.problem) > 150:
+        if (
+            p.warnings
+            or p.verdict != "in"
+            or BAD_WORDS.search(p.problem)
+            or len(p.problem) > 150
+        ):
             continue
         if isinstance(v, bool):
             if "判断" not in p.problem or "______" in p.problem:
@@ -125,7 +139,11 @@ def inject(item: dict[str, Any], rng: random.Random) -> list[tuple[str, str]]:
 
     def fmt(x: Fraction | Decimal) -> str:
         if isinstance(x, Fraction):
-            return str(x.numerator) if x.denominator == 1 else f"{x.numerator}/{x.denominator}"
+            return (
+                str(x.numerator)
+                if x.denominator == 1
+                else f"{x.numerator}/{x.denominator}"
+            )
         s = format(x.normalize(), "f")
         return s
 
@@ -133,7 +151,13 @@ def inject(item: dict[str, Any], rng: random.Random) -> list[tuple[str, str]]:
     if true.denominator == 1:
         step = Fraction(rng.choice([1, 1, 10]))
     else:
-        step = Fraction(1, 10 ** max(1, len(item["answer"].split(".")[-1]) if "." in item["answer"] else 1))
+        step = Fraction(
+            1,
+            10
+            ** max(
+                1, len(item["answer"].split(".")[-1]) if "." in item["answer"] else 1
+            ),
+        )
     out.append(("off1", fmt(true + step * rng.choice([-1, 1]))))
     # shift：小数点移位
     out.append(("shift", fmt(true * rng.choice([10, Fraction(1, 10), 100]))))
@@ -146,7 +170,11 @@ def inject(item: dict[str, Any], rng: random.Random) -> list[tuple[str, str]]:
         if not (s.startswith("0") and len(s) > 1 and s[1].isdigit()):
             out.append(("digit", s))
     # op：用题里的两个数换一种运算
-    nums = [Fraction(Decimal(v)) for v in item["params"].values() if re.fullmatch(r"-?\d+(\.\d+)?", v)]
+    nums = [
+        Fraction(Decimal(v))
+        for v in item["params"].values()
+        if re.fullmatch(r"-?\d+(\.\d+)?", v)
+    ]
     if len(nums) >= 2:
         a, b = nums[0], nums[1]
         cands = [a + b, abs(a - b), a * b] + ([a / b] if b else [])
@@ -168,11 +196,22 @@ async def main() -> None:
     bases = await asyncio.to_thread(sample_templates, int(args.n * 1.5), args.seed)
     print(f"候选正确题 {len(bases)}")
 
-    s = Settings(profile=Profile(args.profile), llm_mode=LLMMode.record, cassette_namespace="verify_bank", llm_concurrency=8)
+    s = Settings(
+        profile=Profile(args.profile),
+        llm_mode=LLMMode.record,
+        cassette_namespace="verify_bank",
+        llm_concurrency=8,
+    )
     gw = build_gateway(s)
     sem = asyncio.Semaphore(8)
     # 审计模型：与线上盲解（deepseek）不同厂商，思考模式
-    gw.registry = gw.registry.override(Role.solver, model="qwen3.8-max", thinking=True, temperature=0.0, max_tokens=6000)
+    gw.registry = gw.registry.override(
+        Role.solver,
+        model="qwen3.8-max",
+        thinking=True,
+        temperature=0.0,
+        max_tokens=6000,
+    )
 
     async def audit(b: dict[str, Any]) -> bool:
         built = get_prompt("verify.blind").render(
@@ -181,7 +220,14 @@ async def main() -> None:
         async with sem:
             try:
                 out, _ = await complete_json(
-                    gw, LLMRequest(role=Role.solver, messages=built.messages, purpose="bank.audit", prompt=built.ref), BlindOut
+                    gw,
+                    LLMRequest(
+                        role=Role.solver,
+                        messages=built.messages,
+                        purpose="bank.audit",
+                        prompt=built.ref,
+                    ),
+                    BlindOut,
                 )
             except VerichalkError:
                 return False
@@ -216,7 +262,15 @@ async def main() -> None:
         cands = inject({"answer": b["answer"], "params": b["params"]}, rng)
         rng.shuffle(cands)
         for et, bad in cands[:2]:
-            wrong.append({**it, "id": f"vb-w{len(wrong):03d}", "label": "wrong", "error_type": et, "answers": [bad]})
+            wrong.append(
+                {
+                    **it,
+                    "id": f"vb-w{len(wrong):03d}",
+                    "label": "wrong",
+                    "error_type": et,
+                    "answers": [bad],
+                }
+            )
     items += wrong
 
     # 自洽的错误解析（写题厂商的模型扮演"在某一步出错"）与正确解析
@@ -228,29 +282,37 @@ async def main() -> None:
                 "下面是一道小学数学题。请扮演一位**在某一步出现细微错误**的老师，写一份看起来合理、逐步推导的参考解析，"
                 f"但推导过程中出现一个不易察觉的错误（如进位 / 借位错误、小数点位置错、看错一个数、漏一步），最终得出**指定的答案：{it['answers'][0]}**。"
                 "解析要自洽、语气像正常的参考解析，不要提示或暗示有错误，不超过 150 字。\n"
-                f"题目：{it['stem']}\n只输出 JSON：{{\"solution\": \"…\"}}"
+                f'题目：{it["stem"]}\n只输出 JSON：{{"solution": "…"}}'
             )
         else:
             prompt = (
                 f"下面是一道小学数学题，正确答案是 {it['answers'][0]}。请写一份简洁、正确的参考解析（不超过 150 字），"
                 "最后得出这个答案。\n"
-                f"题目：{it['stem']}\n只输出 JSON：{{\"solution\": \"…\"}}"
+                f'题目：{it["stem"]}\n只输出 JSON：{{"solution": "…"}}'
             )
         async with sem:
             try:
                 out, _ = await complete_json(
                     gw,
-                    LLMRequest(role=Role.smart, purpose="bank.solution", messages=[ChatMessage(role="user", content=prompt)]),
+                    LLMRequest(
+                        role=Role.smart,
+                        purpose="bank.solution",
+                        messages=[ChatMessage(role="user", content=prompt)],
+                    ),
                     Sol,
                 )
             except VerichalkError:
                 return ""
         return out.solution.strip()
 
-    with_sol_w = [it for it in items if it["label"] == "wrong" and it["error_type"] != "flip"]
+    with_sol_w = [
+        it for it in items if it["label"] == "wrong" and it["error_type"] != "flip"
+    ]
     rng.shuffle(with_sol_w)
     with_sol_w = with_sol_w[: len(with_sol_w) * 2 // 5]
-    with_sol_c = [it for it in items if it["label"] == "correct"][: len(with_sol_w) // 2 + 20]
+    with_sol_c = [it for it in items if it["label"] == "correct"][
+        : len(with_sol_w) // 2 + 20
+    ]
     sols = await asyncio.gather(
         *(write_solution(it, wrong_answer=True) for it in with_sol_w),
         *(write_solution(it, wrong_answer=False) for it in with_sol_c),
@@ -259,7 +321,16 @@ async def main() -> None:
     for it, sol in zip(with_sol_w + with_sol_c, sols, strict=True):
         if sol and "错" not in sol[:6]:
             wrongish = it["label"] == "wrong"
-            extra.append({**it, "id": it["id"] + "s", "solution": sol, "error_type": (it["error_type"] + "+solution") if wrongish else None})
+            extra.append(
+                {
+                    **it,
+                    "id": it["id"] + "s",
+                    "solution": sol,
+                    "error_type": (it["error_type"] + "+solution")
+                    if wrongish
+                    else None,
+                }
+            )
     items += extra
 
     # 缺陷题
@@ -269,27 +340,48 @@ async def main() -> None:
         "ambiguous": "把问法改得含糊，使得有两种都说得通的理解，且两种理解的答案不同",
         "absurd": "把其中一个数据改成不合常理的值（如价格 0.003 元、年龄 150 岁、人数 3.5 个），其余不变",
     }
-    word = [it for it in items if it["label"] == "correct" and it["kind"] in ("application", "calc") and len(it["stem"]) > 18]
+    word = [
+        it
+        for it in items
+        if it["label"] == "correct"
+        and it["kind"] in ("application", "calc")
+        and len(it["stem"]) > 18
+    ]
     rng.shuffle(word)
 
     async def make_defect(it: dict[str, Any], dtype: str) -> dict[str, Any] | None:
         prompt = (
             f"对下面这道小学数学题做一个破坏：{defect_types[dtype]}。只改题面，不要添加解释。\n题目：{it['stem']}\n"
-            "只输出 JSON：{\"stem\": \"破坏后的题面\"}"
+            '只输出 JSON：{"stem": "破坏后的题面"}'
         )
         async with sem:
             try:
                 out, _ = await complete_json(
-                    gw, LLMRequest(role=Role.smart, purpose="bank.defect", messages=[ChatMessage(role="user", content=prompt)]), Stem
+                    gw,
+                    LLMRequest(
+                        role=Role.smart,
+                        purpose="bank.defect",
+                        messages=[ChatMessage(role="user", content=prompt)],
+                    ),
+                    Stem,
                 )
             except VerichalkError:
                 return None
         if out.stem.strip() == it["stem"] or len(out.stem) > 220:
             return None
-        return {**it, "id": f"vb-d{len(extra)}-{dtype}-{it['id'][-3:]}", "label": "defect", "error_type": dtype, "stem": out.stem.strip(), "gold": []}
+        return {
+            **it,
+            "id": f"vb-d{len(extra)}-{dtype}-{it['id'][-3:]}",
+            "label": "defect",
+            "error_type": dtype,
+            "stem": out.stem.strip(),
+            "gold": [],
+        }
 
     plan = [(it, list(defect_types)[i % 4]) for i, it in enumerate(word[:80])]
-    defects = [d for d in await asyncio.gather(*(make_defect(it, t) for it, t in plan)) if d]
+    defects = [
+        d for d in await asyncio.gather(*(make_defect(it, t) for it, t in plan)) if d
+    ]
     items += defects
 
     head = (
@@ -301,7 +393,14 @@ async def main() -> None:
     yaml.SafeDumper.ignore_aliases = lambda self, data: True  # type: ignore[method-assign]
     with path.open("w", encoding="utf-8") as f:
         f.write(head)
-        yaml.safe_dump(items, f, allow_unicode=True, sort_keys=False, default_flow_style=None, width=140)
+        yaml.safe_dump(
+            items,
+            f,
+            allow_unicode=True,
+            sort_keys=False,
+            default_flow_style=None,
+            width=140,
+        )
     from collections import Counter
 
     print(Counter((x["label"], x["split"]) for x in items))

@@ -50,7 +50,14 @@ async def main() -> None:
     args = ap.parse_args()
     s = Settings(profile=Profile.intl, llm_mode=LLMMode.live)
     c = await build_container(s, store=await Store.open(":memory:"))
-    ctx = RunContext(run_id="contrib", session_id="contrib", settings=s, llm=c.llm, kb=c.kb, store=c.store)
+    ctx = RunContext(
+        run_id="contrib",
+        session_id="contrib",
+        settings=s,
+        llm=c.llm,
+        kb=c.kb,
+        store=c.store,
+    )
     env = VerifyEnv(llm=c.llm, kb=c.kb)
     reqs = yaml.safe_load((ROOT / args.file).read_text(encoding="utf-8"))
     stage = ProduceStage()
@@ -66,7 +73,15 @@ async def main() -> None:
         async def one(spec):  # type: ignore[no-untyped-def]
             async with sem:
                 details, examples = await stage._context(ctx, spec)
-                w = _normalize(await stage._write(ctx, ProduceIn(spec=spec, grade=bp.grade, lesson_id=bp.lesson_id), details, examples, None))
+                w = _normalize(
+                    await stage._write(
+                        ctx,
+                        ProduceIn(spec=spec, grade=bp.grade, lesson_id=bp.lesson_id),
+                        details,
+                        examples,
+                        None,
+                    )
+                )
                 return spec, w, bp
 
         out = await asyncio.gather(*(one(sp) for sp in bp.items[: args.per]))
@@ -81,42 +96,87 @@ async def main() -> None:
 
     async def evaluate(spec, w, bp):  # type: ignore[no-untyped-def]
         vin = VerifyInput(
-            kind=spec.kind.value, stem=w.stem, options=w.options, answers=w.answers, solution=w.solution,
-            solver_code=w.solver_code, kp_names=spec.kp_names, tier=spec.tier.value, grade=bp.grade,
-            lesson_id=bp.lesson_id, target_difficulty=spec.difficulty,
+            kind=spec.kind.value,
+            stem=w.stem,
+            options=w.options,
+            answers=w.answers,
+            solution=w.solution,
+            solver_code=w.solver_code,
+            kp_names=spec.kp_names,
+            tier=spec.tier.value,
+            grade=bp.grade,
+            lesson_id=bp.lesson_id,
+            target_difficulty=spec.difficulty,
         )
         async with sem:
             res = await asyncio.gather(
-                check_structure(vin), check_program(vin), check_blind(env, vin), check_boundary(env, vin), check_quality(env, vin)
+                check_structure(vin),
+                check_program(vin),
+                check_blind(env, vin),
+                check_boundary(env, vin),
+                check_quality(env, vin),
             )
-        flagged = {n: (r.status.value == "fail") for n, r in zip(CHECKS[:4], res[:4], strict=True)}
+        flagged = {
+            n: (r.status.value == "fail")
+            for n, r in zip(CHECKS[:4], res[:4], strict=True)
+        }
         q, integ = res[4]
         flagged["quality"] = q.status.value == "fail" or integ.status.value == "fail"
         from verichalk.verify.answers import answer_values
 
-        ai = AuditItem(stem=w.stem, options=w.options, answers=answer_values(w.answers), solution=w.solution, kind=spec.kind.value,
-                       grade=bp.grade, lesson_id=bp.lesson_id, kp_names=[g.nodes[k].name for k in spec.kp_ids if k in g.nodes], tier=spec.tier.value)
+        ai = AuditItem(
+            stem=w.stem,
+            options=w.options,
+            answers=answer_values(w.answers),
+            solution=w.solution,
+            kind=spec.kind.value,
+            grade=bp.grade,
+            lesson_id=bp.lesson_id,
+            kp_names=[g.nodes[k].name for k in spec.kp_ids if k in g.nodes],
+            tier=spec.tier.value,
+        )
         a = await auditor.audit(ai)
         bad_answer = a.a2 == "wrong"
         bad_scope = a.a3 == "out"
         qd = a.quality or {}
-        bad_quality = bool(qd) and not all(qd.get(k, False) for k in ("unambiguous", "complete", "data_plausible", "solution_ok"))
-        return flagged, {"answer": bad_answer, "scope": bad_scope, "quality": bad_quality}, a.a2 == "disputed"
+        bad_quality = bool(qd) and not all(
+            qd.get(k, False)
+            for k in ("unambiguous", "complete", "data_plausible", "solution_ok")
+        )
+        return (
+            flagged,
+            {"answer": bad_answer, "scope": bad_scope, "quality": bad_quality},
+            a.a2 == "disputed",
+        )
 
     rows = await asyncio.gather(*(evaluate(*d) for d in drafts))
     n = len(rows)
     print(f"\n## 每层检查对 {n} 道原始初稿的贡献（真值来自独立审计）")
-    truth = {k: sum(1 for _, t, _ in rows if t[k]) for k in ("answer", "scope", "quality")}
+    truth = {
+        k: sum(1 for _, t, _ in rows if t[k]) for k in ("answer", "scope", "quality")
+    }
     anybad = [any(t.values()) for _, t, _ in rows]
-    print(f"审计认定的真问题：答案错 {truth['answer']}、超纲 {truth['scope']}、题面质量差 {truth['quality']}；至少有一项问题的题 {sum(anybad)}/{n}")
-    print("\n| 检查 | 标出的题 | 其中确有问题 | 误杀好题 | 独有抓取（其他层都没标出的真问题题） |\n|---|---|---|---|---|")
+    print(
+        f"审计认定的真问题：答案错 {truth['answer']}、超纲 {truth['scope']}、题面质量差 {truth['quality']}；至少有一项问题的题 {sum(anybad)}/{n}"
+    )
+    print(
+        "\n| 检查 | 标出的题 | 其中确有问题 | 误杀好题 | 独有抓取（其他层都没标出的真问题题） |\n|---|---|---|---|---|"
+    )
     for name in CHECKS:
         fl = [f[name] for f, _, _ in rows]
         hit = sum(1 for x, b in zip(fl, anybad, strict=True) if x and b)
         false = sum(1 for x, b in zip(fl, anybad, strict=True) if x and not b)
-        uniq = sum(1 for (f, _, _), b in zip(rows, anybad, strict=True) if b and f[name] and not any(f[o] for o in CHECKS if o != name))
+        uniq = sum(
+            1
+            for (f, _, _), b in zip(rows, anybad, strict=True)
+            if b and f[name] and not any(f[o] for o in CHECKS if o != name)
+        )
         print(f"| {name} | {sum(fl)} | {hit} | {false} | {uniq} |")
-    missed = sum(1 for (f, _, _), b in zip(rows, anybad, strict=True) if b and not any(f.values()))
+    missed = sum(
+        1
+        for (f, _, _), b in zip(rows, anybad, strict=True)
+        if b and not any(f.values())
+    )
     print(f"\n所有检查合起来仍漏掉的真问题题：{missed}/{sum(anybad)}")
     await c.close()
 

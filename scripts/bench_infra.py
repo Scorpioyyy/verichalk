@@ -5,6 +5,7 @@
 2. 空管线开销：管线什么都不做时，一次运行的端到端耗时 p50 / p95（含创建会话、写消息、事件、落盘）；
 3. SSE 读取：10k 事件按 seq 读取并解析的耗时。
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -67,7 +68,7 @@ async def main() -> None:
     p50, p95 = statistics.median(times), times[int(len(times) * 0.95) - 1]
     md = f"""# M1 基线：框架开销
 
-测量日期 {time.strftime('%Y-%m-%d')}；本机（Windows，SQLite WAL，逐事件提交）。不含网络与模型。
+测量日期 {time.strftime("%Y-%m-%d")}；本机（Windows，SQLite WAL，逐事件提交）。不含网络与模型。
 
 | 项 | 结果 | 门槛（m1_infra.md §3） |
 |---|---|---|

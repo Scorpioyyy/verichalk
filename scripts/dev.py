@@ -1,10 +1,11 @@
 """开发辅助命令（跨平台）：
 
-    python scripts/dev.py check     # ruff 检查 + 格式检查 + pyright + pytest（L1）
-    python scripts/dev.py fmt       # 自动格式化与修复
-    python scripts/dev.py run       # 本地启动后端（http://127.0.0.1:8000），带热重载
-    python scripts/dev.py eval      # 回放评测：smoke 集（val）
+python scripts/dev.py check     # ruff 检查 + 格式检查 + pyright + pytest（L1）
+python scripts/dev.py fmt       # 自动格式化与修复
+python scripts/dev.py run       # 本地启动后端（http://127.0.0.1:8000），带热重载
+python scripts/dev.py eval      # 回放评测：smoke 集（val）
 """
+
 from __future__ import annotations
 
 import subprocess
@@ -38,11 +39,24 @@ def main() -> int:
     if cmd == "check":
         return check()
     if cmd == "fmt":
-        return sh(PY, "-m", "ruff", "check", ".", "--fix") or sh(PY, "-m", "ruff", "format", ".")
+        return sh(PY, "-m", "ruff", "check", ".", "--fix") or sh(
+            PY, "-m", "ruff", "format", "."
+        )
     if cmd == "run":
         return sh(PY, "-m", "verichalk", "serve", "--reload")
     if cmd == "eval":
-        return sh(PY, "-m", "verichalk.eval", "run", "--suite", "smoke", "--split", "val", "--mode", "replay")
+        return sh(
+            PY,
+            "-m",
+            "verichalk.eval",
+            "run",
+            "--suite",
+            "smoke",
+            "--split",
+            "val",
+            "--mode",
+            "replay",
+        )
     print(__doc__)
     return 2
 

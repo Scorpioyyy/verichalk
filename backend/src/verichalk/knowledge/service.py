@@ -81,7 +81,8 @@ class KnowledgeService:
             import chalkbase.query.embed as embed_mod
         except ImportError:  # pragma: no cover
             return
-        if not hasattr(embed_mod, "set_embedder"):
+        set_embedder = getattr(embed_mod, "set_embedder", None)  # 动态获取：旧版 chalkbase 没有这个注入点
+        if set_embedder is None:
             return  # 旧版 chalkbase：沿用它自带的同步实现
         try:
             loop = asyncio.get_running_loop()
@@ -95,7 +96,7 @@ class KnowledgeService:
             except KnowledgeError as e:  # 向量接口不可用：让 chalkbase 降级为词法检索，而不是整个检索失败
                 raise embed_mod.EmbeddingUnavailable(str(e)) from e
 
-        embed_mod.set_embedder(sync_embed)
+        set_embedder(sync_embed)
         self._embedder = embedder
 
     async def warm(self) -> None:

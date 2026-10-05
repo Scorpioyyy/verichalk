@@ -72,7 +72,8 @@ async def test_service_degrades_to_lexical_when_embedding_fails(monkeypatch):
     """向量接口不可用时检索降级为词法检索，而不是整个失败。"""
     import chalkbase.query.embed as embed_mod
 
-    if not hasattr(embed_mod, "set_embedder"):
+    set_embedder = getattr(embed_mod, "set_embedder", None)
+    if set_embedder is None:
         pytest.skip("需要提供 set_embedder 的 chalkbase 版本")
     from chalkbase import Curriculum
 
@@ -89,11 +90,11 @@ async def test_service_degrades_to_lexical_when_embedding_fails(monkeypatch):
         except KnowledgeError as e:
             raise embed_mod.EmbeddingUnavailable(str(e)) from e
 
-    embed_mod.set_embedder(sync_embed)
+    set_embedder(sync_embed)
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             hits = await svc.search("一条从未缓存过的查询：小数加减法", k=3)
     finally:
-        embed_mod.set_embedder(None)
+        set_embedder(None)
     assert hits and hits[0].name

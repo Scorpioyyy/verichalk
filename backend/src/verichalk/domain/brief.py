@@ -59,6 +59,8 @@ class ReferenceItem(BaseModel):
 
     id: str
     text: str
+    instruction: str = ""  # 这道题所属大题的共同题干（"化简各数。"）
+    no: str = ""  # 原题号
     kp_ids: list[str] = Field(default_factory=list)
     difficulty: int | None = None
     kind: ItemKind | None = None
@@ -66,6 +68,7 @@ class ReferenceItem(BaseModel):
     figure_desc: str = ""
     source: str = ""  # 如 photo:att_xxx#3
     confidence: float = 1.0
+    uncertain: str = ""  # 转写时看不清的说明（教师确认后清空）
 
 
 class PaperSpec(BaseModel):

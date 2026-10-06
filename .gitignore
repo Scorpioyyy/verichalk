@@ -26,6 +26,9 @@ frontend/dist/
 # 评测：拍照集含教辅版权内容，仅本地保存
 /eval/datasets/photos/
 /eval/annotation/photos/
+# 拍照评测的录制与报告含教辅题面（版权），仅本地保存
+/eval/cassettes/perceive/
+/eval/reports/perceive_*.md
 
 # 编辑器
 .vscode/

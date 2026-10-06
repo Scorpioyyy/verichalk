@@ -12,12 +12,18 @@ from typing import TypeVar
 from ..domain.brief import Action, Brief, Origin, PaperSpec, Scope, Slot, SourceMode
 from ..domain.knowledge import KPHit
 from ..domain.paper import ItemKind, Tier
+from ..domain.perception import StudentContext
 from ..domain.understanding import Chip, ClarifyOption, ClarifyRequest, Method, RawParse, Route, Understanding
 from ..knowledge import KnowledgeService
 
 DEFAULT_COUNT = 5
 DEFAULT_DIFFICULTY = [2, 4]
 DEFAULT_TIER_MIX = {Tier.consolidate: 0.3, Tier.variation: 0.4, Tier.integrated: 0.3}
+PHOTO_TIER_MIX = {
+    Tier.consolidate: 0.4,
+    Tier.variation: 0.4,
+    Tier.integrated: 0.2,
+}  # 照片扩题：先巩固与变式（PRD §4.2）
 MAP_REL = 0.6  # 保留得分不低于最高分 60% 的命中
 MAP_MIN = 0.35  # 绝对下限：低于它的命中不当作知识点映射
 MAP_MAX = 3
@@ -85,6 +91,7 @@ async def finalize(
     prev: Brief | None = None,
     method: Method = "llm",
     topic_hits: dict[str, list[KPHit]] | None = None,
+    photo: StudentContext | None = None,
 ) -> Understanding:
     """把 `RawParse` 加工成 `Understanding`。`hits` 是对用户原话的知识点检索结果。"""
     route = raw.route
@@ -150,6 +157,18 @@ async def finalize(
                 mapped = [KPHit(id=k, name=k) for k in ps.kp_ids.value]
             assumptions.append("沿用上一轮的范围")
 
+    # ---- 沿用照片的范围（只在用户没明说范围时；用户明说的永远优先）----
+    from_photo = False
+    if photo and photo.kp_ids and grade is None and not mapped and not unit_ids:
+        from_photo = True
+        grade = photo.grade
+        semester = photo.semester or semester
+        grade_origin = sem_origin = Origin.inferred
+        mapped = [KPHit(id=k, name=n) for k, n in zip(photo.kp_ids, photo.kp_names, strict=False)] or mapped
+        assumptions.append(
+            f"按照片里的练习（{photo.summary}）出题" if photo.summary else "按照片里的练习出题"
+        )
+
     # ---- 澄清（确定性规则）----
     clarify: ClarifyRequest | None = None
     if grade is None and not mapped and not unit_ids:
@@ -170,6 +189,8 @@ async def finalize(
         us = await kb.units(kb.book_id(grade, semester))
         last = next((u.last_lesson_id for u in us if u.id == unit_ids[-1]), None)
         target = last
+    elif from_photo and photo and photo.lesson_id:
+        target = photo.lesson_id
     elif (
         mapped and not inherited and user_grade is None
     ):  # 用户明说了年级：学到哪由年级学期定，不由检索命中的知识点定
@@ -209,13 +230,22 @@ async def finalize(
         brief.difficulty = slot(
             [max(1, min(5, raw.difficulty[0])), max(1, min(5, raw.difficulty[1]))], _origin("difficulty", raw)
         )
+    elif photo and photo.difficulty:
+        brief.difficulty = slot(list(photo.difficulty), Origin.inferred)
+        assumptions.append("难度参照照片里的题")
     else:
         brief.difficulty = slot(DEFAULT_DIFFICULTY, Origin.default)
         assumptions.append("难度未说明，按中等并带梯度出")
     if raw.kinds:
         brief.kinds = slot(raw.kinds, _origin("kinds", raw))
+    elif photo and photo.kinds:
+        brief.kinds = slot(list(photo.kinds), Origin.inferred)
+        assumptions.append("题型参照照片里的题")
     if raw.tier:
         brief.tier_mix = slot({raw.tier: 1.0}, _origin("tier", raw))
+    elif photo and photo.kp_ids:
+        brief.tier_mix = slot(dict(PHOTO_TIER_MIX), Origin.inferred)
+        assumptions.append("档位以巩固与变式为主，少量综合（照着照片出题的常见配比）")
     else:
         brief.tier_mix = slot(dict(DEFAULT_TIER_MIX), Origin.default)
     if raw.source != SourceMode.auto:

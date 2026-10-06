@@ -371,6 +371,87 @@ def cmd_ask(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_perceive(args: argparse.Namespace) -> int:
+    """拍照感知评测（B4 / B5 / B6 / P3～P7 / P5 / P6）：真实照片、变体、负例；只评 perceive 阶段。"""
+    import os
+
+    from .perceive_eval import (
+        dump_predictions,
+        load_gold,
+        load_photo_cases,
+        render_report,
+        run_cases,
+        summarize,
+    )
+
+    if args.model:
+        os.environ["VERICHALK_MODEL_VISION"] = args.model
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "perceive",
+        off=args.off,
+        llm_concurrency=args.concurrency * 2,
+        perceive_max_side=args.max_side,
+    )
+    root = settings.root_dir
+    gold = load_gold(root)
+    groups = {g.strip() for g in args.set.split(",") if g.strip()}
+    cases = load_photo_cases(root, gold, groups, args.split)
+    if args.only:
+        keep = {x.strip() for x in args.only.split(",")}
+        cases = [c for c in cases if c.id in keep]
+    if args.limit:
+        cases = cases[: args.limit]
+    scores, preds = asyncio.run(run_cases(settings, cases, gold, args.concurrency))
+    summary = summarize(scores)
+    title = f"{args.tag or 'perceive'} · {args.model or 'vision 默认'} · {settings.features.describe()}"
+    md = render_report(scores, title, summary)
+    out = root / "eval" / "reports" / f"perceive_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    if args.dump:
+        dump_predictions(Path(args.dump), scores, preds)
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
+def cmd_photo_e2e(args: argparse.Namespace) -> int:
+    """拍照出题端到端评测（P8 防雷同 / P9 照片 + 一句话）：整条主管线。"""
+    import os
+
+    from .perceive_eval import load_gold
+    from .photo_e2e import load_photo_cases, render_report, run_photo_cases
+
+    if args.model:
+        os.environ["VERICHALK_MODEL_VISION"] = args.model
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "photo_e2e",
+        off=args.off,
+        llm_concurrency=args.concurrency * 4,
+    )
+    root = settings.root_dir
+    cases = load_photo_cases(root / "eval" / "datasets" / "cases" / "photo_cases.yaml")
+    if args.only:
+        keep = {x.strip() for x in args.only.split(",")}
+        cases = [c for c in cases if c["id"] in keep]
+    results = asyncio.run(
+        run_photo_cases(
+            settings, cases, load_gold(root), root / "eval" / "datasets" / "photos" / "raw", args.concurrency
+        )
+    )
+    md = render_report(results, f"{args.tag or 'photo-e2e'} · {settings.features.describe()}")
+    out = root / "eval" / "reports" / f"perceive_e2e_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
 def cmd_review(args: argparse.Namespace) -> int:
     """手改复核评测（C2 与 edit.review 消融）：20 次手动编辑，检出率 / 误报 / 时延。"""
     from .edit_eval import load_papers
@@ -513,6 +594,33 @@ def main() -> None:
     ak.add_argument("--tag", default="")
     ak.add_argument("--cassette-ns", default=None)
     ak.set_defaults(fn=cmd_ask)
+    pc = sub.add_parser("perceive", help="拍照感知评测（B4 / B5 / B6 / P5 / P6；照片与标注不入库）")
+    pc.add_argument("--set", default="raw", help="评测集，逗号分隔：raw,variant,negative")
+    pc.add_argument("--split", default="val", choices=["val", "test", "all"])
+    pc.add_argument("--mode", default="replay_or_live", choices=[m.value for m in LLMMode])
+    pc.add_argument("--record", action="store_true")
+    pc.add_argument("--profile", default="cn", choices=["cn", "intl"])
+    pc.add_argument("--concurrency", type=int, default=4)
+    pc.add_argument("--limit", type=int, default=0)
+    pc.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
+    pc.add_argument("--model", default="", help="覆盖 vision 角色的模型（模型对比用）")
+    pc.add_argument("--max-side", type=int, default=1600, help="送入模型的图片长边上限")
+    pc.add_argument("--off", default="", help="关闭的特性开关（消融用）")
+    pc.add_argument("--dump", default="", help="把识别结果与打分写到这个路径（复盘用；不要放进仓库）")
+    pc.add_argument("--tag", default="")
+    pc.add_argument("--cassette-ns", default=None)
+    pc.set_defaults(fn=cmd_perceive)
+    pe = sub.add_parser("photo-e2e", help="拍照出题端到端评测（P8 / P9；照片不入库）")
+    pe.add_argument("--mode", default="replay_or_live", choices=[m.value for m in LLMMode])
+    pe.add_argument("--record", action="store_true")
+    pe.add_argument("--profile", default="cn", choices=["cn", "intl"])
+    pe.add_argument("--concurrency", type=int, default=2)
+    pe.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
+    pe.add_argument("--model", default="", help="覆盖 vision 角色的模型")
+    pe.add_argument("--off", default="", help="关闭的特性开关（消融用）")
+    pe.add_argument("--tag", default="")
+    pe.add_argument("--cassette-ns", default=None)
+    pe.set_defaults(fn=cmd_photo_e2e)
     rv = sub.add_parser("review", help="手改复核评测（C2 与 edit.review 消融）")
     rv.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     rv.add_argument("--record", action="store_true")

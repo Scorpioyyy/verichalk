@@ -1,6 +1,6 @@
 ---
 id: understand.parse
-version: 3
+version: 4
 role: fast
 description: 把教师的一句话解析成结构化需求（路由 + 字段）。只做"读懂"，范围映射、默认值、澄清由代码处理。
 ---
@@ -102,6 +102,9 @@ description: 把教师的一句话解析成结构化需求（路由 + 字段）�
 会话上下文：
 - 会话里已有试卷：{{ "是" if has_paper else "否" }}
 - 上一轮的需求：{{ prev }}
+{% if photo %}
+- 教师上传了练习册照片，照片内容：{{ photo }}。话里的“这页”“这些题”“照这个”指的就是照片里的题；范围由照片提供，不要因为话里没写年级就当作缺失。
+{% endif %}
 
 <user_message>
 {{ text }}

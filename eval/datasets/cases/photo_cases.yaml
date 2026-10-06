@@ -1,0 +1,42 @@
+# 拍照出题的端到端用例（eval/specs/perceive.md §2.5）：真实照片 + 一句话要求。
+# 照片本身不入库（教辅版权），用例只引用页码（eval/datasets/photos/raw/p<页码>.jpg）。
+# expect 字段：
+#   count / count_between   题量（Brief 里的数）
+#   kinds                   Brief 里的题型
+#   kinds_origin            题型的来源（user = 用户明说；inferred = 参照照片）
+#   grade_origin            年级的来源
+#   grade                   Brief 里的年级
+#   scope_from_photo        true：范围（知识点）来自照片，且没有触发澄清
+#   difficulty_min          Brief 难度下限不低于它
+- id: ph-01
+  page: p009
+  text: 照这页再出 5 道
+  expect: { count: 5, scope_from_photo: true, kinds: [calc], kinds_origin: inferred }
+- id: ph-02
+  page: p100
+  text: 再来 3 道，别太简单
+  expect: { count: 3, scope_from_photo: true }
+- id: ph-03
+  page: p088
+  text: ""
+  expect: { count: 5, scope_from_photo: true }
+- id: ph-04
+  page: p065
+  text: 照这页出 4 道选择题
+  expect: { count: 4, kinds: [choice], kinds_origin: user, scope_from_photo: true }
+- id: ph-05
+  page: p033
+  text: 五年级的，照这个再出 3 道
+  expect: { count: 3, grade: 5, grade_origin: user }
+- id: ph-06
+  page: p079
+  text: 照这页再出 5 道，再来 2 道拔高的
+  expect: { count_between: [5, 7], scope_from_photo: true }
+- id: ph-07
+  page: p053
+  text: 出几道类似的
+  expect: { scope_from_photo: true }
+- id: ph-08
+  page: p021
+  text: 照这页出 4 道，数字别太大
+  expect: { count: 4, scope_from_photo: true }

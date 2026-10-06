@@ -57,7 +57,7 @@ verichalk/
 ├── README.md  CLAUDE.md  LICENSE  Dockerfile  .env.example  .editorconfig
 ├── backend/
 │   ├── pyproject.toml
-│   ├── src/verichalk/        core domain llm trace store sandbox knowledge verify figures render
+│   ├── src/verichalk/        core domain llm trace store sandbox knowledge verify figures render perception
 │   │                         tools stages orchestrator metrics api eval prompts
 │   └── tests/
 ├── frontend/                 Vite + React + TS（user / debug / shared）
@@ -84,6 +84,10 @@ python -m verichalk.eval run --suite core --split val --mode replay
 python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items   # M3 快速诊断：只跑创作阶段，约 1 分钟
 python scripts/compare_sets.py a.json b.json                        # 两套产出的盲评对比（好题）
 python scripts/spend.py                                              # 累计模型花费
+python scripts/make_photo_variants.py                               # 拍照评测的变体集与负例集（照片在 eval/datasets/photos/raw/，不入库）
+python -m verichalk.eval perceive --set raw,variant,negative --split all   # 拍照识别评测（B4 / B5 / P5 / P6）
+python -m verichalk.eval photo-e2e                                   # 拍照出题端到端（P8 防雷同 / P9）
+python scripts/make_worksheet_fixture.py                            # 重新生成端到端用的合成练习页（无版权）
 
 cd frontend && npm install                    # 前端依赖（Node ≥ 20）
 npm run dev                                   # Vite 开发服务（localhost:5173，/api 代理到 :8000）
@@ -97,4 +101,4 @@ E2E_MODE=replay npx playwright test           # 端到端（模型回放）；E2
 ## 9. 流程
 
 - 每个里程碑：评测规格 → 基线 → 实现 → 验收（test 划分）→ 清理 → 提交并推送。
-- 仓库为公开 GitHub 仓库（`github.com/Scorpioyyy/verichalk`）；不入库：密钥、`.env`、运行时数据、拍照评测集、模型响应录制中的用户内容。
+- 仓库为公开 GitHub 仓库（`github.com/Scorpioyyy/verichalk`）；不入库：密钥、`.env`、运行时数据、拍照评测集（真实照片、标注、识别报告与录制：含教辅题面）、模型响应录制中的用户内容。

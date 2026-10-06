@@ -551,7 +551,8 @@
        "clarify",
        "blueprint",
        "samples",
-       "confirm"
+       "confirm",
+       "perception"
       ],
       "title": "Kind",
       "type": "string"
@@ -1107,6 +1108,62 @@
      "llm_mode"
     ],
     "title": "HealthOut",
+    "type": "object"
+   },
+   "ImageQuality": {
+    "description": "预处理阶段的确定性质量指标。",
+    "properties": {
+     "brightness": {
+      "title": "Brightness",
+      "type": "number"
+     },
+     "contrast": {
+      "title": "Contrast",
+      "type": "number"
+     },
+     "height": {
+      "title": "Height",
+      "type": "integer"
+     },
+     "hints": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Hints",
+      "type": "array"
+     },
+     "orig_height": {
+      "title": "Orig Height",
+      "type": "integer"
+     },
+     "orig_width": {
+      "title": "Orig Width",
+      "type": "integer"
+     },
+     "poor": {
+      "default": false,
+      "title": "Poor",
+      "type": "boolean"
+     },
+     "sharpness": {
+      "title": "Sharpness",
+      "type": "number"
+     },
+     "width": {
+      "title": "Width",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "width",
+     "height",
+     "orig_width",
+     "orig_height",
+     "sharpness",
+     "brightness",
+     "contrast"
+    ],
+    "title": "ImageQuality",
     "type": "object"
    },
    "Item": {
@@ -2138,6 +2195,74 @@
     "title": "Origin",
     "type": "string"
    },
+   "PageRead": {
+    "description": "一张图片的识别结果。",
+    "properties": {
+     "attachment_id": {
+      "title": "Attachment Id",
+      "type": "string"
+     },
+     "filename": {
+      "default": "",
+      "title": "Filename",
+      "type": "string"
+     },
+     "items": {
+      "items": {
+       "$ref": "#/components/schemas/PerceivedItem"
+      },
+      "title": "Items",
+      "type": "array"
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "quality": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ImageQuality"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "reason": {
+      "default": "",
+      "title": "Reason",
+      "type": "string"
+     },
+     "title": {
+      "default": "",
+      "title": "Title",
+      "type": "string"
+     },
+     "verdict": {
+      "$ref": "#/components/schemas/PageVerdict"
+     }
+    },
+    "required": [
+     "attachment_id",
+     "verdict"
+    ],
+    "title": "PageRead",
+    "type": "object"
+   },
+   "PageVerdict": {
+    "enum": [
+     "worksheet",
+     "not_math",
+     "beyond_primary",
+     "no_exercises",
+     "unreadable"
+    ],
+    "title": "PageVerdict",
+    "type": "string"
+   },
    "Paper": {
     "properties": {
      "id": {
@@ -2459,6 +2584,160 @@
     "title": "PaperUpdate",
     "type": "object"
    },
+   "PerceivedItem": {
+    "description": "一道识别出来的题（小题级，与 `ReferenceItem` 一一对应）。",
+    "properties": {
+     "attachment_id": {
+      "default": "",
+      "title": "Attachment Id",
+      "type": "string"
+     },
+     "confidence": {
+      "default": 0.9,
+      "title": "Confidence",
+      "type": "number"
+     },
+     "difficulty": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Difficulty"
+     },
+     "figure_desc": {
+      "default": "",
+      "title": "Figure Desc",
+      "type": "string"
+     },
+     "has_figure": {
+      "default": false,
+      "title": "Has Figure",
+      "type": "boolean"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "instruction": {
+      "default": "",
+      "title": "Instruction",
+      "type": "string"
+     },
+     "kind": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ItemKind"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "kp_names": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Names",
+      "type": "array"
+     },
+     "no": {
+      "default": "",
+      "title": "No",
+      "type": "string"
+     },
+     "text": {
+      "title": "Text",
+      "type": "string"
+     },
+     "topic": {
+      "default": "",
+      "title": "Topic",
+      "type": "string"
+     },
+     "uncertain": {
+      "default": "",
+      "title": "Uncertain",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "text"
+    ],
+    "title": "PerceivedItem",
+    "type": "object"
+   },
+   "PerceptionReady": {
+    "description": "照片识别完成（1.3 新增）：用户端据此展示识别卡片（逐题转写、知识点、置信度）与学生上下文。\n教师在确认检查点里修改后会再发一次（内容为修改后的版本）。",
+    "properties": {
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "references": {
+      "$ref": "#/components/schemas/ReferenceSet"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "perception.ready",
+      "default": "perception.ready",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "references"
+    ],
+    "title": "PerceptionReady",
+    "type": "object"
+   },
    "Progress": {
     "properties": {
      "current": {
@@ -2744,6 +3023,11 @@
       "title": "Id",
       "type": "string"
      },
+     "instruction": {
+      "default": "",
+      "title": "Instruction",
+      "type": "string"
+     },
      "kind": {
       "anyOf": [
        {
@@ -2761,6 +3045,11 @@
       "title": "Kp Ids",
       "type": "array"
      },
+     "no": {
+      "default": "",
+      "title": "No",
+      "type": "string"
+     },
      "source": {
       "default": "",
       "title": "Source",
@@ -2769,6 +3058,11 @@
      "text": {
       "title": "Text",
       "type": "string"
+     },
+     "uncertain": {
+      "default": "",
+      "title": "Uncertain",
+      "type": "string"
      }
     },
     "required": [
@@ -2776,6 +3070,38 @@
      "text"
     ],
     "title": "ReferenceItem",
+    "type": "object"
+   },
+   "ReferenceSet": {
+    "description": "`perceive` 阶段的输出。",
+    "properties": {
+     "context": {
+      "$ref": "#/components/schemas/StudentContext"
+     },
+     "message": {
+      "default": "",
+      "title": "Message",
+      "type": "string"
+     },
+     "needs_confirm": {
+      "default": false,
+      "title": "Needs Confirm",
+      "type": "boolean"
+     },
+     "pages": {
+      "items": {
+       "$ref": "#/components/schemas/PageRead"
+      },
+      "title": "Pages",
+      "type": "array"
+     },
+     "usable": {
+      "default": false,
+      "title": "Usable",
+      "type": "boolean"
+     }
+    },
+    "title": "ReferenceSet",
     "type": "object"
    },
    "RemoveItem": {
@@ -3486,7 +3812,7 @@
       "type": "string"
      },
      "schema_version": {
-      "default": "1.2",
+      "default": "1.3",
       "title": "Schema Version",
       "type": "string"
      },
@@ -4271,6 +4597,90 @@
      "max_ms"
     ],
     "title": "StageStat",
+    "type": "object"
+   },
+   "StudentContext": {
+    "description": "照片告诉我们的\"学生学到哪、做过什么\"：约束后续生成的范围与难度。",
+    "properties": {
+     "difficulty": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "integer"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Difficulty"
+     },
+     "grade": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grade"
+     },
+     "kinds": {
+      "items": {
+       "$ref": "#/components/schemas/ItemKind"
+      },
+      "title": "Kinds",
+      "type": "array"
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "kp_names": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Names",
+      "type": "array"
+     },
+     "lesson_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lesson Id"
+     },
+     "semester": {
+      "anyOf": [
+       {
+        "enum": [
+         "a",
+         "b"
+        ],
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semester"
+     },
+     "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+     }
+    },
+    "title": "StudentContext",
     "type": "object"
    },
    "Tier": {
@@ -5211,6 +5621,7 @@
             "message.delta": "#/components/schemas/MessageDelta",
             "message.done": "#/components/schemas/MessageDone",
             "paper.patch": "#/components/schemas/PaperPatched",
+            "perception.ready": "#/components/schemas/PerceptionReady",
             "progress": "#/components/schemas/Progress",
             "retrieval.result": "#/components/schemas/RetrievalResult",
             "run.finished": "#/components/schemas/RunFinished",
@@ -5262,6 +5673,9 @@
            },
            {
             "$ref": "#/components/schemas/UnderstandingReady"
+           },
+           {
+            "$ref": "#/components/schemas/PerceptionReady"
            },
            {
             "$ref": "#/components/schemas/LLMCall"
@@ -5709,6 +6123,61 @@
      }
     },
     "summary": "Get Session"
+   }
+  },
+  "/api/sessions/{session_id}/attachments/{attachment_id}": {
+   "get": {
+    "description": "会话里上传的图片：聊天里显示缩略图，`full=true` 取原图。只能取本会话的附件。",
+    "operationId": "attachment_image_api_sessions__session_id__attachments__attachment_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "path",
+      "name": "attachment_id",
+      "required": true,
+      "schema": {
+       "title": "Attachment Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "full",
+      "required": false,
+      "schema": {
+       "default": false,
+       "title": "Full",
+       "type": "boolean"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "image/jpeg": {}
+      },
+      "description": "上传的图片（默认缩略图）"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Attachment Image"
    }
   },
   "/api/sessions/{session_id}/export": {

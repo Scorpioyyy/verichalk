@@ -317,7 +317,7 @@ async def test_paper_run_pauses_at_both_checkpoints_through_the_run_manager(stor
 
     fake_stages(monkeypatch)
 
-    async def fake_understand(c, turn):
+    async def fake_understand(c, turn, refs=None):
         return u_paper()
 
     monkeypatch.setattr(pipelines, "understand_turn", fake_understand)

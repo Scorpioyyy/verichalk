@@ -50,6 +50,7 @@ class VerifyInput:
     grade: int | None = None
     lesson_id: str | None = None  # 能力边界的参照课时
     target_difficulty: int | None = None  # 规格要求的难度：判官估计低它 2 级以上就判"偏简单"
+    references: list[str] = field(default_factory=list)  # 照片里的题：新题不得是它们的翻版
 
 
 @dataclass
@@ -84,6 +85,45 @@ async def check_structure(inp: VerifyInput) -> CheckResult:
         if issues:
             return _res("structure", CheckStatus.fail, "；".join(issues), issues=issues)
         return _res("structure", CheckStatus.passed)
+
+
+# ---- 防雷同（确定性）----
+NOVELTY_COPY = 0.75  # 与参考题的字面相似度达到它：判为照抄
+_NUM_SEQ = re.compile(r"\d+(?:\.\d+)?")
+
+
+def _raw_shingles(text: str, n: int = 3) -> set[str]:
+    t = _NOISE.sub("", text)
+    return {t[i : i + n] for i in range(max(0, len(t) - n + 1))} or {t}
+
+
+def copy_score(stem: str, ref: str) -> float:
+    """新题与参考题的"翻版"程度（0～1）。数字参与比较：同样的算式换了数字不算翻版（"照这页再出 5 道"本来就要同类题）；
+    数字与措辞都几乎不变才算。"""
+    a, b = _raw_shingles(stem), _raw_shingles(ref)
+    jac = len(a & b) / len(a | b)
+    if _NUM_SEQ.findall(stem) == _NUM_SEQ.findall(ref) and len(_NUM_SEQ.findall(ref)) >= 2:
+        jac = max(jac, similarity(stem, ref))  # 数字序列完全相同：再按"形状"比一次
+    return jac
+
+
+async def check_novelty(inp: VerifyInput) -> CheckResult:
+    async with trace.check_span("novelty") as sp:
+        worst, hit = 0.0, ""
+        for ref in inp.references:
+            sc = copy_score(inp.stem, ref)
+            if sc > worst:
+                worst, hit = sc, ref
+        sp.set(max_similarity=round(worst, 2))
+        if worst >= NOVELTY_COPY:
+            return _res(
+                "novelty",
+                CheckStatus.fail,
+                f"与照片里的题几乎相同：「{_clip(hit, 60)}」。请换数字、情境和问法，不要照抄",
+                similarity=round(worst, 2),
+                reference=_clip(hit, 120),
+            )
+        return _res("novelty", CheckStatus.passed, similarity=round(worst, 2))
 
 
 # ---- 求解程序（沙箱）----

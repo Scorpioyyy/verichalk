@@ -18,6 +18,7 @@ from ..core.errors import BudgetExceeded, KnowledgeError, LLMError
 from ..domain.brief import Brief
 from ..domain.knowledge import KPHit
 from ..domain.llm import Role
+from ..domain.perception import StudentContext
 from ..domain.understanding import Method, RawParse, Understanding
 from ..llm import LLMRequest, complete_json, get_prompt
 from .base import RunContext, Stage
@@ -32,6 +33,7 @@ class UnderstandIn(BaseModel):
     has_paper: bool = False
     prev_brief: Brief | None = None
     recent: list[str] = Field(default_factory=list)  # 预留：最近几轮的摘要
+    photo: StudentContext | None = None  # 教师上传了照片：学生上下文（范围、难度、题型）
 
 
 def prev_summary(prev: Brief | None) -> str:
@@ -95,7 +97,9 @@ class UnderstandStage(Stage[UnderstandIn, Understanding]):
                 topic_hits = dict(zip(raw.topics, found, strict=True))
             except KnowledgeError as e:
                 log.warning("understand: per-topic search failed: %s", e.code)
-        u = await finalize(raw, hits=hits, kb=ctx.kb, prev=prev, method=method, topic_hits=topic_hits)
+        u = await finalize(
+            raw, hits=hits, kb=ctx.kb, prev=prev, method=method, topic_hits=topic_hits, photo=inp.photo
+        )
         if method == "rules_fallback":
             u.notes.append("智能解析暂时不可用，已用基础规则理解您的需求，可能不够准确")
         return u
@@ -118,7 +122,12 @@ class UnderstandStage(Stage[UnderstandIn, Understanding]):
     ) -> RawParse:
         built = get_prompt("understand.parse").render(
             stable={"fewshot": ctx.settings.features.enabled("understand.fewshot")},
-            dynamic={"text": inp.text.strip(), "has_paper": has_paper, "prev": prev_summary(prev)},
+            dynamic={
+                "text": inp.text.strip(),
+                "has_paper": has_paper,
+                "prev": prev_summary(prev),
+                "photo": inp.photo.summary if inp.photo else "",
+            },
         )
         await trace.progress("正在理解您的需求")
         raw, _ = await complete_json(

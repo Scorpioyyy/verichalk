@@ -12,6 +12,16 @@ from ..stages import ProduceIn, ProduceOut, ProduceStage, RunContext, run_stage
 from ..stages.plan_rules import replacement_spec
 
 
+def reference_notes(brief: Brief) -> list[str]:
+    """照片里的题的提示词写法：带上大题题干（"化简各数。0.70="），数字看不清的不当作范例。"""
+    return [
+        (f"{r.instruction} {r.text}" if r.instruction else r.text)
+        + (f"（图：{r.figure_desc}）" if r.figure_desc else "")
+        for r in brief.references
+        if not r.uncertain
+    ]
+
+
 def constraints_text(brief: Brief) -> str:
     return "；".join(brief.constraints.value) if brief.constraints else ""
 
@@ -31,6 +41,8 @@ async def produce_specs(
     sem = asyncio.Semaphore(ctx.settings.item_concurrency)
     done = delivered = 0
     constraints = constraints_text(brief)
+    ref_texts = [r.text for r in brief.references if not r.uncertain]
+    ref_notes = reference_notes(brief)
 
     async def one(spec: ItemSpec) -> ProduceOut:
         nonlocal done, delivered
@@ -47,6 +59,8 @@ async def produce_specs(
                     lesson_id=bp.lesson_id,
                     constraints=constraints,
                     avoid=avoid[:6],
+                    references=ref_texts,
+                    reference_notes=ref_notes,
                 ),
                 key=spec.id,
             )

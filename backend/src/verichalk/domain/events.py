@@ -16,11 +16,12 @@ from .common import ErrorInfo
 from .knowledge import RetrievalPayload
 from .llm import LLMCallRecord, Usage
 from .paper import CheckResult, Item, VerifyStatus
+from .perception import ReferenceSet
 from .understanding import Understanding
 
-SCHEMA_VERSION = "1.2"
+SCHEMA_VERSION = "1.3"
 
-CheckpointKind = Literal["clarify", "blueprint", "samples", "confirm"]
+CheckpointKind = Literal["clarify", "blueprint", "samples", "confirm", "perception"]
 
 
 class Visibility(StrEnum):
@@ -160,6 +161,15 @@ class UnderstandingReady(EventBase):
     understanding: Understanding
 
 
+class PerceptionReady(EventBase):
+    """照片识别完成（1.3 新增）：用户端据此展示识别卡片（逐题转写、知识点、置信度）与学生上下文。
+    教师在确认检查点里修改后会再发一次（内容为修改后的版本）。"""
+
+    type: Literal["perception.ready"] = "perception.ready"
+    visibility: Visibility = Visibility.user
+    references: ReferenceSet
+
+
 # ---- 调试与指标 ----
 class LLMCall(EventBase):
     type: Literal["llm.call"] = "llm.call"
@@ -192,6 +202,7 @@ Event = Annotated[
     | PaperPatched
     | CheckpointRequested
     | UnderstandingReady
+    | PerceptionReady
     | LLMCall
     | RetrievalResult
     | UsageUpdate,

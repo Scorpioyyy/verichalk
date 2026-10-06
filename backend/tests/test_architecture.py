@@ -21,6 +21,7 @@ LAYERS = {
     "verify": 3,
     "figures": 3,
     "render": 3,
+    "perception": 3,
     "metrics": 3,
     "tools": 4,
     "stages": 5,

@@ -153,7 +153,7 @@ Revision  paper_id, rev, patch[Op], snapshot, author: agent|user, run_id?, ts
 | 阶段 | 输入 → 输出 | 模型角色 | 工具 / 能力 | 核心指标 |
 |---|---|---|---|---|
 | `understand` | 轮次 + 会话上下文 → `Understanding`（路由、Brief、澄清、芯片）。**路由并入理解，一次模型调用**，其余由确定性后处理完成（D29） | fast | `knowledge.search`（与模型调用并行）、规则解析（基线 / 降级） | B1 B2 B3 |
-| `perceive` | 图片 → ReferenceSet（逐题转写、知识点、难度、学生上下文） | vision | 图像预处理、`knowledge.search` | B4 B5 B6 |
+| `perceive` | 图片 → ReferenceSet（逐页判定、逐题转写、知识点、难度、学生上下文、是否需教师核对）。多张并行；一张失败不拖垮整个阶段（D51） | vision | `perception` 预处理与画质检测、`knowledge.search`（页面标题与各题知识主题，并行） | B4 B5 B6 P5～P9 |
 | `plan` | Brief + 上下文 → Blueprint（ItemSpec 列表） | smart | 组合挖掘（确定性）+ 有界工具循环（兜底） | A4 A5c |
 | `produce` | ItemSpec → Item | 见 §5.1 | 沙箱、边界、相似度 | A1–A3 A6 E4 |
 | `assemble` | Items + Brief → Paper 修订 | — / fast | 排序与分值规则 | A4 |
@@ -218,7 +218,8 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | `item.delivered` | 一道题通过核验、可以给教师看了（带完整 `Item`）。整份试卷要等全部完成才装配成修订，用户端靠它逐题上屏（schema 1.2，D48） | user + debug |
 | `paper.patch` | 试卷新修订（补丁 + rev） | user |
 | `understanding.ready` | 需求理解完成：路由、Brief、"本次假设"芯片（schema 1.1 新增） | user |
-| `checkpoint.requested` | 澄清 / 蓝图确认 / 样题确认 | user |
+| `perception.ready` | 照片识别完成：逐页判定与逐题转写、知识点、置信度、学生上下文；教师在核对检查点修改后再发一次（schema 1.3，D51） | user |
+| `checkpoint.requested` | 澄清 / 蓝图确认 / 样题确认 / 识别结果核对（`perception`） | user |
 | `usage.update` | 累计 token 与成本 | debug |
 
 - **存储**：SQLite（WAL）`events` 表（run_id, seq 主键）+ `runs / sessions / papers / revisions / attachments / badcases`；通过仓库接口隔离，后续可换 Postgres（D12）。
@@ -289,6 +290,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | PATCH | `/api/sessions/{id}/paper` | 手动编辑（Patch），返回新修订与复核运行 |
 | POST | `/api/sessions/{id}/paper/undo`、`redo`、`restore` | 撤销 / 重做 / 回到某一版（都是新增修订，D43） |
 | GET | `/api/sessions/{id}/paper/history`、`/paper/diff?from=&to=`、`/paper/revisions/{rev}` | 修订历史（含能否撤销 / 重做）、两版之间的差异、某一版的试卷快照 |
+| GET | `/api/sessions/{id}/attachments/{attachment_id}[?full=true]` | 本会话上传的图片（默认 720px 缩略图；聊天里显示照片用，只能取自己会话的附件） |
 | GET | `/api/sessions/{id}/figures/{figure_id}` | 试卷里某个图形的 SVG（预览与导出共用同一份渲染） |
 | GET | `/api/knowledge/refs?ids=` | 知识点的教师可读名称与位置（题目旁显示"涉及：…"，永不显示 ID） |
 | POST | `/api/sessions/{id}/export` | 导出（格式与选项），返回文件 |

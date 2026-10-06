@@ -12,6 +12,7 @@ from ..domain.events import (
     MessageDelta,
     MessageDone,
     PaperPatched,
+    PerceptionReady,
     Progress,
     RetrievalResult,
     SpanKind,
@@ -22,6 +23,7 @@ from ..domain.events import (
 from ..domain.knowledge import RetrievalPayload
 from ..domain.llm import LLMCallRecord, Usage
 from ..domain.paper import CheckResult, Item, VerifyStatus
+from ..domain.perception import ReferenceSet
 from ..domain.understanding import Understanding
 from .tracer import SpanHandle, current_tracer
 
@@ -68,6 +70,10 @@ async def usage_update(usage: Usage, cost: float | None, currency: str = "CNY") 
 
 async def understanding_ready(u: Understanding) -> None:
     await current_tracer().emit(UnderstandingReady(understanding=u))
+
+
+async def perception_ready(refs: ReferenceSet) -> None:
+    await current_tracer().emit(PerceptionReady(references=refs))
 
 
 async def item_status(item_id: str, status: VerifyStatus, checks: list[CheckResult]) -> None:

@@ -201,6 +201,31 @@ async def test_image_upload_validation(env, tmp_path):
     assert many.status_code == 422
 
 
+async def test_uploaded_image_is_served_as_thumbnail_only_to_its_own_session(env):
+    make, h = env
+    c = make()
+    cl = h["client"]
+    ses = (await cl.post("/api/sessions")).json()["session"]
+    other = (await cl.post("/api/sessions")).json()["session"]
+    ok = await cl.post(
+        f"/api/sessions/{ses['id']}/turns",
+        data={"text": "照这个出题"},
+        files=[("images", ("p.png", png_bytes((2000, 1500)), "image/png"))],
+    )
+    await c.manager.wait(ok.json()["run_id"], 20)
+    att = (await cl.get(f"/api/sessions/{ses['id']}")).json()["messages"][0]["attachments"][0]
+    thumb = await cl.get(f"/api/sessions/{ses['id']}/attachments/{att['id']}")
+    assert thumb.status_code == 200 and thumb.headers["content-type"] == "image/jpeg"
+    assert max(Image.open(io.BytesIO(thumb.content)).size) <= 720
+    full = await cl.get(f"/api/sessions/{ses['id']}/attachments/{att['id']}?full=true")
+    assert full.headers["content-type"] == "image/png" and Image.open(io.BytesIO(full.content)).size == (
+        2000,
+        1500,
+    )
+    assert (await cl.get(f"/api/sessions/{other['id']}/attachments/{att['id']}")).status_code == 404
+    assert (await cl.get(f"/api/sessions/{ses['id']}/attachments/att_missing")).status_code == 404
+
+
 async def test_debug_endpoints_auth_and_content(env):
     make, h = env
     c = make()

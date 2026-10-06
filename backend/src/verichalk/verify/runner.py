@@ -14,6 +14,7 @@ from .checks import (
     VerifyInput,
     check_blind,
     check_boundary,
+    check_novelty,
     check_program,
     check_quality,
     check_structure,
@@ -39,6 +40,8 @@ async def verify_item(
     `preset`：已经由别处得出结论的检查（如 `template` 来源的求解与边界由知识库给出），直接采用，不再执行。"""
     preset = preset or {}
     results: list[CheckResult] = [await check_structure(inp)]
+    if inp.references and flags.enabled("perceive.novelty"):
+        results.append(await check_novelty(inp))
     if "program" in preset:
         results.append(preset["program"])
     elif flags.enabled("produce.program_check"):

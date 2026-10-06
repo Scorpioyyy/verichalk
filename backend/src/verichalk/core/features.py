@@ -64,6 +64,14 @@ REGISTRY: dict[str, Feature] = {
         ),
         Feature("answer.context", "追问回答带上被问题目的知识点说明与学生常见错误；关闭则只看题目本身"),
         Feature("context.textbook_examples", "写题上下文里给出教材题型的改写示例（学生做过什么）"),
+        Feature("perceive.preprocess", "照片预处理：转正 + 限制长边；关闭则原图（仅转 JPEG）送入视觉模型"),
+        Feature("perceive.topic_search", "每道题按自己的知识主题检索知识点；关闭则只用页面标题检索"),
+        Feature("perceive.confirm", "转写有看不清的题时暂停，让教师确认 / 修改后再出题；关闭则直接继续"),
+        Feature("perceive.novelty", "新题与照片里的题过于相似时判不合格（确定性检查，走修复 / 重写）"),
+        Feature(
+            "perceive.references_in_prompt",
+            '照片里的题作为"学生做过的类似题"进入写题提示（借考法，换数字与情境）',
+        ),
     ]
 }
 

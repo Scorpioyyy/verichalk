@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 from typing import Annotated
 from urllib.parse import quote
@@ -10,7 +11,7 @@ from fastapi import APIRouter, File, Form, Header, Query, Request, UploadFile
 from fastapi.responses import Response, StreamingResponse
 
 from .. import __version__
-from ..core.errors import Conflict
+from ..core.errors import Conflict, NotFound
 from ..domain.badcase import Badcase, BadcaseIn
 from ..domain.events import Event
 from ..domain.export import ExportOptions
@@ -19,6 +20,7 @@ from ..domain.paper import Paper
 from ..domain.paper_ops import PaperDiff
 from ..domain.run import Run
 from ..metrics import AggregateMetrics, aggregate, compute_run_metrics
+from ..perception import thumbnail_jpeg
 from .deps import ContainerDep, DebugDep
 from .schemas import (
     CheckpointAnswer,
@@ -169,6 +171,28 @@ async def paper_diff(
 async def paper_figure(session_id: str, figure_id: str, c: ContainerDep) -> Response:
     """试卷里某个图形的 SVG（预览与导出共用同一份渲染）。"""
     return Response(await c.papers.figure_svg(session_id, figure_id), media_type="image/svg+xml")
+
+
+@router.get(
+    "/sessions/{session_id}/attachments/{attachment_id}",
+    response_class=Response,
+    responses={200: {"content": {"image/jpeg": {}}, "description": "上传的图片（默认缩略图）"}},
+)
+async def attachment_image(
+    session_id: str, attachment_id: str, c: ContainerDep, full: bool = False
+) -> Response:
+    """会话里上传的图片：聊天里显示缩略图，`full=true` 取原图。只能取本会话的附件。"""
+    att = await c.store.attachments.get(attachment_id)
+    if att.session_id != session_id:
+        raise NotFound("附件不属于这个会话")
+    path = (c.settings.data_path / att.path).resolve()
+    if not path.is_relative_to(c.settings.data_path.resolve()) or not path.exists():
+        raise NotFound("附件文件不存在")
+    data = await asyncio.to_thread(path.read_bytes)
+    if full:
+        return Response(data, media_type=att.mime, headers={"Cache-Control": "private, max-age=3600"})
+    thumb = await asyncio.to_thread(thumbnail_jpeg, data)
+    return Response(thumb, media_type="image/jpeg", headers={"Cache-Control": "private, max-age=3600"})
 
 
 @router.get("/knowledge/refs", response_model=list[KPRef])

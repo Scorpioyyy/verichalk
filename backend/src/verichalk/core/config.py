@@ -72,6 +72,8 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
     upload_max_mb: int = 12
+    perceive_max_side: int = 1600  # 送给视觉模型的图片长边上限（像素）
+    perceive_max_tokens: int = 4096
 
     @cached_property
     def features(self) -> FeatureFlags:

@@ -93,7 +93,8 @@ class ProduceIn(BaseModel):
     lesson_id: str | None = None  # 能力边界的参照课时
     constraints: str = ""  # 教师的其他要求（如"数字不要太大"）
     avoid: list[str] = []  # 套内其他题的考法摘要（本题要与之不同）
-    references: list[str] = []  # 教师上传的题（防雷同）
+    references: list[str] = []  # 照片里的题的纯题面（防雷同的比较对象）
+    reference_notes: list[str] = []  # 同一批题的提示词写法（带大题题干），给写题参考
     rewrite: dict[str, Any] | None = (
         None  # 改写已有的题（编辑阶段）：{stem, options, answer, solution, instruction}
     )
@@ -104,6 +105,14 @@ class ProduceOut(BaseModel):
     attempts: int = 0  # 写题的次数（含修复与重写）
     failed_checks: list[list[str]] = []  # 每次未通过的尝试被哪些检查拦下（诊断一次通过率）
     dropped_reason: str = ""
+
+
+def _pick_references(refs: list[str], n: int) -> list[str]:
+    """从照片里的题挑 n 道给写题参考：均匀取样，让不同大题的考法都有机会被看到（确定性）。"""
+    if len(refs) <= n:
+        return list(refs)
+    step = len(refs) / n
+    return [refs[int(i * step)] for i in range(n)]
 
 
 def _after_equals(v: str) -> str:
@@ -193,6 +202,10 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         spec, feats = inp.spec, ctx.settings.features
         env = VerifyEnv(llm=ctx.llm, kb=ctx.kb)
         details, examples = await self._context(ctx, spec)
+        if inp.references and feats.enabled("perceive.references_in_prompt"):
+            examples = [*_pick_references(inp.reference_notes or inp.references, 3), *examples][
+                :5
+            ]  # 学生真做过的题排在前面
         max_repairs = MAX_REPAIRS if feats.enabled("produce.repair") else 0
         rounds = 1 + (REGENERATIONS if feats.enabled("produce.repair") else 0)
         attempts, last_reason = 0, ""
@@ -235,6 +248,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     grade=inp.grade,
                     lesson_id=inp.lesson_id,
                     target_difficulty=spec.difficulty if feats.enabled("produce.difficulty_check") else None,
+                    references=inp.references,
                 )
                 ver = await verify_item(env, vin, feats)
                 if ver.status != VerifyStatus.rejected:

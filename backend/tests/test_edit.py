@@ -336,7 +336,7 @@ async def test_main_pipeline_routes_edit_and_replies(ctx, monkeypatch) -> None:
     from verichalk.orchestrator import pipelines
     from verichalk.orchestrator.pipelines import TurnInput, main_pipeline
 
-    async def fake_understand(c, turn):
+    async def fake_understand(c, turn, refs=None):
         return Understanding(route=Route.edit, edit=EditIntent(target="item:3", instruction="换个场景"))
 
     async def fake_run(self, c, inp):

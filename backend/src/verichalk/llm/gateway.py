@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import random
 import time
 from collections.abc import Awaitable, Callable
@@ -72,6 +73,29 @@ def _content_text(m: ChatMessage) -> str:
     if isinstance(m.content, str):
         return m.content
     return " ".join(str(p.get("text", "")) for p in (m.content or []) if isinstance(p, dict))
+
+
+def _strip_images(messages: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """调用记录里不保留图片字节（隐私与体积）：data URI 换成"大小 + 哈希"占位。"""
+    out: list[dict[str, Any]] = []
+    for m in messages:
+        content = m.get("content")
+        if not isinstance(content, list):
+            out.append(m)
+            continue
+        parts: list[Any] = []
+        for p in content:
+            url = ""
+            if isinstance(p, dict) and p.get("type") == "image_url":
+                url = str((p.get("image_url") or {}).get("url", ""))
+            if url.startswith("data:"):
+                digest = hashlib.sha256(url.encode()).hexdigest()[:12]
+                note = f"[图片 {len(url) * 3 // 4 // 1024}KB sha:{digest}]"
+                parts.append({"type": "image_url", "image_url": {"url": note}})
+            else:
+                parts.append(p)
+        out.append({**m, "content": parts})
+    return out
 
 
 def _usage_from(raw: dict[str, Any] | None) -> Usage:
@@ -336,7 +360,7 @@ class LLMGateway:
             purpose=req.purpose,
             prompt=req.prompt,
             params={k: v for k, v in params.items() if k not in ("tools",)},
-            messages=messages,
+            messages=_strip_images(messages),
             response_text=result.text if result else "",
             reasoning_text=result.reasoning_text if result else "",
             tool_calls=result.tool_calls if result else [],

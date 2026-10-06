@@ -295,7 +295,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | GET | `/api/sessions/{id}/figures/{figure_id}` | 试卷里某个图形的 SVG（预览与导出共用同一份渲染） |
 | GET | `/api/knowledge/refs?ids=` | 知识点的教师可读名称与位置（题目旁显示"涉及：…"，永不显示 ID） |
 | POST | `/api/sessions/{id}/export` | 导出（格式与选项），返回文件 |
-| GET | `/api/health`、`/api/version` | 健康检查与版本（含 chalkbase 版本与数据版本） |
+| GET | `/api/health` | 健康检查与版本（含 chalkbase 版本、数据版本、当前模型配置） |
 | GET | `/api/debug/runs`、`/runs/{id}`、`/runs/{id}/events`、`/runs/{id}/stream`（SSE，含 debug 事件）、`/metrics`、`/kp/{id}` | 运行列表（带教师原话与指标）、运行详情、全部事件、实时事件流、聚合指标、知识点详情（需令牌） |
 | POST | `/api/debug/runs/{id}/chat` | 运行分析助手：请求体是对话历史，响应是 SSE（`delta` / `tool` / `done` / `error`；需令牌；D56） |
 | GET/POST | `/api/debug/badcases` | Badcase 列表 / 入库（YAML 文件，根因类别必填） |

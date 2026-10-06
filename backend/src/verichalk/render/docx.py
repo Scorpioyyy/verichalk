@@ -96,7 +96,7 @@ def _reference_docx() -> bytes:
     )
     styles = styles.replace(
         '<w:spacing w:before="180" w:after="180" />',
-        '<w:spacing w:before="60" w:after="60" w:line="320" w:lineRule="auto" />',
+        '<w:spacing w:before="80" w:after="160" w:line="320" w:lineRule="auto" />',
     )
     styles = re.sub(r'<w:color w:val="[0-9A-Fa-f]{6}"[^>]*/>', "", styles)
     for style_id, size, bold in (("Title", 36, True), ("Heading2", 24, True), ("Subtitle", 21, False)):

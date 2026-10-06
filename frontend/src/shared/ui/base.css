@@ -34,6 +34,8 @@
   --warn-bg: #fff1d1;
   --bad: #b3261e;
   --bad-bg: #fdeceb;
+  --stop: #e5484d; /* 停止按钮：醒目的红底，白色图标 */
+  --stop-hover: #cd3a3f;
   --pending: #56627f;
   --pending-bg: #eceff7;
 

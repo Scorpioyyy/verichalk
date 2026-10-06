@@ -68,7 +68,7 @@ _PREAMBLE = f"""\
   #text(size: 11.5pt, weight: "bold")[#title]#if note != "" [#h(0.8em)#tag[（#note）]]
 ]
 #let qitem(n, body, score: none, review: false, keep: true, opts: (), cols: 1, rg: 0.6em, space: 0pt, ans: none, sol: none) = block(
-  breakable: not keep, width: 100%, above: 1em, below: 1em,
+  breakable: not keep, width: 100%, above: 1.7em, below: 1.7em,
 )[
   #grid(columns: (2.1em, 1fr),
     [#strong[#n.]],

@@ -56,7 +56,9 @@ export const Composer = forwardRef<ComposerHandle, Props>(function Composer(
     const el = ta.current;
     if (!el) return;
     el.style.height = "auto";
-    el.style.height = `${Math.min(el.scrollHeight, large ? 220 : 160)}px`;
+    const max = large ? 220 : 160;
+    el.style.height = `${Math.min(el.scrollHeight, max)}px`;
+    el.style.overflowY = el.scrollHeight > max ? "auto" : "hidden"; // 滚动条（上下箭头）只在内容真的超出时才出现
   }, [value, large]);
 
   const urls = useMemo(() => list.map((f) => URL.createObjectURL(f)), [list]);
@@ -153,7 +155,7 @@ export const Composer = forwardRef<ComposerHandle, Props>(function Composer(
           <textarea
             ref={ta}
             className="composer__input"
-            rows={large ? 2 : 1}
+            rows={1}
             value={value}
             placeholder={hint}
             aria-label="输入您的需求"

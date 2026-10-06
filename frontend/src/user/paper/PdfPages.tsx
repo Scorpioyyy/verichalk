@@ -34,8 +34,8 @@ export function PdfPages({ data, onState }: Props) {
     let live = true;
     (async () => {
       try {
-        const pdfjs = await import("pdfjs-dist");
-        const worker = (await import("pdfjs-dist/build/pdf.worker.min.mjs?url")).default;
+        const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
+        const worker = (await import("pdfjs-dist/legacy/build/pdf.worker.min.mjs?url")).default;
         pdfjs.GlobalWorkerOptions.workerSrc = worker;
         const task = pdfjs.getDocument({ data: data.slice(0) });
         const doc = await task.promise;
@@ -47,7 +47,8 @@ export function PdfPages({ data, onState }: Props) {
         taskRef.current = task;
         docRef.current = doc;
         setPages(doc.numPages);
-      } catch {
+      } catch (e) {
+        console.warn("试卷预览：PDF 载入失败", e);
         if (live) onState?.("error");
       }
     })();
@@ -82,7 +83,8 @@ export function PdfPages({ data, onState }: Props) {
           await page.render({ canvasContext: ctx, viewport: vp, canvas }).promise;
         }
         if (live) onState?.("ready");
-      } catch {
+      } catch (e) {
+        console.warn("试卷预览：PDF 绘制失败", e);
         if (live) onState?.("error");
       }
     })();

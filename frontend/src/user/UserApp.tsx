@@ -170,7 +170,15 @@ function TopBar({ title, recent, currentId, menuOpen, setMenuOpen, onNew, onOpen
 
   return (
     <header className="topbar">
-      <a className="brand" href="/" aria-label="VeriChalk 首页">
+      <a
+        className="brand"
+        href="/"
+        aria-label="VeriChalk 首页"
+        onClick={(e) => {
+          e.preventDefault();
+          onNew();
+        }}
+      >
         <LogoMark />
         <span className="brand__name">VeriChalk</span>
         <span className="brand__sub">命题助手</span>

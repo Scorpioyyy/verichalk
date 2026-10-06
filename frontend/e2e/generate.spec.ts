@@ -133,5 +133,9 @@ test.describe("S9 异常与追问", () => {
     await waitRunDone(page);
     await expect(page.getByText(/不在我的能力范围/)).toBeVisible();
     await expect(page.getByTestId("item")).toHaveCount(0);
+
+    // 点左上角的标志回到主页面（对话保存在"历史"里）
+    await page.getByRole("link", { name: "VeriChalk 首页" }).click();
+    await expect(page.getByRole("heading", { name: "今天想出什么题？" })).toBeVisible();
   });
 });

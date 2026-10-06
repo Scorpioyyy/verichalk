@@ -45,7 +45,7 @@ export function RunProgress({ run, onStop }: { run: RunState; onStop: () => void
       )}
       <div className="progress__foot">
         <span className="progress__time">已用 {fmtDuration(elapsed)}</span>
-        <button type="button" className="btn btn--ghost btn--sm" onClick={onStop}>
+        <button type="button" className="btn btn--stop btn--sm" onClick={onStop}>
           <Icon name="stop" size={14} /> 停止
         </button>
       </div>

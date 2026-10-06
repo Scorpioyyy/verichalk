@@ -13,10 +13,11 @@ interface Props {
   onRemovePhoto: (index: number) => void;
 }
 
+const PHOTO_REQUEST = "照这页再出 5 道，再来 2 道拔高的";
+
 const EXAMPLES = [
   { tag: "单点练习", text: "四年级下册小数加减法，出 5 道，有点难度" },
   { tag: "跨知识点综合", text: "出 3 道超市购物情境、要用到小数和统计图的综合题" },
-  { tag: "拍照扩题", text: "照这页再出 5 道，再来 2 道拔高的", photo: true },
   { tag: "整份试卷", text: "出一份四年级下册第三单元的单元测试，40 分钟，满分 100" },
   { tag: "期末复习", text: "期末复习，把乘法分配律和简便运算串起来，出 6 道" },
 ];
@@ -60,29 +61,38 @@ export function Welcome({
                 onClick={() => {
                   setDraft(e.text);
                   composerRef.current?.focus();
-                  if ("photo" in e && e.photo && photos.length === 0)
-                    composerRef.current?.openPicker();
                 }}
               >
-                <span
-                  className={`example__tag ${"photo" in e && e.photo ? "example__tag--photo" : ""}`}
-                >
-                  {e.tag}
-                </span>
+                <span className="example__tag">{e.tag}</span>
                 <span className="example__text">{e.text}</span>
               </button>
             </li>
           ))}
         </ul>
+        <button
+          type="button"
+          className="photo-cta"
+          onClick={() => {
+            if (!draft) setDraft(PHOTO_REQUEST);
+            composerRef.current?.focus();
+            if (photos.length === 0) composerRef.current?.openPicker();
+          }}
+        >
+          <span className="photo-cta__icon" aria-hidden>
+            <Icon name="image" size={20} />
+          </span>
+          <span className="photo-cta__body">
+            <strong>拍一页练习册，照着出新题</strong>
+            <span>上传照片后说一句，比如“{PHOTO_REQUEST}”</span>
+          </span>
+          <Icon name="right" size={18} />
+        </button>
         <ul className="trust" aria-label="特点">
           <li>
             <Icon name="shield" size={16} /> 程序验算 + 独立解题，两路核验
           </li>
           <li>
             <Icon name="check" size={16} /> 按学到的课时把关，不超纲
-          </li>
-          <li>
-            <Icon name="image" size={16} /> 拍一页练习册，照着出新题
           </li>
           <li>
             <Icon name="download" size={16} /> 一键导出 PDF / Word

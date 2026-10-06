@@ -355,7 +355,7 @@ export function layoutGraph(steps: RetrievalStep[], upTo: number): GraphLayout {
 }
 
 export const EDGE_STYLE: Record<string, { color: string; dash?: string; label: string }> = {
-  prerequisite: { color: "#2a6a58", label: "前置" },
+  prerequisite: { color: "#3d5af1", label: "前置" },
   builds_on: { color: "#22558b", label: "递进" },
   extends: { color: "#22558b", dash: "6 4", label: "拓展" },
   related: { color: "#7b858c", dash: "2 4", label: "相关" },

@@ -179,10 +179,6 @@
   padding: 2px 9px;
   border-radius: 999px;
 }
-.example__tag--photo {
-  color: var(--accent-ink);
-  background: var(--accent-bg);
-}
 .example__text {
   color: var(--ink);
   font-size: 14.5px;
@@ -253,7 +249,8 @@
 }
 .composer--large .composer__input {
   font-size: 16.5px;
-  min-height: 44px;
+  min-height: 52px;
+  padding: 14px 0; /* 单行时文字（和占位提示）在输入框里垂直居中，与两侧的图标对齐 */
 }
 .composer__btn {
   flex: none;
@@ -278,11 +275,18 @@
   box-shadow: none;
   cursor: not-allowed;
 }
+/* 停止：红底、白色实心圆角方块——和常见的"停止生成"按钮一致 */
 .composer__btn--stop {
-  background: var(--ink);
+  background: var(--stop);
+  box-shadow: 0 2px 8px rgba(229, 72, 77, 0.35);
 }
 .composer__btn--stop:hover:not(:disabled) {
-  background: #000;
+  background: var(--stop-hover);
+}
+.composer__btn--stop svg {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 3;
 }
 
 /* ---------- 主布局 ---------- */
@@ -1410,4 +1414,66 @@
   .toasts {
     bottom: 64px;
   }
+}
+
+/* 欢迎页：拍照入口（独立一条，与四个文字示例区分开） */
+.photo-cta {
+  width: 100%;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1.5px dashed #f0b866;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, #fff8ec, rgba(255, 255, 255, 0.9));
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    box-shadow 0.12s,
+    transform 0.12s;
+}
+.photo-cta:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+.photo-cta__icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--accent-bg);
+  color: var(--accent-ink);
+}
+.photo-cta__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.photo-cta__body strong {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+/* 进度卡里的"停止"：红色描边，图标是实心方块，和输入框右侧的停止键一致 */
+.btn--stop {
+  color: var(--stop-hover);
+  border-color: #f3b9bb;
+  background: #fff;
+}
+.btn--stop:hover:not(:disabled) {
+  background: #fdeceb;
+  border-color: var(--stop);
+}
+.btn--stop svg {
+  fill: currentColor;
+  stroke-width: 3;
 }

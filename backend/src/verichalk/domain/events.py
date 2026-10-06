@@ -15,10 +15,10 @@ from pydantic import BaseModel, Field, TypeAdapter
 from .common import ErrorInfo
 from .knowledge import RetrievalPayload
 from .llm import LLMCallRecord, Usage
-from .paper import CheckResult, VerifyStatus
+from .paper import CheckResult, Item, VerifyStatus
 from .understanding import Understanding
 
-SCHEMA_VERSION = "1.1"
+SCHEMA_VERSION = "1.2"
 
 CheckpointKind = Literal["clarify", "blueprint", "samples", "confirm"]
 
@@ -123,6 +123,16 @@ class ItemStatus(EventBase):
     checks: list[CheckResult] = Field(default_factory=list)
 
 
+class ItemDelivered(EventBase):
+    """一道题通过核验、可以给教师看了（1.2 新增）。整份试卷要等全部完成才装配成修订；
+    这个事件让用户端在此之前就能逐题上屏（PRD 原则 2：先给看得见的结果）。后续核验状态变化仍由 `item.status` 报告。"""
+
+    type: Literal["item.delivered"] = "item.delivered"
+    visibility: Visibility = Visibility.user
+    item: Item
+    order: int = 0  # 本次运行里的送达序号（从 1 起）
+
+
 class PaperPatched(EventBase):
     type: Literal["paper.patch"] = "paper.patch"
     visibility: Visibility = Visibility.user
@@ -178,6 +188,7 @@ Event = Annotated[
     | MessageDelta
     | MessageDone
     | ItemStatus
+    | ItemDelivered
     | PaperPatched
     | CheckpointRequested
     | UnderstandingReady

@@ -79,7 +79,14 @@ def _mount_frontend(app: FastAPI, settings: Settings) -> None:
         return
     app.mount("/assets", StaticFiles(directory=dist / "assets"), name="assets")
 
+    root = dist.resolve()
+
     @app.get("/{path:path}", include_in_schema=False)
     async def spa(path: str) -> FileResponse:
-        target = dist / path
-        return FileResponse(target if path and target.is_file() else index)
+        if path == "api" or path.startswith("api/"):  # 未知的接口路径是 404，而不是回退成页面
+            raise NotFound(f"接口不存在：/{path}", user_message="没有这个接口。")
+        target = (dist / path).resolve()
+        # 只托管构建目录内的文件（防 `..` 越界）；其余一律回退到单页应用的入口
+        if path and target.is_file() and target.is_relative_to(root):
+            return FileResponse(target)
+        return FileResponse(index)

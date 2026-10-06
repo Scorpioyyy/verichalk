@@ -1,4 +1,5 @@
-"""逐题创作的并行执行（出题与整卷共用）：每道题完成时立即发出 `item.status`，丢弃的题换个考法补一轮。"""
+"""逐题创作的并行执行（出题与整卷共用）：每道题完成时立即发出 `item.status` 与 `item.delivered`（用户端逐题上屏），
+丢弃的题换个考法补一轮。"""
 
 from __future__ import annotations
 
@@ -28,11 +29,11 @@ async def produce_specs(
     n = len(specs)
     await trace.progress("开始逐题创作并核验", 0, n)
     sem = asyncio.Semaphore(ctx.settings.item_concurrency)
-    done = 0
+    done = delivered = 0
     constraints = constraints_text(brief)
 
     async def one(spec: ItemSpec) -> ProduceOut:
-        nonlocal done
+        nonlocal done, delivered
         async with sem:
             avoid = [
                 s.angle or f"{s.scene}情境的{'、'.join(s.kp_names)}" for s in bp.items if s.id != spec.id
@@ -51,6 +52,9 @@ async def produce_specs(
             )
         done += 1
         await trace.progress(f"已完成 {done}/{n} 道题的核验", done, n)
+        if out.item is not None:  # 先让教师看到：整份试卷要等全部完成才装配
+            delivered += 1
+            await trace.item_delivered(out.item, delivered)
         return out
 
     outs = list(await asyncio.gather(*(one(s) for s in specs)))

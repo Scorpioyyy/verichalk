@@ -342,3 +342,83 @@ async def test_paper_edit_undo_redo_history_endpoints(env):
     assert d["items"][0]["change"] == "changed" and "stem" in d["items"][0]["fields"]
     r = await cl.post(f"/api/sessions/{sid}/paper/restore", json={"rev": 1})
     assert r.status_code == 200 and r.json()["revision"]["kind"] == "restore"
+
+
+async def test_spa_hosting_falls_back_to_index_but_not_for_api_or_outside_files(env, tmp_path):
+    root = tmp_path / "site"
+    dist = root / "frontend" / "dist"
+    (dist / "assets").mkdir(parents=True)
+    (dist / "index.html").write_text("<html>INDEX</html>", encoding="utf-8")
+    (dist / "assets" / "a.js").write_text("console.log(1)", encoding="utf-8")
+    (root / "secret.txt").write_text("TOP-SECRET", encoding="utf-8")
+    make, _ = env
+    c = make()
+    app = create_app(Settings(root=root, data_dir=tmp_path / "d2"), container=c)
+    async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://t") as cl:
+        assert "INDEX" in (await cl.get("/")).text
+        assert "INDEX" in (await cl.get("/debug/runs/run_x")).text  # 前端路由
+        assert (await cl.get("/assets/a.js")).text == "console.log(1)"
+        r = await cl.get("/api/nope")  # 未知接口不能回退成页面
+        assert r.status_code == 404 and r.json()["error"]["code"] == "not_found"
+        for p in ("/..%2fsecret.txt", "/%2e%2e/secret.txt", "/assets/..%2f..%2fsecret.txt"):
+            assert "TOP-SECRET" not in (await cl.get(p)).text  # 不能越出构建目录
+        assert (await cl.get("/api/health")).status_code == 200
+
+
+async def test_figure_refs_stream_and_badcase_endpoints(env, tmp_path):
+    import time
+
+    from verichalk.domain.paper import FigureSpec, Item, ItemKind, Paper, Revision, Section
+    from verichalk.store import BadcaseBook
+
+    make, h = env
+    c = make()
+    c.badcases = BadcaseBook(tmp_path / "bc")  # 不写进仓库的 eval/badcases
+    cl = h["client"]
+    sid = (await cl.post("/api/sessions")).json()["session"]["id"]
+    fig = FigureSpec(
+        id="f1", kind="number_line", params={"min": 0, "max": 2, "marks": [{"at": 1}]}, alt="数轴"
+    )
+    paper = Paper(
+        id="p1",
+        rev=1,
+        sections=[
+            Section(
+                id="s",
+                items=[Item(id="i1", kind=ItemKind.fill, stem="如图 ![](fig:f1)", answer="1", figures=[fig])],
+            )
+        ],
+    )
+    await c.store.papers.save(sid, paper, Revision(paper_id="p1", rev=1, author="agent", ts=time.time()))
+
+    r = await cl.get(f"/api/sessions/{sid}/figures/f1")
+    assert r.status_code == 200 and r.headers["content-type"].startswith("image/svg+xml") and "<svg" in r.text
+    assert (await cl.get(f"/api/sessions/{sid}/figures/nope")).status_code == 404
+
+    kp_id = (await c.kb.search("小数加减法", k=1))[0].id
+    refs = (await cl.get("/api/knowledge/refs", params={"ids": [kp_id, "kp.not.exist"]})).json()
+    assert [x["id"] for x in refs] == [kp_id] and refs[0]["name"]
+    assert (await cl.get(f"/api/debug/kp/{kp_id}")).json()["description"]
+
+    run_id = (await cl.post(f"/api/sessions/{sid}/turns", data={"text": "小数加减法"})).json()["run_id"]
+    await c.manager.wait(run_id, 20)
+    dbg = parse_sse((await cl.get(f"/api/debug/runs/{run_id}/stream")).text)
+    usr = parse_sse((await cl.get(f"/api/runs/{run_id}/events")).text)
+    assert {"llm.call", "span.started"} <= {e["event"] for e in dbg}
+    assert not {"llm.call", "span.started"} & {e["event"] for e in usr}
+    listed = (await cl.get("/api/debug/runs")).json()
+    assert listed[0]["input_text"] == "小数加减法"
+
+    bc = (
+        await cl.post(
+            "/api/debug/badcases",
+            json={"run_id": run_id, "problem": "题量不够", "root_cause": "R", "severity": "S2"},
+        )
+    ).json()
+    assert bc["id"].startswith("bc_") and bc["status"] == "open"
+    assert [b["id"] for b in (await cl.get("/api/debug/badcases")).json()] == [bc["id"]]
+    assert (tmp_path / "bc" / f"{bc['id']}.yaml").exists()
+    missing = {"run_id": "run_nope", "problem": "x", "root_cause": "R"}
+    assert (await cl.post("/api/debug/badcases", json=missing)).status_code == 404
+    bad_cause = {"run_id": run_id, "problem": "x", "root_cause": "Z"}
+    assert (await cl.post("/api/debug/badcases", json=bad_cause)).status_code == 422

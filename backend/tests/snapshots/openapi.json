@@ -175,6 +175,188 @@
     "title": "AttachmentRef",
     "type": "object"
    },
+   "Badcase": {
+    "properties": {
+     "created_at": {
+      "title": "Created At",
+      "type": "number"
+     },
+     "expected": {
+      "default": "",
+      "title": "Expected",
+      "type": "string"
+     },
+     "fix_commit": {
+      "default": "",
+      "title": "Fix Commit",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "input": {
+      "default": "",
+      "title": "Input",
+      "type": "string"
+     },
+     "item_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Item Id"
+     },
+     "problem": {
+      "title": "Problem",
+      "type": "string"
+     },
+     "regression_case": {
+      "default": "",
+      "title": "Regression Case",
+      "type": "string"
+     },
+     "root_cause": {
+      "enum": [
+       "U",
+       "P",
+       "R",
+       "W",
+       "V",
+       "B",
+       "E",
+       "X",
+       "S",
+       "K",
+       "UX"
+      ],
+      "title": "Root Cause",
+      "type": "string"
+     },
+     "run_id": {
+      "title": "Run Id",
+      "type": "string"
+     },
+     "severity": {
+      "default": "S2",
+      "enum": [
+       "S1",
+       "S2",
+       "S3"
+      ],
+      "title": "Severity",
+      "type": "string"
+     },
+     "stage": {
+      "default": "",
+      "title": "Stage",
+      "type": "string"
+     },
+     "status": {
+      "default": "open",
+      "enum": [
+       "open",
+       "fixed",
+       "wontfix"
+      ],
+      "title": "Status",
+      "type": "string"
+     },
+     "tags": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+     }
+    },
+    "required": [
+     "run_id",
+     "problem",
+     "root_cause",
+     "id",
+     "created_at"
+    ],
+    "title": "Badcase",
+    "type": "object"
+   },
+   "BadcaseIn": {
+    "description": "调试台提交的坏例子。输入与观察到的问题由人填写；运行 / 题目由调试台带上。",
+    "properties": {
+     "expected": {
+      "default": "",
+      "title": "Expected",
+      "type": "string"
+     },
+     "input": {
+      "default": "",
+      "title": "Input",
+      "type": "string"
+     },
+     "item_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Item Id"
+     },
+     "problem": {
+      "title": "Problem",
+      "type": "string"
+     },
+     "root_cause": {
+      "enum": [
+       "U",
+       "P",
+       "R",
+       "W",
+       "V",
+       "B",
+       "E",
+       "X",
+       "S",
+       "K",
+       "UX"
+      ],
+      "title": "Root Cause",
+      "type": "string"
+     },
+     "run_id": {
+      "title": "Run Id",
+      "type": "string"
+     },
+     "severity": {
+      "default": "S2",
+      "enum": [
+       "S1",
+       "S2",
+       "S3"
+      ],
+      "title": "Severity",
+      "type": "string"
+     },
+     "stage": {
+      "default": "",
+      "title": "Stage",
+      "type": "string"
+     }
+    },
+    "required": [
+     "run_id",
+     "problem",
+     "root_cause"
+    ],
+    "title": "BadcaseIn",
+    "type": "object"
+   },
    "Body_post_turn_api_sessions__session_id__turns_post": {
     "properties": {
      "images": {
@@ -549,6 +731,11 @@
    },
    "DebugRunDetail": {
     "properties": {
+     "input_text": {
+      "default": "",
+      "title": "Input Text",
+      "type": "string"
+     },
      "metrics": {
       "$ref": "#/components/schemas/RunMetrics"
      },
@@ -570,6 +757,11 @@
    },
    "DebugRunItem": {
     "properties": {
+     "input_text": {
+      "default": "",
+      "title": "Input Text",
+      "type": "string"
+     },
      "metrics": {
       "$ref": "#/components/schemas/RunMetrics"
      },
@@ -1063,6 +1255,71 @@
     "title": "ItemChange",
     "type": "object"
    },
+   "ItemDelivered": {
+    "description": "一道题通过核验、可以给教师看了（1.2 新增）。整份试卷要等全部完成才装配成修订；\n这个事件让用户端在此之前就能逐题上屏（PRD 原则 2：先给看得见的结果）。后续核验状态变化仍由 `item.status` 报告。",
+    "properties": {
+     "item": {
+      "$ref": "#/components/schemas/Item"
+     },
+     "order": {
+      "default": 0,
+      "title": "Order",
+      "type": "integer"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "item.delivered",
+      "default": "item.delivered",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/components/schemas/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "item"
+    ],
+    "title": "ItemDelivered",
+    "type": "object"
+   },
    "ItemKind": {
     "enum": [
      "choice",
@@ -1144,6 +1401,202 @@
      "status"
     ],
     "title": "ItemStatus",
+    "type": "object"
+   },
+   "KPDetail": {
+    "description": "知识点详情（供 LLM 理解\"这个知识点具体教什么、学生常错什么\"）。",
+    "properties": {
+     "aliases": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Aliases",
+      "type": "array"
+     },
+     "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+     },
+     "domain": {
+      "default": "",
+      "title": "Domain",
+      "type": "string"
+     },
+     "grade": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grade"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "is_assessable": {
+      "default": true,
+      "title": "Is Assessable",
+      "type": "boolean"
+     },
+     "lesson_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lesson Id"
+     },
+     "lesson_title": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lesson Title"
+     },
+     "mastery_level": {
+      "default": "",
+      "title": "Mastery Level",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "semester": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semester"
+     },
+     "thread": {
+      "default": "",
+      "title": "Thread",
+      "type": "string"
+     },
+     "topic": {
+      "default": "",
+      "title": "Topic",
+      "type": "string"
+     },
+     "typical_errors": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Typical Errors",
+      "type": "array"
+     },
+     "unit_title": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Unit Title"
+     }
+    },
+    "required": [
+     "id",
+     "name"
+    ],
+    "title": "KPDetail",
+    "type": "object"
+   },
+   "KPRef": {
+    "properties": {
+     "domain": {
+      "default": "",
+      "title": "Domain",
+      "type": "string"
+     },
+     "grade": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Grade"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "lesson_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lesson Id"
+     },
+     "lesson_title": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Lesson Title"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "semester": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semester"
+     },
+     "unit_title": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Unit Title"
+     }
+    },
+    "required": [
+     "id",
+     "name"
+    ],
+    "title": "KPRef",
     "type": "object"
    },
    "LLMCall": {
@@ -3033,7 +3486,7 @@
       "type": "string"
      },
      "schema_version": {
-      "default": "1.1",
+      "default": "1.2",
       "title": "Schema Version",
       "type": "string"
      },
@@ -4215,6 +4668,215 @@
  },
  "openapi": "3.1.0",
  "paths": {
+  "/api/debug/badcases": {
+   "get": {
+    "operationId": "debug_badcases_api_debug_badcases_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/Badcase"
+         },
+         "title": "Response Debug Badcases Api Debug Badcases Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Badcases"
+   },
+   "post": {
+    "description": "把一次运行里发现的坏例子写入 Badcase 簿（YAML 文件，之后按根因类别修复并转成回归用例）。",
+    "operationId": "debug_add_badcase_api_debug_badcases_post",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/BadcaseIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Badcase"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Add Badcase"
+   }
+  },
+  "/api/debug/kp/{kp_id}": {
+   "get": {
+    "description": "图检索视图里点击节点：知识点说明、掌握要求、典型错误。",
+    "operationId": "debug_kp_api_debug_kp__kp_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "kp_id",
+      "required": true,
+      "schema": {
+       "title": "Kp Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/KPDetail"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Kp"
+   }
+  },
   "/api/debug/metrics": {
    "get": {
     "operationId": "debug_metrics_api_debug_metrics_get",
@@ -4543,6 +5205,7 @@
           "discriminator": {
            "mapping": {
             "checkpoint.requested": "#/components/schemas/CheckpointRequested",
+            "item.delivered": "#/components/schemas/ItemDelivered",
             "item.status": "#/components/schemas/ItemStatus",
             "llm.call": "#/components/schemas/LLMCall",
             "message.delta": "#/components/schemas/MessageDelta",
@@ -4589,6 +5252,9 @@
             "$ref": "#/components/schemas/ItemStatus"
            },
            {
+            "$ref": "#/components/schemas/ItemDelivered"
+           },
+           {
             "$ref": "#/components/schemas/PaperPatched"
            },
            {
@@ -4629,6 +5295,102 @@
     "summary": "Debug Events"
    }
   },
+  "/api/debug/runs/{run_id}/stream": {
+   "get": {
+    "description": "调试台的实时事件流：与用户端同一协议，但包含 debug 可见性的事件（span、模型调用、检索）。",
+    "operationId": "debug_stream_api_debug_runs__run_id__stream_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "after",
+      "required": false,
+      "schema": {
+       "default": 0,
+       "title": "After",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "last-event-id",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Last-Event-Id"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Stream"
+   }
+  },
   "/api/health": {
    "get": {
     "operationId": "health_api_health_get",
@@ -4645,6 +5407,53 @@
      }
     },
     "summary": "Health"
+   }
+  },
+  "/api/knowledge/refs": {
+   "get": {
+    "description": "知识点的教师可读名称与位置，用于在题目旁显示\"涉及：小数加减法（四下·第一单元）\"。",
+    "operationId": "knowledge_refs_api_knowledge_refs_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "ids",
+      "required": true,
+      "schema": {
+       "items": {
+        "type": "string"
+       },
+       "title": "Ids",
+       "type": "array"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/KPRef"
+         },
+         "title": "Response Knowledge Refs Api Knowledge Refs Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Knowledge Refs"
    }
   },
   "/api/runs/{run_id}": {
@@ -4958,6 +5767,51 @@
     "summary": "Export Paper File"
    }
   },
+  "/api/sessions/{session_id}/figures/{figure_id}": {
+   "get": {
+    "description": "试卷里某个图形的 SVG（预览与导出共用同一份渲染）。",
+    "operationId": "paper_figure_api_sessions__session_id__figures__figure_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "path",
+      "name": "figure_id",
+      "required": true,
+      "schema": {
+       "title": "Figure Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "image/svg+xml": {}
+      },
+      "description": "图形的 SVG"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Paper Figure"
+   }
+  },
   "/api/sessions/{session_id}/paper": {
    "patch": {
     "description": "手动编辑：应用补丁并立即返回新修订；内容被改的题状态回到\"待核验\"，同时发起一个复核运行（`review_run_id`）。",
@@ -5190,6 +6044,54 @@
      }
     },
     "summary": "Restore Paper"
+   }
+  },
+  "/api/sessions/{session_id}/paper/revisions/{rev}": {
+   "get": {
+    "operationId": "paper_at_api_sessions__session_id__paper_revisions__rev__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "path",
+      "name": "rev",
+      "required": true,
+      "schema": {
+       "title": "Rev",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Paper"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Paper At"
    }
   },
   "/api/sessions/{session_id}/paper/undo": {

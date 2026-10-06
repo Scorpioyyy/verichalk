@@ -155,6 +155,19 @@ async def test_assemble_paper_redistributes_when_items_dropped_and_replaces(ctx)
     assert await assemble_paper(ctx, [], plan, Blueprint()) is None
 
 
+async def test_assemble_sample_keeps_slot_scores_and_has_no_duration(ctx) -> None:
+    """样题是整卷的几道题：每题沿用它题位的分值（不是把总分摊给 3 道题），也没有"建议用时"。"""
+    plan = plan_paper_structure(brief(40, 100))
+    idx = pick_samples(plan)
+    p = await assemble_paper(
+        ctx, [(i, mk(i, plan.slots[i].kind)) for i in idx], plan, Blueprint(), sample=True
+    )
+    assert p is not None
+    assert sorted(it.score or 0 for it in p.all_items()) == sorted(plan.slots[i].score for i in idx)
+    assert p.meta["total_score"] == sum(plan.slots[i].score for i in idx) < 100
+    assert "duration_minutes" not in p.meta
+
+
 # ---- 分阶段流程 ----
 def fake_stages(monkeypatch, drop: set[str] | None = None):
     plans: list[Any] = []
@@ -252,6 +265,22 @@ async def test_dropped_items_keep_total_and_are_reported(ctx, monkeypatch) -> No
     p = await ctx.store.papers.get_current(ctx.session_id)
     assert p is not None and len(p.all_items()) == 14 and sum(it.score or 0 for it in p.all_items()) == 100
     assert "没有通过核验" in reply and "总分仍是 100 分" in reply
+
+
+async def test_each_delivered_item_is_announced_as_it_passes_verification(ctx, monkeypatch) -> None:
+    """用户端靠 `item.delivered` 逐题上屏（整份试卷要等全部完成才装配）：每道通过核验的题一个事件，序号连续，被丢弃的不发。"""
+    fake_stages(monkeypatch, drop={"it5", "it5r"})
+    ctx.ask_fn = None
+    sink = MemorySink()
+    async with use_tracer(Tracer("run_t", sink)):
+        await paper_flow(ctx, u_paper())
+    got = [e for e in sink.events if e.type == "item.delivered"]
+    assert len(got) == 15  # 16 个题位，it5 补题后仍没通过
+    assert sorted(e.order for e in got) == list(range(1, 16))
+    assert "n_it5" not in {e.item.id for e in got} and all(e.visibility == "user" for e in got)
+    paper_patches = [i for i, e in enumerate(sink.events) if e.type == "paper.patch"]
+    last_delivered = max(i for i, e in enumerate(sink.events) if e.type == "item.delivered")
+    assert paper_patches and paper_patches[-1] > last_delivered  # 装配在逐题送达之后
 
 
 async def test_samples_redo_once(ctx, monkeypatch) -> None:

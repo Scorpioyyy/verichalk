@@ -69,6 +69,12 @@ class MessageRepo:
         )
         return m
 
+    async def get(self, message_id: str) -> Message | None:
+        r = await self.db.fetchone("SELECT * FROM messages WHERE id=?", (message_id,))
+        if r is None:
+            return None
+        return Message(**{**dict(r), "attachments": json.loads(r["attachments"])})
+
     async def list(self, session_id: str) -> list[Message]:
         rows = await self.db.fetchall(
             "SELECT * FROM messages WHERE session_id=? ORDER BY ts, id", (session_id,)

@@ -6,6 +6,7 @@ from contextlib import AbstractAsyncContextManager
 from typing import Any
 
 from ..domain.events import (
+    ItemDelivered,
     ItemStatus,
     LLMCall,
     MessageDelta,
@@ -20,7 +21,7 @@ from ..domain.events import (
 )
 from ..domain.knowledge import RetrievalPayload
 from ..domain.llm import LLMCallRecord, Usage
-from ..domain.paper import CheckResult, VerifyStatus
+from ..domain.paper import CheckResult, Item, VerifyStatus
 from ..domain.understanding import Understanding
 from .tracer import SpanHandle, current_tracer
 
@@ -71,6 +72,10 @@ async def understanding_ready(u: Understanding) -> None:
 
 async def item_status(item_id: str, status: VerifyStatus, checks: list[CheckResult]) -> None:
     await current_tracer().emit(ItemStatus(item_id=item_id, status=status, checks=checks))
+
+
+async def item_delivered(item: Item, order: int) -> None:
+    await current_tracer().emit(ItemDelivered(item=item, order=order))
 
 
 async def paper_patched(paper_id: str, rev: int, ops: list[dict[str, Any]], summary: str = "") -> None:

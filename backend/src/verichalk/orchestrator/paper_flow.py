@@ -223,7 +223,7 @@ async def paper_flow(ctx: RunContext, u: Understanding) -> str:
             got = [(i, o.item) for i, o in zip(sample_idx, outs, strict=True) if o.item is not None]
             if got:
                 await assemble_paper(
-                    ctx, got, plan, bp, title=(plan.title or "试卷") + "（样题）", note="样题"
+                    ctx, got, plan, bp, title=(plan.title or "试卷") + "（样题）", note="样题", sample=True
                 )
             ans = await ctx.ask(
                 "samples",

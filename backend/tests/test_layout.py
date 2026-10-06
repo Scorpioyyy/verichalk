@@ -16,6 +16,7 @@ EXPECTED_TOP_LEVEL = {
     ".gitattributes",
     ".github",
     ".dockerignore",
+    ".editorconfig",
     "backend",
     "frontend",
     "config",

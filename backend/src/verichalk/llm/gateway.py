@@ -144,7 +144,11 @@ class LLMGateway:
             result: LLMResult | None = None
             error: BaseException | None = None
             try:
-                if mode in (LLMMode.replay, LLMMode.replay_or_live) and self._cassette.exists(key):
+                if mode in (
+                    LLMMode.replay,
+                    LLMMode.replay_or_live,
+                    LLMMode.replay_or_record,
+                ) and self._cassette.exists(key):
                     result = self._replay(key, spec.model)
                     if req.on_delta and result.text:
                         await req.on_delta(result.text)
@@ -152,7 +156,7 @@ class LLMGateway:
                     raise ReplayMiss(f"replay 未命中：{req.role.value}:{req.purpose} key={key}")
                 else:
                     result = await self._live(spec.model, messages, params, timeout, req)
-                    if mode == LLMMode.record:
+                    if mode in (LLMMode.record, LLMMode.replay_or_record):
                         self._cassette.save(
                             CassetteEntry(
                                 key=key,

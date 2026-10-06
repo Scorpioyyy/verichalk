@@ -407,6 +407,35 @@
     "title": "ErrorInfo",
     "type": "object"
    },
+   "FigureSpec": {
+    "description": "图形的结构化规格；渲染为 SVG（M6 细化各类型）。",
+    "properties": {
+     "alt": {
+      "default": "",
+      "title": "Alt",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "title": "Kind",
+      "type": "string"
+     },
+     "params": {
+      "additionalProperties": true,
+      "title": "Params",
+      "type": "object"
+     }
+    },
+    "required": [
+     "id",
+     "kind"
+    ],
+    "title": "FigureSpec",
+    "type": "object"
+   },
    "GraphEdge": {
     "properties": {
      "source": {
@@ -516,6 +545,168 @@
      "name"
     ],
     "title": "GraphNode",
+    "type": "object"
+   },
+   "Item": {
+    "properties": {
+     "answer": {
+      "default": "",
+      "title": "Answer",
+      "type": "string"
+     },
+     "answer_value": {
+      "anyOf": [
+       {},
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Answer Value"
+     },
+     "difficulty": {
+      "default": 3,
+      "title": "Difficulty",
+      "type": "integer"
+     },
+     "figures": {
+      "items": {
+       "$ref": "#/$defs/FigureSpec"
+      },
+      "title": "Figures",
+      "type": "array"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "$ref": "#/$defs/ItemKind"
+     },
+     "kp_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kp Ids",
+      "type": "array"
+     },
+     "options": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Options",
+      "type": "array"
+     },
+     "provenance": {
+      "$ref": "#/$defs/Provenance"
+     },
+     "rev": {
+      "default": 1,
+      "title": "Rev",
+      "type": "integer"
+     },
+     "score": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Score"
+     },
+     "solution": {
+      "default": "",
+      "title": "Solution",
+      "type": "string"
+     },
+     "stem": {
+      "title": "Stem",
+      "type": "string"
+     },
+     "tier": {
+      "$ref": "#/$defs/Tier",
+      "default": "consolidate"
+     },
+     "verification": {
+      "$ref": "#/$defs/Verification"
+     }
+    },
+    "required": [
+     "id",
+     "kind",
+     "stem"
+    ],
+    "title": "Item",
+    "type": "object"
+   },
+   "ItemDelivered": {
+    "description": "一道题通过核验、可以给教师看了（1.2 新增）。整份试卷要等全部完成才装配成修订；\n这个事件让用户端在此之前就能逐题上屏（PRD 原则 2：先给看得见的结果）。后续核验状态变化仍由 `item.status` 报告。",
+    "properties": {
+     "item": {
+      "$ref": "#/$defs/Item"
+     },
+     "order": {
+      "default": 0,
+      "title": "Order",
+      "type": "integer"
+     },
+     "parent_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Parent Id"
+     },
+     "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+     },
+     "seq": {
+      "default": 0,
+      "title": "Seq",
+      "type": "integer"
+     },
+     "span_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Span Id"
+     },
+     "ts": {
+      "default": 0.0,
+      "title": "Ts",
+      "type": "number"
+     },
+     "type": {
+      "const": "item.delivered",
+      "default": "item.delivered",
+      "title": "Type",
+      "type": "string"
+     },
+     "visibility": {
+      "$ref": "#/$defs/Visibility",
+      "default": "user"
+     }
+    },
+    "required": [
+     "item"
+    ],
+    "title": "ItemDelivered",
     "type": "object"
    },
    "ItemKind": {
@@ -1203,6 +1394,54 @@
     "title": "PromptRef",
     "type": "object"
    },
+   "Provenance": {
+    "properties": {
+     "archetype_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Archetype Ids",
+      "type": "array"
+     },
+     "model": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Model"
+     },
+     "reference_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Reference Ids",
+      "type": "array"
+     },
+     "run_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": null,
+      "title": "Run Id"
+     },
+     "source": {
+      "$ref": "#/$defs/Source",
+      "default": "novel"
+     }
+    },
+    "title": "Provenance",
+    "type": "object"
+   },
    "ReferenceItem": {
     "description": "来自照片或用户粘贴的题：既是\"学生做过什么\"的上下文，也是防雷同集合。",
     "properties": {
@@ -1556,7 +1795,7 @@
       "type": "string"
      },
      "schema_version": {
-      "default": "1.1",
+      "default": "1.2",
       "title": "Schema Version",
       "type": "string"
      },
@@ -1895,6 +2134,15 @@
     ],
     "title": "Slot[str]",
     "type": "object"
+   },
+   "Source": {
+    "enum": [
+     "novel",
+     "template",
+     "edited"
+    ],
+    "title": "Source",
+    "type": "string"
    },
    "SourceMode": {
     "enum": [
@@ -2360,6 +2608,23 @@
     "title": "UsageUpdate",
     "type": "object"
    },
+   "Verification": {
+    "properties": {
+     "checks": {
+      "items": {
+       "$ref": "#/$defs/CheckResult"
+      },
+      "title": "Checks",
+      "type": "array"
+     },
+     "status": {
+      "$ref": "#/$defs/VerifyStatus",
+      "default": "pending"
+     }
+    },
+    "title": "Verification",
+    "type": "object"
+   },
    "VerifyStatus": {
     "enum": [
      "pending",
@@ -2383,6 +2648,7 @@
   "discriminator": {
    "mapping": {
     "checkpoint.requested": "#/$defs/CheckpointRequested",
+    "item.delivered": "#/$defs/ItemDelivered",
     "item.status": "#/$defs/ItemStatus",
     "llm.call": "#/$defs/LLMCall",
     "message.delta": "#/$defs/MessageDelta",
@@ -2429,6 +2695,9 @@
     "$ref": "#/$defs/ItemStatus"
    },
    {
+    "$ref": "#/$defs/ItemDelivered"
+   },
+   {
     "$ref": "#/$defs/PaperPatched"
    },
    {
@@ -2448,5 +2717,5 @@
    }
   ]
  },
- "schema_version": "1.1"
+ "schema_version": "1.2"
 }

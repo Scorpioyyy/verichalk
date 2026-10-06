@@ -25,6 +25,9 @@ class LLMMode(StrEnum):
     record = "record"
     replay = "replay"
     replay_or_live = "replay_or_live"
+    replay_or_record = (
+        "replay_or_record"  # 有录制就回放，没有就调用真实模型并录下来（让一组互相依赖的录制保持一致）
+    )
 
 
 class Credentials(BaseModel):
@@ -50,6 +53,7 @@ class Settings(BaseSettings):
 
     llm_mode: LLMMode = LLMMode.live
     cassette_dir: Path | None = None
+    badcase_dir: Path | None = None  # Badcase 入库目录；默认见 badcase_path
     cassette_namespace: str = "default"
     llm_concurrency: int = 8
     llm_max_retries: int = 3
@@ -84,6 +88,14 @@ class Settings(BaseSettings):
     @cached_property
     def data_path(self) -> Path:
         return (self.data_dir or (self.root_dir / "data")).resolve()
+
+    @cached_property
+    def badcase_path(self) -> Path:
+        """Badcase 入库目录：开发态（仓库里有 `eval/`）写进 `eval/badcases/`，部署态写进数据目录。"""
+        if self.badcase_dir:
+            return self.badcase_dir.resolve()
+        dev = self.root_dir / "eval" / "badcases"
+        return dev if dev.parent.exists() else self.data_path / "badcases"
 
     @cached_property
     def cassette_path(self) -> Path:

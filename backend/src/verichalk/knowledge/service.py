@@ -380,6 +380,20 @@ class KnowledgeService:
 
             return await self._run(_do)
 
+    async def refs(self, kp_ids: list[str]) -> list[KPRef]:
+        """一批知识点的教师可读名称与位置（前端显示"涉及：…"用）；库里没有的 ID 跳过。"""
+
+        def _do() -> list[KPRef]:
+            out = []
+            for k in kp_ids:
+                try:
+                    out.append(self._ref(k))
+                except KeyError:
+                    continue
+            return out
+
+        return await self._run(_do)
+
     async def find(self, name: str) -> list[KPRef]:
         async with trace.tool_span("kb.find", query=name):
             return await self._run(lambda: [self._ref(k.id) for k in self._cur.find_kp(name)])

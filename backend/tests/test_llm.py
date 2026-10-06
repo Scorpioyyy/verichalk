@@ -152,6 +152,23 @@ async def test_record_then_replay_roundtrip_and_miss(tmp_path):
         await rep.complete(req("问题", temperature=0.9))
 
 
+async def test_replay_or_record_records_only_what_is_missing(tmp_path):
+    """有录制就回放（保持既有录制不变），没有才调用并录下来：让一组互相依赖的录制保持一致。"""
+    first = make_gateway(
+        FakeTransport(content_chunks("第一次", usage=usage())), tmp_path, LLMMode.replay_or_record
+    )
+    assert (await first.complete(req("问题"))).text == "第一次"
+    # 同一个问题再问：回放，不会被"第二次"覆盖
+    second = make_gateway(
+        FakeTransport(content_chunks("第二次", usage=usage())), tmp_path, LLMMode.replay_or_record
+    )
+    r = await second.complete(req("问题"))
+    assert r.text == "第一次" and r.from_cassette
+    # 新问题：调用并录下
+    assert (await second.complete(req("新问题"))).text == "第二次"
+    assert (await make_gateway(None, tmp_path, LLMMode.replay).complete(req("新问题"))).text == "第二次"
+
+
 async def test_cassette_has_no_secrets(tmp_path, monkeypatch):
     monkeypatch.setenv("DASHSCOPE_API_KEY", "abcd1234efgh5678")
     gw = make_gateway(

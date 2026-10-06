@@ -65,12 +65,14 @@ class ErrorBody(BaseModel):
 class DebugRunItem(BaseModel):
     run: Run
     metrics: RunMetrics
+    input_text: str = ""  # 触发这次运行的教师原话（复核等没有输入的运行为空）
 
 
 class DebugRunDetail(BaseModel):
     run: Run
     metrics: RunMetrics
     n_events: int
+    input_text: str = ""
 
 
 class WarmupOut(BaseModel):

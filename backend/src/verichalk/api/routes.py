@@ -11,8 +11,11 @@ from fastapi.responses import Response, StreamingResponse
 
 from .. import __version__
 from ..core.errors import Conflict
+from ..domain.badcase import Badcase, BadcaseIn
 from ..domain.events import Event
 from ..domain.export import ExportOptions
+from ..domain.knowledge import KPDetail, KPRef
+from ..domain.paper import Paper
 from ..domain.paper_ops import PaperDiff
 from ..domain.run import Run
 from ..metrics import AggregateMetrics, aggregate, compute_run_metrics
@@ -143,6 +146,11 @@ async def paper_history(session_id: str, c: ContainerDep) -> PaperHistory:
     return PaperHistory(revisions=h.revisions, head_rev=h.head_rev, can_undo=h.can_undo, can_redo=h.can_redo)
 
 
+@router.get("/sessions/{session_id}/paper/revisions/{rev}", response_model=Paper)
+async def paper_at(session_id: str, rev: int, c: ContainerDep) -> Paper:
+    return await c.papers.at(session_id, rev)
+
+
 @router.get("/sessions/{session_id}/paper/diff", response_model=PaperDiff)
 async def paper_diff(
     session_id: str,
@@ -151,6 +159,22 @@ async def paper_diff(
     rev_to: Annotated[int, Query(alias="to")],
 ) -> PaperDiff:
     return await c.papers.diff(session_id, rev_from, rev_to)
+
+
+@router.get(
+    "/sessions/{session_id}/figures/{figure_id}",
+    response_class=Response,
+    responses={200: {"content": {"image/svg+xml": {}}, "description": "图形的 SVG"}},
+)
+async def paper_figure(session_id: str, figure_id: str, c: ContainerDep) -> Response:
+    """试卷里某个图形的 SVG（预览与导出共用同一份渲染）。"""
+    return Response(await c.papers.figure_svg(session_id, figure_id), media_type="image/svg+xml")
+
+
+@router.get("/knowledge/refs", response_model=list[KPRef])
+async def knowledge_refs(c: ContainerDep, ids: Annotated[list[str], Query()]) -> list[KPRef]:
+    """知识点的教师可读名称与位置，用于在题目旁显示"涉及：小数加减法（四下·第一单元）"。"""
+    return await c.kb.refs(ids[:50])
 
 
 # ---- 导出 ----
@@ -209,6 +233,11 @@ async def answer_checkpoint(run_id: str, body: CheckpointAnswer, c: ContainerDep
 
 
 # ---- 调试 ----
+async def _input_text(c: ContainerDep, run: Run) -> str:
+    msg = await c.store.messages.get(run.message_id) if run.message_id else None
+    return msg.content if msg else ""
+
+
 @debug.get("/runs", response_model=list[DebugRunItem])
 async def debug_runs(
     c: ContainerDep,
@@ -221,7 +250,11 @@ async def debug_runs(
     out = []
     for r in runs:
         out.append(
-            DebugRunItem(run=_strip_state(r), metrics=compute_run_metrics(await c.store.events.list(r.id)))
+            DebugRunItem(
+                run=_strip_state(r),
+                metrics=compute_run_metrics(await c.store.events.list(r.id)),
+                input_text=await _input_text(c, r),
+            )
         )
     return out
 
@@ -230,13 +263,54 @@ async def debug_runs(
 async def debug_run(run_id: str, c: ContainerDep) -> DebugRunDetail:
     run = await c.store.runs.get(run_id)
     events = await c.store.events.list(run_id)
-    return DebugRunDetail(run=run, metrics=compute_run_metrics(events), n_events=len(events))
+    return DebugRunDetail(
+        run=run,
+        metrics=compute_run_metrics(events),
+        n_events=len(events),
+        input_text=await _input_text(c, run),
+    )
 
 
 @debug.get("/runs/{run_id}/events", response_model=list[Event])
 async def debug_events(run_id: str, c: ContainerDep, after: int = 0) -> list[Event]:
     await c.store.runs.get(run_id)
     return await c.store.events.list(run_id, after_seq=after)
+
+
+@debug.get("/runs/{run_id}/stream")
+async def debug_stream(
+    run_id: str,
+    request: Request,
+    c: ContainerDep,
+    after: int = 0,
+    last_event_id: Annotated[str | None, Header()] = None,
+) -> StreamingResponse:
+    """调试台的实时事件流：与用户端同一协议，但包含 debug 可见性的事件（span、模型调用、检索）。"""
+    await c.store.runs.get(run_id)
+    start = int(last_event_id) if last_event_id and last_event_id.isdigit() else after
+    return StreamingResponse(
+        event_stream(c, run_id, after=start, visibility=None, request=request),
+        media_type="text/event-stream",
+        headers=SSE_HEADERS,
+    )
+
+
+@debug.get("/kp/{kp_id}", response_model=KPDetail)
+async def debug_kp(kp_id: str, c: ContainerDep) -> KPDetail:
+    """图检索视图里点击节点：知识点说明、掌握要求、典型错误。"""
+    return await c.kb.kp(kp_id)
+
+
+@debug.get("/badcases", response_model=list[Badcase])
+async def debug_badcases(c: ContainerDep) -> list[Badcase]:
+    return await c.badcases.list()
+
+
+@debug.post("/badcases", response_model=Badcase, status_code=201)
+async def debug_add_badcase(body: BadcaseIn, c: ContainerDep) -> Badcase:
+    """把一次运行里发现的坏例子写入 Badcase 簿（YAML 文件，之后按根因类别修复并转成回归用例）。"""
+    await c.store.runs.get(body.run_id)
+    return await c.badcases.add(body)
 
 
 @debug.get("/metrics", response_model=AggregateMetrics)

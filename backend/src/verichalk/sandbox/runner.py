@@ -79,6 +79,9 @@ async def run_solver(
     kwargs: dict[str, Any] = {}
     if os.name == "posix":
         kwargs["preexec_fn"] = _preexec
+    elif sys.platform == "win32":
+        # 父进程没有控制台时（服务、被 Playwright 拉起的服务），每个子进程都会申请新控制台，累积后启动失败
+        kwargs["creationflags"] = 0x08000000  # CREATE_NO_WINDOW
     env = {
         "PYTHONUTF8": "1",
         "PYTHONIOENCODING": "utf-8",
@@ -111,7 +114,9 @@ async def run_solver(
         dur = (time.perf_counter() - t0) * 1000
     text = out.decode("utf-8", "replace")[:MAX_OUTPUT]
     if _MARK not in text:
-        raise SandboxError(f"求解程序异常退出：{err.decode('utf-8', 'replace')[:200]}")
+        raise SandboxError(
+            f"求解程序异常退出（退出码 {proc.returncode}）：{err.decode('utf-8', 'replace')[:200]}"
+        )
     stdout, _, tail = text.partition(_MARK)
     res = json.loads(tail)
     if not res["ok"]:

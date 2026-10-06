@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from ..core.config import Settings
 from ..knowledge import KnowledgeService
 from ..llm import LLMGateway, build_gateway
-from ..store import Store
+from ..store import BadcaseBook, Store
 from ..trace import EventBus
 from .manager import RunManager
 from .papers import PaperService
@@ -24,9 +24,11 @@ class Container:
     manager: RunManager
     warmer: Warmer
     papers: PaperService = field(init=False)
+    badcases: BadcaseBook = field(init=False)
 
     def __post_init__(self) -> None:
         self.papers = PaperService(self.settings, self.store, self.manager.start_review)
+        self.badcases = BadcaseBook(self.settings.badcase_path)
 
     async def close(self) -> None:
         await self.warmer.wait()

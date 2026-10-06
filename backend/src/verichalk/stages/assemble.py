@@ -108,15 +108,17 @@ async def assemble_paper(
     *,
     title: str = "",
     note: str = "整卷",
+    sample: bool = False,
 ) -> Paper | None:
     """整卷装配：按细目表分区（题型顺序）、同区内按题位顺序（难度从易到难）、给每题分值，替换会话里已有的试卷。
 
-    `delivered` 是（题位序号，题目）。题位总数与实际交付数不同（有题没通过核验）时，按题型权重重新分配分值，保证合计仍是总分。"""
+    `delivered` 是（题位序号，题目）。题位总数与实际交付数不同（有题没通过核验）时，按题型权重重新分配分值，保证合计仍是总分。
+    `sample`：样题（整卷的几道题先给教师看风格）——每题沿用细目表里它那个题位的分值，合计不必是总分。"""
     if not delivered:
         return None
     delivered = sorted(delivered, key=lambda p: p[0])
     kinds = [it.kind for _, it in delivered]
-    if len(delivered) == len(plan.slots):
+    if sample or len(delivered) == len(plan.slots):
         scores = [plan.slots[i].score for i, _ in delivered]
     else:
         scores = distribute_scores(kinds, max(plan.total_score, len(kinds)))
@@ -141,7 +143,7 @@ async def assemble_paper(
     total = int(sum(scores))
     for key, val in (
         ("total_score", total),
-        ("duration_minutes", plan.duration_min),
+        ("duration_minutes", None if sample else plan.duration_min),  # 样题不是整卷：没有建议用时
         ("grade", bp.grade),
         ("lesson_id", bp.lesson_id),
     ):

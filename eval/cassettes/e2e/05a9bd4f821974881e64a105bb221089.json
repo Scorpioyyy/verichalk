@@ -1,0 +1,18 @@
+{
+ "key": "05a9bd4f821974881e64a105bb221089",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.24×5，先算324×5=1620，因数3.24有两位小数，所以积有两位小数，即16.20，末尾的0可省略，得16.2。\", \"answers\": [{\"label\": \"\", \"value\": \"16.2\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 888.3483000099659,
+ "ttft_ms": 888.5527000529692,
+ "total_ms": 1623.5040000174195
+}

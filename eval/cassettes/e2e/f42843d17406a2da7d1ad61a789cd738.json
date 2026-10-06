@@ -1,0 +1,18 @@
+{
+ "key": "f42843d17406a2da7d1ad61a789cd738",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"废纸和旧塑料瓶共 3.5+6.5=10 吨，每吨减少 1.2 吨碳排放，共减少 10×1.2=12 吨；废玻璃 4 吨，每吨减少 0.8 吨，共减少 4×0.8=3.2 吨；合计 12+3.2=15.2 吨。\", \"answers\": [{\"label\": \"这些废弃物共减少的碳排放量\", \"value\": \"15.2\", \"unit\": \"吨\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 137,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 895.1438999501988,
+ "ttft_ms": 895.1607999624684,
+ "total_ms": 1833.3265000255778
+}

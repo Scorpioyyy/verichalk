@@ -1,0 +1,18 @@
+{
+ "key": "a7d9735493ad650e49edd335b45fc2c5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算总重量：0.8+1.2=2（千克）。再算总价：12.5×2=25（元）。\", \"answers\": [{\"label\": \"一共花了多少元\", \"value\": \"25\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 952.8194000013173,
+ "ttft_ms": 953.2174000050873,
+ "total_ms": 1461.5220000268891
+}

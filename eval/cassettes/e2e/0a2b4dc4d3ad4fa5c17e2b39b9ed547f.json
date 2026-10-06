@@ -1,0 +1,18 @@
+{
+ "key": "0a2b4dc4d3ad4fa5c17e2b39b9ed547f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总人口12.5万人，减去0~14岁的3.8万人和60岁及以上的4.2万人，得到15~59岁人口：12.5-3.8-4.2=4.5（万人）。\", \"answers\": [{\"label\": \"该社区15~59岁的人口有多少万人\", \"value\": \"4.5\", \"unit\": \"万人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 100,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 637.4474000185728,
+ "ttft_ms": 637.4590999912471,
+ "total_ms": 1344.6008999599144
+}

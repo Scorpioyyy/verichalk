@@ -1,0 +1,18 @@
+{
+ "key": "b02b3add528afe2894ca1e35e422740e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"情境：购买文具。钢笔18.75元，笔记本9.48元。总价18.75+9.48=28.23。付50元，找回50-28.23=21.77。考查连续退位减法（50.00-28.23）。难度符合变式，需先加后减，且减法涉及整数减小数的多重退位。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    pen = Decimal('18.75')\\n    notebook = Decimal('9.48')\\n    total_cost = pen + notebook\\n    paid = Decimal('50')\\n    change = paid - total_cost\\n    return [change]\",\n \"stem\": \"李老师去书店买教具，买了一支钢笔花了 $18.75$ 元，又买了一本笔记本花了 $9.48$ 元。他付给售货员 $50$ 元，应找回 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"21.77\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算总花费：$18.75+9.48=28.23$ 元。再算找回的钱：将 $50$ 看作 $50.00$，计算 $50.00-28.23$。百分位 $10-3=7$，十分位 $9-2=7$，个位 $9-8=1$，十位 $4-2=2$，得 $21.77$ 元。\",\n \"kp_use\": {\n  \"小数加减法中的进位与退位\": \"第一步加法中十分位 $7+4=11$ 需进位；第二步减法 $50.00-28.23$ 中，整数部分需连续向十分位、百分位退位才能完成计算\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2418,
+  "completion_tokens": 480,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 922.011399990879,
+ "ttft_ms": 937.2528999811038,
+ "total_ms": 9089.2835999839
+}

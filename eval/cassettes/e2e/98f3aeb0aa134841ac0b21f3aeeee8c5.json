@@ -1,0 +1,18 @@
+{
+ "key": "98f3aeb0aa134841ac0b21f3aeeee8c5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 360, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"250\", \"245\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"360\", \"352\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"245\", \"360\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"250\", \"352\"], \"mode\": null}], \"concepts\": [\"不计算比较加法算式的大小\", \"保持算式结果相等的互补变化规律\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4537,
+  "completion_tokens": 145,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 947.2889000317082,
+ "ttft_ms": 947.4162999540567,
+ "total_ms": 1672.4488999461755
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7a71502db02f8c705b95c062bcce3c63",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"幼崽重128千克，成年东北虎体重是幼崽的4倍，所以128×4=512（千克）。\", \"answers\": [{\"label\": \"\", \"value\": \"512\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 820.5541999777779,
+ "ttft_ms": 820.6792999990284,
+ "total_ms": 1187.1892999624833
+}

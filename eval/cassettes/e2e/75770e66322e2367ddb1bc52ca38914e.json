@@ -1,0 +1,18 @@
+{
+ "key": "75770e66322e2367ddb1bc52ca38914e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）甲商品按原价的0.9倍出售，0.9＜1，所以现价比原价低；乙商品按原价的2.5倍出售，2.5＞1，所以现价比原价高。（2）乙商品原价0.4元，现价是原价的2.5倍：0.4×2.5=1（元）。\", \"answers\": [{\"label\": \"甲商品现价比原价高还是低\", \"value\": \"低\", \"unit\": \"\"}, {\"label\": \"乙商品现价比原价高还是低\", \"value\": \"高\", \"unit\": \"\"}, {\"label\": \"乙商品现在的售价\", \"value\": \"1\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 379,
+  "completion_tokens": 176,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 785.8553000260144,
+ "ttft_ms": 785.8760999515653,
+ "total_ms": 1669.644600013271
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d256538bbf1e26a6bb1c6903228de5e1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 25, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12.5\", \"0.8\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"12.5\", \"1.2\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"10\", \"15\"], \"mode\": null}], \"concepts\": [\"小数乘小数的竖式计算（含补0与去0）\", \"乘数与1的大小关系对积的影响\"], \"units_of_measure\": [\"千克\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4484,
+  "completion_tokens": 147,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1103.9250999456272,
+ "ttft_ms": 1103.9416999556124,
+ "total_ms": 1712.389099993743
+}

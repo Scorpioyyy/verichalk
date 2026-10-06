@@ -1,0 +1,18 @@
+{
+ "key": "dbae095fe4b38e39e3814bca5bc98b42",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12.5×4.08，先按整数乘法计算：125×408=51000。因数中一共有3位小数（12.5有1位，4.08有2位），所以积是51.000，即51。\", \"answers\": [{\"label\": \"体长与体宽的乘积\", \"value\": \"51\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 344,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 966.7461999924853,
+ "ttft_ms": 966.8667999794707,
+ "total_ms": 1669.479600037448
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b46395e03ac9d1a99b9e26925cfc3962",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明三轮总成绩：8.65+9.20+8.85=26.70（分）。比第一名少：27.50-26.70=0.80（分）。\", \"answers\": [{\"label\": \"小明的总成绩比第一名少多少分\", \"value\": \"0.80\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 618.2095999829471,
+ "ttft_ms": 618.4460999211296,
+ "total_ms": 1064.5452999742702
+}

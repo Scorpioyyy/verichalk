@@ -1,0 +1,18 @@
+{
+ "key": "a01f84d8c1f55ebf79906be321561e1f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"平均每站上下乘客1.2人，全程50个站点，总客流量约为1.2×50=60（人）。\", \"answers\": [{\"label\": \"\", \"value\": \"60\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 327,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1454.3358999071643,
+ "ttft_ms": 1455.6678999215364,
+ "total_ms": 1938.3861999958754
+}

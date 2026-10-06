@@ -1,0 +1,18 @@
+{
+ "key": "e8dfe675e6627646648998041cbc098b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"苹果每千克12.5元，买0.8千克，0.8<1，所以总价一定小于12.5元。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 328,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 682.4657000834122,
+ "ttft_ms": 682.5886000879109,
+ "total_ms": 1077.8651000000536
+}

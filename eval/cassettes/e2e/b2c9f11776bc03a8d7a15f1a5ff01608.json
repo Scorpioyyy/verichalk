@@ -1,0 +1,18 @@
+{
+ "key": "b2c9f11776bc03a8d7a15f1a5ff01608",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 30,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"12.5\", \"8.5\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"21\", \"9\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"30\", \"0.4\"], \"mode\": null}\n  ],\n  \"concepts\": [\"小数乘整数的意义与算法（初步）\", \"积的小数位数规则\"],\n  \"units_of_measure\": [\"吨\", \"立方米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4513,
+  "completion_tokens": 150,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 869.3570999894291,
+ "ttft_ms": 869.3680999567732,
+ "total_ms": 1605.3841999964789
+}

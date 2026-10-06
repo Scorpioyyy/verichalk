@@ -1,0 +1,18 @@
+{
+ "key": "4d124c2517e98c5331d8a3bcfced5d53",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "paper.adjust",
+ "text": "{\"duration_min\": null, \"total_score\": 120, \"counts\": {}, \"scores\": {}, \"remove_kinds\": [], \"note\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 612,
+  "completion_tokens": 34,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 630.0944000249729,
+ "ttft_ms": 630.1150000654161,
+ "total_ms": 803.2232000259683
+}

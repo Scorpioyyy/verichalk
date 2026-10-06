@@ -1,0 +1,18 @@
+{
+ "key": "48f691c495e1626426de4abd438e5dbe",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：农场种苹果树，每行14棵，共6行。计算总数14×6。拆分法：10×6=60，4×6=24，60+24=84。检查范围：84在1-10000内，整数。题型填空。\",\n \"solver_code\": \"def solve():\\n    return [14 * 6]\",\n \"stem\": \"农场里种植苹果树，每行种 $14$ 棵，一共种了 $6$ 行。这个果园里一共有 ____ 棵苹果树。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"84\",\n   \"unit\": \"棵\"\n  }\n ],\n \"solution\": \"把 $14$ 拆成 $10$ 和 $4$。先算 $10\\\\times 6=60$，再算 $4\\\\times 6=24$，最后相加 $60+24=84$。\",\n \"kp_use\": {\n  \"两位数乘一位数的口算\": \"将14拆分为10和4，分别与6相乘后求和，得出总棵数\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2276,
+  "completion_tokens": 295,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 819.0339999273419,
+ "ttft_ms": 836.4950999384746,
+ "total_ms": 5838.582999887876
+}

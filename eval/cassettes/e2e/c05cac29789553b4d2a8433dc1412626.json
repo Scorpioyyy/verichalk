@@ -1,0 +1,18 @@
+{
+ "key": "c05cac29789553b4d2a8433dc1412626",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"竹子每天长0.035米，1000天后总高度变化。0.035×1000，小数点右移3位，得35米。干扰项：左移(0.000035)、移2位(3.5)、移1位(0.35)。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    return [Decimal('0.035') * 1000]\",\n \"stem\": \"一种速生竹在生长旺季，平均每天长高 $0.035$ 米。照这样计算，经过 $1000$ 天，这种竹子一共长高了（    ）米。\",\n \"options\": [\n  \"0.35\",\n  \"3.5\",\n  \"35\",\n  \"350\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"C\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"求 $1000$ 天长高的总米数，列式为 $0.035\\\\times 1000$。根据小数点移动规律，乘 $1000$ 就是把小数点向右移动三位，$0.035$ 变为 $35$。\",\n \"kp_use\": {\n  \"小数点移动引起小数大小变化的规律（双向）\": \"利用‘乘1000即小数点向右移动三位’的规律，直接得出0.035×1000的结果，避免繁琐竖式计算\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2392,
+  "completion_tokens": 376,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 950.9944999590516,
+ "ttft_ms": 965.9253999125212,
+ "total_ms": 7347.299799905159
+}

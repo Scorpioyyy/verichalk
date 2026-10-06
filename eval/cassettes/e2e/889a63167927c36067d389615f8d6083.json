@@ -1,0 +1,18 @@
+{
+ "key": "889a63167927c36067d389615f8d6083",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 512, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"128\", \"4\"], \"mode\": null}], \"concepts\": [\"倍的认识\"], \"units_of_measure\": [\"千克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4496,
+  "completion_tokens": 71,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2046.2201000191271,
+ "ttft_ms": 2046.230599982664,
+ "total_ms": 2360.602999920957
+}

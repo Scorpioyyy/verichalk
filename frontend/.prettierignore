@@ -1,0 +1,6 @@
+dist
+node_modules
+test-results
+playwright-report
+src/shared/api/schema.gen.ts
+package-lock.json

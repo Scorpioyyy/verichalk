@@ -1,0 +1,18 @@
+{
+ "key": "df062bd6f7976d7ae2589546b14ff937",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.2 是一位小数，1.25 是两位小数。小数乘法中，积的小数位数等于两个因数小数位数之和，1+2=3，所以积有三位小数。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 929.8863000003621,
+ "ttft_ms": 930.0726999063045,
+ "total_ms": 1565.7249999931082
+}

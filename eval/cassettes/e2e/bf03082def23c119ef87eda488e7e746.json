@@ -1,0 +1,18 @@
+{
+ "key": "bf03082def23c119ef87eda488e7e746",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"rewrite\", \"items\": [2], \"instruction\": \"换一个全新的生活情境，用新情境里的人物和物品重新表述题面（只换数字不算换场景）；考查的知识点和难度不变\"}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1266,
+  "completion_tokens": 59,
+  "cached_tokens": 1024,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 951.3375000096858,
+ "ttft_ms": 951.775599969551,
+ "total_ms": 1290.7015000237152
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8e7413aac0c94cda15c65baf7eb691eb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": false, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"乘除法与加减法两步混合运算（无括号）\": true}, \"issues\": [\"三年级尚未学习小数乘法，12.5×4 超出该年级知识范围，应改为整数运算。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 490,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 818.532699951902,
+ "ttft_ms": 818.6306999996305,
+ "total_ms": 1459.3259999528527
+}

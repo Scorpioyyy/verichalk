@@ -1,0 +1,18 @@
+{
+ "key": "25c46525e395d2a7a97a470269093ea8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.025×1000，就是把0.025的小数点向右移动三位，得25。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 368,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 714.0772000420839,
+ "ttft_ms": 714.5222000544891,
+ "total_ms": 1092.6196000073105
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ab9d76debbf15848c96e348891706cba",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"体育比赛计分\",\n      \"angle\": \"给出某选手三轮跳水得分，计算其总成绩与第一名的分差\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"超市购物与找零\",\n      \"angle\": \"已知商品单价和支付金额，通过连续退位减法计算应找回的零钱\"\n    },\n    {\n      \"index\": 3,\n      \"combo\": \"A\",\n      \"scene\": \"社会人口统计\",\n      \"angle\": \"根据社区总人口及已知两个年龄段人数，求第三个年龄段的人数\",\n      \"roles\": {\n        \"小数加减混合运算\": \"执行具体的数值计算步骤，处理带小数的统计数据\",\n        \"总量与分量的关系\": \"构建“总量减去已知分量等于未知分量”的数量关系模型\"\n      }\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1058,
+  "completion_tokens": 215,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1194.9305000016466,
+ "ttft_ms": 1211.2412999849766,
+ "total_ms": 4867.724200012162
+}

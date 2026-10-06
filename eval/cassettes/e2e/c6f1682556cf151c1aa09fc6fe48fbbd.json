@@ -1,0 +1,18 @@
+{
+ "key": "c6f1682556cf151c1aa09fc6fe48fbbd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": false, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数点移动引起小数大小变化的规律（双向）\": true}, \"issues\": [\"速生竹每天长高0.035米，1000天将长高35米，但竹子不可能持续生长1000天（约3年），情境不符合生活常识。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 566,
+  "completion_tokens": 104,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 788.5118999984115,
+ "ttft_ms": 788.52319996804,
+ "total_ms": 1453.0763999791816
+}

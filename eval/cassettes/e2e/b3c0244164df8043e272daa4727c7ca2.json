@@ -1,0 +1,18 @@
+{
+ "key": "b3c0244164df8043e272daa4727c7ca2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"用付给收银员的100元减去花掉的钱：100 - 36.48 = 63.52（元）。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"63.52\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 566.980000003241,
+ "ttft_ms": 566.9890000717714,
+ "total_ms": 1080.413999967277
+}

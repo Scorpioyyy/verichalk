@@ -1,0 +1,18 @@
+{
+ "key": "4df11770d5503e50d61ded0350ee3cbb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算一共花了多少元：18.75+9.48=28.23（元）。再算应找回多少元：50-28.23=21.77（元）。\", \"answers\": [{\"label\": \"应找回\", \"value\": \"21.77\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 972.4137999583036,
+ "ttft_ms": 972.6497000083327,
+ "total_ms": 1417.0433999970555
+}

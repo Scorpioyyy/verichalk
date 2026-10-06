@@ -1,0 +1,18 @@
+{
+ "key": "7684d75b7873916e4ea50d1ddaff9ed8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": false, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"小数点移动引起小数大小变化的规律（双向）\": true}, \"issues\": [\"书包现价0.5元不符合生活常识，价格数据不合理。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 582,
+  "completion_tokens": 81,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 825.829999987036,
+ "ttft_ms": 826.0077000595629,
+ "total_ms": 1373.8959999755025
+}

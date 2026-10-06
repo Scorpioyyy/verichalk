@@ -1,0 +1,18 @@
+{
+ "key": "1600495606b6ecf3507942d2c157c939",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算乘法：12.5×4=50，再算减法：100-50=50。\", \"answers\": [{\"label\": \"\", \"value\": \"50\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 624.969800002873,
+ "ttft_ms": 625.075799995102,
+ "total_ms": 874.6488000033423
+}

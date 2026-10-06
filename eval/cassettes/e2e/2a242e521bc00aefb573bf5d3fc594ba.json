@@ -1,0 +1,18 @@
+{
+ "key": "2a242e521bc00aefb573bf5d3fc594ba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 580, \"decimal_places\": null, \"fraction_types\": [\"几分之一\"], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"580\", \"1/10\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"580\", \"58\"], \"mode\": null}], \"concepts\": [\"整数乘分数（求一个数的几分之几是多少）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4446,
+  "completion_tokens": 107,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1768.813299946487,
+ "ttft_ms": 1768.8334999838844,
+ "total_ms": 2330.758399912156
+}

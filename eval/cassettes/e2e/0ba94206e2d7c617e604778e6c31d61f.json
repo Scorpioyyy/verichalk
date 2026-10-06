@@ -1,0 +1,18 @@
+{
+ "key": "0ba94206e2d7c617e604778e6c31d61f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三个社区共回收废纸：12.5+8.5+9=30（吨）。每吨节约木材0.4立方米，共节约：30×0.4=12（立方米）。\", \"answers\": [{\"label\": \"共可节约木材多少立方米\", \"value\": \"12\", \"unit\": \"立方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 877.3250000085682,
+ "ttft_ms": 877.3410000139847,
+ "total_ms": 1292.9065999342129
+}

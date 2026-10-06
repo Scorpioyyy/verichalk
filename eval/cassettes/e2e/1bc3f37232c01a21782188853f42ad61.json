@@ -1,0 +1,18 @@
+{
+ "key": "1bc3f37232c01a21782188853f42ad61",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"不计算比较加法算式的大小\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 627,
+  "completion_tokens": 61,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 547.0233999658376,
+ "ttft_ms": 547.2279000096023,
+ "total_ms": 885.6788999401033
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b76436a3ca63234cdb331bae536c06da",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1000, \"decimal_places\": 3, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"0.025\", \"1000\"], \"mode\": null}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\"], \"units_of_measure\": [\"平方米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4499,
+  "completion_tokens": 82,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 934.4197000609711,
+ "ttft_ms": 934.5360000152141,
+ "total_ms": 1324.6877000201494
+}

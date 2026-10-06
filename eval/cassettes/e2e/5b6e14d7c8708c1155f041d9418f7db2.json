@@ -1,0 +1,18 @@
+{
+ "key": "5b6e14d7c8708c1155f041d9418f7db2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1000, \"decimal_places\": 3, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"0.035\", \"1000\"], \"mode\": null}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 82,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 857.2543999180198,
+ "ttft_ms": 857.272099936381,
+ "total_ms": 1488.65419998765
+}

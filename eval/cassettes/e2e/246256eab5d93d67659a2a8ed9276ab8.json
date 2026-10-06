@@ -1,0 +1,18 @@
+{
+ "key": "246256eab5d93d67659a2a8ed9276ab8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先按整数乘法计算：25×16=400。0.25是两位小数，1.6是一位小数，共三位小数，所以从400右边起数出三位点上小数点，得0.400，末尾的0可以去掉，结果是0.4。\", \"answers\": [{\"label\": \"\", \"value\": \"0.4\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 298,
+  "completion_tokens": 94,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 609.0176999568939,
+ "ttft_ms": 609.0382999973372,
+ "total_ms": 1232.775199925527
+}

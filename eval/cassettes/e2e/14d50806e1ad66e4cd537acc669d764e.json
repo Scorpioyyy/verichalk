@@ -1,0 +1,18 @@
+{
+ "key": "14d50806e1ad66e4cd537acc669d764e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 50, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"4\", \"8\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"50\", \"32\"], \"mode\": null}], \"concepts\": [\"乘除法与加减法两步混合运算（无括号）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4405,
+  "completion_tokens": 100,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1015.2228000806645,
+ "ttft_ms": 1015.234800055623,
+ "total_ms": 1465.2657000115141
+}

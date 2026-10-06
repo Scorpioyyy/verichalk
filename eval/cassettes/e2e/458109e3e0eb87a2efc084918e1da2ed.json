@@ -1,0 +1,18 @@
+{
+ "key": "458109e3e0eb87a2efc084918e1da2ed",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 40, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"1.1\", \"0.9\"], \"mode\": null}], \"concepts\": [\"单价、数量与总价的关系\"], \"units_of_measure\": [\"千克\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4472,
+  "completion_tokens": 84,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 864.3816999392584,
+ "ttft_ms": 864.4011999713257,
+ "total_ms": 1313.7446000473574
+}

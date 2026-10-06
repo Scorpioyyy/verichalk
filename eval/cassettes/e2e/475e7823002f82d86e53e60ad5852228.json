@@ -1,0 +1,18 @@
+{
+ "key": "475e7823002f82d86e53e60ad5852228",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"单价8.5元，买4支，总价=8.5×4=34（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 347,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 581.2116999877617,
+ "ttft_ms": 581.4179999288172,
+ "total_ms": 851.3712999410927
+}

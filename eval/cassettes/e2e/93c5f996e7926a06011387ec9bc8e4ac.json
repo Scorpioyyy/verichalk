@@ -1,0 +1,18 @@
+{
+ "key": "93c5f996e7926a06011387ec9bc8e4ac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数点移动引起小数大小变化的规律（双向）\": true, \"kp.na.小数乘法.decimal_times_int\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 561,
+  "completion_tokens": 79,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 887.6018999144435,
+ "ttft_ms": 887.6199999358505,
+ "total_ms": 1643.532699905336
+}

@@ -1,0 +1,18 @@
+{
+ "key": "cc791bba3fc1118942cde35ebb7340ef",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计社区人口统计题。总人口12.5万，0-14岁3.8万，60岁以上4.2万，求15-59岁人数。关系：总量-分量1-分量2=分量3。计算：12.5 - 3.8 - 4.2 = 4.5。或者 12.5 - (3.8 + 4.2) = 4.5。考察小数加减混合运算及总量分量关系。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    total = Decimal('12.5')\\n    part1 = Decimal('3.8')\\n    part2 = Decimal('4.2')\\n    # 总量 - 分量1 - 分量2\\n    result = total - part1 - part2\\n    return [result]\",\n \"stem\": \"某社区进行人口普查，数据显示该社区总人口为 $12.5$ 万人。其中，$0\\\\sim 14$ 岁的人口有 $3.8$ 万人，$60$ 岁及以上的人口有 $4.2$ 万人。其余均为 $15\\\\sim 59$ 岁的劳动年龄人口。请问该社区 $15\\\\sim 59$ 岁的人口有多少万人？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"4.5\",\n   \"unit\": \"万人\"\n  }\n ],\n \"solution\": \"先求已知两个年龄段人口之和：$3.8+4.2=8$（万人）。再用总人口减去这部分和：$12.5-8=4.5$（万人）。所以 $15\\\\sim 59$ 岁人口有 $4.5$ 万人。\",\n \"kp_use\": {\n  \"小数加减混合运算\": \"在第二步中执行 $12.5-8$ 的减法运算，或在一步式中按顺序计算小数加减\",\n  \"总量与分量的关系\": \"识别总人口为总量，各年龄段人数为分量，利用“总量－已知分量＝未知分量”建立解题模型\"\n },\n \"difficulty\": 5\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2379,
+  "completion_tokens": 494,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1265.9618000034243,
+ "ttft_ms": 1284.6177000319585,
+ "total_ms": 9677.77000006754
+}

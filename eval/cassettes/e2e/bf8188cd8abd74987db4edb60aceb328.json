@@ -1,0 +1,18 @@
+{
+ "key": "bf8188cd8abd74987db4edb60aceb328",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":400,\"decimal_places\":3,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"25\",\"16\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"0.25\",\"1.6\"],\"mode\":null}],\"concepts\":[\"小数乘小数的竖式计算（含补0与去0）\",\"小数的性质（末尾添0或去0大小不变）\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4431,
+  "completion_tokens": 108,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 997.448300011456,
+ "ttft_ms": 997.6534999441355,
+ "total_ms": 1487.2555999318138
+}

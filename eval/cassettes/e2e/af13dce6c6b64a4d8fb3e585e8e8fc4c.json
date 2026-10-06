@@ -1,0 +1,18 @@
+{
+ "key": "af13dce6c6b64a4d8fb3e585e8e8fc4c",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：3个社区回收废纸。A社区12.5吨，B社区8.5吨，C社区9吨。每吨节约木材0.4立方米。求总节约量。算式：(12.5+8.5+9)×0.4。先算括号内加法凑整，再乘小数。12.5+8.5=21，21+9=30。30×0.4=12.0。考查加法结合律/交换律凑整，以及积的小数位数规则（30是整数，0.4一位小数，积一位小数，即12.0）。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # (12.5 + 8.5 + 9) * 0.4\\n    a = Decimal('12.5')\\n    b = Decimal('8.5')\\n    c = Decimal('9')\\n    factor = Decimal('0.4')\\n    total_weight = a + b + c\\n    result = total_weight * factor\\n    return [result]\",\n \"stem\": \"某市开展“绿色回收”活动，三个社区本月回收废纸的情况如下：阳光社区 $12.5$ 吨，月亮湾社区 $8.5$ 吨，星河社区 $9$ 吨。已知每回收 $1$ 吨废纸可节约木材 $0.4$ 立方米。这三个社区本月回收的废纸共可节约木材多少立方米？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"12\",\n   \"unit\": \"立方米\"\n  }\n ],\n \"solution\": \"先求回收总量：$12.5+8.5+9=30$（吨），此处运用加法结合律凑整。再求节约木材量：$30\\\\times 0.4=12$（立方米）。根据积的小数位数规则，整数乘一位小数，积为一位小数，末尾 $0$ 可省略。\",\n \"kp_use\": {\n  \"整数运算律在小数运算中的推广\": \"在计算 $12.5+8.5+9$ 时，利用加法结合律先算 $12.5+8.5=21$，简化计算过程\",\n  \"积的小数位数规则\": \"计算 $30\\\\times 0.4$ 时，确定积的小数位数为一位，得出 $12.0$ 并化简为 $12$\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2529,
+  "completion_tokens": 584,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 920.9146000212058,
+ "ttft_ms": 936.0913999844342,
+ "total_ms": 10850.882899947464
+}

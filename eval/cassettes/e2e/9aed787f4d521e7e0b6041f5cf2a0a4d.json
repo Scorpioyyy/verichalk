@@ -1,0 +1,18 @@
+{
+ "key": "9aed787f4d521e7e0b6041f5cf2a0a4d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"设原价为x元，现价为x/10元。现价比原价便宜45元，所以 x - x/10 = 45，即 9x/10 = 45，解得 x = 50。\", \"answers\": [{\"label\": \"原价\", \"value\": \"50\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 330,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1013.9114999910817,
+ "ttft_ms": 1014.0816000057384,
+ "total_ms": 1448.0426999507472
+}

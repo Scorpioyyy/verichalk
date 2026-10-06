@@ -1,0 +1,18 @@
+{
+ "key": "8ce519b4e0aca03774a8926c9e89298b",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"三年级未学小数乘法，需改为整数。设定：买4本笔记本，每本8元，付50元。算式：50-4×8。先算4×8=32，再算50-32=18。数值在范围内，符合巩固档。\",\n \"solver_code\": \"def solve():\\n    return [50 - 4 * 8]\",\n \"stem\": \"计算：$50-4\\\\times 8=$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"18\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"在没有括号的算式里，先算乘法，再算减法。先算 $4\\\\times 8=32$，再算 $50-32=18$。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"识别运算顺序，先执行乘法 $4\\\\times 8$，再执行减法，并规范写出脱式过程\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2465,
+  "completion_tokens": 259,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1018.2914999313653,
+ "ttft_ms": 1029.070399934426,
+ "total_ms": 5422.8072999976575
+}

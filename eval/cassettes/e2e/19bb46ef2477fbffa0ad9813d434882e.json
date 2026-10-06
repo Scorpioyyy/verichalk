@@ -1,0 +1,18 @@
+{
+ "key": "19bb46ef2477fbffa0ad9813d434882e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"b\",\"topics\":[\"小数加减法\"],\"count\":3,\"difficulty\":[3,5],\"explicit\":[\"grade\",\"semester\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2124,
+  "completion_tokens": 49,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1199.576000100933,
+ "ttft_ms": 1199.9788000248373,
+ "total_ms": 1618.8250000122935
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7e56dc4b06a8a1a996d5741f2137a749",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：买4支钢笔，每支12.5元，付100元。计算：12.5*4=50，100-50=50。数值合理，符合三年级小数乘法（一位小数乘整数）及混合运算范围。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    price = Decimal('12.5')\\n    count = 4\\n    paid = Decimal('100')\\n    total_cost = price * count\\n    change = paid - total_cost\\n    return [change]\",\n \"stem\": \"计算：$100-12.5\\\\times 4=$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"50\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算乘法，再算减法。$12.5\\\\times 4=50$，然后 $100-50=50$。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"在算式中识别出应先计算乘法 $12.5\\\\times 4$，再用 $100$ 减去积，遵循先乘除后加减的运算顺序\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2253,
+  "completion_tokens": 310,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 835.6177000096068,
+ "ttft_ms": 852.7721000136808,
+ "total_ms": 6111.514100106433
+}

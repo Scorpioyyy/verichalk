@@ -1,0 +1,18 @@
+{
+ "key": "071353425d585bf969d6defa02149e11",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 360, \"decimal_places\": 1, \"fraction_types\": [\"几分之一\"], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"360\", \"1/100\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"360\", \"3.6\"], \"mode\": null}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4449,
+  "completion_tokens": 106,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 874.4101000484079,
+ "ttft_ms": 874.4406000478193,
+ "total_ms": 1317.9714999860153
+}

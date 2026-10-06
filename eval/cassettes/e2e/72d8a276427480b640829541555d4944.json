@@ -1,0 +1,18 @@
+{
+ "key": "72d8a276427480b640829541555d4944",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"乘数与1的大小关系对积的影响\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 548,
+  "completion_tokens": 63,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 719.592500012368,
+ "ttft_ms": 719.6068000048399,
+ "total_ms": 1148.850700003095
+}

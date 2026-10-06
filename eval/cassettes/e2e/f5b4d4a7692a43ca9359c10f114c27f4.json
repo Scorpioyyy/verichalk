@@ -1,0 +1,18 @@
+{
+ "key": "f5b4d4a7692a43ca9359c10f114c27f4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每天长高0.035米，1000天共长高0.035×1000=35（米）。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 668.5218000784516,
+ "ttft_ms": 668.6727000633255,
+ "total_ms": 1083.3256000187248
+}

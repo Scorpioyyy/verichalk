@@ -1,0 +1,18 @@
+{
+ "key": "fbaef9b191e8dddda2bad2bd53e0a1d7",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计情境：商品打折，现价是原价的1/10（即小数点左移一位）。原价设为整数如580元。求节省金额。节省金额 = 原价 - 现价。现价 = 58.0。节省 = 580 - 58 = 522。考查点：小数点左移一位缩小到1/10，以及小数减法。避免分数乘法。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    original = Decimal('580')\\n    # 现价是原价的1/10，即小数点向左移动一位\\n    current = original / 10\\n    saved = original - current\\n    return [saved]\",\n \"stem\": \"商场促销，一款台灯的价格调整为原价的 $\\\\frac{1}{10}$。如果这款台灯的原价是 $580$ 元，那么现在购买比原来节省了 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"522\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"价格调整为原价的 $\\\\frac{1}{10}$，即把 $580$ 的小数点向左移动一位，现价为 $58$ 元。节省金额为 $580-58=522$ 元。\",\n \"kp_use\": {\n  \"小数点移动引起小数大小变化的规律（双向）\": \"将原价乘以 $\\\\frac{1}{10}$ 转化为小数点向左移动一位，快速求出现价\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2636,
+  "completion_tokens": 374,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1141.8013999937102,
+ "ttft_ms": 1157.2899000020698,
+ "total_ms": 7503.297400078736
+}

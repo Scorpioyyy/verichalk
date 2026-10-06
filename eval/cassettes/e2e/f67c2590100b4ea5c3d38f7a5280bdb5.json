@@ -1,0 +1,18 @@
+{
+ "key": "f67c2590100b4ea5c3d38f7a5280bdb5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数加减混合运算\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 557,
+  "completion_tokens": 59,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 745.6524999579415,
+ "ttft_ms": 745.6640000455081,
+ "total_ms": 1083.1532999873161
+}

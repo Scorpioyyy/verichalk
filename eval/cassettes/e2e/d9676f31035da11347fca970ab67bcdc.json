@@ -1,0 +1,18 @@
+{
+ "key": "d9676f31035da11347fca970ab67bcdc",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：某商品原价经过小数点移动变化。设原价为A，现价是原价缩小到1/100，即小数点左移两位。已知现价与原价的差（节省金额）为具体数值，求原价。例如：节省49.5元。设原价x，现价0.01x。x - 0.01x = 0.99x = 49.5。x = 49.5 / 0.99 = 50。检查：50 -> 0.50。50-0.5=49.5。符合四年级范围。\",\n \"solver_code\": \"from decimal import Decimal, getcontext\\ngetcontext().prec = 10\\ndef solve():\\n    # 节省金额\\n    save = Decimal('49.5')\\n    # 现价是原价的1/100，即原价是现价的100倍\\n    # 原价 - 现价 = 节省\\n    # x - 0.01x = 0.99x = save\\n    # x = save / 0.99\\n    original_price = save / Decimal('0.99')\\n    return [original_price]\",\n \"stem\": \"商场促销，一款书包的价格标签不小心被弄脏了，只看到现价比原价便宜了 $49.5$ 元。店员解释说：“现在的价格是原价缩小到原来的百分之一。”这款书包的原价是 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"50\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"现价是原价的百分之一，说明原价是现价的 $100$ 倍。原价比现价多 $99$ 倍，这 $99$ 倍对应便宜的 $49.5$ 元。现价为 $49.5 \\\\div 99 = 0.5$ 元，原价为 $0.5 \\\\times 100 = 50$ 元。\",\n \"kp_use\": {\n  \"小数点移动引起小数大小变化的规律（双向）\": \"理解“缩小到原来的百分之一”即小数点向左移动两位，反之扩大100倍即向右移动两位，从而建立原价与现价的倍数关系\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2401,
+  "completion_tokens": 539,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 745.9751000860706,
+ "ttft_ms": 761.8147000903264,
+ "total_ms": 9913.8638000004
+}

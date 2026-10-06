@@ -1,0 +1,18 @@
+{
+ "key": "157a152e4afb6b80465e9e11b5587102",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"现价是原价的百分之一，说明现价比原价少了原价的99%。这99%正好是49.5元，所以原价=49.5÷99%=49.5÷0.99=50（元）。\", \"answers\": [{\"label\": \"原价\", \"value\": \"50\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 335,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 814.7286999737844,
+ "ttft_ms": 814.7498000180349,
+ "total_ms": 1368.4960999526083
+}

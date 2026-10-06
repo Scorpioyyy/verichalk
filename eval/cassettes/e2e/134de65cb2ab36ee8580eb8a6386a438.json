@@ -1,0 +1,18 @@
+{
+ "key": "134de65cb2ab36ee8580eb8a6386a438",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算乘法：4×8=32；再算减法：50-32=18。\", \"answers\": [{\"label\": \"\", \"value\": \"18\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 294,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 583.1592000322416,
+ "ttft_ms": 583.272899966687,
+ "total_ms": 938.6671000393108
+}

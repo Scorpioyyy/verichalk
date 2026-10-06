@@ -1,0 +1,18 @@
+{
+ "key": "ea6a6bc47803ef645bba6deca2b612b4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"一班和二班：245+360；三班和四班：250+352。比较时看两个和相差多少：\\n(250+352)-(245+360)\\n= (250-245)+(352-360)\\n= 5-8\\n= -3\\n所以第一个算式的和大3本。\", \"answers\": [{\"label\": \"比较结果\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 395,
+  "completion_tokens": 106,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 902.917500003241,
+ "ttft_ms": 903.1803000252694,
+ "total_ms": 1754.046400077641
+}

@@ -1,0 +1,18 @@
+{
+ "key": "76db23fc347de01914bc57f5fef767f8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先求每袋大米重量：180÷6=30（千克）。每袋分给5个班，每班分得：30÷5=6（千克）。4个班领走：6×4=24（千克）。食堂剩下：180-24=156（千克）。\", \"answers\": [{\"label\": \"食堂还剩下多少千克大米\", \"value\": \"156\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 341,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 593.5744000598788,
+ "ttft_ms": 593.6899000080302,
+ "total_ms": 1128.8100000238046
+}

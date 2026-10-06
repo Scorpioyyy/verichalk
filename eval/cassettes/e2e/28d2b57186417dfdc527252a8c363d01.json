@@ -1,0 +1,18 @@
+{
+ "key": "28d2b57186417dfdc527252a8c363d01",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：巧克力单价40元/千克。小华买0.9kg，小丽买1.1kg。问小丽比小华多付的钱相当于多少千克巧克力的价格。考查对乘法意义及乘数与1关系的理解（差量分析）。直接计算数量差即可，无需算总价。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    return [Decimal('1.1') - Decimal('0.9')]\",\n \"stem\": \"超市里某种巧克力每千克 $40$ 元。小华买了 $0.9$ 千克，小丽买了 $1.1$ 千克。小丽比小华多付的钱，正好等于买 ____ 千克这种巧克力的钱。（不计算具体金额，直接根据数量关系填空）\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.2\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"单价相同，总价的差取决于数量的差。小丽比小华多买 $1.1-0.9=0.2$ 千克，所以多付的钱等于 $0.2$ 千克巧克力的价格。\",\n \"kp_use\": {\n  \"乘数与1的大小关系对积的影响\": \"通过比较 $0.9<1$ 和 $1.1>1$，理解购买数量相对于基准（1千克）的偏差，进而利用数量差直接推导总价差对应的数量，体现对乘法结构中乘数意义的深刻理解\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4623,
+  "completion_tokens": 360,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1402.8440000256523,
+ "ttft_ms": 1417.9298999952152,
+ "total_ms": 7525.802799966186
+}

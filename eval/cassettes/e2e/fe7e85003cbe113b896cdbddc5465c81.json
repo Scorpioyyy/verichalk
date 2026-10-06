@@ -1,0 +1,18 @@
+{
+ "key": "fe7e85003cbe113b896cdbddc5465c81",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12.5\", \"0.8\"], \"mode\": null}], \"concepts\": [\"乘数与1的大小关系对积的影响\"], \"units_of_measure\": [\"千克\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4461,
+  "completion_tokens": 85,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3214.825400034897,
+ "ttft_ms": 3214.836600003764,
+ "total_ms": 3349.963700049557
+}

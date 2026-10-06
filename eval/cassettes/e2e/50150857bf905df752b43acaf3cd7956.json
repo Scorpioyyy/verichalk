@@ -1,0 +1,18 @@
+{
+ "key": "50150857bf905df752b43acaf3cd7956",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"小数点移动引起小数大小变化的规律（双向）\": false}, \"issues\": [\"解析用的是倍数关系（原价是现价的10倍、差9倍），并没有用到小数点移动引起小数大小变化的规律，声称的知识点与解答不匹配。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 569,
+  "completion_tokens": 101,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 684.2601000098512,
+ "ttft_ms": 684.4612000277266,
+ "total_ms": 1417.905900045298
+}

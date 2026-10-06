@@ -1,0 +1,18 @@
+{
+ "key": "3d68c2975ea61d5ecaf10db34f125970",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12.5 是一位小数，3.42 是两位小数，1+2=3，所以积有三位小数。\", \"answers\": [{\"label\": \"\", \"value\": \"3\", \"unit\": \"位\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 331,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1146.3523000711575,
+ "ttft_ms": 1146.7221000930294,
+ "total_ms": 1493.771200068295
+}

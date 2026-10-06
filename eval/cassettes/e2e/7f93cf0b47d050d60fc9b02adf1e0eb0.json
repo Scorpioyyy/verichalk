@@ -1,0 +1,18 @@
+{
+ "key": "7f93cf0b47d050d60fc9b02adf1e0eb0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数乘一位数的口算\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 526,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 711.8498999625444,
+ "ttft_ms": 711.982800043188,
+ "total_ms": 1005.8112000115216
+}

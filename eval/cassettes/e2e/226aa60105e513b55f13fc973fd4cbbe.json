@@ -1,0 +1,18 @@
+{
+ "key": "226aa60105e513b55f13fc973fd4cbbe",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每行14棵，共6行，求总数用乘法：14×6=84（棵）。\", \"answers\": [{\"label\": \"一共有多少棵苹果树\", \"value\": \"84\", \"unit\": \"棵\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 317,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 691.0433999728411,
+ "ttft_ms": 691.0544999409467,
+ "total_ms": 1000.5467999726534
+}

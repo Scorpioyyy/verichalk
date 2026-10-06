@@ -1,0 +1,18 @@
+{
+ "key": "be55bbba35d4b47c837d17826b2ad292",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 180, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"180\", \"6\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"30\", \"5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"6\", \"4\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"180\", \"24\"], \"mode\": null}], \"concepts\": [\"两、三位数除以一位数的笔算方法\"], \"units_of_measure\": [\"千克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4483,
+  "completion_tokens": 142,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1080.6763999862596,
+ "ttft_ms": 1080.6932999985293,
+ "total_ms": 1809.6871000016108
+}

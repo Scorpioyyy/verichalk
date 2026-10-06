@@ -1,0 +1,18 @@
+{
+ "key": "05cf5d0b782f1d74ab970da999b6aa06",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原价360元，现价是原价的1/100，即360÷100=3.6元。节省的钱=原价-现价=360-3.6=356.4元。\", \"answers\": [{\"label\": \"节省了多少元\", \"value\": \"356.4\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 901.9868000177667,
+ "ttft_ms": 901.9987999927253,
+ "total_ms": 1419.6241999743506
+}

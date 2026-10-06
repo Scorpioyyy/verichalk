@@ -1,0 +1,18 @@
+{
+ "key": "bf710cd179468d60dd91cf1b7286695a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小丽比小华多买 1.1-0.9=0.2 千克，多付的钱就是 0.2 千克巧克力的钱。\", \"answers\": [{\"label\": \"\", \"value\": \"0.2\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 894.1688999766484,
+ "ttft_ms": 894.1916000330821,
+ "total_ms": 1382.6355000492185
+}

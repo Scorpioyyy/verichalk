@@ -1,0 +1,18 @@
+{
+ "key": "79e27bea23c71db84b9d495995a905d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"3.5\", \"6.5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1.2\", \"10\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.8\", \"4\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"12\", \"3.2\"], \"mode\": null}], \"concepts\": [\"小数乘整数\", \"小数加减法（位数不同）\"], \"units_of_measure\": [\"吨\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4531,
+  "completion_tokens": 155,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1201.9948000088334,
+ "ttft_ms": 1202.005699975416,
+ "total_ms": 1937.0636999374256
+}

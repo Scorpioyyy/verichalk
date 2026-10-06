@@ -1,0 +1,18 @@
+{
+ "key": "64d6299e61b3cbac55c0a7c0590c5948",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原价580元，现价为原价的1/10，即580×1/10=58元。节省的钱=原价-现价=580-58=522元。\", \"answers\": [{\"label\": \"节省了多少元\", \"value\": \"522\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 796.0163000971079,
+ "ttft_ms": 796.0276000667363,
+ "total_ms": 1249.9574000248685
+}

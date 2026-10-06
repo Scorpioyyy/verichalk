@@ -1,0 +1,18 @@
+{
+ "key": "98f859c296cb97de8766f57463dec86c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"根据小数的性质，小数末尾添上0或去掉0，小数的大小不变。3.50去掉末尾的0是3.5；0.800去掉末尾的0是0.8。\", \"answers\": [{\"label\": \"第一个价格\", \"value\": \"3.5\", \"unit\": \"元\"}, {\"label\": \"第二个价格\", \"value\": \"0.8\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1127.2727000759915,
+ "ttft_ms": 1127.2955000167713,
+ "total_ms": 1620.0015000067651
+}

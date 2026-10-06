@@ -43,6 +43,7 @@ export const CHECK_LABEL: Record<string, string> = {
   boundary: "是否超纲",
   quality: "题面质量",
   integration: "综合程度",
+  novelty: "与照片里的题不雷同",
 };
 
 export function checkLabel(name: string): string {

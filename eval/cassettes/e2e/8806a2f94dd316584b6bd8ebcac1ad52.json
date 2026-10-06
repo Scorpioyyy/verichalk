@@ -1,0 +1,18 @@
+{
+ "key": "8806a2f94dd316584b6bd8ebcac1ad52",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较三个小数：15.80、15.09、15.8。15.8=15.80，所以只需比较15.80和15.09。整数部分相同，十分位8>0，所以15.09最小，即乙店标价最低。\", \"answers\": [{\"label\": \"标价最低的店\", \"value\": \"乙\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 337,
+  "completion_tokens": 100,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1828.118900069967,
+ "ttft_ms": 1828.4488000208512,
+ "total_ms": 3543.66750002373
+}

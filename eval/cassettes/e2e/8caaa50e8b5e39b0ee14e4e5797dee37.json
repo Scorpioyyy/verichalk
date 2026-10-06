@@ -1,0 +1,18 @@
+{
+ "key": "8caaa50e8b5e39b0ee14e4e5797dee37",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较四个速度的大小：109.50 > 97.85 > 72.4 > 60.05，所以最大的是109.50，对应旗鱼。\", \"answers\": [{\"label\": \"\", \"value\": \"旗鱼\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1150.9631000226364,
+ "ttft_ms": 1150.9859000798315,
+ "total_ms": 2288.2764000678435
+}

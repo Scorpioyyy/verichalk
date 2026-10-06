@@ -1,0 +1,18 @@
+{
+ "key": "bed4d61669f3882df5a9909364e16bba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 109, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"小数大小的比较\"], \"units_of_measure\": [\"速度单位\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4446,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2391.0206001019105,
+ "ttft_ms": 2612.3413000022992,
+ "total_ms": 2769.299400039017
+}

@@ -47,6 +47,13 @@ export type Understanding = Full<S["Understanding"]>;
 export type Chip = Full<S["Chip"]>;
 export type ClarifyRequest = Full<S["ClarifyRequest"]>;
 
+// ---- 照片识别 ----
+export type ReferenceSet = Full<S["ReferenceSet"]>;
+export type PageRead = Full<S["PageRead"]>;
+export type PerceivedItem = Full<S["PerceivedItem"]>;
+export type PageVerdict = S["PageVerdict"];
+export type AttachmentRef = Full<S["AttachmentRef"]>;
+
 // ---- 导出 ----
 export type ExportOptions = Full<S["ExportOptions"]>;
 export type ExportFormat = ExportOptions["format"];

@@ -1,0 +1,18 @@
+{
+ "key": "85955a938ac955735f2e42ea2d3681e4",
+ "model": "qwen3.8-flash",
+ "purpose": "perceive.read",
+ "text": "{\"verdict\": \"not_math\", \"reason\": \"这是一页英语阅读理解练习，不是数学内容。\", \"title\": \"\", \"questions\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3523,
+  "completion_tokens": 33,
+  "cached_tokens": 1536,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1457.1087999502197,
+ "ttft_ms": 1457.366400049068,
+ "total_ms": 1899.7150999493897
+}

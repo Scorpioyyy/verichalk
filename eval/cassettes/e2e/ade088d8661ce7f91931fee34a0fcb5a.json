@@ -1,0 +1,18 @@
+{
+ "key": "ade088d8661ce7f91931fee34a0fcb5a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 100, \"decimal_places\": 2, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"除法\", \"operands\": [\"75\", \"25\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"100\", \"25\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.75\", \"100\"], \"mode\": null}], \"concepts\": [\"小数、分数化成百分数\", \"小数与十进分数的对应关系\"], \"units_of_measure\": [\"吨\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4445,
+  "completion_tokens": 133,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1539.9034000001848,
+ "ttft_ms": 1539.9509000126272,
+ "total_ms": 2975.033299997449
+}

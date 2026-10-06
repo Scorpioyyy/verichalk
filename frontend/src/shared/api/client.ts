@@ -171,6 +171,8 @@ export const api = {
   diff: (sessionId: string, from: number, to: number) =>
     get<PaperDiff>(`/api/sessions/${sessionId}/paper/diff?from=${from}&to=${to}`),
 
+  attachmentUrl: (sessionId: string, attachmentId: string, full = false) =>
+    `/api/sessions/${sessionId}/attachments/${encodeURIComponent(attachmentId)}${full ? "?full=true" : ""}`,
   figureUrl: (sessionId: string, figureId: string) =>
     `/api/sessions/${sessionId}/figures/${encodeURIComponent(figureId)}`,
   kpRefs: (ids: string[]) =>

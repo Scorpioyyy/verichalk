@@ -1,0 +1,18 @@
+{
+ "key": "673de813c93ad93503e015441e6c71d7",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"超市购物与找零\",\n      \"angle\": \"判断标价签上末尾带0的小数价格，化简后是否与原数值相等\",\n      \"roles\": null\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"农场养殖与种植\",\n      \"angle\": \"将农场亩产数据分别用小数、分数和百分数三种形式进行等价表示\",\n      \"roles\": null\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"动物身体数据\",\n      \"angle\": \"对比几种海洋生物的游动速度，找出其中数值最大的一个\",\n      \"roles\": null\n    },\n    {\n      \"index\": 4,\n      \"combo\": \"none\",\n      \"scene\": \"货比三家与网购\",\n      \"angle\": \"比较三家网店同款商品的单价，选出报价最低的一家\",\n      \"roles\": null\n    },\n    {\n      \"index\": 5,\n      \"scene\": \"超市购物与找零\",\n      \"angle\": \"根据收银小票，识别并划去商品单价中不影响金额大小的末尾零\",\n      \"roles\": null\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1018,
+  "completion_tokens": 289,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1507.808400085196,
+ "ttft_ms": 1508.0674000782892,
+ "total_ms": 6510.345500078984
+}

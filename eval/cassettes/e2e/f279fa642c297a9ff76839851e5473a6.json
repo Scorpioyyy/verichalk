@@ -1,0 +1,18 @@
+{
+ "key": "f279fa642c297a9ff76839851e5473a6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"b\",\"topics\":[\"小数的性质\",\"小数大小比较\"],\"count\":3,\"tier\":\"consolidate\",\"explicit\":[\"count\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2186,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9635.214200010523,
+ "ttft_ms": 9635.241999989375,
+ "total_ms": 9756.480199983343
+}

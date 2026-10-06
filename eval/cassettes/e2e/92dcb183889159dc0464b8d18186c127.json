@@ -1,0 +1,18 @@
+{
+ "key": "92dcb183889159dc0464b8d18186c127",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.75 = 75/100 = 3/4；0.75 = 75%。\", \"answers\": [{\"label\": \"用分数表示\", \"value\": \"3/4\", \"unit\": \"吨\"}, {\"label\": \"用百分数表示\", \"value\": \"75\", \"unit\": \"%\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1513.191599980928,
+ "ttft_ms": 1514.9248000234365,
+ "total_ms": 2173.6654000123963
+}

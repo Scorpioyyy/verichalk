@@ -1,0 +1,18 @@
+{
+ "key": "fdb32cf93f7806a2d947733b53d218b0",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"超市购物与找零\",\n      \"angle\": \"判断标价签上末尾带0的小数价格是否等价，无需计算\",\n      \"roles\": {}\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"动物身体数据\",\n      \"angle\": \"根据给出的几种动物奔跑速度小数，找出最快的一种\",\n      \"roles\": {}\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"货比三家与网购\",\n      \"angle\": \"对比三家网店同款商品含运费的总价小数，选出最便宜的一家\",\n      \"roles\": {}\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 900,
+  "completion_tokens": 168,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1416.0253999289125,
+ "ttft_ms": 1456.4670999534428,
+ "total_ms": 4847.83919993788
+}

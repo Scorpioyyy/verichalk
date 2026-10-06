@@ -1,0 +1,18 @@
+{
+ "key": "6df850f9180052f885fc8f8352dc299f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较三个网店的标价：甲店12.50元，乙店12.05元，丙店12.5元。12.50元=12.5元，所以甲店和丙店价格相同，都是12.5元；乙店12.05元比12.5元便宜。因此应选择乙店。\", \"answers\": [{\"label\": \"应选择哪家店\", \"value\": \"乙\", \"unit\": \"店\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 337,
+  "completion_tokens": 115,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1595.2414999483153,
+ "ttft_ms": 1595.2652000123635,
+ "total_ms": 2136.4769999636337
+}

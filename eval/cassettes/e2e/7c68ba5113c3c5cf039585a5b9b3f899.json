@@ -1,0 +1,18 @@
+{
+ "key": "7c68ba5113c3c5cf039585a5b9b3f899",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较四个小数的大小：105.20 > 98.70 > 98.65 > 60.15，所以最快的是猎豹。\", \"answers\": [{\"label\": \"奔跑速度最快的动物\", \"value\": \"猎豹\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1178.234099992551,
+ "ttft_ms": 1178.5729000112042,
+ "total_ms": 1715.7036000862718
+}

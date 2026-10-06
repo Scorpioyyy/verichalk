@@ -234,6 +234,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/sessions/{session_id}/attachments/{attachment_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Attachment Image
+         * @description 会话里上传的图片：聊天里显示缩略图，`full=true` 取原图。只能取本会话的附件。
+         */
+        get: operations["attachment_image_api_sessions__session_id__attachments__attachment_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/knowledge/refs": {
         parameters: {
             query?: never;
@@ -722,7 +742,7 @@ export interface components {
              * Kind
              * @enum {string}
              */
-            kind: "clarify" | "blueprint" | "samples" | "confirm";
+            kind: "clarify" | "blueprint" | "samples" | "confirm" | "perception";
             /** Prompt */
             prompt: string;
             /** Options */
@@ -985,6 +1005,33 @@ export interface components {
             models?: {
                 [key: string]: string;
             };
+        };
+        /**
+         * ImageQuality
+         * @description 预处理阶段的确定性质量指标。
+         */
+        ImageQuality: {
+            /** Width */
+            width: number;
+            /** Height */
+            height: number;
+            /** Orig Width */
+            orig_width: number;
+            /** Orig Height */
+            orig_height: number;
+            /** Sharpness */
+            sharpness: number;
+            /** Brightness */
+            brightness: number;
+            /** Contrast */
+            contrast: number;
+            /** Hints */
+            hints?: string[];
+            /**
+             * Poor
+             * @default false
+             */
+            poor: boolean;
         };
         /** Item */
         Item: {
@@ -1431,6 +1478,40 @@ export interface components {
          * @enum {string}
          */
         Origin: "user" | "inferred" | "default";
+        /**
+         * PageRead
+         * @description 一张图片的识别结果。
+         */
+        PageRead: {
+            /** Attachment Id */
+            attachment_id: string;
+            /**
+             * Filename
+             * @default
+             */
+            filename: string;
+            verdict: components["schemas"]["PageVerdict"];
+            /**
+             * Reason
+             * @default
+             */
+            reason: string;
+            /**
+             * Title
+             * @default
+             */
+            title: string;
+            /** Items */
+            items?: components["schemas"]["PerceivedItem"][];
+            quality?: components["schemas"]["ImageQuality"] | null;
+            /** Kp Ids */
+            kp_ids?: string[];
+        };
+        /**
+         * PageVerdict
+         * @enum {string}
+         */
+        PageVerdict: "worksheet" | "not_math" | "beyond_primary" | "no_exercises" | "unreadable";
         /** Paper */
         Paper: {
             /** Id */
@@ -1565,6 +1646,97 @@ export interface components {
              */
             can_redo: boolean;
         };
+        /**
+         * PerceivedItem
+         * @description 一道识别出来的题（小题级，与 `ReferenceItem` 一一对应）。
+         */
+        PerceivedItem: {
+            /** Id */
+            id: string;
+            /**
+             * Attachment Id
+             * @default
+             */
+            attachment_id: string;
+            /**
+             * No
+             * @default
+             */
+            no: string;
+            /**
+             * Instruction
+             * @default
+             */
+            instruction: string;
+            /** Text */
+            text: string;
+            kind?: components["schemas"]["ItemKind"] | null;
+            /**
+             * Has Figure
+             * @default false
+             */
+            has_figure: boolean;
+            /**
+             * Figure Desc
+             * @default
+             */
+            figure_desc: string;
+            /**
+             * Topic
+             * @default
+             */
+            topic: string;
+            /** Difficulty */
+            difficulty?: number | null;
+            /**
+             * Confidence
+             * @default 0.9
+             */
+            confidence: number;
+            /**
+             * Uncertain
+             * @default
+             */
+            uncertain: string;
+            /** Kp Ids */
+            kp_ids?: string[];
+            /** Kp Names */
+            kp_names?: string[];
+        };
+        /**
+         * PerceptionReady
+         * @description 照片识别完成（1.3 新增）：用户端据此展示识别卡片（逐题转写、知识点、置信度）与学生上下文。
+         *     教师在确认检查点里修改后会再发一次（内容为修改后的版本）。
+         */
+        PerceptionReady: {
+            /**
+             * Seq
+             * @default 0
+             */
+            seq: number;
+            /**
+             * Run Id
+             * @default
+             */
+            run_id: string;
+            /** Span Id */
+            span_id?: string | null;
+            /** Parent Id */
+            parent_id?: string | null;
+            /**
+             * Ts
+             * @default 0
+             */
+            ts: number;
+            /** @default user */
+            visibility: components["schemas"]["Visibility"];
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "perception.ready";
+            references: components["schemas"]["ReferenceSet"];
+        };
         /** Progress */
         Progress: {
             /**
@@ -1662,6 +1834,16 @@ export interface components {
             id: string;
             /** Text */
             text: string;
+            /**
+             * Instruction
+             * @default
+             */
+            instruction: string;
+            /**
+             * No
+             * @default
+             */
+            no: string;
             /** Kp Ids */
             kp_ids?: string[];
             /** Difficulty */
@@ -1687,6 +1869,35 @@ export interface components {
              * @default 1
              */
             confidence: number;
+            /**
+             * Uncertain
+             * @default
+             */
+            uncertain: string;
+        };
+        /**
+         * ReferenceSet
+         * @description `perceive` 阶段的输出。
+         */
+        ReferenceSet: {
+            /** Pages */
+            pages?: components["schemas"]["PageRead"][];
+            context?: components["schemas"]["StudentContext"];
+            /**
+             * Usable
+             * @default false
+             */
+            usable: boolean;
+            /**
+             * Message
+             * @default
+             */
+            message: string;
+            /**
+             * Needs Confirm
+             * @default false
+             */
+            needs_confirm: boolean;
         };
         /** RemoveItem */
         RemoveItem: {
@@ -2030,7 +2241,7 @@ export interface components {
             pipeline: string;
             /**
              * Schema Version
-             * @default 1.2
+             * @default 1.3
              */
             schema_version: string;
         };
@@ -2352,6 +2563,31 @@ export interface components {
             total_ms: number;
             /** Max Ms */
             max_ms: number;
+        };
+        /**
+         * StudentContext
+         * @description 照片告诉我们的"学生学到哪、做过什么"：约束后续生成的范围与难度。
+         */
+        StudentContext: {
+            /** Grade */
+            grade?: number | null;
+            /** Semester */
+            semester?: ("a" | "b") | null;
+            /** Lesson Id */
+            lesson_id?: string | null;
+            /** Kp Ids */
+            kp_ids?: string[];
+            /** Kp Names */
+            kp_names?: string[];
+            /** Difficulty */
+            difficulty?: number[] | null;
+            /** Kinds */
+            kinds?: components["schemas"]["ItemKind"][];
+            /**
+             * Summary
+             * @default
+             */
+            summary: string;
         };
         /**
          * Tier
@@ -2924,6 +3160,40 @@ export interface operations {
             };
         };
     };
+    attachment_image_api_sessions__session_id__attachments__attachment_id__get: {
+        parameters: {
+            query?: {
+                full?: boolean;
+            };
+            header?: never;
+            path: {
+                session_id: string;
+                attachment_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description 上传的图片（默认缩略图） */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "image/jpeg": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     knowledge_refs_api_knowledge_refs_get: {
         parameters: {
             query: {
@@ -3222,7 +3492,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": (components["schemas"]["RunStarted"] | components["schemas"]["RunFinished"] | components["schemas"]["RunPaused"] | components["schemas"]["SpanStarted"] | components["schemas"]["SpanFinished"] | components["schemas"]["Progress"] | components["schemas"]["MessageDelta"] | components["schemas"]["MessageDone"] | components["schemas"]["ItemStatus"] | components["schemas"]["ItemDelivered"] | components["schemas"]["PaperPatched"] | components["schemas"]["CheckpointRequested"] | components["schemas"]["UnderstandingReady"] | components["schemas"]["LLMCall"] | components["schemas"]["RetrievalResult"] | components["schemas"]["UsageUpdate"])[];
+                    "application/json": (components["schemas"]["RunStarted"] | components["schemas"]["RunFinished"] | components["schemas"]["RunPaused"] | components["schemas"]["SpanStarted"] | components["schemas"]["SpanFinished"] | components["schemas"]["Progress"] | components["schemas"]["MessageDelta"] | components["schemas"]["MessageDone"] | components["schemas"]["ItemStatus"] | components["schemas"]["ItemDelivered"] | components["schemas"]["PaperPatched"] | components["schemas"]["CheckpointRequested"] | components["schemas"]["UnderstandingReady"] | components["schemas"]["PerceptionReady"] | components["schemas"]["LLMCall"] | components["schemas"]["RetrievalResult"] | components["schemas"]["UsageUpdate"])[];
                 };
             };
             /** @description Validation Error */

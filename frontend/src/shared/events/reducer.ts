@@ -10,6 +10,7 @@ import type {
   AppEvent,
   ErrorInfo,
   Item,
+  ReferenceSet,
   Understanding,
   VerifyStatus,
   CheckResult,
@@ -26,7 +27,7 @@ export interface ProgressStep {
 
 export interface CheckpointInfo {
   id: string;
-  kind: "clarify" | "blueprint" | "samples" | "confirm";
+  kind: "clarify" | "blueprint" | "samples" | "confirm" | "perception";
   prompt: string;
   options: { id: string; label: string }[];
   payload: Record<string, unknown>;
@@ -47,6 +48,7 @@ export interface RunState {
   progress: ProgressStep | null;
   steps: ProgressStep[]; // 去重后的进度轨迹（同一步的 current/total 更新会覆盖，不新增）
   understanding: Understanding | null;
+  perception: ReferenceSet | null; // 照片识别结果（教师确认修改后会被新的版本取代）
   checkpoint: CheckpointInfo | null;
   reply: { messageId: string; text: string; done: boolean } | null;
   delivered: Item[]; // 按送达顺序；核验状态随 item.status 更新
@@ -68,6 +70,7 @@ export function initialRun(runId: string, sessionId = ""): RunState {
     progress: null,
     steps: [],
     understanding: null,
+    perception: null,
     checkpoint: null,
     reply: null,
     delivered: [],
@@ -116,6 +119,8 @@ export function reduceEvent(state: RunState, e: AppEvent): RunState {
     }
     case "understanding.ready":
       return { ...s, understanding: e.understanding };
+    case "perception.ready":
+      return { ...s, perception: e.references };
     case "checkpoint.requested":
       return {
         ...s,

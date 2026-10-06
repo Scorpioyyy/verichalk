@@ -1,0 +1,18 @@
+{
+ "key": "b84e10d1803c5eddbe7bcf244000f98a",
+ "model": "qwen3.8-flash",
+ "purpose": "perceive.read",
+ "text": "{\n\"verdict\": \"worksheet\",\n\"reason\": \"\",\n\"title\": \"小数的性质（练习）\",\n\"questions\": [\n{\n\"no\": \"1\",\n\"instruction\": \"化简各数。\",\n\"kind\": \"calc\",\n\"topic\": \"小数的性质\",\n\"difficulty\": 1,\n\"confidence\": 1.0,\n\"has_figure\": false,\n\"figure\": \"\",\n\"items\": [\n\"0.70=\",\n\"0.6050=\",\n\"3.800=\",\n\"20.90=\",\n\"10.00=\",\n\"2.090=\"\n],\n\"doubts\": []\n},\n{\n\"no\": \"2\",\n\"instruction\": \"在○里填上“>”“<”或“=”。\",\n\"kind\": \"calc\",\n\"topic\": \"小数的大小比较\",\n\"difficulty\": 1,\n\"confidence\": 1.0,\n\"has_figure\": false,\n\"figure\": \"\",\n\"items\": [\n\"0.8 ○ 0.58\",\n\"4.90 ○ 4.900\",\n\"1.45 ○ 1.5\",\n\"6 ○ 6.00\"\n],\n\"doubts\": []\n},\n{\n\"no\": \"3\",\n\"instruction\": \"食堂运来大米10.7吨，第一个月吃掉3.3吨，第二个月吃掉3.4吨，还剩多少吨？\",\n\"kind\": \"application\",\n\"topic\": \"小数加减混合运算\",\n\"difficulty\": 2,\n\"confidence\": 1.0,\n\"has_figure\": false,\n\"figure\": \"\",\n\"items\": [\n\"\"\n],\n\"doubts\": []\n},\n{\n\"no\": \"4\",\n\"instruction\": \"把下面各数改写成两位小数。\",\n\"kind\": \"fill\",\n\"topic\": \"小数的性质\",\n\"difficulty\": 1,\n\"confidence\": 1.0,\n\"has_figure\": false,\n\"figure\": \"\",\n\"items\": [\n\"5.6=\",\n\"8=\",\n\"3.2700=\"\n],\n\"doubts\": []\n}\n]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3523,
+  "completion_tokens": 508,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1496.0244999965653,
+ "ttft_ms": 1496.0507000796497,
+ "total_ms": 6437.215400044806
+}

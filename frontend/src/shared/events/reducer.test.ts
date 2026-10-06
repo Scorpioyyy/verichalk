@@ -67,6 +67,33 @@ function stream(): AppEvent[] {
 }
 
 describe("reduceEvent", () => {
+  it("照片识别结果：perception.ready 记入状态，教师确认修改后的新版本取代旧的", () => {
+    const first = { usable: true, pages: [], message: "", needs_confirm: true };
+    const edited = { ...first, needs_confirm: false };
+    let s = reduceEvent(
+      initialRun("run_1"),
+      ev("perception.ready", { references: first } as never),
+    );
+    expect(s.perception).toBe(first);
+    s = reduceEvent(s, ev("perception.ready", { references: edited } as never));
+    expect(s.perception).toBe(edited);
+  });
+
+  it("识别结果核对是一种检查点", () => {
+    const s = reduceEvent(
+      initialRun("run_1"),
+      ev("checkpoint.requested", {
+        checkpoint_id: "cp1",
+        kind: "perception",
+        prompt: "请核对",
+        options: [{ id: "confirm", label: "没问题" }],
+        payload: { references: {} },
+      } as never),
+    );
+    expect(s.phase).toBe("awaiting_user");
+    expect(s.checkpoint?.kind).toBe("perception");
+  });
+
   it("折叠一次完整运行", () => {
     const s = foldEvents(stream());
     expect(s.phase).toBe("succeeded");

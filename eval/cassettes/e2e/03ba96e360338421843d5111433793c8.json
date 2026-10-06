@@ -1,0 +1,18 @@
+{
+ "key": "03ba96e360338421843d5111433793c8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":20,\"decimal_places\":2,\"fraction_types\":[],\"operations\":[{\"op\":\"加法\",\"operands\":[\"5.6\",\"4.4\"],\"mode\":null},{\"op\":\"减法\",\"operands\":[\"20\",\"10\"],\"mode\":null}],\"concepts\":[\"小数的性质（末尾添0或去0大小不变）\",\"连减的简便运算（a－b－c＝a－(b＋c)）\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4441,
+  "completion_tokens": 114,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 983.5630999878049,
+ "ttft_ms": 983.9595999801531,
+ "total_ms": 1717.8034000098705
+}

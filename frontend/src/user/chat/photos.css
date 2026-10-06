@@ -1,0 +1,273 @@
+/* 拍照出题：输入框里的照片缩略图、聊天里的照片、识别结果卡片、识别结果核对。令牌见 shared/ui/base.css。 */
+
+/* ---------- 输入框里的照片 ---------- */
+.composer__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.composer--drop .composer__box {
+  border-color: var(--brand);
+  border-style: dashed;
+  background: var(--brand-soft);
+}
+.composer__dropnote {
+  text-align: center;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 13.5px;
+}
+.composer__attach {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+.composer__attach:hover:not(:disabled) {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+.composer__attach:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.composer__photos {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0 0 0 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.photo-chip {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.photo-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  display: block;
+  background: var(--surface-3);
+}
+.photo-chip__x {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+.photo-chip__x:hover {
+  background: var(--bad);
+}
+
+/* ---------- 聊天里的照片 ---------- */
+.msg__photos {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(2, 84px);
+}
+.msg__photos--1 {
+  grid-template-columns: 132px;
+}
+.msg__photos + p {
+  margin-top: 8px;
+}
+.msg__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
+}
+.msg__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- 识别结果卡片 ---------- */
+.percept {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.percept__head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.percept__icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--accent-bg);
+  color: var(--accent-ink);
+}
+.percept__title {
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: center;
+}
+.percept__title strong {
+  color: var(--brand);
+  font-size: 17px;
+}
+.percept__flag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+.percept__sub {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+.percept__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.percept__item {
+  display: grid;
+  grid-template-columns: 2.2em minmax(0, 1fr);
+  gap: 4px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.percept__item:nth-child(odd) {
+  background: var(--surface-2);
+}
+.percept__item--doubt {
+  background: var(--warn-bg) !important;
+}
+.percept__no {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.percept__text {
+  overflow-wrap: anywhere;
+}
+.percept__tag {
+  margin-left: 8px;
+  font-size: 11.5px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--info-bg);
+  color: var(--info);
+  white-space: nowrap;
+}
+.percept__note {
+  display: block;
+  color: var(--warn);
+  font-size: 12.5px;
+}
+.percept__more {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: none;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  min-height: 32px;
+  padding: 4px 8px;
+  margin-left: -8px;
+}
+.percept__warn {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  color: var(--warn);
+  font-size: 13px;
+}
+.percept__warn .icon {
+  margin-top: 3px;
+  flex: none;
+}
+
+/* ---------- 识别结果核对（检查点） ---------- */
+.pc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pc-row {
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.pc-row--doubt {
+  border-color: #f0cf7e;
+  background: var(--warn-bg);
+}
+.pc-row--gone {
+  opacity: 0.55;
+}
+.pc-row__main {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.pc-row__main .input {
+  flex: 1;
+  min-width: 0;
+}
+.pc-row__note {
+  margin-top: 4px;
+  color: var(--warn);
+  font-size: 12.5px;
+}

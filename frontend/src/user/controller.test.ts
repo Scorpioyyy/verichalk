@@ -126,10 +126,32 @@ describe("发送一轮需求", () => {
     expect(s.run?.progress?.label).toBe("已收到，正在开始");
     release();
     expect(await p).toBe(true);
-    expect(api.postTurn).toHaveBeenCalledWith("ses_1", "四年级小数加减法");
+    expect(api.postTurn).toHaveBeenCalledWith("ses_1", "四年级小数加减法", []);
     expect(sse.streams[0]!.url).toBe("/api/runs/run_1/events");
     expect(c.getSnapshot().run?.runId).toBe("run_1");
     expect(JSON.parse(localStorage.getItem("verichalk.session")!)).toBe("ses_1");
+  });
+
+  it("只发照片、不写字也能发送；识别结果随事件进入各轮的卡片", async () => {
+    globalThis.URL.createObjectURL = vi.fn(() => "blob:preview");
+    globalThis.URL.revokeObjectURL = vi.fn();
+    const file = new File([new Uint8Array(4)], "page.jpg", { type: "image/jpeg" });
+    const c = new SessionController();
+    expect(await c.send("", [file])).toBe(true);
+    expect(api.postTurn).toHaveBeenCalledWith("ses_1", "", [file]);
+    const mid = c.getSnapshot();
+    expect(mid.pendingUser).toBe("");
+    expect(mid.pendingPhotos).toEqual(["blob:preview"]);
+    const refs = { pages: [], context: {}, usable: true, message: "", needs_confirm: false };
+    sse.streams[0]!.onEvent(ev("perception.ready", { references: refs }));
+    expect(c.getSnapshot().perceptions["run_1"]).toBe(refs);
+    expect(c.getSnapshot().run?.perception).toBe(refs);
+  });
+
+  it("没有文字也没有照片：不发送", async () => {
+    const c = new SessionController();
+    expect(await c.send("  ", [])).toBe(false);
+    expect(api.postTurn).not.toHaveBeenCalled();
   });
 
   it("事件驱动状态：进度、逐题送达、完成后对账试卷与消息", async () => {

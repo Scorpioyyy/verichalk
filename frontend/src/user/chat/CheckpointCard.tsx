@@ -1,22 +1,31 @@
 import { useState } from "react";
 import type { CheckpointInfo } from "@/shared/events/reducer";
 import { KIND_LABEL } from "@/shared/labels";
-import type { ItemKind } from "@/shared/api/types";
+import type { ItemKind, ReferenceSet } from "@/shared/api/types";
 import { Rich } from "@/shared/math/Rich";
 import { optionLetter } from "../paper/model";
+import { PerceptionConfirm } from "./PerceptionCards";
 
 interface Props {
   checkpoint: CheckpointInfo;
   onAnswer: (answer: Record<string, unknown>) => void;
 }
 
-/** 检查点：运行暂停，等教师选择。三种形态——澄清（点选项）、蓝图（细目表）、样题（先看几道）。 */
+/** 检查点：运行暂停，等教师选择。四种形态——澄清（点选项）、蓝图（细目表）、样题（先看几道）、识别结果核对（照片）。 */
 export function CheckpointCard({ checkpoint, onAnswer }: Props) {
   switch (checkpoint.kind) {
     case "blueprint":
       return <Blueprint cp={checkpoint} onAnswer={onAnswer} />;
     case "samples":
       return <Samples cp={checkpoint} onAnswer={onAnswer} />;
+    case "perception":
+      return (
+        <PerceptionConfirm
+          prompt={checkpoint.prompt}
+          refs={checkpoint.payload.references as ReferenceSet}
+          onAnswer={onAnswer}
+        />
+      );
     default:
       return <Clarify cp={checkpoint} onAnswer={onAnswer} />;
   }

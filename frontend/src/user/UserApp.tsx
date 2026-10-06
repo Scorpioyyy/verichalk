@@ -3,12 +3,14 @@ import { api } from "@/shared/api/client";
 import { Icon } from "@/shared/ui/Icon";
 import { ChatPane } from "./chat/ChatPane";
 import type { ComposerHandle } from "./chat/Composer";
+import { acceptPhotos } from "./chat/photos";
 import { SessionController } from "./controller";
 import { LogoMark } from "./Logo";
 import { Workspace } from "./paper/Workspace";
 import { ControllerContext, useView } from "./useController";
 import { Welcome } from "./Welcome";
 import "./user.css";
+import "./chat/photos.css";
 
 export function UserApp() {
   const ctl = useMemo(() => new SessionController(), []);
@@ -27,19 +29,34 @@ export function UserApp() {
 function Shell({ ctl }: { ctl: SessionController }) {
   const view = useView();
   const [draft, setDraft] = useState("");
+  const [photos, setPhotos] = useState<File[]>([]);
   const [tab, setTab] = useState<"chat" | "paper">("chat");
   const [menuOpen, setMenuOpen] = useState(false);
   const composerRef = useRef<ComposerHandle>(null);
 
-  const hasContent = view.messages.length > 0 || !!view.pendingUser || !!view.run || !!view.paper;
+  const hasContent =
+    view.messages.length > 0 || view.pendingUser !== null || !!view.run || !!view.paper;
+
+  function addPhotos(files: File[]) {
+    const r = acceptPhotos(photos, files);
+    setPhotos(r.files);
+    if (r.error) ctl.toast(r.error, "error");
+  }
 
   async function send(text?: string) {
     const t = (text ?? draft).trim();
-    if (!t) return;
-    if (text === undefined) setDraft("");
+    const withPhotos = text === undefined ? photos : [];
+    if (!t && withPhotos.length === 0) return;
+    if (text === undefined) {
+      setDraft("");
+      setPhotos([]);
+    }
     setTab("chat");
-    const ok = await ctl.send(t);
-    if (!ok && text === undefined) setDraft(t);
+    const ok = await ctl.send(t, withPhotos);
+    if (!ok && text === undefined) {
+      setDraft(t);
+      setPhotos(withPhotos);
+    }
   }
 
   function askItem(no: number) {
@@ -64,6 +81,7 @@ function Shell({ ctl }: { ctl: SessionController }) {
         setMenuOpen={setMenuOpen}
         onNew={() => {
           setDraft("");
+          setPhotos([]);
           void ctl.newSession();
         }}
         onOpen={(id) => void ctl.openSession(id)}
@@ -78,6 +96,9 @@ function Shell({ ctl }: { ctl: SessionController }) {
           setDraft={setDraft}
           onSend={() => void send()}
           composerRef={composerRef}
+          photos={photos}
+          onAddPhotos={addPhotos}
+          onRemovePhoto={(i) => setPhotos(photos.filter((_, j) => j !== i))}
         />
       ) : (
         <>
@@ -89,6 +110,9 @@ function Shell({ ctl }: { ctl: SessionController }) {
               setDraft={setDraft}
               composerRef={composerRef}
               onSend={() => void send()}
+              photos={photos}
+              onAddPhotos={addPhotos}
+              onRemovePhoto={(i) => setPhotos(photos.filter((_, j) => j !== i))}
             />
             <Workspace
               view={view}

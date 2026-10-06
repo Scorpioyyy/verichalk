@@ -1,0 +1,18 @@
+{
+ "key": "c2beb661654800141cd1a20dcb9e23c5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"20 - 5.60 = 14.40，14.40 - 4.40 = 10。\", \"answers\": [{\"label\": \"\", \"value\": \"10\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 297,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 790.271700010635,
+ "ttft_ms": 790.434299968183,
+ "total_ms": 1185.548499925062
+}

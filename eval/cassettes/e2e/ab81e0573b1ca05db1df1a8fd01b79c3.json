@@ -1,0 +1,18 @@
+{
+ "key": "ab81e0573b1ca05db1df1a8fd01b79c3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.50元=3元5角0分，3.5元=3元5角，两者都表示3元5角，钱数大小相同。小数末尾添上0或去掉0，小数的大小不变。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1167.7400000626221,
+ "ttft_ms": 1168.0245000170544,
+ "total_ms": 1913.6637999908999
+}

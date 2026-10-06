@@ -7,7 +7,15 @@
  */
 import { api, ApiError } from "@/shared/api/client";
 import { fetchRunEvents, streamEvents } from "@/shared/api/sse";
-import type { AppEvent, Message, Op, Paper, PaperHistory, Understanding } from "@/shared/api/types";
+import type {
+  AppEvent,
+  Message,
+  Op,
+  Paper,
+  PaperHistory,
+  ReferenceSet,
+  Understanding,
+} from "@/shared/api/types";
 import { foldEvents, initialRun, isActive, reduceEvent, resumed } from "@/shared/events/reducer";
 import type { RunState } from "@/shared/events/reducer";
 
@@ -38,6 +46,8 @@ export interface ViewState {
   sessionId: string | null;
   messages: Message[];
   pendingUser: string | null; // 已发出、服务端还没回显的用户消息
+  pendingPhotos: string[]; // 同上：随这条消息发出的照片（本地预览地址）
+  perceptions: Record<string, ReferenceSet>; // 运行 id → 该轮的照片识别结果
   paper: Paper | null;
   run: RunState | null; // 当前（或最近一次）对话运行
   reviewing: string[]; // 正在后台复核的题 id
@@ -90,6 +100,8 @@ export class SessionController {
       sessionId: null,
       messages: [],
       pendingUser: null,
+      pendingPhotos: [],
+      perceptions: {},
       paper: null,
       run: null,
       reviewing: [],
@@ -156,6 +168,8 @@ export class SessionController {
       sessionId: id,
       messages: s.messages,
       pendingUser: null,
+      pendingPhotos: [],
+      perceptions: {},
       paper: s.paper,
       run: null,
       reviewing: [],
@@ -171,6 +185,7 @@ export class SessionController {
     } else {
       void this.restoreUnderstanding(s.messages);
     }
+    void this.restorePerceptions(s.messages);
   }
 
   async newSession(): Promise<void> {
@@ -180,6 +195,8 @@ export class SessionController {
       sessionId: null,
       messages: [],
       pendingUser: null,
+      pendingPhotos: [],
+      perceptions: {},
       paper: null,
       run: null,
       reviewing: [],
@@ -219,11 +236,28 @@ export class SessionController {
     }
   }
 
+  /** 刷新页面后找回各轮照片的识别卡片（事件流里有，消息里没有）。 */
+  private async restorePerceptions(messages: Message[]): Promise<void> {
+    const ids = messages
+      .filter((m) => m.role === "user" && m.attachments.length > 0 && m.run_id)
+      .map((m) => m.run_id as string)
+      .slice(-4);
+    for (const rid of ids) {
+      if (this.state.perceptions[rid]) continue;
+      try {
+        const p = foldEvents(await fetchRunEvents(rid)).perception;
+        if (p) this.set({ perceptions: { ...this.state.perceptions, [rid]: p } });
+      } catch {
+        return;
+      }
+    }
+  }
+
   // ---- 发送与运行 ----
   /** 发送一轮需求。立即给出反馈（≤1s），成功返回 true；失败返回 false（调用方把文字放回输入框）。 */
-  async send(text: string): Promise<boolean> {
+  async send(text: string, photos: File[] = []): Promise<boolean> {
     const t = text.trim();
-    if (!t) return false;
+    if (!t && photos.length === 0) return false;
     if (isActive(this.state.run)) {
       this.toast("上一个任务还在进行，请等它完成，或先点“停止”。", "error");
       return false;
@@ -233,7 +267,8 @@ export class SessionController {
     starting.startedAt = now;
     starting.progress = { label: "已收到，正在开始", current: null, total: null, ts: now };
     starting.steps = [starting.progress];
-    this.set({ pendingUser: t, run: starting });
+    const previews = photos.map((f) => URL.createObjectURL(f));
+    this.set({ pendingUser: t, pendingPhotos: previews, run: starting });
     try {
       let sid = this.state.sessionId;
       if (!sid) {
@@ -242,12 +277,16 @@ export class SessionController {
         writeLS(LS_CURRENT, sid);
         this.set({ sessionId: sid });
       }
-      const acc = await api.postTurn(sid, t);
-      this.touchRecent(sid, this.state.recent.find((r) => r.id === sid)?.title ?? t.slice(0, 24));
+      const acc = await api.postTurn(sid, t, photos);
+      this.touchRecent(
+        sid,
+        this.state.recent.find((r) => r.id === sid)?.title ?? (t || "照片出题").slice(0, 24),
+      );
       this.attach(acc.run_id, starting);
       return true;
     } catch (e) {
-      this.set({ pendingUser: null, run: null });
+      previews.forEach((u) => URL.revokeObjectURL(u));
+      this.set({ pendingUser: null, pendingPhotos: [], run: null });
       this.toast(userMessageOf(e), "error");
       return false;
     }
@@ -299,7 +338,10 @@ export class SessionController {
     const cur = this.state.run;
     if (!cur || cur.runId !== runId) return;
     const next = reduceEvent(cur, e);
-    this.set({ run: next, understanding: this.pickUnderstanding(next) });
+    const perceptions = next.perception
+      ? { ...this.state.perceptions, [runId]: next.perception }
+      : this.state.perceptions;
+    this.set({ run: next, understanding: this.pickUnderstanding(next), perceptions });
     if (e.type === "paper.patch" || e.type === "item.status") void this.refresh();
     if (e.type === "run.finished") void this.onFinished(next);
   }
@@ -367,11 +409,13 @@ export class SessionController {
     }
     const run = this.state.run;
     const echoed = run && messages.some((m) => m.role === "user" && m.run_id === run.runId);
+    if (echoed) this.state.pendingPhotos.forEach((u) => URL.revokeObjectURL(u));
     this.set({
       messages,
       paper,
       changed,
       pendingUser: echoed ? null : this.state.pendingUser,
+      pendingPhotos: echoed ? [] : this.state.pendingPhotos,
     });
     if (this.state.sessionId) this.touchRecent(this.state.sessionId, title);
   }

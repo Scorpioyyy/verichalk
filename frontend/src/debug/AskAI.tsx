@@ -20,7 +20,7 @@ interface Msg {
 
 /**
  * 与"这一次运行"对话的分析助手。上下文由后端组织（运行摘要常驻 + 工具按需查询），这里只负责对话界面。
- * `specific` 是针对这次运行算出来的推荐提问（见 suggest.ts），第一条同时是输入框里 Tab 采纳的示例。
+ * `specific` 是针对这次运行算出来的推荐提问（见 suggest.ts），显示在空对话的建议区。
  */
 export function AskAI({
   runId,
@@ -31,7 +31,6 @@ export function AskAI({
   ready: boolean;
   specific?: string[];
 }) {
-  const example = specific[0] ?? GENERIC[3] ?? "";
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
@@ -77,7 +76,8 @@ export function AskAI({
     const el = field.current;
     if (!el) return;
     el.style.height = "auto";
-    el.style.height = `${Math.min(el.scrollHeight, 150)}px`;
+    const border = el.offsetHeight - el.clientHeight;
+    el.style.height = `${Math.min(el.scrollHeight + border, 150)}px`;
   }, [draft]);
   useLayoutEffect(() => {
     // 面板被切到别的视图（隐藏）时不要拽着页面走
@@ -235,41 +235,22 @@ export function AskAI({
           void ask(draft);
         }}
       >
-        <div className="ai__field">
-          <textarea
-            ref={field}
-            className="input"
-            rows={1}
-            value={draft}
-            aria-label="向分析助手提问"
-            aria-keyshortcuts="Tab"
-            disabled={!ready}
-            onChange={(e) => setDraft(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Tab" && !e.shiftKey && !draft && !e.nativeEvent.isComposing) {
-                e.preventDefault(); // 输入框为空时，Tab 采纳示例问题；有内容时照常切换焦点
-                setDraft(example);
-                return;
-              }
-              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
-                e.preventDefault();
-                void ask(draft);
-              }
-            }}
-          />
-          {/* 占位提示自己画：原生 placeholder 里放不了"键帽" */}
-          {!draft && (
-            <div className="ai__hint" aria-hidden>
-              {ready ? (
-                <>
-                  问点什么，例如：{example} 按 <kbd>Tab</kbd> 采纳
-                </>
-              ) : (
-                "运行加载中……"
-              )}
-            </div>
-          )}
-        </div>
+        <textarea
+          ref={field}
+          className="input ai__input"
+          rows={1}
+          value={draft}
+          placeholder={ready ? "问点什么，比如：哪一步最慢、哪道题为什么被拦下……" : "运行加载中……"}
+          aria-label="向分析助手提问"
+          disabled={!ready}
+          onChange={(e) => setDraft(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+              e.preventDefault();
+              void ask(draft);
+            }
+          }}
+        />
         <div className="ai__actions">
           {msgs.length > 0 && !busy && (
             <button type="button" className="btn btn--ghost" onClick={() => setMsgs([])}>

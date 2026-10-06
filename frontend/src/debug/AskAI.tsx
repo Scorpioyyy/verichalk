@@ -197,27 +197,40 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
           void ask(draft);
         }}
       >
-        <textarea
-          className="input"
-          rows={2}
-          value={draft}
-          placeholder={ready ? `问点什么，例如：${EXAMPLE}（按 Tab 键直接采纳）` : "运行加载中……"}
-          aria-keyshortcuts="Tab"
-          aria-label="向分析助手提问"
-          disabled={!ready}
-          onChange={(e) => setDraft(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Tab" && !e.shiftKey && !draft && !e.nativeEvent.isComposing) {
-              e.preventDefault(); // 输入框为空时，Tab 采纳示例问题；有内容时照常切换焦点
-              setDraft(EXAMPLE);
-              return;
-            }
-            if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
-              e.preventDefault();
-              void ask(draft);
-            }
-          }}
-        />
+        <div className="ai__field">
+          <textarea
+            className="input"
+            rows={2}
+            value={draft}
+            aria-label="向分析助手提问"
+            aria-keyshortcuts="Tab"
+            disabled={!ready}
+            onChange={(e) => setDraft(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Tab" && !e.shiftKey && !draft && !e.nativeEvent.isComposing) {
+                e.preventDefault(); // 输入框为空时，Tab 采纳示例问题；有内容时照常切换焦点
+                setDraft(EXAMPLE);
+                return;
+              }
+              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+                e.preventDefault();
+                void ask(draft);
+              }
+            }}
+          />
+          {/* 占位提示自己画：原生 placeholder 里放不了"键帽" */}
+          {!draft && (
+            <div className="ai__hint" aria-hidden>
+              {ready ? (
+                <>
+                  问点什么，例如：{EXAMPLE}按 <kbd>Tab</kbd> 采纳
+                </>
+              ) : (
+                "运行加载中……"
+              )}
+            </div>
+          )}
+        </div>
         <div className="ai__actions">
           {msgs.length > 0 && !busy && (
             <button type="button" className="btn btn--ghost" onClick={() => setMsgs([])}>

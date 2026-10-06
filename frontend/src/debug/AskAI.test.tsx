@@ -66,7 +66,7 @@ describe("示例问题", () => {
   it("输入框为空时按 Tab 采纳示例问题，有内容时不拦截", async () => {
     render(<AskAI runId="run_1" ready />);
     const box = screen.getByRole("textbox", { name: "向分析助手提问" });
-    expect(box).toHaveAttribute("placeholder", expect.stringContaining("Tab"));
+    expect(screen.getByText("Tab").tagName).toBe("KBD"); // 提示里的 Tab 画成键帽
     box.focus();
     await userEvent.tab();
     expect(box).toHaveValue("第 2 题为什么被重试？");

@@ -178,7 +178,7 @@ export function AskAI({
             </>
           )}
           <p className="ai__group">常见问题</p>
-          <div className="ai__chips">
+          <div className="ai__chips ai__chips--grid">
             {GENERIC.map((q) => (
               <button
                 key={q}

@@ -974,6 +974,19 @@
   align-items: flex-start;
   gap: 8px;
 }
+.ai__chips--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 常见问题一行两个 */
+}
+.ai__chips--grid .ai__chip {
+  text-align: left;
+  border-radius: 14px;
+}
+@media (max-width: 720px) {
+  .ai__chips--grid {
+    grid-template-columns: 1fr;
+  }
+}
 .ai__chip {
   padding: 8px 14px;
   border: 1px solid var(--border-strong);

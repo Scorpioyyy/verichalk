@@ -18,7 +18,7 @@ async function withPaper(page: Page) {
 }
 
 test.describe("S6 编辑", () => {
-  test("手动编辑 → 重新核验 → 撤销 / 重做 → 版本历史回退", async ({ page }) => {
+  test("手动编辑 → 重新核验 → 撤销 / 恢复 → 版本历史回退", async ({ page }) => {
     const watch = watchConsole(page);
     await withPaper(page);
     const first = page.getByTestId("item").first();
@@ -46,7 +46,7 @@ test.describe("S6 编辑", () => {
     });
     await expectNoJargon(page);
 
-    // 撤销 → 回到原题干；重做 → 又是新题干
+    // 撤销 → 回到原题干；恢复 → 又是新题干
     await page.getByRole("button", { name: "撤销" }).first().click();
     await expect(page.getByTestId("item").first().locator(".item__stem")).not.toContainText(
       "请写出计算过程",
@@ -54,7 +54,7 @@ test.describe("S6 编辑", () => {
     expect((await page.getByTestId("item").first().locator(".item__stem").innerText()).trim()).toBe(
       originalStem,
     );
-    await page.getByRole("button", { name: "重做" }).first().click();
+    await page.getByRole("button", { name: "恢复" }).first().click();
     await expect(page.getByTestId("item").first().locator(".item__stem")).toContainText(
       "请写出计算过程",
     );

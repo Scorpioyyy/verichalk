@@ -10,12 +10,13 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import shutil
 import time
 from typing import Any
 
 from .. import trace
 from ..core.config import Settings
-from ..core.errors import Conflict, NotFound
+from ..core.errors import Conflict, InvalidRequest, NotFound
 from ..core.ids import new_id
 from ..domain.brief import Brief
 from ..domain.events import CheckpointKind, CheckpointRequested, RunFinished, RunPaused, RunStarted, SpanKind
@@ -66,6 +67,20 @@ class RunManager:
     # ---- 会话 ----
     async def create_session(self, title: str = "") -> Session:
         return await self.store.sessions.create(title)
+
+    async def rename_session(self, session_id: str, title: str) -> Session:
+        title = " ".join(title.split())[:60]
+        if not title:
+            raise InvalidRequest("标题为空", user_message="标题不能为空。")
+        return await self.store.sessions.rename(session_id, title)
+
+    async def delete_session(self, session_id: str) -> None:
+        """删除会话及其全部数据与上传的图片。有进行中的运行时不允许（先停止再删）。"""
+        await self.store.sessions.get(session_id)
+        if self.active_run(session_id):
+            raise Conflict("会话有进行中的运行", user_message="这个对话还有任务在进行，请先停止，再删除。")
+        await self.store.sessions.delete(session_id)
+        shutil.rmtree(self.settings.data_path / "uploads" / session_id, ignore_errors=True)
 
     def active_run(self, session_id: str) -> str | None:
         return self._active_by_session.get(session_id)

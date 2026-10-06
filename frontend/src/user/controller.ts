@@ -207,6 +207,35 @@ export class SessionController {
     });
   }
 
+  /** 给历史里的对话改名（服务端保存，列表顺序不变）。 */
+  async renameSession(id: string, title: string): Promise<void> {
+    try {
+      const s = await api.renameSession(id, title);
+      const recent = this.state.recent.map((r) => (r.id === id ? { ...r, title: s.title } : r));
+      writeLS(LS_RECENT, recent);
+      this.set({ recent });
+    } catch (e) {
+      this.toast(userMessageOf(e), "error");
+    }
+  }
+
+  /** 删除一个历史对话（服务端连同试卷、图片一起删）；删的是当前对话就回到主页面。 */
+  async deleteSession(id: string): Promise<void> {
+    try {
+      await api.deleteSession(id);
+    } catch (e) {
+      if (!(e instanceof ApiError && e.status === 404)) {
+        this.toast(userMessageOf(e), "error"); // 如：这个对话还有任务在进行
+        return;
+      }
+    }
+    const recent = this.state.recent.filter((r) => r.id !== id);
+    writeLS(LS_RECENT, recent);
+    this.set({ recent });
+    if (this.state.sessionId === id) await this.newSession();
+    this.toast("已删除这个对话");
+  }
+
   private touchRecent(id: string, title: string): void {
     const rest = this.state.recent.filter((r) => r.id !== id);
     const cur = this.state.recent.find((r) => r.id === id);
@@ -453,7 +482,7 @@ export class SessionController {
     await this.travel(() => api.undo(this.state.sessionId ?? ""), "已撤销");
   }
   async redo(): Promise<void> {
-    await this.travel(() => api.redo(this.state.sessionId ?? ""), "已重做");
+    await this.travel(() => api.redo(this.state.sessionId ?? ""), "已恢复");
   }
   async restore(rev: number): Promise<void> {
     await this.travel(() => api.restore(this.state.sessionId ?? "", rev), `已回到第 ${rev} 版`);

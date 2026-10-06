@@ -189,10 +189,6 @@ def answers_equal(a: list[str], b: list[str]) -> bool:
     return len(ra) == len(rb) and all(_pair_equal(x, y) for x, y in zip(ra, rb, strict=True))
 
 
-def canon_text(c: Canon) -> str:
-    return str(c)
-
-
 def program_value_text(v: Any) -> str:
     """沙箱返回的精确值 → 答案字符串。"""
     if isinstance(v, bool):

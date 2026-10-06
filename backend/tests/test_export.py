@@ -247,6 +247,33 @@ def test_markdown_student_has_no_answers() -> None:
     assert "答案" not in text and "解析" not in text
 
 
+def test_student_header_lines_follow_the_option() -> None:
+    """不勾选"显示姓名 / 班级 / 得分填写线"：三条线一起去掉（原先只去掉了姓名）；勾选时三条都在。"""
+    from verichalk.domain.export import ExportHeader
+
+    def texts(name_line: bool) -> dict[str, str]:
+        out = {}
+        for fmt in (ExportFormat.md, ExportFormat.docx, ExportFormat.pdf):
+            r = export(fmt, ExportVersion.student, header=ExportHeader(name_line=name_line))
+            if fmt == ExportFormat.docx:
+                with zipfile.ZipFile(io.BytesIO(r.data)) as z:
+                    out["docx"] = z.read("docProps/core.xml").decode("utf-8") + z.read(
+                        "word/document.xml"
+                    ).decode("utf-8")
+            elif fmt == ExportFormat.pdf:
+                import pymupdf
+
+                out["pdf"] = "".join(str(pg.get_text()) for pg in pymupdf.open(stream=r.data))
+            else:
+                out["md"] = r.data.decode("utf-8")
+        return out
+
+    for name, text in texts(True).items():
+        assert all(k in text for k in ("姓名", "班级", "得分")), name
+    for name, text in texts(False).items():
+        assert not any(k in text for k in ("姓名", "班级", "得分")), name
+
+
 def test_latex_export_is_source_only_and_balanced() -> None:
     r = export(ExportFormat.tex)
     tex = r.data.decode("utf-8")

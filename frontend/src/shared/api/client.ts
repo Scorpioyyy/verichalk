@@ -1,4 +1,5 @@
 /** 后端 REST 客户端：薄封装，错误统一成 `ApiError`（带教师可读的 `userMessage`）。 */
+import { splitFrames } from "./sse";
 import type {
   AggregateMetrics,
   AppEvent,
@@ -112,6 +113,7 @@ async function request<T>(
     throw new ApiError(0, "network", String(e), "网络连接不上，请检查网络后重试。");
   }
   if (!res.ok) throw await toError(res);
+  if (res.status === 204) return undefined as T;
   return (await res.json()) as T;
 }
 
@@ -145,6 +147,9 @@ export const api = {
 
   createSession: () => post<SessionState>("/api/sessions"),
   getSession: (id: string) => get<SessionState>(`/api/sessions/${id}`),
+  renameSession: (id: string, title: string) =>
+    request<{ id: string; title: string }>("PATCH", `/api/sessions/${id}`, { json: { title } }),
+  deleteSession: (id: string) => request<void>("DELETE", `/api/sessions/${id}`),
 
   postTurn: (sessionId: string, text: string, images: File[] = []) => {
     const form = new FormData();
@@ -227,5 +232,62 @@ export const api = {
     kp: (id: string) => get<KPDetail>(`/api/debug/kp/${encodeURIComponent(id)}`, debugHeaders()),
     badcases: () => get<Badcase[]>("/api/debug/badcases", debugHeaders()),
     addBadcase: (body: BadcaseIn) => post<Badcase>("/api/debug/badcases", body, debugHeaders()),
+    /** 运行分析助手：流式回答，每个增量 / 工具步骤 / 结束 / 错误回调一次。 */
+    chat: (
+      runId: string,
+      messages: ChatTurn[],
+      opts: { signal?: AbortSignal; onEvent: (e: ChatEvent) => void },
+    ) => streamChat(`/api/debug/runs/${runId}/chat`, messages, opts),
   },
 };
+
+export interface ChatTurn {
+  role: "user" | "assistant";
+  content: string;
+}
+
+export type ChatEvent =
+  | { type: "delta"; text: string }
+  | { type: "tool"; name: string; label: string; arguments: Record<string, unknown> }
+  | { type: "done" }
+  | { type: "error"; message: string };
+
+async function streamChat(
+  url: string,
+  messages: ChatTurn[],
+  opts: { signal?: AbortSignal; onEvent: (e: ChatEvent) => void },
+): Promise<void> {
+  let res: Response;
+  try {
+    res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        accept: "text/event-stream",
+        ...debugHeaders(),
+      },
+      body: JSON.stringify({ messages }),
+      signal: opts.signal,
+    });
+  } catch (e) {
+    if (e instanceof DOMException && e.name === "AbortError") return;
+    throw new ApiError(0, "network", String(e), "网络连接不上，请检查网络后重试。");
+  }
+  if (!res.ok || !res.body) throw await toError(res);
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buf = "";
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const { frames, rest } = splitFrames(buf);
+      buf = rest;
+      for (const f of frames) opts.onEvent(JSON.parse(f.data) as ChatEvent);
+    }
+  } catch (e) {
+    if (e instanceof DOMException && e.name === "AbortError") return;
+    throw e;
+  }
+}

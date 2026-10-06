@@ -103,4 +103,37 @@ test.describe("D1 调试台", () => {
     await expect(page.getByLabel("令牌")).toBeVisible();
     await expectNoA11yViolations(page, "调试台·令牌");
   });
+
+  test("AI 分析：围绕这一次运行提问，流式回答并展示查询过程", async ({ page }) => {
+    // 分析助手用的是实时模型，回放环境里没有录制：这里只验证界面与接口的衔接
+    await page.route("**/api/debug/runs/*/chat", (r) => {
+      const frames = [
+        { type: "tool", name: "get_stage_output", label: "查看阶段快照", arguments: {} },
+        { type: "delta", text: "这次运行**没有异常**：\n\n- 共 " },
+        { type: "delta", text: "若干次模型调用\n" },
+        { type: "done" },
+      ];
+      return r.fulfill({
+        status: 200,
+        contentType: "text/event-stream",
+        body: frames.map((f) => `data: ${JSON.stringify(f)}\n\n`).join(""),
+      });
+    });
+    await page.goto("/");
+    await expectFirstFeedbackFast(page, "帮我写一首关于春天的诗");
+    await waitRunDone(page);
+    await page.goto("/debug");
+    await page.getByTestId("run-table").locator("tbody tr").first().getByRole("link").click();
+    await page.getByTestId("tab-ai").click();
+    const panel = page.getByTestId("ai-panel");
+    await panel.getByRole("button", { name: /有没有异常/ }).click();
+    await expect(panel.locator("strong", { hasText: "没有异常" })).toBeVisible();
+    await expect(panel).toContainText("查看阶段快照");
+    await expect(panel.getByRole("listitem").filter({ hasText: "若干次模型调用" })).toBeVisible();
+    // 切到别的视图再回来，对话还在
+    await page.getByTestId("tab-events").click();
+    await page.getByTestId("tab-ai").click();
+    await expect(panel.locator("strong", { hasText: "没有异常" })).toBeVisible();
+    await expectNoA11yViolations(page, "调试台·AI 分析");
+  });
 });

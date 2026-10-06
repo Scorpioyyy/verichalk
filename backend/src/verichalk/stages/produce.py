@@ -120,10 +120,6 @@ def _after_equals(v: str) -> str:
     return v.rsplit("=", 1)[-1].strip() if "=" in v else v
 
 
-def _fingerprint(w: WriteOut) -> str:
-    return hashlib.sha1((w.stem + "|".join(w.options)).encode()).hexdigest()[:8]
-
-
 def _previous_text(w: WriteOut) -> str:
     return json.dumps(
         {

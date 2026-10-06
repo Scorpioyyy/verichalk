@@ -69,10 +69,18 @@ export interface paths {
         get: operations["get_session_api_sessions__session_id__get"];
         put?: never;
         post?: never;
-        delete?: never;
+        /**
+         * Delete Session
+         * @description 删除一个对话：消息、试卷与修订、事件、上传的图片一并删除，不可恢复。进行中的对话先停止再删（409）。
+         */
+        delete: operations["delete_session_api_sessions__session_id__delete"];
         options?: never;
         head?: never;
-        patch?: never;
+        /**
+         * Rename Session
+         * @description 给对话改名（历史列表里显示的标题）。
+         */
+        patch: operations["rename_session_api_sessions__session_id__patch"];
         trace?: never;
     };
     "/api/sessions/{session_id}/turns": {
@@ -396,6 +404,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/debug/runs/{run_id}/chat": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Debug Chat
+         * @description 运行分析助手：围绕这一次运行的多轮对话（SSE：delta / tool / done / error）。上下文由运行摘要组织，细节靠工具按需查询。
+         */
+        post: operations["debug_chat_api_debug_runs__run_id__chat_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/debug/runs/{run_id}/events": {
         parameters: {
             query?: never;
@@ -681,6 +709,13 @@ export interface components {
             /** Assumptions */
             assumptions?: string[];
         };
+        /** ChatTurn */
+        ChatTurn: {
+            /** Role */
+            role: string;
+            /** Content */
+            content: string;
+        };
         /** CheckResult */
         CheckResult: {
             /** Name */
@@ -802,6 +837,11 @@ export interface components {
              * @default
              */
             rationale: string;
+        };
+        /** DebugChatBody */
+        DebugChatBody: {
+            /** Messages */
+            messages: components["schemas"]["ChatTurn"][];
         };
         /** DebugRunDetail */
         DebugRunDetail: {
@@ -2330,6 +2370,11 @@ export interface components {
              */
             title: string;
         };
+        /** SessionRename */
+        SessionRename: {
+            /** Title */
+            title: string;
+        };
         /** SessionState */
         SessionState: {
             session: components["schemas"]["Session"];
@@ -2851,6 +2896,70 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SessionState"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_session_api_sessions__session_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                session_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    rename_session_api_sessions__session_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                session_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SessionRename"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Session"];
                 };
             };
             /** @description Validation Error */
@@ -3458,6 +3567,43 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["DebugRunDetail"];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    debug_chat_api_debug_runs__run_id__chat_post: {
+        parameters: {
+            query?: {
+                token?: string | null;
+            };
+            header?: {
+                "x-debug-token"?: string | null;
+            };
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DebugChatBody"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {

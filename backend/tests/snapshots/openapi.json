@@ -492,6 +492,25 @@
     "title": "Brief",
     "type": "object"
    },
+   "ChatTurn": {
+    "properties": {
+     "content": {
+      "maxLength": 20000,
+      "title": "Content",
+      "type": "string"
+     },
+     "role": {
+      "title": "Role",
+      "type": "string"
+     }
+    },
+    "required": [
+     "role",
+     "content"
+    ],
+    "title": "ChatTurn",
+    "type": "object"
+   },
    "CheckResult": {
     "properties": {
      "detail": {
@@ -728,6 +747,24 @@
      "score"
     ],
     "title": "Combo",
+    "type": "object"
+   },
+   "DebugChatBody": {
+    "properties": {
+     "messages": {
+      "items": {
+       "$ref": "#/components/schemas/ChatTurn"
+      },
+      "maxItems": 40,
+      "minItems": 1,
+      "title": "Messages",
+      "type": "array"
+     }
+    },
+    "required": [
+     "messages"
+    ],
+    "title": "DebugChatBody",
     "type": "object"
    },
    "DebugRunDetail": {
@@ -4103,6 +4140,21 @@
     "title": "Session",
     "type": "object"
    },
+   "SessionRename": {
+    "properties": {
+     "title": {
+      "maxLength": 60,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+     }
+    },
+    "required": [
+     "title"
+    ],
+    "title": "SessionRename",
+    "type": "object"
+   },
    "SessionState": {
     "properties": {
      "active_run_id": {
@@ -5550,6 +5602,81 @@
     "summary": "Debug Run"
    }
   },
+  "/api/debug/runs/{run_id}/chat": {
+   "post": {
+    "description": "运行分析助手：围绕这一次运行的多轮对话（SSE：delta / tool / done / error）。上下文由运行摘要组织，细节靠工具按需查询。",
+    "operationId": "debug_chat_api_debug_runs__run_id__chat_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "run_id",
+      "required": true,
+      "schema": {
+       "title": "Run Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Token"
+      }
+     },
+     {
+      "in": "header",
+      "name": "x-debug-token",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "X-Debug-Token"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DebugChatBody"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Debug Chat"
+   }
+  },
   "/api/debug/runs/{run_id}/events": {
    "get": {
     "operationId": "debug_events_api_debug_runs__run_id__events_get",
@@ -6087,6 +6214,37 @@
    }
   },
   "/api/sessions/{session_id}": {
+   "delete": {
+    "description": "删除一个对话：消息、试卷与修订、事件、上传的图片一并删除，不可恢复。进行中的对话先停止再删（409）。",
+    "operationId": "delete_session_api_sessions__session_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Session"
+   },
    "get": {
     "operationId": "get_session_api_sessions__session_id__get",
     "parameters": [
@@ -6123,6 +6281,54 @@
      }
     },
     "summary": "Get Session"
+   },
+   "patch": {
+    "description": "给对话改名（历史列表里显示的标题）。",
+    "operationId": "rename_session_api_sessions__session_id__patch",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "session_id",
+      "required": true,
+      "schema": {
+       "title": "Session Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SessionRename"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Session"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Rename Session"
    }
   },
   "/api/sessions/{session_id}/attachments/{attachment_id}": {

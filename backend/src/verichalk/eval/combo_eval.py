@@ -7,8 +7,7 @@ P2（留出召回）：知识库里 303 个知识点对在教材里真实地"同
 
 from __future__ import annotations
 
-import random
-from collections.abc import Awaitable, Callable
+from collections.abc import Callable
 from dataclasses import dataclass, field, replace
 
 from ..knowledge import ComboMiner, ComboWeights, GraphData, KnowledgeService
@@ -175,15 +174,3 @@ async def run_pair_eval(kb: KnowledgeService, w: ComboWeights) -> tuple[list[Rec
         evaluate_ranker("组合挖掘（跨主题）", cases, miner_ranker(g, w, topic="cross_topic")),
     ]
     return main, signal_ablation(g, cases, w)
-
-
-def sample_random_combos(
-    g: GraphData, scope: frozenset[str], anchor: str, n: int, seed: int = 0
-) -> list[list[str]]:
-    """P5 的随机基线：在已学范围内、不限关系随机取搭配。"""
-    rng = random.Random(seed)
-    pool = sorted(x for x in scope if x != anchor and x in g.nodes)
-    return [[anchor, rng.choice(pool)] for _ in range(n)]
-
-
-AsyncRunner = Callable[[KnowledgeService], Awaitable[None]]

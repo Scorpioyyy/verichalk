@@ -4,22 +4,25 @@ from __future__ import annotations
 
 import asyncio
 import json
+from collections.abc import AsyncIterator
 from typing import Annotated
 from urllib.parse import quote
 
 from fastapi import APIRouter, File, Form, Header, Query, Request, UploadFile
 from fastapi.responses import Response, StreamingResponse
+from pydantic import BaseModel, Field
 
 from .. import __version__
-from ..core.errors import Conflict, NotFound
+from ..core.errors import Conflict, InvalidRequest, NotFound
 from ..domain.badcase import Badcase, BadcaseIn
 from ..domain.events import Event
 from ..domain.export import ExportOptions
 from ..domain.knowledge import KPDetail, KPRef
 from ..domain.paper import Paper
 from ..domain.paper_ops import PaperDiff
-from ..domain.run import Run
+from ..domain.run import Run, Session
 from ..metrics import AggregateMetrics, aggregate, compute_run_metrics
+from ..orchestrator.debug_chat import ChatTurn, stream_analysis
 from ..perception import thumbnail_jpeg
 from .deps import ContainerDep, DebugDep
 from .schemas import (
@@ -70,6 +73,23 @@ async def warmup(c: ContainerDep) -> WarmupOut:
 async def create_session(c: ContainerDep) -> SessionState:
     s = await c.manager.create_session()
     return SessionState(session=s, messages=[], paper=None, active_run_id=None)
+
+
+class SessionRename(BaseModel):
+    title: str = Field(min_length=1, max_length=60)
+
+
+@router.patch("/sessions/{session_id}", response_model=Session)
+async def rename_session(session_id: str, body: SessionRename, c: ContainerDep) -> Session:
+    """给对话改名（历史列表里显示的标题）。"""
+    return await c.manager.rename_session(session_id, body.title)
+
+
+@router.delete("/sessions/{session_id}", status_code=204)
+async def delete_session(session_id: str, c: ContainerDep) -> Response:
+    """删除一个对话：消息、试卷与修订、事件、上传的图片一并删除，不可恢复。进行中的对话先停止再删（409）。"""
+    await c.manager.delete_session(session_id)
+    return Response(status_code=204)
 
 
 @router.get("/sessions/{session_id}", response_model=SessionState)
@@ -292,6 +312,30 @@ async def debug_run(run_id: str, c: ContainerDep) -> DebugRunDetail:
         metrics=compute_run_metrics(events),
         n_events=len(events),
         input_text=await _input_text(c, run),
+    )
+
+
+class DebugChatBody(BaseModel):
+    messages: list[ChatTurn] = Field(min_length=1, max_length=40)
+
+
+@debug.post("/runs/{run_id}/chat", response_class=StreamingResponse)
+async def debug_chat(run_id: str, body: DebugChatBody, c: ContainerDep) -> StreamingResponse:
+    """运行分析助手：围绕这一次运行的多轮对话（SSE：delta / tool / done / error）。上下文由运行摘要组织，细节靠工具按需查询。"""
+    last = body.messages[-1]
+    if last.role != "user" or not last.content.strip():
+        raise InvalidRequest("最后一条必须是非空的用户消息", user_message="请先输入问题。")
+    run = await c.store.runs.get(run_id)
+    input_text = await _input_text(c, run)
+
+    async def gen() -> AsyncIterator[str]:
+        async for ev in stream_analysis(c, run_id, input_text, body.messages):
+            yield f"data: {json.dumps(ev, ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(
+        gen(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"},
     )
 
 

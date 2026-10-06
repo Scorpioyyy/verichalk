@@ -11,7 +11,6 @@ from __future__ import annotations
 import re
 from collections.abc import Callable
 from pathlib import Path
-from typing import Any
 
 import pypandoc
 
@@ -28,7 +27,6 @@ MD_FORMAT = (
 SEP = "ZZSEPZZ"
 BLANK = "ZZBLANKZZ"
 _FIG = re.compile(r"!\[([^\]]*)\]\(fig:([A-Za-z0-9_\-]+)\)")
-_FIG_PH = re.compile(r"ZZFIG(\d+)ZZ")
 _MATH = re.compile(r"(?<!\\)\$\$.+?(?<!\\)\$\$|(?<!\\)\$(?!\$).+?(?<!\\)\$", re.S)
 _BLANK_RUN = re.compile(r"(?:\\_|_|＿){3,}")
 
@@ -91,11 +89,3 @@ def convert_document(
         pypandoc.convert_text(source, to, format=fmt, outputfile=str(outfile), extra_args=extra_args or [])
     except Exception as e:
         raise ExportError(f"pandoc 转换失败：{str(e)[:300]}") from e
-
-
-def pandoc_version() -> str:
-    try:
-        v: Any = pypandoc.get_pandoc_version()
-        return str(v)
-    except Exception:
-        return ""

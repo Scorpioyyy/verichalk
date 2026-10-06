@@ -56,7 +56,7 @@ export function Badcases() {
             {!list.loading && (list.data ?? []).length === 0 && (
               <tr>
                 <td colSpan={7} className="muted dbg-empty">
-                  还没有 Badcase。在运行详情里点“标记为 Badcase”入库。
+                  还没有 Badcase。在运行详情里点 “标记为 Badcase” 入库。
                 </td>
               </tr>
             )}

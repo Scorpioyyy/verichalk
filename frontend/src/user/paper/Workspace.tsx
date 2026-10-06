@@ -174,8 +174,8 @@ export function Workspace({ view, ctl, onAskItem, onApply, onPrefill }: Props) {
               className="btn btn--ghost btn--icon"
               onClick={() => void ctl.redo()}
               disabled={!view.history.canRedo || active}
-              aria-label="重做"
-              title="重做"
+              aria-label="恢复"
+              title="恢复（撤销之后再回来）"
             >
               <Icon name="redo" />
             </button>

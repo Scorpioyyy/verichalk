@@ -49,6 +49,25 @@ class SessionRepo:
                 "UPDATE sessions SET updated_at=?, title=? WHERE id=?", (time.time(), title, session_id)
             )
 
+    async def rename(self, session_id: str, title: str) -> Session:
+        await self.get(session_id)  # 不存在则 NotFound
+        await self.db.execute("UPDATE sessions SET title=? WHERE id=?", (title, session_id))
+        return await self.get(session_id)
+
+    async def delete(self, session_id: str) -> None:
+        """级联删除一个会话的全部数据（事件、运行、消息、试卷与修订、附件记录）；一个事务。上传的文件由调用方清理。"""
+        await self.get(session_id)
+
+        def _do(conn: sqlite3.Connection) -> None:
+            conn.execute(
+                "DELETE FROM events WHERE run_id IN (SELECT id FROM runs WHERE session_id=?)", (session_id,)
+            )
+            for table in ("runs", "messages", "revisions", "papers", "attachments"):
+                conn.execute(f"DELETE FROM {table} WHERE session_id=?", (session_id,))
+            conn.execute("DELETE FROM sessions WHERE id=?", (session_id,))
+
+        await self.db.run(_do)
+
 
 class MessageRepo:
     def __init__(self, db: Database) -> None:

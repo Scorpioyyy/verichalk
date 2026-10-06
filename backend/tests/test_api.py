@@ -226,6 +226,40 @@ async def test_uploaded_image_is_served_as_thumbnail_only_to_its_own_session(env
     assert (await cl.get(f"/api/sessions/{ses['id']}/attachments/att_missing")).status_code == 404
 
 
+async def test_rename_and_delete_session(env):
+    make, h = env
+    c = make()
+    cl = h["client"]
+    ses = (await cl.post("/api/sessions")).json()["session"]
+    ok = await cl.post(
+        f"/api/sessions/{ses['id']}/turns",
+        data={"text": "照这个出题"},
+        files=[("images", ("p.png", png_bytes(), "image/png"))],
+    )
+    run_id = ok.json()["run_id"]
+    await c.manager.wait(run_id, 20)
+    uploads = c.settings.data_path / "uploads" / ses["id"]
+    assert uploads.exists()
+
+    renamed = await cl.patch(f"/api/sessions/{ses['id']}", json={"title": "  四下  小数 复习  "})
+    assert renamed.status_code == 200 and renamed.json()["title"] == "四下 小数 复习"
+    assert (await cl.get(f"/api/sessions/{ses['id']}")).json()["session"]["title"] == "四下 小数 复习"
+    assert (await cl.patch(f"/api/sessions/{ses['id']}", json={"title": "   "})).status_code == 422
+    assert (await cl.patch("/api/sessions/ses_missing", json={"title": "x"})).status_code == 404
+
+    c.manager._active_by_session[ses["id"]] = "run_busy"  # 进行中的对话不能删
+    busy = await cl.delete(f"/api/sessions/{ses['id']}")
+    assert busy.status_code == 409 and "停止" in busy.json()["error"]["user_message"]
+    c.manager._active_by_session.pop(ses["id"])
+
+    gone = await cl.delete(f"/api/sessions/{ses['id']}")
+    assert gone.status_code == 204
+    assert (await cl.get(f"/api/sessions/{ses['id']}")).status_code == 404
+    assert (await cl.get(f"/api/runs/{run_id}")).status_code == 404, "运行与事件一并删除"
+    assert not uploads.exists(), "上传的图片一并删除"
+    assert (await cl.delete(f"/api/sessions/{ses['id']}")).status_code == 404
+
+
 async def test_debug_endpoints_auth_and_content(env):
     make, h = env
     c = make()

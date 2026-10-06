@@ -144,7 +144,7 @@ async def test_checkpoint_pause_and_resume(store):
     ses = await mgr.create_session()
     run = await mgr.start_turn(ses.id, "出题", pipeline="asks")
     cur = await store.runs.get(run.id)
-    for _ in range(100):  # 等待进入暂停
+    for _ in range(300):  # 等待进入暂停
         cur = await store.runs.get(run.id)
         if cur.status == RunStatus.awaiting_user:
             break

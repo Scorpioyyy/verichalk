@@ -32,12 +32,6 @@ export function fmtDateTime(ts: number): string {
   return `${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 }
 
-export function shortId(id: string): string {
-  // run_01M47J6A9Z2VVYMY12ENNDGYZ8 → run_…NDGYZ8
-  const i = id.indexOf("_");
-  return i > 0 && id.length > 14 ? `${id.slice(0, i + 1)}…${id.slice(-6)}` : id;
-}
-
 export function pretty(v: unknown): string {
   try {
     return JSON.stringify(v, null, 2);

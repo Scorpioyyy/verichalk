@@ -30,7 +30,7 @@ function ago(ts: number): string {
 const KIND_TEXT: Record<Revision["kind"], string> = {
   edit: "修改",
   undo: "撤销",
-  redo: "重做",
+  redo: "恢复",
   restore: "回退",
   review: "核验",
 };
@@ -167,7 +167,7 @@ export function HistoryDrawer({ sessionId, initialDiff, onRestore, onClose }: Pr
 
   const head = hist?.revisions[hist.revisions.length - 1];
   const currentLogical = head ? (head.logical ?? head.rev) : 0;
-  // 只列"版本"（修改 / 回退）；撤销、重做与后台核验不是新的内容版本
+  // 只列"版本"（修改 / 回退）；撤销、恢复与后台核验不是新的内容版本
   const rows = (hist?.revisions ?? [])
     .filter((r) => r.kind === "edit" || r.kind === "restore")
     .reverse();

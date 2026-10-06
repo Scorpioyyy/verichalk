@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import type { RunMetrics } from "@/shared/api/types";
 import { Icon } from "@/shared/ui/Icon";
+import { AskAI } from "./AskAI";
 import { BadcaseDialog } from "./BadcaseDialog";
 import { Calls } from "./Calls";
 import { EventsLog } from "./EventsLog";
@@ -18,6 +19,7 @@ const TABS = [
   { id: "calls", label: "模型调用", icon: "chat" },
   { id: "items", label: "题目证据", icon: "shield" },
   { id: "events", label: "事件", icon: "list" },
+  { id: "ai", label: "AI 分析", icon: "sparkle" },
 ] as const;
 type TabId = (typeof TABS)[number]["id"];
 
@@ -143,6 +145,10 @@ export function RunDetail() {
           />
         )}
         {!run.loading && tab === "events" && <EventsLog events={run.events} />}
+        {/* 常驻挂载（切到别的视图时只隐藏），对话不会因切换而丢失 */}
+        <div hidden={tab !== "ai"}>
+          <AskAI runId={runId} ready={!run.loading && !!detail} />
+        </div>
       </section>
 
       {badcaseOpen && detail && (

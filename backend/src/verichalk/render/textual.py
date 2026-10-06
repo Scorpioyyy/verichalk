@@ -28,6 +28,8 @@ def _md_info(view: PaperView) -> str:
         bits.append(f"学校：{view.school}")
     if view.class_name:
         bits.append(f"班级：{view.class_name}")
+    elif view.name_line:
+        bits.append("班级：______")
     if view.name_line:
         bits.append("姓名：______")
     if view.date:
@@ -36,7 +38,10 @@ def _md_info(view: PaperView) -> str:
         bits.append(f"时间：{view.duration}")
     if view.total_score is not None:
         bits.append(f"满分：{fmt_score(view.total_score)} 分")
-    bits.append("教师用卷" if view.version.value == "teacher" else "得分：______")
+    if view.version.value == "teacher":
+        bits.append("教师用卷")
+    elif view.name_line:
+        bits.append("得分：______")
     return "　".join(bits)
 
 

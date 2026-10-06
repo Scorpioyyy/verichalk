@@ -5,6 +5,7 @@ import { ChatPane } from "./chat/ChatPane";
 import type { ComposerHandle } from "./chat/Composer";
 import { acceptPhotos } from "./chat/photos";
 import { SessionController } from "./controller";
+import { HistoryMenu } from "./HistoryMenu";
 import { LogoMark } from "./Logo";
 import { Workspace } from "./paper/Workspace";
 import { ControllerContext, useView } from "./useController";
@@ -85,6 +86,8 @@ function Shell({ ctl }: { ctl: SessionController }) {
           void ctl.newSession();
         }}
         onOpen={(id) => void ctl.openSession(id)}
+        onRename={(id, title) => void ctl.renameSession(id, title)}
+        onDelete={(id) => void ctl.deleteSession(id)}
       />
       {!view.ready ? (
         <div className="boot" role="status">
@@ -150,9 +153,21 @@ interface TopBarProps {
   setMenuOpen: (b: boolean) => void;
   onNew: () => void;
   onOpen: (id: string) => void;
+  onRename: (id: string, title: string) => void;
+  onDelete: (id: string) => void;
 }
 
-function TopBar({ title, recent, currentId, menuOpen, setMenuOpen, onNew, onOpen }: TopBarProps) {
+function TopBar({
+  title,
+  recent,
+  currentId,
+  menuOpen,
+  setMenuOpen,
+  onNew,
+  onOpen,
+  onRename,
+  onDelete,
+}: TopBarProps) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!menuOpen) return;
@@ -181,7 +196,7 @@ function TopBar({ title, recent, currentId, menuOpen, setMenuOpen, onNew, onOpen
       >
         <LogoMark />
         <span className="brand__name">VeriChalk</span>
-        <span className="brand__sub">命题助手</span>
+        <span className="brand__sub">小学数学命题助手</span>
       </a>
       {title && <span className="topbar__title">{title}</span>}
       <div className="topbar__right" ref={root}>
@@ -200,27 +215,19 @@ function TopBar({ title, recent, currentId, menuOpen, setMenuOpen, onNew, onOpen
           </button>
           {menuOpen && (
             <div className="menu" role="menu" aria-label="历史对话">
-              {recent.length === 0 && <p className="menu__empty muted">还没有历史对话</p>}
-              {recent.map((r) => (
-                <button
-                  key={r.id}
-                  type="button"
-                  role="menuitem"
-                  className={`menu__item ${r.id === currentId ? "menu__item--on" : ""}`}
-                  onClick={() => {
-                    setMenuOpen(false);
-                    onOpen(r.id);
-                  }}
-                >
-                  <span className="menu__title">{r.title || "新对话"}</span>
-                  <time className="muted">
-                    {new Date(r.ts).toLocaleDateString("zh-CN", {
-                      month: "numeric",
-                      day: "numeric",
-                    })}
-                  </time>
-                </button>
-              ))}
+              <HistoryMenu
+                recent={recent}
+                currentId={currentId}
+                onOpen={(id) => {
+                  setMenuOpen(false);
+                  onOpen(id);
+                }}
+                onRename={onRename}
+                onDelete={(id) => {
+                  setMenuOpen(false);
+                  onDelete(id);
+                }}
+              />
             </div>
           )}
         </div>

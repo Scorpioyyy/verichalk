@@ -111,7 +111,7 @@ def _build(view: PaperView, pool: Pool) -> str:
     teacher = view.version.value == "teacher"
     if view.class_name:
         info.append(f"班级：{pool.add(view.class_name)}")
-    elif not teacher:
+    elif not teacher and view.name_line:
         info.append(_blank_field("班级"))
     if view.name_line:
         info.append(_blank_field("姓名"))
@@ -121,10 +121,10 @@ def _build(view: PaperView, pool: Pool) -> str:
         info.append(f"时间：{view.duration}")
     if view.total_score is not None:
         info.append(f"满分：{fmt_score(view.total_score)} 分")
-    if not teacher:
-        info.append(_blank_field("得分"))
-    else:
+    if teacher:
         info.append("教师用卷")
+    elif view.name_line:
+        info.append(_blank_field("得分"))
     head.append("#v(0.2em)#align(center)[#text(size: 10pt)[" + "#h(1.6em)".join(info) + "]]")
     head.append("#v(0.2em)#line(length: 100%, stroke: 0.7pt)")
     out.append("\n".join(head))

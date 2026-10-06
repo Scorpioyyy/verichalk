@@ -112,7 +112,7 @@
   overflow: auto;
   display: flex;
   justify-content: center;
-  padding: 8vh 20px 40px;
+  padding: 4.5vh 20px 20px;
   /* 方格纸：练习册的底纹，淡到只是一点氛围 */
   background-image:
     linear-gradient(rgba(61, 90, 241, 0.05) 1px, transparent 1px),
@@ -135,14 +135,18 @@
   margin: 0 -2px;
 }
 .welcome__sub {
-  margin: 10px 0 26px;
+  margin: 8px 0 18px;
   color: var(--ink-2);
-  font-size: 16px;
-  max-width: 56ch;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+.welcome__sub span {
+  display: block; /* 两行，各在句读处断开 */
+  white-space: nowrap;
 }
 .examples {
   list-style: none;
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -186,7 +190,7 @@
 }
 .trust {
   list-style: none;
-  margin: 30px 0 0;
+  margin: 16px 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -1411,6 +1415,9 @@
   .welcome__title {
     font-size: 26px;
   }
+  .welcome__sub span {
+    white-space: normal;
+  }
   .toasts {
     bottom: 64px;
   }
@@ -1419,7 +1426,7 @@
 /* 欢迎页：拍照入口（独立一条，与四个文字示例区分开） */
 .photo-cta {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1476,4 +1483,86 @@
 .btn--stop svg {
   fill: currentColor;
   stroke-width: 3;
+}
+
+/* 历史对话：每行可改名、删除（悬停或键盘聚焦时出现；触屏上常显） */
+.menu__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: var(--radius-sm);
+}
+.menu__row:hover {
+  background: var(--surface-3);
+}
+.menu__row--on {
+  background: var(--brand-soft);
+}
+.menu__row .menu__item {
+  flex: 1;
+  min-width: 0;
+  background: none;
+}
+.menu__row .menu__item:hover {
+  background: none;
+}
+.menu__actions {
+  display: inline-flex;
+  gap: 2px;
+  padding-right: 4px;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.menu__row:hover .menu__actions,
+.menu__row:focus-within .menu__actions {
+  opacity: 1;
+}
+@media (hover: none) {
+  .menu__actions {
+    opacity: 1;
+  }
+}
+.menu__act {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+.menu__act:hover {
+  background: #fff;
+  color: var(--brand);
+}
+.menu__act--danger:hover {
+  color: var(--bad);
+}
+.menu__rename {
+  margin: 4px;
+  min-height: 32px;
+}
+.menu__row--confirm {
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  background: var(--bad-bg);
+}
+.menu__ask {
+  flex: 1 1 100%;
+  font-size: 13px;
+  color: var(--bad);
+}
+.btn--danger-solid {
+  background: var(--stop);
+  border-color: var(--stop);
+  color: #fff;
+}
+.btn--danger-solid:hover:not(:disabled) {
+  background: var(--stop-hover);
+  border-color: var(--stop-hover);
 }

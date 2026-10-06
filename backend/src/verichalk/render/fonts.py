@@ -7,7 +7,6 @@ Typst 遇到没有字形的字符不报错也不警告，只会画出豆腐块�
 from __future__ import annotations
 
 from functools import lru_cache
-from pathlib import Path
 
 import typst
 from fontTools.ttLib import TTFont
@@ -74,7 +73,3 @@ def missing_glyphs(text: str, font_dirs: tuple[str, ...] = ()) -> list[str]:
             continue
         out.append(ch)
     return out
-
-
-def default_font_dirs(extra: Path | None = None) -> tuple[str, ...]:
-    return (str(extra),) if extra and extra.exists() else ()

@@ -209,5 +209,3 @@ Event = Annotated[
     Field(discriminator="type"),
 ]
 EventAdapter: TypeAdapter[Event] = TypeAdapter(Event)
-
-TERMINAL_EVENT_TYPES = frozenset({"run.finished"})

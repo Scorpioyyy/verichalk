@@ -452,6 +452,29 @@ def cmd_photo_e2e(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_injection(args: argparse.Namespace) -> int:
+    """提示注入鲁棒性（G1，闸门）：文本与图片里夹带指令，整条主管线不被劫持、不泄露提示词与密钥。"""
+    from .injection_eval import load_cases, render_report, run_injection_cases
+
+    mode = LLMMode.record if args.record else LLMMode(args.mode)
+    settings = Settings(
+        profile=Profile(args.profile),
+        llm_mode=mode,
+        cassette_namespace=args.cassette_ns or "injection",
+        llm_concurrency=args.concurrency * 4,
+    )
+    root = settings.root_dir
+    base = root / "eval" / "datasets" / "injection"
+    cases = load_cases(base / "cases.yaml")
+    results = asyncio.run(run_injection_cases(settings, cases, base, args.concurrency))
+    md = render_report(results, args.tag or "injection")
+    out = root / "eval" / "reports" / f"injection_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0 if all(r.ok for r in results) else 1
+
+
 def cmd_review(args: argparse.Namespace) -> int:
     """手改复核评测（C2 与 edit.review 消融）：20 次手动编辑，检出率 / 误报 / 时延。"""
     from .edit_eval import load_papers
@@ -470,6 +493,27 @@ def cmd_review(args: argparse.Namespace) -> int:
     rows = asyncio.run(run_review_eval(settings, paper, args.concurrency))
     md = render_review_report(rows, args.tag or "review", settings.features.enabled("edit.review"))
     out = root / "eval" / "reports" / f"review_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    out.write_text(md, encoding="utf-8")
+    print(md)
+    print(f"报告：{out}")
+    return 0
+
+
+def cmd_combo(args: argparse.Namespace) -> int:
+    """组合挖掘的留出召回（P2）：教材里真实的跨点搭配，随机 / 教学位置 / 组合挖掘三者对比与逐信号消融。确定性，不调用模型。"""
+    from ..knowledge import ComboWeights
+    from .combo_eval import render, run_pair_eval
+
+    settings = Settings()
+    kb = KnowledgeService.from_settings(settings)
+    main, ablation = asyncio.run(run_pair_eval(kb, ComboWeights()))
+    md = f"# 组合挖掘留出召回（P2）\n\n{render(main)}\n\n## 逐信号消融\n\n{render(ablation)}"
+    out = (
+        settings.root_dir
+        / "eval"
+        / "reports"
+        / f"combo_{args.tag or 'run'}_{time.strftime('%Y%m%d-%H%M%S')}.md"
+    )
     out.write_text(md, encoding="utf-8")
     print(md)
     print(f"报告：{out}")
@@ -621,6 +665,14 @@ def main() -> None:
     pe.add_argument("--tag", default="")
     pe.add_argument("--cassette-ns", default=None)
     pe.set_defaults(fn=cmd_photo_e2e)
+    ij = sub.add_parser("injection", help="提示注入鲁棒性（G1，闸门；文本与图片）")
+    ij.add_argument("--mode", default="replay_or_live", choices=[m.value for m in LLMMode])
+    ij.add_argument("--record", action="store_true")
+    ij.add_argument("--profile", default="cn", choices=["cn", "intl"])
+    ij.add_argument("--concurrency", type=int, default=2)
+    ij.add_argument("--tag", default="")
+    ij.add_argument("--cassette-ns", default=None)
+    ij.set_defaults(fn=cmd_injection)
     rv = sub.add_parser("review", help="手改复核评测（C2 与 edit.review 消融）")
     rv.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     rv.add_argument("--record", action="store_true")
@@ -633,6 +685,9 @@ def main() -> None:
     pp = sub.add_parser("paper", help="整卷蓝图评测（P-A～P-D；确定性，不调用模型）")
     pp.add_argument("--tag", default="")
     pp.set_defaults(fn=cmd_paper)
+    cb = sub.add_parser("combo", help="组合挖掘的留出召回（P2；确定性，不调用模型）")
+    cb.add_argument("--tag", default="")
+    cb.set_defaults(fn=cmd_combo)
     c = sub.add_parser("compare")
     c.add_argument("--base", required=True)
     c.add_argument("--new", required=True)

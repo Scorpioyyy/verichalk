@@ -39,7 +39,8 @@ export function Welcome({
           今天想<span className="welcome__em">出什么题</span>？
         </h1>
         <p className="welcome__sub">
-          说一句话就行：年级、范围、题量、难度。每道题都会经过核验，答案可靠、不超出学生学过的内容。也可以拍一页练习册，照着出新题。
+          <span>说一句话就行：年级、范围、题量、难度。每道题都会经过核验，</span>
+          <span>答案可靠，不超出学生学过的内容；也可以拍一页练习册，照着出新题。</span>
         </p>
         <Composer
           ref={composerRef}

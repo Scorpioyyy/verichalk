@@ -282,6 +282,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 |---|---|---|
 | POST | `/api/warmup` | 页面打开时调用：后台预热模型连接与前缀缓存（特性开关 `warmup`，有效期内重复调用不发请求；D28） |
 | POST | `/api/sessions` | 新建匿名会话 |
+| PATCH / DELETE | `/api/sessions/{id}` | 改名（标题 1～60 字）/ 删除（级联清理；有进行中的运行时 409；D56） |
 | GET | `/api/sessions/{id}` | 会话状态（消息、当前试卷、进行中的运行） |
 | POST | `/api/sessions/{id}/turns` | 提交一轮输入（multipart：文本 + 图片），返回 `run_id` |
 | GET | `/api/runs/{id}/events` | SSE，支持 `Last-Event-ID` |
@@ -296,6 +297,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | POST | `/api/sessions/{id}/export` | 导出（格式与选项），返回文件 |
 | GET | `/api/health`、`/api/version` | 健康检查与版本（含 chalkbase 版本与数据版本） |
 | GET | `/api/debug/runs`、`/runs/{id}`、`/runs/{id}/events`、`/runs/{id}/stream`（SSE，含 debug 事件）、`/metrics`、`/kp/{id}` | 运行列表（带教师原话与指标）、运行详情、全部事件、实时事件流、聚合指标、知识点详情（需令牌） |
+| POST | `/api/debug/runs/{id}/chat` | 运行分析助手：请求体是对话历史，响应是 SSE（`delta` / `tool` / `done` / `error`；需令牌；D56） |
 | GET/POST | `/api/debug/badcases` | Badcase 列表 / 入库（YAML 文件，根因类别必填） |
 
 ## 12. 前端结构

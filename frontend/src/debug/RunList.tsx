@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "@/shared/api/client";
 import type { AggregateMetrics, DebugRunItem } from "@/shared/api/types";
 import { Icon } from "@/shared/ui/Icon";
-import { fmtCost, fmtDateTime, fmtMs, fmtPct, fmtTokens, shortId, truncate } from "./format";
+import { fmtCost, fmtDateTime, fmtMs, fmtPct, fmtTokens, truncate } from "./format";
 import { useAsync } from "./hooks";
 
 const PAGE = 30;
@@ -46,6 +46,23 @@ export function RunList() {
   const [limit, setLimit] = useState(PAGE);
   const runs = useAsync(() => api.debug.runs({ status, limit }), [status, limit]);
   const agg = useAsync(() => api.debug.metrics(), []);
+  // 点"刷新"要有反应：转圈 → 完成后短暂显示"已刷新"（哪怕没有新运行）
+  const asked = useRef(false);
+  const [done, setDone] = useState<string | null>(null);
+  useEffect(() => {
+    if (asked.current && !runs.loading) {
+      asked.current = false;
+      setDone(runs.error ? "刷新失败" : `已刷新 · 共 ${runs.data?.length ?? 0} 条`);
+      const t = setTimeout(() => setDone(null), 2500);
+      return () => clearTimeout(t);
+    }
+  }, [runs.loading, runs.error, runs.data]);
+  function refresh() {
+    asked.current = true;
+    setDone(null);
+    runs.reload();
+    agg.reload();
+  }
 
   const rows = useMemo(() => {
     const all = runs.data ?? [];
@@ -100,9 +117,19 @@ export function RunList() {
           onChange={(e) => setQ(e.target.value)}
           aria-label="搜索"
         />
-        <button type="button" className="btn btn--sm" onClick={runs.reload}>
-          <Icon name="refresh" size={14} /> 刷新
+        <button type="button" className="btn btn--sm" onClick={refresh} disabled={runs.loading}>
+          {runs.loading ? (
+            <span className="spinner" aria-hidden />
+          ) : (
+            <Icon name="refresh" size={14} />
+          )}{" "}
+          {runs.loading ? "刷新中" : "刷新"}
         </button>
+        {done && (
+          <span className="dbg-refreshed" role="status">
+            {done}
+          </span>
+        )}
       </div>
 
       {runs.error && <p className="notice notice--bad">{runs.error.message}</p>}
@@ -111,6 +138,7 @@ export function RunList() {
           <thead>
             <tr>
               <th>时间</th>
+              <th>运行 ID</th>
               <th>输入</th>
               <th>管线</th>
               <th>状态</th>
@@ -129,14 +157,14 @@ export function RunList() {
             ))}
             {runs.loading && rows.length === 0 && (
               <tr>
-                <td colSpan={11} className="muted dbg-empty">
+                <td colSpan={12} className="muted dbg-empty">
                   加载中……
                 </td>
               </tr>
             )}
             {!runs.loading && rows.length === 0 && (
               <tr>
-                <td colSpan={11} className="muted dbg-empty">
+                <td colSpan={12} className="muted dbg-empty">
                   没有符合条件的运行
                 </td>
               </tr>
@@ -158,6 +186,9 @@ function Row({ r }: { r: DebugRunItem }) {
   return (
     <tr>
       <td className="mono nowrap">{fmtDateTime(r.run.created_at)}</td>
+      <td>
+        <CopyId id={r.run.id} />
+      </td>
       <td className="dbg-input">
         <Link to={`/debug/runs/${r.run.id}`} title={r.input_text}>
           {r.input_text ? (
@@ -168,7 +199,6 @@ function Row({ r }: { r: DebugRunItem }) {
             </span>
           )}
         </Link>
-        <span className="muted mono small"> {shortId(r.run.id)}</span>
       </td>
       <td className="mono">{r.run.pipeline}</td>
       <td>
@@ -190,6 +220,41 @@ function Row({ r }: { r: DebugRunItem }) {
         )}
       </td>
     </tr>
+  );
+}
+
+/** 省略显示的运行 ID；鼠标移上去，旁边出现复制按钮（复制完整 ID，并短暂显示"已复制"）。 */
+function CopyId({ id }: { id: string }) {
+  const [copied, setCopied] = useState(false);
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(id);
+    } catch {
+      const ta = document.createElement("textarea"); // 非安全上下文（http）下没有 clipboard API
+      ta.value = id;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1200);
+  }
+  return (
+    <span className="dbg-idcell">
+      <span className="dbg-idtext mono small" title={id}>
+        {id}
+      </span>
+      <button
+        type="button"
+        className={`dbg-copy ${copied ? "dbg-copy--done" : ""}`}
+        onClick={() => void copy()}
+        aria-label="复制运行 ID"
+        title={copied ? "已复制" : "复制运行 ID"}
+      >
+        <Icon name={copied ? "check" : "copy"} size={13} />
+      </button>
+    </span>
   );
 }
 

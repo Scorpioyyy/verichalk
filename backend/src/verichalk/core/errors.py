@@ -137,11 +137,6 @@ class StageError(VerichalkError):
         self.stage = stage
 
 
-class RunCancelled(VerichalkError):
-    code = "run_cancelled"
-    user_message = "已停止。"
-
-
 # ---- 导出 ----
 class ExportError(VerichalkError):
     code = "export_error"

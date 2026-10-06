@@ -12,6 +12,8 @@ const api = vi.hoisted(() => ({
   redo: vi.fn(),
   restore: vi.fn(),
   history: vi.fn(),
+  renameSession: vi.fn(),
+  deleteSession: vi.fn(),
 }));
 const sse = vi.hoisted(() => ({
   streams: [] as { url: string; onEvent: (e: AppEvent) => void; resolve: () => void }[],
@@ -112,6 +114,54 @@ beforeEach(() => {
   api.getSession.mockResolvedValue(state());
   api.history.mockResolvedValue({ revisions: [], head_rev: 1, can_undo: false, can_redo: false });
   api.postTurn.mockResolvedValue({ session_id: "ses_1", run_id: "run_1", message_id: "m1" });
+});
+
+describe("历史对话：改名与删除", () => {
+  const seed = () =>
+    localStorage.setItem(
+      "verichalk.sessions",
+      JSON.stringify([
+        { id: "ses_1", title: "旧标题", ts: 2 },
+        { id: "ses_9", title: "别的对话", ts: 1 },
+      ]),
+    );
+
+  it("改名：服务端保存，本地列表同步，顺序不变", async () => {
+    seed();
+    api.renameSession.mockResolvedValue({ id: "ses_9", title: "新标题" });
+    const c = new SessionController();
+    await c.renameSession("ses_9", "新标题");
+    expect(api.renameSession).toHaveBeenCalledWith("ses_9", "新标题");
+    expect(c.getSnapshot().recent.map((r) => r.title)).toEqual(["旧标题", "新标题"]);
+  });
+
+  it("删除别的对话：只从列表去掉；删除当前对话：回到主页面", async () => {
+    seed();
+    api.deleteSession.mockResolvedValue(undefined);
+    const c = new SessionController();
+    await c.openSession("ses_1");
+    await c.deleteSession("ses_9");
+    expect(c.getSnapshot().recent.map((r) => r.id)).toEqual(["ses_1"]);
+    expect(c.getSnapshot().sessionId).toBe("ses_1");
+    await c.deleteSession("ses_1");
+    expect(c.getSnapshot().recent).toEqual([]);
+    expect(c.getSnapshot().sessionId).toBeNull();
+    expect(c.getSnapshot().messages).toEqual([]);
+  });
+
+  it("服务端拒绝（还有任务在进行）：列表保持不变并提示原因；对话已不存在（404）：照常去掉", async () => {
+    seed();
+    const c = new SessionController();
+    api.deleteSession.mockRejectedValueOnce(
+      new ApiError(409, "conflict", "busy", "请先停止，再删除。"),
+    );
+    await c.deleteSession("ses_9");
+    expect(c.getSnapshot().recent).toHaveLength(2);
+    expect(c.getSnapshot().toasts.at(-1)?.text).toBe("请先停止，再删除。");
+    api.deleteSession.mockRejectedValueOnce(new ApiError(404, "not_found", "gone", "没有找到。"));
+    await c.deleteSession("ses_9");
+    expect(c.getSnapshot().recent.map((r) => r.id)).toEqual(["ses_1"]);
+  });
 });
 
 describe("发送一轮需求", () => {

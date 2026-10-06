@@ -208,7 +208,9 @@ def render_docx(view: PaperView) -> tuple[bytes, list[str]]:
             info.append(f"学校：{view.school}")
         teacher = view.version.value == "teacher"
         info.append(
-            f"班级：{view.class_name}" if view.class_name else ("" if teacher else "班级：\\_\\_\\_\\_\\_\\_")
+            f"班级：{view.class_name}"
+            if view.class_name
+            else ("" if teacher or not view.name_line else "班级：\\_\\_\\_\\_\\_\\_")
         )
         if view.name_line:
             info.append("姓名：\\_\\_\\_\\_\\_\\_")
@@ -218,7 +220,7 @@ def render_docx(view: PaperView) -> tuple[bytes, list[str]]:
             info.append(f"时间：{view.duration}")
         if view.total_score is not None:
             info.append(f"满分：{fmt_score(view.total_score)} 分")
-        info.append("教师用卷" if teacher else "得分：\\_\\_\\_\\_\\_\\_")
+        info.append("教师用卷" if teacher else ("得分：\\_\\_\\_\\_\\_\\_" if view.name_line else ""))
         ref = root / "reference.docx"
         ref.write_bytes(_reference_docx())
         out = root / "paper.docx"

@@ -215,6 +215,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | `message.delta` | 助手文本增量 | user |
 | `retrieval.result` | 图检索命中的节点、边、分数、选中的组合 | debug |
 | `item.status` | 某题核验状态变化（含 checks 摘要） | user + debug |
+| `item.delivered` | 一道题通过核验、可以给教师看了（带完整 `Item`）。整份试卷要等全部完成才装配成修订，用户端靠它逐题上屏（schema 1.2，D48） | user + debug |
 | `paper.patch` | 试卷新修订（补丁 + rev） | user |
 | `understanding.ready` | 需求理解完成：路由、Brief、"本次假设"芯片（schema 1.1 新增） | user |
 | `checkpoint.requested` | 澄清 / 蓝图确认 / 样题确认 | user |
@@ -233,7 +234,7 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 - **结构化输出**：JSON 模式 + Pydantic 校验；校验失败带错误信息重试（≤2），失败率计入 E5。
 - **缓存友好的提示词布局（E2）**：`PromptBuilder` 把提示固定为 `[静态系统提示 | 会话级稳定上下文 | 本次动态内容]` 三段，只允许在尾部追加；构建时记录每段 token 与"理论可命中前缀"，调用后与 `cached_tokens` 对比，得到前缀稳定度。工具定义、知识库指南、Schema 说明都放在静态段。
 - **提示词即资产**：`prompts/<阶段>/<名称>.md`，带 `id / version / role` 前置元数据；调用 span 记录 `prompt_id@version` 与哈希，评测报告按提示词版本分层。
-- **录制回放**：`mode = live | record | replay | replay_or_live`；键 = hash(model, 参数, messages)。单元 / 集成测试与回归评测用 `replay`，确定且零成本。
+- **录制回放**：`mode = live | record | replay | replay_or_live | replay_or_record`（后者：有录制就回放，没有才调用并录下，用于重录一组互相依赖的录制）；键 = hash(model, 参数, messages)。单元 / 集成测试与回归评测用 `replay`，确定且零成本。
 - **预热**：服务启动与页面打开时，对每个已发布提示词的静态前缀发 `max_tokens=1` 的请求（`orchestrator/warmup.py`）。收益经消融实验验证（D28）。
 - **治理**：并发信号量、429 退避、超时、单运行预算（token / 成本上限，超限触发降级）、价格表（`config/pricing.yaml`，输入未命中 / 命中 / 输出分开）。
 
@@ -287,10 +288,13 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 | POST | `/api/runs/{id}/cancel` | 取消 |
 | PATCH | `/api/sessions/{id}/paper` | 手动编辑（Patch），返回新修订与复核运行 |
 | POST | `/api/sessions/{id}/paper/undo`、`redo`、`restore` | 撤销 / 重做 / 回到某一版（都是新增修订，D43） |
-| GET | `/api/sessions/{id}/paper/history`、`/paper/diff?from=&to=` | 修订历史（含能否撤销 / 重做）与两版之间的差异 |
+| GET | `/api/sessions/{id}/paper/history`、`/paper/diff?from=&to=`、`/paper/revisions/{rev}` | 修订历史（含能否撤销 / 重做）、两版之间的差异、某一版的试卷快照 |
+| GET | `/api/sessions/{id}/figures/{figure_id}` | 试卷里某个图形的 SVG（预览与导出共用同一份渲染） |
+| GET | `/api/knowledge/refs?ids=` | 知识点的教师可读名称与位置（题目旁显示"涉及：…"，永不显示 ID） |
 | POST | `/api/sessions/{id}/export` | 导出（格式与选项），返回文件 |
 | GET | `/api/health`、`/api/version` | 健康检查与版本（含 chalkbase 版本与数据版本） |
-| GET/POST | `/api/debug/...` | 运行列表、span 树、检索载荷、重放、badcase、指标（需令牌） |
+| GET | `/api/debug/runs`、`/runs/{id}`、`/runs/{id}/events`、`/runs/{id}/stream`（SSE，含 debug 事件）、`/metrics`、`/kp/{id}` | 运行列表（带教师原话与指标）、运行详情、全部事件、实时事件流、聚合指标、知识点详情（需令牌） |
+| GET/POST | `/api/debug/badcases` | Badcase 列表 / 入库（YAML 文件，根因类别必填） |
 
 ## 12. 前端结构
 
@@ -298,10 +302,16 @@ Event 信封  { seq, run_id, span_id, parent_id, ts, type, visibility: user|debu
 
 ```
 frontend/src/
-  shared/    api（由 OpenAPI 生成的类型 + 客户端）  events（reducer）  math（KaTeX）  ui（设计系统）
-  user/      chat  paper（工作台 / 试卷视图）  editor  export  upload
-  debug/     runs  flow  timeline  graph  inspector  items  compare  badcase  metrics
+  shared/    api（schema.gen.ts 由 OpenAPI 生成 · types.ts · client.ts · sse.ts）  events（reducer）
+             math（parse · Rich/KaTeX）  ui（base.css 令牌 · components.css · Icon · StatusBadge）  labels.ts（教师语言）
+  user/      controller.ts（会话控制器，不依赖 React）  chat/（消息、进度、检查点、输入框）
+             paper/（工作台：题目卡片、就地编辑器、假设芯片、试卷视图 pdf.js、导出对话框、版本历史与 diff）  Welcome
+  debug/     model.ts（事件 → span 树 / 调用 / 检索 / 题目证据）  RunList  RunDetail  Timeline  GraphView  Calls
+             ItemsEvidence  EventsLog  BadcaseDialog  Badcases
+frontend/e2e/  Playwright 端到端（真实后端 + 模型回放）
 ```
+
+决策见 [D47～D50](design.md)；评测见 [eval/specs/frontend.md](../eval/specs/frontend.md)。
 
 ## 13. 配置、部署与目录
 

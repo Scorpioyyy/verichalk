@@ -9,3 +9,12 @@ node_modules
 **/.pytest_cache
 **/.ruff_cache
 eval/reports
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+eval/cassettes
+eval/datasets
+eval/audits
+eval/annotation
+**/*.log

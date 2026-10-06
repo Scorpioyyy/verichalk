@@ -54,7 +54,7 @@ VeriChalk 是面向小学数学教师的**可验证命题 Agent**：自然语言
 
 ```
 verichalk/
-├── README.md  CLAUDE.md  LICENSE  Dockerfile  .env.example
+├── README.md  CLAUDE.md  LICENSE  Dockerfile  .env.example  .editorconfig
 ├── backend/
 │   ├── pyproject.toml
 │   ├── src/verichalk/        core domain llm trace store sandbox knowledge verify figures render
@@ -84,6 +84,13 @@ python -m verichalk.eval run --suite core --split val --mode replay
 python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items   # M3 快速诊断：只跑创作阶段，约 1 分钟
 python scripts/compare_sets.py a.json b.json                        # 两套产出的盲评对比（好题）
 python scripts/spend.py                                              # 累计模型花费
+
+cd frontend && npm install                    # 前端依赖（Node ≥ 20）
+npm run dev                                   # Vite 开发服务（localhost:5173，/api 代理到 :8000）
+npm run check                                 # tsc + eslint + prettier + vitest
+npm run build                                 # 构建到 frontend/dist（后端同源托管）
+python scripts/gen_types.py [--check]         # 由后端 OpenAPI 生成前端类型（--check 查漂移）
+E2E_MODE=replay npx playwright test           # 端到端（模型回放）；E2E_MODE=replay_or_record 补录（整体重录先删 eval/cassettes/e2e）；本机用 Edge 时加 PW_CHANNEL=msedge
 ```
 评测纪律：迭代用上面的小样本工具，完整评测（含审计）只在里程碑验收时整套跑；接续指南见 `eval/specs/produce.md §9`。
 

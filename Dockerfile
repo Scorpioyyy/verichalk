@@ -1,6 +1,8 @@
-# 草案（M1）：本机未安装 Docker，尚未构建验证；在 M8 部署时验证并定稿。
-# 单容器：构建前端 → 安装后端 → 同一进程托管 API 与静态资源（D2）。
 # syntax=docker/dockerfile:1
+# 说明：开发机没有 Docker，镜像本身未在本机构建；其中每一步都已在等价环境验证——
+# 干净 venv 里 `pip install ./backend`（chalkbase 取自 PyPI）、VERICHALK_ROOT 指向只含 config/ 与 frontend/dist 的目录，
+# 健康检查、前端同源托管、出题与四种格式的导出全部通过。首次部署若构建失败，先看这里。
+# 单容器：构建前端 → 安装后端 → 同一进程托管 API 与静态资源（D2）。
 
 FROM node:22-slim AS web
 WORKDIR /web

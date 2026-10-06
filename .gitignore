@@ -40,3 +40,7 @@ frontend/dist/
 /eval/cassettes/naive_models/
 /eval/cassettes/eval_*/
 /eval/cassettes/edit/
+
+# Playwright
+frontend/test-results/
+frontend/playwright-report/

@@ -131,7 +131,7 @@ Badcase 记录：`id`、来源（run_id 或评测用例）、输入、观察到�
 
 ## 8. 阶段评测规格清单
 
-按里程碑逐个写入 `eval/specs/`：`m1_infra.md`（网关 / trace / 沙箱 / 指标计算的不变量与基线）、`understand.md`、`perceive.md`、`plan.md`、`produce.md`、`edit.md`、`export.md`、`e2e.md`。每份遵循 [CLAUDE.md](../CLAUDE.md) §2 第 1 条的五段结构；写完并跑出基线之后才开始该阶段的实现。
+按里程碑逐个写入 `eval/specs/`：`m1_infra.md`（网关 / trace / 沙箱 / 指标计算的不变量与基线）、`understand.md`、`perceive.md`、`plan.md`、`produce.md`、`edit.md`、`export.md`、`frontend.md`（U1 用户端与 D1 调试台：前端的评测不走 `python -m verichalk.eval`，是 vitest 与 Playwright）、`e2e.md`。每份遵循 [CLAUDE.md](../CLAUDE.md) §2 第 1 条的五段结构；写完并跑出基线之后才开始该阶段的实现。
 
 ## 9. 消融实验（拒绝盲目堆砌复杂度）
 

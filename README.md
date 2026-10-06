@@ -4,7 +4,7 @@
 
 课程知识（北师大版 1～6 年级：知识图谱、题型、能力边界、情境）来自 [ChalkBase](https://github.com/Scorpioyyy/chalkbase)。
 
-> 状态：开发中（M0 文档收敛完成，进入 M1 基建）。路线图见 [docs/roadmap.md](docs/roadmap.md)。
+> 状态：开发中。后端（理解 / 规划 / 创作与核验 / 编辑与组卷 / 导出）、用户端与调试台已可本地跑通；拍照输入（M4）与云端部署（M8）未完成。路线图见 [docs/roadmap.md](docs/roadmap.md)。
 
 ## 设计要点
 
@@ -28,7 +28,15 @@
 
 ## 本地运行
 
-（M1 完成后补充。）需要环境变量 `DASHSCOPE_API_KEY` / `DASHSCOPE_BASE_URL`（国内）或 `DASHSCOPE_INTL_API_KEY` / `DASHSCOPE_INTL_BASE_URL`（新加坡），以及 `VERICHALK_PROFILE=cn|intl`。
+需要环境变量 `DASHSCOPE_API_KEY` / `DASHSCOPE_BASE_URL`（国内）或 `DASHSCOPE_INTL_API_KEY` / `DASHSCOPE_INTL_BASE_URL`（新加坡），以及 `VERICHALK_PROFILE=cn|intl`。Python ≥ 3.11、Node ≥ 20。
+
+```bash
+pip install -e "backend[dev]"        # 后端（依赖 chalkbase）
+cd frontend && npm install && npm run build && cd ..
+python scripts/dev.py run            # http://localhost:8000：用户端 /，调试台 /debug（本机未配置令牌时直接可进）
+```
+
+前端开发：`cd frontend && npm run dev`（Vite，`/api` 代理到 8000）。完整命令见 [CLAUDE.md §8](CLAUDE.md)。
 
 ## 许可
 

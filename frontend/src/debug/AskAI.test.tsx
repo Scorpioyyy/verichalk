@@ -62,14 +62,31 @@ describe("AI 分析面板", () => {
   });
 });
 
-describe("示例问题", () => {
-  it("输入框为空时按 Tab 采纳示例问题，有内容时不拦截", async () => {
+describe("推荐提问与示例", () => {
+  it("针对这次运行的推荐与常见问题分开显示；点推荐就发问", async () => {
+    const chat = fakeChat([{ type: "delta", text: "好" }, { type: "done" }]);
+    render(<AskAI runId="run_1" ready specific={["为什么「produce」阶段最慢？"]} />);
+    expect(screen.getByText("针对这次运行")).toBeInTheDocument();
+    expect(screen.getByText("常见问题")).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "为什么「produce」阶段最慢？" }));
+    await waitFor(() => expect(chat).toHaveBeenCalled());
+    expect(chat.mock.calls[0]?.[1]?.[0]?.content).toBe("为什么「produce」阶段最慢？");
+  });
+
+  it("没有针对这次运行的推荐时只显示常见问题", () => {
     render(<AskAI runId="run_1" ready />);
+    expect(screen.queryByText("针对这次运行")).toBeNull();
+    expect(screen.getByText("常见问题")).toBeInTheDocument();
+  });
+
+  it("输入框为空时按 Tab 采纳第一条推荐（提示里的 Tab 画成键帽），有内容时不拦截", async () => {
+    render(<AskAI runId="run_1" ready specific={["第一条推荐？", "第二条推荐？"]} />);
     const box = screen.getByRole("textbox", { name: "向分析助手提问" });
-    expect(screen.getByText("Tab").tagName).toBe("KBD"); // 提示里的 Tab 画成键帽
+    expect(screen.getByText("Tab").tagName).toBe("KBD");
+    expect(screen.getByText(/第一条推荐？/, { selector: ".ai__hint" })).toBeInTheDocument();
     box.focus();
     await userEvent.tab();
-    expect(box).toHaveValue("第 2 题为什么被重试？");
+    expect(box).toHaveValue("第一条推荐？");
     expect(box).toHaveFocus();
     await userEvent.tab(); // 已有内容：照常移走焦点
     expect(box).not.toHaveFocus();

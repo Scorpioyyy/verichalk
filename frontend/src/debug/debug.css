@@ -959,6 +959,15 @@
   margin: 0 0 14px;
   line-height: 1.7;
 }
+.ai__group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 16px 0 8px !important;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+}
 .ai__chips {
   display: flex;
   flex-direction: column;
@@ -978,6 +987,19 @@
   border-color: var(--brand);
   color: var(--brand);
   background: var(--brand-soft);
+}
+/* 针对这次运行的推荐：用品牌色实底与"常见问题"的白底描边区分 */
+.ai__chip--run {
+  border-color: var(--brand-border);
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-weight: 500;
+  text-align: left;
+}
+.ai__chip--run:hover:not(:disabled) {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
 }
 .ai__chip:disabled {
   opacity: 0.55;
@@ -1125,9 +1147,15 @@
 .ai__field {
   position: relative;
 }
+.ai__field .input {
+  min-height: 54px;
+  padding: 14px 12px;
+}
 .ai__hint {
   position: absolute;
-  inset: 8px 12px auto 12px;
+  inset: 0 12px;
+  display: flex;
+  align-items: center;
   color: var(--ink-3);
   line-height: 1.5;
   pointer-events: none;

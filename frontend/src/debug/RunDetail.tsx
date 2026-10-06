@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import type { RunMetrics } from "@/shared/api/types";
 import { Icon } from "@/shared/ui/Icon";
@@ -11,6 +11,7 @@ import { GraphView } from "./GraphView";
 import { isForbidden, useRun } from "./hooks";
 import { ItemsEvidence } from "./ItemsEvidence";
 import { StatusPill } from "./RunList";
+import { suggestForRun } from "./suggest";
 import { Timeline } from "./Timeline";
 
 const TABS = [
@@ -32,6 +33,7 @@ export function RunDetail() {
   const [badcaseItem, setBadcaseItem] = useState<string | null>(null);
   const [saved, setSaved] = useState("");
   const { detail, model } = run;
+  const specific = useMemo(() => suggestForRun(model), [model]);
 
   if (run.error) {
     return (
@@ -147,7 +149,7 @@ export function RunDetail() {
         {!run.loading && tab === "events" && <EventsLog events={run.events} />}
         {/* 常驻挂载（切到别的视图时只隐藏），对话不会因切换而丢失 */}
         <div hidden={tab !== "ai"}>
-          <AskAI runId={runId} ready={!run.loading && !!detail} />
+          <AskAI runId={runId} ready={!run.loading && !!detail} specific={specific} />
         </div>
       </section>
 

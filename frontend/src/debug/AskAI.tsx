@@ -3,15 +3,12 @@ import { api, ApiError, type ChatEvent, type ChatTurn } from "@/shared/api/clien
 import { Icon } from "@/shared/ui/Icon";
 import { Markdown } from "./markdown";
 
-const SUGGESTIONS = [
+const GENERIC = [
   "总结这次运行：做了什么、花了多久、花了多少钱",
   "有没有异常、重试或失败？根因可能是什么",
   "有题目被核验拦下吗？为什么，后来怎么处理的",
   "耗时最长的是哪几步？有什么优化空间",
 ];
-
-// 输入框为空时按 Tab 填入的示例问题（和占位提示里写的是同一句）
-const EXAMPLE = "第 2 题为什么被重试？";
 
 interface Msg {
   role: "user" | "assistant";
@@ -21,14 +18,27 @@ interface Msg {
   streaming?: boolean;
 }
 
-/** 与"这一次运行"对话的分析助手。上下文由后端组织（运行摘要常驻 + 工具按需查询），这里只负责对话界面。 */
-export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
+/**
+ * 与"这一次运行"对话的分析助手。上下文由后端组织（运行摘要常驻 + 工具按需查询），这里只负责对话界面。
+ * `specific` 是针对这次运行算出来的推荐提问（见 suggest.ts），第一条同时是输入框里 Tab 采纳的示例。
+ */
+export function AskAI({
+  runId,
+  ready,
+  specific = [],
+}: {
+  runId: string;
+  ready: boolean;
+  specific?: string[];
+}) {
+  const example = specific[0] ?? GENERIC[3] ?? "";
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const abort = useRef<AbortController | null>(null);
   // 回答流式输出时页面跟着往下滚；教师一旦自己滚动（滚轮 / 触摸 / 键盘 / 拖滚动条），这一轮就不再自动滚
   const root = useRef<HTMLDivElement>(null);
+  const field = useRef<HTMLTextAreaElement>(null);
   const follow = useRef(true);
   const buffer = useRef("");
   const raf = useRef(0);
@@ -62,6 +72,13 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
       window.removeEventListener("keydown", onKey);
     };
   }, []);
+  useLayoutEffect(() => {
+    // 输入框随内容长高（最多约 6 行），清空后缩回单行
+    const el = field.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 150)}px`;
+  }, [draft]);
   useLayoutEffect(() => {
     // 面板被切到别的视图（隐藏）时不要拽着页面走
     if (follow.current && msgs.length > 0 && root.current?.offsetParent !== null)
@@ -140,16 +157,37 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
           <p className="muted">
             助手已读过这次运行的概况（阶段、耗时、模型调用、题目与核验结果），需要细节时会自己去查对应的提示词、回复和证据。
           </p>
+          {specific.length > 0 && (
+            <>
+              <p className="ai__group">
+                <Icon name="activity" size={13} /> 针对这次运行
+              </p>
+              <div className="ai__chips">
+                {specific.map((q) => (
+                  <button
+                    key={q}
+                    type="button"
+                    className="ai__chip ai__chip--run"
+                    disabled={!ready || busy}
+                    onClick={() => void ask(q)}
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+          <p className="ai__group">常见问题</p>
           <div className="ai__chips">
-            {SUGGESTIONS.map((s) => (
+            {GENERIC.map((q) => (
               <button
-                key={s}
+                key={q}
                 type="button"
                 className="ai__chip"
                 disabled={!ready || busy}
-                onClick={() => void ask(s)}
+                onClick={() => void ask(q)}
               >
-                {s}
+                {q}
               </button>
             ))}
           </div>
@@ -199,8 +237,9 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
       >
         <div className="ai__field">
           <textarea
+            ref={field}
             className="input"
-            rows={2}
+            rows={1}
             value={draft}
             aria-label="向分析助手提问"
             aria-keyshortcuts="Tab"
@@ -209,7 +248,7 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
             onKeyDown={(e) => {
               if (e.key === "Tab" && !e.shiftKey && !draft && !e.nativeEvent.isComposing) {
                 e.preventDefault(); // 输入框为空时，Tab 采纳示例问题；有内容时照常切换焦点
-                setDraft(EXAMPLE);
+                setDraft(example);
                 return;
               }
               if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
@@ -223,7 +262,7 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
             <div className="ai__hint" aria-hidden>
               {ready ? (
                 <>
-                  问点什么，例如：{EXAMPLE}按 <kbd>Tab</kbd> 采纳
+                  问点什么，例如：{example} 按 <kbd>Tab</kbd> 采纳
                 </>
               ) : (
                 "运行加载中……"

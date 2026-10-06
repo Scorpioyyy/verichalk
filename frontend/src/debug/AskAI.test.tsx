@@ -62,6 +62,20 @@ describe("AI 分析面板", () => {
   });
 });
 
+describe("示例问题", () => {
+  it("输入框为空时按 Tab 采纳示例问题，有内容时不拦截", async () => {
+    render(<AskAI runId="run_1" ready />);
+    const box = screen.getByRole("textbox", { name: "向分析助手提问" });
+    expect(box).toHaveAttribute("placeholder", expect.stringContaining("Tab"));
+    box.focus();
+    await userEvent.tab();
+    expect(box).toHaveValue("第 2 题为什么被重试？");
+    expect(box).toHaveFocus();
+    await userEvent.tab(); // 已有内容：照常移走焦点
+    expect(box).not.toHaveFocus();
+  });
+});
+
 describe("流式输出时的滚动", () => {
   it("默认跟着往下滚；教师自己滚动后，这一轮不再自动滚；下一轮重新跟随", async () => {
     const scroll = vi.spyOn(window, "scrollTo").mockImplementation(() => {});

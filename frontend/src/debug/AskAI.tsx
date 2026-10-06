@@ -10,6 +10,9 @@ const SUGGESTIONS = [
   "耗时最长的是哪几步？有什么优化空间",
 ];
 
+// 输入框为空时按 Tab 填入的示例问题（和占位提示里写的是同一句）
+const EXAMPLE = "第 2 题为什么被重试？";
+
 interface Msg {
   role: "user" | "assistant";
   text: string;
@@ -198,11 +201,17 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
           className="input"
           rows={2}
           value={draft}
-          placeholder={ready ? "问点什么，例如：第 2 题为什么被重试？" : "运行加载中……"}
+          placeholder={ready ? `问点什么，例如：${EXAMPLE}（按 Tab 键直接采纳）` : "运行加载中……"}
+          aria-keyshortcuts="Tab"
           aria-label="向分析助手提问"
           disabled={!ready}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => {
+            if (e.key === "Tab" && !e.shiftKey && !draft && !e.nativeEvent.isComposing) {
+              e.preventDefault(); // 输入框为空时，Tab 采纳示例问题；有内容时照常切换焦点
+              setDraft(EXAMPLE);
+              return;
+            }
             if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
               e.preventDefault();
               void ask(draft);

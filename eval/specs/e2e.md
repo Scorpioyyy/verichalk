@@ -102,4 +102,4 @@
 
 ### 5.5 工程与回归
 
-后端 990 个测试（含架构分层、事件协议快照、OpenAPI 契约、F5、G1 检测器）、前端 116 个 vitest、Playwright 端到端 18 个用户场景（模型回放，无网络无密钥；含无障碍、无内部词、控制台干净、手机宽度）全部通过；ruff、pyright、`gen_types --check` 干净。
+后端 990 个测试（含架构分层、事件协议快照、OpenAPI 契约、F5、G1 检测器）、前端 117 个 vitest、Playwright 端到端 18 个用户场景（模型回放，无网络无密钥；含无障碍、无内部词、控制台干净、手机宽度）全部通过；ruff、pyright、`gen_types --check` 干净。

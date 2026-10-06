@@ -42,7 +42,7 @@
 
 ## 回归
 
-后端 990 个测试、前端 116 个 vitest、Playwright 端到端 18 个用户场景（模型回放）；ruff、pyright、契约类型检查干净。
+后端 990 个测试、前端 117 个 vitest、Playwright 端到端 18 个用户场景（模型回放）；ruff、pyright、契约类型检查干净。
 
 ## 报告索引
 

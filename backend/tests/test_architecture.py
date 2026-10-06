@@ -37,8 +37,9 @@ RESTRICTED = {
     "sqlite3": {"store/db.py", "store/repos.py"},
     "subprocess": {
         "render/",
+        "sandbox/runner.py",
         "eval/report.py",
-    },  # 渲染引擎（pandoc / typst）在 render/ 内调用；报告读取 git 版本
+    },  # 渲染引擎（pandoc / typst）在 render/ 内调用；求解程序在沙箱的子进程里执行；报告读取 git 版本
     "openai": set(),
 }
 # 特例：只有这些位置可以创建子进程

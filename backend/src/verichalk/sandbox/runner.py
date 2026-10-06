@@ -9,6 +9,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import subprocess
 import sys
 import time
 from dataclasses import dataclass
@@ -88,29 +89,26 @@ async def run_solver(
         "PATH": os.environ.get("PATH", ""),
         "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""),
     }  # 不继承任何密钥类环境变量
-    async with trace.tool_span("sandbox.run_solver", entry=entry):
-        t0 = time.perf_counter()
-        proc = await asyncio.create_subprocess_exec(
-            sys.executable,
-            "-X",
-            "utf8",
-            "-I",
-            str(_HARNESS),
-            stdin=asyncio.subprocess.PIPE,
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
+    cmd = [sys.executable, "-X", "utf8", "-I", str(_HARNESS)]
+
+    def _run() -> subprocess.CompletedProcess[bytes]:
+        return subprocess.run(
+            cmd,
+            input=payload.encode("utf-8"),
+            capture_output=True,
+            timeout=timeout_s,  # 超时由 subprocess 杀掉子进程
             env=env,
             **kwargs,
         )
+
+    async with trace.tool_span("sandbox.run_solver", entry=entry):
+        t0 = time.perf_counter()
+        # 在线程里同步运行子进程：不依赖事件循环的类型（Windows 上 uvicorn --reload 用的事件循环不支持 asyncio 子进程）
         try:
-            out, err = await asyncio.wait_for(proc.communicate(payload.encode("utf-8")), timeout=timeout_s)
-        except TimeoutError:
-            proc.kill()
-            await proc.wait()
+            proc = await asyncio.to_thread(_run)
+        except subprocess.TimeoutExpired:
             raise SandboxTimeout(f"求解程序超过 {timeout_s}s") from None
-        except BaseException:
-            proc.kill()
-            raise
+        out, err = proc.stdout, proc.stderr
         dur = (time.perf_counter() - t0) * 1000
     text = out.decode("utf-8", "replace")[:MAX_OUTPUT]
     if _MARK not in text:

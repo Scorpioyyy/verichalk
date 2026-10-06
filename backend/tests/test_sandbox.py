@@ -94,3 +94,17 @@ async def test_decimal_context_precision_is_allowed() -> None:
     code = "from decimal import Decimal, getcontext\ndef solve():\n    getcontext().prec = 30\n    return [Decimal('1') / Decimal('3')]\n"
     r = await run_solver(code)
     assert len(str(r.value[0])) > 20
+
+
+def test_solver_runs_on_a_selector_event_loop():
+    """Windows 上 `uvicorn --reload` 用的是不支持 asyncio 子进程的选择器事件循环；沙箱不能依赖事件循环的类型。"""
+    import asyncio
+
+    from verichalk.sandbox import run_solver
+
+    loop = asyncio.SelectorEventLoop()
+    try:
+        res = loop.run_until_complete(run_solver("def solve():\n    return 6*7\n"))
+    finally:
+        loop.close()
+    assert res.value == 42

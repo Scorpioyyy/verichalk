@@ -1,0 +1,18 @@
+{
+ "key": "8b8ddbee9af654c626443a4a6fd6946c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"探索规律：两位数与其十位个位对调后的数相加（减）的特点\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 561,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6477.8259000740945,
+ "ttft_ms": 6477.849300019443,
+ "total_ms": 7365.157300024293
+}

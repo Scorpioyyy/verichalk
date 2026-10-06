@@ -1,0 +1,18 @@
+{
+ "key": "c510562e7aa3751cdf1bedc2fe5d313d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数乘两位数的竖式计算\": false}, \"issues\": [\"解析用口算拆分（24×5、24×10）代替了题目要求的竖式计算，未体现竖式过程\", \"题目要求列竖式计算，但解析没有展示竖式，知识点与解答不匹配\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 529,
+  "completion_tokens": 108,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1333.0689000431448,
+ "ttft_ms": 1333.0905000912026,
+ "total_ms": 2672.4200000753626
+}

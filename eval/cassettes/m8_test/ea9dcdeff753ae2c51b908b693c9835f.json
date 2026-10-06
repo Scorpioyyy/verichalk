@@ -1,0 +1,18 @@
+{
+ "key": "ea9dcdeff753ae2c51b908b693c9835f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较三个小数的大小：3.25、4.10、2.98。先看整数部分，4>3>2，所以4.10最大，即小红的奖金最多。\", \"answers\": [{\"label\": \"谁的奖金最多\", \"value\": \"小红\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5337.03300007619,
+ "ttft_ms": 5337.0484000770375,
+ "total_ms": 6169.775500078686
+}

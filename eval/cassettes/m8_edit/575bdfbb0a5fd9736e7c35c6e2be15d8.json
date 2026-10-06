@@ -1,0 +1,18 @@
+{
+ "key": "575bdfbb0a5fd9736e7c35c6e2be15d8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答正确指出第5题考查解两步方程（先加后除/等式性质），与题目解析一致，未编造或改动答案。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 752,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1957.8600999666378,
+ "ttft_ms": 1957.891199970618,
+ "total_ms": 2529.0836000349373
+}

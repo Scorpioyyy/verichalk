@@ -1,0 +1,18 @@
+{
+ "key": "09f0ec341d6d6974271efc1442905ffd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"第一步：先算 $62 \\\\times 37 = 2294$。第二步：要求积有 2 位小数，第一个乘数 62 有 0 位小数，所以第二个乘数应有 2 位小数，取 0.37。第三步：$62 \\\\times 0.37 = 22.94$。填 62、0.37、22.94。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 195,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1484.192100004293,
+ "ttft_ms": 1484.2178000835702,
+ "total_ms": 2466.3486999925226
+}

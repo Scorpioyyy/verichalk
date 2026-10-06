@@ -1,0 +1,18 @@
+{
+ "key": "1ee81eb8ceefcbfc76b3d283154a1c23",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：做手工花，每束需要5朵。现有23朵，问最多能做几束，还剩几朵。这是典型的包含除法。23÷5=4……3。商是4（束），余数是3（朵）。难度在于区分单位，且题目要求两问（虽然规格说尽量一问，但有余数除法通常商和余数都要回答，规格允许“一问都不能少”，这里视为一个完整问题的两个部分）。为了符合“只问一个问题”且“答案是数值”，我将问题设计为填空形式或者明确问两个结果。规格要求“一道题只考一件事”，有余数除法的商和余数是同一件事的两个方面。我将采用填空题形式，或者应用题直接问“可以做几束？还剩几朵？”。根据规格“填空题最多两个空”，我选择填空题形式，这样更紧凑。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    total = 23\\n    per_bundle = 5\\n    quotient = total // per_bundle\\n    remainder = total % per_bundle\\n    return [quotient, remainder]\",\n \"stem\": \"手工课上，老师拿来 $23$ 朵红花，每 $5$ 朵扎成一束。最多可以扎成 ____ 束，还剩 ____ 朵。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"可以扎成的束数\",\n   \"value\": \"4\",\n   \"unit\": \"束\"\n  },\n  {\n   \"label\": \"剩下的花朵数\",\n   \"value\": \"3\",\n   \"unit\": \"朵\"\n  }\n ],\n \"solution\": \"求 $23$ 里有几个 $5$，用除法计算：$23\\\\div 5=4$（束）……$3$（朵）。商表示能扎成的束数，余数表示剩下的朵数。\",\n \"kp_use\": {\n  \"有余数除法的认识\": \"通过 $23\\\\div 5$ 的竖式或口算，得出商 $4$ 和余数 $3$，并正确赋予商和余数对应的实际意义及单位\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2204,
+  "completion_tokens": 488,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1429.7102999407798,
+ "ttft_ms": 1446.14409992937,
+ "total_ms": 9871.02339998819
+}

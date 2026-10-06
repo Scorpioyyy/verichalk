@@ -1,0 +1,18 @@
+{
+ "key": "37a8368830881aa3bfc9e03ef23a0967",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 2700, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"5\", \"108\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"20\", \"108\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"540\", \"2160\"], \"mode\": null}], \"concepts\": [\"三位数乘两位数的竖式计算与估算\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4456,
+  "completion_tokens": 120,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2769.0307999728248,
+ "ttft_ms": 2769.0521999029443,
+ "total_ms": 3903.704199939966
+}

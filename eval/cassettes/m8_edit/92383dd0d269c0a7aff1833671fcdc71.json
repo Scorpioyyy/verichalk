@@ -1,0 +1,18 @@
+{
+ "key": "92383dd0d269c0a7aff1833671fcdc71",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答确认第2题答案为对，并说明三角形内角和为180°，与题目答案和解析一致。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 713,
+  "completion_tokens": 38,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2457.1721999673173,
+ "ttft_ms": 2457.35030004289,
+ "total_ms": 2764.792799949646
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c2c1b08440b2c27dfeb0905a51911068",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"一位小数的加减法（不进退位）\": true, \"小数与十进分数的对应关系\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 607,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1990.7341999933124,
+ "ttft_ms": 1990.9555000485852,
+ "total_ms": 2776.2645999900997
+}

@@ -1,0 +1,18 @@
+{
+ "key": "63002ef8fe4304e08571d959cb0e90cb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 36, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"36\", \"4\"], \"mode\": null}], \"concepts\": [\"用乘法口诀求商\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4423,
+  "completion_tokens": 74,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5586.618900066242,
+ "ttft_ms": 5586.634200066328,
+ "total_ms": 6156.749999965541
+}

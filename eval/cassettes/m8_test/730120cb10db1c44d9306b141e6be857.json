@@ -1,0 +1,18 @@
+{
+ "key": "730120cb10db1c44d9306b141e6be857",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计比例 3:4 = x:12.8。内项积 4x，外项积 3*12.8=38.4。x=38.4/4=9.6。数值在范围内，情境为折纸部件长度。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 3 : 4 = x : 12.8\\n    # 4 * x = 3 * 12.8\\n    return [Decimal('3') * Decimal('12.8') / Decimal('4')]\",\n \"stem\": \"在制作折纸飞机时，机翼长度与机身长度的比是 $3:4$。如果机身长 $12.8$ 厘米，那么机翼长多少厘米？设机翼长为 $x$ 厘米，列比例并求解。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"9.6\",\n   \"unit\": \"厘米\"\n  }\n ],\n \"solution\": \"根据题意列比例 $3:4=x:12.8$。由比例基本性质得 $4x=3\\\\times 12.8$，即 $4x=38.4$。解得 $x=9.6$。\",\n \"kp_use\": {\n  \"解比例\": \"将比例 $3:4=x:12.8$ 转化为方程 $4x=38.4$ 并求解未知数 $x$\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2334,
+  "completion_tokens": 358,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1283.4615999599919,
+ "ttft_ms": 1296.6940000187606,
+ "total_ms": 7491.82540003676
+}

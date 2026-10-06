@@ -1,0 +1,18 @@
+{
+ "key": "3a16c679472cc2c26ca1710a9b8d5c64",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：猎豹最高时速120千米，羚羊最高时速比猎豹慢1/6。求羚羊速度。计算：120 * (1 - 1/6) = 120 * 5/6 = 100。数值在范围内，整数结果，符合五年级水平。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    cheetah_speed = 120\\n    slower_fraction = Fraction(1, 6)\\n    # 羚羊速度是猎豹的 (1 - 1/6)\\n    antelope_speed = cheetah_speed * (1 - slower_fraction)\\n    return [int(antelope_speed)]\",\n \"stem\": \"猎豹的最高奔跑速度可达每小时 $120$ 千米，而羚羊的最高奔跑速度比猎豹慢 $\\\\frac{1}{6}$。羚羊的最高奔跑速度是多少千米？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"100\",\n   \"unit\": \"千米\"\n  }\n ],\n \"solution\": \"把猎豹的速度看作单位“1”，羚羊的速度是猎豹的 $1-\\\\frac{1}{6}=\\\\frac{5}{6}$。用乘法计算：$120\\\\times \\\\frac{5}{6}=100$（千米）。\",\n \"kp_use\": {\n  \"整数乘分数（求一个数的几分之几是多少）\": \"先求出羚羊速度对应的分率 $1-\\\\frac{1}{6}$，再用猎豹速度乘以该分率得到具体数值\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2378,
+  "completion_tokens": 373,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2397.060599992983,
+ "ttft_ms": 2397.295300033875,
+ "total_ms": 8592.891299980693
+}

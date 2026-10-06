@@ -1,0 +1,18 @@
+{
+ "key": "367783533a5e6255e41f7361fbf46490",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 50,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"8\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"16\", \"12\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"50\", \"28\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"22\", \"3\"], \"mode\": \"remainder\"}\n  ],\n  \"concepts\": [\"用去尾法解决实际问题\", \"有余数除法的认识\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4500,
+  "completion_tokens": 160,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3382.7177999773994,
+ "ttft_ms": 3382.745199953206,
+ "total_ms": 4444.083499955013
+}

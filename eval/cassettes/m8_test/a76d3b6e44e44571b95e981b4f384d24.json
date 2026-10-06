@@ -1,0 +1,18 @@
+{
+ "key": "a76d3b6e44e44571b95e981b4f384d24",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：小明坐地铁，单程票价4元。他充值了50元，最后卡里还剩2元。求他一共坐了多少次地铁（往返算2次，这里简化为总次数）。总花费 = 50 - 2 = 48元。次数 = 48 / 4 = 12次。验算：12 * 4 = 48，48 + 2 = 50。符合除法的验算逻辑（商×除数+余数=被除数，这里余数为0，或者理解为总钱数减去剩余钱数后整除）。为了体现“有余数”的考点变式，调整数据：充值53元，剩1元。花费52元。52/4=13次。验算：13*4+1=53。这样更贴合“有余数除法验算”的知识点，虽然实际意义是整除部分，但可以用总钱数做被除数。或者：已知总钱数和单次票价，求最多坐几次，剩多少钱？然后验算。题目：小明卡里有53元，坐地铁每次4元，他最多能坐几次？还剩多少元？请用乘法验算你的结果。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    total = 53\\n    price = 4\\n    count = total // price\\n    remainder = total % price\\n    # 验算: count * price + remainder == total\\n    return [count, remainder]\",\n \"stem\": \"小明公交卡里有 $53$ 元，乘坐地铁每次扣费 $4$ 元。他最多能乘坐多少次？还剩多少元？请列式计算并用乘法验算。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"最多乘坐次数\",\n   \"value\": \"13\",\n   \"unit\": \"次\"\n  },\n  {\n   \"label\": \"剩余金额\",\n   \"value\": \"1\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"用总钱数除以单价：$53\\\\div 4=13$（次）$\\\\cdots\\\\cdots 1$（元）。验算：$13\\\\times 4+1=53$（元），结果正确。最多能坐 13 次，还剩 1 元。\",\n \"kp_use\": {\n  \"除法的验算方法\": \"在得出商和余数后，通过‘商×除数+余数’是否等于被除数来验证计算的正确性\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2269,
+  "completion_tokens": 595,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1624.162600026466,
+ "ttft_ms": 1642.1729000285268,
+ "total_ms": 12517.088299966417
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7a1fa4a1a5c5af7114d8502b68b982e0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答解释了干扰项0.3、30、3.5来自小数点位置错误等常见错误，与题目答案A（3）及解析一致，未编造或改动答案。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 815,
+  "completion_tokens": 54,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10830.054500023834,
+ "ttft_ms": 10830.077599966899,
+ "total_ms": 11415.758999995887
+}

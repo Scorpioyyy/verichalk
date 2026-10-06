@@ -1,0 +1,18 @@
+{
+ "key": "b0af4d3b784a1dba8f732dfc66e36f20",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": false, \"complete\": false, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"积的小数位数规则\": true}, \"issues\": [\"题目要求'在横线上填上合适的数'，但三个空都是开放的，答案不唯一（如 96×0.61、96×0.62、96×0.63 等均满足积有2位小数），题意不唯一。\", \"题目只给出一个示例答案，却未说明是否唯一或要求写出所有可能，条件与问题对不上，无法判断学生答案是否正确。\", \"题目开头说'计算 96 × 61'，但后续三空与 96×61 的计算结果无直接关联，题干信息冗余且与问题脱节。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 577,
+  "completion_tokens": 187,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1565.4547000303864,
+ "ttft_ms": 1565.468000015244,
+ "total_ms": 4857.196699944325
+}

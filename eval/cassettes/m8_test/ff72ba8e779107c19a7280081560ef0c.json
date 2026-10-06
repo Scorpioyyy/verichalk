@@ -1,0 +1,18 @@
+{
+ "key": "ff72ba8e779107c19a7280081560ef0c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 120, \"decimal_places\": null, \"fraction_types\": [\"几分之几\", \"几分之一\"], \"operations\": [{\"op\": \"减法\", \"operands\": [\"1\", \"5/6\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"120\", \"1/6\"], \"mode\": null}], \"concepts\": [\"整数乘分数（求一个数的几分之几是多少）\"], \"units_of_measure\": [\"千米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4456,
+  "completion_tokens": 114,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5864.864900009707,
+ "ttft_ms": 6379.878200008534,
+ "total_ms": 8014.985200017691
+}

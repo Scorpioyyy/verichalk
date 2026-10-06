@@ -1,0 +1,18 @@
+{
+ "key": "4ab8dde1a4cb0b24f675fa62a28e1c81",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 50,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"12.5\", \"8.6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"21.1\", \"4.9\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"50\", \"26\"], \"mode\": null}\n  ],\n  \"concepts\": [\"小数加减法（位数不同）\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 139,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5856.719800038263,
+ "ttft_ms": 5856.736700050533,
+ "total_ms": 7976.553500047885
+}

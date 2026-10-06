@@ -1,0 +1,18 @@
+{
+ "key": "c6151ab3872c13b51968be938584b45e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每回收1吨废纸产生再生纸3/4吨，节约木材5/8吨。收集4/5吨废纸，则产生再生纸(3/4)×(4/5)=3/5吨，节约木材(5/8)×(4/5)=1/2吨。再生纸比节约的木材多3/5-1/2=6/10-5/10=1/10吨。\", \"answers\": [{\"label\": \"再生纸重量比节约的木材重量多多少吨\", \"value\": \"1/10\", \"unit\": \"吨\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 397,
+  "completion_tokens": 144,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5661.361000034958,
+ "ttft_ms": 5661.382799968123,
+ "total_ms": 24168.192300014198
+}

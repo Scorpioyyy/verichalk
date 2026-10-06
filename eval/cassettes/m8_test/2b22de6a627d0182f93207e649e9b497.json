@@ -1,0 +1,18 @@
+{
+ "key": "2b22de6a627d0182f93207e649e9b497",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"第一步：先看个位，8 加 5 得 13。\\n第二步：13 满十，向十位进 1，个位写 3，所以结果是 13。\\n因此 8 + 5 = 13。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 145,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 16969.875399954617,
+ "ttft_ms": 16969.900300027803,
+ "total_ms": 17640.193399973214
+}

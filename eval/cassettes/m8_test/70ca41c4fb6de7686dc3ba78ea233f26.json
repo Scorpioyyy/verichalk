@@ -1,0 +1,18 @@
+{
+ "key": "70ca41c4fb6de7686dc3ba78ea233f26",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"正方形面积：20×20=400（平方厘米）。每个角剪去的等腰直角三角形面积：4.5×4.5÷2=10.125（平方厘米）。四个角共剪去：10.125×4=40.5（平方厘米）。剩下面积：400-40.5=359.5（平方厘米）。\", \"answers\": [{\"label\": \"剪完后剩下的十字形彩纸面积\", \"value\": \"359.5\", \"unit\": \"平方厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 346,
+  "completion_tokens": 121,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7053.933199960738,
+ "ttft_ms": 7053.955799899995,
+ "total_ms": 8056.748199975118
+}

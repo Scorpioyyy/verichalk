@@ -1,0 +1,18 @@
+{
+ "key": "6ec392d8de39cf36920c8e5ab55eab6a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 26,\n  \"fraction_types\": [],\n  \"operations\": [\n    \"24-6=18\",\n    \"18+8=26\"\n  ],\n  \"concepts\": [\n    \"已知相差关系和一个量，求另一个量\"\n  ],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4459,
+  "completion_tokens": 76,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4003.0213000718504,
+ "ttft_ms": 4003.2311000395566,
+ "total_ms": 4839.963600039482
+}

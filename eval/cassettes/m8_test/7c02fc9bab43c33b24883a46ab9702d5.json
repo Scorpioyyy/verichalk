@@ -1,0 +1,18 @@
+{
+ "key": "7c02fc9bab43c33b24883a46ab9702d5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 40, \"decimal_places\": null, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"除法\", \"operands\": [\"3/4\", \"5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"3/20\", \"6\"], \"mode\": null}], \"concepts\": [\"分数除以整数\", \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\"], \"units_of_measure\": [\"吨\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4512,
+  "completion_tokens": 117,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17705.96769999247,
+ "ttft_ms": 17705.995099968277,
+ "total_ms": 18567.309099948034
+}

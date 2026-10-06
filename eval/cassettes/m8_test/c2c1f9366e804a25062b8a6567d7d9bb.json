@@ -1,0 +1,18 @@
+{
+ "key": "c2c1f9366e804a25062b8a6567d7d9bb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1234567890 是十位数，最高位是十亿位，计数单位是十亿。省略亿位后面的尾数，看千万位上的数字是 3，3<5，所以舍去，约是 12 亿。因此选 B。\", \"answers\": [{\"label\": \"正确选项\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 410,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5487.728799926117,
+ "ttft_ms": 5487.745299935341,
+ "total_ms": 7731.538999942131
+}

@@ -1,0 +1,18 @@
+{
+ "key": "94905f03bdbb8e10d0d34e496b7b689e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：网购图书。甲店满100减20，乙店打八折。小明买了x元书。若两店实付相同，求x。方程：x-20=0.8x。解得0.2x=20, x=100。检查：100在范围内，且满足满减门槛。难度4因为需要理解优惠逻辑并建立等量关系。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 甲店：满100减20，即 x - 20\\n    # 乙店：打八折，即 0.8 * x\\n    # 方程：x - 20 = 0.8 * x\\n    # 移项：x - 0.8x = 20 => 0.2x = 20 => x = 100\\n    return [Decimal('100')]\",\n \"stem\": \"某网店举办促销活动，A 店铺的规则是“每满 $100$ 元减 $20$ 元”，B 店铺的规则是“全场打八折”。小明打算购买一套原价相同的图书，发现若在两家店铺购买，实际支付的金额恰好相等。这套图书的原价是多少元？（假设原价刚好满足 A 店铺的满减门槛）\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"100\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"设图书原价为 $x$ 元。A 店实付 $x-20$ 元，B 店实付 $0.8x$ 元。列方程 $x-20=0.8x$，解得 $0.2x=20$，所以 $x=100$。\",\n \"kp_use\": {\n  \"用字母表示数与方程（总复习）\": \"设原价为 $x$，根据两家店铺优惠后的实付金额相等列出方程 $x-20=0.8x$，并利用等式的性质求解\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2341,
+  "completion_tokens": 488,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2219.291999936104,
+ "ttft_ms": 2244.2042999900877,
+ "total_ms": 10525.455700000748
+}

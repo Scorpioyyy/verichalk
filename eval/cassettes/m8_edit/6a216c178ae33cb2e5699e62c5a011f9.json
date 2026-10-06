@@ -1,0 +1,18 @@
+{
+ "key": "6a216c178ae33cb2e5699e62c5a011f9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答正确指出第6题单位是元，与题目答案和解析一致。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 749,
+  "completion_tokens": 32,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1228.9743999717757,
+ "ttft_ms": 1229.3392999563366,
+ "total_ms": 1614.356099977158
+}

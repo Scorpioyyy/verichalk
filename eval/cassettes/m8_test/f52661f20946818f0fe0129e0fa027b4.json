@@ -1,0 +1,18 @@
+{
+ "key": "f52661f20946818f0fe0129e0fa027b4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2支钢笔：8×2=16（元）；笔记本12元；共花16+12=28（元）；剩下50-28=22（元）；22÷3=7（块）……1（元）。\", \"answers\": [{\"label\": \"最多能买几块橡皮\", \"value\": \"7\", \"unit\": \"块\"}, {\"label\": \"还剩多少元\", \"value\": \"1\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14424.014099990018,
+ "ttft_ms": 14425.460699945688,
+ "total_ms": 15506.15030003246
+}

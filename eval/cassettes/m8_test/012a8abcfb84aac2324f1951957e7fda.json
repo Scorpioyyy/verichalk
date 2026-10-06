@@ -1,0 +1,18 @@
+{
+ "key": "012a8abcfb84aac2324f1951957e7fda",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总价8640元，数量72副，单价=8640÷72。被除数是四位数，除数72是两位数。看被除数的前两位：86÷72够除，所以商的最高位在百位，商是三位数。\", \"answers\": [{\"label\": \"商是几位数\", \"value\": \"三\", \"unit\": \"位数\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 330,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1394.670300069265,
+ "ttft_ms": 1394.6858000708744,
+ "total_ms": 2548.5663000727072
+}

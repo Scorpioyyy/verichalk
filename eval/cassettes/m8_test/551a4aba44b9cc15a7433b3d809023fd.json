@@ -1,0 +1,18 @@
+{
+ "key": "551a4aba44b9cc15a7433b3d809023fd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三角形面积=底×高÷2，所以底=面积×2÷高。13.5×2=27，27÷4.5=6。\", \"answers\": [{\"label\": \"底边长\", \"value\": \"6\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 329,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3529.7410999191925,
+ "ttft_ms": 3529.7598999459296,
+ "total_ms": 4441.472599981353
+}

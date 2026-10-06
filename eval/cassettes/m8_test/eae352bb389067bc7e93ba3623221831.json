@@ -1,0 +1,18 @@
+{
+ "key": "eae352bb389067bc7e93ba3623221831",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": false, \"complete\": false, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 3, \"kp_used\": {\"用字母表示数与方程（总复习）\": true}, \"issues\": [\"A 店铺'每满100元减20元'是分段满减规则，原价超过100元时实付应为 x-20×⌊x/100⌋，而解析只按 x-20 计算，题意与解法不一致\", \"题目只说'原价刚好满足 A 店铺的满减门槛'，未说明是否只满一个100元，导致 A 店实付金额不唯一，答案不唯一\", \"按解析的方程 x-20=0.8x 解得 x=100，但 x=100 时 A 店实付80元、B 店实付80元，看似成立；然而若原价为200元，A 店实付160元、B 店实付160元也相等，说明满足条件的原价不止一个，题目条件不足\", \"解析中把'每满100元减20元'简化为只减20元，悄悄改动了题目条件\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 595,
+  "completion_tokens": 265,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 23421.991599956527,
+ "ttft_ms": 23422.01900004875,
+ "total_ms": 26833.684899960645
+}

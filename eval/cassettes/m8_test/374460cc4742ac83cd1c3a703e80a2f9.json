@@ -1,0 +1,18 @@
+{
+ "key": "374460cc4742ac83cd1c3a703e80a2f9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把积分按每100积分换1元折算：325积分=3.25元，410积分=4.10元，298积分=2.98元。比较得4.10元最大，所以小红兑换的奖金最多。\", \"answers\": [{\"label\": \"谁兑换的奖金最多\", \"value\": \"小红\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 373,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2519.5738999173045,
+ "ttft_ms": 2519.592999946326,
+ "total_ms": 4178.060499951243
+}

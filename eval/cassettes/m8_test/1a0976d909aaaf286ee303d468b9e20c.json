@@ -1,0 +1,18 @@
+{
+ "key": "1a0976d909aaaf286ee303d468b9e20c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4个同样的文具盒一共36元，求每个文具盒的价钱，就是把36元平均分成4份，36÷4=9（元）。\", \"answers\": [{\"label\": \"每个文具盒多少元\", \"value\": \"9\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 307,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5218.548099976033,
+ "ttft_ms": 5218.715899973176,
+ "total_ms": 5976.735399919562
+}

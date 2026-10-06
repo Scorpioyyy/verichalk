@@ -12,7 +12,7 @@ VeriChalk 是面向小学数学教师的**可验证命题 Agent**：自然语言
 2. **用户视角先于技术视角。** 任何设计先回答"教师会怎样用、会在哪里卡住"。界面文案与对话使用教师语言，不暴露内部概念。
 3. **分层与契约。** 依赖只能向下（[architecture §2](docs/architecture.md)，由 `tests/test_architecture.py` 强制）；领域模型是前后端契约的唯一来源（OpenAPI → TypeScript 类型自动生成，不手写）。
 4. **在根因所在的层修复，不打补丁。** 修复前先归因（[evaluation §6](docs/evaluation.md)）；改动涉及 3 个以上模块时，先回到架构文档确认是否缺少抽象；修复必须附回归用例和前后指标对比。
-5. **确定性优先。** 能用规则或算法完成的不交给模型；模型只用在需要语义理解 / 创作的地方，并且每次调用都在 trace 里可查。
+5. **确定性优先。** 能用规则或算法完成的不交给模型；模型只用在需要语义理解 / 生成的地方，并且每次调用都在 trace 里可查。
 6. **一切可观测。** 业务代码里的阶段、工具、模型调用都必须在 `trace.span(...)` 内；不允许绕过网关直连模型、绕过沙箱执行代码。
 7. **不预先加组件。** 新组件、新依赖、新字段必须对应已观察到的失败或未达标的指标；非显然的决策记入 `docs/design.md`（`D<n>`）。
 8. **数值精确。** 小数、分数一律 `Decimal` / `Fraction`，禁止浮点参与答案计算与比较。
@@ -81,7 +81,7 @@ pip install -e "backend[dev]"                 # 后端依赖
 python scripts/dev.py check                   # ruff + pyright + pytest（L1）
 python scripts/dev.py run                     # 本地启动后端（localhost:8000）
 python -m verichalk.eval run --suite core --split val --mode replay
-python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items   # M3 快速诊断：只跑创作阶段，约 1 分钟
+python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items   # M3 快速诊断：只跑生成阶段，约 1 分钟
 python scripts/compare_sets.py a.json b.json                        # 两套产出的盲评对比（好题）
 python scripts/spend.py                                              # 累计模型花费
 python scripts/make_photo_variants.py                               # 拍照评测的变体集与负例集（照片在 eval/datasets/photos/raw/，不入库）

@@ -1,0 +1,18 @@
+{
+ "key": "0bd52b89c60cb6bedd6e810705168074",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B情境更丰富（海豚蓝鲸、篮球联赛、节水试验），包含小数位数判断、字母表示数、两步应用题等多样考法，能暴露单位换算和积的小数位数易错点，思维含量更高；练习A题型和情境较单一，多为一步计算。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 785,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2038.90909999609,
+ "ttft_ms": 2038.9441999141127,
+ "total_ms": 4126.655799918808
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4330878b5e55e47498f17bf02ebf02d5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把周六擦的9张和周日擦的5张合起来，9+5=14。\", \"answers\": [{\"label\": \"两天一共擦了多少张桌子\", \"value\": \"14\", \"unit\": \"张\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 315,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 16007.981300004758,
+ "ttft_ms": 16008.007999975234,
+ "total_ms": 16918.238800019026
+}

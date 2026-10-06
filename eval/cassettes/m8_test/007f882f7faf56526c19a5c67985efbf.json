@@ -1,0 +1,18 @@
+{
+ "key": "007f882f7faf56526c19a5c67985efbf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4872500000 改写成用“亿”作单位的数是 48.725 亿。省略亿位后面的尾数，要看千万位上的数：千万位是 7，7≥5，需要向前一位进 1，所以 48 亿进 1 后是 49 亿。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 103,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9566.562800086103,
+ "ttft_ms": 9566.74290006049,
+ "total_ms": 10446.531600086018
+}

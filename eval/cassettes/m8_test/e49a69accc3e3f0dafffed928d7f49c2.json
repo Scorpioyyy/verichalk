@@ -1,0 +1,18 @@
+{
+ "key": "e49a69accc3e3f0dafffed928d7f49c2",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A包含判断商位数、搭配问题等需要推理的题目，情境真实多样，能暴露易错点；练习B全是纯计算，思维含量低，不符合四年级对问题解决能力的要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 533,
+  "completion_tokens": 54,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1995.1381999999285,
+ "ttft_ms": 1995.1636999612674,
+ "total_ms": 3259.360200027004
+}

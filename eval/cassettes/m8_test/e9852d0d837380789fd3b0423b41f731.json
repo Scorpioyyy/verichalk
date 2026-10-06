@@ -1,0 +1,18 @@
+{
+ "key": "e9852d0d837380789fd3b0423b41f731",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把去年回收废纸量看作单位“1”，今年比去年增加1/6，则今年是去年的1+1/6=7/6。设去年回收x千克，则7/6x=4200，x=4200÷7/6=4200×6/7=3600。\", \"answers\": [{\"label\": \"去年回收废纸多少千克\", \"value\": \"3600\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1494.908900000155,
+ "ttft_ms": 1494.933999958448,
+ "total_ms": 2343.0117999669164
+}

@@ -1,0 +1,18 @@
+{
+ "key": "63e5ffc88cd6ae5acb28b3ebfd732885",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":180,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[],\"concepts\":[\"三角形内角和\"],\"units_of_measure\":[\"度\"],\"geometry_vocab\":[\"三角形\",\"内角和\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4388,
+  "completion_tokens": 52,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1494.306799955666,
+ "ttft_ms": 1494.3271999945864,
+ "total_ms": 1983.6949999444187
+}

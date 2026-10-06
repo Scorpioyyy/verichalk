@@ -1,0 +1,18 @@
+{
+ "key": "6340268748cdbc19fce80297d54327b3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"各月天数与平年闰年的规律\": true, \"用有余数除法解决周期排列位置问题\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 597,
+  "completion_tokens": 77,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7339.695899980143,
+ "ttft_ms": 7339.718600036576,
+ "total_ms": 7741.681599989533
+}

@@ -1,0 +1,18 @@
+{
+ "key": "1e65d1a316082e3218b178c6eb0c4d77",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 3000,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"20\", \"15\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"300\", \"10\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"8\", \"8\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"64\", \"8\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"3000\", \"512\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"20\", \"15\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"20\", \"10\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"15\", \"10\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"200\", \"150\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"350\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"300\", \"700\"], \"mode\": null}\n  ],\n  \"concepts\": [\"长方体和正方体的体积\", \"长方体和正方体的表面积\"],\n  \"units_of_measure\": [\"厘米\", \"平方厘米\", \"立方厘米\"],\n  \"geometry_vocab\": [\"长方体\", \"正方体\", \"棱长\", \"表面积\", \"体积\", \"长\", \"宽\", \"高\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4553,
+  "completion_tokens": 346,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5740.618700045161,
+ "ttft_ms": 5740.6349000521,
+ "total_ms": 8290.036699967459
+}

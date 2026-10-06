@@ -1,0 +1,18 @@
+{
+ "key": "4afcd0c08e7d35206d8588acf3411ffc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"月初520本，新购进135本，借走86本。先算购进后：520+135=655本；再算借走后：655-86=569本。\", \"answers\": [{\"label\": \"\", \"value\": \"569\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8054.029999999329,
+ "ttft_ms": 8054.048800026067,
+ "total_ms": 8870.399600011297
+}

@@ -1,0 +1,18 @@
+{
+ "key": "25887e4aaf503b402da218b638d11067",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1班、2班和3班每班8人，共3×8=24人；4班12人；24-12=12人。\", \"answers\": [{\"label\": \"1班、2班和3班派出的总人数比4班多多少人\", \"value\": \"12\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12837.501000030898,
+ "ttft_ms": 12841.815300052986,
+ "total_ms": 13785.656900028698
+}

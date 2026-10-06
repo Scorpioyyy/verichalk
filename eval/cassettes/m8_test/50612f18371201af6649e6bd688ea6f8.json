@@ -1,0 +1,18 @@
+{
+ "key": "50612f18371201af6649e6bd688ea6f8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总人口减去0~14岁和15~59岁人口，即12.5-3.8-6.25=2.45（万人）。\", \"answers\": [{\"label\": \"60岁及以上人口\", \"value\": \"2.45\", \"unit\": \"万人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6775.7820000406355,
+ "ttft_ms": 6775.808200007305,
+ "total_ms": 7401.269600028172
+}

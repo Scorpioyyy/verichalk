@@ -1,0 +1,18 @@
+{
+ "key": "e01bdb248d107c815ab28c3e1a632044",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"观察每一行：第一个加数固定，第二个加数从2开始依次加1，得数也依次加1。第三行第一个算式3+2=5，第二个3+3=6，所以第三个3+4=7。\", \"answers\": [{\"label\": \"3+4的得数\", \"value\": \"7\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 392,
+  "completion_tokens": 94,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3208.051100024022,
+ "ttft_ms": 3208.083900040947,
+ "total_ms": 4700.415299972519
+}

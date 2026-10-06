@@ -1,0 +1,18 @@
+{
+ "key": "e05f4c778942d4dbd86619ebe121c7e2",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：自驾总路程240km。第一段走了1/3，第二段走了剩下的1/4，求第二段路程。或者更直接考察分数除法：已知某段路程是总路程的几分之几，求总路程？不，规格要求“已知总路程和分段行驶的分率，求某一段”。\\n试算：总路程 $S=240$ km。第一段走了 $\\\\frac{1}{3}$，即 $80$ km。剩下 $160$ km。第二段走了剩下的 $\\\\frac{1}{4}$，即 $40$ km。\\n为了体现“分数除法”，可以这样问：已知第二段路程是 $40$ km，且第二段路程是剩余路程的 $\\\\frac{1}{4}$，而剩余路程是总路程减去第一段的 $\\\\frac{1}{3}$。这有点绕。\\n换个思路：已知总路程 $240$ km。第一天行了全程的 $\\\\frac{1}{3}$，第二天行了余下的 $\\\\frac{3}{5}$。求第二天行了多少千米？\\n计算：剩余 $1 - 1/3 = 2/3$。第二天行 $2/3 \\\\times 3/5 = 2/5$。$240 \\\\times 2/5 = 96$。这里主要用乘法。\\n如何融入分数除法？\\n题目：一辆车行驶了一段路程后，发现剩下的路程是已行路程的 $\\\\frac{2}{3}$。如果已行路程是 $120$ km，求总路程？\\n$120 \\\\div (1 - \\\\frac{2}{5})$? 不对。\\n让我们结合“四则运算”和“分数除法”。\\n情境：导航显示，前方服务区距离当前位置 $45$ km，这段距离占剩余全程的 $\\\\frac{3}{8}$。而剩余全程占总行程的 $\\\\frac{5}{12}$。求总行程。\\n步骤1：求剩余全程。$45 \\\\div \\\\frac{3}{8} = 45 \\\\times \\\\frac{8}{3} = 120$ km。（用到分数除法）\\n步骤2：求总行程。$120 \\\\div \\\\frac{5}{12} = 120 \\\\times \\\\frac{12}{5} = 288$ km。（用到分数除法）\\n检查数值：288在范围内。小数位数0。符合。\\n再加点四则混合运算？\\n修改：前方服务区距离 $45.6$ km（一位小数），占剩余全程的 $\\\\frac{3}{8}$。剩余全程比总行程的 $\\\\frac{1}{2}$ 多 $20$ km。求总行程。\\n1. 剩余全程：$45.6 \\\\div \\\\frac{3}{8} = 45.6 \\\\times \\\\frac{8}{3} = 15.2 \\\\times 8 = 121.6$ km。\\n2. 设总行程 $x$。$\\\\frac{1}{2}x + 20 = 121.6$。\\n3. $\\\\frac{1}{2}x = 101.6$。\\n4. $x = 203.2$ km。\\n这个好。涉及小数除以分数（转乘法），以及逆运算（四则混合）。\\n验证：$203.2 / 2 = 101.6$。$101.6 + 20 = 121.6$。$121.6 * 3/8 = 15.2 * 3 = 45.6$。正确。\",\n \"solver_code\": \"from decimal import Decimal, getcontext\\nfrom fractions import Fraction\\n\\ndef solve():\\n    # 设置精度，虽然这里主要是精确分数或有限小数\\n    getcontext().prec = 20\\n    \\n    # 数据\\n    dist_to_service = Decimal('45.6')\\n    frac_of_remaining = Fraction(3, 8)\\n    extra_km = Decimal('20')\\n    frac_of_total = Fraction(1, 2)\\n    \\n    # 步骤1: 计算剩余全程\\n    # remaining = dist_to_service / frac_of_remaining\\n    # 使用 Fraction 进行精确计算，最后转 Decimal\\n    remaining_frac = Fraction(dist_to_service) / frac_of_remaining\\n    # Fraction(456/10) / Fraction(3,8) = Fraction(456,10) * Fraction(8,3) = Fraction(3648, 30) = Fraction(608, 5) = 121.6\\n    remaining_val = Decimal(remaining_frac.numerator) / Decimal(remaining_frac.denominator)\\n    \\n    # 步骤2: 计算总行程\\n    # remaining_val = total * frac_of_total + extra_km\\n    # total * frac_of_total = remaining_val - extra_km\\n    # total = (remaining_val - extra_km) / frac_of_total\\n    \\n    part_total_val = remaining_val - extra_km\\n    total_frac = Fraction(part_total_val) / frac_of_total\\n    total_val = Decimal(total_frac.numerator) / Decimal(total_frac.denominator)\\n    \\n    return [total_val]\",\n \"stem\": \"爸爸开车自驾游，导航显示前方服务区距离当前位置 $45.6$ 千米，这段距离正好是剩余全程的 $\\\\frac{3}{8}$。已知剩余全程比总行程的 $\\\\frac{1}{2}$ 多 $20$ 千米。这次自驾的总行程是多少千米？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"203.2\",\n   \"unit\": \"千米\"\n  }\n ],\n \"solution\": \"先求剩余全程：$45.6\\\\div\\\\frac{3}{8}=121.6$ 千米。再求总行程的 $\\\\frac{1}{2}$ 是多少：$121.6-20=101.6$ 千米。最后求总行程：$101.6\\\\div\\\\frac{1}{2}=203.2$ 千米。\",\n \"kp_use\": {\n  \"四则运算的计算方法（总复习）\": \"在处理“剩余全程比总行程的1/2多20千米”时，运用减法逆运算求出总行程的一半，再进行除法计算，涉及小数与分数的混合运算顺序及数值处理\",\n  \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": \"在计算剩余全程（$45.6\\\\div\\\\frac{3}{8}$）和总行程（$101.6\\\\div\\\\frac{1}{2}$）时，将除法转化为乘以倒数进行计算\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2598,
+  "completion_tokens": 1551,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1710.5866000056267,
+ "ttft_ms": 1710.7302999356762,
+ "total_ms": 28261.813399964012
+}

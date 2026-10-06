@@ -1,0 +1,18 @@
+{
+ "key": "db31c8ba99c7edc2f00750151c459478",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"紧挨着59的前一个数是58。\", \"answers\": [{\"label\": \"\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 337,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5652.514100074768,
+ "ttft_ms": 5652.779099997133,
+ "total_ms": 6229.361400008202
+}

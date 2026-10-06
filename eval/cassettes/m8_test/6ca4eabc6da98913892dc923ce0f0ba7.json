@@ -1,0 +1,18 @@
+{
+ "key": "6ca4eabc6da98913892dc923ce0f0ba7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 2880,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"1968\", \"24\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"2880\", \"32\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"90\", \"82\"], \"mode\": null}\n  ],\n  \"concepts\": [\"两、三位数除以一位数的笔算方法\", \"单价、数量与总价的关系\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4499,
+  "completion_tokens": 145,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1995.5720000434667,
+ "ttft_ms": 1995.7865999313071,
+ "total_ms": 3265.879899961874
+}

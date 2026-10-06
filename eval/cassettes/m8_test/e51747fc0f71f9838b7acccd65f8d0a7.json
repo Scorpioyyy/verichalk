@@ -1,0 +1,18 @@
+{
+ "key": "e51747fc0f71f9838b7acccd65f8d0a7",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"B\",\n  \"reason\": \"B卷三题均将分数与长方体知识深度融合，需多步推理（如体积变化求高度占比、棱长总和与倍数关系求体积、涂色问题求占比），思维含量高；情境真实多样（水箱、倍数棱长、涂色切割），数据合理；而A卷仅第1题勉强综合，第2题几乎脱离长方体，第3题情境牵强且计算意义模糊，整体未达拔高要求。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 762,
+  "completion_tokens": 110,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1998.178799985908,
+ "ttft_ms": 1998.2153000310063,
+ "total_ms": 4791.086899931543
+}

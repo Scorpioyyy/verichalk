@@ -1,0 +1,18 @@
+{
+ "key": "8e3c166f4396c7dcc93eb60acc5fb9e6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"有余数除法的认识\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 521,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5514.258300070651,
+ "ttft_ms": 5514.2884000670165,
+ "total_ms": 6163.961800048128
+}

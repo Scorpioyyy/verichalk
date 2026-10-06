@@ -1,0 +1,18 @@
+{
+ "key": "12711828d4701cba483a7e30ebf85b6b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 23, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"15\", \"8\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"10\", \"8\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"2\", \"5\"], \"mode\": null}], \"concepts\": [\"20以内退位减法\", \"用减法解决相差问题（比多比少）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4478,
+  "completion_tokens": 127,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4698.325900011696,
+ "ttft_ms": 4698.356400011107,
+ "total_ms": 5629.990500048734
+}

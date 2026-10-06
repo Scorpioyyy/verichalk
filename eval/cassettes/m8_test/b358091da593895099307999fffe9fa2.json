@@ -1,0 +1,18 @@
+{
+ "key": "b358091da593895099307999fffe9fa2",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A通过真实情境（测量幼苗、生物园种植、奖金分配）将小数与分数自然串联，涉及单位换算、多步推理和实际应用，思维含量高且针对易错点；练习B多为机械互化与计算，情境单一，缺乏综合性与深度。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 618,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1691.2367000477389,
+ "ttft_ms": 1691.2659000372514,
+ "total_ms": 3063.973000040278
+}

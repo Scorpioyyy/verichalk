@@ -1,0 +1,18 @@
+{
+ "key": "26e368d10c0e72906207abd21c97ca93",
+ "model": "qwen3.7-plus",
+ "purpose": "edit.rewrite_text",
+ "text": "{\n\"text\": \"平均每次：$(102+98+110+105+100)\\\\div5=103$（个）。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1493.201999925077,
+ "ttft_ms": 1510.2842999622226,
+ "total_ms": 2230.6398999644443
+}

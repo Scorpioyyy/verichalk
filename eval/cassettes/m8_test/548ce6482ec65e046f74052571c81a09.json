@@ -1,0 +1,18 @@
+{
+ "key": "548ce6482ec65e046f74052571c81a09",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"方阵共有10行10列，所以总人数为10×10=100人。每人彩带长0.8米，总长度为100×0.8=80米。\", \"answers\": [{\"label\": \"总长度\", \"value\": \"80\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 339,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8239.055200014263,
+ "ttft_ms": 8239.078099955805,
+ "total_ms": 8463.549299980514
+}

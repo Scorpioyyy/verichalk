@@ -1,0 +1,18 @@
+{
+ "key": "b43e7a17338ca1a799a628d48884544f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 18, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"15\", \"3\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"18\", \"5\"], \"mode\": null}], \"concepts\": [\"100以内三个数加减混合运算\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4444,
+  "completion_tokens": 95,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1923.9165999460965,
+ "ttft_ms": 1923.9363999804482,
+ "total_ms": 2697.1843999344856
+}

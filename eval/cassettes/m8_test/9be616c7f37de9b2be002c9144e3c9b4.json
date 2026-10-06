@@ -1,0 +1,18 @@
+{
+ "key": "9be616c7f37de9b2be002c9144e3c9b4",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B的情境更真实具体（如月历、购物找零），数据含小数且需处理单位一致性，易错点更突出；而练习A情境老套、数据过于规整，思维挑战和多样性不足。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 536,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1990.4551999643445,
+ "ttft_ms": 1990.4812999302521,
+ "total_ms": 3406.69119998347
+}

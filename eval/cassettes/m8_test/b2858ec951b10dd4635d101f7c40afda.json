@@ -1,0 +1,18 @@
+{
+ "key": "b2858ec951b10dd4635d101f7c40afda",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 60,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"24\", \"60\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"15\", \"60\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"12\", \"60\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"9\", \"60\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"24\", \"12\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"60\", \"12\"], \"mode\": null}\n  ],\n  \"concepts\": [\"求生活中的比率型百分数\", \"约分与最简分数\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4564,
+  "completion_tokens": 205,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4683.996199979447,
+ "ttft_ms": 4684.021000051871,
+ "total_ms": 6770.863999961875
+}

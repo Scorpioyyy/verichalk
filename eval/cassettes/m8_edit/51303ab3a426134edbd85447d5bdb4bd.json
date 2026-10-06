@@ -1,0 +1,18 @@
+{
+ "key": "51303ab3a426134edbd85447d5bdb4bd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"方程两边同时加4.5，得3x=12；两边同时除以3，得x=4。\", \"answers\": [{\"label\": \"\", \"value\": \"4\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 303,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1080.3325000451878,
+ "ttft_ms": 1080.3456000285223,
+ "total_ms": 1730.893100029789
+}

@@ -1,0 +1,18 @@
+{
+ "key": "54d0fa956c8c87b8bd46e99ac877dc3e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每盒1.5元，买6盒，总价=1.5×6=9（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7148.542000097223,
+ "ttft_ms": 7148.7090000882745,
+ "total_ms": 7583.659099997021
+}

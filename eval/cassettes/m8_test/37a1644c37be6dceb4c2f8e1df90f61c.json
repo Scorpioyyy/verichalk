@@ -1,0 +1,18 @@
+{
+ "key": "37a1644c37be6dceb4c2f8e1df90f61c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"四名同学投中个数分别为6、7、9、12，总和为6+7+9+12=34，平均数=34÷4=8.5，8.5大于8。\", \"answers\": [{\"label\": \"\", \"value\": \"大于\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7785.199899924919,
+ "ttft_ms": 7785.229499917477,
+ "total_ms": 8186.881199944764
+}

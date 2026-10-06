@@ -1,0 +1,18 @@
+{
+ "key": "718c9abae73bcc5377caa495e0fb626c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"现金投币2元，公交卡1.85元，节省的钱数=2-1.85=0.15元。\", \"answers\": [{\"label\": \"节省了多少钱\", \"value\": \"0.15\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2249.1003000177443,
+ "ttft_ms": 2249.1269999882206,
+ "total_ms": 2869.736999971792
+}

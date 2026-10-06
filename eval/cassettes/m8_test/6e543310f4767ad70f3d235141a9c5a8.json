@@ -1,0 +1,18 @@
+{
+ "key": "6e543310f4767ad70f3d235141a9c5a8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"设每公顷计划产量为1份。甲田计划产量为80份，实际收获80×3/4=60份；乙田计划产量为60份，实际收获60×2/3=40份。甲田比乙田多收获60-40=20份，即20公顷的计划产量。\", \"answers\": [{\"label\": \"甲田比乙田多收获了多少公顷的计划产量\", \"value\": \"20\", \"unit\": \"公顷\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8720.7435000455,
+ "ttft_ms": 8720.758100040257,
+ "total_ms": 9854.909299989231
+}

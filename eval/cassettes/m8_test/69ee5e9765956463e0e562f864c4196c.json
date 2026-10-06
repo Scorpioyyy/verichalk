@@ -1,0 +1,18 @@
+{
+ "key": "69ee5e9765956463e0e562f864c4196c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"b\",\"topics\":[\"长方体体积\",\"长方体表面积\"],\"count\":4,\"constraints\":[\"贴近生活\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 52,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2021.3556999806315,
+ "ttft_ms": 2021.3724999921396,
+ "total_ms": 2300.018399953842
+}

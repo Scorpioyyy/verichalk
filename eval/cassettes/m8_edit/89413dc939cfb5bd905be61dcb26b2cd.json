@@ -1,0 +1,18 @@
+{
+ "key": "89413dc939cfb5bd905be61dcb26b2cd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": true, \"小数加减混合运算\": true}, \"issues\": [\"解析计算正确，应找回 2.5 元，但给定答案为 2 元，两者不一致。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 528,
+  "completion_tokens": 98,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1119.572600000538,
+ "ttft_ms": 1119.5910000242293,
+ "total_ms": 2171.056600054726
+}

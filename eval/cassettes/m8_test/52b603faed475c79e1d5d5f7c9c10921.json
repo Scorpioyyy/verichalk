@@ -1,0 +1,18 @@
+{
+ "key": "52b603faed475c79e1d5d5f7c9c10921",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 360,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"360\", \"45\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"24\", \"3/8\"], \"mode\": null}\n  ],\n  \"concepts\": [\"列举简单随机现象的所有可能结果\", \"事件发生的不确定性与可能性大小\"],\n  \"units_of_measure\": [\"度\"],\n  \"geometry_vocab\": [\"扇形\", \"圆心\", \"角\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4514,
+  "completion_tokens": 131,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7480.639799963683,
+ "ttft_ms": 7480.667999945581,
+ "total_ms": 8345.940099912696
+}

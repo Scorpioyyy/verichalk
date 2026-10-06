@@ -1,0 +1,18 @@
+{
+ "key": "4c1797ae70b26b5924ffd28767fd753d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每辆车上有2名老师和35名学生，共2+35=37人。4辆车共37×4=148人。\", \"answers\": [{\"label\": \"\", \"value\": \"148\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1261.0330999596044,
+ "ttft_ms": 1261.0480999574065,
+ "total_ms": 1881.4045999897644
+}

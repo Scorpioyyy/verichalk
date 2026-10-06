@@ -1,0 +1,18 @@
+{
+ "key": "123ab8df512f44aa29e93ce1c4d75e2d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.4×9 表示9个0.4相加，0.4×9=3.6。\", \"answers\": [{\"label\": \"\", \"value\": \"3.6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 293,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1515.7887999666855,
+ "ttft_ms": 1515.8180999569595,
+ "total_ms": 3180.0742999184877
+}

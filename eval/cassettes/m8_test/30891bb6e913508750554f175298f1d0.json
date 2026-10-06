@@ -1,0 +1,18 @@
+{
+ "key": "30891bb6e913508750554f175298f1d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"452÷8=56……4，所以可以坐满56辆大巴，还剩4人。\", \"answers\": [{\"label\": \"可以坐满几辆大巴\", \"value\": \"56\", \"unit\": \"辆\"}, {\"label\": \"还剩多少人\", \"value\": \"4\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8843.102300073951,
+ "ttft_ms": 8843.120600096881,
+ "total_ms": 9527.928400086239
+}

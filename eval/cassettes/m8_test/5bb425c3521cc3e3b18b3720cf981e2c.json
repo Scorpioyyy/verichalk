@@ -1,0 +1,18 @@
+{
+ "key": "5bb425c3521cc3e3b18b3720cf981e2c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两个长方形面积之和：10×6=60（平方米），4×3=12（平方米），共60+12=72（平方米）。三角形小径面积：4×3÷2=6（平方米）。种植面积：72-6=66（平方米）。\", \"answers\": [{\"label\": \"实际用于种植花草的面积\", \"value\": \"66\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1733.4207999520004,
+ "ttft_ms": 1733.4373999619856,
+ "total_ms": 3249.8847999377176
+}

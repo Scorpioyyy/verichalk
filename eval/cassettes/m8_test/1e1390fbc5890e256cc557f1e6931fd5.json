@@ -1,0 +1,18 @@
+{
+ "key": "1e1390fbc5890e256cc557f1e6931fd5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"面粉与水的质量比是5:3，即水是面粉的3/5。面粉250克，水=250×3/5=150克。\", \"answers\": [{\"label\": \"需要准备多少克水\", \"value\": \"150\", \"unit\": \"克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 331,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17998.60589997843,
+ "ttft_ms": 17998.619300080463,
+ "total_ms": 19020.378199988045
+}

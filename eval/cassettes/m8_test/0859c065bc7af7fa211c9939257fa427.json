@@ -1,0 +1,18 @@
+{
+ "key": "0859c065bc7af7fa211c9939257fa427",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"10以内加法表\": true, \"减法表的规律\": false}, \"issues\": [\"题目只用到10以内加法（1+2、3+2、5+2），没有涉及减法表的规律，声称的'减法表的规律'未被使用。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 570,
+  "completion_tokens": 102,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17217.13230002206,
+ "ttft_ms": 17217.179300030693,
+ "total_ms": 18164.14809995331
+}

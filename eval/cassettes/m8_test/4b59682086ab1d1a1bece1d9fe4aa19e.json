@@ -1,0 +1,18 @@
+{
+ "key": "4b59682086ab1d1a1bece1d9fe4aa19e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"苹果汁与胡萝卜汁的比是3:2，即苹果汁占3份，胡萝卜汁占2份。450ml苹果汁对应3份，每份为450÷3=150ml，胡萝卜汁需2份，即150×2=300ml。\", \"answers\": [{\"label\": \"还需要加入多少毫升胡萝卜汁\", \"value\": \"300\", \"unit\": \"ml\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 339,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2592.1104999724776,
+ "ttft_ms": 2592.13969996199,
+ "total_ms": 6830.288799945265
+}

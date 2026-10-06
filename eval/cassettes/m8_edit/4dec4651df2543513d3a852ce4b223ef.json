@@ -1,0 +1,18 @@
+{
+ "key": "4dec4651df2543513d3a852ce4b223ef",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [], \"unsupported\": \"试卷里只有 8 道题，没有第 20 题。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1410,
+  "completion_tokens": 26,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8290.955699980259,
+ "ttft_ms": 8290.979399927892,
+ "total_ms": 8570.301699917763
+}

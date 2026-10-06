@@ -1,0 +1,18 @@
+{
+ "key": "ca2100ad1059cbe6d938e9a9d0713cf6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"52÷4=13，所以可以装满13盒。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 339,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 20782.654499984346,
+ "ttft_ms": 20782.677199924365,
+ "total_ms": 21498.123099911027
+}

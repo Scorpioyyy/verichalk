@@ -1,0 +1,18 @@
+{
+ "key": "0478f25bfd1a3a0deb3d42a92c8a256e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"整数运算律在分数运算中的应用\": true, \"整数乘分数（求一个数的几分之几是多少）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 571,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5304.211999988183,
+ "ttft_ms": 5304.284899961203,
+ "total_ms": 6316.960099968128
+}

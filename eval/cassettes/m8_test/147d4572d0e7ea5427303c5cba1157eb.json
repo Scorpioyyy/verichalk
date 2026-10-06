@@ -1,0 +1,18 @@
+{
+ "key": "147d4572d0e7ea5427303c5cba1157eb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明掷出5个点，写数字5；小红掷出3个点，写数字3。比较5和3，5比3大，所以填“>”。\", \"answers\": [{\"label\": \"小明\", \"value\": \"5\", \"unit\": \"\"}, {\"label\": \"小红\", \"value\": \"3\", \"unit\": \"\"}, {\"label\": \"比较大小\", \"value\": \">\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 381,
+  "completion_tokens": 110,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8594.340600073338,
+ "ttft_ms": 8594.368800055236,
+ "total_ms": 9820.669500040822
+}

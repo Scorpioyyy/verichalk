@@ -1,0 +1,18 @@
+{
+ "key": "3888f7f3aaf22b887934152c09e7f9ee",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1053, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"1\", \"1000\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"5\", \"10\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"1000\", \"50\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"1050\", \"3\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"1053\", \"4\"], \"mode\": \"decimal_quotient\"}], \"concepts\": [\"万以内数的数位顺序与组成\", \"除法中商是小数（除不尽时用小数表示商）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4471,
+  "completion_tokens": 187,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3185.5715999845415,
+ "ttft_ms": 3185.5954999336973,
+ "total_ms": 4300.19929993432
+}

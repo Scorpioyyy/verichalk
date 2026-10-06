@@ -1,0 +1,18 @@
+{
+ "key": "03e6c24e4dd0bd970cc33dbd5373d27c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4加2，从4开始往后数2个数：5、6，所以4+2=6。\", \"answers\": [{\"label\": \"\", \"value\": \"6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 288,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9511.597799952142,
+ "ttft_ms": 9511.629599961452,
+ "total_ms": 9602.888399967924
+}

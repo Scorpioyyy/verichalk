@@ -1,0 +1,18 @@
+{
+ "key": "e7be6e4019cd50452e20bee704943494",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"B卷覆盖了数的组成、大小比较、角度计算、行程问题、三角尺拼角、除法试商、面积与单位换算、优化策略等多个四年级核心知识点，题型多样且包含易错点（如单位换算、拼角限制、试商逻辑）；A卷虽情境较新，但知识点集中于大数认识、小数乘法、平均数，覆盖面窄，综合性和思维含量不足，不符合‘穿插上学期内容’的复习要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 960,
+  "completion_tokens": 106,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1916.4954000152647,
+ "ttft_ms": 1916.5165999438614,
+ "total_ms": 4370.24780001957
+}

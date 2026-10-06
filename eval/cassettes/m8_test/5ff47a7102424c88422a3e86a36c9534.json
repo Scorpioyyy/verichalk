@@ -1,0 +1,18 @@
+{
+ "key": "5ff47a7102424c88422a3e86a36c9534",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 350,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"350\", \"3/5\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"210\", \"2/7\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"3/5\", \"2/7\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"350\", \"6/35\"], \"mode\": null}\n  ],\n  \"concepts\": [\"分数乘整数\", \"分数乘分数\"],\n  \"units_of_measure\": [\"平方米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4497,
+  "completion_tokens": 167,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11004.85959998332,
+ "ttft_ms": 11004.896400030702,
+ "total_ms": 11332.559600006789
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8342f8ff37375f496287652d2a435d14",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：小明坐公交车，投币2元（整数），刷卡1.85元（两位小数）。问差价。计算：2 - 1.85 = 0.15。考察小数减法及元角分对应关系。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    cash = Decimal('2')\\n    card = Decimal('1.85')\\n    return [cash - card]\",\n \"stem\": \"某路公交车规定：现金投币 $2$ 元，使用公交卡刷卡只需 $1.85$ 元。小明今天使用公交卡乘车，比现金投币节省了多少钱？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.15\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"求节省的钱数，用现金票价减去刷卡票价。列式 $2-1.85$，计算时把 $2$ 看作 $2.00$，得 $0.15$ 元。\",\n \"kp_use\": {\n  \"结合元角分认识小数\": \"理解2元和1.85元的数值含义，并通过减法结果0.15元对应1角5分，巩固小数与货币单位的联系\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2438,
+  "completion_tokens": 307,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3370.637599960901,
+ "ttft_ms": 3380.092900013551,
+ "total_ms": 7072.004699963145
+}

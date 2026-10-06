@@ -1,0 +1,18 @@
+{
+ "key": "b311e9f652809b6cc4a68a200a870f2a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": false, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"100以内数的大小比较\": true}, \"issues\": [\"跳远比赛用'下'作计数单位不符合生活常识，跳远应以长度（米/厘米）计量，'跳了45下'通常指跳绳次数而非跳远成绩。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 539,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8174.114800058305,
+ "ttft_ms": 8174.143600044772,
+ "total_ms": 8993.103399989195
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7655f7e60ed546bcb2cdbec2193d6f7f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数加一位数\": true, \"两位数加减整十数（不进位不退位）\": false}, \"issues\": [\"声称涉及的知识点“两位数加减整十数（不进位不退位）”在解答中并未用到，题目只涉及两位数加一位数。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 554,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5453.120300080627,
+ "ttft_ms": 5453.151200083084,
+ "total_ms": 6280.521400040016
+}

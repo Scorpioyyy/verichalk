@@ -1,0 +1,18 @@
+{
+ "key": "978e2bf67f21d2b11ae5ab7d04619932",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"甲河：12个万米=12×10000=120000米。乙河：1个十万米+3个万米=100000+30000=130000米。130000>120000，所以乙河更长，长130000米。\", \"answers\": [{\"label\": \"哪条河更长\", \"value\": \"乙河\", \"unit\": \"\"}, {\"label\": \"较长河流的长度\", \"value\": \"130000\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 119,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3720.5674999859184,
+ "ttft_ms": 3720.5838999943808,
+ "total_ms": 4856.261699926108
+}

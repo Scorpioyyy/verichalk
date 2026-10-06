@@ -1,0 +1,18 @@
+{
+ "key": "26393aff6dca4246f134bf14b403621a",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B的情境真实具体（人口、奥运观众），数据合理，且选项设计针对易错点（如省略尾数时进位、单位混淆）；练习A题目干瘪、情境缺失，且第1题无选项，不符合'选择题'要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 497,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2109.8618999822065,
+ "ttft_ms": 2109.8869000561535,
+ "total_ms": 3904.169899993576
+}

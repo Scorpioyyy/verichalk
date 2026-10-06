@@ -1,0 +1,18 @@
+{
+ "key": "2c3f9ace364f26f3885b1b3c800d8340",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先分别计算两边：16+82=98，53+44=97。因为98>97，所以填“>”。\", \"answers\": [{\"label\": \"\", \"value\": \">\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 307,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10741.799199953675,
+ "ttft_ms": 10741.825200035237,
+ "total_ms": 11194.830799940974
+}

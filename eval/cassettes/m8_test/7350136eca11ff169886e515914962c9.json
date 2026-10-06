@@ -1,0 +1,18 @@
+{
+ "key": "7350136eca11ff169886e515914962c9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明身高：1米4分米5厘米 = 1.45米；爸爸身高1.82米；1.82-1.45=0.37（米）。\", \"answers\": [{\"label\": \"爸爸比小明高多少米\", \"value\": \"0.37\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2728.819999960251,
+ "ttft_ms": 2728.8354999618605,
+ "total_ms": 3506.4415999222547
+}

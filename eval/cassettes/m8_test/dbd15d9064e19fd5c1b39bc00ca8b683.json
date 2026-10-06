@@ -1,0 +1,18 @@
+{
+ "key": "dbd15d9064e19fd5c1b39bc00ca8b683",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"semester\":\"b\",\"topics\":[\"20以内退位减法\"],\"count\":4,\"constraints\":[\"贴近生活\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2124,
+  "completion_tokens": 52,
+  "cached_tokens": 1024,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10927.81600006856,
+ "ttft_ms": 10927.839900017716,
+ "total_ms": 11239.149900036864
+}

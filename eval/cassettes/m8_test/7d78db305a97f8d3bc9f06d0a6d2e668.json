@@ -1,0 +1,18 @@
+{
+ "key": "7d78db305a97f8d3bc9f06d0a6d2e668",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 1000,\n  \"decimal_places\": 3,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"0.2\", \"0.03\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"0.23\", \"0.005\"], \"mode\": null}\n  ],\n  \"concepts\": [\"结合米制单位认识小数\", \"度量单位间的小数换算\"],\n  \"units_of_measure\": [\"米\", \"分米\", \"厘米\", \"毫米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4522,
+  "completion_tokens": 134,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8030.97980003804,
+ "ttft_ms": 8031.229499960318,
+ "total_ms": 15482.309499988332
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d139cfa45664d8ac601f2fd69219f212",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"先算加法：$1 + 3 = 4$。再算减法：$4 - 4 = 0$。所以结果是 0。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 146,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14876.064300071448,
+ "ttft_ms": 14876.092400052585,
+ "total_ms": 16176.174200023524
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7d4075a95906219acac28a5b7adb192f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"6元是6元，5分是0.05元，合起来是6.05元。\", \"answers\": [{\"label\": \"\", \"value\": \"6.05\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 313,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11303.552699973807,
+ "ttft_ms": 11303.576900041662,
+ "total_ms": 12208.281000028364
+}

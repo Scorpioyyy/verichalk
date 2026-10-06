@@ -1,0 +1,18 @@
+{
+ "key": "56cb93622fa693d4a73989c6f4c807db",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"题目文字混乱，包含无关内容，无法确定唯一数学问题；按最合理理解，核心是判断“32+6=92”是否正确。32+6=38，不等于92，所以小明的说法不对。\", \"answers\": [{\"label\": \"小明的说法对吗\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": true, \"ambiguity\": \"题目中混入了与数学题无关的文字，条件不清晰，只能按“32+6=92”这一计算进行判断。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 328,
+  "completion_tokens": 115,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9758.72599997092,
+ "ttft_ms": 9758.749699918553,
+ "total_ms": 11824.203399941325
+}

@@ -1,0 +1,18 @@
+{
+ "key": "41f7f4e3fbc3905cfc93da8d27ab7fc1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"图书角共有15本书，其中7本还没还回来，求已经还回来的本数，用减法：15-7=8。\", \"answers\": [{\"label\": \"已经还回来的本数\", \"value\": \"8\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 309,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8027.566600008868,
+ "ttft_ms": 8027.597500011325,
+ "total_ms": 9111.176200094633
+}

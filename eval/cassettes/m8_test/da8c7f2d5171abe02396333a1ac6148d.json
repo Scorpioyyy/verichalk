@@ -1,0 +1,18 @@
+{
+ "key": "da8c7f2d5171abe02396333a1ac6148d",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：4人投篮，平均8个。已知3人分别为6,7,9。若第4人为10，判断平均分变化。利用偏差法：6(-2), 7(-1), 9(+1)。前三人总偏差-2。若第4人10(+2)，总偏差0，平均不变？不对。原题平均8。6+7+9=22。若第4人10，总和32，平均8。等于。若第4人12，总和34，平均8.5，大于。题目问：若第4人投中12个，平均分____8个。答案：大于。这考了平均数对极端值的敏感性，即性质。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 前三人得分\\n    s1, s2, s3 = 6, 7, 9\\n    # 假设第四人得分\\n    s4 = 12\\n    # 原平均分\\n    avg_old = 8\\n    # 新总分\\n    total_new = s1 + s2 + s3 + s4\\n    # 新平均分\\n    avg_new = Decimal(str(total_new)) / Decimal('4')\\n    # 比较\\n    if avg_new > avg_old:\\n        return [\\\"大于\\\"]\\n    elif avg_new < avg_old:\\n        return [\\\"小于\\\"]\\n    else:\\n        return [\\\"等于\\\"]\",\n \"stem\": \"四名同学进行投篮练习，前两名同学分别投中 $6$ 个和 $7$ 个，第三名同学投中 $9$ 个。如果第四名同学投中 $12$ 个，那么这四名同学的平均投中个数____$8$ 个。（填“大于”“小于”或“等于”）\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"大于\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算出四人投中的总数：$6+7+9+12=34$（个）。再求平均数：$34\\\\div 4=8.5$（个）。因为 $8.5>8$，所以平均投中个数大于 $8$ 个。\",\n \"kp_use\": {\n  \"平均数的范围性质\": \"通过计算具体平均数并与给定值比较，验证平均数受较大数值影响而变大的性质，理解平均数介于最小值和最大值之间且反映整体水平\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4477,
+  "completion_tokens": 577,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1643.8952999887988,
+ "ttft_ms": 1658.3499000407755,
+ "total_ms": 11466.648800065741
+}

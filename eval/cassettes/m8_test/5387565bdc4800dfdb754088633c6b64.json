@@ -1,0 +1,18 @@
+{
+ "key": "5387565bdc4800dfdb754088633c6b64",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明赢的次数：24×1/3=8（次）；小红赢的次数：24×1/4=6（次）；两人一共赢：8+6=14（次）。\", \"answers\": [{\"label\": \"两人一共赢了多少次\", \"value\": \"14\", \"unit\": \"次\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 362,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2026.9403998972848,
+ "ttft_ms": 2027.8138999128714,
+ "total_ms": 2916.291299974546
+}

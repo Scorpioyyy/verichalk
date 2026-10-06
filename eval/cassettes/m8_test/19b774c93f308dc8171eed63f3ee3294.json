@@ -1,0 +1,18 @@
+{
+ "key": "19b774c93f308dc8171eed63f3ee3294",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12192, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"508\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"508\", \"20\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"2032\", \"10160\"], \"mode\": null}], \"concepts\": [\"三位数乘两位数的竖式计算与估算\"], \"units_of_measure\": [\"千克\", \"公顷\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4456,
+  "completion_tokens": 126,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1715.882100048475,
+ "ttft_ms": 1715.898699942045,
+ "total_ms": 2717.5676999613643
+}

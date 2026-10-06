@@ -1,0 +1,18 @@
+{
+ "key": "6ac03f78cc8d9d76071b101201b3f82d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"圆锥体积公式 V = (1/3)πr²h。代入 r=3cm，h=10cm，π=3.14：V = (1/3)×3.14×3²×10 = (1/3)×3.14×9×10 = 3.14×3×10 = 94.2（立方厘米）。\", \"answers\": [{\"label\": \"漏斗的容积\", \"value\": \"94.2\", \"unit\": \"立方厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 340,
+  "completion_tokens": 122,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4922.388199949637,
+ "ttft_ms": 4922.442500013858,
+ "total_ms": 6077.464499976486
+}

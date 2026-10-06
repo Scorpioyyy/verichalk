@@ -1,0 +1,18 @@
+{
+ "key": "8e776058916f32af599871aa58654e4c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"rewrite\", \"items\": [8], \"instruction\": \"把题中的数字改小一点，每个数都不超过 50，情境和考查的知识点不变\"}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1418,
+  "completion_tokens": 50,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1446.7410000506788,
+ "ttft_ms": 1446.758999954909,
+ "total_ms": 1924.3613999569789
+}

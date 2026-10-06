@@ -1,0 +1,18 @@
+{
+ "key": "52b5b4baf8242d4f13d802359a26c3e9",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A的第2题是加法，不符合退位减法要求；第3、4题虽有趣但更侧重规律和选择，对一年级学生思维要求偏高。练习B全部是贴近生活的退位减法，情境真实统一，更贴合要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 584,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1865.8759000245482,
+ "ttft_ms": 1865.9020999912173,
+ "total_ms": 3703.311500023119
+}

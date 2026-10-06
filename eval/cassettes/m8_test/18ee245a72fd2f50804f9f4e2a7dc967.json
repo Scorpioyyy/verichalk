@@ -1,0 +1,18 @@
+{
+ "key": "18ee245a72fd2f50804f9f4e2a7dc967",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"305240000 的数位从右往左依次是：个位0、十位0、百位0、千位0、万位4、十万位2、百万位5、千万位0、亿位3。所以十万位上的数字是2；十万位的计数单位是十万，2在十万位上表示2个十万，即200000。\", \"answers\": [{\"label\": \"十万位上的数字\", \"value\": \"2\", \"unit\": \"\"}, {\"label\": \"它表示\", \"value\": \"2个十万\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 318,
+  "completion_tokens": 138,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7102.5292000267655,
+ "ttft_ms": 7102.544800029136,
+ "total_ms": 8211.18490002118
+}

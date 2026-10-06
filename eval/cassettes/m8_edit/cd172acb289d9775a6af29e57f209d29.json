@@ -1,0 +1,18 @@
+{
+ "key": "cd172acb289d9775a6af29e57f209d29",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计5次跳绳成绩，均不超过50。选18, 22, 20, 19, 21。总和=18+22+20+19+21=100。平均数=100/5=20。检查：每个数<=50，整数，合理。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    scores = [18, 22, 20, 19, 21]\\n    total = sum(scores)\\n    avg = Fraction(total, len(scores))\\n    return [int(avg)]\",\n \"stem\": \"体育课上，小华 5 次一分钟跳绳的成绩分别是 $18$、$22$、$20$、$19$、$21$ 个。他平均每次跳多少个？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"20\",\n   \"unit\": \"个\"\n  }\n ],\n \"solution\": \"先求 5 次跳绳的总数：$18+22+20+19+21=100$（个）。再求平均数：$100\\\\div 5=20$（个）。\",\n \"kp_use\": {\n  \"平均数的意义与求法\": \"先求出5次成绩的总和，再除以次数5，得到平均每次跳绳的个数\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2417,
+  "completion_tokens": 346,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1381.5401999745518,
+ "ttft_ms": 1398.6223000101745,
+ "total_ms": 7270.745099987835
+}

@@ -1,0 +1,18 @@
+{
+ "key": "afd38d55710f9d268aef66ac508d4808",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"蓝鲸体重160吨，大脑占体重的1/400。求大脑重量。160 * 1/400 = 160/400 = 16/40 = 2/5 = 0.4吨。检查单位：吨。数值0.4在范围内。知识点：等量关系（大脑=体重*占比），整数乘分数。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    weight = 160\\n    ratio = Fraction(1, 400)\\n    brain_weight = weight * ratio\\n    # 返回小数形式以便匹配，或者分数形式。题目要求数值，0.4是精确值。\\n    return [float(brain_weight)]\",\n \"stem\": \"一头成年蓝鲸的体重约为 $160$ 吨，它的大脑重量约占体重的 $\\\\frac{1}{400}$。这头蓝鲸的大脑重多少吨？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.4\",\n   \"unit\": \"吨\"\n  }\n ],\n \"solution\": \"根据题意，大脑重量等于体重乘以占比，即 $160 \\\\times \\\\frac{1}{400}$。计算得 $\\\\frac{160}{400} = \\\\frac{2}{5} = 0.4$ 吨。\",\n \"kp_use\": {\n  \"整数乘分数（求一个数的几分之几是多少）\": \"用于计算 $160 \\\\times \\\\frac{1}{400}$ 得到具体重量\",\n  \"等量关系\": \"建立‘大脑重量 = 总体重 $\\\\times$ 占比’的数量关系模型\"\n },\n \"difficulty\": 5\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2481,
+  "completion_tokens": 409,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2074.222599971108,
+ "ttft_ms": 2086.492999922484,
+ "total_ms": 9623.218299937434
+}

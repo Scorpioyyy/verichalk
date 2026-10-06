@@ -1,0 +1,18 @@
+{
+ "key": "d788022286b65354187e66c4d21613ca",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"分数的意义（单位“1”与分数单位）\": true, \"长方体和正方体的认识（顶点、棱、面）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 641,
+  "completion_tokens": 82,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4349.203999969177,
+ "ttft_ms": 4349.239600007422,
+ "total_ms": 4886.663899989799
+}

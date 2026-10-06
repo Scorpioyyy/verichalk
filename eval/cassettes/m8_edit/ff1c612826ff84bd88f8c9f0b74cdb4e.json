@@ -1,0 +1,18 @@
+{
+ "key": "ff1c612826ff84bd88f8c9f0b74cdb4e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三角形内角和是180°，第三个内角=180°-75°-48°=57°。\", \"answers\": [{\"label\": \"第三个内角\", \"value\": \"57\", \"unit\": \"度\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 308,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1060.890799970366,
+ "ttft_ms": 1061.042599962093,
+ "total_ms": 1616.5519999340177
+}

@@ -1,0 +1,18 @@
+{
+ "key": "891cb81f2a73e6195991a7f3511b01da",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"用字母表示数与方程（总复习）\": true, \"已知一个数的几分之几是多少，求这个数\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 638,
+  "completion_tokens": 79,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3368.7557000666857,
+ "ttft_ms": 3368.78020002041,
+ "total_ms": 3827.7003000257537
+}

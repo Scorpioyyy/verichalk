@@ -1,0 +1,18 @@
+{
+ "key": "ccfff06b3079f0c53346c652be63a755",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.6×5，把0.6看成6个0.1，6个0.1乘5得30个0.1，即3。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3032.655299990438,
+ "ttft_ms": 3032.674399903044,
+ "total_ms": 4500.826700008474
+}

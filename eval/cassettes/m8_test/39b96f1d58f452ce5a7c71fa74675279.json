@@ -1,0 +1,18 @@
+{
+ "key": "39b96f1d58f452ce5a7c71fa74675279",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 905, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"128\", \"6\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"905\", \"768\"], \"mode\": null}], \"concepts\": [\"三位数减法竖式（退位）\", \"两、三位数乘一位数（需要进位）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4452,
+  "completion_tokens": 110,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7458.552299998701,
+ "ttft_ms": 7458.57439993415,
+ "total_ms": 8662.094399915077
+}

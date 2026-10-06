@@ -1,0 +1,18 @@
+{
+ "key": "cfe02d20d1a94fd8f0e4dd3a734f47d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"rewrite\", \"items\": [7], \"kind\": \"judge\", \"instruction\": \"把第7题改成判断题\"}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1409,
+  "completion_tokens": 42,
+  "cached_tokens": 1024,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8138.084899983369,
+ "ttft_ms": 8138.098599971272,
+ "total_ms": 8338.295600027777
+}

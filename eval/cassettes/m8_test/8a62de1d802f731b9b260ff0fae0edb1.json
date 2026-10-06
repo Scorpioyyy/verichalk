@@ -1,0 +1,18 @@
+{
+ "key": "8a62de1d802f731b9b260ff0fae0edb1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"8拃是8个9厘米，8×9=72厘米，再加上多出的2厘米，72+2=74厘米。\", \"answers\": [{\"label\": \"\", \"value\": \"74\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1503.018100047484,
+ "ttft_ms": 1506.6474000923336,
+ "total_ms": 2086.1303000710905
+}

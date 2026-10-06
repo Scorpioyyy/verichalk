@@ -1,0 +1,18 @@
+{
+ "key": "be7c1fe8134ecd00046e965c5cef6bd5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": false, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"平均数的意义与求法\": true}, \"issues\": [\"题目只给出4次跳绳成绩（102、98、110、105），却问'5次'的平均成绩，缺少第5次的数据，条件不完整。\", \"解析中把第5次成绩写成100，但题目中并未给出100，属于悄悄改动题目条件。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 508,
+  "completion_tokens": 122,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1001.0541999945417,
+ "ttft_ms": 1001.070800004527,
+ "total_ms": 2155.6957999709994
+}

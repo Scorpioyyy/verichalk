@@ -1,0 +1,18 @@
+{
+ "key": "98a204ec401b0fce0c4ad20c620482ef",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每个扇形圆心角45°，转盘共有360÷45=8个扇形。红色有3个，所以停在红色区域的可能性是3/8。转动24次，预计停在红色区域的次数为24×3/8=9次。\", \"answers\": [{\"label\": \"指针停在红色区域的可能性\", \"value\": \"3/8\", \"unit\": \"\"}, {\"label\": \"预计指针停在红色区域的次数\", \"value\": \"9\", \"unit\": \"次\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 118,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1455.4854000452906,
+ "ttft_ms": 1455.5216999724507,
+ "total_ms": 2363.8567000161856
+}

@@ -1,0 +1,18 @@
+{
+ "key": "87ba9d9d00f3b754c0c0968cd42b894d",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：公交车上有15人。第一站没人上下（+0, -0），第二站下去15人（-15）。问车上剩几人。考察：加0不变，减自身得0。数值：15在1-23范围内。\",\n \"solver_code\": \"def solve():\\n    # 初始人数\\n    start = 15\\n    # 第一站：上0人，下0人\\n    stop1_up = 0\\n    stop1_down = 0\\n    # 第二站：下15人\\n    stop2_down = 15\\n    \\n    # 计算过程\\n    after_stop1 = start + stop1_up - stop1_down\\n    final_count = after_stop1 - stop2_down\\n    \\n    return [final_count]\",\n \"stem\": \"公交车上原来有 $15$ 名乘客。第一站没有人上车，也没有人下车；第二站下去了 $15$ 名乘客。现在车上还有多少名乘客？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0\",\n   \"unit\": \"名\"\n  }\n ],\n \"solution\": \"第一站没人上下，人数不变，还是 $15$ 名。第二站下去 $15$ 名，即 $15-15=0$。现在车上有 $0$ 名乘客。\",\n \"kp_use\": {\n  \"含0的加减法\": \"第一站加减0人数不变；第二站减去自身得0\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2219,
+  "completion_tokens": 362,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1442.3895999789238,
+ "ttft_ms": 1457.8119000652805,
+ "total_ms": 13951.245600008406
+}

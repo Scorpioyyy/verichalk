@@ -1,0 +1,18 @@
+{
+ "key": "c2630c2b8728d4463ad69453a644922f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"母鸡9只，公鸡6只，求一共多少只，用加法：9+6=15。\", \"answers\": [{\"label\": \"一共有多少只鸡\", \"value\": \"15\", \"unit\": \"只\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 307,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11647.921700030565,
+ "ttft_ms": 11647.947299992666,
+ "total_ms": 15600.29420000501
+}

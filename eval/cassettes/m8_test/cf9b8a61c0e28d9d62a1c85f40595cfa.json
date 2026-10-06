@@ -1,0 +1,18 @@
+{
+ "key": "cf9b8a61c0e28d9d62a1c85f40595cfa",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"猎豹速度120km/h，人步行5km/h。比是120:5。比值是24。题目要求写规范形式，通常指最简整数比或比值。根据知识点描述“前项除以后项的商是比值”，且考法设想是“写出两者速度比的规范形式”，结合填空题特点，可能考察比的写法或比值。若问“比是____”，填120:5或24:1；若问“比值是____”，填24。考虑到知识点强调“比的意义与写法...比值”，且其他题考了化简比（最简整数比），本题侧重基础概念：直接写出比并求比值，或者只写比。为了区分于“化为最简整数比”的那道题，本题可以设计为：已知速度，写出比，并求出比值。但规格说“一道题只考一件事...填空题最多两个空”。那就设两个空：第一个空填比（最简），第二个空填比值。或者只填一个空。看示例，填空题可以有多个空。让我们设定：猎豹时速120千米，人步行时速5千米。猎豹与人步行的速度比是____，比值是____。这样考了比的写法和比值计算。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    cheetah_speed = 120\\n    human_speed = 5\\n    # 比的前项和后项\\n    # 最简整数比\\n    from math import gcd\\n    g = gcd(cheetah_speed, human_speed)\\n    simple_a = cheetah_speed // g\\n    simple_b = human_speed // g\\n    ratio_str = f\\\"{simple_a}:{simple_b}\\\"\\n    # 比值\\n    ratio_value = cheetah_speed / human_speed\\n    # 返回两个答案\\n    return [ratio_str, str(int(ratio_value))]\",\n \"stem\": \"猎豹奔跑的速度可达每小时 $120$ 千米，而人类步行的速度约为每小时 $5$ 千米。猎豹奔跑速度与人类步行速度的最简整数比是 ____，比值是 ____。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"最简整数比\",\n   \"value\": \"24:1\",\n   \"unit\": \"\"\n  },\n  {\n   \"label\": \"比值\",\n   \"value\": \"24\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"猎豹速度 $120$ 千米/时，人步行速度 $5$ 千米/时。速度比为 $120:5$，化简得 $24:1$。比值为 $24\\\\div 1=24$。\",\n \"kp_use\": {\n  \"比的意义与写法\": \"根据速度数值写出比 $120:5$ 并化简为最简整数比 $24:1$，同时计算前项除以后项得到比值 $24$\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2356,
+  "completion_tokens": 673,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2405.8691000100225,
+ "ttft_ms": 2406.108499970287,
+ "total_ms": 13287.935699918307
+}

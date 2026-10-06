@@ -1,0 +1,18 @@
+{
+ "key": "8efde46cd697a64982ab09c71c93d143",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"估算：7605≈7600，7600×24=182400，所以大约飞行182400千米。精确计算：7605×24，先算7605×4=30420，再算7605×20=152100，相加得182520。\", \"answers\": [{\"label\": \"估算大约飞行多少千米\", \"value\": \"182400\", \"unit\": \"千米\"}, {\"label\": \"实际飞行的精确距离\", \"value\": \"182520\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 335,
+  "completion_tokens": 123,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9710.054800030775,
+ "ttft_ms": 9710.078099975362,
+ "total_ms": 10994.582299957983
+}

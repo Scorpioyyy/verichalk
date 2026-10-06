@@ -1,0 +1,18 @@
+{
+ "key": "eda2c7de562a082da529bac1dafb30d7",
+ "model": "qwen3.7-plus",
+ "purpose": "answer.ask",
+ "text": "请问您指的是哪一道题？试卷中共有 8 道题，请指明题号（例如“第 5 题”），以便我为您提供准确的解题步骤和讲解建议。",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 574,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1670.736200059764,
+ "ttft_ms": 1685.8851000433788,
+ "total_ms": 2340.772100025788
+}

@@ -1,0 +1,18 @@
+{
+ "key": "89f988411a17dbcff6c413d8d0a40c98",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A完全符合一年级基础口算要求，题目典型、难度适中；练习B包含两位数加减、带0的退位及比较大小，超出口算范畴且难度不当。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 464,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1830.8986000483856,
+ "ttft_ms": 1830.9187000850216,
+ "total_ms": 3134.513600030914
+}

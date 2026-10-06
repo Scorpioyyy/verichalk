@@ -1,0 +1,18 @@
+{
+ "key": "b259aa4f9da6c75a0d682d1966707b69",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"A卷情境更丰富（海豚蓝鲸、节水试验），包含小数位数判断、字母式、两步应用题等多样考法，思维含量和易错点设计更优；B卷题型单一，多为一步计算，缺乏综合性与挑战。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 785,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1972.3447000142187,
+ "ttft_ms": 1972.3720999900252,
+ "total_ms": 3561.6974000586197
+}

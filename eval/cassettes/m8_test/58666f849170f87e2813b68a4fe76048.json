@@ -1,0 +1,18 @@
+{
+ "key": "58666f849170f87e2813b68a4fe76048",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 184, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"31\", \"28\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"59\", \"31\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"90\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"120\", \"31\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"151\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"31\", \"31\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"62\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"92\", \"31\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"123\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"153\", \"31\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"184\", \"181\"], \"mode\": null}], \"concepts\": [\"各月天数与平年闰年的规律\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4434,
+  "completion_tokens": 286,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1645.8163999486715,
+ "ttft_ms": 1645.835499977693,
+ "total_ms": 3795.2884000260383
+}

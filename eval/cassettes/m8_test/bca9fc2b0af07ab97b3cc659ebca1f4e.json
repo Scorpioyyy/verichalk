@@ -1,0 +1,18 @@
+{
+ "key": "bca9fc2b0af07ab97b3cc659ebca1f4e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"异分母分数加减法（通分）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 630,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10428.843299974687,
+ "ttft_ms": 10428.860199986957,
+ "total_ms": 11415.470600011759
+}

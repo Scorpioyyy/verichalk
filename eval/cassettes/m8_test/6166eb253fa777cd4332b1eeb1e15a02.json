@@ -1,0 +1,18 @@
+{
+ "key": "6166eb253fa777cd4332b1eeb1e15a02",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 203,\n  \"decimal_places\": 1,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"45.6\", \"3/8\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"121.6\", \"20\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"101.6\", \"1/2\"], \"mode\": null}\n  ],\n  \"concepts\": [\"已知一个数的几分之几是多少，求这个数\"],\n  \"units_of_measure\": [\"千米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4499,
+  "completion_tokens": 149,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5409.603699925356,
+ "ttft_ms": 5409.637899952941,
+ "total_ms": 6381.247599958442
+}

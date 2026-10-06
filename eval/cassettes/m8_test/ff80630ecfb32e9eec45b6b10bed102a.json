@@ -1,0 +1,18 @@
+{
+ "key": "ff80630ecfb32e9eec45b6b10bed102a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"四名队员平均用时15.4秒，总用时为15.4×4=61.6秒。前三棒用时合计15.2+15.5+15.3=46.0秒。第四棒用时61.6-46.0=15.6秒。\", \"answers\": [{\"label\": \"第四棒队员的用时\", \"value\": \"15.6\", \"unit\": \"秒\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 106,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1497.4016000051051,
+ "ttft_ms": 1497.4259999580681,
+ "total_ms": 2111.239399993792
+}

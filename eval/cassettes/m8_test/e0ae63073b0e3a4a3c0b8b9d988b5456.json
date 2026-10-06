@@ -1,0 +1,18 @@
+{
+ "key": "e0ae63073b0e3a4a3c0b8b9d988b5456",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较三个小数的大小：12.5、9.8、12.05。先看整数部分，9.8的整数部分是9，最小；12.5和12.05整数部分都是12，比较十分位，12.5的十分位是5，12.05的十分位是0，所以12.5＞12.05。因此最贵的是薯片12.5元。\", \"answers\": [{\"label\": \"最贵的价格\", \"value\": \"12.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 329,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4597.514100023545,
+ "ttft_ms": 4597.646099980921,
+ "total_ms": 6123.712999979034
+}

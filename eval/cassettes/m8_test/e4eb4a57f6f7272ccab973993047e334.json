@@ -1,0 +1,18 @@
+{
+ "key": "e4eb4a57f6f7272ccab973993047e334",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 120, \"decimal_places\": null, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"减法\", \"operands\": [\"1\", \"1/6\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"120\", \"5/6\"], \"mode\": null}], \"concepts\": [\"求一个量比另一个量多/少几分之几及其逆问题\"], \"units_of_measure\": [\"千米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4448,
+  "completion_tokens": 113,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9109.063900075853,
+ "ttft_ms": 9109.096299973316,
+ "total_ms": 10235.56970001664
+}

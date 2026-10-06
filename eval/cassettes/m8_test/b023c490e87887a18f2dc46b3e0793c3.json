@@ -1,0 +1,18 @@
+{
+ "key": "b023c490e87887a18f2dc46b3e0793c3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"求平均速度，用路程除以时间：72 ÷ 3 = 24（千米/小时）。\", \"answers\": [{\"label\": \"平均每小时行驶多少千米\", \"value\": \"24\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 315,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7696.750500006601,
+ "ttft_ms": 7696.774200070649,
+ "total_ms": 7929.186400026083
+}

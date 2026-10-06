@@ -1,0 +1,18 @@
+{
+ "key": "a59dd4014531ef8d046d37766c13d13b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"月季花种植面积 = 120 × 3/4 = 90（平方米）；红玫瑰种植面积 = 90 × 2/3 = 60（平方米）。\", \"answers\": [{\"label\": \"红玫瑰的种植面积\", \"value\": \"60\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 343,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7835.197699954733,
+ "ttft_ms": 8075.287099927664,
+ "total_ms": 8475.904299994
+}

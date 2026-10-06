@@ -1,0 +1,18 @@
+{
+ "key": "2a107a6808fd9413095ff8374b881415",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总得分等于平均每场得分乘场数，所以 S=a×b，写作 S=ab。当 a=12.35，b=4 时，12.35 是两位小数，4 是整数，积的小数位数等于两个因数小数位数之和，即 2+0=2 位。\", \"answers\": [{\"label\": \"总得分 S 的式子\", \"value\": \"ab\", \"unit\": \"\"}, {\"label\": \"总得分应有几位小数\", \"value\": \"2\", \"unit\": \"位\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 389,
+  "completion_tokens": 134,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1444.2110999953002,
+ "ttft_ms": 1444.3869999377057,
+ "total_ms": 2662.1987000107765
+}

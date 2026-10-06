@@ -1,0 +1,18 @@
+{
+ "key": "916981a37edb3f86c13d75285d4cfeff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 23, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"23\", \"5\"], \"mode\": \"remainder\"}], \"concepts\": [\"有余数除法的认识\", \"用去尾法解决实际问题\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4442,
+  "completion_tokens": 82,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3108.8223999831825,
+ "ttft_ms": 3108.855099999346,
+ "total_ms": 4091.638999991119
+}

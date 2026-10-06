@@ -1,0 +1,18 @@
+{
+ "key": "e86fe81c9042b90e5415de52b499b6ea",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每次运送108个，共25次，用乘法计算：108×25=2700（个）。\", \"answers\": [{\"label\": \"一共运送了多少个精密实验组件\", \"value\": \"2700\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 330,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1687.0180000551045,
+ "ttft_ms": 1687.2727000154555,
+ "total_ms": 2471.2124000070617
+}

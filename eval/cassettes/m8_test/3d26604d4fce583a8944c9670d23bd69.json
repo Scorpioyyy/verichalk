@@ -1,0 +1,18 @@
+{
+ "key": "3d26604d4fce583a8944c9670d23bd69",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"站点编号依次是1、3、5，每次增加2，所以第4站是5+2=7号。\", \"answers\": [{\"label\": \"\", \"value\": \"7\", \"unit\": \"号\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13021.270499913953,
+ "ttft_ms": 13021.294399979524,
+ "total_ms": 13234.044999931939
+}

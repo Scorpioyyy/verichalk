@@ -1,0 +1,18 @@
+{
+ "key": "cb74678f9913f19c520a19a67285c4f2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"解两步方程\": false}, \"issues\": [\"题目只涉及一步方程（两边同除以4），并非两步方程，声称的知识点与实际不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 485,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1185.2592999348417,
+ "ttft_ms": 1208.0958998994902,
+ "total_ms": 2134.3905999092385
+}

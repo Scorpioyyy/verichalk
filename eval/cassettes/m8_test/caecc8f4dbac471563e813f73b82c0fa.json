@@ -1,0 +1,18 @@
+{
+ "key": "caecc8f4dbac471563e813f73b82c0fa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"A网店每个排球：1968÷24=82（元）；B网店每个足球：2880÷32=90（元）；90-82=8（元）。\", \"answers\": [{\"label\": \"B网店每个足球比A网店每个排球贵多少元\", \"value\": \"8\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7862.705600098707,
+ "ttft_ms": 7862.726400024258,
+ "total_ms": 8638.527300092392
+}

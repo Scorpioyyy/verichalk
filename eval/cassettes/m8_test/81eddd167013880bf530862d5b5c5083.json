@@ -1,0 +1,18 @@
+{
+ "key": "81eddd167013880bf530862d5b5c5083",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把厘米化成米：35厘米=0.35米，42厘米=0.42米，38厘米=0.38米，40厘米=0.40米。身高分别为1.35米、1.42米、1.38米、1.40米。比较大小：1.42>1.40>1.38>1.35，最高的是小红，1.42米。\", \"answers\": [{\"label\": \"最高的身高\", \"value\": \"1.42\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 129,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2487.678200006485,
+ "ttft_ms": 2487.721599987708,
+ "total_ms": 3712.1495000319555
+}

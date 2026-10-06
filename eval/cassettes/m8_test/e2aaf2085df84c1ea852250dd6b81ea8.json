@@ -1,0 +1,18 @@
+{
+ "key": "e2aaf2085df84c1ea852250dd6b81ea8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"面包总价：4×6=24（元）；牛奶8元；共花24+8=32（元）；剩余50-32=18（元）。\", \"answers\": [{\"label\": \"还剩多少元\", \"value\": \"18\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 331,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1688.1143000209704,
+ "ttft_ms": 1688.1296000210568,
+ "total_ms": 2158.2291000522673
+}

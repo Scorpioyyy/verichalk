@@ -1,0 +1,18 @@
+{
+ "key": "3bdb301310c2d19b3734ee8edee2c2bd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 804,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"804\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"201\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"1\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"0\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"4\"], \"mode\": null}\n  ],\n  \"concepts\": [\"两、三位数除以一位数的笔算方法\", \"除法的验算方法\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4469,
+  "completion_tokens": 182,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7422.969999955967,
+ "ttft_ms": 7422.990799997933,
+ "total_ms": 9005.871600005776
+}

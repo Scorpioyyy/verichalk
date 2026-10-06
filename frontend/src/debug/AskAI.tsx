@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { api, ApiError, type ChatEvent, type ChatTurn } from "@/shared/api/client";
 import { Icon } from "@/shared/ui/Icon";
 import { Markdown } from "./markdown";
@@ -24,12 +24,61 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const abort = useRef<AbortController | null>(null);
-  const bottom = useRef<HTMLDivElement>(null);
+  // 回答流式输出时页面跟着往下滚；教师一旦自己滚动（滚轮 / 触摸 / 键盘 / 拖滚动条），这一轮就不再自动滚
+  const root = useRef<HTMLDivElement>(null);
+  const follow = useRef(true);
+  const buffer = useRef("");
+  const raf = useRef(0);
 
-  useEffect(() => () => abort.current?.abort(), []);
+  useEffect(
+    () => () => {
+      abort.current?.abort();
+      cancelAnimationFrame(raf.current);
+    },
+    [],
+  );
   useEffect(() => {
-    bottom.current?.scrollIntoView?.({ block: "end" });
+    const stop = () => {
+      follow.current = false;
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (["PageUp", "PageDown", "Home", "End", "ArrowUp", "ArrowDown", " "].includes(e.key))
+        stop();
+    };
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchmove", stop, { passive: true });
+    const onPointer = (e: PointerEvent) => {
+      if (e.target === document.documentElement) stop(); // 点 / 拖页面滚动条
+    };
+    window.addEventListener("pointerdown", onPointer);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("wheel", stop);
+      window.removeEventListener("touchmove", stop);
+      window.removeEventListener("pointerdown", onPointer);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
+  useLayoutEffect(() => {
+    // 面板被切到别的视图（隐藏）时不要拽着页面走
+    if (follow.current && msgs.length > 0 && root.current?.offsetParent !== null)
+      window.scrollTo?.({ top: document.documentElement.scrollHeight }); // 瞬时，不用平滑滚动（平滑会追不上输出）
   }, [msgs]);
+
+  /** 文本增量先攒着，每帧最多刷新一次：逐字重排整段 Markdown 会卡，滚动也跟不上 */
+  const flush = useCallback(() => {
+    raf.current = 0;
+    const text = buffer.current;
+    buffer.current = "";
+    if (text)
+      setMsgs((all) =>
+        all.map((m, i) => (i === all.length - 1 ? { ...m, text: m.text + text } : m)),
+      );
+  }, []);
+  const flushNow = useCallback(() => {
+    cancelAnimationFrame(raf.current);
+    flush();
+  }, [flush]);
 
   const patchLast = (f: (m: Msg) => Msg) =>
     setMsgs((all) => all.map((m, i) => (i === all.length - 1 ? f(m) : m)));
@@ -49,11 +98,18 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
       ]);
       setDraft("");
       setBusy(true);
+      follow.current = true;
+      buffer.current = "";
       const ctl = new AbortController();
       abort.current = ctl;
       const onEvent = (e: ChatEvent) => {
-        if (e.type === "delta") patchLast((m) => ({ ...m, text: m.text + e.text }));
-        else if (e.type === "tool") patchLast((m) => ({ ...m, tools: [...m.tools, e.label] }));
+        if (e.type === "delta") {
+          buffer.current += e.text;
+          if (!raf.current) raf.current = requestAnimationFrame(flush);
+          return;
+        }
+        flushNow();
+        if (e.type === "tool") patchLast((m) => ({ ...m, tools: [...m.tools, e.label] }));
         else if (e.type === "error") patchLast((m) => ({ ...m, error: e.message }));
       };
       try {
@@ -62,16 +118,17 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
         const message = e instanceof ApiError ? e.userMessage : "分析助手没有响应，请稍后再试。";
         patchLast((m) => ({ ...m, error: message }));
       } finally {
+        flushNow();
         patchLast((m) => ({ ...m, streaming: false }));
         setBusy(false);
         abort.current = null;
       }
     },
-    [busy, msgs, runId],
+    [busy, msgs, runId, flush, flushNow],
   );
 
   return (
-    <div className="ai" data-testid="ai-panel">
+    <div className="ai" data-testid="ai-panel" ref={root}>
       {msgs.length === 0 ? (
         <div className="ai__empty">
           <h3>
@@ -127,7 +184,6 @@ export function AskAI({ runId, ready }: { runId: string; ready: boolean }) {
               )}
             </div>
           ))}
-          <div ref={bottom} />
         </div>
       )}
 

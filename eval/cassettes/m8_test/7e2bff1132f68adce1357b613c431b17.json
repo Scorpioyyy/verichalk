@@ -1,0 +1,18 @@
+{
+ "key": "7e2bff1132f68adce1357b613c431b17",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 100, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"9\", \"4\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"100\", \"42\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"58\", \"36\"], \"mode\": null}], \"concepts\": [\"单价、数量与总价的关系\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4468,
+  "completion_tokens": 118,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4728.731799987145,
+ "ttft_ms": 4728.752900031395,
+ "total_ms": 5507.889100001194
+}

@@ -1,0 +1,18 @@
+{
+ "key": "94a90be86927139cfdef47a00da4aed9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"红队总分：12+8=20（分）；蓝队总分：9+15=24（分）；蓝队比红队多：24-20=4（分）。\", \"answers\": [{\"label\": \"蓝队的总分比红队多多少分\", \"value\": \"4\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 339,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7702.964099938981,
+ "ttft_ms": 7702.993200044148,
+ "total_ms": 11938.98390000686
+}

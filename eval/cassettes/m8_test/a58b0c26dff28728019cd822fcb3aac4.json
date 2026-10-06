@@ -1,0 +1,18 @@
+{
+ "key": "a58b0c26dff28728019cd822fcb3aac4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 700,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"300\", \"100\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"400\", \"100\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"500\", \"100\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"600\", \"100\"], \"mode\": null}\n  ],\n  \"concepts\": [\"千以内数的数数\"],\n  \"units_of_measure\": [\"米\"],\n  \"geometry_vocab\": [\"线段\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4490,
+  "completion_tokens": 152,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2431.194999953732,
+ "ttft_ms": 2431.2103999545798,
+ "total_ms": 3467.609499930404
+}

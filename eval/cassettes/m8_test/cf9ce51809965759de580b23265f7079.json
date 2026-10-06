@@ -1,0 +1,18 @@
+{
+ "key": "cf9ce51809965759de580b23265f7079",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 60,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之一\"],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"1/2\", \"1/6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1/2\", \"1/6\", \"1/12\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1/2\", \"1/6\", \"1/12\", \"1/20\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"1\", \"1/5\"], \"mode\": null}\n  ],\n  \"concepts\": [\"分数的意义（单位“1”与分数单位）\", \"异分母分数加减法（通分）\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4578,
+  "completion_tokens": 197,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3236.0623000422493,
+ "ttft_ms": 3236.250799964182,
+ "total_ms": 4824.676399934106
+}

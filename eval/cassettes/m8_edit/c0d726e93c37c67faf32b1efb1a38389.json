@@ -1,0 +1,18 @@
+{
+ "key": "c0d726e93c37c67faf32b1efb1a38389",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 20, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"20\", \"4\"], \"mode\": null}], \"concepts\": [\"解方程（等式两边乘除同一个数）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4403,
+  "completion_tokens": 77,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1505.0774000119418,
+ "ttft_ms": 1505.0978000508621,
+ "total_ms": 2195.2600000659004
+}

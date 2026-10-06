@@ -1,0 +1,18 @@
+{
+ "key": "d59259ddfe0cfede79a1936d4fa3ccb9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"四个区域的可能性相加：1/2 + 1/6 + 1/12 + 1/20。通分成分母60：30/60 + 10/60 + 5/60 + 3/60 = 48/60 = 4/5。\", \"answers\": [{\"label\": \"指针停在这四个颜色区域之一的总可能性\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 394,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2190.8822999102995,
+ "ttft_ms": 2190.9008999355137,
+ "total_ms": 3000.999699928798
+}

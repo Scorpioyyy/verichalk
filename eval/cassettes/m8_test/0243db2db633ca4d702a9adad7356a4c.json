@@ -1,0 +1,18 @@
+{
+ "key": "0243db2db633ca4d702a9adad7356a4c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"除法竖式计算前估计商的位数\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 541,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2142.317399964668,
+ "ttft_ms": 2142.3428000416607,
+ "total_ms": 2755.6200000690296
+}

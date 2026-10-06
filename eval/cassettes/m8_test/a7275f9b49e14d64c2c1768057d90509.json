@@ -1,0 +1,18 @@
+{
+ "key": "a7275f9b49e14d64c2c1768057d90509",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"18:45 是24时记时法，转换成12时记时法：18-12=6，所以是下午6时45分。\", \"answers\": [{\"label\": \"时\", \"value\": \"6\", \"unit\": \"时\"}, {\"label\": \"分\", \"value\": \"45\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1253.3815000206232,
+ "ttft_ms": 1253.4069999819621,
+ "total_ms": 1888.5349000338465
+}

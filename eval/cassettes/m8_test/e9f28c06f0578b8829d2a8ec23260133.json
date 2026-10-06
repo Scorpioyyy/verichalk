@@ -1,0 +1,18 @@
+{
+ "key": "e9f28c06f0578b8829d2a8ec23260133",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"本月用水量：256.8 - 234.5 = 22.3（吨）；水费：22.3 × 2.4 = 53.52（元）。\", \"answers\": [{\"label\": \"这个月小明家需要缴纳多少元水费\", \"value\": \"53.52\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2799.7649000026286,
+ "ttft_ms": 2799.8335000593215,
+ "total_ms": 3941.787200048566
+}

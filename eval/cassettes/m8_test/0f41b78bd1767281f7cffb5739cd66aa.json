@@ -1,0 +1,18 @@
+{
+ "key": "0f41b78bd1767281f7cffb5739cd66aa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"semester\":\"a\",\"topics\":[\"大数的认识\"],\"count\":5,\"kinds\":[\"choice\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2122,
+  "completion_tokens": 49,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1627.95150000602,
+ "ttft_ms": 1628.1436999561265,
+ "total_ms": 1988.118699984625
+}

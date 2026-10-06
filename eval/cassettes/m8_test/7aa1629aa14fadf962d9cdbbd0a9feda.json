@@ -1,0 +1,18 @@
+{
+ "key": "7aa1629aa14fadf962d9cdbbd0a9feda",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 30, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"30\", \"8\"], \"mode\": null}], \"concepts\": [\"根据物体长短选择合适的长度单位（厘米/米）\"], \"units_of_measure\": [\"厘米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4425,
+  "completion_tokens": 80,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14028.688100050204,
+ "ttft_ms": 14028.713200008497,
+ "total_ms": 14774.5741000399
+}

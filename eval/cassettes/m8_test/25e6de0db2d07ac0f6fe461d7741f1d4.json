@@ -1,0 +1,18 @@
+{
+ "key": "25e6de0db2d07ac0f6fe461d7741f1d4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算一共花了多少元：45.5+68.8+25.7=140.0（元）。再算还剩多少元：200-140=60（元）。\", \"answers\": [{\"label\": \"妈妈还剩多少元\", \"value\": \"60\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1086.0310000134632,
+ "ttft_ms": 1086.0534000676125,
+ "total_ms": 1975.9013999719173
+}

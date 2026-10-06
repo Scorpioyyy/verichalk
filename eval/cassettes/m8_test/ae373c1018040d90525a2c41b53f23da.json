@@ -1,0 +1,18 @@
+{
+ "key": "ae373c1018040d90525a2c41b53f23da",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 410,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"325\", \"100\"], \"mode\": \"decimal_quotient\"},\n    {\"op\": \"除法\", \"operands\": [\"410\", \"100\"], \"mode\": \"decimal_quotient\"},\n    {\"op\": \"除法\", \"operands\": [\"298\", \"100\"], \"mode\": \"decimal_quotient\"}\n  ],\n  \"concepts\": [\"结合元角分认识小数\", \"小数大小的比较\"],\n  \"units_of_measure\": [\"元\", \"角\", \"分(货币)\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4527,
+  "completion_tokens": 156,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3877.4977000430226,
+ "ttft_ms": 3877.522199996747,
+ "total_ms": 4250.705800019205
+}

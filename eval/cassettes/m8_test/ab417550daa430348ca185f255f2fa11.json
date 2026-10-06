@@ -1,0 +1,18 @@
+{
+ "key": "ab417550daa430348ca185f255f2fa11",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"结合元角分认识小数\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 516,
+  "completion_tokens": 61,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9284.93049996905,
+ "ttft_ms": 9284.952000016347,
+ "total_ms": 9900.118999998085
+}

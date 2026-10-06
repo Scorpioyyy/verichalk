@@ -1,0 +1,18 @@
+{
+ "key": "a96bc606bebd3de1c75e7ad5b2975e65",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：体育课测量跳远成绩。已知一拃长9厘米，量了8拃还多2厘米。计算总长。9*8+2=74。符合二年级表内乘法和加法。变式在于结合身体尺的实际应用情境，而非单纯计算。\",\n \"solver_code\": \"def solve():\\n    return [74]\",\n \"stem\": \"体育课上，小明用“拃”作为身体尺来估测同学的跳远成绩。已知小明的一拃长约 $9$ 厘米，他沿着落地点到起跳线量了 $8$ 拃，还多出 $2$ 厘米。这段距离大约是 ____ 厘米。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"74\",\n   \"unit\": \"厘米\"\n  }\n ],\n \"solution\": \"先算 $8$ 拃的长度：$9 \\\\times 8 = 72$ 厘米。再加上多出的 $2$ 厘米：$72 + 2 = 74$ 厘米。\",\n \"kp_use\": {\n  \"用身体尺估测长度\": \"理解题意，将“8拃多2厘米”转化为数学计算，选用合适的身体尺单位进行累加估算\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4457,
+  "completion_tokens": 303,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6026.777600054629,
+ "ttft_ms": 6046.238800045103,
+ "total_ms": 11503.926699981093
+}

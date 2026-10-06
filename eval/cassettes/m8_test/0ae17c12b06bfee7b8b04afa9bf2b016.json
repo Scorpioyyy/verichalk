@@ -1,0 +1,18 @@
+{
+ "key": "0ae17c12b06bfee7b8b04afa9bf2b016",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 10,\n  \"fraction_types\": [\"几分之几\", \"真分数\"],\n  \"operations\": [\n    {\"operands\": [\"4/5\", \"3/4\"], \"mode\": null},\n    {\"operands\": [\"4/5\", \"5/8\"], \"mode\": null},\n    {\"operands\": [\"3/5\", \"1/2\"], \"mode\": null},\n    {\"operands\": [\"6/10\", \"5/10\"], \"mode\": null}\n  ],\n  \"concepts\": [\"分数乘分数\", \"异分母分数加减法（通分）\"],\n  \"units_of_measure\": [\"吨\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4570,
+  "completion_tokens": 151,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7482.737299986184,
+ "ttft_ms": 7482.764399959706,
+ "total_ms": 8703.823199961334
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ff9c7a75d78f2b926c9078b83d8b0790",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":80,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"10\",\"8\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"10\",\"5\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"8\",\"5\"],\"mode\":null}],\"concepts\":[\"组合体表面积的比较与优化（包装问题）\"],\"units_of_measure\":[\"厘米\",\"平方厘米\"],\"geometry_vocab\":[\"长方体\",\"面\",\"表面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4555,
+  "completion_tokens": 115,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2504.8987000482157,
+ "ttft_ms": 2504.9223999958485,
+ "total_ms": 3697.8848000289872
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c75d4bebbe4f7c47bd90a50e10188fed",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明沿长方形跑一圈的路程是周长：(12+8)×2=40（米）。两人路程一样长，所以小红跑的场地周长也是40米。小红场地长15米，周长40米，则长+宽=40÷2=20（米），宽=20-15=5（米）。\", \"answers\": [{\"label\": \"小红跑的场地宽是多少米\", \"value\": \"5\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 346,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3843.2459000032395,
+ "ttft_ms": 3843.2753999950364,
+ "total_ms": 4678.734999964945
+}

@@ -1,0 +1,18 @@
+{
+ "key": "232e12cbaf73b59a8aaba5c37fc6ef4d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"一共有10个鸡蛋，3个还没有动静，其余的都孵出了小鸡。用10减去3，得到孵出的小鸡数：10-3=7。\", \"answers\": [{\"label\": \"孵出了多少只小鸡\", \"value\": \"7\", \"unit\": \"只\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 360,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1593.3314999565482,
+ "ttft_ms": 1593.3520999969915,
+ "total_ms": 2518.7532999552786
+}

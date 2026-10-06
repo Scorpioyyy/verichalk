@@ -1,0 +1,18 @@
+{
+ "key": "0df663f28bbff1c0cbe6bebafe44c420",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 450,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之一\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"12\", \"6\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"18\", \"6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"2\", \"3\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"450\", \"5\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"450\", \"1/5\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"90\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比的基本性质\", \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\"],\n  \"units_of_measure\": [\"毫升\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4507,
+  "completion_tokens": 213,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6923.515099915676,
+ "ttft_ms": 6923.543199896812,
+ "total_ms": 9247.464699903503
+}

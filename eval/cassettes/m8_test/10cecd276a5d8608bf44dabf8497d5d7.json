@@ -1,0 +1,18 @@
+{
+ "key": "10cecd276a5d8608bf44dabf8497d5d7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"探索规律：减法算式中被减数、减数与差的变化规律\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 594,
+  "completion_tokens": 70,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2336.970999953337,
+ "ttft_ms": 2336.999100050889,
+ "total_ms": 3683.531100046821
+}

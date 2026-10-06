@@ -1,0 +1,18 @@
+{
+ "key": "d344019256cb93075e461ce9b4479112",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2米5分米3厘米中，5分米=0.5米，3厘米=0.03米，合起来是2+0.5+0.03=2.53米。\", \"answers\": [{\"label\": \"\", \"value\": \"2.53\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9405.917100026272,
+ "ttft_ms": 9405.93250002712,
+ "total_ms": 10251.724399975501
+}

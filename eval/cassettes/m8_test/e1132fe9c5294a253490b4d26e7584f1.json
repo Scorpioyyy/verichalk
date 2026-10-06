@@ -1,0 +1,18 @@
+{
+ "key": "e1132fe9c5294a253490b4d26e7584f1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 85,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"5\", \"10\"], \"mode\": \"decimal_quotient\"},\n    {\"op\": \"加法\", \"operands\": [\"8\", \"0.5\"], \"mode\": null}\n  ],\n  \"concepts\": [\"结合元角分认识小数\"],\n  \"units_of_measure\": [\"元\", \"角\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4500,
+  "completion_tokens": 117,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11682.104000006802,
+ "ttft_ms": 11682.122700032778,
+ "total_ms": 12975.42449994944
+}

@@ -1,0 +1,18 @@
+{
+ "key": "00b8c428d47311ee5c2f956990fd7ac0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 2024,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"2024\", \"4\"], \"mode\": null}\n  ],\n  \"concepts\": [\"各月天数与平年闰年的规律\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4508,
+  "completion_tokens": 88,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 18869.228199939243,
+ "ttft_ms": 18869.24969998654,
+ "total_ms": 19570.991599932313
+}

@@ -1,0 +1,18 @@
+{
+ "key": "dcd347f9d4b429d3b66a0af6dd3450c9",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A完全偏离了'周长'知识点，是一道除法题；练习B紧扣周长，包含基础计算、逆向思考、变化推理和拼组优化，思维层次丰富，且针对了单位、拼组等易错点。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 423,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1849.3323000147939,
+ "ttft_ms": 1849.3596001062542,
+ "total_ms": 3527.4603000143543
+}

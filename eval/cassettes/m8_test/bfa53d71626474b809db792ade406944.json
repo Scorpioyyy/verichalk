@@ -1,0 +1,18 @@
+{
+ "key": "bfa53d71626474b809db792ade406944",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"36÷9=4（个）。验算：4×9=36（次），与题目中摸球总次数36次相符，所以结果正确。\", \"answers\": [{\"label\": \"全班一共有多少个小组\", \"value\": \"4\", \"unit\": \"个\"}, {\"label\": \"验算\", \"value\": \"4×9=36（次），与总次数36次相符\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 107,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4568.0274000624195,
+ "ttft_ms": 4568.0527000222355,
+ "total_ms": 5765.373500064015
+}

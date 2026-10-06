@@ -1,0 +1,18 @@
+{
+ "key": "8b71102b5ee2fb2fbbb84ae36f542b4f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两根绳子同样长，所以两个长方形的周长相等。小明围成的长方形周长是 (10+8)×2=36 厘米。小红围成的长方形周长也是 36 厘米，长是 12 厘米，则长+宽=36÷2=18 厘米，宽=18-12=6 厘米。\", \"answers\": [{\"label\": \"小红围成的长方形宽是多少厘米\", \"value\": \"6\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 115,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1645.6938000628725,
+ "ttft_ms": 1645.7225000485778,
+ "total_ms": 2416.6670000413433
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ebcde7c41e6e3b1b8d6c70022d32e793",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"圆的周长计算公式\": true, \"圆的面积实际问题（含组合与比较）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 600,
+  "completion_tokens": 71,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11236.991999903694,
+ "ttft_ms": 11237.094399984926,
+ "total_ms": 11597.895000013523
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5248383919e8ef5b301ffcd9cf9dd152",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": false, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数乘小数的竖式计算（含补0与去0）\": true}, \"issues\": [\"跳远沙坑长0.25米、宽0.4米不符合生活常识，沙坑长度通常为几米，0.25米（25厘米）的沙坑过于荒谬。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 546,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1213.7171999784186,
+ "ttft_ms": 1213.746599969454,
+ "total_ms": 2185.235199984163
+}

@@ -1,0 +1,18 @@
+{
+ "key": "2af35c7efd61a289af6027fbc6147f19",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"100以内数的大小比较\": false}, \"issues\": [\"声称涉及的知识点'100以内数的大小比较'在解答中并未用到，解答只用了加减法计算，没有进行数的大小比较。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 548,
+  "completion_tokens": 91,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12034.735499997623,
+ "ttft_ms": 12034.992899978533,
+ "total_ms": 13057.203799951822
+}

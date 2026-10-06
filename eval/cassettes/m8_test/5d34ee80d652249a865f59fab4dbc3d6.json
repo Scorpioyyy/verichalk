@@ -1,0 +1,18 @@
+{
+ "key": "5d34ee80d652249a865f59fab4dbc3d6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"设李老师买了 x 本笔记本。每本 3.5 元，共花 3.5x 元；付 50 元找回 15 元，所以花去 50-15=35 元。列方程 3.5x=35，解得 x=35÷3.5=10。\", \"answers\": [{\"label\": \"李老师买了多少本笔记本\", \"value\": \"10\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6445.748999947682,
+ "ttft_ms": 6445.772800012492,
+ "total_ms": 7520.049600047059
+}

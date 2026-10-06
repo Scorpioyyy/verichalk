@@ -1,0 +1,18 @@
+{
+ "key": "9ad326e38e819e43e0cad0755c5d808d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2分米=0.2米，3厘米=0.03米，5毫米=0.005米，合起来是0.2+0.03+0.005=0.235米。\", \"answers\": [{\"label\": \"幼苗高度\", \"value\": \"0.235\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2833.4782000165433,
+ "ttft_ms": 2833.5105000296608,
+ "total_ms": 3760.223799967207
+}

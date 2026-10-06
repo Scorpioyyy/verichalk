@@ -1,0 +1,18 @@
+{
+ "key": "7523ec55288d4b14ff61fee2854906fa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 48,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"12\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"48\", \"5/8\"], \"mode\": null}\n  ],\n  \"concepts\": [\"分数的意义（单位“1”与分数单位）\", \"整数乘分数（求一个数的几分之几是多少）\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": [\"长方体\", \"棱\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4521,
+  "completion_tokens": 135,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4827.350800042041,
+ "ttft_ms": 4827.376100001857,
+ "total_ms": 5511.325599974953
+}

@@ -1,0 +1,18 @@
+{
+ "key": "f72bf113d26e569193779aceb9d6f3c5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"对折4次后层数为2×2×2×2=16层，总厚度=16×(1/10)=16/10=8/5毫米。\", \"answers\": [{\"label\": \"总厚度\", \"value\": \"8/5\", \"unit\": \"毫米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5285.797200049274,
+ "ttft_ms": 5285.809900029562,
+ "total_ms": 5816.1042999709025
+}

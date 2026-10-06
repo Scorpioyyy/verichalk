@@ -1,0 +1,18 @@
+{
+ "key": "8ddbaa0c2eed48ff4d2200edbbe19bf7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":23,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"除法\",\"operands\":[\"23\",\"5\"],\"mode\":\"remainder\"},{\"op\":\"乘法\",\"operands\":[\"5\",\"4\"],\"mode\":null},{\"op\":\"减法\",\"operands\":[\"23\",\"20\"],\"mode\":null}],\"concepts\":[\"有余数除法的认识\",\"用乘法口诀求商\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4438,
+  "completion_tokens": 106,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9870.210999972187,
+ "ttft_ms": 9870.235599926673,
+ "total_ms": 10793.395399930887
+}

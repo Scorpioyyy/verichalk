@@ -1,0 +1,18 @@
+{
+ "key": "0337ce10123b5bf6a323e28bc393957c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原有15人。第一站上来8人又下去8人，人数不变，仍是15人。第二站下去5人，15-5=10人。第三站上来3人，10+3=13人。\", \"answers\": [{\"label\": \"\", \"value\": \"13\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4860.478700022213,
+ "ttft_ms": 4860.501899966039,
+ "total_ms": 5350.547500071116
+}

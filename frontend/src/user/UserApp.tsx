@@ -169,12 +169,20 @@ function TopBar({
   onDelete,
 }: TopBarProps) {
   const root = useRef<HTMLDivElement>(null);
+  const renaming = useRef(false); // 正在改标题时，点空白处只是"改完了"（让教师看到结果），不关菜单
   useEffect(() => {
     if (!menuOpen) return;
     const onDoc = (e: MouseEvent) => {
-      if (!root.current?.contains(e.target as Node)) setMenuOpen(false);
+      if (root.current?.contains(e.target as Node)) return;
+      if (renaming.current) {
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); // 失焦即提交
+        return;
+      }
+      setMenuOpen(false);
     };
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !renaming.current) setMenuOpen(false); // 改名时 Esc 只取消改名
+    };
     document.addEventListener("mousedown", onDoc);
     document.addEventListener("keydown", onKey);
     return () => {
@@ -211,7 +219,7 @@ function TopBar({
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <Icon name="history" size={16} /> <span className="hide-sm">历史</span>
+            <Icon name="history" size={16} /> <span className="hide-sm">历史对话</span>
           </button>
           {menuOpen && (
             <div className="menu" role="menu" aria-label="历史对话">
@@ -223,10 +231,10 @@ function TopBar({
                   onOpen(id);
                 }}
                 onRename={onRename}
-                onDelete={(id) => {
-                  setMenuOpen(false);
-                  onDelete(id);
+                onEditingChange={(on) => {
+                  renaming.current = on;
                 }}
+                onDelete={onDelete}
               />
             </div>
           )}

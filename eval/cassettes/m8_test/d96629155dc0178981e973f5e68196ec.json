@@ -1,0 +1,18 @@
+{
+ "key": "d96629155dc0178981e973f5e68196ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"石块完全浸没且水未溢出，水面上升部分的体积就是石块的体积。上升部分是一个长5分米、宽4分米、高0.5分米的长方体，体积=5×4×0.5=10（立方分米）。\", \"answers\": [{\"label\": \"石块的体积\", \"value\": \"10\", \"unit\": \"立方分米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 95,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3207.7416999964043,
+ "ttft_ms": 3207.768899970688,
+ "total_ms": 4977.692099986598
+}

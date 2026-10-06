@@ -1,0 +1,18 @@
+{
+ "key": "635987ac05557f25c2b319d07140881d",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"正方形边长12cm，周长48cm。长方形周长也是48cm，长+宽=24cm。长>宽且为整数。可能的组合：(23,1), (22,2)...(13,11)。题目问一种可能的长和宽。为了增加难度，设定长方形的长比宽多10厘米。则2*宽+10=24 -> 2*宽=14 -> 宽=7，长=17。检查：17+7=24，17-7=10。符合三年级水平。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 正方形边长\\n    side_sq = 12\\n    # 周长\\n    perimeter = 4 * side_sq\\n    # 长方形长宽之和\\n    sum_lw = perimeter // 2\\n    # 条件：长比宽多10\\n    diff_lw = 10\\n    # 宽 = (和 - 差) / 2\\n    width = (sum_lw - diff_lw) // 2\\n    length = width + diff_lw\\n    return [length, width]\",\n \"stem\": \"手工课上，小明用一根铁丝正好围成一个边长为 $12$ 厘米的正方形。小红也用同样长的铁丝围成一个长方形，已知这个长方形的长比宽多 $10$ 厘米。请问这个长方形的长和宽各是多少厘米？（长和宽均为整厘米数）\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"长\",\n   \"value\": \"17\",\n   \"unit\": \"厘米\"\n  },\n  {\n   \"label\": \"宽\",\n   \"value\": \"7\",\n   \"unit\": \"厘米\"\n  }\n ],\n \"solution\": \"先求铁丝总长：$12\\\\times 4=48$ 厘米。长方形长与宽的和是 $48\\\\div 2=24$ 厘米。因为长比宽多 $10$ 厘米，所以宽是 $(24-10)\\\\div 2=7$ 厘米，长是 $7+10=17$ 厘米。\",\n \"kp_use\": {\n  \"周长相等的图形其形状可以不同\": \"理解正方形和长方形由同一根铁丝围成，因此周长相等，进而求出长方形长宽之和\",\n  \"长方形和正方形的特征\": \"利用正方形四边相等求周长；利用长方形对边相等及长宽关系求解具体边长\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2389,
+  "completion_tokens": 587,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1249.7089001117274,
+ "ttft_ms": 1264.9643000913784,
+ "total_ms": 11241.625500028022
+}

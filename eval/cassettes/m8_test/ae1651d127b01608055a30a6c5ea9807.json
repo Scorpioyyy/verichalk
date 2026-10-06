@@ -1,0 +1,18 @@
+{
+ "key": "ae1651d127b01608055a30a6c5ea9807",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"圆的周长计算公式\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 563,
+  "completion_tokens": 58,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4973.227399983443,
+ "ttft_ms": 4973.253299947828,
+ "total_ms": 5896.571599994786
+}

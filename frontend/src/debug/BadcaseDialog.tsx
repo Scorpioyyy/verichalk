@@ -10,7 +10,7 @@ export const ROOT_CAUSES: { id: RootCause; name: string; where: string }[] = [
   { id: "R", name: "规划", where: "范围错 / 组合不自然 / 覆盖不全 → knowledge、ComboMiner、plan" },
   {
     id: "W",
-    name: "创作",
+    name: "生成",
     where: "歧义 / 数据荒谬 / 不新颖 / 难度偏离 → produce.write 提示与上下文",
   },
   { id: "V", name: "核验", where: "漏检（坏题放行）/ 误杀（好题被拒）→ verify 检查本身" },

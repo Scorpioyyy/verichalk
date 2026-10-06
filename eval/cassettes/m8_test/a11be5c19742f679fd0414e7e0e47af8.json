@@ -1,0 +1,18 @@
+{
+ "key": "a11be5c19742f679fd0414e7e0e47af8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 8, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"8\", \"0.1\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"5\", \"0.8\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"2\", \"0.01\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"3\", \"0.02\"], \"mode\": null}], \"concepts\": [\"结合元角分认识小数\"], \"units_of_measure\": [\"元\", \"角\", \"分(货币)\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4454,
+  "completion_tokens": 156,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3406.757600023411,
+ "ttft_ms": 3406.7806999664754,
+ "total_ms": 4719.094600062817
+}

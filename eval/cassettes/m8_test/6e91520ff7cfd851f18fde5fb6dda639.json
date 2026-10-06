@@ -1,0 +1,18 @@
+{
+ "key": "6e91520ff7cfd851f18fde5fb6dda639",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1米25厘米=1.25米，30厘米=0.30米，1.25+0.30=1.55米。\", \"answers\": [{\"label\": \"\", \"value\": \"1.55\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 329,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1367.6482998998836,
+ "ttft_ms": 1367.6641999045387,
+ "total_ms": 1983.9967999141663
+}

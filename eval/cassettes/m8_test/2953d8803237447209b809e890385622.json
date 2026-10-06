@@ -1,0 +1,18 @@
+{
+ "key": "2953d8803237447209b809e890385622",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"09:15 是24时记时法，且小于12时，用12时记时法表示时，上午时刻不变，仍为9:15。\", \"answers\": [{\"label\": \"\", \"value\": \"9:15\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 313,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11388.819999992847,
+ "ttft_ms": 11388.837999897078,
+ "total_ms": 12836.702300002798
+}

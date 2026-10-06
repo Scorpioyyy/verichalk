@@ -1,0 +1,18 @@
+{
+ "key": "f6c502ae95d0ae0ddc183941680779cb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 126, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"4.2\", \"3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"42\", \"3\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\"], \"units_of_measure\": [\"千克\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4442,
+  "completion_tokens": 106,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1910.9827999491245,
+ "ttft_ms": 1910.996099933982,
+ "total_ms": 2907.723599928431
+}

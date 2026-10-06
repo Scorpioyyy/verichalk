@@ -1,0 +1,18 @@
+{
+ "key": "e395143e0bd2a3c15c5dbda9e99ea289",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"分数的意义（单位“1”与分数单位）\": true, \"平均分的两种情况（等分与包含）\": false}, \"issues\": [\"声称涉及的知识点“平均分的两种情况（等分与包含）”在解答中并未实际用到，解答只用到分数的意义和求一个数的几分之几。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 639,
+  "completion_tokens": 114,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2516.836700029671,
+ "ttft_ms": 2516.864200006239,
+ "total_ms": 3488.5480999946594
+}

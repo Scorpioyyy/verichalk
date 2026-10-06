@@ -1,0 +1,18 @@
+{
+ "key": "b56807e0bd2a0c64cd52559c7004749b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"直径10cm，半径r=10÷2=5cm。圆面积S=πr²=3.14×5²=3.14×25=78.5cm²。\", \"answers\": [{\"label\": \"\", \"value\": \"78.5\", \"unit\": \"cm²\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4852.580299950205,
+ "ttft_ms": 4852.845899993554,
+ "total_ms": 5622.904199990444
+}

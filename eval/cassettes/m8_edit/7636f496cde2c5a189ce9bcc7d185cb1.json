@@ -1,0 +1,18 @@
+{
+ "key": "7636f496cde2c5a189ce9bcc7d185cb1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答按解析先算总价7.5元再算找零2.5元，答案与解析一致，并补充了易错点，满足要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 859,
+  "completion_tokens": 50,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4679.788599954918,
+ "ttft_ms": 4680.1956000272185,
+ "total_ms": 5106.21070000343
+}

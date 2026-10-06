@@ -1,0 +1,18 @@
+{
+ "key": "b7df1cde016f6957a171d3880b98d5b9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"7.5\", \"4.5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"12\", \"3\"], \"mode\": null}], \"concepts\": [\"解方程（等式两边加减同一个数）\", \"解方程（等式两边乘除同一个数）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4416,
+  "completion_tokens": 114,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1529.6573999803513,
+ "ttft_ms": 1529.6802000375465,
+ "total_ms": 2331.084900069982
+}

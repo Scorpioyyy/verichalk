@@ -54,7 +54,7 @@ function stream(): AppEvent[] {
   return [
     ev("run.started", { session_id: "ses_1", pipeline: "classic", schema_version: "1.2" }),
     ev("progress", { label: "正在理解您的需求", current: null, total: null }),
-    ev("progress", { label: "开始逐题创作并核验", current: 0, total: 3 }),
+    ev("progress", { label: "开始逐题生成并核验", current: 0, total: 3 }),
     ev("item.delivered", { item: item("a", "pending"), order: 1 }),
     ev("item.status", { item_id: "a", status: "verified", checks: [] }),
     ev("progress", { label: "已完成 1/3 道题的核验", current: 1, total: 3 }),
@@ -109,7 +109,7 @@ describe("reduceEvent", () => {
     const s = foldEvents(stream());
     expect(s.steps.map((x) => x.label)).toEqual([
       "正在理解您的需求",
-      "开始逐题创作并核验",
+      "开始逐题生成并核验",
       "已完成 2/3 道题的核验", // 1/3 与 2/3 是同一步（数字不同），保留最新
     ]);
   });

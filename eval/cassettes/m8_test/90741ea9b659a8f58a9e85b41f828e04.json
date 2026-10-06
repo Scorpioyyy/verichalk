@@ -1,0 +1,18 @@
+{
+ "key": "90741ea9b659a8f58a9e85b41f828e04",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每支钢笔12.5元，买4支，总价=12.5×4=50（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"50\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3441.9797000009567,
+ "ttft_ms": 3441.9953000033274,
+ "total_ms": 4036.7823999840766
+}

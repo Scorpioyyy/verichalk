@@ -1,0 +1,18 @@
+{
+ "key": "f5f5e263c90c9752940dc5025c21586f",
+ "model": "qwen3.7-plus",
+ "purpose": "naive.write",
+ "text": "{\n  \"items\": [\n    {\n      \"stem\": \"计算：$720 \\\\div 24 =$\",\n      \"answer\": \"30\",\n      \"solution\": \"将除数24看作20试商，或者直接口算。$24 \\\\times 3 = 72$，所以 $720 \\\\div 24 = 30$。\"\n    },\n    {\n      \"stem\": \"计算：$598 \\\\div 26 =$\",\n      \"answer\": \"23\",\n      \"solution\": \"把26看作30试商。$59 \\\\div 26$ 商2，余7；落下8变成78，$78 \\\\div 26$ 商3，整除。故结果为23。\"\n    },\n    {\n      \"stem\": \"计算：$850 \\\\div 17 =$\",\n      \"answer\": \"50\",\n      \"solution\": \"观察被除数前两位85，$17 \\\\times 5 = 85$，正好整除，末尾补0，故结果为50。\"\n    },\n    {\n      \"stem\": \"计算：$432 \\\\div 48 =$\",\n      \"answer\": \"9\",\n      \"solution\": \"把48看作50试商。$432 \\\\div 48$，因为 $48 \\\\times 10 = 480$，接近432且略大，试商9。$48 \\\\times 9 = 432$，正好整除。\"\n    },\n    {\n      \"stem\": \"计算：$902 \\\\div 22 =$\",\n      \"answer\": \"41\",\n      \"solution\": \"把22看作20试商。$90 \\\\div 22$ 商4，余2；落下2变成22，$22 \\\\div 22$ 商1。故结果为41。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 89,
+  "completion_tokens": 462,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1767.1580999158323,
+ "ttft_ms": 1781.7538999952376,
+ "total_ms": 9629.487699945457
+}

@@ -1,0 +1,18 @@
+{
+ "key": "3508af07f28ce145ae4679b8550b6f52",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"苹果原来34筐，又运来5筐，现在苹果有34+5=39筐。梨有20筐。苹果比梨多39-20=19筐，与题目说的19筐一致。\", \"answers\": [{\"label\": \"现在苹果有多少筐\", \"value\": \"39\", \"unit\": \"筐\"}, {\"label\": \"苹果比梨多多少筐\", \"value\": \"19\", \"unit\": \"筐\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 109,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10069.143400061876,
+ "ttft_ms": 10069.354800041765,
+ "total_ms": 11236.807200009935
+}

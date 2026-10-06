@@ -1,0 +1,18 @@
+{
+ "key": "59e0a8c1ad9b1e7c010812ecc5e9d223",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"三角形的面积\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 551,
+  "completion_tokens": 57,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1284.6648000413552,
+ "ttft_ms": 1284.6797000383958,
+ "total_ms": 1772.1961999777704
+}

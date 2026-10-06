@@ -1,0 +1,18 @@
+{
+ "key": "ce6e84a6c0d2bd4c31b4d398e9c0773c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 6, \"decimal_places\": null, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"1/2\", \"4/5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1/2\", \"6/5\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"4/5\", \"6/5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1/2\", \"2\"], \"mode\": null}], \"concepts\": [\"分数乘分数\", \"整数运算律在分数运算中的应用\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4524,
+  "completion_tokens": 160,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5478.544900077395,
+ "ttft_ms": 5478.57220005244,
+ "total_ms": 6548.349600052461
+}

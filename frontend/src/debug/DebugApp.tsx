@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { api, getDebugToken, setDebugToken } from "@/shared/api/client";
 import { Icon } from "@/shared/ui/Icon";
 import { Badcases } from "./Badcases";
@@ -33,9 +33,9 @@ export default function DebugApp() {
   return (
     <div className="dbg">
       <header className="dbg-top">
-        <span className="dbg-brand">
+        <Link to="/debug" className="dbg-brand" aria-label="VeriChalk 调试台，回到运行列表">
           <Icon name="bug" size={18} /> VeriChalk 调试台
-        </span>
+        </Link>
         <nav className="dbg-nav" aria-label="调试台导航">
           <NavLink to="/debug" end>
             <Icon name="list" size={15} /> 运行

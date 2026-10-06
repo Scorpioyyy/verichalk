@@ -1,0 +1,18 @@
+{
+ "key": "b0bc822669e0bbfce20a37f848186e11",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 15,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"减法\", \"operands\": [\"7\", \"1\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"15\", \"9\"], \"mode\": null}\n  ],\n  \"concepts\": [\"探索规律：减法算式中被减数、减数与差的变化规律\", \"20以内退位减法\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4522,
+  "completion_tokens": 121,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11054.031500010751,
+ "ttft_ms": 11054.05559996143,
+ "total_ms": 11992.68879997544
+}

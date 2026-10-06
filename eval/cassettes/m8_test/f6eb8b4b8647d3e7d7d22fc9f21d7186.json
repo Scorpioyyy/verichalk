@@ -1,0 +1,18 @@
+{
+ "key": "f6eb8b4b8647d3e7d7d22fc9f21d7186",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"除法的验算方法\": true, \"0和乘法竖式中0的处理\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 566,
+  "completion_tokens": 71,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6050.789700006135,
+ "ttft_ms": 6050.804800004698,
+ "total_ms": 6717.020400101319
+}

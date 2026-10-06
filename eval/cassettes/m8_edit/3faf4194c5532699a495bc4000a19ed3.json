@@ -1,0 +1,18 @@
+{
+ "key": "3faf4194c5532699a495bc4000a19ed3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": false, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 1, \"kp_used\": {\"三角形内角和\": true}, \"issues\": [\"题目是判断题，但题干'三角形的内角和是180°'本身是正确命题，给定答案却为'错'，答案与题意矛盾\", \"解析说'所以是对的'，与给定答案'错'不一致\", \"题干未说明是哪种三角形，若按'任意三角形'理解则命题正确，若按'只有直角三角形'等理解则题意含糊，存在多种合理读法\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 467,
+  "completion_tokens": 143,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1025.5573999602348,
+ "ttft_ms": 1025.5711999488994,
+ "total_ms": 2470.554700004868
+}

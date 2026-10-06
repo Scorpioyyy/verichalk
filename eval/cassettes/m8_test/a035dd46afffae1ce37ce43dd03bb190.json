@@ -1,0 +1,18 @@
+{
+ "key": "a035dd46afffae1ce37ce43dd03bb190",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"基准值为100。首日AQI是基准值的1又1/4倍，即5/4。次日比前一日降低了基准值的1/6，所以次日AQI是基准值的5/4-1/6=15/12-2/12=13/12。\", \"answers\": [{\"label\": \"次日的AQI指数是基准值的几分之几\", \"value\": \"13/12\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 397,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3320.9176999516785,
+ "ttft_ms": 3320.94370003324,
+ "total_ms": 4557.368500041775
+}

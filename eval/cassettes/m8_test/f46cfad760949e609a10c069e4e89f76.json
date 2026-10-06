@@ -1,0 +1,18 @@
+{
+ "key": "f46cfad760949e609a10c069e4e89f76",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"五次成绩：120、135、128、142、115。最高分是142，最低分是115，去掉这两个后剩下120、135、128。剩余三次的总和：120+135+128=383。平均数：383÷3=127.666...，保留两位小数为127.67。\", \"answers\": [{\"label\": \"有效平均成绩\", \"value\": \"127.67\", \"unit\": \"下\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 108,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1838.2216999307275,
+ "ttft_ms": 1838.2474000100046,
+ "total_ms": 2822.7849999675527
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5450006f8e80d973ca014eedbb0db243",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"金丝猴寿命：35×2+18=88（年）；总和：35+88=123（年）\", \"answers\": [{\"label\": \"平均寿命总和\", \"value\": \"123\", \"unit\": \"年\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8197.107399930246,
+ "ttft_ms": 8197.12179992348,
+ "total_ms": 8954.310099943541
+}

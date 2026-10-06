@@ -1,0 +1,18 @@
+{
+ "key": "2cfecc77461252eba048a49d0ef5ec2c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"根据物体长短选择合适的长度单位（厘米/米）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 517,
+  "completion_tokens": 66,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6077.760999905877,
+ "ttft_ms": 6077.788199996576,
+ "total_ms": 6306.923999916762
+}

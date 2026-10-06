@@ -1,0 +1,18 @@
+{
+ "key": "89cd36c41b5f7978fb4bcd1788b6d975",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"分数连加连减与加减混合运算\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 626,
+  "completion_tokens": 64,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5617.483300040476,
+ "ttft_ms": 5617.509600007907,
+ "total_ms": 6131.8093000445515
+}

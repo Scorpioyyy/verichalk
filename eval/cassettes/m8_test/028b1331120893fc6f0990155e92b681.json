@@ -1,0 +1,18 @@
+{
+ "key": "028b1331120893fc6f0990155e92b681",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 12,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [],\n  \"concepts\": [\"结合元角分认识小数\"],\n  \"units_of_measure\": [\"元\", \"分(货币)\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4506,
+  "completion_tokens": 68,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4483.844600035809,
+ "ttft_ms": 4483.860300038941,
+ "total_ms": 4815.262799966149
+}

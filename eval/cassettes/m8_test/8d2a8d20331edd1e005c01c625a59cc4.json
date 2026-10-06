@@ -1,0 +1,18 @@
+{
+ "key": "8d2a8d20331edd1e005c01c625a59cc4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 24, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3\", \"8\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"24\", \"12\"], \"mode\": null}], \"concepts\": [\"用减法解决相差问题（比多比少）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4473,
+  "completion_tokens": 99,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14966.309400042519,
+ "ttft_ms": 14966.5471999906,
+ "total_ms": 15831.321500008926
+}

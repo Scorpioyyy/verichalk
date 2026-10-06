@@ -1,0 +1,18 @@
+{
+ "key": "938d615796f22b73e61a468a33ca8c08",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"先算左边：$16+82=98$；再算右边：$53+44=97$。因为$98>97$，所以○里填“>”。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 161,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5747.805399936624,
+ "ttft_ms": 5747.825999977067,
+ "total_ms": 6310.210799914785
+}

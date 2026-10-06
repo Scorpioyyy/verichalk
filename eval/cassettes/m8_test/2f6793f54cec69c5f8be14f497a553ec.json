@@ -1,0 +1,18 @@
+{
+ "key": "2f6793f54cec69c5f8be14f497a553ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 490,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"140\", \"2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"7\", \"70\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比的基本性质\", \"按比例分配\"],\n  \"units_of_measure\": [\"克\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4488,
+  "completion_tokens": 109,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4318.81099997554,
+ "ttft_ms": 4318.866100045852,
+ "total_ms": 5345.444399979897
+}

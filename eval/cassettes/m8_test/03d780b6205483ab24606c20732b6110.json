@@ -1,0 +1,18 @@
+{
+ "key": "03d780b6205483ab24606c20732b6110",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：买一套书。A店：先减50元再打八折；B店：直接打七五折。已知在B店购买需支付225元。求原价及A店价格并比较。设原价x。B店：0.75x=225 -> x=300。A店：(300-50)*0.8 = 250*0.8 = 200。200 < 225，A店便宜。数值合理，整数结果。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # B店实际支付225元，折扣为75% (3/4)\\n    price_b_paid = Decimal('225')\\n    discount_b = Decimal('0.75')\\n    \\n    # 求原价 x\\n    original_price = price_b_paid / discount_b\\n    \\n    # A店优惠：先减50元，再打八折 (80% = 0.8)\\n    discount_a_rate = Decimal('0.8')\\n    reduction_a = Decimal('50')\\n    \\n    price_a_paid = (original_price - reduction_a) * discount_a_rate\\n    \\n    # 返回：原价, A店价格\\n    return [original_price, price_a_paid]\",\n \"stem\": \"某套图书在两家网店销售，优惠方案如下：\\nA 店：每套先立减 $50$ 元，再打八折；\\nB 店：每套直接打七五折。\\n小明在 B 店购买这套书实际支付了 $225$ 元。\\n（1）这套书的原价是多少元？\\n（2）若在 A 店购买，需支付多少元？哪家店更划算？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"这套书的原价\",\n   \"value\": \"300\",\n   \"unit\": \"元\"\n  },\n  {\n   \"label\": \"A店需支付金额及判断\",\n   \"value\": \"200，A店\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"（1）设原价为 $x$ 元。由 B 店方案得 $0.75x=225$，解得 $x=300$。（2）A 店价格为 $(300-50)\\\\times 0.8=200$ 元。因为 $200<225$，所以 A 店更划算。\",\n \"kp_use\": {\n  \"用字母表示数与方程（总复习）\": \"设原价为 $x$，根据 B 店折扣列出方程 $0.75x=225$ 并求解；用含 $x$ 的式子表示 A 店价格\",\n  \"已知一个数的几分之几是多少，求这个数\": \"通过 B 店折后价和折扣率（即部分量和对应分率），逆向求出单位“1”即原价\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2515,
+  "completion_tokens": 710,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1473.7075000302866,
+ "ttft_ms": 1492.277399986051,
+ "total_ms": 13543.871499947272
+}

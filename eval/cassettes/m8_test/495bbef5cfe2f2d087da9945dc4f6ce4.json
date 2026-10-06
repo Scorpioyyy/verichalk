@@ -1,0 +1,18 @@
+{
+ "key": "495bbef5cfe2f2d087da9945dc4f6ce4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"12时记时法与24时记时法\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 535,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2260.299399960786,
+ "ttft_ms": 2260.319299995899,
+ "total_ms": 2853.857100009918
+}

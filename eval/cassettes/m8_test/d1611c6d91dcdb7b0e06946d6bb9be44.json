@@ -1,0 +1,18 @@
+{
+ "key": "d1611c6d91dcdb7b0e06946d6bb9be44",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计两个同种材料的圆锥。小圆锥：r=3, h=10。大圆锥：r=6, h=15。小圆锥质量已知为 45g。求大圆锥质量。体积比 V1/V2 = (1/3*pi*9*10) / (1/3*pi*36*15) = 90/540 = 1/6。因为同种材料，质量与体积成正比，所以 m2 = 6 * m1 = 270g。数值合理，无复杂小数。\",\n \"solver_code\": \"from fractions import Fraction\\n\\ndef solve():\\n    # 小圆锥参数\\n    r1 = 3\\n    h1 = 10\\n    # 大圆锥参数\\n    r2 = 6\\n    h2 = 15\\n    # 小圆锥质量\\n    m1 = 45\\n    \\n    # 计算体积比 (V1/V2)\\n    # V = 1/3 * pi * r^2 * h\\n    # Ratio = (r1^2 * h1) / (r2^2 * h2)\\n    vol_ratio = Fraction(r1**2 * h1, r2**2 * h2)\\n    \\n    # 质量与体积成正比，m1/m2 = V1/V2 => m2 = m1 * (V2/V1)\\n    # V2/V1 is the inverse of vol_ratio\\n    mass_ratio = Fraction(1, 1) / vol_ratio\\n    \\n    m2 = m1 * mass_ratio\\n    return [int(m2)]\",\n \"stem\": \"科学小组用同一种金属制作了两个实心圆锥模型。小圆锥的底面半径是 $3\\\\text{cm}$，高是 $10\\\\text{cm}$，称得质量为 $45\\\\text{g}$。大圆锥的底面半径是 $6\\\\text{cm}$，高是 $15\\\\text{cm}$。已知同种材料的质量与体积成正比例，大圆锥的质量是多少克？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"270\",\n   \"unit\": \"g\"\n  }\n ],\n \"solution\": \"先求体积比。小圆锥与大圆锥底面积比为 $3^2:6^2=1:4$，高比为 $10:15=2:3$，故体积比为 $(1\\\\times 2):(4\\\\times 3)=2:12=1:6$。因同种材料质量与体积成正比例，大圆锥质量是小圆锥的 $6$ 倍，即 $45\\\\times 6=270\\\\text{g}$。\",\n \"kp_use\": {\n  \"圆锥的体积\": \"利用圆锥体积公式结构（底面积乘高），通过半径和高的比例关系推导两个圆锥的体积比，避免直接计算具体体积数值带来的繁琐运算\",\n  \"正比例\": \"依据“同种材料质量与体积成正比例”这一条件，建立质量比等于体积比的等量关系，从而由小圆锥质量推算出大圆锥质量\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2482,
+  "completion_tokens": 719,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1368.1027999846265,
+ "ttft_ms": 1378.819499979727,
+ "total_ms": 13592.624900047667
+}

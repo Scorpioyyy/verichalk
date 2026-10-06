@@ -1,0 +1,18 @@
+{
+ "key": "eb89a9328f14021df5324c5c44c01630",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"底面周长3.14米，半径r=3.14÷(2×3.14)=0.5米。每根立柱体积=πr²h=3.14×0.5²×3=2.355立方米。4根共2.355×4=9.42立方米。\", \"answers\": [{\"label\": \"一共需要多少立方米的材料\", \"value\": \"9.42\", \"unit\": \"立方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 352,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4883.425000007264,
+ "ttft_ms": 4883.444300037809,
+ "total_ms": 5906.666900031269
+}

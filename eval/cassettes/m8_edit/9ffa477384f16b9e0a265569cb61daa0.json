@@ -1,0 +1,18 @@
+{
+ "key": "9ffa477384f16b9e0a265569cb61daa0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"解两步方程\": false}, \"issues\": [\"题目只涉及一步方程（两边同时减去4.5），并非声称的'解两步方程'，知识点标注与实际不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 495,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1543.3086999692023,
+ "ttft_ms": 1543.3226999593899,
+ "total_ms": 2291.635600035079
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ca072b8552042faf00a4955fd67b334f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把馆藏总量看作单位“1”。上午借出1/4，下午归还1/6，全天结束时比原来减少1/3，说明全天净借出1/3。设下午借出x，则上午借出-下午归还=净减少，即1/4 - 1/6 + x = 1/3。计算1/4 - 1/6 = 3/12 - 2/12 = 1/12，所以1/12 + x = 1/3 = 4/12，x = 4/12 - 1/12 = 3/12 = 1/4。\", \"answers\": [{\"label\": \"下午借出的图书占总量的几分之几\", \"value\": \"1/4\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 388,
+  "completion_tokens": 186,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3865.5950999818742,
+ "ttft_ms": 3865.612499997951,
+ "total_ms": 5683.670900063589
+}

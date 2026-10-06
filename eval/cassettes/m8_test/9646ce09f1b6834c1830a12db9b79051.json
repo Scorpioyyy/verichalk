@@ -1,0 +1,18 @@
+{
+ "key": "9646ce09f1b6834c1830a12db9b79051",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"B卷情境真实多样（闯关、自驾、体重、地铁、农场等），综合性强，多步推理且数据合理，能暴露单位、分数小数转换等易错点；A卷多为纯计算或简单应用题，思维含量和多样性不足，未有效串联知识点。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1145,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1903.4992000088096,
+ "ttft_ms": 1903.5261999815702,
+ "total_ms": 3737.0390000287443
+}

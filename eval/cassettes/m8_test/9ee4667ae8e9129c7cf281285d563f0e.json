@@ -1,0 +1,18 @@
+{
+ "key": "9ee4667ae8e9129c7cf281285d563f0e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":54,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[],\"concepts\":[\"11~20的数位（十位、个位）与计数器表示\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4510,
+  "completion_tokens": 57,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 19881.448800093494,
+ "ttft_ms": 19881.47550006397,
+ "total_ms": 20513.660000055097
+}

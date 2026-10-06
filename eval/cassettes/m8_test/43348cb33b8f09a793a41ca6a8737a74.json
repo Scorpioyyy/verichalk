@@ -1,0 +1,18 @@
+{
+ "key": "43348cb33b8f09a793a41ca6a8737a74",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"十万是100000，360000÷100000=3.6，所以360000里面有3.6个十万。\", \"answers\": [{\"label\": \"\", \"value\": \"3.6\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 19080.316999927163,
+ "ttft_ms": 19080.3357999539,
+ "total_ms": 19664.290599990636
+}

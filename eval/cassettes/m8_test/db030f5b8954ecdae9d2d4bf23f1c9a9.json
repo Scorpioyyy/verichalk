@@ -1,0 +1,18 @@
+{
+ "key": "db030f5b8954ecdae9d2d4bf23f1c9a9",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"A\",\n  \"reason\": \"练习A通过闯关、自驾、体重记录等真实情境将整数、小数、分数计算自然串联，题目需多步推理且数据多样，能暴露单位、位数等易错点；练习B多为纯计算或简单应用题，思维含量低，情境单一，缺乏综合性与针对性。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1145,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1640.3825000161305,
+ "ttft_ms": 1640.411000000313,
+ "total_ms": 3463.067000033334
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5560052b00d35d0705c2a56920a4d60c",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A全是纯计算题，思维含量低，情境单一；练习B虽部分题目除数不是两位数（第2、3题），但第1题和第4题紧扣'除数是两位数'，且设计了判断商位数、搭配问题等需要推理的环节，情境更真实多样，更能暴露易错点，整体设计更优。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 532,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1740.2424999745563,
+ "ttft_ms": 1740.2708999579772,
+ "total_ms": 3758.4700000006706
+}

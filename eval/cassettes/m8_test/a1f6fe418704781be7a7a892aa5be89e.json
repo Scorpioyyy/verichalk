@@ -1,0 +1,18 @@
+{
+ "key": "a1f6fe418704781be7a7a892aa5be89e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 39, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"34\", \"5\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"39\", \"20\"], \"mode\": null}], \"concepts\": [\"100以内数的组成与计数器表示（十位、百位）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4438,
+  "completion_tokens": 102,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7610.276599996723,
+ "ttft_ms": 7610.297100036405,
+ "total_ms": 8554.490300011821
+}

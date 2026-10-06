@@ -1,0 +1,18 @@
+{
+ "key": "fbfcbdac8c5014cef956c2ec57071606",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"全程120千米，已行驶全程的5/6，则剩余全程的1-5/6=1/6。剩余路程=120×1/6=20（千米）。\", \"answers\": [{\"label\": \"还剩多少千米没有行驶\", \"value\": \"20\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 315,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5289.137700106949,
+ "ttft_ms": 5289.152800105512,
+ "total_ms": 7157.9599000979215
+}

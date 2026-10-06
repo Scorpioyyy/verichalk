@@ -1,0 +1,18 @@
+{
+ "key": "ab833e85df40517878282553bc4e447e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"求一个量比另一个量多/少几分之几及其逆问题\": true, \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 571,
+  "completion_tokens": 88,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4264.637999935076,
+ "ttft_ms": 4264.6643000189215,
+ "total_ms": 5061.027399962768
+}

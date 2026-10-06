@@ -1,0 +1,18 @@
+{
+ "key": "65bf216c73807baebbea1a2ba7830010",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"钟面上时针指向3和4之间，分针指向6，表示3时30分，即3:30。\", \"answers\": [{\"label\": \"时刻\", \"value\": \"3:30\", \"unit\": \"\"}], \"ambiguous\": false}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 313,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6737.6499000238255,
+ "ttft_ms": 6737.669299938716,
+ "total_ms": 7289.6251999773085
+}

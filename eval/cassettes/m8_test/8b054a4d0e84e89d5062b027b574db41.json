@@ -1,0 +1,18 @@
+{
+ "key": "8b054a4d0e84e89d5062b027b574db41",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"第一天0.8千米，每天多0.2千米。第二天0.8+0.2=1.0千米，第三天1.0+0.2=1.2千米，第四天1.2+0.2=1.4千米。后续5天每天修1.4千米，共1.4×5=7.0千米。\", \"answers\": [{\"label\": \"第四天修了多少千米\", \"value\": \"1.4\", \"unit\": \"千米\"}, {\"label\": \"这5天一共能修多少千米\", \"value\": \"7\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 148,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3667.7323000039905,
+ "ttft_ms": 3667.753000045195,
+ "total_ms": 5116.658500046469
+}

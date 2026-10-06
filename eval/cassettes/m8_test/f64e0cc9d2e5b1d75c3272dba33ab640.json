@@ -1,0 +1,18 @@
+{
+ "key": "f64e0cc9d2e5b1d75c3272dba33ab640",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"苹果原来34筐，又运来5筐，现在苹果有34+5=39筐。梨有20筐。苹果比梨多39-20=19筐，与题目说的“多15筐”不符，因此题目条件矛盾。若按题目给出的“苹果比梨多15筐”来理解，则苹果应有20+15=35筐，但由34+5只能得到39筐，无法同时满足。\", \"answers\": [{\"label\": \"现在苹果有多少筐\", \"value\": \"39\", \"unit\": \"筐\"}, {\"label\": \"苹果比梨多多少筐\", \"value\": \"19\", \"unit\": \"筐\"}], \"ambiguous\": true, \"ambiguity\": \"题目说“现在苹果比梨多15筐”，但按34+5=39筐计算，苹果比梨多19筐，条件互相矛盾。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 188,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12326.741599943489,
+ "ttft_ms": 12326.7557999352,
+ "total_ms": 14427.789599983953
+}

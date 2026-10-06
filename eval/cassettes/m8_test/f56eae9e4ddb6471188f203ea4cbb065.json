@@ -1,0 +1,18 @@
+{
+ "key": "f56eae9e4ddb6471188f203ea4cbb065",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":6,\"decimal_places\":1,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"0.3\",\"4\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"1.2\",\"1.2\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"2.4\",\"2.5\"],\"mode\":null}],\"concepts\":[\"小数乘整数的意义与算法（初步）\",\"单价、数量与总价的关系\"],\"units_of_measure\":[\"吨\",\"元\"],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4537,
+  "completion_tokens": 125,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1550.3334000241011,
+ "ttft_ms": 1550.3509000409395,
+ "total_ms": 2668.9176000654697
+}

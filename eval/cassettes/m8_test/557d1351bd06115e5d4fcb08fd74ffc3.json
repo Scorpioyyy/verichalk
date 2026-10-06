@@ -1,0 +1,18 @@
+{
+ "key": "557d1351bd06115e5d4fcb08fd74ffc3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 15,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"4\", \"6\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"6\", \"15\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比的意义与写法\", \"判断并找出比例\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4503,
+  "completion_tokens": 115,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13161.623999942094,
+ "ttft_ms": 13161.655399948359,
+ "total_ms": 13999.61549998261
+}

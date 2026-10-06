@@ -1,4 +1,4 @@
-# 创作与核验端到端用例（eval/specs/produce.md §2.1）：自然语言请求 → 理解 → 规划 → 创作与核验。
+# 生成与核验端到端用例（eval/specs/produce.md §2.1）：自然语言请求 → 理解 → 规划 → 生成与核验。
 # expect（本轮）：n_items 题量；topics_any 产出题的知识点名称里应出现的关键词（至少一半的题）；tier_min 各档位至少几道；
 # kinds_only 题型必须属于这些；scene_any 蓝图情境里应出现的关键词；source 来源；clarify 是否应触发澄清。
 # 期望是出题前的已知意图，不是事后标注。split：按序号交替划分 val / test。

@@ -1,0 +1,18 @@
+{
+ "key": "2fdf1a3bd60056621b16495e580ceb97",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"标准比例是蛋白粉:水=1:8，15克蛋白粉应配水15×8=120克。已有100克水，还需加120-100=20克水。\", \"answers\": [{\"label\": \"需要再加多少克水\", \"value\": \"20\", \"unit\": \"克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7489.3752000061795,
+ "ttft_ms": 7489.399100071751,
+ "total_ms": 8435.36770006176
+}

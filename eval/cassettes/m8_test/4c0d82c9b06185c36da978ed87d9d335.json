@@ -1,0 +1,18 @@
+{
+ "key": "4c0d82c9b06185c36da978ed87d9d335",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"8 减 3，从 8 往前数 3 个：7、6、5，所以 8-3=5。\", \"answers\": [{\"label\": \"\", \"value\": \"5\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 290,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 22684.958399971947,
+ "ttft_ms": 22685.291899950244,
+ "total_ms": 23368.808700004593
+}

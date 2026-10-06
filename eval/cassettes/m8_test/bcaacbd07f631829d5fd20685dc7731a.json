@@ -1,0 +1,18 @@
+{
+ "key": "bcaacbd07f631829d5fd20685dc7731a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 2140, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"420\", \"435\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"855\", \"410\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"1265\", \"445\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"1710\", \"430\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"2140\", \"5\"], \"mode\": null}], \"concepts\": [\"平均数的意义与求法\"], \"units_of_measure\": [\"厘米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4476,
+  "completion_tokens": 163,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1577.2759999381378,
+ "ttft_ms": 1577.2942999610677,
+ "total_ms": 2895.248599932529
+}

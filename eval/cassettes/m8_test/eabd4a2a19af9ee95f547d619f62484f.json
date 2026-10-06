@@ -1,0 +1,18 @@
+{
+ "key": "eabd4a2a19af9ee95f547d619f62484f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1, \"decimal_places\": null, \"fraction_types\": [\"真分数\"], \"operations\": [], \"concepts\": [\"分数乘分数\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4430,
+  "completion_tokens": 51,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12109.520900063217,
+ "ttft_ms": 12109.541599988006,
+ "total_ms": 13287.680000066757
+}

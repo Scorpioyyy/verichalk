@@ -1,0 +1,18 @@
+{
+ "key": "3f19113b9f34f742eb323931f3f0592d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"40 × 1/2 表示把40平均分成2份，取其中1份，即 40 ÷ 2 = 20。\", \"answers\": [{\"label\": \"\", \"value\": \"20\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 291,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11913.455400033854,
+ "ttft_ms": 11913.472200045362,
+ "total_ms": 12609.049300081097
+}

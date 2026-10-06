@@ -1,0 +1,18 @@
+{
+ "key": "226c68826bc0d0f9ba960c577b5e063e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"猎豹速度120千米/时，人步行速度5千米/时，比值为120:5，化简得24:1；比值是120÷5=24。\", \"answers\": [{\"label\": \"最简整数比\", \"value\": \"24:1\", \"unit\": \"\"}, {\"label\": \"比值\", \"value\": \"24\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 327,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3030.452100094408,
+ "ttft_ms": 3030.4699999978766,
+ "total_ms": 4031.3469000393525
+}

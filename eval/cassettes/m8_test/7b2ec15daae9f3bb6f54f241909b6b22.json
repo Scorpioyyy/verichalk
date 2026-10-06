@@ -1,0 +1,18 @@
+{
+ "key": "7b2ec15daae9f3bb6f54f241909b6b22",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计篮球比赛情境。甲乙两队总得分180分，得分比5:4。求高分队（甲）得分。总份数5+4=9，每份20，甲5份100。检查：100:80=5:4，和180。符合变式要求，非直接给部分求部分，而是给总和与比求部分。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    total = 180\\n    ratio_a = 5\\n    ratio_b = 4\\n    total_parts = ratio_a + ratio_b\\n    score_a = total * Fraction(ratio_a, total_parts)\\n    return [int(score_a)]\",\n \"stem\": \"在一场篮球友谊赛中，甲、乙两队的总得分是 $180$ 分，已知甲队与乙队的得分比是 $5:4$，那么得分较高的甲队得了 ____ 分。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"100\",\n   \"unit\": \"分\"\n  }\n ],\n \"solution\": \"先求总份数：$5+4=9$ 份。再求甲队得分，甲队占总分的 $\\\\frac{5}{9}$，即 $180 \\\\times \\\\frac{5}{9} = 100$ 分。\",\n \"kp_use\": {\n  \"按比例分配\": \"将总分按 $5:4$ 分配，先计算总份数，再用总量乘以对应分率求出甲队得分\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2349,
+  "completion_tokens": 376,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1394.647300010547,
+ "ttft_ms": 1420.290100038983,
+ "total_ms": 7927.262800047174
+}

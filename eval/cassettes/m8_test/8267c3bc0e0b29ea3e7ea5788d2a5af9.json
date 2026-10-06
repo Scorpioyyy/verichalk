@@ -1,0 +1,18 @@
+{
+ "key": "8267c3bc0e0b29ea3e7ea5788d2a5af9",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：学校回收废纸。今年回收了 4200 千克，比去年增加了 1/6。求去年回收量。单位1是去年。今年对应分率 1+1/6=7/6。去年 = 4200 / (7/6) = 4200 * 6/7 = 3600。数值在范围内，整数解。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 今年回收量\\n    current = 4200\\n    # 增加的分率\\n    rate = Fraction(1, 6)\\n    # 去年回收量 = 今年 / (1 + 增加分率)\\n    last_year = current / (1 + rate)\\n    return [last_year]\",\n \"stem\": \"阳光小学开展“变废为宝”活动，今年共回收废纸 $4200$ 千克，比去年增加了 $\\\\frac{1}{6}$。去年回收废纸多少千克？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"3600\",\n   \"unit\": \"千克\"\n  }\n ],\n \"solution\": \"把去年回收量看作单位“1”，今年相当于去年的 $1+\\\\frac{1}{6}=\\\\frac{7}{6}$。根据分数除法意义，去年回收量为 $4200\\\\div\\\\frac{7}{6}=4200\\\\times\\\\frac{6}{7}=3600$ 千克。\",\n \"kp_use\": {\n  \"求一个量比另一个量多/少几分之几及其逆问题\": \"确定今年回收量对应的分率为 $1+\\\\frac{1}{6}$，明确单位“1”是去年回收量\",\n  \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": \"将除法算式 $4200\\\\div\\\\frac{7}{6}$ 转化为乘法 $4200\\\\times\\\\frac{6}{7}$ 进行计算\"\n },\n \"difficulty\": 5\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2583,
+  "completion_tokens": 474,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.9802000122145,
+ "ttft_ms": 1311.352499993518,
+ "total_ms": 9382.92680005543
+}

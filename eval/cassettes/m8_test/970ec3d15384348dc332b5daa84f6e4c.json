@@ -1,0 +1,18 @@
+{
+ "key": "970ec3d15384348dc332b5daa84f6e4c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"435 ÷ 9 = 48 余 3，所以打了48场，还剩3分。验算：48 × 9 = 432，432 + 3 = 435，符合题意。\", \"answers\": [{\"label\": \"一共打了多少场比赛\", \"value\": \"48\", \"unit\": \"场\"}, {\"label\": \"验算\", \"value\": \"48×9=432，432+3=435\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4466.677899938077,
+ "ttft_ms": 4466.806699987501,
+ "total_ms": 5729.898600024171
+}

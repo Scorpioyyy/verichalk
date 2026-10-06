@@ -1,0 +1,18 @@
+{
+ "key": "15baad04a8998cbf0ad44d4102fd1109",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算一共花了多少元：12.5+8.5=21（元）；再算还剩多少元：50-21=29（元）。\", \"answers\": [{\"label\": \"还剩多少元\", \"value\": \"29\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1443.0189999984577,
+ "ttft_ms": 1443.0431000655517,
+ "total_ms": 2311.005200026557
+}

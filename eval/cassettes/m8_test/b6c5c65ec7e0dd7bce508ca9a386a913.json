@@ -1,0 +1,18 @@
+{
+ "key": "b6c5c65ec7e0dd7bce508ca9a386a913",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4596200的千位是6，大于等于5，向万位进1。万位是9，进1后9+1=10，需继续向前进位，所以459万变成460万，即4600000。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2694.771399954334,
+ "ttft_ms": 2694.7857999475673,
+ "total_ms": 3843.4522999450564
+}

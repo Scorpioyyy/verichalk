@@ -1,0 +1,18 @@
+{
+ "key": "a987a382c59777ebadee0ab633a4d7d6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"48567210 省略万位后面的尾数，看千位上的数字是 7，7≥5，向万位进 1。万位是 6，进 1 后为 7，所以约等于 4857 万。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6720.398199977353,
+ "ttft_ms": 6720.41700000409,
+ "total_ms": 7192.939699976705
+}

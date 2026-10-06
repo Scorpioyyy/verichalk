@@ -1,0 +1,18 @@
+{
+ "key": "d4d73622943b2311bfe56c0e4ef26365",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"求鸡比鸭多几只，用鸡的只数减去鸭的只数：15-8=7，所以选B。\", \"answers\": [{\"label\": \"正确的算式\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4698.030500090681,
+ "ttft_ms": 4698.0621999828145,
+ "total_ms": 5287.349199992605
+}

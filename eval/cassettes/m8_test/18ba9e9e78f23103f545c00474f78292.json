@@ -1,0 +1,18 @@
+{
+ "key": "18ba9e9e78f23103f545c00474f78292",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"第一关理论得分 = 4/5 × 1/2 = 2/5；第二关理论得分 = 6/5 × 1/2 = 3/5；理论总分 = 2/5 + 3/5 = 1。\", \"answers\": [{\"label\": \"理论总分\", \"value\": \"1\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5342.356699984521,
+ "ttft_ms": 5342.8116999566555,
+ "total_ms": 6137.068999931216
+}

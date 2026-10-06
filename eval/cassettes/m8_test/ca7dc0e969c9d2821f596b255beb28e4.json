@@ -1,0 +1,18 @@
+{
+ "key": "ca7dc0e969c9d2821f596b255beb28e4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每只纸鹤需要 3+2=5 张纸，12 只纸鹤需要 12×5=60 张纸。\", \"answers\": [{\"label\": \"\", \"value\": \"60\", \"unit\": \"张\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10398.78609997686,
+ "ttft_ms": 10398.801299976185,
+ "total_ms": 10767.227399977855
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a7e09ae858a4eebd23c76ed97e23ddc3",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"B卷5道题情境更真实多样（分苹果、划船、钉纽扣、买饼干、分书），且包含‘至少租几条船’‘最多做几件’等需要根据余数判断取舍的思维点，易错点覆盖更全；A卷仅4道题，且第3题‘每袋最少装几个’表述模糊、思维价值不高，整体设计不如B卷贴合要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 553,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2399.5087000075728,
+ "ttft_ms": 2399.5356999803334,
+ "total_ms": 5007.991900085472
+}

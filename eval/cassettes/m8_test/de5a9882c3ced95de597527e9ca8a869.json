@@ -1,0 +1,18 @@
+{
+ "key": "de5a9882c3ced95de597527e9ca8a869",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A包含单位换算、价格比较（含易混淆的12.5与12.05）、选择题辨析以及两步计算，思维含量更高且针对小数位数、单位等易错点；情境更具体多样。练习B全是简单的一步加减，题型和情境重复，缺乏深度和针对性。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 669,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1692.7927000215277,
+ "ttft_ms": 1692.8192999912426,
+ "total_ms": 3770.4339999472722
+}

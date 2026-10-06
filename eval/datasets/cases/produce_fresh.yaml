@@ -1,4 +1,4 @@
-# 创作与核验端到端用例 —— 新鲜 holdout 批（eval/specs/produce.md §2.1 "验收前另补一批新的未见用例"）。
+# 生成与核验端到端用例 —— 新鲜 holdout 批（eval/specs/produce.md §2.1 "验收前另补一批新的未见用例"）。
 # 在首轮 produce 验收计划确定之后撰写；措辞与知识点刻意避开 produce.yaml 的 72 例，全部 split: test，
 # **从未用于调参**：只在里程碑验收时跑一次，结果如实报告，失败样本不得回头"修"进提示或规则里去拟合它们。
 # 格式与 expect 键同 produce.yaml（n_items / topics_any / tier_min / kinds_only / scene_any / source / clarify）。

@@ -1,0 +1,18 @@
+{
+ "key": "9a6b2124ee67a5fde216a060918bca39",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"沿高剪下三角形平移到另一边，拼成的长方形与原平行四边形面积相等（出入相补）。长方形面积 = 平行四边形面积 = 底 × 高 = 12.5 × 8.4 = 105（平方厘米）。\", \"answers\": [{\"label\": \"长方形的面积\", \"value\": \"105\", \"unit\": \"平方厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1404.642099980265,
+ "ttft_ms": 1404.6571999788284,
+ "total_ms": 2622.257100068964
+}

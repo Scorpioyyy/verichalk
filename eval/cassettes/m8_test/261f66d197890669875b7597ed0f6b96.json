@@ -1,0 +1,18 @@
+{
+ "key": "261f66d197890669875b7597ed0f6b96",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 160, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"10\", \"8\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"80\", \"2\"], \"mode\": null}], \"concepts\": [\"用排水法测量不规则物体的体积\", \"长方体和正方体的体积\"], \"units_of_measure\": [\"厘米\", \"立方厘米\"], \"geometry_vocab\": [\"长方体\", \"长\", \"宽\", \"高\", \"体积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4502,
+  "completion_tokens": 122,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2233.0853999592364,
+ "ttft_ms": 2233.1036999821663,
+ "total_ms": 3764.052899903618
+}

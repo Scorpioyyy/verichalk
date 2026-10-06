@@ -1,0 +1,18 @@
+{
+ "key": "ba65664d4713ec110d384bdd25b65cc2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"四株豆苗的平均高度：(15+20+10+25)÷4=70÷4=17.5（厘米）。最高的一株是25厘米。25-17.5=7.5（厘米），比8厘米少，所以说法不对。\", \"answers\": [{\"label\": \"这个说法对吗\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 343,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2622.5432000355795,
+ "ttft_ms": 2622.571100015193,
+ "total_ms": 3738.6449000332505
+}

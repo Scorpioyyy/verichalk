@@ -1,0 +1,18 @@
+{
+ "key": "3a07ec3548fb9a5b71dc7c80045b12ee",
+ "model": "qwen3.7-plus",
+ "purpose": "warmup",
+ "text": "{",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "length",
+ "usage": {
+  "prompt_tokens": 1835,
+  "completion_tokens": 1,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1855.6586999911815,
+ "ttft_ms": 1868.2164999190718,
+ "total_ms": 1881.7842999706045
+}

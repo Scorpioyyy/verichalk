@@ -1,0 +1,18 @@
+{
+ "key": "e112ce4f7dc07eda0a316ac091e63d03",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"石块完全浸没且水未溢出，水面上升的体积就是石块的体积。玻璃缸底面积为 10×8=80（cm²），水面上升 2cm，所以石块体积为 80×2=160（cm³）。题目陈述正确。\", \"answers\": [{\"label\": \"判断\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2629.4376999139786,
+ "ttft_ms": 2629.4606999726966,
+ "total_ms": 3416.2653000093997
+}

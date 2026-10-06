@@ -1,0 +1,18 @@
+{
+ "key": "fcf578aaede46b74cb8de06ff594ab04",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答正确解释了同级加减运算从左往右计算的规则，与题目解析一致，未改变答案或编造信息。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 761,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5619.590100017376,
+ "ttft_ms": 5619.614000082947,
+ "total_ms": 6154.021900030784
+}

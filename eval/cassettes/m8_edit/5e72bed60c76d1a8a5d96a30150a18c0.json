@@ -1,0 +1,18 @@
+{
+ "key": "5e72bed60c76d1a8a5d96a30150a18c0",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"情境：买苹果。单价4.2元/千克，买3千克。计算：4.2 * 3 = 12.6。难度2，填空。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    return [Decimal('4.2') * 3]\",\n \"stem\": \"妈妈去水果店买苹果，每千克 $4.2$ 元，买了 $3$ 千克，一共需要 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"12.6\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"求总价用单价乘数量。列式 $4.2\\\\times 3$，先算 $42\\\\times 3=126$，再看因数中有一位小数，从右往左数一位点上小数点，得 $12.6$ 元。\",\n \"kp_use\": {\n  \"小数乘整数的意义与算法（初步）\": \"理解求3个4.2是多少，运用小数乘整数的计算方法得出结果\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2346,
+  "completion_tokens": 267,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1278.3633000217378,
+ "ttft_ms": 1296.1330000543967,
+ "total_ms": 5822.300600004382
+}

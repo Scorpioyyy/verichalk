@@ -1,0 +1,18 @@
+{
+ "key": "3910fce45047b4fdab590cae90152de5",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：学校组织植树。先算每组多少人：48人分6组，每组8人。再算5个组的学生数：8*5=40人。最后加上2位老师：40+2=42人。考查点1：先除后乘（48/6*5）。考查点2：混合运算顺序（先乘除后加减，40+2）。数值小，逻辑清晰。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 总学生数\\n    total_students = 48\\n    # 分组数\\n    groups = 6\\n    # 每组人数\\n    per_group = total_students / groups\\n    # 参与植树的组数\\n    active_groups = 5\\n    # 植树的学生总数\\n    student_planters = per_group * active_groups\\n    # 老师人数\\n    teachers = 2\\n    # 总人数\\n    total_people = student_planters + teachers\\n    return [int(total_people)]\",\n \"stem\": \"三年级有 48 名学生参加校园绿化活动，平均分成 6 个小组。其中 5 个小组去植树，每个小组由 1 名老师带队。去植树的师生一共有多少人？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"42\",\n   \"unit\": \"人\"\n  }\n ],\n \"solution\": \"先求每组学生人数：$48\\\\div 6=8$（人）。再求 5 个小组的学生人数：$8\\\\times 5=40$（人）。最后加上 5 位带队老师：$40+5=45$（人）。\\n\\n等等，题目说“每个小组由1名老师带队”，通常意味着这5个组各有1名老师，共5名老师。让我重新审视题意。\\n\\n修正题意理解：\\n1. 48名学生分6组，每组 $48 \\\\div 6 = 8$ 人。\\n2. 5个组去植树，学生人数 $8 \\\\times 5 = 40$ 人。\\n3. 这5个组，每个组由1名老师带队，所以有5名老师。\\n4. 总人数 = 学生 + 老师 = $40 + 5 = 45$ 人。\\n\\n检查规格要求：\\n- 知识点1：乘除法与加减法两步混合运算。这里最后是加法，前面是除法和乘法。符合。\\n- 知识点2：先除后乘。$48 \\\\div 6 \\\\times 5$。符合。\\n\\n解析重写：\\n先算每组有几名学生：$48\\\\div 6=8$（人）。再算 5 个小组共有多少名学生：$8\\\\times 5=40$（人）。因为每个小组由 1 名老师带队，5 个小组共有 5 名老师，所以去植树的师生一共有 $40+5=45$（人）。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"在计算总人数时，先通过乘除法得出学生总数，再与老师人数相加，遵循先乘除后加减的运算顺序\",\n  \"先除后乘解决两步实际问题\": \"先通过除法求出每组的学生人数（单位量），再通过乘法求出 5 个小组的学生总数\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2468,
+  "completion_tokens": 787,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1390.7380999298766,
+ "ttft_ms": 1406.128600006923,
+ "total_ms": 14797.263199929148
+}

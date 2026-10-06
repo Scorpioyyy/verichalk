@@ -1,0 +1,18 @@
+{
+ "key": "79773ce8f0abe818027f225a3daaed4b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"改写后从铅笔换成苹果场景，且仍是小数乘整数（4.2×3），体现了要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 33,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2040.5449999962002,
+ "ttft_ms": 2040.5616000061855,
+ "total_ms": 3192.600699956529
+}

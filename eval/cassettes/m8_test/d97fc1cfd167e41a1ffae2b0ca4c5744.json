@@ -1,0 +1,18 @@
+{
+ "key": "d97fc1cfd167e41a1ffae2b0ca4c5744",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"含0的加减法\": true, \"探索规律：和不变（一个加数增大、另一个减小）\": false}, \"issues\": [\"题目声称涉及'探索规律：和不变（一个加数增大、另一个减小）'，但解答中并未用到该规律，第一站只是上下人数相同（8和8），不涉及一个加数增大、另一个减小。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 577,
+  "completion_tokens": 128,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10096.218800055794,
+ "ttft_ms": 10096.240699989721,
+ "total_ms": 11427.995300036855
+}

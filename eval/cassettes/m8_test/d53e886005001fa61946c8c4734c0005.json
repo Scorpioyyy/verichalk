@@ -1,0 +1,18 @@
+{
+ "key": "d53e886005001fa61946c8c4734c0005",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A全是单一乘除法的直接应用题，思维含量低，情境雷同；练习B包含多步推理、余数处理、验算要求和综合条件筛选，更贴合三年级易错点，且情境更真实多样。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 747,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2151.6523000318557,
+ "ttft_ms": 2151.692600105889,
+ "total_ms": 3792.655700002797
+}

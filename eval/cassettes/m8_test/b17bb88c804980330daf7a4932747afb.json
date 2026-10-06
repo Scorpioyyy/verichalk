@@ -1,0 +1,18 @@
+{
+ "key": "b17bb88c804980330daf7a4932747afb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原来5人，上来3人后是5+3=8人，又下去2人后是8-2=6人。所以5+3-2=6。\", \"answers\": [{\"label\": \"\", \"value\": \"6\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4857.868800056167,
+ "ttft_ms": 4858.144099940546,
+ "total_ms": 5917.481199954636
+}

@@ -1,0 +1,18 @@
+{
+ "key": "81887c97c82314f63f2b963be8c65cb8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"第一步：9可以分成3和几？$9-3=6$，所以填6。第二步：9也可以分成几和3？$9-3=6$，所以填6。结论：两个空都填6。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17366.31959991064,
+ "ttft_ms": 17366.34489998687,
+ "total_ms": 17995.31719996594
+}

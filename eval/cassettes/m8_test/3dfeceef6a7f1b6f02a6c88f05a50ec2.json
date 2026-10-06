@@ -1,0 +1,18 @@
+{
+ "key": "3dfeceef6a7f1b6f02a6c88f05a50ec2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3支钢笔共花 8.5×3=25.5 元，还剩 50-25.5=24.5 元。\", \"answers\": [{\"label\": \"还剩多少元\", \"value\": \"24.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 317,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2671.3570000138134,
+ "ttft_ms": 2671.3783000595868,
+ "total_ms": 2988.0150000099093
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4b85a673378ac06ca67eedcf9b3cda0e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"蛋白质与碳水化合物质量比2:3，总份数2+3=5份，总质量450克，每份450÷5=90克，蛋白质占2份，90×2=180克。\", \"answers\": [{\"label\": \"蛋白质的质量\", \"value\": \"180\", \"unit\": \"克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2098.926799953915,
+ "ttft_ms": 2099.126899964176,
+ "total_ms": 3001.410900033079
+}

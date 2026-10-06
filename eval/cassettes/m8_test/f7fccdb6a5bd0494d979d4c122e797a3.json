@@ -1,0 +1,18 @@
+{
+ "key": "f7fccdb6a5bd0494d979d4c122e797a3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 624, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"624\", \"4\"], \"mode\": null}], \"concepts\": [\"两、三位数除以一位数的笔算方法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4467,
+  "completion_tokens": 77,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3327.179400017485,
+ "ttft_ms": 3327.200400060974,
+ "total_ms": 4059.3021999811754
+}

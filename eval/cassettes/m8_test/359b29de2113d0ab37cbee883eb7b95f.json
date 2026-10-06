@@ -1,0 +1,18 @@
+{
+ "key": "359b29de2113d0ab37cbee883eb7b95f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"除法的验算方法\": true, \"两、三位数除以一位数的笔算方法\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 589,
+  "completion_tokens": 74,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1310.7537999749184,
+ "ttft_ms": 1310.797999962233,
+ "total_ms": 1908.9736000169069
+}

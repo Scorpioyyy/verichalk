@@ -1,0 +1,18 @@
+{
+ "key": "d6f30486d3b32027b707d1198831c4d8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"比较图形面积的方法（出入相补）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 584,
+  "completion_tokens": 64,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1256.1835999367759,
+ "ttft_ms": 1256.1982999322936,
+ "total_ms": 1817.2741000307724
+}

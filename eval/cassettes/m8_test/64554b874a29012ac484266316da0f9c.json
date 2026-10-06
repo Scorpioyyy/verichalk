@@ -1,0 +1,18 @@
+{
+ "key": "64554b874a29012ac484266316da0f9c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"平均数的意义与求法\": true, \"两、三位数除以一位数的笔算方法\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 573,
+  "completion_tokens": 75,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1203.0654998961836,
+ "ttft_ms": 1203.2551999436691,
+ "total_ms": 2398.7271999940276
+}

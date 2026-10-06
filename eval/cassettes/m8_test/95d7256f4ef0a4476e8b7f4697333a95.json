@@ -1,0 +1,18 @@
+{
+ "key": "95d7256f4ef0a4476e8b7f4697333a95",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A通过规律推理、情境变化和条件调整考查加减法，思维含量高且情境多样；练习B全是纯计算，缺乏思维挑战和易错点设计，不符合教研员对练习质量的期望。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 641,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1850.7923999568447,
+ "ttft_ms": 1850.8179999189451,
+ "total_ms": 3100.3484999528155
+}

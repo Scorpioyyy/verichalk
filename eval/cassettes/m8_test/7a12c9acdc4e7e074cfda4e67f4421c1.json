@@ -1,0 +1,18 @@
+{
+ "key": "7a12c9acdc4e7e074cfda4e67f4421c1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"蔬菜种植面积 = 350 × 3/5 = 210 平方米；西红柿种植面积 = 210 × 2/7 = 60 平方米。\", \"answers\": [{\"label\": \"西红柿的种植面积\", \"value\": \"60\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14037.434799945913,
+ "ttft_ms": 14037.462299922481,
+ "total_ms": 14383.342699962668
+}

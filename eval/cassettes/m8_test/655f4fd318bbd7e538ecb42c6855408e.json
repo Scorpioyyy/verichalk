@@ -1,0 +1,18 @@
+{
+ "key": "655f4fd318bbd7e538ecb42c6855408e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：小明有50元。买了4支钢笔，每支8.5元。问剩下的钱够不够买一个15元的笔记本？\\n计算：4 * 8.5 = 34元。剩余：50 - 34 = 16元。16 > 15，所以够。\\n填空设计：第一空填剩余金额，第二空填“够”或“不够”。\\n检查数值范围：8.5是一位小数，符合max_decimal_places=1（规格允许最多2位，这里用1位更简单清晰）。总价34是整数。剩余16是整数。比较16和15。\",\n \"solver_code\": \"from decimal import Decimal\\n\\ndef solve():\\n    total_money = Decimal('50')\\n    pen_price = Decimal('8.5')\\n    pen_count = 4\\n    notebook_price = Decimal('15')\\n    \\n    cost = pen_price * pen_count\\n    remaining = total_money - cost\\n    is_enough = remaining >= notebook_price\\n    \\n    # Return remaining amount and '够' if True, else '不够'\\n    return [remaining, \\\"够\\\" if is_enough else \\\"不够\\\"]\",\n \"stem\": \"小明带了 $50$ 元去超市，买了 $4$ 支单价为 $8.5$ 元的钢笔。他还想买一个 $15$ 元的笔记本，买完钢笔后还剩 ____ 元，剩下的钱 ____ 买这个笔记本。（填“够”或“不够”）\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"16\",\n   \"unit\": \"元\"\n  },\n  {\n   \"label\": \"\",\n   \"value\": \"够\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算买钢笔花的钱：$8.5\\\\times 4=34$ 元。再算剩余的钱：$50-34=16$ 元。因为 $16>15$，所以剩下的钱够买笔记本。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"第一步计算乘法 $8.5\\\\times 4$ 求出钢笔总价，第二步计算减法 $50-34$ 求出余额，体现了先乘除后加减的运算顺序；最后通过比较余额与笔记本价格做出判断。\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2280,
+  "completion_tokens": 562,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1385.8662000857294,
+ "ttft_ms": 1403.2391000073403,
+ "total_ms": 11127.209800062701
+}

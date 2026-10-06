@@ -1,0 +1,18 @@
+{
+ "key": "5e6d7917ef509709a50df8a1f1ee2093",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 26, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"26\", \"4\"], \"mode\": \"remainder\"}, {\"op\": \"加法\", \"operands\": [\"6\", \"1\"], \"mode\": null}], \"concepts\": [\"用进一法解决实际问题\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4439,
+  "completion_tokens": 96,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13850.246599991806,
+ "ttft_ms": 13850.278500001878,
+ "total_ms": 15086.097600054927
+}

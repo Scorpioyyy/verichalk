@@ -1,0 +1,18 @@
+{
+ "key": "3b3d44673e87a690af24e38931b3c394",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计两家店卖同款绘本。A店：504元买6本；B店：812元买7本。先估商位数，再算单价比较。A: 5<6, 商2位(84); B: 8>7, 商3位? No, 812/7, 8>7, first digit is hundreds? 8/7=1, so 3 digits. Wait. 812/7 = 116. Yes, 3 digits. 504/6 = 84. 2 digits. Compare 84 vs 116. A is cheaper. This fits the 'estimate digits' knowledge point well because one is 2-digit and one is 3-digit, making estimation very useful for initial comparison.\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # A shop: 504 yuan for 6 books\\n    price_a_total = Decimal('504')\\n    count_a = 6\\n    unit_price_a = price_a_total / count_a\\n    \\n    # B shop: 812 yuan for 7 books\\n    price_b_total = Decimal('812')\\n    count_b = 7\\n    unit_price_b = price_b_total / count_b\\n    \\n    # Determine which is cheaper\\n    if unit_price_a < unit_price_b:\\n        cheaper_shop = \\\"A店\\\"\\n    else:\\n        cheaper_shop = \\\"B店\\\"\\n        \\n    return [unit_price_a, unit_price_b, cheaper_shop]\",\n \"stem\": \"两家网店销售同款绘本。A 店 $504$ 元可以买 $6$ 本，B 店 $812$ 元可以买 $7$ 本。\\n（1）不计算，估计 A 店和 B 店绘本的单价分别是几位数？\\n（2）算一算，哪家店的绘本更便宜？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"A店单价位数\",\n   \"value\": \"两\",\n   \"unit\": \"位数\"\n  },\n  {\n   \"label\": \"B店单价位数\",\n   \"value\": \"三\",\n   \"unit\": \"位数\"\n  },\n  {\n   \"label\": \"更便宜的店\",\n   \"value\": \"A店\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"（1）A 店 $5<6$，不够除，看前两位，商是两位数；B 店 $8>7$，够除，商是三位数。（2）A 店单价 $504\\\\div6=84$ 元，B 店单价 $812\\\\div7=116$ 元。因为 $84<116$，所以 A 店更便宜。\",\n \"kp_use\": {\n  \"除法竖式计算前估计商的位数\": \"通过比较被除数最高位与除数的大小，判断 A 店商是两位数、B 店商是三位数\",\n  \"两、三位数除以一位数的笔算方法\": \"精确计算出 A 店和 B 店的实际单价，从而比较大小得出结论\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2806,
+  "completion_tokens": 741,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2237.0674000121653,
+ "ttft_ms": 2250.3500999882817,
+ "total_ms": 14826.247500022873
+}

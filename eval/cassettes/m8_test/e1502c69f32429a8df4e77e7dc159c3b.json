@@ -1,0 +1,18 @@
+{
+ "key": "e1502c69f32429a8df4e77e7dc159c3b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 99, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"15\", \"5\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"75\", \"10\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"17\", \"5\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"17\", \"15\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"10\", \"2\"], \"mode\": null}], \"concepts\": [\"方程的意义\", \"解方程（等式两边加减同一个数）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4543,
+  "completion_tokens": 166,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2614.5198000594974,
+ "ttft_ms": 2614.5413999911398,
+ "total_ms": 4462.413000059314
+}

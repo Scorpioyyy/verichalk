@@ -1,0 +1,18 @@
+{
+ "key": "ff83cc4eb2fe827cf7f0c76b789cce5e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"A种每瓶价格：28.2÷6=4.7（元）；B种每瓶价格：5.5元。4.7<5.5，所以A种更划算。\", \"answers\": [{\"label\": \"购买哪种更划算\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2286.06920002494,
+ "ttft_ms": 2286.083700018935,
+ "total_ms": 3024.596100091003
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d53d0cf6e5a328922195d5e5407f65e7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每天吃竹子12.5千克，每千克含维生素0.045克，所以摄入维生素为 12.5×0.045=0.5625（克）。\", \"answers\": [{\"label\": \"\", \"value\": \"0.5625\", \"unit\": \"克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 331,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1239.9192999582738,
+ "ttft_ms": 1240.1264000218362,
+ "total_ms": 2126.148400013335
+}

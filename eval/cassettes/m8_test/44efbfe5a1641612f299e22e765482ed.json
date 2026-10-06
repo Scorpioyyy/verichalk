@@ -1,0 +1,18 @@
+{
+ "key": "44efbfe5a1641612f299e22e765482ed",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 50, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3\", \"8.5\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"50\", \"25.5\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\", \"小数加减法（位数不同）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4453,
+  "completion_tokens": 114,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1668.7339000636712,
+ "ttft_ms": 1668.7655000714585,
+ "total_ms": 2594.7198000503704
+}

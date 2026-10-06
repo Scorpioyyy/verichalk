@@ -1,4 +1,4 @@
-"""逐题创作的并行执行（出题与整卷共用）：每道题完成时立即发出 `item.status` 与 `item.delivered`（用户端逐题上屏），
+"""逐题生成的并行执行（出题与整卷共用）：每道题完成时立即发出 `item.status` 与 `item.delivered`（用户端逐题上屏），
 丢弃的题换个考法补一轮。"""
 
 from __future__ import annotations
@@ -34,10 +34,10 @@ async def produce_specs(
     *,
     keep_kinds: bool,
 ) -> list[ProduceOut]:
-    """对 `specs` 逐题创作并核验（并行，受并发上限约束），返回与 `specs` 同序的结果；
+    """对 `specs` 逐题生成并核验（并行，受并发上限约束），返回与 `specs` 同序的结果；
     被丢弃的题用更稳妥的写法补一轮。`keep_kinds`：教师明说了题型（或整卷的细目表已定题型）就保持题型。"""
     n = len(specs)
-    await trace.progress("开始逐题创作并核验", 0, n)
+    await trace.progress("开始逐题生成并核验", 0, n)
     sem = asyncio.Semaphore(ctx.settings.item_concurrency)
     done = delivered = 0
     constraints = constraints_text(brief)

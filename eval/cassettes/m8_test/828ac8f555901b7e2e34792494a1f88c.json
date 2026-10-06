@@ -1,0 +1,18 @@
+{
+ "key": "828ac8f555901b7e2e34792494a1f88c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算1+3=4，再算4-4=0。\", \"answers\": [{\"label\": \"\", \"value\": \"0\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 293,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11537.880799965933,
+ "ttft_ms": 11537.90720005054,
+ "total_ms": 11866.733300033957
+}

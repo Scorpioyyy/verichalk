@@ -1,4 +1,4 @@
-# M3b 创作与核验（produce）评测规格
+# M3b 生成与核验（produce）评测规格
 
 范围：把规划给出的 `ItemSpec` 变成 `Item`——**写题**（题面、选项、答案、解析、求解程序）、**分层核验**（程序求解、盲解、能力边界、题面质量、新颖度）、**修复**，以及 `template` 来源的快速路径。这是产品"可验证"这一承诺的核心，也是北极星指标 A1 与闸门 A2、A3 的来源。设计依据：[D5](../../docs/design.md)、[D9](../../docs/design.md)、[D24](../../docs/design.md)、[architecture §5.1](../../docs/architecture.md)。
 
@@ -29,7 +29,7 @@
 
 ### 2.1 端到端用例（L3，`eval/datasets/cases/produce.yaml`）
 
-自然语言请求（口吻与 understand 用例一致）→ 理解 → 规划 → 创作，每例带结构化期望（题量、知识点覆盖关键词、档位下限、题型、情境、限制、禁止越界）。按年级 × 领域 × 档位 × 难度 × 来源（`novel` / `template`）× 限制分层，**约 70 例**；val / test 各半；**验收前另补一批新的未见用例**（沿用 M2 的教训，见 eval/CHANGELOG.md）。边缘情形（题量 1 或 10、"数字别太大"、"不要图形题"、指定情境、跨年级复习）各占一定比例，但不钻牛角尖。
+自然语言请求（口吻与 understand 用例一致）→ 理解 → 规划 → 生成，每例带结构化期望（题量、知识点覆盖关键词、档位下限、题型、情境、限制、禁止越界）。按年级 × 领域 × 档位 × 难度 × 来源（`novel` / `template`）× 限制分层，**约 70 例**；val / test 各半；**验收前另补一批新的未见用例**（沿用 M2 的教训，见 eval/CHANGELOG.md）。边缘情形（题量 1 或 10、"数字别太大"、"不要图形题"、指定情境、跨年级复习）各占一定比例，但不钻牛角尖。
 
 ### 2.2 核验评测集（L2，直接测验证器，**不依赖写题模型**）
 
@@ -116,12 +116,12 @@
 
 ## 9. 接续指南（开发者与后续会话读这一节）
 
-**当前分支与状态**：本地分支 `m3-wip`（未推送）。新建的录制缓存目录（`eval/cassettes/` 下除早先的 smoke / understand* / build_para / chalkbase_embeddings 之外的 verify_bank、bake_*、audit、produce、naive_models、scratch_*）**没有提交**：它们是探索产物，验收时再决定提交哪些作为回归基线。
+**当前状态**：M3 的中期成果已合入 `main`（质量优化未完成，见 roadmap）。`eval/cassettes/` 下 `produce`、`audit`、`naive_models`、`m8_test`、`m8_edit` 等是已提交的回归基线；`verify_bank`、`bake_*`、`scratch_*` 等探索产物按需重录，不作为基线。M8 的 test 划分结果见 [e2e.md §5](e2e.md)：A2(a) 0.944、A3 0.048 未过闸门，题量达成率 0.775，这几项是 M3 质量优化要接着做的。
 
 **快速迭代工具（优先用它们，不要整套重跑评测）**
 | 目的 | 命令 | 耗时 / 成本 |
 |---|---|---|
-| 只跑创作阶段、看每次被哪项检查拦下 | `python scripts/probe_produce.py "请求" ["请求"…] [--items] [--off flag] [--role smart=模型:notemp]` | 约 1 分钟，几分钱 |
+| 只跑生成阶段、看每次被哪项检查拦下 | `python scripts/probe_produce.py "请求" ["请求"…] [--items] [--off flag] [--role smart=模型:notemp]` | 约 1 分钟，几分钱 |
 | 读题（打印交付的题目全文） | 同上加 `--items --quiet` | |
 | 一套请求的产出 → JSON，供对比 | `--file eval/datasets/quality_probe.yaml --out x.json` | 3～4 分钟 |
 | 两套产出盲评对比（好题） | `python scripts/compare_sets.py a.json b.json` | 约 ¥0.1 |

@@ -1,0 +1,18 @@
+{
+ "key": "f262f03bc0a3910a02ff395ebac5ec02",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"按速度125千米/时行驶14小时，路程=125×14=1750（千米）。1750<1800，所以不能到达。还差1800-1750=50（千米）。\", \"answers\": [{\"label\": \"能到达古城吗\", \"value\": \"不能\", \"unit\": \"\"}, {\"label\": \"还差多少千米\", \"value\": \"50\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 354,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3267.0585999730974,
+ "ttft_ms": 3267.0792000135407,
+ "total_ms": 4326.974699972197
+}

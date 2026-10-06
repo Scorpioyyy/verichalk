@@ -1,0 +1,18 @@
+{
+ "key": "c2f971e0ad62aced9720eb32f04bc23b",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"全程120km，已行5/6，剩1/6。120*(1-5/6)=20。数据合理，计算简单。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    total = 120\\n    fraction_done = Fraction(5, 6)\\n    remaining = total * (1 - fraction_done)\\n    return [int(remaining)]\",\n \"stem\": \"爸爸开车去郊游，全程 $120$ 千米。他已经行驶了全程的 $\\\\frac{5}{6}$，还剩多少千米没有行驶？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"20\",\n   \"unit\": \"千米\"\n  }\n ],\n \"solution\": \"把全程看作单位“1”，剩余路程占全程的 $1-\\\\frac{5}{6}=\\\\frac{1}{6}$。求 $120$ 的 $\\\\frac{1}{6}$ 是多少，用乘法计算：$120 \\\\times \\\\frac{1}{6} = 20$ 千米。\",\n \"kp_use\": {\n  \"整数乘分数（求一个数的几分之几是多少）\": \"先求出剩余路程对应的分率，再用总路程乘以该分率得到具体数值\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2353,
+  "completion_tokens": 313,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1528.2945999642834,
+ "ttft_ms": 1544.892100035213,
+ "total_ms": 10116.890499950387
+}

@@ -1,0 +1,18 @@
+{
+ "key": "83a9d18be88fe3357d2fb5a6c176d233",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"根据等式性质，两边同时减去4.5：x+4.5-4.5=10-4.5，得x=5.5。\", \"answers\": [{\"label\": \"\", \"value\": \"5.5\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 300,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1195.1027000322938,
+ "ttft_ms": 1195.1169000240043,
+ "total_ms": 1835.4998000431806
+}

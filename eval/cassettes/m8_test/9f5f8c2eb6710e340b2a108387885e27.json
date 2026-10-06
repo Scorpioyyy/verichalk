@@ -1,0 +1,18 @@
+{
+ "key": "9f5f8c2eb6710e340b2a108387885e27",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：校篮球队赛季总场次120场。胜场占3/8，平局是胜场的2/3，其余为负。求负场数。\\n逻辑：\\n1. 胜 = 120 * 3/8\\n2. 平 = 胜 * 2/3 = 120 * 3/8 * 2/3 = 120 * 1/4\\n3. 负 = 总 - 胜 - 平 = 120 * (1 - 3/8 - 1/4)\\n计算括号内：1 - 3/8 - 2/8 = 3/8\\n结果：120 * 3/8 = 45。\\n检查约束：120能被8整除，数据合理。知识点1用于最后一步提取公因数120进行简便运算；知识点2用于推导平局占总数的分率（连续分率）。\",\n \"solver_code\": \"from fractions import Fraction\\n\\ndef solve():\\n    total = 120\\n    win_rate = Fraction(3, 8)\\n    # 平局是胜场的2/3，即平局占总数的 3/8 * 2/3 = 1/4\\n    draw_rate = win_rate * Fraction(2, 3)\\n    # 负场占比 = 1 - 胜占比 - 平占比\\n    loss_rate = 1 - win_rate - draw_rate\\n    # 利用乘法分配律思想：总场次 * 负场占比\\n    loss_count = total * loss_rate\\n    return [int(loss_count)]\",\n \"stem\": \"校篮球队本赛季共进行了 $120$ 场比赛。其中胜场数占总场次的 $\\\\frac{3}{8}$，平局场数是胜场数的 $\\\\frac{2}{3}$，其余为负场。这支球队本赛季负了多少场？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"45\",\n   \"unit\": \"场\"\n  }\n ],\n \"solution\": \"先求平局占总场次的分率：$\\\\frac{3}{8}\\\\times\\\\frac{2}{3}=\\\\frac{1}{4}$。再求负场占比：$1-\\\\frac{3}{8}-\\\\frac{1}{4}=\\\\frac{3}{8}$。最后用总场次乘负场占比：$120\\\\times\\\\frac{3}{8}=45$ 场。\",\n \"kp_use\": {\n  \"整数运算律在分数运算中的应用\": \"在计算负场数时，将算式转化为 $120\\\\times(1-\\\\frac{3}{8}-\\\\frac{1}{4})$，体现乘法分配律的逆向应用（提取公因数），使计算更简便\",\n  \"连续分率关系求量\": \"通过“平局是胜场的 $\\\\frac{2}{3}$”这一条件，结合胜场占总数的分率，推导出平局占总场次的分率，理清了连续分率中的单位“1”转换\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2463,
+  "completion_tokens": 712,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1319.8390000034124,
+ "ttft_ms": 1332.2614999487996,
+ "total_ms": 13463.758199941367
+}

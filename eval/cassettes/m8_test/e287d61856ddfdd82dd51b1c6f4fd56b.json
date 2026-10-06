@@ -1,0 +1,18 @@
+{
+ "key": "e287d61856ddfdd82dd51b1c6f4fd56b",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A的情境更真实多样（分苹果、划船、做衬衫、买饼干、分书），且第2题是典型的‘进一法’易错点，能暴露学生机械计算的问题；练习B情境较单一（分物为主），第3题逻辑牵强且数据设计不佳，整体思维含量和针对性不如A。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 553,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2397.014299989678,
+ "ttft_ms": 2397.04310009256,
+ "total_ms": 4237.349300063215
+}

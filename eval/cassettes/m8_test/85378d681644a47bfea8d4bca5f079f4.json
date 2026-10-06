@@ -1,0 +1,18 @@
+{
+ "key": "85378d681644a47bfea8d4bca5f079f4",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"一年级上册范围：20以内加减混合。情境：公交车。数据：原有5人，上3人，下2人。算式：5+3-2=6。数值均在10以内，符合一年级认知。\",\n \"solver_code\": \"def solve():\\n    return [5 + 3 - 2]\",\n \"stem\": \"公交车上原来有 $5$ 人，到站后上来 $3$ 人，又下去 $2$ 人。\\n列式计算：$5+3-2=$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"6\",\n   \"unit\": \"人\"\n  }\n ],\n \"solution\": \"按从左到右的顺序计算。先算 $5+3=8$，再算 $8-2=6$。现在车上有 $6$ 人。\",\n \"kp_use\": {\n  \"连加、连减及加减混合运算（三个数）\": \"列出加减混合算式 $5+3-2$，并按从左到右顺序依次计算得出结果\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2424,
+  "completion_tokens": 264,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1414.8426000028849,
+ "ttft_ms": 1430.3640000289306,
+ "total_ms": 5906.559400027618
+}

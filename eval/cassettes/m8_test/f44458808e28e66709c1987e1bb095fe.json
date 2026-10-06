@@ -1,0 +1,18 @@
+{
+ "key": "f44458808e28e66709c1987e1bb095fe",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 3,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"9.2\", \"9.4\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"9.2+9.4\", \"9.3\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"9.2+9.4+9.3\", \"3\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"9.5\", \"9.7\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"9.5+9.7\", \"9.6\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"9.5+9.7+9.6\", \"3\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"9.6\", \"9.3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"平均数的意义与求法\", \"小数数位的计数单位\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4574,
+  "completion_tokens": 271,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1648.3209000434726,
+ "ttft_ms": 1648.356500081718,
+ "total_ms": 4258.602400077507
+}

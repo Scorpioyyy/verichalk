@@ -1,0 +1,18 @@
+{
+ "key": "4acb6ee079143f1540bb337144444a67",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1.25×0.84，先按整数乘法计算：125×84=10500。两个因数共有2+2=4位小数，所以积有4位小数：10500÷10000=1.05。\", \"answers\": [{\"label\": \"\", \"value\": \"1.05\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3141.810300061479,
+ "ttft_ms": 3141.834400012158,
+ "total_ms": 3316.4543999591842
+}

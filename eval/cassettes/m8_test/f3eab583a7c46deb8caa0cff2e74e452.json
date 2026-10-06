@@ -1,0 +1,18 @@
+{
+ "key": "f3eab583a7c46deb8caa0cff2e74e452",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每瓶2.5元，买3瓶，总价=2.5×3=7.5（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"7.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 311,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1498.9841999486089,
+ "ttft_ms": 1499.007000005804,
+ "total_ms": 2059.496899950318
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b44e2626fbb35fb100afeaab4c24025c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"转盘共60格，各区域可能性分别为：A区24/60=2/5，B区15/60=1/4，C区12/60=1/5，D区9/60=3/20。化简后等于2/5的是A区。\", \"answers\": [{\"label\": \"\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 388,
+  "completion_tokens": 97,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5821.35899993591,
+ "ttft_ms": 5821.378099964932,
+ "total_ms": 6535.860299947672
+}

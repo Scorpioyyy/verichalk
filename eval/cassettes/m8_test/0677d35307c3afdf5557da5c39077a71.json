@@ -1,0 +1,18 @@
+{
+ "key": "0677d35307c3afdf5557da5c39077a71",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 38, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3\", \"12.8\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"38.4\", \"4\"], \"mode\": null}], \"concepts\": [\"比例的基本性质\", \"解比例\"], \"units_of_measure\": [\"厘米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4463,
+  "completion_tokens": 102,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4693.9153000712395,
+ "ttft_ms": 4693.929900065996,
+ "total_ms": 5600.9079000214115
+}

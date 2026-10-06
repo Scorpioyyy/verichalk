@@ -1,0 +1,18 @@
+{
+ "key": "ea9bacc0811f06c99c9e9850bea9d026",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A全是纯计算或简单一步应用题，思维含量低，情境单一；练习B包含真实情境、多步推理、选择题暴露易错点，且由易到难梯度明显，更符合要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 583,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1708.8774000294507,
+ "ttft_ms": 1708.9055000105873,
+ "total_ms": 3070.4449999611825
+}

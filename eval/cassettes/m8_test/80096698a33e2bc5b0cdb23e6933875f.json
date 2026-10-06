@@ -1,0 +1,18 @@
+{
+ "key": "80096698a33e2bc5b0cdb23e6933875f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1米35厘米 = 1米 + 35厘米。因为1米=100厘米，所以35厘米=0.35米，合起来是1.35米。\", \"answers\": [{\"label\": \"\", \"value\": \"1.35\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 328,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10025.711800088175,
+ "ttft_ms": 10025.734600028954,
+ "total_ms": 10943.491999991238
+}

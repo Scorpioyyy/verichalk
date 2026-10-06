@@ -1,0 +1,18 @@
+{
+ "key": "106a0348337bf2420cf90f3ef999fc2c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）8角=0.8元，5元8角=5.8元。（2）2分=0.02元，3元2分=3.02元。\", \"answers\": [{\"label\": \"5元8角\", \"value\": \"5.8\", \"unit\": \"元\"}, {\"label\": \"3元2分\", \"value\": \"3.02\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 108,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10194.018300040625,
+ "ttft_ms": 10194.031000020914,
+ "total_ms": 11426.2361000292
+}

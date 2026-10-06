@@ -1,0 +1,18 @@
+{
+ "key": "684741913775a21ba9343c6bb9b9cb24",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1分米=100毫米，35毫米=35÷100=0.35分米。\", \"answers\": [{\"label\": \"\", \"value\": \"0.35\", \"unit\": \"分米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 331,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2193.6819000402465,
+ "ttft_ms": 2193.708900013007,
+ "total_ms": 2704.7361000441015
+}

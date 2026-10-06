@@ -1,0 +1,18 @@
+{
+ "key": "bdb86200d58bd9f6ecef280f80d41dc0",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"校园跳绳比赛\",\n      \"angle\": \"给出四名选手的跳绳次数，计算他们平均每人跳了多少下。\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"班级投篮测试\",\n      \"angle\": \"已知小组平均得分和其中三人的具体得分，判断第四人的得分是否可能为某特定值。\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"接力赛跑训练\",\n      \"angle\": \"给出前三棒的用时和四棒总平均用时，逆向求出最后一棒的具体用时。\"\n    },\n    {\n      \"index\": 4,\n      \"combo\": \"A\",\n      \"scene\": \"学校运动会跳远\",\n      \"angle\": \"先累加五名运动员的跳远总成绩，再除以人数求平均成绩，需列竖式计算除法。\",\n      \"roles\": {\n        \"平均数的意义与求法\": \"明确解题目标是用总数量除以总份数\",\n        \"两、三位数除以一位数的笔算方法\": \"执行具体的除法运算步骤，得出最终的平均数值\"\n      }\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1015,
+  "completion_tokens": 282,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2688.2274999516085,
+ "ttft_ms": 2706.061700009741,
+ "total_ms": 7622.075999970548
+}

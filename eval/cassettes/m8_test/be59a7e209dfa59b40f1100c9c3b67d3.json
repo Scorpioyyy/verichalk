@@ -1,0 +1,18 @@
+{
+ "key": "be59a7e209dfa59b40f1100c9c3b67d3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较45和52的大小，45小于52，所以小红跳得更多。\", \"answers\": [{\"label\": \"谁跳得更多\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4179.249700042419,
+ "ttft_ms": 4179.280500044115,
+ "total_ms": 4777.478800038807
+}

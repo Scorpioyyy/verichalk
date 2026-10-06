@@ -1,0 +1,18 @@
+{
+ "key": "70866389b117167d7dd04cb662a8b30f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"20以内进位加法（凑十法）\": false}, \"issues\": [\"解析没有使用凑十法，只是直接给出6+9=15，未体现'凑十'过程（如9+1=10，6分成1和5，10+5=15）\", \"解析中'满十向十位进1'的表述对一年级学生过于抽象，且与凑十法无关\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 498,
+  "completion_tokens": 135,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17731.177799985744,
+ "ttft_ms": 17731.202199938707,
+ "total_ms": 18781.41619998496
+}

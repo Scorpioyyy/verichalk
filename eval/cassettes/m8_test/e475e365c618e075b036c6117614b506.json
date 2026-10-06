@@ -1,0 +1,18 @@
+{
+ "key": "e475e365c618e075b036c6117614b506",
+ "model": "qwen3.7-plus",
+ "purpose": "naive.write",
+ "text": "{\n  \"items\": [\n    {\n      \"stem\": \"计算 $\\\\frac{1}{3} + \\\\frac{1}{4}$ 的结果是（ ）。\",\n      \"answer\": \"C\",\n      \"solution\": \"异分母分数相加，先通分。$\\\\frac{1}{3} = \\\\frac{4}{12}$，$\\\\frac{1}{4} = \\\\frac{3}{12}$，所以 $\\\\frac{4}{12} + \\\\frac{3}{12} = \\\\frac{7}{12}$。\"\n    },\n    {\n      \"stem\": \"一根绳子长 $\\\\frac{5}{6}$ 米，剪去 $\\\\frac{1}{3}$ 米后，还剩（ ）米。\",\n      \"answer\": \"B\",\n      \"solution\": \"列式为 $\\\\frac{5}{6} - \\\\frac{1}{3}$。通分得 $\\\\frac{5}{6} - \\\\frac{2}{6} = \\\\frac{3}{6}$，约分后为 $\\\\frac{1}{2}$。\"\n    },\n    {\n      \"stem\": \"下面算式中，结果大于 1 的是（ ）。\",\n      \"answer\": \"A\",\n      \"solution\": \"A选项：$\\\\frac{3}{4} + \\\\frac{1}{2} = \\\\frac{3}{4} + \\\\frac{2}{4} = \\\\frac{5}{4} > 1$；B选项：$\\\\frac{1}{2} + \\\\frac{1}{3} = \\\\frac{5}{6} < 1$；C选项：$\\\\frac{7}{8} - \\\\frac{1}{8} = \\\\frac{6}{8} < 1$。故选A。\"\n    },\n    {\n      \"stem\": \"解方程 $x - \\\\frac{2}{5} = \\\\frac{1}{2}$，x 的值是（ ）。\",\n      \"answer\": \"D\",\n      \"solution\": \"根据等式性质，$x = \\\\frac{1}{2} + \\\\frac{2}{5}$。通分得 $x = \\\\frac{5}{10} + \\\\frac{4}{10} = \\\\frac{9}{10}$。\"\n    },\n    {\n      \"stem\": \"一本书，第一天看了全书的 $\\\\frac{1}{4}$，第二天看了全书的 $\\\\frac{1}{3}$，两天一共看了全书的（ ）。\",\n      \"answer\": \"B\",\n      \"solution\": \"求两天一共看的比例，即计算 $\\\\frac{1}{4} + \\\\frac{1}{3}$。通分得 $\\\\frac{3}{12} + \\\\frac{4}{12} = \\\\frac{7}{12}$。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 89,
+  "completion_tokens": 648,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1407.930799992755,
+ "ttft_ms": 1423.4251000452787,
+ "total_ms": 12446.181899984367
+}

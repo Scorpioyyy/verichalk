@@ -1,0 +1,18 @@
+{
+ "key": "105cb80c1e39159434aa21ecc17fbd73",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"4的乘法口诀\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 506,
+  "completion_tokens": 59,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5068.767899996601,
+ "ttft_ms": 5068.7881000339985,
+ "total_ms": 5627.340400009416
+}

@@ -1,0 +1,18 @@
+{
+ "key": "496902cc560dc167e2bd393772dcf901",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"溶质与溶剂的比是2:7，即溶剂是溶质的7/2倍。溶质为140克时，溶剂=140×7/2=490克。\", \"answers\": [{\"label\": \"溶剂的质量\", \"value\": \"490\", \"unit\": \"克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 341,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4161.546200048178,
+ "ttft_ms": 4161.583499982953,
+ "total_ms": 4840.176600031555
+}

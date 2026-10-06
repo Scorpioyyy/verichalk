@@ -1,0 +1,18 @@
+{
+ "key": "b8f8f18dc173af5aec76c9051b6643e5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长颈鹿很高，身高大约5米；瓢虫很小，身长大约1厘米。\", \"answers\": [{\"label\": \"长颈鹿身高单位\", \"value\": \"米\", \"unit\": \"\"}, {\"label\": \"瓢虫身长单位\", \"value\": \"厘米\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13778.001499944367,
+ "ttft_ms": 13778.189999982715,
+ "total_ms": 14745.34899997525
+}

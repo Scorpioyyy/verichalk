@@ -1,0 +1,18 @@
+{
+ "key": "e8b00874379474e9a833c8dd2f95f66a",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计情境：买运动鞋。A店：先打九折，再减20元；B店：直接打八五折。已知在B店购买支付了255元。求原价及A店价格并比较。计算：B店 0.85x=255 -> x=300。A店 300*0.9-20 = 270-20=250。250<255，A店划算。数据合理，无歧义。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # B店支付255元，折扣0.85\\n    price_b_paid = Decimal('255')\\n    discount_b = Decimal('0.85')\\n    \\n    # 求原价 x\\n    original_price = price_b_paid / discount_b\\n    \\n    # A店方案：先打九折(0.9)，再减20\\n    discount_a_rate = Decimal('0.9')\\n    reduce_a = Decimal('20')\\n    price_a_paid = original_price * discount_a_rate - reduce_a\\n    \\n    return [original_price, price_a_paid]\",\n \"stem\": \"某品牌运动鞋在两家网店促销，优惠方案如下：\\nA 店：先按原价打九折，再立减 $20$ 元；\\nB 店：直接按原价打八五折。\\n小华在 B 店购买这双鞋实际支付了 $255$ 元。\\n（1）这双鞋的原价是多少元？\\n（2）若在 A 店购买，需支付多少元？哪家店更划算？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"这双鞋的原价\",\n   \"value\": \"300\",\n   \"unit\": \"元\"\n  },\n  {\n   \"label\": \"A店需支付金额及判断\",\n   \"value\": \"250，A店\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"（1）设原价为 $x$ 元。由 B 店方案得 $0.85x=255$，解得 $x=300$。（2）A 店价格为 $300\\\\times 0.9-20=250$ 元。因为 $250<255$，所以 A 店更划算。\",\n \"kp_use\": {\n  \"用字母表示数与方程（总复习）\": \"设原价为 $x$，根据 A 店优惠规则列出含 $x$ 的代数式 $0.9x-20$ 表示实际支付额\",\n  \"已知一个数的几分之几是多少，求这个数\": \"根据 B 店实际支付 $255$ 元和八五折（即原价的 $85\\\\%$），列方程 $0.85x=255$ 逆向求出原价\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2932,
+  "completion_tokens": 691,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2242.943999939598,
+ "ttft_ms": 2258.2274999003857,
+ "total_ms": 13992.417400004342
+}

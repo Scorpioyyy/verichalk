@@ -1,0 +1,18 @@
+{
+ "key": "4ad47d776e4549cfda04893c90ade0d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4 减去 0，就是 4 里面去掉 0 个，还是 4。\", \"answers\": [{\"label\": \"\", \"value\": \"4\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 290,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17101.2435000157,
+ "ttft_ms": 17101.272800005972,
+ "total_ms": 17720.420000026934
+}

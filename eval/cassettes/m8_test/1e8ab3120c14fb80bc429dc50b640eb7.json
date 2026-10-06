@@ -1,0 +1,18 @@
+{
+ "key": "1e8ab3120c14fb80bc429dc50b640eb7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 669, \"decimal_places\": null, \"fraction_types\": [\"几分之一\", \"几分之几\"], \"operations\": [{\"op\": \"加法\", \"operands\": [\"1/6\", \"1/7\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"13/42\", \"1/2\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"17/21\", \"1/3\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"8/7\", \"1/4\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"39/28\", \"1/5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"1/6\", \"223/140\"], \"mode\": null}], \"concepts\": [\"分数的意义（单位“1”与分数单位）\", \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\"], \"units_of_measure\": [], \"geometry_vocab\": [\"上\", \"下\", \"前\", \"后\", \"左\", \"右\", \"长方体\", \"面\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4558,
+  "completion_tokens": 254,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2208.800100022927,
+ "ttft_ms": 2208.8245999766514,
+ "total_ms": 4146.774300024845
+}

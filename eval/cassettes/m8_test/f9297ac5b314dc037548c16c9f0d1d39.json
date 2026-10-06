@@ -1,0 +1,18 @@
+{
+ "key": "f9297ac5b314dc037548c16c9f0d1d39",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":60,\"decimal_places\":null,\"fraction_types\":[\"几分之几\"],\"operations\":[{\"op\":\"除法\",\"operands\":[\"12\",\"12\"],\"mode\":null},{\"op\":\"除法\",\"operands\":[\"48\",\"12\"],\"mode\":null}],\"concepts\":[\"约分与最简分数\"],\"units_of_measure\":[],\"geometry_vocab\":[\"圆\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4508,
+  "completion_tokens": 88,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7881.652400013991,
+ "ttft_ms": 7881.675200071186,
+ "total_ms": 8673.595400061458
+}

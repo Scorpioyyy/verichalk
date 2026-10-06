@@ -1,0 +1,18 @@
+{
+ "key": "0d51833451ba81f5d52a418e1dfdc630",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 100,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"60\", \"5\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"300\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比的意义与写法\", \"比例的基本性质\"],\n  \"units_of_measure\": [\"千克\", \"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 113,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3905.9877999825403,
+ "ttft_ms": 3906.005199998617,
+ "total_ms": 5154.067300027236
+}

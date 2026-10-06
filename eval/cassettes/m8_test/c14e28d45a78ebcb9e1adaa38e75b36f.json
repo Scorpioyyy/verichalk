@@ -1,0 +1,18 @@
+{
+ "key": "c14e28d45a78ebcb9e1adaa38e75b36f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"结合米制单位认识小数\": true, \"万以内数比较大小\": false}, \"issues\": [\"声称涉及'万以内数比较大小'，但解答中比较的是小数1.42、1.40、1.38、1.35，并未涉及万以内整数的比较，该知识点在解答中未被实际使用。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 651,
+  "completion_tokens": 120,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3473.3533000107855,
+ "ttft_ms": 3473.3790999744087,
+ "total_ms": 5009.465700015426
+}

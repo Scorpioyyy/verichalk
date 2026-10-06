@@ -1,0 +1,18 @@
+{
+ "key": "a4520d816f8fe49fc19b67a07cbdd357",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 64, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"64\", \"8\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"8\", \"3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"2\", \"3\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"24\", \"6\"], \"mode\": null}], \"concepts\": [\"两位数除以一位数的口算\", \"两位数乘一位数的口算\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4497,
+  "completion_tokens": 144,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4337.628099950962,
+ "ttft_ms": 4337.645999970846,
+ "total_ms": 5605.610099970363
+}

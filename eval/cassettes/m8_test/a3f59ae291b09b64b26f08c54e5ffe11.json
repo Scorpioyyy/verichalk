@@ -1,0 +1,18 @@
+{
+ "key": "a3f59ae291b09b64b26f08c54e5ffe11",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"剩余全程 = 45.6 ÷ 3/8 = 45.6 × 8/3 = 121.6（千米）。设总行程为 x 千米，则剩余全程比总行程的 1/2 多 20 千米：121.6 = 1/2 x + 20，解得 1/2 x = 101.6，x = 203.2。\", \"answers\": [{\"label\": \"总行程\", \"value\": \"203.2\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 347,
+  "completion_tokens": 130,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1753.3569999504834,
+ "ttft_ms": 1753.3822000259534,
+ "total_ms": 3005.6644999422133
+}

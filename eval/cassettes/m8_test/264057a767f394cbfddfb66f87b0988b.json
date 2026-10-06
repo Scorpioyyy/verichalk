@@ -1,0 +1,18 @@
+{
+ "key": "264057a767f394cbfddfb66f87b0988b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"结合米制单位认识小数\": true, \"毫米和分米的认识\": false}, \"issues\": [\"题目和解析均未涉及分米，声称的知识点“毫米和分米的认识”在解答中并未实际用到。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 631,
+  "completion_tokens": 94,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4151.143900002353,
+ "ttft_ms": 4154.091399977915,
+ "total_ms": 5252.665500040166
+}

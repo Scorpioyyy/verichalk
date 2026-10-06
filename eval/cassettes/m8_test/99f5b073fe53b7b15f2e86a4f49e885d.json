@@ -1,0 +1,18 @@
+{
+ "key": "99f5b073fe53b7b15f2e86a4f49e885d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 360, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"24\", \"5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"24\", \"10\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"120\", \"240\"], \"mode\": null}], \"concepts\": [\"两位数乘两位数的竖式计算\"], \"units_of_measure\": [\"米\", \"平方米\"], \"geometry_vocab\": [\"长方形\", \"长\", \"宽\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4443,
+  "completion_tokens": 131,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1533.7589000118896,
+ "ttft_ms": 1533.7830000789836,
+ "total_ms": 2766.3668000604957
+}

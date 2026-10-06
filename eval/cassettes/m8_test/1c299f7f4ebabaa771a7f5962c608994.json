@@ -1,0 +1,18 @@
+{
+ "key": "1c299f7f4ebabaa771a7f5962c608994",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"53÷4=13（次）……1（元）。验算：13×4=52，52+1=53，与原来53元相符。所以最多坐13次，还剩1元。\", \"answers\": [{\"label\": \"最多能乘坐多少次\", \"value\": \"13\", \"unit\": \"次\"}, {\"label\": \"还剩多少元\", \"value\": \"1\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 106,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 22561.94420007523,
+ "ttft_ms": 22562.112200073898,
+ "total_ms": 25763.827500049956
+}

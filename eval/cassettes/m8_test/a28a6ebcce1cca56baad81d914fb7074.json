@@ -1,0 +1,18 @@
+{
+ "key": "a28a6ebcce1cca56baad81d914fb7074",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"72个鸡蛋，每3个装一盒，求能装满多少盒，用除法：72÷3=24（盒）。\", \"answers\": [{\"label\": \"一共可以装满多少盒\", \"value\": \"24\", \"unit\": \"盒\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 339,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1617.8081999532878,
+ "ttft_ms": 1617.8277999861166,
+ "total_ms": 2367.3302999231964
+}

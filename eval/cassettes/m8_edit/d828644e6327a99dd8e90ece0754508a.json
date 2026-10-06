@@ -1,0 +1,18 @@
+{
+ "key": "d828644e6327a99dd8e90ece0754508a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": true, \"小数加减混合运算\": true}, \"issues\": [\"解析中 10-7.5 计算错误，正确结果应为 2.5 元，但给定答案为 3.5 元，解析结论与给定答案不一致\", \"解析最后写出的 2.5 元与给定答案 3.5 元矛盾，题目无法不加修改地使用\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 530,
+  "completion_tokens": 141,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1107.32349997852,
+ "ttft_ms": 1107.5313000474125,
+ "total_ms": 2505.2927000215277
+}

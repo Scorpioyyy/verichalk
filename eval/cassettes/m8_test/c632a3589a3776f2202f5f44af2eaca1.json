@@ -1,0 +1,18 @@
+{
+ "key": "c632a3589a3776f2202f5f44af2eaca1",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：小明买三样文具，价格分别为12.5元、8.6元、4.9元。付50元。计算总价：12.5+8.6=21.1，21.1+4.9=26.0。找零：50-26=24。检查数值范围和小数位数，符合三年级要求。知识点覆盖连加和人民币换算/找零。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    price1 = Decimal('12.5')\\n    price2 = Decimal('8.6')\\n    price3 = Decimal('4.9')\\n    paid = Decimal('50')\\n    total_cost = price1 + price2 + price3\\n    change = paid - total_cost\\n    return [change]\",\n \"stem\": \"小明去文具店买了三支钢笔，价格分别是 $12.5$ 元、$8.6$ 元和 $4.9$ 元。他付给收银员一张 $50$ 元的纸币，应找回多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"24\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算出三支钢笔的总价：$12.5+8.6+4.9=26$（元）。再用付出的钱减去总价：$50-26=24$（元）。所以应找回 24 元。\",\n \"kp_use\": {\n  \"三个数及以上的连加、连减、加减混合运算\": \"用于计算三支钢笔价格的总和，涉及小数连加及进位处理\",\n  \"人民币的认识与换算\": \"用于理解商品标价单位及支付整百元后的找零逻辑\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2433,
+  "completion_tokens": 427,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1309.4002000289038,
+ "ttft_ms": 1631.6206000046805,
+ "total_ms": 8692.467899993062
+}

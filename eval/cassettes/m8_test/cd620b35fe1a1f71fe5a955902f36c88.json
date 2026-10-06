@@ -1,0 +1,18 @@
+{
+ "key": "cd620b35fe1a1f71fe5a955902f36c88",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 1234567890,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"1234567890\", \"100000000\"], \"mode\": \"decimal_quotient\"}\n  ],\n  \"concepts\": [\"亿以上计数单位与十进制数位顺序表\", \"用四舍五入法求大数的近似数\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4536,
+  "completion_tokens": 112,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12125.153200002387,
+ "ttft_ms": 12125.177499954589,
+ "total_ms": 12726.20289993938
+}

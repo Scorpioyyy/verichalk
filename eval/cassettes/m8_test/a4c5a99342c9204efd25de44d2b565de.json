@@ -1,0 +1,18 @@
+{
+ "key": "a4c5a99342c9204efd25de44d2b565de",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 61, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"59\", \"1\"], \"mode\": null}], \"concepts\": [\"100以内数的数数方法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4453,
+  "completion_tokens": 73,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 25286.904799984768,
+ "ttft_ms": 25287.186300032772,
+ "total_ms": 25906.00820002146
+}

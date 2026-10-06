@@ -1,0 +1,18 @@
+{
+ "key": "3d83e6cd7c70a31dd66040caffb34228",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"8元5角 = 8元 + 5角，5角 = 0.5元，所以8元5角 = 8.5元，即8.50元。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7515.442900010385,
+ "ttft_ms": 7515.458600013517,
+ "total_ms": 8497.106500086375
+}

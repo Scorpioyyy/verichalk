@@ -1,0 +1,18 @@
+{
+ "key": "e6b1841978885ad1e4a0f51f7f840d80",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"count\":6,\"source\":\"novel\",\"explicit\":[\"grade\",\"count\",\"source\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2126,
+  "completion_tokens": 29,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1205.7680999860168,
+ "ttft_ms": 1205.7970999740064,
+ "total_ms": 2641.262299963273
+}

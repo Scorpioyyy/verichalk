@@ -1,0 +1,18 @@
+{
+ "key": "f277bbbfcfad4aba18b7ec1fedfa85c7",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"A\",\n  \"reason\": \"练习A情境真实多样（牛栏、智能水表、喷灌装置），包含周长与面积的直接计算、对比和实际应用，第4题需多步推理求增加的面积，思维含量更高；练习B题型单一，多为直接套公式，缺乏综合性和易错点设计。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 671,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1674.8350999550894,
+ "ttft_ms": 1674.859399907291,
+ "total_ms": 3247.1134999068454
+}

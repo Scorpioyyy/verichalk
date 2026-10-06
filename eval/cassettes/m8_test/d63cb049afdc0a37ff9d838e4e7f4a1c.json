@@ -1,0 +1,18 @@
+{
+ "key": "d63cb049afdc0a37ff9d838e4e7f4a1c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 5, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"厘米的认识与用直尺测量长度\", \"米的认识（1米=100厘米）\"], \"units_of_measure\": [\"厘米\", \"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4437,
+  "completion_tokens": 69,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 22562.709500081837,
+ "ttft_ms": 22562.73330003023,
+ "total_ms": 24118.593199993484
+}

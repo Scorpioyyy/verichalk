@@ -1,0 +1,18 @@
+{
+ "key": "bee22d541eb4f6f04a9e24d78e6fa608",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"原题两步（先加后除）→ 新题一步（只除）。将方程简化为 $ax=b$ 形式，去除加减干扰项，数据设为整数且能整除。设 $4x=20$，解得 $x=5$。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 解方程 4x = 20\\n    return [Fraction(20, 4)]\",\n \"stem\": \"解方程：$4x=20$，$x=$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"5\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"根据等式的性质，方程两边同时除以 $4$。$x=20\\\\div 4$，算出 $x=5$。\",\n \"kp_use\": {\n  \"解两步方程\": \"虽然本题简化为一步，但核心仍是运用等式性质（两边同除以同一个数）求解未知数，是解复杂方程的基础步骤\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2456,
+  "completion_tokens": 258,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1286.2792999949306,
+ "ttft_ms": 1286.4462999859825,
+ "total_ms": 5635.321299894713
+}

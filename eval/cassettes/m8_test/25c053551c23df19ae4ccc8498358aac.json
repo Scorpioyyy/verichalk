@@ -1,0 +1,18 @@
+{
+ "key": "25c053551c23df19ae4ccc8498358aac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"圆的面积实际问题（含组合与比较）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 575,
+  "completion_tokens": 64,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1606.6268000286072,
+ "ttft_ms": 1606.6503999754786,
+ "total_ms": 2162.467500078492
+}

@@ -1,0 +1,18 @@
+{
+ "key": "631d5372ad26d02838adc0e7131de79c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两个加数的和是10，且一个比另一个多2。把10分成两个数，使它们的差是2：4和6，因为4+6=10，6-4=2。较大的加数是6。\", \"answers\": [{\"label\": \"较大的那个加数\", \"value\": \"6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 346,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 22249.27110003773,
+ "ttft_ms": 22249.293600092642,
+ "total_ms": 23265.188200050034
+}

@@ -1,0 +1,18 @@
+{
+ "key": "69af51943f9dd13152f96d810473222e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"平均数的范围性质\": false}, \"issues\": [\"解析用直接计算平均数的方法得出答案，并未使用'平均数的范围性质'（如平均数介于最小值和最大值之间、或通过移多补少判断），声称的知识点与解答不匹配。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 576,
+  "completion_tokens": 102,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5939.991499995813,
+ "ttft_ms": 5940.0153999449685,
+ "total_ms": 7146.33140002843
+}

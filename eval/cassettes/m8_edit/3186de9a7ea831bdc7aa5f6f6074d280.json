@@ -1,0 +1,18 @@
+{
+ "key": "3186de9a7ea831bdc7aa5f6f6074d280",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三角形内角和定理：任意三角形的三个内角的和都是180°。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 298,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1920.2201999723911,
+ "ttft_ms": 1920.243699918501,
+ "total_ms": 2556.53549998533
+}

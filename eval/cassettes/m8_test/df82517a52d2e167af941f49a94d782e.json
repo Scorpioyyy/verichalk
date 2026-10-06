@@ -1,0 +1,18 @@
+{
+ "key": "df82517a52d2e167af941f49a94d782e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 45,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"减法\", \"operands\": [\"x\", \"7\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"x\", \"7\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"x-7\", \"x\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"2x\", \"x+7\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"45\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"日历/百数表中数的关系规律\", \"解方程（等式两边乘除同一个数）\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4460,
+  "completion_tokens": 190,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3152.637399965897,
+ "ttft_ms": 3152.669099974446,
+ "total_ms": 5075.364400050603
+}

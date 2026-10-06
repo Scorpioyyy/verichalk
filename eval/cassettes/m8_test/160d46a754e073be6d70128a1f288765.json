@@ -1,0 +1,18 @@
+{
+ "key": "160d46a754e073be6d70128a1f288765",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 452, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"452\", \"8\"], \"mode\": \"remainder\"}, {\"op\": \"乘法\", \"operands\": [\"56\", \"8\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"448\", \"4\"], \"mode\": null}], \"concepts\": [\"有余数除法的认识\", \"除法的验算方法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4465,
+  "completion_tokens": 123,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2484.132400015369,
+ "ttft_ms": 2484.1508000390604,
+ "total_ms": 3442.6614999538288
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c5f6cc84a1023b91b968982d093ff93a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"rewrite_text\", \"items\": [8], \"field\": \"solution\", \"instruction\": \"解析写得简短一点\"}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1411,
+  "completion_tokens": 40,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1178.6512999096885,
+ "ttft_ms": 1178.665699902922,
+ "total_ms": 1563.727799919434
+}

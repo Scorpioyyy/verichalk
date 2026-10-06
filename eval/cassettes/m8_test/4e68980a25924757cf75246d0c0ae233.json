@@ -1,0 +1,18 @@
+{
+ "key": "4e68980a25924757cf75246d0c0ae233",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"有余数除法的认识\": true, \"100以内三个数加减混合运算\": false}, \"issues\": [\"解析中只用到50-28=22这一步减法，没有出现三个数的加减混合运算，声称的'100以内三个数加减混合运算'在解答中并未实际用到。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 607,
+  "completion_tokens": 110,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7616.395100019872,
+ "ttft_ms": 7616.422499995679,
+ "total_ms": 8608.066400047392
+}

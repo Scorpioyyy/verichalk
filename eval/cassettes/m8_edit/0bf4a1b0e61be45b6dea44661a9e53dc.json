@@ -1,0 +1,18 @@
+{
+ "key": "0bf4a1b0e61be45b6dea44661a9e53dc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答用180°减去65°和48°得67°，与题目答案和解析一致，并补充了合理的教学提示。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 781,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4528.659100062214,
+ "ttft_ms": 4528.678300091997,
+ "total_ms": 4899.953200016171
+}

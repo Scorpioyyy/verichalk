@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { api } from "@/shared/api/client";
 import type { AggregateMetrics, DebugRunItem } from "@/shared/api/types";
 import { Icon } from "@/shared/ui/Icon";
-import { fmtCost, fmtDateTime, fmtMs, fmtPct, fmtTokens, truncate } from "./format";
+import { fmtCost, fmtDateTime, fmtMs, fmtPct, fmtTokens, midTruncate, truncate } from "./format";
 import { useAsync } from "./hooks";
 
 const PAGE = 30;
@@ -243,7 +243,7 @@ function CopyId({ id }: { id: string }) {
   return (
     <span className="dbg-idcell">
       <span className="dbg-idtext mono small" title={id}>
-        {id}
+        {midTruncate(id)}
       </span>
       <button
         type="button"

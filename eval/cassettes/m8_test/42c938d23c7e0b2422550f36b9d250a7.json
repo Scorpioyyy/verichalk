@@ -1,0 +1,18 @@
+{
+ "key": "42c938d23c7e0b2422550f36b9d250a7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"比的基本性质\": true, \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": false}, \"issues\": [\"解析中只用了乘法（480×3/10），并未用到分数除法的一般法则，该知识点与解答无关。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 591,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3810.9016000526026,
+ "ttft_ms": 3810.9253000002354,
+ "total_ms": 4955.631799995899
+}

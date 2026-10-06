@@ -44,3 +44,8 @@ export function truncate(s: string, n: number): string {
   const t = s.replace(/\s+/g, " ").trim();
   return t.length > n ? `${t.slice(0, n)}…` : t;
 }
+
+/** 中间省略：保留头尾（运行 ID 的头部是前缀与时间，尾部是区分度最高的部分）。 */
+export function midTruncate(s: string, head = 8, tail = 6): string {
+  return s.length <= head + tail + 1 ? s : `${s.slice(0, head)}…${s.slice(-tail)}`;
+}

@@ -1,0 +1,18 @@
+{
+ "key": "cef3f65fc914b959b7123ad08ae54ad9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答未随意选题，而是请教师指明题号，符合要求且未与题目答案冲突。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 691,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1188.2289999630302,
+ "ttft_ms": 1188.2520000217482,
+ "total_ms": 1945.8959000185132
+}

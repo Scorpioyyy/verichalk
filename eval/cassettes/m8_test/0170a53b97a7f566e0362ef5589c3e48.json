@@ -1,0 +1,18 @@
+{
+ "key": "0170a53b97a7f566e0362ef5589c3e48",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"20以内进位加法（凑十法）\": false}, \"issues\": [\"解析没有使用凑十法（如把5拆成2和3，8+2=10，10+3=13），而是直接给出8+5=13，与声称的知识点不符\", \"解析第二步用'向十位进1'的竖式进位说法，对一年级尚未学习竖式进位的学生不适用，且第一步已直接得出13，第二步属于重复且逻辑混乱\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 506,
+  "completion_tokens": 149,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9447.201100061648,
+ "ttft_ms": 9447.239000000991,
+ "total_ms": 9752.038300037384
+}

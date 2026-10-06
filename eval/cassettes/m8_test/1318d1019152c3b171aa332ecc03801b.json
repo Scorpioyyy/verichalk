@@ -1,0 +1,18 @@
+{
+ "key": "1318d1019152c3b171aa332ecc03801b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"规律是第一个加数都是3，第二个加数依次是1、2、3、4，所以第四个算式是3+4=7，结果是7。\", \"answers\": [{\"label\": \"\", \"value\": \"7\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10705.719000077806,
+ "ttft_ms": 10705.743700033054,
+ "total_ms": 11359.820200013928
+}

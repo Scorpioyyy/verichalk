@@ -1,0 +1,18 @@
+{
+ "key": "bc3fb9729fc1bad5f8b18c23f40b5b4a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"口香糖很薄，一盒口香糖的高度约8毫米，即0.8厘米。大可乐高30厘米，比口香糖高30-0.8=29.2厘米。\", \"answers\": [{\"label\": \"口香糖高度单位\", \"value\": \"毫米\", \"unit\": \"\"}, {\"label\": \"大可乐比口香糖高多少\", \"value\": \"29.2\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7160.609500017017,
+ "ttft_ms": 7160.633799969219,
+ "total_ms": 7611.834799987264
+}

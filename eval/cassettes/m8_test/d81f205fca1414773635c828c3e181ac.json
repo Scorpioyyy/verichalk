@@ -1,0 +1,18 @@
+{
+ "key": "d81f205fca1414773635c828c3e181ac",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把三年的回收量相加：34560 + 28940 = 63500，63500 + 41250 = 104750（吨）。\", \"answers\": [{\"label\": \"这三年一共回收废纸多少吨\", \"value\": \"104750\", \"unit\": \"吨\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 346,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3183.200499974191,
+ "ttft_ms": 3183.2414000527933,
+ "total_ms": 4000.4513000603765
+}

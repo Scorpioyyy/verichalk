@@ -1,0 +1,18 @@
+{
+ "key": "d1dc250a073c148de6ef8da46b86d970",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：投篮比赛。小明投进18个，小红比小明多投进5个。求小红的数量并与30比较？不，题目要求答案是数值。改为：小明得24分，小刚比小明少得6分，小强比小刚多得8分。问小强多少分？计算：24-6=18, 18+8=26。选项设置干扰项：24+6+8=38（误加），24-6-8=10（误减），24+8=32（忽略中间人）。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 小明 24, 小刚 = 24 - 6, 小强 = 小刚 + 8\\n    xiao_ming = 24\\n    xiao_gang = xiao_ming - 6\\n    xiao_qiang = xiao_gang + 8\\n    return [xiao_qiang]\",\n \"stem\": \"在一次投篮比赛中，小明得了 $24$ 分，小刚比小明少得 $6$ 分，小强比小刚多得 $8$ 分。小强得了多少分？\",\n \"options\": [\n  \"38\",\n  \"26\",\n  \"10\",\n  \"32\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"B\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算小刚的得分：$24-6=18$ 分。再算小强的得分：$18+8=26$ 分。所以小强得了 26 分。\",\n \"kp_use\": {\n  \"100以内数的大小比较\": \"虽然主要考查加减运算，但在理解“比...多/少”的关系时，隐含了对数量大小关系的逻辑判断，且最终结果需在100以内进行数值确认\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2207,
+  "completion_tokens": 456,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1577.7000000234693,
+ "ttft_ms": 1591.023499961011,
+ "total_ms": 9428.733699955046
+}

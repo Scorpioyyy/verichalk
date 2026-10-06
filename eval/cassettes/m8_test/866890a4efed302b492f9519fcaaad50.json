@@ -1,0 +1,18 @@
+{
+ "key": "866890a4efed302b492f9519fcaaad50",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明：矿泉水数量与总价的比是 4:6 = 2:3；小红：饼干数量与总价的比是 6:15 = 2:5。因为 2:3 ≠ 2:5，所以这两个比不能组成比例。\", \"answers\": [{\"label\": \"\", \"value\": \"不能\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12946.174599928781,
+ "ttft_ms": 12946.20969996322,
+ "total_ms": 13980.021699913777
+}

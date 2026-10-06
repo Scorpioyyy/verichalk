@@ -1,0 +1,18 @@
+{
+ "key": "6928cc7ff5b9f2197b3b9d3749f28b0d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 45,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\n      \"op\": \"除法\",\n      \"operands\": [\"45\", \"6\"],\n      \"mode\": \"remainder\"\n    }\n  ],\n  \"concepts\": [\n    \"有余数除法的认识\",\n    \"余数比除数小的规律\"\n  ],\n  \"units\": [\"颗\", \"袋\"],\n  \"geometry\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4424,
+  "completion_tokens": 102,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9160.61730007641,
+ "ttft_ms": 9160.641800030135,
+ "total_ms": 10330.80350002274
+}

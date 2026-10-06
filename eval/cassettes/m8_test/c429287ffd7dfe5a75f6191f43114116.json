@@ -1,0 +1,18 @@
+{
+ "key": "c429287ffd7dfe5a75f6191f43114116",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A全是同质化的'原来有…去掉…求剩余'情境，思维含量低；练习B包含求部分量、加法干扰、算式选择、规律推理，题型多样且有意暴露易错点，更贴近生活且思维要求更高。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 584,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2441.279200022109,
+ "ttft_ms": 2441.31349993404,
+ "total_ms": 3951.7540999222547
+}

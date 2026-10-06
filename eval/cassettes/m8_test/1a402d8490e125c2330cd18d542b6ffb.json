@@ -1,0 +1,18 @@
+{
+ "key": "1a402d8490e125c2330cd18d542b6ffb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"亿以上计数单位与十进制数位顺序表\": true, \"计数单位十万的认识\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 561,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6346.366299898364,
+ "ttft_ms": 6346.3816998992115,
+ "total_ms": 7878.325299941935
+}

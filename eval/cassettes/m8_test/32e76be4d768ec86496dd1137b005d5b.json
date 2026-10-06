@@ -1,0 +1,18 @@
+{
+ "key": "32e76be4d768ec86496dd1137b005d5b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 52, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"8\", \"5\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"40\", \"12\"], \"mode\": null}], \"concepts\": [], \"units_of_measure\": [\"个\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4444,
+  "completion_tokens": 89,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3407.763499999419,
+ "ttft_ms": 3407.7830999158323,
+ "total_ms": 4192.613099934533
+}

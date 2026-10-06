@@ -1,0 +1,18 @@
+{
+ "key": "7296ecd7db90adbb666f870d8255b471",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 90, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12\", \"5\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"90\", \"60\"], \"mode\": null}], \"concepts\": [\"用“几个几相加”表示等量分组的总数\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4481,
+  "completion_tokens": 100,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4476.785399951041,
+ "ttft_ms": 4476.819499977864,
+ "total_ms": 5199.128699954599
+}

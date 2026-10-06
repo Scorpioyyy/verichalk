@@ -1,0 +1,18 @@
+{
+ "key": "75db6350fb1a07c6159e3106312c9107",
+ "model": "qwen3.7-plus",
+ "purpose": "naive.write",
+ "text": "{\n  \"items\": [\n    {\n      \"stem\": \"25 + 14 =\",\n      \"answer\": \"39\",\n      \"solution\": \"个位5+4=9，十位2+1=3，结果为39。\"\n    },\n    {\n      \"stem\": \"48 - 23 =\",\n      \"answer\": \"25\",\n      \"solution\": \"个位8-3=5，十位4-2=2，结果为25。\"\n    },\n    {\n      \"stem\": \"36 + 20 =\",\n      \"answer\": \"56\",\n      \"solution\": \"个位6+0=6，十位3+2=5，结果为56。\"\n    },\n    {\n      \"stem\": \"75 - 5 =\",\n      \"answer\": \"70\",\n      \"solution\": \"个位5-5=0，十位7不变，结果为70。\"\n    },\n    {\n      \"stem\": \"12 + 18 =\",\n      \"answer\": \"30\",\n      \"solution\": \"个位2+8=10，向十位进1，十位1+1+1=3，结果为30。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 93,
+  "completion_tokens": 292,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1575.1090999692678,
+ "ttft_ms": 1589.9028000421822,
+ "total_ms": 6551.517499960028
+}

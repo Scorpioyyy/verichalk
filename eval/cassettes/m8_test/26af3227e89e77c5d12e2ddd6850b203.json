@@ -1,0 +1,18 @@
+{
+ "key": "26af3227e89e77c5d12e2ddd6850b203",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 300,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"255\", \"0.85\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"300\", \"0.9\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"270\", \"20\"], \"mode\": null}\n  ],\n  \"concepts\": [\"已知总量和百分数求部分量（及逆问题）\", \"百分数化成小数、分数\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4526,
+  "completion_tokens": 149,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12129.778599948622,
+ "ttft_ms": 12129.801500006579,
+ "total_ms": 12857.00459999498
+}

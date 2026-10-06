@@ -1,0 +1,18 @@
+{
+ "key": "174af065bd6f0d2bc957ea728c2f8d86",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 1400,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"50\", \"4\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1200\", \"200\"], \"mode\": null}\n  ],\n  \"concepts\": [\"按等差规律填数（万以内）\"],\n  \"units_of_measure\": [\"米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4553,
+  "completion_tokens": 112,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3052.446899935603,
+ "ttft_ms": 3052.4645999539644,
+ "total_ms": 4043.7688999809325
+}

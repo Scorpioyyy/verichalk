@@ -1,0 +1,18 @@
+{
+ "key": "17a80f8ec494d123f8548290d8f3b5a5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"三位数乘两位数的竖式计算与估算\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 546,
+  "completion_tokens": 64,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1397.8355000726879,
+ "ttft_ms": 1397.8502000682056,
+ "total_ms": 2628.1776999821886
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c54cefc26494e6a1dcbf5b7013562743",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"10以内加法表\": true, \"减法表的规律\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 585,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4281.74200002104,
+ "ttft_ms": 4281.75820002798,
+ "total_ms": 4961.333099985495
+}

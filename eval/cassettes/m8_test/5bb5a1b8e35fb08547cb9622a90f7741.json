@@ -1,0 +1,18 @@
+{
+ "key": "5bb5a1b8e35fb08547cb9622a90f7741",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B覆盖了数位含义、零的读法、近似数、数的组成和大小比较等多个核心知识点，题型多样，能更全面地诊断学生对大数的认识；练习A仅有两道近似数题，考点单一，不符合出5道选择题的要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 498,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3865.1957000838593,
+ "ttft_ms": 3865.2215000474826,
+ "total_ms": 4989.818200003356
+}

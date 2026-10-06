@@ -1,0 +1,18 @@
+{
+ "key": "aa234880a7b5b1a5611c1b5904c66382",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1号车现在有45+3=48人；2号车现在有52-2=50人。48<50，所以2号车人多。\", \"answers\": [{\"label\": \"现在哪辆车上的人多\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 362,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4732.81890002545,
+ "ttft_ms": 4732.850800035521,
+ "total_ms": 4770.445100031793
+}

@@ -1,0 +1,18 @@
+{
+ "key": "16131d2f9ad161ab2add4f7527e97270",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把羊的头数看作1份，牛的头数就是3份，一共4份，对应84头。84÷4=21，所以羊有21头；牛有21×3=63头。\", \"answers\": [{\"label\": \"羊的头数\", \"value\": \"21\", \"unit\": \"头\"}, {\"label\": \"牛的头数\", \"value\": \"63\", \"unit\": \"头\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1533.5255999816582,
+ "ttft_ms": 1533.5509999422356,
+ "total_ms": 2597.6221000310034
+}

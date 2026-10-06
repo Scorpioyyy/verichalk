@@ -1,0 +1,18 @@
+{
+ "key": "8d9c5c5d7188097015f8333730adb906",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 50,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"4.8\", \"5\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2.5\", \"3\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"24\", \"7.5\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"50\", \"31.5\"], \"mode\": null}\n  ],\n  \"concepts\": [\"小数加减法（位数不同）\", \"小数乘整数的意义与算法（初步）\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4499,
+  "completion_tokens": 173,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9193.105999962427,
+ "ttft_ms": 9193.12249997165,
+ "total_ms": 13293.320400058292
+}

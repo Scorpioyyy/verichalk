@@ -1,0 +1,18 @@
+{
+ "key": "ab8f69a7d08f1c1037dd01fea79fea2f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"结合米制单位认识小数\": true, \"毫米和分米的认识\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 606,
+  "completion_tokens": 69,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 18755.629100021906,
+ "ttft_ms": 18755.645100027323,
+ "total_ms": 19406.399499974214
+}

@@ -1,0 +1,18 @@
+{
+ "key": "397a11290d9beb7e98620cdce48e1a2f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"82×30=2460。要求积有2位小数，第一个乘数有1位小数，第二个乘数可以是整数或小数。取第一个乘数为8.2（1位小数），第二个乘数为0.30（2位小数），则8.2×0.30=2.46，积有2位小数，符合要求。\", \"answers\": [{\"label\": \"第一个乘数\", \"value\": \"8.2\", \"unit\": \"\"}, {\"label\": \"第二个乘数\", \"value\": \"0.30\", \"unit\": \"\"}, {\"label\": \"积\", \"value\": \"2.46\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 157,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1798.044899944216,
+ "ttft_ms": 1798.0726999230683,
+ "total_ms": 3727.7575000189245
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9648c2837b7ae1d36334e1d17394210f",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"苹果原有34筐，运来5筐，共39筐。梨有20筐。39-20=19。题目说多15筐，故为错。考查点：34+5（两位数加一位数），39-20（两位数减整十数），比较相差。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 苹果现有：34 + 5 = 39\\n    current_apples = 34 + 5\\n    # 梨的数量\\n    pears = 20\\n    # 相差\\n    diff = current_apples - pears\\n    # 题目声称多15筐，实际多19筐，故判断为错\\n    return [False]\",\n \"stem\": \"果园里原来有 $34$ 筐苹果，又运来 $5$ 筐；梨有 $20$ 筐。现在苹果比梨多 $15$ 筐。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"错\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算苹果现有 $34+5=39$ 筐，再算苹果比梨多 $39-20=19$ 筐。因为 $19\\\\neq 15$，所以说法错误。\",\n \"kp_use\": {\n  \"两位数加一位数、两位数加减整十数（不进位不退位）\": \"第一步计算 $34+5$ 得到苹果最新总数，第二步计算 $39-20$ 求出差值\",\n  \"用减法解决相差问题（比多比少）\": \"理解“苹果比梨多多少”需用苹果总数减去梨的数量，通过计算结果与题干陈述对比进行判断\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2380,
+  "completion_tokens": 424,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1666.2948000011966,
+ "ttft_ms": 1687.3598999809474,
+ "total_ms": 9021.78119996097
+}

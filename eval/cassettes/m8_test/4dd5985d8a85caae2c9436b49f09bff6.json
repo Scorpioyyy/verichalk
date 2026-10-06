@@ -1,0 +1,18 @@
+{
+ "key": "4dd5985d8a85caae2c9436b49f09bff6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"semester\":\"a\",\"topics\":[\"混合运算\"],\"count\":6,\"difficulty\":[1,5],\"explicit\":[\"grade\",\"semester\",\"count\",\"difficulty\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2123,
+  "completion_tokens": 48,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9646.949999965727,
+ "ttft_ms": 9647.248500026762,
+ "total_ms": 10204.898600000888
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a62ff276fff60d38848430e55c7e132a",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"总人数26人，每条船限乘4人。26÷4=6……2。商是6条船，余数是2人。因为剩下的2人也需要一条船，所以至少需要6+1=7条船。这是典型的“进一法”应用题，考察对余数实际意义的理解（剩余部分仍需占用一个单位）。\",\n \"solver_code\": \"def solve():\\n    total = 26\\n    limit = 4\\n    # 计算商和余数\\n    q, r = divmod(total, limit)\\n    # 如果有余数，船数加1\\n    if r > 0:\\n        boats = q + 1\\n    else:\\n        boats = q\\n    return [boats]\",\n \"stem\": \"二年级一班有 26 名同学去公园划船，每条船最多坐 4 人。他们至少要租几条船？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"7\",\n   \"unit\": \"条\"\n  }\n ],\n \"solution\": \"用总人数除以每条船限乘人数：$26\\\\div 4=6$（条）……$2$（人）。剩下的 2 人也需要租 1 条船，所以 $6+1=7$（条）。\",\n \"kp_use\": {\n  \"有余数除法的认识\": \"列出除法算式求出商和余数，并根据生活实际（剩余的人也要坐船）对商进行“进一”处理，得出最终需要的船数\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2180,
+  "completion_tokens": 367,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1703.8674999494106,
+ "ttft_ms": 1730.3172999527305,
+ "total_ms": 8963.01459998358
+}

@@ -1,0 +1,18 @@
+{
+ "key": "e72fdd44797ce9b38763651031c415a1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": false, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"10以内加法表\": true, \"减法表的规律\": false}, \"issues\": [\"题目问'一共有多少组不同的两个数相加等于7'，但'不同的两个数'含义不唯一：若指无序数对（组合）答案是3组，若指有序数对（排列）答案是6组，题意存在两种合理理解。\", \"解析中使用了'加法交换律'这一名称，属于四年级内容，二年级学生尚未学习，超出该年级知识范围。\", \"声称涉及的知识点'减法表的规律'在解答中完全没有用到，属于装饰性提及。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 596,
+  "completion_tokens": 171,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1665.3733000857756,
+ "ttft_ms": 1665.388600085862,
+ "total_ms": 4498.958999989554
+}

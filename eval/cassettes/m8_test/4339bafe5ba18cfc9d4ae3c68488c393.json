@@ -1,0 +1,18 @@
+{
+ "key": "4339bafe5ba18cfc9d4ae3c68488c393",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":1,\"topics\":[\"100以内数的认识\"],\"count\":5,\"kinds\":[\"choice\"],\"explicit\":[\"grade\",\"count\",\"kinds\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 42,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 19358.58050000388,
+ "ttft_ms": 19361.166000016965,
+ "total_ms": 19773.165800026618
+}

@@ -1,0 +1,18 @@
+{
+ "key": "f34b54e49fea229a09cd02ac60b42cab",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"54的十位上是5。看选项：45十位是4，52十位是5，14十位是1，34十位是3。只有52的十位是5，与54十位相同。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 19497.174700023606,
+ "ttft_ms": 19497.196799959056,
+ "total_ms": 20153.835900011472
+}

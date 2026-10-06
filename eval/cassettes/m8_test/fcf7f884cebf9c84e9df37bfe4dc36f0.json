@@ -1,0 +1,18 @@
+{
+ "key": "fcf7f884cebf9c84e9df37bfe4dc36f0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"answers\": [{\"label\": \"选手乙比选手甲高的分数\", \"value\": \"0.2\", \"unit\": \"分\"}, {\"label\": \"分差里包含多少个0.1\", \"value\": \"2\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 390,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4426.7045999877155,
+ "ttft_ms": 4432.335800025612,
+ "total_ms": 5049.987099948339
+}

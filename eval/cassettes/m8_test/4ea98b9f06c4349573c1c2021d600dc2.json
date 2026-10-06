@@ -1,0 +1,18 @@
+{
+ "key": "4ea98b9f06c4349573c1c2021d600dc2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 182520,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"7600\", \"24\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"7605\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"7605\", \"20\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"30420\", \"152100\"], \"mode\": null}\n  ],\n  \"concepts\": [\"三位数乘两位数的竖式计算与估算\", \"速度、时间与路程的关系\"],\n  \"units_of_measure\": [\"千米\", \"时\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4497,
+  "completion_tokens": 171,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10958.539200015366,
+ "ttft_ms": 10958.557500038296,
+ "total_ms": 11362.891800003126
+}

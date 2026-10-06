@@ -1,0 +1,18 @@
+{
+ "key": "db7596b4da2cc6398bde46e94673affa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两个两个地数，数到18，说明已经数了2、4、6、8、10、12、14、16、18，共9次，也就是18张。角落里还有3张没数，18+3=21。\", \"answers\": [{\"label\": \"公园里一共有多少张长椅\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 377,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5809.986500069499,
+ "ttft_ms": 5810.010600020178,
+ "total_ms": 6932.24240001291
+}

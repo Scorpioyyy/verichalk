@@ -1,0 +1,18 @@
+{
+ "key": "f07e6105c658be400f8fabbb1d5c4400",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"a\",\"topics\":[\"圆的周长\",\"圆的面积\"],\"count\":5,\"explicit\":[\"grade\",\"semester\",\"count\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2120,
+  "completion_tokens": 41,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7288.099500001408,
+ "ttft_ms": 7288.323999964632,
+ "total_ms": 8064.663300057873
+}

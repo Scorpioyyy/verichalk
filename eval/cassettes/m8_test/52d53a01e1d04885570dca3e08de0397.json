@@ -1,0 +1,18 @@
+{
+ "key": "52d53a01e1d04885570dca3e08de0397",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":4,\"topics\":[\"平均数\"],\"count\":4,\"scenes\":[\"体育比赛\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1516.8113000690937,
+ "ttft_ms": 1516.8298999778926,
+ "total_ms": 1831.8930000532418
+}

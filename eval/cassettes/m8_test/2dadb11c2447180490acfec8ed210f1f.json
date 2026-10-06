@@ -1,0 +1,18 @@
+{
+ "key": "2dadb11c2447180490acfec8ed210f1f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"第一步：被减数是1，减数是0。\\n第二步：任何数减去0，结果还是这个数，所以 $1 - 0 = 1$。\\n结论：结果是1。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 143,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5020.939500071108,
+ "ttft_ms": 5021.027100039646,
+ "total_ms": 5494.201800087467
+}

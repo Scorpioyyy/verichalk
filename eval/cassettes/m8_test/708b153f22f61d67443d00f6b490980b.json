@@ -1,0 +1,18 @@
+{
+ "key": "708b153f22f61d67443d00f6b490980b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"四则运算的计算方法（总复习）\": true, \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 603,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4810.144699993543,
+ "ttft_ms": 4810.173400095664,
+ "total_ms": 5526.254300028086
+}

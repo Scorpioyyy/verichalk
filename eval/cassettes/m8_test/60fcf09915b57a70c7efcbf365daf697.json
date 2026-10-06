@@ -1,0 +1,18 @@
+{
+ "key": "60fcf09915b57a70c7efcbf365daf697",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A的四道题均围绕年月日知识，情境真实多样（生日、出差、图书馆、日期推算），且包含跨月计算、闰年判断、星期周期等易错点，思维含量较高；练习B的第2题是简单的除法，与年月日无关，偏离要求，整体设计不完整。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 503,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1985.4203999275342,
+ "ttft_ms": 1985.445800004527,
+ "total_ms": 3706.3341999892145
+}

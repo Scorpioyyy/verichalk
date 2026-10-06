@@ -1,0 +1,18 @@
+{
+ "key": "88b95bf8029a4d4aa929eb3c641072a2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 3, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"2\", \"1\"], \"mode\": null}], \"concepts\": [\"积的小数位数规则\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4464,
+  "completion_tokens": 75,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2065.543800010346,
+ "ttft_ms": 2065.56759995874,
+ "total_ms": 3003.2017999328673
+}

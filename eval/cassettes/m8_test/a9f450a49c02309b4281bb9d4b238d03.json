@@ -1,0 +1,18 @@
+{
+ "key": "a9f450a49c02309b4281bb9d4b238d03",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"结合元角分认识小数\": true, \"人民币的认识与换算\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 583,
+  "completion_tokens": 69,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2125.0277999788523,
+ "ttft_ms": 2125.05010003224,
+ "total_ms": 3082.6523000141606
+}

@@ -1,0 +1,18 @@
+{
+ "key": "968ec8a7e83a2a7ac75794ca0051937a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"第1天1.2吨，每天增加0.3吨。第5天比第1天多4个0.3吨：1.2+0.3×4=1.2+1.2=2.4（吨）。第5天水费：2.4×2.5=6（元）。\", \"answers\": [{\"label\": \"第5天的用水量\", \"value\": \"2.4\", \"unit\": \"吨\"}, {\"label\": \"第5天的水费\", \"value\": \"6\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 138,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1124.8407999519259,
+ "ttft_ms": 1124.8591999756172,
+ "total_ms": 2287.1922999620438
+}

@@ -1,0 +1,18 @@
+{
+ "key": "f4f1ea539f740f159c42683191ab0524",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"教室需要粉刷四壁和天花板，不刷地面。\\n天花板面积：8×6=48（平方米）\\n四壁面积：2×(8×3.5)+2×(6×3.5)=56+42=98（平方米）\\n四壁和天花板总面积：48+98=146（平方米）\\n减去门窗面积：146-12.5=133.5（平方米）\", \"answers\": [{\"label\": \"实际需要粉刷的面积\", \"value\": \"133.5\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 135,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5549.478300032206,
+ "ttft_ms": 5549.494899925776,
+ "total_ms": 7239.605100010522
+}

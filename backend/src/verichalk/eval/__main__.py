@@ -187,7 +187,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
 
 
 def cmd_produce(args: argparse.Namespace) -> int:
-    """创作与核验的端到端评测：运行 → 审计 → 打分；`--naive` 同时跑朴素直出基线 B0。"""
+    """生成与核验的端到端评测：运行 → 审计 → 打分；`--naive` 同时跑朴素直出基线 B0。"""
     mode = LLMMode.record if args.record else LLMMode(args.mode)
     settings = Settings(
         profile=Profile(args.profile),
@@ -580,7 +580,7 @@ def main() -> None:
     v.add_argument("--tag", default="")
     v.add_argument("--cassette-ns", default=None)
     v.set_defaults(fn=cmd_verify)
-    pr = sub.add_parser("produce", help="创作与核验的端到端评测（含审计；--naive 加跑朴素基线）")
+    pr = sub.add_parser("produce", help="生成与核验的端到端评测（含审计；--naive 加跑朴素基线）")
     pr.add_argument("--split", default="val", choices=["val", "test", "all"])
     pr.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     pr.add_argument("--record", action="store_true")

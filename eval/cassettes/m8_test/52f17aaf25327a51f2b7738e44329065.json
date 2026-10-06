@@ -1,0 +1,18 @@
+{
+ "key": "52f17aaf25327a51f2b7738e44329065",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算每个养殖区分到的饲料：3/4 ÷ 5 = 3/20（吨）。再算每头肉牛分到的饲料：3/20 ÷ 6 = 3/120 = 1/40（吨）。\", \"answers\": [{\"label\": \"平均每头肉牛能分到多少吨饲料\", \"value\": \"1/40\", \"unit\": \"吨\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10032.4553999817,
+ "ttft_ms": 10032.484699971974,
+ "total_ms": 11148.867700016126
+}

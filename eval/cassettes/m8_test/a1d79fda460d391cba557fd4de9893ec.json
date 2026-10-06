@@ -1,0 +1,18 @@
+{
+ "key": "a1d79fda460d391cba557fd4de9893ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 6,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"6\", \"4\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"24\", \"24\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比较图形面积的方法（出入相补）\"],\n  \"units_of_measure\": [\"平方米\", \"米\"],\n  \"geometry_vocab\": [\"长方形\", \"正方形\", \"平移\", \"面积\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4519,
+  "completion_tokens": 124,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10266.188500099815,
+ "ttft_ms": 10266.357200103812,
+ "total_ms": 11245.452300063334
+}

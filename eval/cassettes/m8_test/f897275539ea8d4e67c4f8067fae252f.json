@@ -1,0 +1,18 @@
+{
+ "key": "f897275539ea8d4e67c4f8067fae252f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 1800,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"125\", \"14\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"1800\", \"1750\"], \"mode\": null}\n  ],\n  \"concepts\": [\"速度、时间与路程的关系\"],\n  \"units_of_measure\": [\"千米\", \"时\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4488,
+  "completion_tokens": 113,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10380.776000092737,
+ "ttft_ms": 10380.790200084448,
+ "total_ms": 11485.640700091608
+}

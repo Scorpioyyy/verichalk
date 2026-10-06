@@ -1,0 +1,18 @@
+{
+ "key": "c51cbd90c64661ebf0aba639d355fd86",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":55,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"加法\",\"operands\":[\"23\",\"32\"],\"mode\":null}],\"concepts\":[\"探索规律：两位数与其十位个位对调后的数相加（减）的特点\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 77,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7252.9312000842765,
+ "ttft_ms": 7252.956200041808,
+ "total_ms": 7652.649200055748
+}

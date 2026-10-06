@@ -1,0 +1,18 @@
+{
+ "key": "318cbeabbf2d3b94852937b1bd1829cb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"20以内退位减法\": true, \"探索规律：减法算式中被减数、减数与差的变化规律\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 622,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5866.307099931873,
+ "ttft_ms": 5866.330499993637,
+ "total_ms": 6519.337499979883
+}

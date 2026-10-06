@@ -1,0 +1,18 @@
+{
+ "key": "2d3d687d77561fc965bc4c1c039f745b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两次都是同一张彩纸的几分之几，直接比较分数大小。1/3 与 2/5 通分：1/3=5/15，2/5=6/15，因为 5/15<6/15，所以第二次用去的多。\", \"answers\": [{\"label\": \"哪一次用去的彩纸更多\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 358,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7031.627799966373,
+ "ttft_ms": 7031.653100042604,
+ "total_ms": 7848.439699970186
+}

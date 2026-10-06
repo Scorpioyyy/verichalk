@@ -1,0 +1,18 @@
+{
+ "key": "e96d1ba555e662f415861fe4b6bf8612",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：买3盒彩笔和1个文具盒。彩笔每盒8元，文具盒15元。总花费=3*8+15=24+15=39元。付50元，找回11元。考察点：先乘后加，再减法。数值合理，无括号，符合三年级水平。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    price_pen = Decimal('8')\\n    count_pen = 3\\n    price_box = Decimal('15')\\n    pay = Decimal('50')\\n    total_cost = price_pen * count_pen + price_box\\n    change = pay - total_cost\\n    return [change]\",\n \"stem\": \"小明去超市买文具，买了 $3$ 盒彩笔，每盒 $8$ 元，还买了一个 $15$ 元的文具盒。他付给收银员 $50$ 元，应找回多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"11\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算买彩笔的钱：$3\\\\times 8=24$ 元，再加文具盒共 $24+15=39$ 元。最后算找回的钱：$50-39=11$ 元。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"在计算总花费时，先算乘法 $3\\\\times 8$，再算加法 $+15$，体现先乘除后加减的运算顺序\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2312,
+  "completion_tokens": 394,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1312.9101999802515,
+ "ttft_ms": 1329.8573000356555,
+ "total_ms": 8021.5414999984205
+}

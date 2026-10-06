@@ -1,0 +1,18 @@
+{
+ "key": "f541b4a5d03830243b32d18c8532d1e2",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计农场情境：鸡15只，鸭8只。求鸡比鸭多几只。算式15-8=7。干扰项：加法15+8=23；破十法错误10-8=2（忘加5）；平十法错误15-5=10（忘减3）。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 鸡15只，鸭8只，求差\\n    return [Fraction(15) - Fraction(8)]\",\n \"stem\": \"农场里养了 $15$ 只鸡和 $8$ 只鸭，鸡比鸭多几只？下面哪个算式是正确的？\",\n \"options\": [\n  \"$15+8=23$\",\n  \"$15-8=7$\",\n  \"$10-8=2$\",\n  \"$15-5=10$\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"B\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"求鸡比鸭多几只，用减法计算，列式为 $15-8$。计算时可以用破十法：$10-8=2$，$2+5=7$。所以正确算式是 $15-8=7$。\",\n \"kp_use\": {\n  \"20以内退位减法\": \"通过选择正确的减法算式并计算结果，考查对退位减法意义的理解及计算方法（如破十法）的掌握\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2188,
+  "completion_tokens": 363,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1365.9540000371635,
+ "ttft_ms": 1401.151700061746,
+ "total_ms": 7741.465300088748
+}

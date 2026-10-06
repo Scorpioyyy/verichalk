@@ -1,0 +1,18 @@
+{
+ "key": "506454bee664258360bfe18f844e1711",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\n  \"work\": \"1减0表示从1里面去掉0个，还剩下1个，所以1-0=1。\",\n  \"answers\": [\n    {\n      \"label\": \"\",\n      \"value\": \"1\",\n      \"unit\": \"\"\n    }\n  ],\n  \"ambiguous\": false,\n  \"ambiguity\": \"\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 290,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 21970.7109000301,
+ "ttft_ms": 21970.755900023505,
+ "total_ms": 22406.123399967328
+}

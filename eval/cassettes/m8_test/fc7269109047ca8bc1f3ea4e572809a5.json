@@ -1,0 +1,18 @@
+{
+ "key": "fc7269109047ca8bc1f3ea4e572809a5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"把 88 平均分成 2 份，取其中 1 份。$88 \\\\div 2 = 44$，所以 $88 \\\\times \\\\frac{1}{2} = 44$。结果是 44。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 145,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1672.9427000973374,
+ "ttft_ms": 1673.0691000120714,
+ "total_ms": 2112.6381000503898
+}

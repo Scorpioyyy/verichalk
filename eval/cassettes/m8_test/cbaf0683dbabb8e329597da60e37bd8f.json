@@ -1,0 +1,18 @@
+{
+ "key": "cbaf0683dbabb8e329597da60e37bd8f",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"分装糖果\",\n      \"angle\": \"将若干颗糖果每6颗装一袋，求能装满几袋及剩余颗数。\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"分发练习本\",\n      \"angle\": \"把固定数量的本子平均分给几位同学，求每人分得数量及余数。\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"猜除数游戏\",\n      \"angle\": \"已知某数除以一位数的余数，判断除数最小可能是几。\"\n    },\n    {\n      \"index\": 4,\n      \"scene\": \"租船游玩\",\n      \"angle\": \"根据总人数和每条船限乘人数，计算至少需要租几条船。\"\n    },\n    {\n      \"index\": 5,\n      \"combo\": \"A\",\n      \"scene\": \"超市购物与找零\",\n      \"angle\": \"先算购买几种文具的总花费，再用固定金额付款，求最多能买几个单价相同的物品及找回多少钱。\",\n      \"roles\": {\n        \"100以内三个数加减混合运算\": \"先通过连加或加减混合计算出购买多种文具的总金额或剩余预算\",\n        \"有余数除法的认识\": \"再用剩余的钱除以单个物品的价格，求出最多能买的数量和余下的钱\"\n      }\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 943,
+  "completion_tokens": 343,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1523.4391000121832,
+ "ttft_ms": 1541.3079999852926,
+ "total_ms": 7360.66090001259
+}

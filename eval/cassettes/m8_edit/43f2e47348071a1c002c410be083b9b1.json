@@ -1,0 +1,18 @@
+{
+ "key": "43f2e47348071a1c002c410be083b9b1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"改写后方程由3x-4.5=7.5变为x+4.5=10，去掉了乘法系数，运算步骤更少，确实比原题更容易。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 132,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2291.1087999818847,
+ "ttft_ms": 2291.1282000131905,
+ "total_ms": 2977.0202999934554
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ba7c5f0a5914b9d68565d644d97f2eff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小华身高1.2米，小丽身高0.95米，求小华比小丽高多少米，用减法：1.2 - 0.95 = 0.25（米）。\", \"answers\": [{\"label\": \"小华比小丽高多少米\", \"value\": \"0.25\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14929.498299956322,
+ "ttft_ms": 14929.519800003618,
+ "total_ms": 16005.784600041807
+}

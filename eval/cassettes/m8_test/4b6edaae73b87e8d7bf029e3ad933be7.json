@@ -1,0 +1,18 @@
+{
+ "key": "4b6edaae73b87e8d7bf029e3ad933be7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 92, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"2\", \"6\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"30\", \"8\"], \"mode\": null}], \"concepts\": [\"两位数加一位数、两位数加减整十数（不进位不退位）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4460,
+  "completion_tokens": 104,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8023.92740000505,
+ "ttft_ms": 8023.943900014274,
+ "total_ms": 8950.62710007187
+}

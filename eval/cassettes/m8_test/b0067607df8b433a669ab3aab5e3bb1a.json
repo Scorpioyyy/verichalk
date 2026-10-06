@@ -1,0 +1,18 @@
+{
+ "key": "b0067607df8b433a669ab3aab5e3bb1a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"624÷4=156，所以每个小组有156人。\", \"answers\": [{\"label\": \"\", \"value\": \"156\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 314,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5371.872200048529,
+ "ttft_ms": 5371.887200046331,
+ "total_ms": 5992.86880006548
+}

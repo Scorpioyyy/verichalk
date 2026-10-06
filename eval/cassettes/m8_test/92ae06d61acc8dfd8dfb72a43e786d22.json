@@ -1,0 +1,18 @@
+{
+ "key": "92ae06d61acc8dfd8dfb72a43e786d22",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"估算：把7805看作7800，7800×12=93600，所以大约93600千米。竖式计算：7805×12=7805×10+7805×2=78050+15610=93660（千米）。\", \"answers\": [{\"label\": \"估算结果\", \"value\": \"93600\", \"unit\": \"千米\"}, {\"label\": \"竖式计算结果\", \"value\": \"93660\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 330,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1275.6030999589711,
+ "ttft_ms": 1275.8964999811724,
+ "total_ms": 2405.2613000385463
+}

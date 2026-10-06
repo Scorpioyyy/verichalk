@@ -1,0 +1,18 @@
+{
+ "key": "a506617e6f3969e99b3e3aa72f94c90d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方形宣传栏四周贴一圈花边，花边长度等于长方形的周长。周长 = (长 + 宽) × 2 = (12 + 8) × 2 = 20 × 2 = 40（分米）。\", \"answers\": [{\"label\": \"至少需要花边的长度\", \"value\": \"40\", \"unit\": \"分米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 327,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1152.243799995631,
+ "ttft_ms": 1152.2620000177994,
+ "total_ms": 2136.7979999631643
+}

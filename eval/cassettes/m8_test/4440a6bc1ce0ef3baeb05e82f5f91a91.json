@@ -1,0 +1,18 @@
+{
+ "key": "4440a6bc1ce0ef3baeb05e82f5f91a91",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"圆的面积计算公式\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 537,
+  "completion_tokens": 58,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1530.2821999648586,
+ "ttft_ms": 1530.3076000418514,
+ "total_ms": 2147.284699953161
+}

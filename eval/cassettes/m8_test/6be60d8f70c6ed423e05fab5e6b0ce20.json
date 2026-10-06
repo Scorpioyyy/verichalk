@@ -1,0 +1,18 @@
+{
+ "key": "6be60d8f70c6ed423e05fab5e6b0ce20",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12345678, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"用四舍五入法求大数的近似数\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4476,
+  "completion_tokens": 58,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1782.0068000582978,
+ "ttft_ms": 1782.2555999737233,
+ "total_ms": 2232.32970002573
+}

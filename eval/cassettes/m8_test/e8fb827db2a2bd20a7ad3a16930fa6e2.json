@@ -1,0 +1,18 @@
+{
+ "key": "e8fb827db2a2bd20a7ad3a16930fa6e2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 146,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"8\", \"6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"8\", \"6\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"14\", \"2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"28\", \"3.5\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"48\", \"98\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"146\", \"12.5\"], \"mode\": null}\n  ],\n  \"concepts\": [\"长方体和正方体的表面积\"],\n  \"units_of_measure\": [\"米\", \"平方米\"],\n  \"geometry_vocab\": [\"长方体\", \"长\", \"宽\", \"高\", \"表面积\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4484,
+  "completion_tokens": 216,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5567.8315999684855,
+ "ttft_ms": 5567.8579999366775,
+ "total_ms": 6863.523299922235
+}

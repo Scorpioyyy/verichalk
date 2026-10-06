@@ -1,0 +1,18 @@
+{
+ "key": "40d7cf8bdb181cf31c56eeb45d8987f9",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计情境：苹果原有34筐，运来5筐（两位数加一位数）；梨有20筐。判断“苹果比梨多19筐”。计算：34+5=39，39-20=19。结论：对。需确保用到“两位数加减整十数”：在比较时，39-20是两位数减整十数。\",\n \"solver_code\": \"def solve():\\n    # 苹果原有34，运来5\\n    apples = 34 + 5\\n    # 梨有20\\n    pears = 20\\n    # 差值\\n    diff = apples - pears\\n    # 题目陈述：苹果比梨多19筐\\n    statement_diff = 19\\n    return [diff == statement_diff]\",\n \"stem\": \"果园里原来有 $34$ 筐苹果，又运来 $5$ 筐；梨有 $20$ 筐。现在苹果比梨多 $19$ 筐。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"对\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算苹果现有 $34+5=39$ 筐。再算苹果比梨多 $39-20=19$ 筐。因为 $19=19$，所以说法正确。\",\n \"kp_use\": {\n  \"两位数加一位数、两位数加减整十数（不进位不退位）\": \"第一步计算 $34+5$ 是两位数加一位数；第二步计算 $39-20$ 是两位数减整十数\",\n  \"用减法解决相差问题（比多比少）\": \"通过减法 $39-20$ 求出苹果比梨多的数量，并据此判断题干陈述的真伪\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2710,
+  "completion_tokens": 436,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1504.6529999235645,
+ "ttft_ms": 1517.1325999544933,
+ "total_ms": 9086.599099915475
+}

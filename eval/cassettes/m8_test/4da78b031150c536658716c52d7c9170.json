@@ -1,0 +1,18 @@
+{
+ "key": "4da78b031150c536658716c52d7c9170",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 25,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"减法\", \"operands\": [\"1.4\", \"1.25\"], \"mode\": null}\n  ],\n  \"concepts\": [\"结合米制单位认识小数\", \"小数加减法（位数不同）\"],\n  \"units_of_measure\": [\"米\", \"分米\", \"厘米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4488,
+  "completion_tokens": 105,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 24395.665299962275,
+ "ttft_ms": 24395.689399912953,
+ "total_ms": 25236.10789992381
+}

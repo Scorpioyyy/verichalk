@@ -1,0 +1,18 @@
+{
+ "key": "4ae389572abb3d44c6336dd162450628",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12元5分 = 12元 + 5分。5分 = 0.05元，所以12元5分 = 12.05元。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6934.159400057979,
+ "ttft_ms": 6934.20130002778,
+ "total_ms": 7984.329600003548
+}

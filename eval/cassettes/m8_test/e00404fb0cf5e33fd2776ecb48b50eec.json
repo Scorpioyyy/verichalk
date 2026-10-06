@@ -1,0 +1,18 @@
+{
+ "key": "e00404fb0cf5e33fd2776ecb48b50eec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"用方程解决\\\"和倍\\\"问题\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 555,
+  "completion_tokens": 63,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3500.3138000611216,
+ "ttft_ms": 3500.3371000057086,
+ "total_ms": 4046.883200062439
+}

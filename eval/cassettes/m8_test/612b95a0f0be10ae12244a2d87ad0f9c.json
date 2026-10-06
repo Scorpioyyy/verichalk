@@ -1,0 +1,18 @@
+{
+ "key": "612b95a0f0be10ae12244a2d87ad0f9c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"设原价为 x 元。A 店铺每满100减20，若原价刚好满足满减门槛，则 x 是100的整数倍，设 x=100n。A 店铺实付：100n-20n=80n。B 店铺打八折，实付：0.8×100n=80n。两者恒相等，因此任意100的整数倍原价都满足条件，题目条件不足，无法确定唯一原价。\", \"answers\": [{\"label\": \"这套图书的原价\", \"value\": \"ambiguous\", \"unit\": \"元\"}], \"ambiguous\": true, \"ambiguity\": \"只要原价是100元的整数倍，两家店实付金额都相等，无法确定唯一原价。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 166,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12884.763000067323,
+ "ttft_ms": 12884.78690001648,
+ "total_ms": 16875.459300004877
+}

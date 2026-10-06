@@ -1,0 +1,18 @@
+{
+ "key": "9d658fed0638bc75bd9739bc9a4252c1",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计两个保护区。A区：原120，迁入45，迁出30。B区：原110，迁入20，迁出50。计算A区最终：120+45-30=135。B区最终：110+20-50=80。差值：135-80=55。干扰项设计：A区算错（如漏加迁入得90，差10；或漏减迁出得165，差85）；B区算错；直接加减所有数等。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # A区\\n    a_start = 120\\n    a_in = 45\\n    a_out = 30\\n    a_final = a_start + a_in - a_out\\n    \\n    # B区\\n    b_start = 110\\n    b_in = 20\\n    b_out = 50\\n    b_final = b_start + b_in - b_out\\n    \\n    diff = a_final - b_final\\n    return [diff]\",\n \"stem\": \"自然观察站记录了两个保护区的丹顶鹤数量变化。A 保护区原有 $120$ 只，春季迁入 $45$ 只，秋季迁出 $30$ 只；B 保护区原有 $110$ 只，春季迁入 $20$ 只，秋季迁出 $50$ 只。现在 A 保护区的丹顶鹤比 B 保护区多多少只？\",\n \"options\": [\n  \"45 只\",\n  \"55 只\",\n  \"65 只\",\n  \"75 只\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"B\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算 A 区现有：$120+45-30=135$ 只。再算 B 区现有：$110+20-50=80$ 只。最后求差：$135-80=55$ 只。\",\n \"kp_use\": {\n  \"三个数及以上的连加、连减、加减混合运算\": \"分别计算两个保护区经过迁入迁出后的剩余数量（加减混合），以及最后求两个数量的差（减法），均需按从左往右顺序计算\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2281,
+  "completion_tokens": 569,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2003.2324999338016,
+ "ttft_ms": 2264.9160999571905,
+ "total_ms": 12066.028399975039
+}

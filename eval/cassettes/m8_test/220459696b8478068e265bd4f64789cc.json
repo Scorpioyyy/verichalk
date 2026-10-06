@@ -1,0 +1,18 @@
+{
+ "key": "220459696b8478068e265bd4f64789cc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 450, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"2\", \"3\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"450\", \"5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"90\", \"2\"], \"mode\": null}], \"concepts\": [\"比的意义与写法\", \"按比例分配\"], \"units_of_measure\": [\"克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4448,
+  "completion_tokens": 120,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2426.0252999374643,
+ "ttft_ms": 2426.0771999834105,
+ "total_ms": 3415.995999937877
+}

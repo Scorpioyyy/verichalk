@@ -1,0 +1,18 @@
+{
+ "key": "118a2d3844fe39723ab296138d8fa2d1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小圆锥体积：1/3×π×3²×10=30π（cm³）。大圆锥体积：1/3×π×6²×15=180π（cm³）。大圆锥体积是小圆锥的180π÷30π=6倍。同种材料质量与体积成正比例，所以大圆锥质量=45×6=270（g）。\", \"answers\": [{\"label\": \"大圆锥的质量\", \"value\": \"270\", \"unit\": \"g\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 120,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13180.398700060323,
+ "ttft_ms": 13180.4254000308,
+ "total_ms": 19776.274500065483
+}

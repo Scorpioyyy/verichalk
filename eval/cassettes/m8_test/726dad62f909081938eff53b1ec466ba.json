@@ -1,0 +1,18 @@
+{
+ "key": "726dad62f909081938eff53b1ec466ba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 218, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"2\", \"100\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"18\", \"200\"], \"mode\": null}], \"concepts\": [\"米的认识（1米=100厘米）\"], \"units_of_measure\": [\"厘米\", \"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4449,
+  "completion_tokens": 102,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10885.91599999927,
+ "ttft_ms": 10885.941600077786,
+ "total_ms": 11629.62610006798
+}

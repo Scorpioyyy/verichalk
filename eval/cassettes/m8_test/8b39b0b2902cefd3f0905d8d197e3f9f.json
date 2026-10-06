@@ -1,0 +1,18 @@
+{
+ "key": "8b39b0b2902cefd3f0905d8d197e3f9f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"10以内加法表\": false, \"减法表的规律\": false}, \"issues\": [\"题目实际涉及20以内加减法，与声称的10以内加法表、减法表的规律不符\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 541,
+  "completion_tokens": 87,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12508.615999948233,
+ "ttft_ms": 12508.638500003144,
+ "total_ms": 13531.851000036113
+}

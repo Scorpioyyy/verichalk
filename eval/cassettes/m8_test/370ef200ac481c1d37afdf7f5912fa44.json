@@ -1,0 +1,18 @@
+{
+ "key": "370ef200ac481c1d37afdf7f5912fa44",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原来有15名乘客。第一站没有人上车也没有人下车，人数不变，还是15名。第二站下去了15名乘客，15-15=0，所以现在车上还有0名乘客。\", \"answers\": [{\"label\": \"现在车上还有多少名乘客\", \"value\": \"0\", \"unit\": \"名\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 320,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9782.650100067258,
+ "ttft_ms": 9782.829600037076,
+ "total_ms": 10809.897100087255
+}

@@ -1,0 +1,18 @@
+{
+ "key": "353af39830bd614f63abbb0b9f64158b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方形面积=长×宽，列竖式：24×15。先算24×5=120，再算24×10=240，最后120+240=360。所以面积是360平方米。\", \"answers\": [{\"label\": \"草坪的面积\", \"value\": \"360\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1427.2094999905676,
+ "ttft_ms": 1427.2264000028372,
+ "total_ms": 2378.11629998032
+}

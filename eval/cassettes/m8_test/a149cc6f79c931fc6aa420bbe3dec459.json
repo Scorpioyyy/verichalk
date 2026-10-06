@@ -1,0 +1,18 @@
+{
+ "key": "a149cc6f79c931fc6aa420bbe3dec459",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 100, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"100\", \"20\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.8\", \"100\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"1\", \"0.8\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"20\", \"0.2\"], \"mode\": null}], \"concepts\": [\"百分数的意义与读写\", \"解方程（等式两边乘除同一个数）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4507,
+  "completion_tokens": 156,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5292.6647999556735,
+ "ttft_ms": 5292.693799943663,
+ "total_ms": 6733.106100000441
+}

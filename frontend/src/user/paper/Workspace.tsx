@@ -175,7 +175,7 @@ export function Workspace({ view, ctl, onAskItem, onApply, onPrefill }: Props) {
               onClick={() => void ctl.redo()}
               disabled={!view.history.canRedo || active}
               aria-label="恢复"
-              title="恢复（撤销之后再回来）"
+              title="恢复"
             >
               <Icon name="redo" />
             </button>

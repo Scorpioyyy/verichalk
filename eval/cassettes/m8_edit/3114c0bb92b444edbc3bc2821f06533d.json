@@ -1,0 +1,18 @@
+{
+ "key": "3114c0bb92b444edbc3bc2821f06533d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 1, \"kp_used\": {\"三角形内角和\": true}, \"issues\": [\"解析中把题目的 75° 写成了 65°，属于抄错条件（180-65-48=67），虽然结果 67 恰好正确，但过程与题目条件不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 489,
+  "completion_tokens": 101,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1133.834999985993,
+ "ttft_ms": 1133.856000029482,
+ "total_ms": 2143.943000002764
+}

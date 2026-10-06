@@ -1,0 +1,18 @@
+{
+ "key": "1a47f2c0bd045b8d61c62f42fc7536d4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 25, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"10\", \"2\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"5\", \"5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"3.14\", \"25\"], \"mode\": null}], \"concepts\": [\"圆的面积计算公式\"], \"units_of_measure\": [\"厘米\", \"平方厘米\"], \"geometry_vocab\": [\"圆\", \"直径\", \"半径\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4453,
+  "completion_tokens": 129,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2163.802199997008,
+ "ttft_ms": 2163.8175999978557,
+ "total_ms": 3097.19760005828
+}

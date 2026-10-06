@@ -1,0 +1,18 @@
+{
+ "key": "131c2807773668134999224b5e754cb6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三角形内角和定理：任意三角形的三个内角之和等于180度，这是四年级数学中已学的结论，因此该说法正确。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 295,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1068.4058999177068,
+ "ttft_ms": 1068.4262999566272,
+ "total_ms": 1736.0833999700844
+}

@@ -1,0 +1,18 @@
+{
+ "key": "0fcadc9c65ee11bf0dc48bdca7c3f10e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：全校905人，6个小组每组128人。先算小组总人数 128*6=768。再算剩余 905-768。905-768涉及连续退位（0借位）。905-768=137。检查难度：乘法是三位数乘一位数（表内扩展），减法是三位数减三位数连续退位。符合三年级综合要求。\",\n \"solver_code\": \"def solve():\\n    # 全校总人数\\n    total = 905\\n    # 每组人数\\n    per_group = 128\\n    # 组数\\n    groups = 6\\n    # 计算参加活动的总人数\\n    activity_total = per_group * groups\\n    # 计算未参加的人数\\n    remaining = total - activity_total\\n    return [remaining]\",\n \"stem\": \"阳光小学共有学生 $905$ 人。学校组织“环保小卫士”活动，分成了 $6$ 个小组，每个小组有 $128$ 人。其余的学生负责后勤服务，负责后勤服务的学生有多少人？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"137\",\n   \"unit\": \"人\"\n  }\n ],\n \"solution\": \"先算参加活动的人数：$128\\\\times 6=768$ 人。再算后勤人数：$905-768=137$ 人。注意减法中 $0$ 的退位处理。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"构建算式 $905-128\\\\times 6$，理解需先算乘法求出活动总人数，再算减法\",\n  \"三位数减法竖式（退位）\": \"计算 $905-768$ 时，个位不够减向十位借，十位是 $0$ 需向百位借，处理连续退位得出结果\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2464,
+  "completion_tokens": 485,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1698.048199992627,
+ "ttft_ms": 1712.760700029321,
+ "total_ms": 9946.572099928744
+}

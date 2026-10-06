@@ -1,0 +1,18 @@
+{
+ "key": "a4dae4fd5a4bc914fd56facf387aded7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每个班分到14本，共12个班，总数=14×12=168（本）。\", \"answers\": [{\"label\": \"这批科普读物一共有多少本\", \"value\": \"168\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 320,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1425.762299913913,
+ "ttft_ms": 1425.7802999345586,
+ "total_ms": 2068.7675999943167
+}

@@ -1,0 +1,18 @@
+{
+ "key": "19b73d5102dd17eaf4f7aa25fe75f930",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）长方体容积：20×15×10=3000（立方厘米）；正方体体积：8×8×8=512（立方厘米）；剩余空间：3000-512=2488（立方厘米）。\\n（2）无盖长方体表面积=底面+前后左右四个侧面：20×15+20×10×2+15×10×2=300+400+300=1000（平方厘米）。\", \"answers\": [{\"label\": \"盒内剩余的空间\", \"value\": \"2488\", \"unit\": \"立方厘米\"}, {\"label\": \"制作无盖收纳盒至少需要的纸板面积\", \"value\": \"1000\", \"unit\": \"平方厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 165,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2981.871699914336,
+ "ttft_ms": 2981.8909999448806,
+ "total_ms": 4273.933899938129
+}

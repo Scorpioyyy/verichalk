@@ -1,0 +1,18 @@
+{
+ "key": "391eded509d6c01f8151c65392c136e6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 135, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"120\", \"45\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"165\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"110\", \"20\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"130\", \"50\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"135\", \"80\"], \"mode\": null}], \"concepts\": [\"100以内三个数加减混合运算\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4520,
+  "completion_tokens": 158,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3479.6944999834523,
+ "ttft_ms": 3479.7094999812543,
+ "total_ms": 4672.406400088221
+}

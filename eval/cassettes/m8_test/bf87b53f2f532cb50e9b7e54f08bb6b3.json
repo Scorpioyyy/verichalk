@@ -1,0 +1,18 @@
+{
+ "key": "bf87b53f2f532cb50e9b7e54f08bb6b3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2.45×1.6，先按整数乘法算245×16=3920，两个因数共有2+1=3位小数，所以积应有3位小数。\", \"answers\": [{\"label\": \"乘积应该有几位小数\", \"value\": \"3\", \"unit\": \"位\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3440.709299989976,
+ "ttft_ms": 3440.724499989301,
+ "total_ms": 4711.160800070502
+}

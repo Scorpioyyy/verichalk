@@ -1,0 +1,18 @@
+{
+ "key": "9711a8dbe96a06d984d7608c91bf8b81",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A情境真实多样（实验、动物、购物、冲泡），题目需多步推理或判断（如判断能否组成比例、调整浓度需计算差值），针对易错点（小数比化简、单位隐含、比例与比的区别）；练习B多为一步套公式或概念填空，情境单一，思维含量较低，更符合‘比的认识’深化要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 643,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2323.584800004028,
+ "ttft_ms": 2323.60810006503,
+ "total_ms": 4886.459700064734
+}

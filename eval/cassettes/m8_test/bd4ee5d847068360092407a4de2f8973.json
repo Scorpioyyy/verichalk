@@ -1,0 +1,18 @@
+{
+ "key": "bd4ee5d847068360092407a4de2f8973",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设定蛋白质与碳水化合物的比为 2:3，总质量 450g。总份数 5，每份 90g。蛋白质 180g，碳水 270g。检查：180+270=450，180:270=2:3。符合变式要求（已知比和总量求分量），且区别于其他题的化简、写比、判比例、体积除法。\",\n \"solver_code\": \"from fractions import Fraction\\n\\ndef solve():\\n    # 蛋白质:碳水化合物 = 2:3\\n    # 总质量 = 450g\\n    total_mass = 450\\n    ratio_protein = 2\\n    ratio_carb = 3\\n    total_parts = ratio_protein + ratio_carb\\n    \\n    # 求蛋白质的质量\\n    protein_mass = total_mass * (Fraction(ratio_protein, total_parts))\\n    \\n    return [int(protein_mass)]\",\n \"stem\": \"某健身餐盒中，蛋白质与碳水化合物的质量比是 $2:3$。若该餐盒中这两种成分的总质量为 $450$ 克，则其中蛋白质的质量是多少克？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"180\",\n   \"unit\": \"克\"\n  }\n ],\n \"solution\": \"把总质量看作 $2+3=5$ 份。每份质量为 $450\\\\div 5=90$ 克。蛋白质占 $2$ 份，质量为 $90\\\\times 2=180$ 克。\",\n \"kp_use\": {\n  \"比的基本性质\": \"理解比 $2:3$ 表示将总量分为 $2+3=5$ 等份，利用份数关系进行按比例分配计算\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2324,
+  "completion_tokens": 438,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2237.722699996084,
+ "ttft_ms": 2539.832100039348,
+ "total_ms": 10314.542400068603
+}

@@ -1,0 +1,18 @@
+{
+ "key": "bdd8cd97adfde2970758bcbac97788d6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）8.5-3.2=5.3（元）。（2）5.3=53/10，所以用分数表示是53/10元。\", \"answers\": [{\"label\": \"一支钢笔比一支圆珠笔贵多少元\", \"value\": \"5.3\", \"unit\": \"元\"}, {\"label\": \"差价用分数表示\", \"value\": \"53/10\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 340,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3219.385600066744,
+ "ttft_ms": 3219.418900087476,
+ "total_ms": 4406.535700079985
+}

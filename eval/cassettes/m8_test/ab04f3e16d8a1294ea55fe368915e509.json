@@ -1,0 +1,18 @@
+{
+ "key": "ab04f3e16d8a1294ea55fe368915e509",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：老师发作业本。总数23本，分给5个同学。23除以5，商4余3。检查约束：二年级表内除法有余数，数值小，生活情境。避免与其他题重复（其他题是装袋、租船、购物）。\",\n \"solver_code\": \"def solve():\\n    total = 23\\n    students = 5\\n    quotient = total // students\\n    remainder = total % students\\n    return [quotient, remainder]\",\n \"stem\": \"李老师把 $23$ 本作业本平均分给 $5$ 个小组长，每人分到 ____ 本，还剩 ____ 本。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"4\",\n   \"unit\": \"本\"\n  },\n  {\n   \"label\": \"\",\n   \"value\": \"3\",\n   \"unit\": \"本\"\n  }\n ],\n \"solution\": \"想 $5$ 的乘法口诀，四五二十，接近 $23$ 且小于 $23$。$23-20=3$，所以每人分 $4$ 本，还剩 $3$ 本。\",\n \"kp_use\": {\n  \"有余数的平均分\": \"通过试商找到最接近被除数的积，确定每份的数量和剩余数量\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2166,
+  "completion_tokens": 319,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1606.0650000581518,
+ "ttft_ms": 1639.7396000102162,
+ "total_ms": 7283.977000042796
+}

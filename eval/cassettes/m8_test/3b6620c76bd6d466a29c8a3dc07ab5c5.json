@@ -1,0 +1,18 @@
+{
+ "key": "3b6620c76bd6d466a29c8a3dc07ab5c5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 24,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之一\", \"几分之几\"],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"1/3\", \"1/2\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1/3\", \"1/6\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"24\", \"1/2\"], \"mode\": null}\n  ],\n  \"concepts\": [\"整数乘分数（求一个数的几分之几是多少）\", \"分数乘分数\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4502,
+  "completion_tokens": 156,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2394.4132999749854,
+ "ttft_ms": 2394.4504999089986,
+ "total_ms": 3761.723699979484
+}

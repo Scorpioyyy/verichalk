@@ -1,0 +1,18 @@
+{
+ "key": "b8f03e1bd9e7c758eb36dfed2be2e9a9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"10以内加法表\": true, \"减法表的规律\": false}, \"issues\": [\"题目声称涉及'减法表的规律'，但整道题只用到加法，解答中完全没有涉及减法。\", \"题面未说明迷宫有几行几列，仅靠解析补充'右边2格、下边2格'，学生无法从题面确定出口位置。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 587,
+  "completion_tokens": 126,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17815.364599926397,
+ "ttft_ms": 17815.388199989684,
+ "total_ms": 19473.40539994184
+}

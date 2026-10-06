@@ -1,0 +1,18 @@
+{
+ "key": "7d111b6d2d0926fd8c1c9935bff33cfa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"64名运动员平均分成8个方阵，每个方阵有64÷8=8名运动员。3个男生方阵共有运动员3×8=24人；每个男生方阵增加2名领队老师，3个方阵共增加3×2=6名老师。运动员和老师一共24+6=30人。\", \"answers\": [{\"label\": \"这3个男生方阵里的运动员和老师一共有多少人\", \"value\": \"30\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 347,
+  "completion_tokens": 122,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7099.362000008114,
+ "ttft_ms": 7099.377000005916,
+ "total_ms": 8643.325999961235
+}

@@ -1,0 +1,18 @@
+{
+ "key": "fcd03d8770dacfab589eaf04bcffc6b9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"周长相等的图形其形状可以不同\": true, \"长方形和正方形的特征\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 594,
+  "completion_tokens": 70,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1398.5337000340223,
+ "ttft_ms": 1398.5523000592366,
+ "total_ms": 1835.9399000182748
+}

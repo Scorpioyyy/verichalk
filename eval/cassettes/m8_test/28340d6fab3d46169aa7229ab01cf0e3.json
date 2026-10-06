@@ -1,0 +1,18 @@
+{
+ "key": "28340d6fab3d46169aa7229ab01cf0e3",
+ "model": "qwen3.7-plus",
+ "purpose": "warmup",
+ "text": "您好",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "length",
+ "usage": {
+  "prompt_tokens": 297,
+  "completion_tokens": 1,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1706.1877000378445,
+ "ttft_ms": 1725.2671000314876,
+ "total_ms": 1734.8373000277206
+}

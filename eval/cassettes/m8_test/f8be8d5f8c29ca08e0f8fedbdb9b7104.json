@@ -1,0 +1,18 @@
+{
+ "key": "f8be8d5f8c29ca08e0f8fedbdb9b7104",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总份数为5+4=9份，每份180÷9=20分，甲队得5×20=100分。\", \"answers\": [{\"label\": \"甲队得分\", \"value\": \"100\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 327,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6295.937499962747,
+ "ttft_ms": 6295.949399936944,
+ "total_ms": 7641.920099966228
+}

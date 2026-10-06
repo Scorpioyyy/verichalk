@@ -1,0 +1,18 @@
+{
+ "key": "ad70144cea4da86aadb15548f32b4dad",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 24, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"6\", \"4\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"24\", \"2\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"12\", \"8\"], \"mode\": null}], \"concepts\": [\"长方形和正方形周长的计算公式\"], \"units_of_measure\": [\"厘米\"], \"geometry_vocab\": [\"正方形\", \"长方形\", \"周长\", \"长\", \"宽\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4463,
+  "completion_tokens": 131,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6341.90680005122,
+ "ttft_ms": 6342.159599997103,
+ "total_ms": 7352.852700045332
+}

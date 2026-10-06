@@ -1,0 +1,18 @@
+{
+ "key": "a6515b2db6c63fa2773ef92c9a5fe465",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"方程两边同时除以4，得 x=20÷4=5。\", \"answers\": [{\"label\": \"\", \"value\": \"5\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 297,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1130.7934999931604,
+ "ttft_ms": 1130.8165000518784,
+ "total_ms": 1751.1574999662116
+}

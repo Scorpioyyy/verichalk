@@ -1,0 +1,18 @@
+{
+ "key": "0d51468e7c4f69b7283f88ec17fbd829",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"客厅地面由两个长方形区域组成，总面积等于两个长方形面积之和。第一个区域面积：6.5×4=26（平方米）；第二个区域面积：3.5×2.5=8.75（平方米）；总面积：26+8.75=34.75（平方米）。\", \"answers\": [{\"label\": \"客厅地面的总面积\", \"value\": \"34.75\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6470.966099994257,
+ "ttft_ms": 6470.992399961688,
+ "total_ms": 7555.637300014496
+}

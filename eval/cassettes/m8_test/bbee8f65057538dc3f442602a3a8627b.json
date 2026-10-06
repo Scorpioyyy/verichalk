@@ -1,0 +1,18 @@
+{
+ "key": "bbee8f65057538dc3f442602a3a8627b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"解比例\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 544,
+  "completion_tokens": 57,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6791.0767999710515,
+ "ttft_ms": 6791.315900045447,
+ "total_ms": 6927.942499984056
+}

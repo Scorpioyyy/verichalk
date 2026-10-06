@@ -1,0 +1,18 @@
+{
+ "key": "595b80ab1965ba383b88a0e72759f891",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 10,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"1\", \"9\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"2\", \"8\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"3\", \"7\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"4\", \"6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"5\", \"5\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"6\", \"4\"], \"mode\": null}\n  ],\n  \"concepts\": [\"10的组成及10以内的加减法\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4498,
+  "completion_tokens": 195,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7357.155999983661,
+ "ttft_ms": 7357.171699986793,
+ "total_ms": 8639.548899955116
+}

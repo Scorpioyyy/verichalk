@@ -1,0 +1,18 @@
+{
+ "key": "c2cacdd2e59ed1573fd64834092187e5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":300,\"decimal_places\":1,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"12.5\",\"10\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"30\",\"10\"],\"mode\":null},{\"op\":\"除法\",\"operands\":[\"125\",\"25\"],\"mode\":null},{\"op\":\"除法\",\"operands\":[\"300\",\"25\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"5\",\"12\"],\"mode\":null}],\"concepts\":[\"比的基本性质\",\"化简比\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4460,
+  "completion_tokens": 135,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10428.930799942464,
+ "ttft_ms": 10428.958599921316,
+ "total_ms": 11826.486199977808
+}

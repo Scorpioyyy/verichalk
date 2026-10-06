@@ -1,0 +1,18 @@
+{
+ "key": "8caf3fe035b5fc7a3e02cb025d1b1a1f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 40, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"12\", \"8\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"20\", \"2\"], \"mode\": null}], \"concepts\": [\"长方形和正方形周长的计算公式\"], \"units_of_measure\": [\"分米\"], \"geometry_vocab\": [\"长方形\", \"周长\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4442,
+  "completion_tokens": 101,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1851.1904999613762,
+ "ttft_ms": 1851.2055999599397,
+ "total_ms": 5918.4142999583855
+}

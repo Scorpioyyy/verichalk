@@ -1,0 +1,18 @@
+{
+ "key": "b61e9d4ccb3589cd589299aff90d415d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":5,\"semester\":\"a\",\"topics\":[\"多边形的面积\"],\"count\":5,\"kinds\":[\"application\"],\"constraints\":[\"不要图形题\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"kinds\",\"constraints\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2127,
+  "completion_tokens": 61,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3042.73570002988,
+ "ttft_ms": 3042.763300007209,
+ "total_ms": 3906.7865000106394
+}

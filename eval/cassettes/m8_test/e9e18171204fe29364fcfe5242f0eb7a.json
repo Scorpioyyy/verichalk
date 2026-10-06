@@ -1,0 +1,18 @@
+{
+ "key": "e9e18171204fe29364fcfe5242f0eb7a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"三位数乘两位数的竖式计算与估算\": true, \"kp.na.数量关系.speed_time_distance\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 595,
+  "completion_tokens": 77,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3593.5408000368625,
+ "ttft_ms": 3593.9483999973163,
+ "total_ms": 4228.482200065628
+}

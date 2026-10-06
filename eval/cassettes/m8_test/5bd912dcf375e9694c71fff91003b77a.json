@@ -1,0 +1,18 @@
+{
+ "key": "5bd912dcf375e9694c71fff91003b77a",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设定AQI为59。前一个数是58，后一个数是60。选项设计：A.58（正确），B.61（+2错误），C.49（-10错误），D.50（整十干扰）。检查：59是两位数，58和60都在100以内，符合一年级范围。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 题目问的是“前一个数”，即 n-1\\n    n = 59\\n    return [Decimal(str(n - 1))]\",\n \"stem\": \"某城市今天的空气质量指数（AQI）是 $59$。在数数时，紧挨着 $59$ 的前一个数是（    ）。\",\n \"options\": [\n  \"58\",\n  \"61\",\n  \"49\",\n  \"50\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"A\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"数数时，一个数的前一个数比它小 $1$。$59$ 减去 $1$ 等于 $58$，所以紧挨着 $59$ 的前一个数是 $58$。\",\n \"kp_use\": {\n  \"100以内数的数数方法\": \"理解自然数序列中相邻数的关系，确定给定数的前驱数\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2193,
+  "completion_tokens": 341,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2198.9212000044063,
+ "ttft_ms": 2217.1956999227405,
+ "total_ms": 8225.88879999239
+}

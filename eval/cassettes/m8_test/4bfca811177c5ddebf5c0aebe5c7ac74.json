@@ -1,0 +1,18 @@
+{
+ "key": "4bfca811177c5ddebf5c0aebe5c7ac74",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明跳12下，小红变成8下，12-8=4，所以小明比小红多跳4下。\", \"answers\": [{\"label\": \"\", \"value\": \"4\", \"unit\": \"下\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5848.5087000299245,
+ "ttft_ms": 5863.454399979673,
+ "total_ms": 6630.702099995688
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9a488c35afede4f300317bc00db9a0e1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两队上半场一共得分：28+35=63（分）。63不等于53，所以这个说法不对。\", \"answers\": [{\"label\": \"这个说法对吗\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11941.834600060247,
+ "ttft_ms": 11941.863500047475,
+ "total_ms": 12407.326800050214
+}

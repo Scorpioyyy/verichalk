@@ -1,0 +1,18 @@
+{
+ "key": "c3a66d1f9bf9a2fffa3f21ea89a3e4ec",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"A\",\n  \"reason\": \"练习A的题目情境真实多样（智慧果园、公交车、篮球赛、环保回收），需要多步推理和比较判断，思维含量更高；练习B题目结构单一，多为直接计算或简单判断，缺乏综合性和易错点设计。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 712,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1772.2169000189751,
+ "ttft_ms": 1772.241200087592,
+ "total_ms": 3574.3838000344113
+}

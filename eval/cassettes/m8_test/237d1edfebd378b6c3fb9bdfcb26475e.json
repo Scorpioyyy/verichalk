@@ -1,0 +1,18 @@
+{
+ "key": "237d1edfebd378b6c3fb9bdfcb26475e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"十万是100000，500000÷100000=5，所以500000里面有5个十万。\", \"answers\": [{\"label\": \"\", \"value\": \"5\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1729.6268999343738,
+ "ttft_ms": 1729.6411999268457,
+ "total_ms": 2422.618299955502
+}

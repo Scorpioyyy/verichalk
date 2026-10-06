@@ -1,0 +1,18 @@
+{
+ "key": "7094c0ae92c680b44e1a2bad33357769",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 21,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"12.50\", \"8.40\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"10\", \"2\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"20\", \"1\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"21\", \"20.90\"], \"mode\": null}\n  ],\n  \"concepts\": [\"小数加减法（位数不同）\", \"结合元角分认识小数\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4491,
+  "completion_tokens": 167,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1578.503700089641,
+ "ttft_ms": 1578.528800047934,
+ "total_ms": 2787.557400064543
+}

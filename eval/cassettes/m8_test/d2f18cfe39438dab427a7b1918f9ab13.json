@@ -1,0 +1,18 @@
+{
+ "key": "d2f18cfe39438dab427a7b1918f9ab13",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"喷水射程10米就是圆的半径。（1）最远的水滴走过的路径是半径10米的圆周长：2×3.14×10=62.8米。（2）能灌溉的面积是半径10米的圆面积：3.14×10×10=314平方米。\", \"answers\": [{\"label\": \"最远的水滴走过的路径长\", \"value\": \"62.8\", \"unit\": \"米\"}, {\"label\": \"能灌溉的农田面积\", \"value\": \"314\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 130,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8086.89930010587,
+ "ttft_ms": 8086.91870002076,
+ "total_ms": 9261.313800001517
+}

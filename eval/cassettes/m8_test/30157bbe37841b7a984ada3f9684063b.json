@@ -1,0 +1,18 @@
+{
+ "key": "30157bbe37841b7a984ada3f9684063b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 62,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"31\", \"31\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"62\", \"5\"], \"mode\": \"remainder\"}\n  ],\n  \"concepts\": [\"用有余数除法解决周期排列位置问题\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4505,
+  "completion_tokens": 110,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14222.747799940407,
+ "ttft_ms": 14222.76349994354,
+ "total_ms": 15026.032199966721
+}

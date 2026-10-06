@@ -1,0 +1,18 @@
+{
+ "key": "d5ca5c14198ca169b35dc82cf986949f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）喷头本身在中心点，旋转一周它没有移动，走过的路径长为0米。\\n（2）喷水射程10米是半径，灌溉面积是以10米为半径的圆面积：3.14×10×10=314（平方米）。\", \"answers\": [{\"label\": \"喷头本身走过的路径长\", \"value\": \"0\", \"unit\": \"米\"}, {\"label\": \"能灌溉的农田面积\", \"value\": \"314\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 350,
+  "completion_tokens": 125,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2395.5239999340847,
+ "ttft_ms": 2395.54679999128,
+ "total_ms": 4601.922399946488
+}

@@ -1,0 +1,18 @@
+{
+ "key": "413ec34f87e8f10f2632a2ca43e29382",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"计数单位十万的认识\": true}, \"issues\": [\"解析中'360000是36个万组成的，也就是36个十万'推理错误：360000是36个万，但只等于3.6个十万，不是36个十万。\", \"给定答案36与题目'360000里面有____个十万'不符，正确答案应为3.6（或3个十万余60000），答案不唯一/错误。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 500,
+  "completion_tokens": 137,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10707.086800015531,
+ "ttft_ms": 10707.10360002704,
+ "total_ms": 12010.7439000858
+}

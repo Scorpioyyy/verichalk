@@ -1,0 +1,18 @@
+{
+ "key": "afdc2cf301836ab311e5011a1af9c2e6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"8 + 5，把5分成2和3，8+2=10，10+3=13。\", \"answers\": [{\"label\": \"\", \"value\": \"13\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 291,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9455.944999936037,
+ "ttft_ms": 9455.967399990186,
+ "total_ms": 9742.433300008997
+}

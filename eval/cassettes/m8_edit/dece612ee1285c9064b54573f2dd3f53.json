@@ -1,0 +1,18 @@
+{
+ "key": "dece612ee1285c9064b54573f2dd3f53",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 1, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": true}, \"issues\": [\"给定答案为 B（0.3），但 0.6×5 的正确结果是 3，对应选项 A，答案与解析矛盾\", \"解析中写“所以选 A”，与给定答案 B 不一致\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 501,
+  "completion_tokens": 111,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1066.102399956435,
+ "ttft_ms": 1066.118499962613,
+ "total_ms": 2104.319900041446
+}

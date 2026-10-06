@@ -1,0 +1,18 @@
+{
+ "key": "6cd7a63c7d5c55cd8f2eb82da123401c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"改写后情境由跳绳换为收集废旧电池，且仍是求5个数的平均数，符合要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 198,
+  "completion_tokens": 32,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1248.0371000710875,
+ "ttft_ms": 1248.0568999890238,
+ "total_ms": 1876.2542000040412
+}

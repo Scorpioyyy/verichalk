@@ -1,0 +1,18 @@
+{
+ "key": "d18d8efd1496564be7a9054fb09bd583",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"标准体重35.5千克，现在比标准体重重2.8千克，所以现在体重为35.5+2.8=38.3千克。\", \"answers\": [{\"label\": \"小明现在的体重\", \"value\": \"38.3\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11837.962199933827,
+ "ttft_ms": 11838.243899983354,
+ "total_ms": 12906.657699961215
+}

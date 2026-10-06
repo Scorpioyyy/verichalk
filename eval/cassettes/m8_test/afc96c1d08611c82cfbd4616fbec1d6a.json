@@ -1,0 +1,18 @@
+{
+ "key": "afc96c1d08611c82cfbd4616fbec1d6a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1100, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"900\", \"850\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"50\", \"3\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"900\", \"150\"], \"mode\": null}], \"concepts\": [], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4519,
+  "completion_tokens": 111,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5945.120100048371,
+ "ttft_ms": 5945.146900019608,
+ "total_ms": 7397.628900012933
+}

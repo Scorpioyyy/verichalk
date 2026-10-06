@@ -1,0 +1,18 @@
+{
+ "key": "0b9b2dadba9cd4dc15ce7a97f389ece1",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计两块地：甲地80公顷，收3/4；乙地60公顷，收2/3。求产量差。甲收60，乙收40，差20。数值在范围内，整数结果，符合五年级水平但需两步乘法再减法，属于变式（比较不同总量的部分量）。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 甲地面积 * 甲分率\\n    yield_a = 80 * Fraction(3, 4)\\n    # 乙地面积 * 乙分率\\n    yield_b = 60 * Fraction(2, 3)\\n    # 求差\\n    diff = yield_a - yield_b\\n    return [int(diff)]\",\n \"stem\": \"农场有两块试验田，甲田面积 $80$ 公顷，实际收获了计划产量的 $\\\\frac{3}{4}$；乙田面积 $60$ 公顷，实际收获了计划产量的 $\\\\frac{2}{3}$。若每公顷计划产量相同，则甲田比乙田多收获了多少公顷的计划产量？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"20\",\n   \"unit\": \"公顷\"\n  }\n ],\n \"solution\": \"先分别求出两块田的实际收获量对应的计划公顷数。甲田为 $80\\\\times \\\\frac{3}{4}=60$ 公顷，乙田为 $60\\\\times \\\\frac{2}{3}=40$ 公顷。再求差值：$60-40=20$ 公顷。\",\n \"kp_use\": {\n  \"整数乘分数（求一个数的几分之几是多少）\": \"第一步和第二步分别计算甲、乙两块田实际收获量占计划产量的具体数值（即部分量），这是解题的核心步骤\"\n },\n \"difficulty\": 5\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2355,
+  "completion_tokens": 431,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1529.0586000774056,
+ "ttft_ms": 1870.9994000382721,
+ "total_ms": 10320.229900069535
+}

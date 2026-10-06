@@ -149,7 +149,7 @@ async def understand_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResul
 
 
 async def main_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
-    """理解需求 →（出题请求）规划 → 逐题创作与核验 → 装配 → 总结；其他路由给出相应回复。"""
+    """理解需求 →（出题请求）规划 → 逐题生成与核验 → 装配 → 总结；其他路由给出相应回复。"""
     refs = await perceive_turn(ctx, turn)
     if refs is not None and not refs.usable and not turn.text.strip():
         return await _finish(refs.message)  # 只有照片且读不了：说明原因与下一步，不乱出题
@@ -175,7 +175,7 @@ async def main_pipeline(ctx: RunContext, turn: TurnInput) -> PipelineResult:
 
 
 async def generate(ctx: RunContext, u: Understanding, text: str = "") -> str:
-    """出题：规划 → 逐题创作与核验（并行，受并发上限约束）→ 装配 → 总结。每道题完成时立即发出 `item.status`。"""
+    """出题：规划 → 逐题生成与核验（并行，受并发上限约束）→ 装配 → 总结。每道题完成时立即发出 `item.status`。"""
     assert u.brief is not None
     bp = await run_stage(ctx, PlanStage(), PlanIn(brief=u.brief))
     outs = await produce_specs(ctx, bp, bp.items, u.brief, keep_kinds=u.brief.kinds is not None)

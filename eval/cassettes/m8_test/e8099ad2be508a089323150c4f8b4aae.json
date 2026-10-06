@@ -1,0 +1,18 @@
+{
+ "key": "e8099ad2be508a089323150c4f8b4aae",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"最终得分 = 难度系数 × 完成分 = 1.2 × 8.25。计算：8.25 × 1.2 = 8.25 × 1 + 8.25 × 0.2 = 8.25 + 1.65 = 9.9。\", \"answers\": [{\"label\": \"\", \"value\": \"9.9\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3224.526699981652,
+ "ttft_ms": 3224.5601000031456,
+ "total_ms": 4509.644899982959
+}

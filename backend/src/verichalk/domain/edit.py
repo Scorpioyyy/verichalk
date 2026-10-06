@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 from .paper import ItemKind, VerifyStatus
 
 ActionOp = Literal[
-    "rewrite",  # 按要求改写题目（换情境 / 调难度 / 改题型 / 数字调整 / 换考法）：复用创作与核验
+    "rewrite",  # 按要求改写题目（换情境 / 调难度 / 改题型 / 数字调整 / 换考法）：复用生成与核验
     "rewrite_text",  # 只改文字表述（解析讲细一点、题干说得更通俗），答案不变
     "remove",
     "move",  # 把一道题移到第 `to` 题的位置

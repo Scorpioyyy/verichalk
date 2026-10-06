@@ -1,0 +1,18 @@
+{
+ "key": "3e5a4be5b48633cd79e6466a4159ef59",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"10以内加法表、减法表的规律\": true, \"探索规律：和不变（一个加数增大、另一个减小）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 612,
+  "completion_tokens": 81,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6258.6924999486655,
+ "ttft_ms": 6258.71179997921,
+ "total_ms": 7231.110900058411
+}

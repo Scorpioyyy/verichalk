@@ -1,0 +1,18 @@
+{
+ "key": "2ba840a2c48991e32aadc9c434e24321",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"乘除法与加减法两步混合运算（无括号）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 564,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4443.7758000567555,
+ "ttft_ms": 4443.790500052273,
+ "total_ms": 5038.450199994259
+}

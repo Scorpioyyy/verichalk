@@ -1,0 +1,18 @@
+{
+ "key": "a68677f3aa87efc1c25e1fe930ac2b99",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 75,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"12\", \"6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"72\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"有余数除法的认识\", \"除法的验算方法\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4486,
+  "completion_tokens": 111,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4094.962100032717,
+ "ttft_ms": 4094.9818999506533,
+ "total_ms": 5131.817399989814
+}

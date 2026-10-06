@@ -1,0 +1,18 @@
+{
+ "key": "f4098f8848ab519d3b5f6a560a6cf67c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 24, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"10\", \"4\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"10\", \"2\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"14\", \"2\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"7\", \"7\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"5\", \"5\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"49\", \"25\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"3.14\", \"24\"], \"mode\": null}], \"concepts\": [\"圆的面积计算公式\"], \"units_of_measure\": [\"平方米\"], \"geometry_vocab\": [\"圆\", \"直径\", \"半径\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4485,
+  "completion_tokens": 212,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1940.652700024657,
+ "ttft_ms": 1942.5228999461979,
+ "total_ms": 3426.3667999766767
+}

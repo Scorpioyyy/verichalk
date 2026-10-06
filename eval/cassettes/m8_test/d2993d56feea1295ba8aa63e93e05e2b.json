@@ -1,0 +1,18 @@
+{
+ "key": "d2993d56feea1295ba8aa63e93e05e2b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"29 + 70：个位 9+0=9，十位 2+7=9，所以是 99。\", \"answers\": [{\"label\": \"\", \"value\": \"99\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 290,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6472.271600039676,
+ "ttft_ms": 6472.305300063454,
+ "total_ms": 7251.08000007458
+}

@@ -1,0 +1,18 @@
+{
+ "key": "faef914246321434a38ea589277d5683",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer\": 300,\n  \"decimal_places\": 0,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"225\", \"0.75\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"300\", \"50\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"250\", \"0.8\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"225\", \"200\"], \"mode\": null}\n  ],\n  \"concepts\": [\"百分数的意义与读写\", \"已知总量和百分数求部分量（及逆问题）\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4521,
+  "completion_tokens": 169,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6488.06689993944,
+ "ttft_ms": 6488.092600018717,
+ "total_ms": 7808.15860000439
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a8759fa5be9e6d9bfe928e0c2a95005e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 456,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"456\", \"3\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"152\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"两、三位数除以一位数的笔算方法\", \"除法的验算方法\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4493,
+  "completion_tokens": 116,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1902.7530000312254,
+ "ttft_ms": 1902.7702000457793,
+ "total_ms": 2862.8764000022784
+}

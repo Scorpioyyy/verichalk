@@ -1,0 +1,18 @@
+{
+ "key": "a5989e285b62a8c2c2c6e5b99ba987a0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1025, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12\", \"10\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"895\", \"120\"], \"mode\": null}], \"concepts\": [\"三位数加法竖式（进位）\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4497,
+  "completion_tokens": 99,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1910.298899980262,
+ "ttft_ms": 1910.319700022228,
+ "total_ms": 2693.9942999742925
+}

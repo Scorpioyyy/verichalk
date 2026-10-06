@@ -1,0 +1,18 @@
+{
+ "key": "c9502c3503b246cb9c6ffc9135893f00",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"从890米开始一百一百地往上数：第1个是990米，第2个是1090米，第3个是1190米。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 356,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1348.8220000872388,
+ "ttft_ms": 1348.8383000949398,
+ "total_ms": 2803.2845000270754
+}

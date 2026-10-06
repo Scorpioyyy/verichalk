@@ -1,0 +1,18 @@
+{
+ "key": "43a43c3d6e943376a24e221808ecccd6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"红色区域占整个圆盘的 12/48，约分：12/48 = 1/4。因此指针停在红色区域的可能性用最简分数表示是 1/4，对应选项 A。\", \"answers\": [{\"label\": \"\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 373,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12842.181900050491,
+ "ttft_ms": 12842.206100001931,
+ "total_ms": 13708.43620004598
+}

@@ -1,0 +1,18 @@
+{
+ "key": "5f16385e1cd325bb540a3d8394ca68ee",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3分米=0.3米，1.25+0.3=1.55（米）。\", \"answers\": [{\"label\": \"现在水槽的水位\", \"value\": \"1.55\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 328,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2316.1134000401944,
+ "ttft_ms": 2316.142200026661,
+ "total_ms": 2947.1101000672206
+}

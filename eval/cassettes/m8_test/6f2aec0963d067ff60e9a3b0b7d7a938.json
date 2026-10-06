@@ -1,0 +1,18 @@
+{
+ "key": "6f2aec0963d067ff60e9a3b0b7d7a938",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12-5=7，13-6=7，规律是两个数的差。14-7=7。\", \"answers\": [{\"label\": \"\", \"value\": \"7\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1139.721800107509,
+ "ttft_ms": 1139.737700112164,
+ "total_ms": 1732.1055000647902
+}

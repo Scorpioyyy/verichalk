@@ -1,0 +1,18 @@
+{
+ "key": "d4fb8a86029775da7a28cb99820c126c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三支钢笔总价：12.5+8.6+4.9=26（元）。付50元，应找回：50-26=24（元）。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"24\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6672.552000032738,
+ "ttft_ms": 6672.567300032824,
+ "total_ms": 16317.754400079139
+}

@@ -1,0 +1,18 @@
+{
+ "key": "24abe1b5041770fe3a6bf39039ec855a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 120,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"3/8\", \"2/3\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"1\", \"3/8\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"5/8\", \"1/4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"120\", \"3/8\"], \"mode\": null}\n  ],\n  \"concepts\": [\"分数乘分数\", \"求一个数的几分之几是多少\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4495,
+  "completion_tokens": 171,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4378.970500081778,
+ "ttft_ms": 4378.99690004997,
+ "total_ms": 5505.702099995688
+}

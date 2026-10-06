@@ -1,0 +1,18 @@
+{
+ "key": "55c55737c07f054b398c3e0f4f2313a0",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：配制营养液。总体积 480 mL。成分 A:B:C = 12:18:30。第一步化简比：除以6得 2:3:5。总份数 2+3+5=10。每份体积 480/10 = 48。求成分B的体积：3*48=144。检查数值范围：480在1-3000内，结果整数。知识点覆盖：比的基本性质（化简），分数除法（480除以10即乘以1/10，或理解为平均分）。\",\n \"solver_code\": \"from fractions import Fraction\\n\\ndef solve():\\n    # 原始比例\\n    a_raw, b_raw, c_raw = 12, 18, 30\\n    # 总体积\\n    total_vol = 480\\n    \\n    # 1. 利用比的基本性质化简比\\n    # 找最大公约数 (这里手动计算，12,18,30的GCD是6)\\n    gcd = 6\\n    a_simple = a_raw // gcd\\n    b_simple = b_raw // gcd\\n    c_simple = c_raw // gcd\\n    \\n    # 总份数\\n    total_parts = a_simple + b_simple + c_simple\\n    \\n    # 2. 利用分数除法求每份体积 (总体积 / 总份数)\\n    # 480 / 10 = 48\\n    vol_per_part = Fraction(total_vol, total_parts)\\n    \\n    # 求成分B的体积\\n    vol_b = vol_per_part * b_simple\\n    \\n    return [int(vol_b)]\",\n \"stem\": \"科学小组要配制 $480\\\\text{ mL}$ 的营养液，其中甲、乙、丙三种原料的体积比是 $12:18:30$。先将这个比化成最简整数比，再计算需要乙原料多少毫升？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"144\",\n   \"unit\": \"mL\"\n  }\n ],\n \"solution\": \"先化简比：$12:18:30=(12\\\\div6):(18\\\\div6):(30\\\\div6)=2:3:5$。总份数是 $2+3+5=10$。乙占 $\\\\frac{3}{10}$，即 $480\\\\times\\\\frac{3}{10}=144\\\\text{ mL}$（或 $480\\\\div10\\\\times3=144$）。\",\n \"kp_use\": {\n  \"比的基本性质\": \"将 $12:18:30$ 的前项和后项同时除以 $6$，化为最简整数比 $2:3:5$，确定各成分的份数关系\",\n  \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": \"计算每份体积时，用总体积 $480$ 除以总份数 $10$，即 $480\\\\times\\\\frac{1}{10}$，求出单位份量进而得出乙的体积\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2531,
+  "completion_tokens": 747,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1541.0304999677464,
+ "ttft_ms": 1558.7619999423623,
+ "total_ms": 14243.46369993873
+}

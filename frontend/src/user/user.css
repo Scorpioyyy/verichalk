@@ -112,7 +112,7 @@
   overflow: auto;
   display: flex;
   justify-content: center;
-  padding: 4.5vh 20px 20px;
+  padding: 4.5vh 20px 12px;
   /* 方格纸：练习册的底纹，淡到只是一点氛围 */
   background-image:
     linear-gradient(rgba(61, 90, 241, 0.05) 1px, transparent 1px),
@@ -135,7 +135,7 @@
   margin: 0 -2px;
 }
 .welcome__sub {
-  margin: 8px 0 18px;
+  margin: 12px 0 22px;
   color: var(--ink-2);
   font-size: 15.5px;
   line-height: 1.7;
@@ -146,20 +146,20 @@
 }
 .examples {
   list-style: none;
-  margin: 16px 0 0;
+  margin: 20px 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
 }
 .example {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   align-items: flex-start;
-  padding: 14px 16px;
+  padding: 16px 18px;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -190,7 +190,7 @@
 }
 .trust {
   list-style: none;
-  margin: 16px 0 0;
+  margin: 18px 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -1426,7 +1426,7 @@
 /* 欢迎页：拍照入口（独立一条，与四个文字示例区分开） */
 .photo-cta {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 14px;
   display: flex;
   align-items: center;
   gap: 14px;

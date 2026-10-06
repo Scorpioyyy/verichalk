@@ -1,0 +1,18 @@
+{
+ "key": "5c4fa8f76cec4edbdbef497bfccae60f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把9分成4和5，6+4=10，10+5=15。\", \"answers\": [{\"label\": \"\", \"value\": \"15\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 291,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6518.508700071834,
+ "ttft_ms": 6518.535500043072,
+ "total_ms": 7229.217500076629
+}

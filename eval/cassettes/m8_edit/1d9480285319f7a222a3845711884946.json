@@ -1,0 +1,18 @@
+{
+ "key": "1d9480285319f7a222a3845711884946",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把5次成绩相加：18+22+20+19+21=100（个），再除以次数5：100÷5=20（个）。\", \"answers\": [{\"label\": \"他平均每次跳多少个\", \"value\": \"20\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7377.040399936959,
+ "ttft_ms": 7377.058299956843,
+ "total_ms": 7985.176699934527
+}

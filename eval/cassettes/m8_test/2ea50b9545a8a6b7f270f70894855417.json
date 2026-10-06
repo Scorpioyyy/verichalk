@@ -1,0 +1,18 @@
+{
+ "key": "2ea50b9545a8a6b7f270f70894855417",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"23÷5=4余3，所以每人分到4本，还剩3本。\", \"answers\": [{\"label\": \"每人分到\", \"value\": \"4\", \"unit\": \"本\"}, {\"label\": \"还剩\", \"value\": \"3\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4983.109700027853,
+ "ttft_ms": 4983.133899979293,
+ "total_ms": 5538.278800086118
+}

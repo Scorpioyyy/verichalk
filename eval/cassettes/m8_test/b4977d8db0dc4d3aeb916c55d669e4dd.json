@@ -1,0 +1,18 @@
+{
+ "key": "b4977d8db0dc4d3aeb916c55d669e4dd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小刚比小明少6分：24-6=18分；小强比小刚多8分：18+8=26分。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 346,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 20801.975000067614,
+ "ttft_ms": 20801.9996000221,
+ "total_ms": 21388.497800100595
+}

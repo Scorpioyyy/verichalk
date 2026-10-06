@@ -1,0 +1,18 @@
+{
+ "key": "444c1f776d1989ceb16b90c82090eeab",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 120,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"1\", \"100\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"10\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"100\", \"20\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"10\", \"2\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"12\", \"100\"], \"mode\": \"decimal_quotient\"}\n  ],\n  \"concepts\": [\"毫米和分米的认识\", \"结合米制单位认识小数\"],\n  \"units_of_measure\": [\"分米\", \"厘米\", \"毫米\", \"米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4504,
+  "completion_tokens": 193,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13402.959499973804,
+ "ttft_ms": 13402.976299985312,
+ "total_ms": 14677.463199943304
+}

@@ -1,0 +1,18 @@
+{
+ "key": "15bd65dbd4fbdb3c43c6866f0f200835",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 350,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"3\", \"0.5\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"3\", \"0.48\"], \"mode\": null}\n  ],\n  \"concepts\": [\"结合元角分认识小数\", \"小数大小的比较\"],\n  \"units_of_measure\": [\"元\", \"角\", \"分(货币)\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4490,
+  "completion_tokens": 126,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9408.26040005777,
+ "ttft_ms": 9408.286500023678,
+ "total_ms": 10514.087600051425
+}

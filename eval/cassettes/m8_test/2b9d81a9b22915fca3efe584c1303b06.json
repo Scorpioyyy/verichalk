@@ -1,0 +1,18 @@
+{
+ "key": "2b9d81a9b22915fca3efe584c1303b06",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 48,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"12\", \"4\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"48\", \"2\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"24\", \"10\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"14\", \"2\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"7\", \"10\"], \"mode\": null}\n  ],\n  \"concepts\": [\"长方形和正方形周长的计算公式\", \"已知相差关系和一个量，求另一个量\"],\n  \"units_of_measure\": [\"厘米\"],\n  \"geometry_vocab\": [\"正方形\", \"长方形\", \"长\", \"宽\", \"周长\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4495,
+  "completion_tokens": 198,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2387.896299944259,
+ "ttft_ms": 2387.923099915497,
+ "total_ms": 4071.0305999964476
+}

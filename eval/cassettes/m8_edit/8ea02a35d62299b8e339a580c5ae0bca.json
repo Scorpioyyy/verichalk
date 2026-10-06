@@ -1,0 +1,18 @@
+{
+ "key": "8ea02a35d62299b8e339a580c5ae0bca",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": true}, \"issues\": [\"解析计算错误：1.5×6=9，不是8，与给定答案8矛盾。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 481,
+  "completion_tokens": 87,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1071.7454999685287,
+ "ttft_ms": 1071.7621999792755,
+ "total_ms": 1767.2119999770075
+}

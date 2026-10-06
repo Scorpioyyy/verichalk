@@ -1,0 +1,18 @@
+{
+ "key": "fba720d30a0504005060b14d4b1f3936",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"计算器的使用\": false}, \"issues\": [\"解析中未体现使用计算器，仅用竖式或口算即可完成，声称的知识点与解答不符\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 542,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2724.5039000408724,
+ "ttft_ms": 2724.518100032583,
+ "total_ms": 3440.688299946487
+}

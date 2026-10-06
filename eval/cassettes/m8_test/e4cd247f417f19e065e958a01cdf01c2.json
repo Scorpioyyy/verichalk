@@ -1,0 +1,18 @@
+{
+ "key": "e4cd247f417f19e065e958a01cdf01c2",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A全部围绕运动会情境设计，数据真实合理，题型多样（总价、倍数、重量、距离、布料），且包含小数乘整数、小数乘小数等不同结构，能有效考察学生应用能力；练习B仅部分题目贴合运动会情境，且包含纯计算和填空，思维含量较低，综合性和情境一致性不足。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 654,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2097.9990999912843,
+ "ttft_ms": 2098.0225999373943,
+ "total_ms": 3862.796299974434
+}

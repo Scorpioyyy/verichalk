@@ -1,0 +1,18 @@
+{
+ "key": "7062df92006705c2681b08ebfe9b06c5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 120, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"8\", \"15\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"120\", \"100\"], \"mode\": null}], \"concepts\": [\"比的基本性质\", \"比的意义与写法\"], \"units_of_measure\": [\"克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4496,
+  "completion_tokens": 99,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7870.957599952817,
+ "ttft_ms": 7870.9836000343785,
+ "total_ms": 8652.245200006291
+}

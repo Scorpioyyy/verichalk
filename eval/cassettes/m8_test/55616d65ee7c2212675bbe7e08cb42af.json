@@ -1,0 +1,18 @@
+{
+ "key": "55616d65ee7c2212675bbe7e08cb42af",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 500,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"减法\", \"operands\": [\"500\", \"128\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"372\", \"95\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"277\", \"167\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"128\", \"95\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"223\", \"167\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"500\", \"390\"], \"mode\": null}\n  ],\n  \"concepts\": [\"三位数减法竖式（退位）\", \"三位数加法竖式（进位）\"],\n  \"units_of_measure\": [\"元\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4480,
+  "completion_tokens": 208,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13984.826599946246,
+ "ttft_ms": 13984.842199948616,
+ "total_ms": 15249.644199968316
+}

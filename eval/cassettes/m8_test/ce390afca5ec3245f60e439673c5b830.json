@@ -1,0 +1,18 @@
+{
+ "key": "ce390afca5ec3245f60e439673c5b830",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12:18:30 各项同时除以6，得最简整数比 2:3:5。总份数为 2+3+5=10 份，乙原料占3份。营养液总量480 mL，每份为 480÷10=48 mL，乙原料为 48×3=144 mL。\", \"answers\": [{\"label\": \"最简整数比\", \"value\": \"2:3:5\", \"unit\": \"\"}, {\"label\": \"乙原料的体积\", \"value\": \"144\", \"unit\": \"mL\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 136,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9211.568900034763,
+ "ttft_ms": 9211.595200002193,
+ "total_ms": 11559.937600046396
+}

@@ -1,0 +1,18 @@
+{
+ "key": "c9bef8aa37890c4bdae8b83654481acd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1号线老年乘客：800×1/4=200（人）；2号线老年乘客：1200×1/4=300（人）；合计：200+300=500（人）。\", \"answers\": [{\"label\": \"两条线路的老年乘客一共有多少人\", \"value\": \"500\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8296.463499893434,
+ "ttft_ms": 8296.490799984895,
+ "total_ms": 8863.123399903998
+}

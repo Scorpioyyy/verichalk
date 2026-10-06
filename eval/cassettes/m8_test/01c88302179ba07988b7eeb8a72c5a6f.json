@@ -1,0 +1,18 @@
+{
+ "key": "01c88302179ba07988b7eeb8a72c5a6f",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A将小数乘除法与多步推理自然融合，情境多样且数据合理，能有效暴露单位、退位等易错点；练习B以整数运算为主，小数仅出现在比较大小中，未真正串联乘除法与小数，思维含量和综合性不足。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 723,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2018.441200023517,
+ "ttft_ms": 2018.4691000031307,
+ "total_ms": 3497.1477000508457
+}

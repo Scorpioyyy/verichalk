@@ -1,0 +1,18 @@
+{
+ "key": "6b591fdf43f227dccaeee0af66ae47bd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"6个小组共有 6×128=768 人。总人数905人，后勤服务人数为 905-768=137 人。\", \"answers\": [{\"label\": \"负责后勤服务的学生有多少人\", \"value\": \"137\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4950.47889999114,
+ "ttft_ms": 4950.513499905355,
+ "total_ms": 5721.47829993628
+}

@@ -1,0 +1,18 @@
+{
+ "key": "19d6953721573892bc58129ff62f7fd5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"通分计算：1/2+1/6+1/12+1/20，公分母60，得30/60+10/60+5/60+3/60=48/60=4/5。\", \"answers\": [{\"label\": \"四轮总得分\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 376,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3250.393900088966,
+ "ttft_ms": 3250.4189000464976,
+ "total_ms": 4403.146299999207
+}

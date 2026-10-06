@@ -1,0 +1,18 @@
+{
+ "key": "b394205f1e12d3d51834773c667a1027",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"kp.na.分数乘法.g5b_frac_times_frac\": true, \"长方体的展开图\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 671,
+  "completion_tokens": 77,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 18405.196300009266,
+ "ttft_ms": 18405.24950006511,
+ "total_ms": 20286.22120001819
+}

@@ -61,3 +61,38 @@ describe("AI 分析面板", () => {
     expect(screen.getByText("问问这次运行")).toBeInTheDocument();
   });
 });
+
+describe("流式输出时的滚动", () => {
+  it("默认跟着往下滚；教师自己滚动后，这一轮不再自动滚；下一轮重新跟随", async () => {
+    const scroll = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+    // offsetParent 在 jsdom 里恒为 null：让面板视为可见
+    vi.spyOn(HTMLElement.prototype, "offsetParent", "get").mockReturnValue(document.body);
+    let emit: (e: ChatEvent) => void = () => {};
+    let finish: () => void = () => {};
+    vi.spyOn(api.debug, "chat").mockImplementation(
+      (_id: string, _m: ChatTurn[], o) =>
+        new Promise<void>((resolve) => {
+          emit = o.onEvent;
+          finish = resolve;
+        }),
+    );
+    render(<AskAI runId="run_1" ready />);
+    await userEvent.type(screen.getByRole("textbox", { name: "向分析助手提问" }), "q{Enter}");
+    emit({ type: "delta", text: "第一段" });
+    await waitFor(() => expect(screen.getByText("第一段")).toBeInTheDocument());
+    const followed = scroll.mock.calls.length;
+    expect(followed).toBeGreaterThan(0);
+
+    window.dispatchEvent(new Event("wheel"));
+    scroll.mockClear();
+    emit({ type: "delta", text: "第二段" });
+    await waitFor(() => expect(screen.getByText("第一段第二段")).toBeInTheDocument());
+    expect(scroll).not.toHaveBeenCalled();
+
+    emit({ type: "done" });
+    finish();
+    await waitFor(() => expect(screen.getByRole("button", { name: /发送/ })).toBeInTheDocument());
+    await userEvent.type(screen.getByRole("textbox", { name: "向分析助手提问" }), "again{Enter}");
+    await waitFor(() => expect(scroll).toHaveBeenCalled());
+  });
+});

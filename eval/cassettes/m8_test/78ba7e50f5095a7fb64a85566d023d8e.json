@@ -1,0 +1,18 @@
+{
+ "key": "78ba7e50f5095a7fb64a85566d023d8e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计情境：农场收鸡蛋，每盒装4个。总数设为52（变式点：个位2不能被4整除，需重组为40+12）。52÷4=13。干扰项：A(12,只算40÷4), B(13,正确), C(14,估算错误), D(8,完全错误)。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    total = 52\\n    per_box = 4\\n    # 拆分法逻辑验证\\n    part1 = 40 // per_box\\n    part2 = (total - 40) // per_box\\n    result = part1 + part2\\n    return [result]\",\n \"stem\": \"农场今天收了 $52$ 个鸡蛋，如果每 $4$ 个装一盒，一共可以装满多少盒？\",\n \"options\": [\n  \"12 盒\",\n  \"13 盒\",\n  \"14 盒\",\n  \"8 盒\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"B\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"把 $52$ 拆成 $40$ 和 $12$。先算 $40\\\\div 4=10$，再算 $12\\\\div 4=3$，最后 $10+3=13$。所以可以装满 $13$ 盒。\",\n \"kp_use\": {\n  \"两位数除以一位数的口算\": \"将52拆分为40和12（因为个位2不能直接被4整除），分别计算商后相加得到结果\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2566,
+  "completion_tokens": 402,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1621.3156000012532,
+ "ttft_ms": 1637.6953000435606,
+ "total_ms": 9307.263899943791
+}

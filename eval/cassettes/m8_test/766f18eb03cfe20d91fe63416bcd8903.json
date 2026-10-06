@@ -1,0 +1,18 @@
+{
+ "key": "766f18eb03cfe20d91fe63416bcd8903",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：回收1吨废纸可生产再生纸3/4吨，同时节约木材5/8吨。某社区收集了4/5吨废纸。问：这些废纸能生产的再生纸比节约的木材多多少吨？\\n计算：\\n再生纸产量 = 4/5 * 3/4 = 3/5 吨\\n节约木材量 = 4/5 * 5/8 = 1/2 吨\\n差值 = 3/5 - 1/2 = 6/10 - 5/10 = 1/10 吨。\\n选项设计：\\nA. 1/10 (正确)\\nB. 1/20 (通分错误：6/10-5/10算错或约分错误)\\nC. 1/4 (直接分子减：3-5不对，或者没乘系数直接3/4-5/8=1/8再乱改)\\nD. 11/20 (加法错误：3/5+1/2)\",\n \"solver_code\": \"from fractions import Fraction\\n\\ndef solve():\\n    # 废纸总量\\n    waste_paper = Fraction(4, 5)\\n    # 转化率：每吨废纸产再生纸 3/4 吨，节约木材 5/8 吨\\n    paper_rate = Fraction(3, 4)\\n    wood_rate = Fraction(5, 8)\\n    \\n    # 计算实际产出\\n    produced_paper = waste_paper * paper_rate\\n    saved_wood = waste_paper * wood_rate\\n    \\n    # 计算差值\\n    difference = produced_paper - saved_wood\\n    \\n    return [str(difference)]\",\n \"stem\": \"环保数据显示，每回收 $1$ 吨废纸，可生产再生纸 $\\\\frac{3}{4}$ 吨，同时节约木材 $\\\\frac{5}{8}$ 吨。某社区本月收集了 $\\\\frac{4}{5}$ 吨废纸进行回收处理，这些废纸产生的再生纸重量比节约的木材重量多多少吨？\",\n \"options\": [\n  \"$\\\\frac{1}{10}$\",\n  \"$\\\\frac{1}{20}$\",\n  \"$\\\\frac{1}{4}$\",\n  \"$\\\\frac{11}{20}$\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"A\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先分别计算再生纸和节约木材的重量：再生纸为 $\\\\frac{4}{5}\\\\times\\\\frac{3}{4}=\\\\frac{3}{5}$ 吨，木材为 $\\\\frac{4}{5}\\\\times\\\\frac{5}{8}=\\\\frac{1}{2}$ 吨。再求差：$\\\\frac{3}{5}-\\\\frac{1}{2}=\\\\frac{6}{10}-\\\\frac{5}{10}=\\\\frac{1}{10}$ 吨。\",\n \"kp_use\": {\n  \"异分母分数加减法（通分）\": \"在求出两个具体数值后，计算 $\\\\frac{3}{5}-\\\\frac{1}{2}$ 时需要通分为同分母分数再相减，并化为最简分数\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2368,
+  "completion_tokens": 745,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1279.4655000325292,
+ "ttft_ms": 1291.8911000015214,
+ "total_ms": 13944.549100007862
+}

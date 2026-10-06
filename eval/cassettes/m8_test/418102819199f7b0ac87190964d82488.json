@@ -1,0 +1,18 @@
+{
+ "key": "418102819199f7b0ac87190964d82488",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1分米=10厘米，所以1分米2厘米=10厘米+2厘米=12厘米；1厘米=10毫米，12厘米=120毫米。1厘米=0.01米，12厘米=0.12米。\", \"answers\": [{\"label\": \"读数应该是多少毫米\", \"value\": \"120\", \"unit\": \"毫米\"}, {\"label\": \"改写成以米为单位的小数\", \"value\": \"0.12\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14239.188000094146,
+ "ttft_ms": 14239.21670007985,
+ "total_ms": 15621.995500056073
+}

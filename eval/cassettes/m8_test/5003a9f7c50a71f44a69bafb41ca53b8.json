@@ -1,0 +1,18 @@
+{
+ "key": "5003a9f7c50a71f44a69bafb41ca53b8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 15, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"15\", \"7\"], \"mode\": null}], \"concepts\": [\"20以内退位减法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4420,
+  "completion_tokens": 72,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11738.473000004888,
+ "ttft_ms": 11738.730800105259,
+ "total_ms": 12352.159400004894
+}

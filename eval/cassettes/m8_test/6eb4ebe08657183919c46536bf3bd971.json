@@ -1,0 +1,18 @@
+{
+ "key": "6eb4ebe08657183919c46536bf3bd971",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 104750, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"34560\", \"28940\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"63500\", \"41250\"], \"mode\": null}], \"concepts\": [\"三位数加法竖式（进位）\"], \"units_of_measure\": [\"吨\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4458,
+  "completion_tokens": 103,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11783.81489997264,
+ "ttft_ms": 11783.83039997425,
+ "total_ms": 12461.536000017077
+}

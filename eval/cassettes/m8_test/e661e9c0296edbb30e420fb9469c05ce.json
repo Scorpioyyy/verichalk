@@ -1,0 +1,18 @@
+{
+ "key": "e661e9c0296edbb30e420fb9469c05ce",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"动物观察与保护\",\n      \"angle\": \"给出长颈鹿身高和蚂蚁身长的数据，判断并填入合适的长度单位。\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"体育比赛计分\",\n      \"angle\": \"描述学生用一步、两拃或一庹测量跑道起点的过程，填写对应的身体尺名称。\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"超市购物与找零\",\n      \"angle\": \"列举货架上不同商品（如口香糖、大瓶饮料）的包装高度，选择厘米或米填空。\"\n    },\n    {\n      \"index\": 4,\n      \"scene\": \"动物观察与保护\",\n      \"angle\": \"对比蓝鲸体长与孔雀尾羽长度，结合数值大小辨析并填写正确的长度单位。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 819,
+  "completion_tokens": 228,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1647.4067000672221,
+ "ttft_ms": 1693.9761000685394,
+ "total_ms": 6421.9343001022935
+}

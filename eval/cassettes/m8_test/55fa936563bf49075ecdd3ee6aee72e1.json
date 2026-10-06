@@ -1,0 +1,18 @@
+{
+ "key": "55fa936563bf49075ecdd3ee6aee72e1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"甲溶液与乙溶液的体积比为 1.25 : 0.75。将两个数同时乘 100 化为 125 : 75，再同时除以 25 得 5 : 3。\", \"answers\": [{\"label\": \"甲溶液与乙溶液的体积比\", \"value\": \"5\", \"unit\": \"\"}, {\"label\": \"乙溶液对应的比的后项\", \"value\": \"3\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2287.2615999076515,
+ "ttft_ms": 2287.3965998878703,
+ "total_ms": 3623.6856998875737
+}

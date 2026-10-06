@@ -1,0 +1,18 @@
+{
+ "key": "37ed228369520cd6e5b51da602e401a3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答解释了还需减去48°，并给出与解析一致的67°，满足要求且与答案一致。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 808,
+  "completion_tokens": 35,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1313.2829000242054,
+ "ttft_ms": 1313.3037999505177,
+ "total_ms": 1754.692399990745
+}

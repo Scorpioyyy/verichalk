@@ -1,0 +1,18 @@
+{
+ "key": "0cb079207496e7da03498236e963ecc9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"起始体重50.2千克，第一个月增加0.85千克，第二个月减少1.4千克，第三个月增加0.6千克。\\n50.2 + 0.85 = 51.05（千克）\\n51.05 - 1.4 = 49.65（千克）\\n49.65 + 0.6 = 50.25（千克）\\n所以小明现在的体重是50.25千克。\", \"answers\": [{\"label\": \"小明现在的体重\", \"value\": \"50.25\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 140,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5825.318500050344,
+ "ttft_ms": 5825.355200096965,
+ "total_ms": 6918.21280005388
+}

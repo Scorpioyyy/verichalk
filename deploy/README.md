@@ -56,6 +56,6 @@ docker run --rm -p 8000:8000 -v verichalk-data:/data \
 |---|---|
 | `backend` | ruff、pyright、全部后端测试（无网络、无密钥） |
 | `frontend` | 前端类型与后端契约一致（`scripts/gen_types.py --check`）、tsc / ESLint / Prettier / vitest、构建 |
-| `e2e` | Playwright + Chromium，真实后端 + 模型回放（`eval/cassettes/e2e`，无网络、无密钥）：12 个脚本化用户场景 |
+| `e2e` | Playwright + Chromium，真实后端 + 模型回放（`eval/cassettes/e2e`，无网络、无密钥）：18 个脚本化用户场景 |
 
 模型回放的录制随提示词变化会失效（`replay 未命中`）：改了提示词后，删掉 `eval/cassettes/e2e`，用 `E2E_MODE=replay_or_record`（需要 `DASHSCOPE_*`）整体重录并提交。

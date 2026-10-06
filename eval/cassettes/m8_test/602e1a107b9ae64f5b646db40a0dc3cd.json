@@ -1,0 +1,18 @@
+{
+ "key": "602e1a107b9ae64f5b646db40a0dc3cd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 168, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"10\", \"14\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"2\", \"14\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"140\", \"28\"], \"mode\": null}], \"concepts\": [\"两位数乘两位数的口算与分拆算法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4468,
+  "completion_tokens": 119,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1801.5760999405757,
+ "ttft_ms": 1801.7365999985486,
+ "total_ms": 2942.9780999198556
+}

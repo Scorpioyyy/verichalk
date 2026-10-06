@@ -1,0 +1,18 @@
+{
+ "key": "7d636e8f5253627fe349c040b8715950",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"胜场数：120×3/8=45（场）；平局场数：45×2/3=30（场）；负场数：120-45-30=45（场）。\", \"answers\": [{\"label\": \"负了多少场\", \"value\": \"45\", \"unit\": \"场\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 337,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1393.232199945487,
+ "ttft_ms": 1393.2677999837324,
+ "total_ms": 2241.9942999258637
+}

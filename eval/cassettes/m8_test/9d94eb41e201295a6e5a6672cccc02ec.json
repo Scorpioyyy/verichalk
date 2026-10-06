@@ -1,0 +1,18 @@
+{
+ "key": "9d94eb41e201295a6e5a6672cccc02ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"甲种巧克力单价为60÷2=30元/千克。甲、乙单价之比为3:5，所以乙种单价为30÷3×5=50元/千克。买同样重量2千克乙种巧克力需50×2=100元。\", \"answers\": [{\"label\": \"\", \"value\": \"100\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9384.793500066735,
+ "ttft_ms": 9384.818600025028,
+ "total_ms": 11312.71830003243
+}

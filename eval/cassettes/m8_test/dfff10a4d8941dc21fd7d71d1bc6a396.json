@@ -1,0 +1,18 @@
+{
+ "key": "dfff10a4d8941dc21fd7d71d1bc6a396",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：地铁1号线有800人，2号线有1200人。两线均有1/4的乘客是老年人。求两线老年人总数。利用分配律：800×1/4 + 1200×1/4 = (800+1200)×1/4 = 2000×1/4 = 500。数据合理，计算简便。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    p1 = 800\\n    p2 = 1200\\n    rate = Fraction(1, 4)\\n    # 使用分配律逻辑计算: (p1 + p2) * rate\\n    total_elderly = (p1 + p2) * rate\\n    return [int(total_elderly)]\",\n \"stem\": \"某市地铁早高峰时段，1号线车厢内共有乘客 $800$ 人，2号线车厢内共有乘客 $1200$ 人。据统计，这两条线路的乘客中，老年人都占了各自总人数的 $\\\\frac{1}{4}$。请问这两条线路的老年乘客一共有多少人？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"500\",\n   \"unit\": \"人\"\n  }\n ],\n \"solution\": \"先求两条线路乘客总数：$800+1200=2000$ 人。因为老年人占比相同，利用乘法分配律，总老年人数为 $2000\\\\times \\\\frac{1}{4}=500$ 人。\",\n \"kp_use\": {\n  \"整数运算律在分数运算中的应用\": \"识别出两条线路老年人占比相同（公因数 $\\\\frac{1}{4}$），运用乘法分配律 $(a+b)\\\\times c = a\\\\times c + b\\\\times c$ 简化计算\",\n  \"整数乘分数（求一个数的几分之几是多少）\": \"理解“占总人数的 $\\\\frac{1}{4}$”即求总人数的 $\\\\frac{1}{4}$ 是多少，用乘法计算部分量\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2584,
+  "completion_tokens": 502,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1357.6567000709474,
+ "ttft_ms": 1367.7252000197768,
+ "total_ms": 9896.84619999025
+}

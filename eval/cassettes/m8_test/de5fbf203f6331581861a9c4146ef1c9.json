@@ -1,0 +1,18 @@
+{
+ "key": "de5fbf203f6331581861a9c4146ef1c9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":6,\"semester\":\"a\",\"topics\":[\"分数应用题\"],\"count\":3,\"difficulty\":[4,5],\"tier\":\"integrated\",\"explicit\":[\"grade\",\"semester\",\"count\",\"difficulty\",\"tier\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2125,
+  "completion_tokens": 57,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14368.436900083907,
+ "ttft_ms": 14368.46470006276,
+ "total_ms": 15458.379900082946
+}

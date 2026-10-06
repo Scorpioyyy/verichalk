@@ -1,0 +1,18 @@
+{
+ "key": "c401f5b55ef694b30e51100be1ebabe7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 5,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [],\n  \"concepts\": [\"10以内数字的书写\", \"认识=、<、>并比较10以内数的大小\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4541,
+  "completion_tokens": 72,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4403.589200112037,
+ "ttft_ms": 4403.605900006369,
+ "total_ms": 5281.288100057282
+}

@@ -1,0 +1,18 @@
+{
+ "key": "2f6da006bc9ccd91145cc53bb9933593",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A的题目情境更丰富有趣（小猴摘桃、动物排队、魔法箱），且包含排队问题（易忽略自己）、还原问题、找规律、认识半时、火柴棒图形等多样创意，思维含量更高；练习B出现两位数运算、差不变规律等超出一年级范围的内容，不符合要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 855,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1830.9484000783414,
+ "ttft_ms": 1830.9762000571936,
+ "total_ms": 3886.41420006752
+}

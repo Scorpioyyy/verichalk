@@ -1,0 +1,18 @@
+{
+ "key": "e8f6a6476995a058eb5c4e13cd4b2799",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：城市公园树木统计。已知总数90，按5个一组数了12组，问还剩多少没数。计算：12*5=60，90-60=30。干扰项设计：A(漏算一组得35), B(正确30), C(多算一组得25), D(直接减12得78)。难度4因为涉及乘法概念前置（连加）或较大数减法及理解“分组”含义。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    total = 90\\n    groups = 12\\n    per_group = 5\\n    counted = groups * per_group\\n    remaining = total - counted\\n    return [Decimal(str(remaining))]\",\n \"stem\": \"为了统计城市森林公园的树木数量，护林员叔叔打算每 $5$ 棵树一组进行清点。如果这片区域共有 $90$ 棵树，他已经完整地数了 $12$ 组，那么还剩下多少棵树没有数？\",\n \"options\": [\n  \"$35$\",\n  \"$30$\",\n  \"$25$\",\n  \"$78$\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"B\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先算已数的树：$12$ 个 $5$ 是 $60$ 棵（或 $5+5+\\\\dots+5=60$）。再算剩下的：$90-60=30$ 棵。\",\n \"kp_use\": {\n  \"100以内数的数数方法\": \"通过‘五个五个数’的情境，将分组计数转化为数值计算，考查对跳数规律的理解及应用\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2219,
+  "completion_tokens": 415,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1388.2081999909133,
+ "ttft_ms": 1404.2738999705762,
+ "total_ms": 8666.247599991038
+}

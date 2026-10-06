@@ -1,0 +1,18 @@
+{
+ "key": "7a9a6cfa03e84386c911e548b8a86202",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"先看被减数是8，减数是3。从8开始往前数3个数：7、6、5。所以结果是 $8 - 3 = 5$。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 143,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2375.0564999645576,
+ "ttft_ms": 2375.0815000385046,
+ "total_ms": 3132.4486000230536
+}

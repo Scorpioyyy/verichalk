@@ -1,0 +1,18 @@
+{
+ "key": "ec345f70fd82ca33d13550f6fbf571af",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 94, \"decimal_places\": 2, \"fraction_types\": [\"几分之一\"], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3\", \"3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1/3\", \"9\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"3.14\", \"3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"9.42\", \"10\"], \"mode\": null}], \"concepts\": [\"圆锥的体积\"], \"units_of_measure\": [\"厘米\", \"立方厘米\"], \"geometry_vocab\": [\"圆锥\", \"底面\", \"半径\", \"高\", \"体积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4513,
+  "completion_tokens": 162,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3603.0220000538975,
+ "ttft_ms": 3603.0555999604985,
+ "total_ms": 5006.3022000249475
+}

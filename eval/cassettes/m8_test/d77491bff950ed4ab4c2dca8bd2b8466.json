@@ -1,0 +1,18 @@
+{
+ "key": "d77491bff950ed4ab4c2dca8bd2b8466",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 10234567, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"10234567\", \"9876543\"], \"mode\": null}], \"concepts\": [\"亿以内数的大小比较\", \"亿以内数的读法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4468,
+  "completion_tokens": 85,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5217.244699946605,
+ "ttft_ms": 5217.552199959755,
+ "total_ms": 6073.475999990478
+}

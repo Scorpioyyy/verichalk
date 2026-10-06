@@ -1,0 +1,18 @@
+{
+ "key": "531cc0bcabc6e2e288e36f30c0c9cc1a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"先看个位：1 减 8 不够减，从十位借 1 当 10。$10+1=11$，$11-8=3$。所以结果是 3。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 143,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5585.430000093766,
+ "ttft_ms": 5585.467800032347,
+ "total_ms": 6123.4868000028655
+}

@@ -1,0 +1,18 @@
+{
+ "key": "33ae56a49e8ae1b9eef63ca77813e43a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"搭配方法数 = 上衣款数 × 裤子款数。已知上衣6款，搭配方法912种，所以裤子款数 = 912 ÷ 6 = 152。152是三位数，选C。\", \"answers\": [{\"label\": \"裤子的数量是几位数\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1236.5109999664128,
+ "ttft_ms": 1236.5296999923885,
+ "total_ms": 2239.421800011769
+}

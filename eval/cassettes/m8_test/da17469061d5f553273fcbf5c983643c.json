@@ -1,0 +1,18 @@
+{
+ "key": "da17469061d5f553273fcbf5c983643c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三个市的人口数分别为：甲市 9876543 人，乙市 10234567 人，丙市 9987654 人。比较大小：10234567 > 9987654 > 9876543，所以人口最多的是乙市 10234567 人，最少的是甲市 9876543 人。求多多少人，用减法：10234567 - 9876543 = 358024（人）。\", \"answers\": [{\"label\": \"人口最多的市比人口最少的市多多少人\", \"value\": \"358024\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 335,
+  "completion_tokens": 145,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2200.457099941559,
+ "ttft_ms": 2200.4716999363154,
+ "total_ms": 3363.365500001237
+}

@@ -1,0 +1,18 @@
+{
+ "key": "362f2eb2bed287b0a8b4ab222b016c4b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算3盒彩笔的总价：3×8=24（元）；再算一共花了多少：24+15=39（元）；最后算找回：50-39=11（元）。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"11\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13731.850899988785,
+ "ttft_ms": 13731.871900032274,
+ "total_ms": 14729.84289994929
+}

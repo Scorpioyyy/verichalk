@@ -1,0 +1,18 @@
+{
+ "key": "db0e9f658f2655f513b3aa2001513518",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答给出了适合四年级的两种讲法，且计算结果9元与题目答案9一致。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 867,
+  "completion_tokens": 34,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1403.394400025718,
+ "ttft_ms": 1403.4119000425562,
+ "total_ms": 1779.2121999664232
+}

@@ -1,0 +1,18 @@
+{
+ "key": "aa8140342aea8f84a90a4d5db28261fd",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：登山队查看等高线图。已知两条相邻等高线海拔分别为850米和900米，说明等高距为50米。若某山峰位于900米线上方第3条线处，求其海拔。计算：900 + 50*3 = 1050。干扰项设计：A.漏加（900），B.算错间隔（1000，误以为间隔100/2或数错），C.正确（1050），D.进位错误（1150，误加60或数多）。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 等高距\\n    interval = 50\\n    # 基准线\\n    base = 900\\n    # 向上第3条\\n    steps = 3\\n    height = base + interval * steps\\n    return [Decimal(str(height))]\",\n \"stem\": \"在一张等高线地形图上，相邻两条等高线的海拔分别是 $850$ 米和 $900$ 米。如果一座山峰的海拔标注在 $900$ 米等高线往高处数的第 $3$ 条等高线上，那么这座山峰的海拔是多少米？\",\n \"options\": [\n  \"$950$ 米\",\n  \"$1000$ 米\",\n  \"$1050$ 米\",\n  \"$1100$ 米\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"C\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先求等高距：$900-850=50$ 米。从 $900$ 米往高处数 $3$ 条，即增加 $3$ 个 $50$ 米：$50\\\\times 3=150$ 米。最后求海拔：$900+150=1050$ 米。\",\n \"kp_use\": {\n  \"千以内数的数数\": \"通过计算 $900+50+50+50$ 或 $900+150$，体会以五十为间隔进行数数时的进位规律（满十进一到百位），确定最终数值为 $1050$\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2265,
+  "completion_tokens": 547,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1376.72190007288,
+ "ttft_ms": 1396.3081000838429,
+ "total_ms": 10678.44230006449
+}

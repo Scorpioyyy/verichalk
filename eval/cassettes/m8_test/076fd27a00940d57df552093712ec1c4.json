@@ -1,0 +1,18 @@
+{
+ "key": "076fd27a00940d57df552093712ec1c4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"先算 $81 \\\\div 3 = 27$，再算 $27 \\\\times 2 = 54$。所以 $81 \\\\times \\\\frac{2}{3} = 54$。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 145,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7842.121300054714,
+ "ttft_ms": 7842.364700045437,
+ "total_ms": 8898.627000045963
+}

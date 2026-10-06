@@ -1,0 +1,18 @@
+{
+ "key": "47caec1dc693417f3dda63e4ca04a3ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"第一个标志牌海拔1200米，之后每经过一个标志牌升高50米。从第一个标志牌出发又经过4个标志牌，到达的是第5个标志牌，共升高了4个50米，即4×50=200米。所以第5个标志牌的海拔是1200+200=1400米。\", \"answers\": [{\"label\": \"第5个标志牌显示的海拔\", \"value\": \"1400\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 401,
+  "completion_tokens": 119,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2078.357300022617,
+ "ttft_ms": 2078.378700069152,
+ "total_ms": 3822.663400089368
+}

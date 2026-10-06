@@ -1,0 +1,18 @@
+{
+ "key": "1e7693e032803d51850f7a387d7eb4fa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把钢笔和笔记本的价钱相加：12.50 + 8.8 = 21.30（元）。\", \"answers\": [{\"label\": \"一共花了多少元\", \"value\": \"21.3\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1102.0862999139354,
+ "ttft_ms": 1102.1142000099644,
+ "total_ms": 1766.5420999983326
+}

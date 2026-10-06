@@ -1,0 +1,18 @@
+{
+ "key": "144457e09a328dc23443043ec411403b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 10, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"2.5\", \"3\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"10\", \"7.5\"], \"mode\": null}], \"concepts\": [\"一位小数的加减法（不进退位）\", \"小数乘整数的意义与算法（初步）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4433,
+  "completion_tokens": 117,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1355.366999981925,
+ "ttft_ms": 1355.3825999842957,
+ "total_ms": 2296.324900002219
+}

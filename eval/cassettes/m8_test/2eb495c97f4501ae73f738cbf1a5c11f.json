@@ -1,0 +1,18 @@
+{
+ "key": "2eb495c97f4501ae73f738cbf1a5c11f",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"文具店购物\",\n      \"angle\": \"给出商品标价，将元角分形式转换为两位小数表示的价格。\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"购买布料或丝带\",\n      \"angle\": \"根据米和厘米的长度描述，写出以米为单位的小数数值。\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"超市零食比价\",\n      \"angle\": \"列出几种零食的小数价格，判断哪种最贵或按价格排序。\"\n    },\n    {\n      \"index\": 4,\n      \"scene\": \"书店买书\",\n      \"angle\": \"辨析不同书写形式的金额，找出与给定汉字金额相等的选项。\"\n    },\n    {\n      \"index\": 5,\n      \"combo\": \"A\",\n      \"scene\": \"便利店结账找零\",\n      \"angle\": \"计算购买多件商品的总价，并用人民币面值组合支付及计算找零。\",\n      \"roles\": {\n        \"结合元角分认识小数\": \"用于理解商品价格并进行小数加法计算总价\",\n        \"人民币的认识与换算\": \"用于确定支付方案及计算应找回的整数或小数金额\"\n      }\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 923,
+  "completion_tokens": 307,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1079.030100023374,
+ "ttft_ms": 1079.1913999710232,
+ "total_ms": 6319.535000016913
+}

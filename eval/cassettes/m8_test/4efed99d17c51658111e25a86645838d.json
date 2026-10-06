@@ -1,0 +1,18 @@
+{
+ "key": "4efed99d17c51658111e25a86645838d",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：农场里母鸡和公鸡的数量。母鸡9只，公鸡6只。求总数。考点：20以内进位加法（凑十法）。9+6，把6分成1和5，9+1=10，10+5=15。数值在1-100之间，整数。题型为计算题，但嵌入简单情境使其不枯燥，符合“巩固”档位。\",\n \"solver_code\": \"def solve():\\n    return [9 + 6]\",\n \"stem\": \"农场里养了 $9$ 只母鸡和 $6$ 只公鸡，一共有多少只鸡？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"15\",\n   \"unit\": \"只\"\n  }\n ],\n \"solution\": \"用凑十法计算 $9+6$。把 $6$ 分成 $1$ 和 $5$，先算 $9+1=10$，再算 $10+5=15$。\",\n \"kp_use\": {\n  \"20以内进位加法（凑十法）\": \"将加数6拆分为1和5，先与9凑成10，再加剩余的5得出结果15\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2224,
+  "completion_tokens": 299,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1474.7441000072286,
+ "ttft_ms": 1507.5404000235721,
+ "total_ms": 8458.495700033382
+}

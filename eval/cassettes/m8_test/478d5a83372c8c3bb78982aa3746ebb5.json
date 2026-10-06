@@ -1,0 +1,18 @@
+{
+ "key": "478d5a83372c8c3bb78982aa3746ebb5",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A全是纯计算或一步应用题，情境单一、思维含量低；练习B第1题是比较而非直接计算，第2题用游戏情境串联多个分数且需通分多个分母，更具思维挑战和多样性，更符合教研要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 596,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1697.075300035067,
+ "ttft_ms": 1697.1021000063047,
+ "total_ms": 3151.640100055374
+}

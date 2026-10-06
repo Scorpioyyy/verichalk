@@ -1,0 +1,18 @@
+{
+ "key": "3f86ebde72e234a23b29f576d88267d3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 74, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"9\", \"8\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"72\", \"2\"], \"mode\": null}], \"concepts\": [\"用身体尺估测长度\"], \"units_of_measure\": [\"厘米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4467,
+  "completion_tokens": 96,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2912.8507000859827,
+ "ttft_ms": 2912.8668000921607,
+ "total_ms": 3717.6477001048625
+}

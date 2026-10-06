@@ -1,0 +1,18 @@
+{
+ "key": "720daed301d848ecc81ae75de992f18d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"方程两边同时加4.5，得3x=14；两边同时除以3，得x=14/3。\", \"answers\": [{\"label\": \"\", \"value\": \"14/3\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 303,
+  "completion_tokens": 64,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 993.3656000066549,
+ "ttft_ms": 993.389300070703,
+ "total_ms": 1550.6792000960559
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7f33c05ac6653eadf5f868c202b3da50",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"kp.na.分数乘法.g5b_frac_times_frac\": true, \"长方体的展开图\": false}, \"issues\": [\"题目声称涉及'长方体的展开图'，但解答中完全不需要用到该知识点，属于装饰性提及。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 658,
+  "completion_tokens": 102,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7712.139799958095,
+ "ttft_ms": 7712.157299974933,
+ "total_ms": 8546.37479991652
+}

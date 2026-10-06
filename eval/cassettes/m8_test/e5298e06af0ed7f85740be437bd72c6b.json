@@ -1,0 +1,18 @@
+{
+ "key": "e5298e06af0ed7f85740be437bd72c6b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小华算的是 75÷12=6……3，验算用“商×除数+余数”，即 6×12+3=72+3=75。\", \"answers\": [{\"label\": \"验算得到的结果\", \"value\": \"75\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3686.7846000241116,
+ "ttft_ms": 3690.355399972759,
+ "total_ms": 4903.713000006974
+}

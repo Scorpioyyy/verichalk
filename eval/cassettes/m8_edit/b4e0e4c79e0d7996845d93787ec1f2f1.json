@@ -1,0 +1,18 @@
+{
+ "key": "b4e0e4c79e0d7996845d93787ec1f2f1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"按从左到右的顺序计算：12.6-3.45=9.15，9.15-0.8=8.35。\", \"answers\": [{\"label\": \"\", \"value\": \"8.35\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 299,
+  "completion_tokens": 69,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1141.3749000057578,
+ "ttft_ms": 1141.3958999328315,
+ "total_ms": 1659.3372999923304
+}

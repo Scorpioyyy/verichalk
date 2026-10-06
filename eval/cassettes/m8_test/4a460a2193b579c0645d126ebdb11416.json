@@ -1,0 +1,18 @@
+{
+ "key": "4a460a2193b579c0645d126ebdb11416",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 120, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"120\", \"5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"24\", \"1\"], \"mode\": null}], \"concepts\": [\"比的意义与写法\", \"化简比\"], \"units_of_measure\": [\"千米\", \"速度单位\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4452,
+  "completion_tokens": 102,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2198.1923000421375,
+ "ttft_ms": 2198.2119000749663,
+ "total_ms": 3411.3618000410497
+}

@@ -1,0 +1,18 @@
+{
+ "key": "31f68c6d7a11e918b676b0353a9b034a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"10以内数的认识\": true, \"10以内的减法\": true}}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 489,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10490.840999991633,
+ "ttft_ms": 10490.867199958302,
+ "total_ms": 11157.723099924624
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4a8bc4559624f7cf0d2bf16c9513fb71",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"26÷4=6（条）……2（人），剩下的2人还需要再租1条船，所以至少租6+1=7条船。\", \"answers\": [{\"label\": \"至少要租几条船\", \"value\": \"7\", \"unit\": \"条\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 311,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8004.872199962847,
+ "ttft_ms": 8004.901599953882,
+ "total_ms": 8042.89289994631
+}

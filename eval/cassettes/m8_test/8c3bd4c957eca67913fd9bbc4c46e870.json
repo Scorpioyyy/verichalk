@@ -1,0 +1,18 @@
+{
+ "key": "8c3bd4c957eca67913fd9bbc4c46e870",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每小包重0.05千克，每千克1.2元，所以一小包价钱为 0.05×1.2=0.06（元）。\", \"answers\": [{\"label\": \"买一小包这种香料需要多少元\", \"value\": \"0.06\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4106.33300000336,
+ "ttft_ms": 4106.468399986625,
+ "total_ms": 4744.93549996987
+}

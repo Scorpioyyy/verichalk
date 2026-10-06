@@ -1,0 +1,18 @@
+{
+ "key": "eed2e6a427750882f31891669077f257",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"10以内加法表\": true, \"减法表的规律\": false}, \"issues\": [\"声称涉及'减法表的规律'，但题目和解析中完全没有减法内容，该知识点未被使用。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 614,
+  "completion_tokens": 89,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1451.1478999629617,
+ "ttft_ms": 1451.1722999159247,
+ "total_ms": 2596.09309991356
+}

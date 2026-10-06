@@ -1,0 +1,18 @@
+{
+ "key": "c4382a8386769465d722095624fe6124",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答说明三角形内角和是四年级内容、不超纲，未编造页码，且与题目解析一致。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 731,
+  "completion_tokens": 39,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12559.548799996264,
+ "ttft_ms": 12559.57539996598,
+ "total_ms": 12938.219400006346
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d530ea4a2a713a6fa69a6bdf8e391589",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"81 × 2/3 = (81 ÷ 3) × 2 = 27 × 2 = 54\", \"answers\": [{\"label\": \"\", \"value\": \"54\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 291,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 23624.4524999056,
+ "ttft_ms": 23625.92629995197,
+ "total_ms": 23919.539899914525
+}

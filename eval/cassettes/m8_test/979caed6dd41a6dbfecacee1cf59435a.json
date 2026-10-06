@@ -1,0 +1,18 @@
+{
+ "key": "979caed6dd41a6dbfecacee1cf59435a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 7, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"3\", \"4\"], \"mode\": null}], \"concepts\": [\"探索规律：重复排列的图案与周期现象\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4461,
+  "completion_tokens": 77,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9210.667199920863,
+ "ttft_ms": 9210.692499997094,
+ "total_ms": 10266.815999988467
+}

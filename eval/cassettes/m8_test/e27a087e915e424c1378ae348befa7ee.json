@@ -1,0 +1,18 @@
+{
+ "key": "e27a087e915e424c1378ae348befa7ee",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"分数的意义（单位“1”与分数单位）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 588,
+  "completion_tokens": 66,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1602.17470000498,
+ "ttft_ms": 1602.1898000035435,
+ "total_ms": 2115.3554000193253
+}

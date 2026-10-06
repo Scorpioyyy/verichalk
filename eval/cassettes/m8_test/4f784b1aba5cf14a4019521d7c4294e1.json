@@ -1,0 +1,18 @@
+{
+ "key": "4f784b1aba5cf14a4019521d7c4294e1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"甲株：1米4分米=1.4米；乙株：1米25厘米=1.25米；1.4-1.25=0.15（米）。\", \"answers\": [{\"label\": \"甲株比乙株高多少米\", \"value\": \"0.15\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7933.516400051303,
+ "ttft_ms": 7933.533600065857,
+ "total_ms": 8510.98510005977
+}

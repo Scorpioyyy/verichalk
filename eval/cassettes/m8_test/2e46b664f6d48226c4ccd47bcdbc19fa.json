@@ -1,0 +1,18 @@
+{
+ "key": "2e46b664f6d48226c4ccd47bcdbc19fa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"结合规律或实际问题列方程求解\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 546,
+  "completion_tokens": 62,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1247.406900045462,
+ "ttft_ms": 1247.427299967967,
+ "total_ms": 1852.7054999722168
+}

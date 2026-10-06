@@ -1,0 +1,18 @@
+{
+ "key": "728102dbe373c9ed5c07d6cf835f0624",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"10以内加法表\": false, \"减法表的规律\": false}, \"issues\": [\"声称涉及'10以内加法表、减法表的规律'，但解答实际用到的是20以内减法（12-8）和'差的变化规律'，与声称的知识点不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 565,
+  "completion_tokens": 106,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6774.258099962026,
+ "ttft_ms": 6774.290099972859,
+ "total_ms": 8035.378300002776
+}

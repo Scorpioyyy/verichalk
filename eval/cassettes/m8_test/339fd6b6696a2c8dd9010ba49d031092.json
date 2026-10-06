@@ -1,0 +1,18 @@
+{
+ "key": "339fd6b6696a2c8dd9010ba49d031092",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"千以内数的数数\": false}, \"issues\": [\"声称涉及的知识点是“千以内数的数数”，但题目中的数（1200、1400）都超过1000，且解答过程是加法与乘法，并未涉及千以内数的数数。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 641,
+  "completion_tokens": 104,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1597.882300033234,
+ "ttft_ms": 1597.9009000584483,
+ "total_ms": 2858.138100011274
+}

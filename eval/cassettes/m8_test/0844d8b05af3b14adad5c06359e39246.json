@@ -1,0 +1,18 @@
+{
+ "key": "0844d8b05af3b14adad5c06359e39246",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2加3，把2和3合起来数：2、3、4、5，一共是5。\", \"answers\": [{\"label\": \"\", \"value\": \"5\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 288,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5122.335199965164,
+ "ttft_ms": 5122.367099975236,
+ "total_ms": 5628.677299944684
+}

@@ -1,0 +1,18 @@
+{
+ "key": "23b5421df7f44d584e7dafe5fde0a4b9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每段升高10米，12段共升高10×12=120米。从895米出发，此时海拔为895+120=1015米。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3218.2852999540046,
+ "ttft_ms": 3218.316499958746,
+ "total_ms": 5199.357399949804
+}

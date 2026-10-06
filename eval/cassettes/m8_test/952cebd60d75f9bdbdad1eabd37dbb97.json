@@ -1,0 +1,18 @@
+{
+ "key": "952cebd60d75f9bdbdad1eabd37dbb97",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"第一轮红队3分，蓝队7分，共10分。第二轮红队比第一轮多得2分，即3+2=5分。每轮总分仍为10分，所以蓝队第二轮得10-5=5分。\", \"answers\": [{\"label\": \"蓝队第二轮应该得多少分\", \"value\": \"5\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 361,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2888.097200077027,
+ "ttft_ms": 2888.4958000853658,
+ "total_ms": 3482.5970000820234
+}

@@ -1,0 +1,18 @@
+{
+ "key": "4f1344a0ac4b491cc1e1ea29b7d0d81c",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：公交车原有15人，第一站上3人，第二站下5人。算式：15+3-5。计算：15+3=18，18-5=13。检查数值范围：15,3,5均在100以内且为整数。符合一年级加减混合运算要求。\",\n \"solver_code\": \"def solve():\\n    return [15 + 3 - 5]\",\n \"stem\": \"一辆公交车上原来有 $15$ 人，到第一站时上来 $3$ 人，到第二站时下去 $5$ 人。现在车上有多少人？\\n列式计算：$15+3-5=$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"13\",\n   \"unit\": \"人\"\n  }\n ],\n \"solution\": \"按从左到右的顺序计算。先算 $15+3=18$，再算 $18-5=13$。现在车上有 $13$ 人。\",\n \"kp_use\": {\n  \"连加、连减及加减混合运算（三个数）\": \"列出算式 $15+3-5$ 并按从左到右顺序依次计算得出结果\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2193,
+  "completion_tokens": 307,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2610.2111000800505,
+ "ttft_ms": 2621.291800052859,
+ "total_ms": 7830.506999976933
+}

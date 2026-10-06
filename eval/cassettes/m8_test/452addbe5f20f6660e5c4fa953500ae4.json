@@ -1,0 +1,18 @@
+{
+ "key": "452addbe5f20f6660e5c4fa953500ae4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 100,\n  \"decimal_places\": 3,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"12\", \"7\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"1\", \"100\"], \"mode\": \"decimal_quotient\"},\n    {\"op\": \"除法\", \"operands\": [\"1\", \"1000\"], \"mode\": \"decimal_quotient\"},\n    {\"op\": \"乘法\", \"operands\": [\"12\", \"0.01\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"7\", \"0.001\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"0.12\", \"0.007\"], \"mode\": null}\n  ],\n  \"concepts\": [\"结合米制单位认识小数\", \"度量单位间的小数换算\"],\n  \"units_of_measure\": [\"厘米\", \"毫米\", \"米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4538,
+  "completion_tokens": 227,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6584.623800008558,
+ "ttft_ms": 6584.656499908306,
+ "total_ms": 8642.602899926715
+}

@@ -1,0 +1,18 @@
+{
+ "key": "acb4f2aa4110646b8b2a63a9d4262b34",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 16,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之一\", \"假分数\"],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"1/10\", \"16\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"16\", \"2\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"10\", \"2\"], \"mode\": null}\n  ],\n  \"concepts\": [\"分数的初步认识\", \"约分与最简分数\"],\n  \"units_of_measure\": [\"毫米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4494,
+  "completion_tokens": 209,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6926.420800038613,
+ "ttft_ms": 6926.435500034131,
+ "total_ms": 9439.327200059779
+}

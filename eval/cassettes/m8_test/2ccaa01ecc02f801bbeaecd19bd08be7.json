@@ -1,0 +1,18 @@
+{
+ "key": "2ccaa01ecc02f801bbeaecd19bd08be7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"A保护区现在有120+45-30=135只；B保护区现在有110+20-50=80只；A比B多135-80=55只。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 397,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11582.88200001698,
+ "ttft_ms": 11582.899800036103,
+ "total_ms": 12295.178700005636
+}

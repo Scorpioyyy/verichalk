@@ -1,0 +1,18 @@
+{
+ "key": "bc60f8c5b71cfdf3afe23b716701cd81",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）B店打八五折后付255元，即原价的0.85是255元，原价=255÷0.85=300元。\\n（2）A店：先打九折为300×0.9=270元，再减20元，实付270-20=250元。250<255，所以A店更划算。\", \"answers\": [{\"label\": \"这双鞋的原价\", \"value\": \"300\", \"unit\": \"元\"}, {\"label\": \"在A店需支付\", \"value\": \"250\", \"unit\": \"元\"}, {\"label\": \"哪家店更划算\", \"value\": \"A店\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 382,
+  "completion_tokens": 169,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6132.895899936557,
+ "ttft_ms": 6133.147799992003,
+ "total_ms": 7594.0439000260085
+}

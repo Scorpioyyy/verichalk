@@ -1,0 +1,18 @@
+{
+ "key": "7096b07961c7ae602c477b99eebda5ce",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 14, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"12\", \"5\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"13\", \"6\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"14\", \"7\"], \"mode\": null}], \"concepts\": [\"探索规律：减法算式中被减数、减数与差的变化规律\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4500,
+  "completion_tokens": 124,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2482.441999949515,
+ "ttft_ms": 2482.7421999070793,
+ "total_ms": 3738.5514000197873
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d2f72ee43175152bee3c25a136af1604",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"设机翼长为 x 厘米。根据机翼长度与机身长度的比是 3:4，可列比例 x:12.8=3:4。解比例：4x=3×12.8，4x=38.4，x=38.4÷4=9.6。所以机翼长 9.6 厘米。\", \"answers\": [{\"label\": \"机翼长多少厘米\", \"value\": \"9.6\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 337,
+  "completion_tokens": 122,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3441.603299928829,
+ "ttft_ms": 3441.6192999342456,
+ "total_ms": 4322.539299959317
+}

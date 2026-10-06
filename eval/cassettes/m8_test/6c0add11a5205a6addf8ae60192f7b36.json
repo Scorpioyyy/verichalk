@@ -1,0 +1,18 @@
+{
+ "key": "6c0add11a5205a6addf8ae60192f7b36",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"结合元角分认识小数\": true, \"万以内数比较大小\": false}, \"issues\": [\"题目实际比较的是小数大小，而非万以内整数比较大小，声称的'万以内数比较大小'知识点并未被使用。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 618,
+  "completion_tokens": 99,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1445.66109997686,
+ "ttft_ms": 1445.68010000512,
+ "total_ms": 2807.7859999611974
+}

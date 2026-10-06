@@ -1,0 +1,18 @@
+{
+ "key": "a2aaa6d46e47ce1c9e66ff2ad2fb507a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 450, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"2\", \"450\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"900\", \"3\"], \"mode\": null}], \"concepts\": [\"比例的基本性质\", \"解比例\"], \"units_of_measure\": [\"毫升\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 97,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7703.604100039229,
+ "ttft_ms": 7703.815300017595,
+ "total_ms": 9686.419900041074
+}

@@ -1,0 +1,18 @@
+{
+ "key": "cf23fc6d59568d8398999f44e2acbaf6",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"A\",\n  \"reason\": \"练习A的题目情境更真实（装修、花坛、手工），数据含小数且需多步推理（如L形分割、剪角求剩余、梯形内减三角形），思维含量和多样性更高，且针对了组合图形与间接条件的易错点；练习B多为一步公式套用，情境较单一，综合性和挑战性不足。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 780,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2076.0770000051707,
+ "ttft_ms": 2076.1143000563607,
+ "total_ms": 3944.068100070581
+}

@@ -1,0 +1,18 @@
+{
+ "key": "38a7c8a9ff66cd7b7dc7e20fc7041f23",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"三个数及以上的连加、连减、加减混合运算\": true, \"人民币的认识与换算\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 560,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3907.1082000155,
+ "ttft_ms": 3907.1235000155866,
+ "total_ms": 5509.249299997464
+}

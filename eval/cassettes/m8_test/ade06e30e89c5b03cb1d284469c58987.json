@@ -1,0 +1,18 @@
+{
+ "key": "ade06e30e89c5b03cb1d284469c58987",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：妈妈带钱去超市，买了三样东西，求剩余金额。数据：本金200元。物品1：大米45.5元；物品2：食用油68.8元；物品3：牛奶25.7元。计算：45.5+68.8=114.3，114.3+25.7=140.0，200-140=60。答案60.0或60。为了体现小数运算，保留一位小数结果。检查难度：三年级下册通常涉及简单小数加减，这里三个数连加再减，符合连加连减及混合运算知识点。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    total_cost = Decimal('45.5') + Decimal('68.8') + Decimal('25.7')\\n    remaining = Decimal('200') - total_cost\\n    return [remaining]\",\n \"stem\": \"妈妈带了 $200$ 元去超市购物，买了一袋大米花了 $45.5$ 元，一桶油花了 $68.8$ 元，还买了一箱牛奶花了 $25.7$ 元。妈妈还剩多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"60\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算出买三样商品一共花的钱：$45.5+68.8+25.7=140$ 元。再用带的总钱数减去花掉的钱：$200-140=60$ 元。\",\n \"kp_use\": {\n  \"三个数及以上的连加、连减、加减混合运算\": \"先通过连加计算总支出，再通过减法计算剩余金额，涉及小数与整数的混合运算及进位处理\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2302,
+  "completion_tokens": 449,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1664.4865000853315,
+ "ttft_ms": 1682.4312000535429,
+ "total_ms": 9832.366100046784
+}

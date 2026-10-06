@@ -1,0 +1,18 @@
+{
+ "key": "40c845185f08c5fd236b39a9865939ec",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 1, \"kp_used\": {\"8和9的组成及8、9以内的加减法\": false}, \"issues\": [\"解析与题目完全不符：题目是 1+6，解析却在算 10-24÷(3+5)，属于另一道题\", \"解析中出现的运算（括号、除法、两位数减法）远超一年级范围\", \"解析没有用到声称的知识点（8和9的组成及8、9以内的加减法）\", \"解析最后结论虽为7，但推导过程与题目无关，不能作为本题解析\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 491,
+  "completion_tokens": 157,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9314.70210000407,
+ "ttft_ms": 9561.613600002602,
+ "total_ms": 11726.016000029631
+}

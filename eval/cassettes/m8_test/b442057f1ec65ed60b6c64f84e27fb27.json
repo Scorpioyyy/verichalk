@@ -1,0 +1,18 @@
+{
+ "key": "b442057f1ec65ed60b6c64f84e27fb27",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 256, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"256.8\", \"234.5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"22.3\", \"2.4\"], \"mode\": null}], \"concepts\": [\"小数加减法（位数不同）\", \"小数乘小数的竖式计算（含补0与去0）\"], \"units_of_measure\": [\"吨\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4457,
+  "completion_tokens": 125,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3892.4818000523373,
+ "ttft_ms": 3892.509200028144,
+ "total_ms": 6914.078100002371
+}

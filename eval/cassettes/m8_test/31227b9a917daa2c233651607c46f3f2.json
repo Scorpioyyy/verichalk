@@ -1,0 +1,18 @@
+{
+ "key": "31227b9a917daa2c233651607c46f3f2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"梯形面积 = (8+12)×5÷2 = 50 平方米。三角形小径面积 = 4×5÷2 = 10 平方米。种植面积 = 50-10 = 40 平方米。\", \"answers\": [{\"label\": \"实际用于种植花草的面积\", \"value\": \"40\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 369,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3951.3066000072286,
+ "ttft_ms": 3951.325500034727,
+ "total_ms": 5223.232900025323
+}

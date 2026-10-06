@@ -1,0 +1,18 @@
+{
+ "key": "35aaa084fba9c2e5109b701e8d4b3b99",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：果园上午摘了45筐苹果，下午又摘了30筐。判断“现在一共有75筐”是否正确。考察点：两位数加整十数（不进位）。常见错误是加在个位上变成48或78。这里45+30=75，陈述正确。\",\n \"solver_code\": \"def solve():\\n    return [True]\",\n \"stem\": \"果园上午采摘了 $45$ 筐苹果，下午又采摘了 $30$ 筐。有人说：“现在一共有 $75$ 筐苹果。”这个说法对吗？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"对\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"上午 $45$ 筐，下午增加 $30$ 筐，用加法计算：$45+30=75$（筐）。题目中的说法与计算结果一致，所以是对的。\",\n \"kp_use\": {\n  \"两位数加一位数、两位数加减整十数（不进位不退位）\": \"通过计算 $45+30$，将十位上的 $4$ 和 $3$ 相加，个位不变，得出结果 $75$，从而判断题干陈述的真伪\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2227,
+  "completion_tokens": 308,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1413.060399936512,
+ "ttft_ms": 1430.6656999979168,
+ "total_ms": 6657.2723999852315
+}

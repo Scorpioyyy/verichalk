@@ -1,0 +1,18 @@
+{
+ "key": "0d012b276d59183e7c505d829b1b94a3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1.2×4 表示4个1.2相加，1.2+1.2+1.2+1.2=4.8；也可先算12×4=48，因数中有一位小数，积也有一位小数，得4.8。\", \"answers\": [{\"label\": \"\", \"value\": \"4.8\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 294,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12420.886999927461,
+ "ttft_ms": 12420.91139999684,
+ "total_ms": 13252.473799977452
+}

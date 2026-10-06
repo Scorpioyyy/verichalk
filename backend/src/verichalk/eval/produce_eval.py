@@ -1,6 +1,6 @@
-"""创作与核验的端到端评测（eval/specs/produce.md §3）：运行、审计、打分、出报告，以及"朴素直出"基线 B0。
+"""生成与核验的端到端评测（eval/specs/produce.md §3）：运行、审计、打分、出报告，以及"朴素直出"基线 B0。
 
-流程：用例（自然语言请求）经完整管线（理解 → 规划 → 创作与核验）→ 取出交付的题与蓝图 → 审计（独立于线上核验，见 audit.py）
+流程：用例（自然语言请求）经完整管线（理解 → 规划 → 生成与核验）→ 取出交付的题与蓝图 → 审计（独立于线上核验，见 audit.py）
 → 指标：A1 可直接使用率、A2 答案正确率、A3 不超纲率、A4 需求满足度、A5 新颖度、A6 题面质量、D2 / D3 延迟、E1 / E3 / E4 成本与修复。
 """
 
@@ -61,6 +61,7 @@ class CaseRec:
     calls: int = 0
     e2e_s: float | None = None
     first_item_s: float | None = None
+    trace_ok: bool | None = None  # F6：事件日志的 span 树完整；朴素基线没有 trace
     method: str = "verichalk"  # verichalk / naive
 
     @property
@@ -85,6 +86,7 @@ async def run_case_e2e(c: Any, case: Case, timeout_s: float = 900.0) -> CaseRec:
     events = await c.store.events.list(run.id)
     m = compute_run_metrics(events)
     rec.cost, rec.calls, rec.e2e_s = m.cost, m.n_llm_calls, (m.e2e_ms or 0) / 1000
+    rec.trace_ok = m.trace_ok
     t0 = next((e.ts for e in events if isinstance(e, RunStarted)), events[0].ts if events else 0.0)
     firsts = [
         e.ts
@@ -303,6 +305,8 @@ async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: Knowled
     out["n_requested"] = sum(r.n_requested for r in recs)
     out["fill"] = (len(delivered), out["n_requested"])  # 题量达成率
     out["case_failed"] = sum(1 for r in recs if r.status != "succeeded")
+    traced = [r for r in recs if r.trace_ok is not None]
+    out["f6"] = (sum(1 for r in traced if r.trace_ok), len(traced))
     # A2
     verified = [(r, it, a) for r, it, a in aud if it.verification.status == VerifyStatus.verified]
     out["a2_all"] = (sum(1 for *_, a in aud if a.a2 == "correct"), len(aud))
@@ -400,6 +404,8 @@ def render_score(title: str, s: dict[str, Any]) -> str:
         "",
         "| 指标 | 值 |",
         "|---|---|",
+        f"| F1 运行成功率 | {f(s['n_cases'] - s['case_failed'], s['n_cases'])} |",
+        f"| F6 trace 完整度 | {f(*s['f6']) if s['f6'][1] else '—'} |",
         f"| **题量达成率**（交付 / 要求） | {f(*s['fill'])} |",
         f"| **A1 可直接使用率**（交付题） | {f(*s['a1'])} |",
         f"| A1（按要求题量，丢弃算失败） | {f(*s['a1_per_requested'])} |",

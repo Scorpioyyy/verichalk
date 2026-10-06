@@ -1,0 +1,18 @@
+{
+ "key": "c5c10fc1155ab2edad254b4154c9dc5c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"金属棒长度 = 12厘米 + 7毫米 = 12.7厘米。因为1米=100厘米，所以12.7厘米 = 12.7÷100 = 0.127米。\", \"answers\": [{\"label\": \"金属棒的长度\", \"value\": \"0.127\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 359,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5841.9555000728,
+ "ttft_ms": 5841.980200028047,
+ "total_ms": 6670.972799998708
+}

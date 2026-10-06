@@ -1,0 +1,18 @@
+{
+ "key": "6244978a1124d14a53490d8b1072ebb3",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"B卷情境真实多样（折纸飞机、巧克力、篮球赛、烘焙），数据具体合理，且均为需要列比例求解的应用题，思维含量更高；A卷多为填空计算，情境单一，且第1题涉及‘最小质数’的纯数学概念，不如B卷贴近生活。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 667,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1850.8535999571905,
+ "ttft_ms": 1850.8828999474645,
+ "total_ms": 4009.80839994736
+}

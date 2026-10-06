@@ -1,0 +1,18 @@
+{
+ "key": "e60788db5d267f6bacd2675fa05679a3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"计数单位十万的认识\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 553,
+  "completion_tokens": 59,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7572.935799951665,
+ "ttft_ms": 7572.951999958605,
+ "total_ms": 8416.06600000523
+}

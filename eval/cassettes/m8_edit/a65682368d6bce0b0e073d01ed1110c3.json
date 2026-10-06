@@ -1,0 +1,18 @@
+{
+ "key": "a65682368d6bce0b0e073d01ed1110c3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答说明了0.6×5=3并对应选项A，与题目答案和解析一致。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 790,
+  "completion_tokens": 36,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1255.6693000951782,
+ "ttft_ms": 1255.9768999926746,
+ "total_ms": 1616.3059000391513
+}

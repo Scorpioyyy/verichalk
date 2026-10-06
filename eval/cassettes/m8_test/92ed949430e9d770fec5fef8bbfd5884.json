@@ -1,0 +1,18 @@
+{
+ "key": "92ed949430e9d770fec5fef8bbfd5884",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B情境更真实多样（废纸回收、豆苗高度、装修、跳绳），题目需要判断、比较和多步推理（如平均数的说法判断、去掉最高最低分求平均），思维含量更高；而练习A多为直接计算或填空，情境较单一，综合性和趣味性不足。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 960,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3144.856799975969,
+ "ttft_ms": 3144.881899934262,
+ "total_ms": 4521.177100017667
+}

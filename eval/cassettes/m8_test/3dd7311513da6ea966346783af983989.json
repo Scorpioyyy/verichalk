@@ -1,0 +1,18 @@
+{
+ "key": "3dd7311513da6ea966346783af983989",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每行种15棵树苗，共24行，求总数用乘法：24×15=360（棵）。\", \"answers\": [{\"label\": \"四年级同学一共种了多少棵树苗\", \"value\": \"360\", \"unit\": \"棵\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 328,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1433.3293000236154,
+ "ttft_ms": 1433.3537999773398,
+ "total_ms": 2049.1045999806374
+}

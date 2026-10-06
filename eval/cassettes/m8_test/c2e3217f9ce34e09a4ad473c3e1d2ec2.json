@@ -1,0 +1,18 @@
+{
+ "key": "c2e3217f9ce34e09a4ad473c3e1d2ec2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"被减数都是15，减数从6、7、8每次增加1，差从9、8、7每次减少1。所以下一个减数是9，差应为7-1=6，即15-9=6。\", \"answers\": [{\"label\": \"\", \"value\": \"6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 367,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 19479.35120004695,
+ "ttft_ms": 19479.37549999915,
+ "total_ms": 19777.8686999809
+}

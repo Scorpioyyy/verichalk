@@ -1,4 +1,4 @@
-"""快速诊断：只跑创作阶段（不审计），打印每次写题被哪项检查拦下及耗时。多个请求并行，一轮约一分钟。
+"""快速诊断：只跑生成阶段（不审计），打印每次写题被哪项检查拦下及耗时。多个请求并行，一轮约一分钟。
 
 用法：
   python scripts/probe_produce.py "四年级下册小数加减法，出6道" ["另一个请求" ...] [--off flag,flag] [--n 8] [--show choice]
@@ -55,7 +55,7 @@ ProduceStage._write = _traced_write  # type: ignore[method-assign]
 async def probe(
     c, s: Settings, text: str, n: int, verbose: bool, show_items: bool = False
 ):  # type: ignore[no-untyped-def]
-    """返回（输出行, (要求题数, 交付题数, 写题总次数, 一次通过题数, 创作阶段墙钟秒））。"""
+    """返回（输出行, (要求题数, 交付题数, 写题总次数, 一次通过题数, 生成阶段墙钟秒））。"""
     ctx = RunContext(
         run_id="probe",
         session_id="probe",
@@ -84,7 +84,7 @@ async def probe(
 
         res = await asyncio.gather(*(one(sp) for sp in specs))
     wall = time.time() - t0
-    lines = [f"\n## {text}\n创作阶段 {wall:.1f}s"]
+    lines = [f"\n## {text}\n生成阶段 {wall:.1f}s"]
     for spec, o, dt in res:
         msg = f"- 第{spec.index}题 {spec.tier.value} {spec.kind.value} {spec.kp_names} {dt:.1f}s 写{o.attempts}次"
         lines.append(

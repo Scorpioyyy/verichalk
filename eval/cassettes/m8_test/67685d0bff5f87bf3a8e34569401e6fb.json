@@ -1,0 +1,18 @@
+{
+ "key": "67685d0bff5f87bf3a8e34569401e6fb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":52,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"除法\",\"operands\":[\"40\",\"4\"],\"mode\":null},{\"op\":\"除法\",\"operands\":[\"12\",\"4\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"10\",\"3\"],\"mode\":null}],\"concepts\":[\"两位数除以一位数的口算\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4468,
+  "completion_tokens": 99,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10173.212999943644,
+ "ttft_ms": 10173.275199951604,
+ "total_ms": 10931.441899971105
+}

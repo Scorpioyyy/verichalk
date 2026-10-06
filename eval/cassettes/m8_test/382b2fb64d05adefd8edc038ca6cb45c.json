@@ -1,0 +1,18 @@
+{
+ "key": "382b2fb64d05adefd8edc038ca6cb45c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 53, \"decimal_places\": 1, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"减法\", \"operands\": [\"8.5\", \"3.2\"], \"mode\": null}], \"concepts\": [\"一位小数的加减法（不进退位）\", \"小数与十进分数的对应关系\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4496,
+  "completion_tokens": 97,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3573.4123999718577,
+ "ttft_ms": 3573.43640003819,
+ "total_ms": 4428.502200054936
+}

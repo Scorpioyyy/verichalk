@@ -1,0 +1,18 @@
+{
+ "key": "f4fe9b48b3e30496379958532c2eeb24",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"62×37=2294。要求积有2位小数，第一个乘数有0位小数（即整数），那么第二个乘数必须有2位小数。取第一个乘数为62（0位小数），第二个乘数为0.37（2位小数），则62×0.37=22.94，积有2位小数。\", \"answers\": [{\"label\": \"第一个乘数\", \"value\": \"62\", \"unit\": \"\"}, {\"label\": \"第二个乘数\", \"value\": \"0.37\", \"unit\": \"\"}, {\"label\": \"积\", \"value\": \"22.94\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 152,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1597.3851000890136,
+ "ttft_ms": 1599.596800049767,
+ "total_ms": 2837.5271999975666
+}

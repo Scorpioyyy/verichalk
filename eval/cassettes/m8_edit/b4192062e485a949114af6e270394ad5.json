@@ -1,0 +1,18 @@
+{
+ "key": "b4192062e485a949114af6e270394ad5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每支铅笔2元，买5支就是求5个2元是多少，用乘法：2×5=10（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"10\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 304,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1188.3762999204919,
+ "ttft_ms": 1188.406299916096,
+ "total_ms": 1823.2755999779329
+}

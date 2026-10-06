@@ -1,0 +1,18 @@
+{
+ "key": "299c9cfbe2be2bf1a326a2ff54872950",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A的三道题均为多步推理、涉及逆向思维和复杂单位“1”转换的拔高题，情境多样且数据设计巧妙，能有效暴露易错点；练习B的题目思维含量较低，多为一步或两步正向计算，难度未达‘很难的拔高题’要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 632,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2361.6642999695614,
+ "ttft_ms": 2361.684500006959,
+ "total_ms": 4496.092099929228
+}

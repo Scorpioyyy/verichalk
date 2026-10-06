@@ -1,0 +1,18 @@
+{
+ "key": "5cb04422775df294d1818eac5848bf09",
+ "model": "qwen3.7-plus",
+ "purpose": "naive.write",
+ "text": "{\n  \"items\": [\n    {\n      \"stem\": \"一个数，个位上是5，十位上是3，这个数是（ ）。\",\n      \"answer\": \"B\",\n      \"solution\": \"十位是3表示3个十，个位是5表示5个一，合起来是35。\"\n    },\n    {\n      \"stem\": \"和79相邻的两个数是（ ）。\",\n      \"answer\": \"C\",\n      \"solution\": \"79前面的数是78，后面的数是80，所以相邻的两个数是78和80。\"\n    },\n    {\n      \"stem\": \"在100以内，比60大且比70小的数有（ ）个。\",\n      \"answer\": \"B\",\n      \"solution\": \"比60大且比70小的数有：61、62、63、64、65、66、67、68、69，共9个。\"\n    },\n    {\n      \"stem\": \"最大的两位数与最小的两位数的差是（ ）。\",\n      \"answer\": \"A\",\n      \"solution\": \"最大的两位数是99，最小的两位数是10，99 - 10 = 89。\"\n    },\n    {\n      \"stem\": \"下面各数中，最接近50的数是（ ）。\",\n      \"answer\": \"C\",\n      \"solution\": \"48与50相差2，53与50相差3，45与50相差5。因为2 < 3 < 5，所以48最接近50。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 90,
+  "completion_tokens": 378,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1577.7446000138298,
+ "ttft_ms": 1601.8210999900475,
+ "total_ms": 8010.669899987988
+}

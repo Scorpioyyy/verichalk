@@ -1,0 +1,18 @@
+{
+ "key": "420bc46aa58f1c5f43abe1382433e47d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4支钢笔共8.5×4=34元，50-34=16元，16>15，所以够买笔记本。\", \"answers\": [{\"label\": \"买完钢笔后还剩多少元\", \"value\": \"16\", \"unit\": \"元\"}, {\"label\": \"剩下的钱够不够买笔记本\", \"value\": \"够\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 346,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2586.9862999534234,
+ "ttft_ms": 2587.0128999231383,
+ "total_ms": 3349.935399950482
+}

@@ -1,0 +1,18 @@
+{
+ "key": "0857ee90869321255261dee17d16a5e1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"4支钢笔共花：3.5×4=14（元）。剩下的钱：50-14=36（元），正好买一本笔记本，所以笔记本36元。\", \"answers\": [{\"label\": \"这本笔记本多少元\", \"value\": \"36\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 19641.357799991965,
+ "ttft_ms": 19641.376200015657,
+ "total_ms": 20401.84180007782
+}

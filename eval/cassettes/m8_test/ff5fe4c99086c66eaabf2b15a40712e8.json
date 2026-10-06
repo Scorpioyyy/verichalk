@@ -1,0 +1,18 @@
+{
+ "key": "ff5fe4c99086c66eaabf2b15a40712e8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"奖金由1个千、0个百、5个十和3个一组成，即1053元。平均分给4个班：1053÷4=263.25（元）。\", \"answers\": [{\"label\": \"每班分得多少元\", \"value\": \"263.25\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 344,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3323.0212000198662,
+ "ttft_ms": 3323.24499997776,
+ "total_ms": 4200.57149999775
+}

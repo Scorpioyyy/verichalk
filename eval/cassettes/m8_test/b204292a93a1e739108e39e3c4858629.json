@@ -1,0 +1,18 @@
+{
+ "key": "b204292a93a1e739108e39e3c4858629",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"上半场得分23分，交换十位和个位数字得到32分。两数相加：23+32=55。55的十位数字是5，个位数字也是5，所以十位数字和个位数字相同。\", \"answers\": [{\"label\": \"两个分数的和\", \"value\": \"55\", \"unit\": \"分\"}, {\"label\": \"十位数字和个位数字的关系\", \"value\": \"相同\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 116,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8390.341600053944,
+ "ttft_ms": 8390.35890006926,
+ "total_ms": 10863.44480002299
+}

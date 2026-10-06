@@ -1,0 +1,18 @@
+{
+ "key": "211011983154ccb8a781f7f58e358bfc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原直径10米，半径5米，原面积=3.14×5²=78.5平方米。扩建后直径10+4=14米，半径7米，新面积=3.14×7²=153.86平方米。增加面积=153.86-78.5=75.36平方米。\", \"answers\": [{\"label\": \"花坛的种植面积增加了多少平方米\", \"value\": \"75.36\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 340,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1478.9235999342054,
+ "ttft_ms": 1478.9492000127211,
+ "total_ms": 2374.0529000060633
+}

@@ -1,0 +1,18 @@
+{
+ "key": "275bf3089c722a1f75dbe3ac17b2370c",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"家庭水电燃气\",\n      \"angle\": \"给出本月与上月的水表读数，求本月实际用水量。\",\n      \"roles\": {}\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 766,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1217.94260002207,
+ "ttft_ms": 1227.7791999513283,
+ "total_ms": 2275.5756999831647
+}

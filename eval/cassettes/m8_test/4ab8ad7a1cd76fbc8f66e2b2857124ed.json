@@ -1,0 +1,18 @@
+{
+ "key": "4ab8ad7a1cd76fbc8f66e2b2857124ed",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12.5:30 = 125:300 = 5:12，前项与后项的和为 5+12=17。\", \"answers\": [{\"label\": \"前项与后项的和\", \"value\": \"17\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3764.84800002072,
+ "ttft_ms": 3764.8760000010952,
+ "total_ms": 4303.186199977063
+}

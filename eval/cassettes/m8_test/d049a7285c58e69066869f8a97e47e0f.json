@@ -1,0 +1,18 @@
+{
+ "key": "d049a7285c58e69066869f8a97e47e0f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"比的基本性质\": true, \"分数除法的一般法则（除以不为0的数等于乘以它的倒数）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 604,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9995.587599929422,
+ "ttft_ms": 9995.62549998518,
+ "total_ms": 11755.836199969053
+}

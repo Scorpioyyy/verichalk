@@ -1,0 +1,18 @@
+{
+ "key": "448e7bf23fa2b3b3971189d8f53d88ff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 5, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"结合米制单位认识小数\"], \"units_of_measure\": [\"米\", \"分米\", \"厘米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4469,
+  "completion_tokens": 60,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14092.502600047737,
+ "ttft_ms": 14092.530000023544,
+ "total_ms": 14588.057600078173
+}

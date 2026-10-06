@@ -1,0 +1,18 @@
+{
+ "key": "4d7f09d351b8168a931a25b835530e56",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 48, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1.2\", \"4\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4407,
+  "completion_tokens": 101,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6568.415499990806,
+ "ttft_ms": 6568.442199961282,
+ "total_ms": 7467.039600014687
+}

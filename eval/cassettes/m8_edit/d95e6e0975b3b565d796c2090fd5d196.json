@@ -1,0 +1,18 @@
+{
+ "key": "d95e6e0975b3b565d796c2090fd5d196",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.6×5 表示5个0.6相加，0.6+0.6+0.6+0.6+0.6=3，所以积是3。\", \"answers\": [{\"label\": \"\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1147.0522000454366,
+ "ttft_ms": 1147.2415999742225,
+ "total_ms": 1784.467100049369
+}

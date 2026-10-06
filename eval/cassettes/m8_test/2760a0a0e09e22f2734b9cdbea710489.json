@@ -1,0 +1,18 @@
+{
+ "key": "2760a0a0e09e22f2734b9cdbea710489",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 3, \"kp_used\": {\"亿以内数的大小比较\": true, \"亿以内数的读法\": true}, \"issues\": [\"解析中比较大小的理由错误：30500200 与 30050200 的十万位都是 0，实际应从万位比起，万位上 5>0，故 A 市人口更多。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 595,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1067.7913000108674,
+ "ttft_ms": 1067.8054000018165,
+ "total_ms": 2327.1883999696
+}

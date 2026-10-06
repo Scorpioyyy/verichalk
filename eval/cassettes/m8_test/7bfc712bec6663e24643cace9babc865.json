@@ -1,0 +1,18 @@
+{
+ "key": "7bfc712bec6663e24643cace9babc865",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1190, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"890\", \"100\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"990\", \"100\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"1090\", \"100\"], \"mode\": null}], \"concepts\": [\"千以内数的数数\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4506,
+  "completion_tokens": 118,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3843.399800010957,
+ "ttft_ms": 3843.41799991671,
+ "total_ms": 4899.0426999516785
+}

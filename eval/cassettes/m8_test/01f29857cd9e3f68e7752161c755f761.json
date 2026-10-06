@@ -1,0 +1,18 @@
+{
+ "key": "01f29857cd9e3f68e7752161c755f761",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"整数运算律在分数运算中的应用\": false, \"连续分率关系求量\": true}, \"issues\": [\"声称涉及'整数运算律在分数运算中的应用'，但解析中只用了分数乘法和减法，未涉及整数运算律（如交换律、结合律、分配律），该知识点与解答无关。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 589,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1613.1369000067934,
+ "ttft_ms": 1613.1680000107735,
+ "total_ms": 2839.9348000530154
+}

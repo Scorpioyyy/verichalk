@@ -1,0 +1,18 @@
+{
+ "key": "7bb8197aa92e2c03307625fce995f5a8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 400, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"20\", \"20\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4.5\", \"4.5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"20.25\", \"2\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"10.125\", \"4\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"400\", \"40.5\"], \"mode\": null}], \"concepts\": [\"长方形和正方形的面积\", \"三角形的面积\"], \"units_of_measure\": [\"平方厘米\", \"厘米\"], \"geometry_vocab\": [\"正方形\", \"等腰三角形\", \"直角\", \"三角形\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4499,
+  "completion_tokens": 191,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12173.410999937914,
+ "ttft_ms": 12173.438100027852,
+ "total_ms": 13558.020399999805
+}

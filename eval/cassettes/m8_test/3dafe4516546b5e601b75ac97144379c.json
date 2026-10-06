@@ -1,0 +1,18 @@
+{
+ "key": "3dafe4516546b5e601b75ac97144379c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算4支铅笔的总价：4×2=8（元）。再算剩下的钱：50-8=42（元）。剩下的钱正好够买一本笔记本，所以笔记本42元。\", \"answers\": [{\"label\": \"这本笔记本多少元\", \"value\": \"42\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 20976.20279993862,
+ "ttft_ms": 20976.224999991246,
+ "total_ms": 22589.210100006312
+}

@@ -1,0 +1,18 @@
+{
+ "key": "a2a9640b545097d9fc7dade66a68c3e8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 105,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"12.5\", \"8.4\"], \"mode\": null}\n  ],\n  \"concepts\": [\"平行四边形的面积\", \"比较图形面积的方法（出入相补）\"],\n  \"units_of_measure\": [\"厘米\", \"平方厘米\"],\n  \"geometry_vocab\": [\"平行四边形\", \"三角形\", \"长方形\", \"底\", \"高\", \"面积\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4495,
+  "completion_tokens": 120,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2638.1266000680625,
+ "ttft_ms": 2638.140800059773,
+ "total_ms": 3742.5659000873566
+}

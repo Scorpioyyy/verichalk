@@ -1,0 +1,18 @@
+{
+ "key": "17b17cf4ebbcb5fa0c9f9dce0ed283a5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 480,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"12\", \"6\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"18\", \"6\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"30\", \"6\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"2\", \"3\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"5\", \"5\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"480\", \"3/10\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"480\", \"10\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"48\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比的基本性质\", \"按比例分配\"],\n  \"units_of_measure\": [\"毫升\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4494,
+  "completion_tokens": 247,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8004.339199978858,
+ "ttft_ms": 8004.36489994172,
+ "total_ms": 10399.420799920335
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6ad7c5071771947860873c0f7083ab9c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 120, \"decimal_places\": null, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"120\", \"3/4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"90\", \"2/3\"], \"mode\": null}], \"concepts\": [\"分数乘整数\", \"连续分率关系求量\"], \"units_of_measure\": [\"平方米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4461,
+  "completion_tokens": 109,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4895.702200010419,
+ "ttft_ms": 4895.723500056192,
+ "total_ms": 6447.306600050069
+}

@@ -1,0 +1,18 @@
+{
+ "key": "86b71662ec900d610f4fd46e7fdeb821",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：小明体检，标准体重35.5kg，实际比标准重2.8kg。求实际体重。考查小数加法进位（5+8=13进1）。数值：35.5+2.8=38.3。符合三年级范围。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    return [Decimal('35.5') + Decimal('2.8')]\",\n \"stem\": \"三年级学生小明的标准体重是 $35.5$ 千克，他现在的体重比标准体重重 $2.8$ 千克。小明现在的体重是多少千克？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"38.3\",\n   \"unit\": \"千克\"\n  }\n ],\n \"solution\": \"求比一个数多几的数用加法。列式 $35.5+2.8$，十分位 $5+8=13$，向个位进 $1$，个位 $5+2+1=8$，结果是 $38.3$ 千克。\",\n \"kp_use\": {\n  \"小数加减法中的进位与退位\": \"在计算 $35.5+2.8$ 时，十分位相加满十向个位进一\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2288,
+  "completion_tokens": 316,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1416.5237999986857,
+ "ttft_ms": 1429.2862000875175,
+ "total_ms": 6848.514000070281
+}

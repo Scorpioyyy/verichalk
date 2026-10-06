@@ -1,0 +1,18 @@
+{
+ "key": "85ea1c1bb9b9c5afbd108923e61df558",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"分数乘分数\": true, \"整数乘分数（求一个数的几分之几是多少）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 592,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6319.09290002659,
+ "ttft_ms": 6319.118399987929,
+ "total_ms": 6869.431599974632
+}

@@ -1,0 +1,18 @@
+{
+ "key": "42df0d7a9e2e3d749f1e0f306c073690",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2米=200厘米，18+200=218（厘米）。\", \"answers\": [{\"label\": \"\", \"value\": \"218\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 15245.273199980147,
+ "ttft_ms": 15245.300900074653,
+ "total_ms": 15789.145600050688
+}

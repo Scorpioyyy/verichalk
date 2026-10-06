@@ -1,0 +1,18 @@
+{
+ "key": "a749e3a4f1c4e723279b76495a279a35",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"上午采摘45筐，下午采摘30筐，一共是45+30=75筐。所以“现在一共有75筐苹果”这个说法是对的。\", \"answers\": [{\"label\": \"判断说法是否正确\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3120.18700002227,
+ "ttft_ms": 3120.2141999965534,
+ "total_ms": 4130.818100064062
+}

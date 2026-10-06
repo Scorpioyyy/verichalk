@@ -1,0 +1,18 @@
+{
+ "key": "18210b137887a6298aaddc3253d99877",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"转盘平均分成8份，指针停在每个区域的可能性相等。红色有3份，所以停在红色的可能性是3/8。蓝色有2份，占2/8=1/4，转动24次预计停在蓝色区域24×1/4=6次。\", \"answers\": [{\"label\": \"指针停在红色区域的可能性\", \"value\": \"3/8\", \"unit\": \"\"}, {\"label\": \"预计指针停在蓝色区域的次数\", \"value\": \"6\", \"unit\": \"次\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 375,
+  "completion_tokens": 125,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1943.3434000238776,
+ "ttft_ms": 1943.3763000415638,
+ "total_ms": 2919.0725999651477
+}

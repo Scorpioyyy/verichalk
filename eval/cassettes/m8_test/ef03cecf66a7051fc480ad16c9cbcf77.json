@@ -1,0 +1,18 @@
+{
+ "key": "ef03cecf66a7051fc480ad16c9cbcf77",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 3000,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"125\", \"4\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"125\", \"20\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"500\", \"2500\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"3000\", \"2800\"], \"mode\": null}\n  ],\n  \"concepts\": [\"两、三位数乘一位数（需要进位）\", \"三位数乘两位数的竖式计算与估算\"],\n  \"units_of_measure\": [\"千克\", \"公顷\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4480,
+  "completion_tokens": 174,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4108.438099967316,
+ "ttft_ms": 4108.458500006236,
+ "total_ms": 5663.820600020699
+}

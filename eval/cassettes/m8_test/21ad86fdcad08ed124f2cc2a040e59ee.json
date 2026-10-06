@@ -1,0 +1,18 @@
+{
+ "key": "21ad86fdcad08ed124f2cc2a040e59ee",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：折纸鹤。每件作品需要3张红纸和2张黄纸，共5张。要做12件。总纸张数 = (3+2) * 12 = 60。考察点：先算括号内的单件用量，再乘数量。数值在范围内，整数运算。\",\n \"solver_code\": \"def solve():\\n    red_per_item = 3\\n    yellow_per_item = 2\\n    count = 12\\n    total = (red_per_item + yellow_per_item) * count\\n    return [total]\",\n \"stem\": \"手工课上，小明要折 12 只纸鹤。每只纸鹤需要 3 张红纸和 2 张黄纸。他一共需要准备 ____ 张纸。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"60\",\n   \"unit\": \"张\"\n  }\n ],\n \"solution\": \"先算每只纸鹤需要的纸张数：$3+2=5$ 张。再算 12 只纸鹤的总数：$5\\\\times 12=60$ 张。综合算式为 $(3+2)\\\\times 12=60$。\",\n \"kp_use\": {\n  \"含小括号的混合运算\": \"在列综合算式 $(3+2)\\\\times 12$ 时，必须使用小括号确保先计算单件作品的纸张总和（加法），再进行乘法运算，体现了小括号改变运算顺序的作用。\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2255,
+  "completion_tokens": 362,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1684.697600081563,
+ "ttft_ms": 1699.4001000421122,
+ "total_ms": 8764.595000073314
+}

@@ -1,0 +1,18 @@
+{
+ "key": "defd239f830b17e9da5db9d0f8bfd777",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 305240000, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"亿以内数的读法\"], \"units_of_measure\": [\"千米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4453,
+  "completion_tokens": 54,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 21182.097499957308,
+ "ttft_ms": 21182.11860000156,
+ "total_ms": 21718.830999918282
+}

@@ -1,0 +1,18 @@
+{
+ "key": "dc4f1501f7cafe4da31c8f8a9c60cb82",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1000, \"decimal_places\": 3, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"125\", \"8\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1.25\", \"0.8\"], \"mode\": null}], \"concepts\": [\"小数乘小数的竖式计算（含补0与去0）\", \"小数的性质（末尾添0或去0大小不变）\"], \"units_of_measure\": [\"平方米\"], \"geometry_vocab\": [\"长方形\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4451,
+  "completion_tokens": 130,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4995.463699917309,
+ "ttft_ms": 4995.483799953945,
+ "total_ms": 5727.300999918953
+}

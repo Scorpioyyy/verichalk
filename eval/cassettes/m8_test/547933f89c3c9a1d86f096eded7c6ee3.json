@@ -1,0 +1,18 @@
+{
+ "key": "547933f89c3c9a1d86f096eded7c6ee3",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：制作营养沙拉，黄瓜与番茄的重量比是 3:5。已知用了 240g 黄瓜，求需要多少克番茄。这是典型的已知比例和一项求另一项。变式点在于：不直接给总重，也不给分数占比，而是给“部分:部分”的比例和其中一部分的量，要求学生建立比例关系求解。数据：黄瓜240g，比3:5。设番茄x克。3:5 = 240:x => 3x = 1200 => x=400。检查：240/400 = 24/40 = 3/5。正确。\",\n \"solver_code\": \"from fractions import Fraction\\n\\ndef solve():\\n    # 黄瓜重量\\n    cucumber_weight = 240\\n    # 黄瓜:番茄 = 3:5\\n    ratio_cucumber = 3\\n    ratio_tomato = 5\\n    \\n    # 列比例: 3/5 = 240/x  => 3 * x = 5 * 240\\n    # x = (5 * 240) / 3\\n    tomato_weight = (ratio_tomato * cucumber_weight) / ratio_cucumber\\n    \\n    return [tomato_weight]\",\n \"stem\": \"学校食堂正在配制一款健康蔬菜沙拉，食谱要求黄瓜与番茄的重量比为 $3:5$。如果厨师已经准备了 $240$ 克黄瓜，为了符合食谱比例，还需要准备多少克番茄？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"400\",\n   \"unit\": \"克\"\n  }\n ],\n \"solution\": \"设需要番茄 $x$ 克。根据题意列比例 $3:5=240:x$。由比例基本性质得 $3x=5\\\\times 240$，即 $3x=1200$，解得 $x=400$。所以需要准备 $400$ 克番茄。\",\n \"kp_use\": {\n  \"解比例\": \"将实际问题中的重量比转化为比例式 $3:5=240:x$，利用内项积等于外项积转化为方程 $3x=1200$ 并求解未知数 $x$\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2335,
+  "completion_tokens": 536,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1571.0395999485627,
+ "ttft_ms": 1571.1454999400303,
+ "total_ms": 10605.468699941412
+}

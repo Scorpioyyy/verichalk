@@ -1,0 +1,18 @@
+{
+ "key": "ce90eed54a76116711e168c788101eaa",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 30, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"15\", \"12\"], \"mode\": null}], \"concepts\": [\"12时记时法与24时记时法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4444,
+  "completion_tokens": 77,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6227.744100033306,
+ "ttft_ms": 6227.767099975608,
+ "total_ms": 6815.075000049546
+}

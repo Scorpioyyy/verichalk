@@ -1,0 +1,18 @@
+{
+ "key": "dd001fe6e8022e378ee6812470a6e152",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 35, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"35.5\", \"5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"28.4\", \"4\"], \"mode\": null}], \"concepts\": [\"判断并找出比例\", \"比的意义与写法\"], \"units_of_measure\": [\"千克\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4497,
+  "completion_tokens": 108,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3460.172999999486,
+ "ttft_ms": 3843.249899917282,
+ "total_ms": 5120.143099920824
+}

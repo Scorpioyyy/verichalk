@@ -1,0 +1,18 @@
+{
+ "key": "9fc91ca342ac3f3c6cb280130e5c0564",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方体有12条棱，乘客总数是棱数的4倍，即12×4=48人。持学生卡的人数占总人数的5/8，48÷8×5=30人。5/8的分数单位是1/8，5/8里面有5个1/8。\", \"answers\": [{\"label\": \"持学生卡的乘客有多少人\", \"value\": \"30\", \"unit\": \"人\"}, {\"label\": \"分数单位\", \"value\": \"1/8\", \"unit\": \"\"}, {\"label\": \"有几个这样的分数单位\", \"value\": \"5\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 365,
+  "completion_tokens": 146,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2761.925400001928,
+ "ttft_ms": 2761.9506999617442,
+ "total_ms": 4427.7226000558585
+}

@@ -1,0 +1,18 @@
+{
+ "key": "84cda19c8bc48b7e31c3e97b7f9f4875",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"一位小数的加减法（不进退位）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 548,
+  "completion_tokens": 65,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4638.025399995968,
+ "ttft_ms": 4638.054399983957,
+ "total_ms": 16468.933299998753
+}

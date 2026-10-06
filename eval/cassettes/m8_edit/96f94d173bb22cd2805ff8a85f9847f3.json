@@ -1,0 +1,18 @@
+{
+ "key": "96f94d173bb22cd2805ff8a85f9847f3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"解两步方程\": true}, \"issues\": [\"解析中把方程变形写成了 3x=7.5+4.5=12，正确应为 3x=9.5+4.5=14，解析抄错了数字\", \"由 3x-4.5=9.5 解得 x=14÷3=14/3，并非整数 4，给定答案 4 错误\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 487,
+  "completion_tokens": 137,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 998.7929000053555,
+ "ttft_ms": 998.8201999804005,
+ "total_ms": 2591.3970000110567
+}

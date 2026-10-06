@@ -1,0 +1,18 @@
+{
+ "key": "4552368e5cb489d43acf92a6418a5669",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"图上1个方格边长代表实际10000米，行进10个方格，实际距离为10000×10=100000米。\", \"answers\": [{\"label\": \"营地到观测点的实际距离\", \"value\": \"100000\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 14595.27219994925,
+ "ttft_ms": 14595.2942998847,
+ "total_ms": 15477.438099915162
+}

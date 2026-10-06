@@ -85,11 +85,15 @@ test.describe("D1 调试台", () => {
     await expect(dlg).toBeVisible();
     await expect(page.getByTestId("badcase-save")).toBeDisabled();
     await dlg.getByLabel("观察到的问题（必填）").fill("端到端测试：验证 badcase 入库");
-    await dlg.getByRole("button", { name: /W\s*创作/ }).click();
+    await dlg.getByRole("button", { name: /W\s*生成/ }).click();
     await page.getByTestId("badcase-save").click();
     await expect(page.getByText(/已入库：bc_/)).toBeVisible();
     await page.goto("/debug/badcases");
     await expect(page.getByTestId("badcase-table")).toContainText("端到端测试：验证 badcase 入库");
+
+    // 点左上角的"调试台"回到运行列表
+    await page.getByRole("link", { name: /VeriChalk 调试台/ }).click();
+    await expect(page.getByTestId("run-table")).toBeVisible();
     watch.expectClean();
   });
 

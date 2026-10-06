@@ -1,0 +1,18 @@
+{
+ "key": "dd24956cb2da0331000fdb99706cc1b9",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"B\",\n  \"reason\": \"B组题目情境更真实多样（牛栏、水表、喷灌），包含易错点（第2题非圆周长干扰、第4题直径增加需多步推理），综合性强（第5题一题两问），思维含量更高；A组题目结构单一，多为直接套公式，缺乏针对易错点的设计。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 671,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1807.9682000679895,
+ "ttft_ms": 1807.995800045319,
+ "total_ms": 3801.8076000735164
+}

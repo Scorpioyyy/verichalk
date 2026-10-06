@@ -1,0 +1,18 @@
+{
+ "key": "0e2a262e872f647134862c7b4b4e0f76",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3本练习本共 3×1.5=4.5 元，找回 10-4.5=5.5 元。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"5.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 320,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1211.6766999242827,
+ "ttft_ms": 1211.6966999601573,
+ "total_ms": 1770.2791999327019
+}

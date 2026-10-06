@@ -1,0 +1,18 @@
+{
+ "key": "75aa9c7f4ff8126c3c6025cb299f56e6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"88 × 1/2 = 88 ÷ 2 = 44\", \"answers\": [{\"label\": \"\", \"value\": \"44\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 291,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3396.8188000144437,
+ "ttft_ms": 3396.831599995494,
+ "total_ms": 3815.3795999241993
+}

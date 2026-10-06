@@ -1,0 +1,18 @@
+{
+ "key": "9ec52d9909d3db74723a66a4df61160b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 72, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"10\", \"6\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4\", \"3\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"60\", \"12\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4\", \"3\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"12\", \"2\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"72\", \"6\"], \"mode\": null}], \"concepts\": [\"组合图形的面积\", \"三角形的面积\"], \"units_of_measure\": [\"平方米\", \"米\"], \"geometry_vocab\": [\"长方形\", \"三角形\", \"底\", \"高\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4500,
+  "completion_tokens": 198,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1814.4440000178292,
+ "ttft_ms": 1814.4641000544652,
+ "total_ms": 3356.3666000263765
+}

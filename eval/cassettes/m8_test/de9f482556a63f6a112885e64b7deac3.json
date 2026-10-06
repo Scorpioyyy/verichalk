@@ -1,0 +1,18 @@
+{
+ "key": "de9f482556a63f6a112885e64b7deac3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"有余数的平均分\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 525,
+  "completion_tokens": 59,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 16155.882099992596,
+ "ttft_ms": 16174.511900055222,
+ "total_ms": 17310.303100035526
+}

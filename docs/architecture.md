@@ -166,7 +166,7 @@ Revision  paper_id, rev, patch[Op], snapshot, author: agent|user, run_id?, ts
 
 ```mermaid
 flowchart LR
-  spec[ItemSpec] --> write[write<br/>创作题面·答案·解析<br/>求解程序·特征·图形规格]
+  spec[ItemSpec] --> write[write<br/>生成题面·答案·解析<br/>求解程序·特征·图形规格]
   write --> checks
   subgraph checks[checks · 并行]
     c1[schema/数学语法]
@@ -192,11 +192,11 @@ flowchart LR
 目标：给出每道题要用哪些知识点、在什么情境里交织、什么难度、数值范围多大。
 
 1. **确定性候选**：`knowledge.anchor()`（需求 → 锚点知识点集，来自 `search` + 用户指定）；`ComboMiner` 在"已学范围"（`learned_before(lesson)`）内、以锚点为中心，沿 `prerequisite / builds_on / extends / related` 边及教材题型的 `secondary_knowledge_point_ids`（真实的跨点共现）挖掘 2～3 个知识点的组合，按边类型权重、图距离、共现强度、领域搭配打分，输出带理由的候选组合。
-2. **LLM 选择与创作**：在候选中选择并为每题给出情境与问法设想（情境库 `contexts_for` 提供年级适配的情境与数值范围）。
+2. **LLM 选择与生成**：在候选中选择并为每题给出情境与问法设想（情境库 `contexts_for` 提供年级适配的情境与数值范围）。
 3. **有界工具循环（兜底）**：候选不足或需求开放时，LLM 可在预算内（≤6 步）调用图检索工具探索（`kp_chain / kp_relations / review_candidates / archetypes_for / exercises_sample`）。
 4. 输出 `Blueprint`：`ItemSpec { kp_ids, tier, difficulty, kind, scene, number_constraints, rationale }`，并附 `retrieval.result` 事件供调试台绘制检索图。
 
-> 为什么确定性优先：可复现、延迟低、可单独评测（A5c 真综合率直接受益），LLM 只做"选择与创作"这种真正需要语义的事。
+> 为什么确定性优先：可复现、延迟低、可单独评测（A5c 真综合率直接受益），LLM 只做"选择与生成"这种真正需要语义的事。
 
 ## 6. 事件与 Trace（D6）
 

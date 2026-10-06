@@ -1,0 +1,18 @@
+{
+ "key": "67a35b356f8ec0586427ab57fb7e1940",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 5, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"0.6\", \"5\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4408,
+  "completion_tokens": 80,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1549.1364999907091,
+ "ttft_ms": 1549.1532000014558,
+ "total_ms": 2375.320899998769
+}

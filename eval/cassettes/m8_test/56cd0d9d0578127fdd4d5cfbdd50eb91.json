@@ -1,0 +1,18 @@
+{
+ "key": "56cd0d9d0578127fdd4d5cfbdd50eb91",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A的题目更具思维含量和多样性，包含判断推理、对折情境下的分数连乘、以及需要统一假设的比较题，能有效暴露易错点；练习B多为常规计算和一步应用题，难度和综合性不足，未充分体现'有点难度'的要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 644,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2555.7001000270247,
+ "ttft_ms": 2555.736599955708,
+ "total_ms": 4422.138300025836
+}

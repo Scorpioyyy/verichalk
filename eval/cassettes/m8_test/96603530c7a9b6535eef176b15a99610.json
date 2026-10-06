@@ -1,0 +1,18 @@
+{
+ "key": "96603530c7a9b6535eef176b15a99610",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 142,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"1\", \"0.35\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1\", \"0.42\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1\", \"0.38\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1\", \"0.40\"], \"mode\": null}\n  ],\n  \"concepts\": [\"结合米制单位认识小数\", \"小数大小的比较\"],\n  \"units_of_measure\": [\"米\", \"厘米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4557,
+  "completion_tokens": 168,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2895.1360000064597,
+ "ttft_ms": 2895.1719000469893,
+ "total_ms": 4143.178900005296
+}

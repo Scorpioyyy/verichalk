@@ -1,0 +1,18 @@
+{
+ "key": "0b8fe806c038126ad2727752d4d466d4",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B的情境更真实有趣（智慧果园、篮球赛、环保回收），题目需要多步推理和比较（如第4题需分别计算再比较），且包含易错点（如第1题数位对齐错误），整体思维含量和多样性更高；练习A情境单一、多为直接计算，综合性和针对性稍弱。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 711,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2322.9514999547973,
+ "ttft_ms": 2322.982899961062,
+ "total_ms": 4047.34140005894
+}

@@ -1,0 +1,18 @@
+{
+ "key": "67d8020fbb0264f4cba20c70c7342f0f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"408÷4=102（分钟）。验算：102×4=408，与被除数相同，计算正确。\", \"answers\": [{\"label\": \"小华一共跳了多少分钟\", \"value\": \"102\", \"unit\": \"分钟\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6758.116999990307,
+ "ttft_ms": 6758.133499999531,
+ "total_ms": 7449.802299961448
+}

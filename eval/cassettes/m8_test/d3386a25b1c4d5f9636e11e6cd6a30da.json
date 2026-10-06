@@ -1,0 +1,18 @@
+{
+ "key": "d3386a25b1c4d5f9636e11e6cd6a30da",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer\": 12,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"12\", \"8\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"20\", \"2\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"40\", \"2\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"20\", \"15\"], \"mode\": null}\n  ],\n  \"concepts\": [\"长方形和正方形周长的计算公式\"],\n  \"units_of_measure\": [\"米\"],\n  \"geometry_vocab\": [\"长方形\", \"长\", \"宽\", \"周长\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4484,
+  "completion_tokens": 161,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6123.472300008871,
+ "ttft_ms": 6123.492200043984,
+ "total_ms": 7572.637400007807
+}

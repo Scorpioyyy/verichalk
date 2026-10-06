@@ -1,0 +1,18 @@
+{
+ "key": "5a5d012ccf12bfc0627493b9aabc06a9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把5个成绩相加：420+435+410+445+430=2140（厘米），再除以5：2140÷5=428（厘米）。\", \"answers\": [{\"label\": \"平均跳远成绩\", \"value\": \"428\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2011.022899998352,
+ "ttft_ms": 2011.0416000243276,
+ "total_ms": 2816.394600085914
+}

@@ -1,0 +1,18 @@
+{
+ "key": "37c0243cd64d665489c3b29aca03ec29",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 84, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"x\", \"3x\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"84\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"3\", \"21\"], \"mode\": null}], \"concepts\": [\"用方程解决\\\"和倍\\\"问题\", \"倍的认识\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4456,
+  "completion_tokens": 122,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12089.24310002476,
+ "ttft_ms": 12089.266299968585,
+ "total_ms": 13159.13060004823
+}

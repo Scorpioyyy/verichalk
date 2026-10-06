@@ -1,0 +1,18 @@
+{
+ "key": "3c2d8a202697d7d288d0cd823508bbba",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方体棱长总和 = (长+宽+高)×4 = (15+10+5)×4 = 30×4 = 120（厘米）。铁丝长度的 3/8 = 120×3/8 = 45（厘米）。\", \"answers\": [{\"label\": \"铁丝长度的3/8是多少厘米\", \"value\": \"45\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 97,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7836.162599967793,
+ "ttft_ms": 7836.210199980997,
+ "total_ms": 8823.66989995353
+}

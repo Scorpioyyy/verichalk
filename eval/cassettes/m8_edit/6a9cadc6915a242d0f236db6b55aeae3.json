@@ -1,0 +1,18 @@
+{
+ "key": "6a9cadc6915a242d0f236db6b55aeae3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把5天收集的数量相加：12+15+10+13+10=60（节），再除以天数5：60÷5=12（节）。\", \"answers\": [{\"label\": \"平均每天收集多少节\", \"value\": \"12\", \"unit\": \"节\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 345,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3091.798499925062,
+ "ttft_ms": 3091.8291999259964,
+ "total_ms": 3770.205399952829
+}

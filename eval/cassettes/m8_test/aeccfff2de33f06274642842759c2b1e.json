@@ -1,0 +1,18 @@
+{
+ "key": "aeccfff2de33f06274642842759c2b1e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"异分母分数加减法（通分）\": true, \"相邻单位分数之差的规律\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 673,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1361.7816999321803,
+ "ttft_ms": 1361.7969999322668,
+ "total_ms": 1660.7455998891965
+}

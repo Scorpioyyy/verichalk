@@ -1,0 +1,18 @@
+{
+ "key": "ff1c0a1c11ebbdd16a9ef12ff57690a4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"一班现在有24+5=29个；二班现在有36-30=6个。29>6，所以一班更多。\", \"answers\": [{\"label\": \"哪个班的塑料瓶数量更多\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 362,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2607.359900022857,
+ "ttft_ms": 2607.3974000755697,
+ "total_ms": 4257.675200002268
+}

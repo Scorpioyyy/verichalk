@@ -1,0 +1,18 @@
+{
+ "key": "5e3c408c7085eff244d85d7f523de1f1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三角形面积=底×高÷2，所以底=面积×2÷高。12.6×2=25.2，25.2÷4=6.3。\", \"answers\": [{\"label\": \"底边长\", \"value\": \"6.3\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 327,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2278.978900052607,
+ "ttft_ms": 2279.005500022322,
+ "total_ms": 3756.5455000149086
+}

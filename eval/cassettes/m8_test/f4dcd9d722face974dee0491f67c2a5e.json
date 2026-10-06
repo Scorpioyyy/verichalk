@@ -1,0 +1,18 @@
+{
+ "key": "f4dcd9d722face974dee0491f67c2a5e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 21,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"18\", \"3\"], \"mode\": null}\n  ],\n  \"concepts\": [\"100以内数的数数方法\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4504,
+  "completion_tokens": 83,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6342.216099961661,
+ "ttft_ms": 6342.246199958026,
+ "total_ms": 6975.892399903387
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d248b4ea6402fa7b0f5825612aa46191",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 125, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"1.25\", \"100\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.75\", \"100\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"125\", \"25\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"75\", \"25\"], \"mode\": null}], \"concepts\": [\"比的基本性质\", \"化简比\"], \"units_of_measure\": [\"升\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4453,
+  "completion_tokens": 144,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3225.4152999958023,
+ "ttft_ms": 3225.4298999905586,
+ "total_ms": 4816.757199936546
+}

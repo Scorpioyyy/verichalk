@@ -1,0 +1,18 @@
+{
+ "key": "5d4e5fb1b270fc0ec818b55c8555c8a1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"转盘上1到6，两次转动的数字相加等于7的情况有：1+6、2+5、3+4、4+3、5+2、6+1。题目问“不同的两个数相加等于7”，即不考虑顺序，不同的两个数组合有：1和6、2和5、3和4，共3组。\", \"answers\": [{\"label\": \"一共有多少组不同的两个数相加等于7\", \"value\": \"3\", \"unit\": \"组\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 359,
+  "completion_tokens": 124,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10366.897400002927,
+ "ttft_ms": 10366.92039994523,
+ "total_ms": 14310.738899977878
+}

@@ -1,0 +1,18 @@
+{
+ "key": "65914e8787f52f9c48fea12b6539bc5e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 180, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"180\", \"65\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"115\", \"48\"], \"mode\": null}], \"concepts\": [\"三角形内角和\"], \"units_of_measure\": [\"度\"], \"geometry_vocab\": [\"三角形\", \"内角和\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4404,
+  "completion_tokens": 99,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1758.345099980943,
+ "ttft_ms": 1758.3593999734148,
+ "total_ms": 2586.0617000143975
+}

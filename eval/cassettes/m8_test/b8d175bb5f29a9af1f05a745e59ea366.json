@@ -1,0 +1,18 @@
+{
+ "key": "b8d175bb5f29a9af1f05a745e59ea366",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 15, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"2\", \"3.14\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"6.28\", \"15\"], \"mode\": null}], \"concepts\": [\"圆的周长计算公式\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": [\"圆\", \"半径\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4478,
+  "completion_tokens": 103,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4583.301300066523,
+ "ttft_ms": 4583.46520003397,
+ "total_ms": 4658.052799990401
+}

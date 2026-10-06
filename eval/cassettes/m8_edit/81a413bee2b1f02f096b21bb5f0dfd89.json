@@ -1,0 +1,18 @@
+{
+ "key": "81a413bee2b1f02f096b21bb5f0dfd89",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"小数加减混合运算\": true}, \"issues\": [\"解析计算错误：12.6-3.45=9.15，9.15+0.8=9.95，与给定答案9.85不一致。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 493,
+  "completion_tokens": 96,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 997.5814999779686,
+ "ttft_ms": 997.5974999833852,
+ "total_ms": 1680.5596000049263
+}

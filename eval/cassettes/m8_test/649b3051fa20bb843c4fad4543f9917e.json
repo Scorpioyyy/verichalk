@@ -1,0 +1,18 @@
+{
+ "key": "649b3051fa20bb843c4fad4543f9917e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 7, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"余数比除数小的规律\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4444,
+  "completion_tokens": 51,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7721.012299996801,
+ "ttft_ms": 8097.393799922429,
+ "total_ms": 8169.267699937336
+}

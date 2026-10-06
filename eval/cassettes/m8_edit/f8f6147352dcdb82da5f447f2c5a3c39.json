@@ -1,0 +1,18 @@
+{
+ "key": "f8f6147352dcdb82da5f447f2c5a3c39",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": false}, \"issues\": [\"题目中铅笔单价2元是整数，不涉及小数乘法，与声称的知识点不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 477,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1257.2412999579683,
+ "ttft_ms": 1257.2593999793753,
+ "total_ms": 2023.1705999467522
+}

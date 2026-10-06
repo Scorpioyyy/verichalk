@@ -1,0 +1,18 @@
+{
+ "key": "f61caa20d51333ee62cc574922cd0f57",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A全部是三位数乘两位数的应用题，情境多样（购书、行程、生产、面积、果园），数据合理，难度符合要求；练习B前两题是两位数乘两位数，不符合'三位数乘两位数'的知识点要求，且情境单一（均为学校活动），思维含量较低。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 574,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2087.0074999984354,
+ "ttft_ms": 2087.03370008152,
+ "total_ms": 3813.8081000652164
+}

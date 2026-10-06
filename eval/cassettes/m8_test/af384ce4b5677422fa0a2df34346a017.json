@@ -1,0 +1,18 @@
+{
+ "key": "af384ce4b5677422fa0a2df34346a017",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习B情境真实多样（科学实验、猎豹速度、购物比较、生活冲泡），思维含量更高（需判断比例、多步推理调整水量），且有意暴露小数比、不同单位比、比例意义等易错点，更贴合六年级比的认识要求；练习A题型传统、情境单一，多为一步计算。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 643,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2296.154799987562,
+ "ttft_ms": 2296.1806000676006,
+ "total_ms": 4000.9826000314206
+}

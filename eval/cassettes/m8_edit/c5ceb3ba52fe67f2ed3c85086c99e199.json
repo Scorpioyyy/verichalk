@@ -1,0 +1,18 @@
+{
+ "key": "c5ceb3ba52fe67f2ed3c85086c99e199",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"5次成绩总和：102+98+110+105=415（个），平均每次：415÷5=83（个）。\", \"answers\": [{\"label\": \"平均每次跳多少个\", \"value\": \"83\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 315,
+  "completion_tokens": 70,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1099.36520003248,
+ "ttft_ms": 1099.3823000462726,
+ "total_ms": 1694.1405000397936
+}

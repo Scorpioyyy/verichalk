@@ -1,0 +1,18 @@
+{
+ "key": "6f340e4a0c48c8216ba6c4e53447fdf8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"题目条件：一个书包42元，一盒水彩笔9元。小明带了100元，买了1个书包和4盒水彩笔。先算4盒水彩笔：9×4=36元；再算总花费：42+36=78元；最后算找回：100-78=22元。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"22\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 341,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11134.621699922718,
+ "ttft_ms": 11134.640199947171,
+ "total_ms": 12070.845799986273
+}

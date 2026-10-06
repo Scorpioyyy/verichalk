@@ -1,0 +1,18 @@
+{
+ "key": "8c051c047d01fdcb6cb5a73e8ee28eb4",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A题目难度跨度大（如29+70、16+82与53+44的比较）且包含连加连减，不符合一年级基础口算要求；练习B全部为20以内加减法，题型统一、难度适中，更贴近课本基础口算练习。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 464,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2405.4138999199495,
+ "ttft_ms": 2405.450399965048,
+ "total_ms": 4131.388199981302
+}

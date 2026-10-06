@@ -1,0 +1,18 @@
+{
+ "key": "6a1637131bbb2bb94a408d25358ac183",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算一共花了多少元：128+95+167=390（元）。再用带的钱减去花掉的钱：500-390=110（元）。\", \"answers\": [{\"label\": \"爸爸还剩多少元\", \"value\": \"110\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11505.382900009863,
+ "ttft_ms": 11505.397900007665,
+ "total_ms": 12306.78570002783
+}

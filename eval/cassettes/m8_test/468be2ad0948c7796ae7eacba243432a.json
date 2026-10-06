@@ -1,0 +1,18 @@
+{
+ "key": "468be2ad0948c7796ae7eacba243432a",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"题目设计为计算题，考查整十万数的组成。设定距离为 360,000 千米。问包含多少个十万。360000 / 100000 = 36。符合四年级认知，数值在范围内。\",\n \"solver_code\": \"def solve():\\n    return [36]\",\n \"stem\": \"计算：$360000$ 里面有 ____ 个十万。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"36\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"因为 $10$ 个一万是十万，所以 $100000$ 里有 $1$ 个十万。$360000$ 是 $36$ 个万组成的，也就是 $36$ 个十万。\",\n \"kp_use\": {\n  \"计数单位十万的认识\": \"理解十万与万的进率关系，通过除法或数位分析确定大数中包含的计数单位个数\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2392,
+  "completion_tokens": 254,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2591.793500003405,
+ "ttft_ms": 2993.0769000202417,
+ "total_ms": 7804.845300037414
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d3d9429d9b48c5a4fa83d927fa583cf8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"剩下的6个不够再装一袋，说明每袋装的个数比6多，所以每袋最少装7个。\", \"answers\": [{\"label\": \"每袋最少装的个数\", \"value\": \"7\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7266.246199957095,
+ "ttft_ms": 7266.270600026473,
+ "total_ms": 8830.065899994224
+}

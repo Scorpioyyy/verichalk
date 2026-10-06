@@ -1,0 +1,18 @@
+{
+ "key": "14309230cabb8814cc23d97542e29027",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算日记本总价：4.8×5=24（元）；再算圆珠笔总价：2.5×3=7.5（元）；一共花：24+7.5=31.5（元）；应找回：50-31.5=18.5（元）。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"18.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4267.24740001373,
+ "ttft_ms": 4267.2625000122935,
+ "total_ms": 5851.0633000405505
+}

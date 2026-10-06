@@ -1,0 +1,18 @@
+{
+ "key": "a69621b9f7388137755a66f73c3acc62",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 62,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"31\", \"31\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"62\", \"5\"], \"mode\": null}\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4499,
+  "completion_tokens": 76,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3729.9080999800935,
+ "ttft_ms": 3729.9243999877945,
+ "total_ms": 4451.735099893995
+}

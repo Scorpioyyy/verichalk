@@ -1,0 +1,18 @@
+{
+ "key": "b8684bb0c5f9c138e195f9ca66d547f9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"用四舍五入法求大数的近似数\": true, \"亿以上计数单位与十进制数位顺序表\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 642,
+  "completion_tokens": 80,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4805.947200045921,
+ "ttft_ms": 4805.971199995838,
+ "total_ms": 5394.604700035416
+}

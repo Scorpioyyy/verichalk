@@ -1,0 +1,18 @@
+{
+ "key": "c927e1a22a7babb2ba123c8677a60907",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A的第2题与年月日无关，且整体思维含量低、情境单一；练习B全部围绕年月日，情境真实多样，包含闰年推理、跨月天数计算、24时计时法转换和周期推算，能有效暴露易错点，更贴合要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 503,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1906.002499978058,
+ "ttft_ms": 1906.0296999523416,
+ "total_ms": 3385.39019995369
+}

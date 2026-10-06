@@ -1,0 +1,18 @@
+{
+ "key": "eaba4db2ad898ccd399f02719ad74de2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 50, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"50\", \"20\"], \"mode\": null}], \"concepts\": [\"厘米的认识与用直尺测量长度\"], \"units_of_measure\": [\"厘米\", \"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4434,
+  "completion_tokens": 80,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1611.6437000455335,
+ "ttft_ms": 1611.6629999596626,
+ "total_ms": 2557.3540000477806
+}

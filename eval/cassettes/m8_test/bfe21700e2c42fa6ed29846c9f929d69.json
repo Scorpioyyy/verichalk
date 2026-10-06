@@ -1,0 +1,18 @@
+{
+ "key": "bfe21700e2c42fa6ed29846c9f929d69",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 750, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3\", \"250\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"750\", \"5\"], \"mode\": null}], \"concepts\": [\"比例的基本性质\", \"解比例\"], \"units_of_measure\": [\"克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4478,
+  "completion_tokens": 97,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9560.905300080776,
+ "ttft_ms": 9560.937900096178,
+ "total_ms": 10887.04330008477
+}

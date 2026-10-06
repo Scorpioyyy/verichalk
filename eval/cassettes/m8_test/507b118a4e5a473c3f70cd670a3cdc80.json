@@ -1,0 +1,18 @@
+{
+ "key": "507b118a4e5a473c3f70cd670a3cdc80",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 52, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"45\", \"3\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"52\", \"2\"], \"mode\": null}], \"concepts\": [\"100以内数的大小比较\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4475,
+  "completion_tokens": 93,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5345.327000017278,
+ "ttft_ms": 5661.637800047174,
+ "total_ms": 6383.309700060636
+}

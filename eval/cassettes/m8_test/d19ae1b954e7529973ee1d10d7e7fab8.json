@@ -1,0 +1,18 @@
+{
+ "key": "d19ae1b954e7529973ee1d10d7e7fab8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"牛栏是圆形的，围一圈栅栏的长度就是圆的周长。圆的周长公式：C = 2πr。半径 r = 15 米，π 取 3.14，所以 C = 2 × 3.14 × 15 = 94.2 米。\", \"answers\": [{\"label\": \"至少需要多少米长的栅栏\", \"value\": \"94.2\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 329,
+  "completion_tokens": 110,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1170.2153000514954,
+ "ttft_ms": 1170.2402000082657,
+ "total_ms": 5113.838999997824
+}

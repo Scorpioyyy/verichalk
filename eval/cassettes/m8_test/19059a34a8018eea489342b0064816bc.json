@@ -1,0 +1,18 @@
+{
+ "key": "19059a34a8018eea489342b0064816bc",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"相邻两条等高线海拔差为900-850=50米，即等高距为50米。从900米等高线往高处数，第1条是950米，第2条是1000米，第3条是1050米。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 378,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3712.274400051683,
+ "ttft_ms": 3712.3022000305355,
+ "total_ms": 4274.980599991977
+}

@@ -1,0 +1,18 @@
+{
+ "key": "757695e8bd8e5dc0fa6654e52d22d657",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）25.5+14.5=40（元）。（2）50-40=10（元）。\", \"answers\": [{\"label\": \"一共花了多少元\", \"value\": \"40\", \"unit\": \"元\"}, {\"label\": \"应找回多少元\", \"value\": \"10\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1365.9450000850484,
+ "ttft_ms": 1365.9612000919878,
+ "total_ms": 2135.3828000137582
+}

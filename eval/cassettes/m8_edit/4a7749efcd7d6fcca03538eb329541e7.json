@@ -1,0 +1,18 @@
+{
+ "key": "4a7749efcd7d6fcca03538eb329541e7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"改写后题目从单一商品两步计算变为两种商品多步计算，步骤更多、计算更复杂，体现了难度提升的要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 211,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1101.0122000006959,
+ "ttft_ms": 1101.0295000160113,
+ "total_ms": 1939.2605000175536
+}

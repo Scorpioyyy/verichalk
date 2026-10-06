@@ -1,0 +1,18 @@
+{
+ "key": "d35f029a118a24dd557134e17764dd43",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原来15人，上来3人后是15+3=18人，再下去5人后是18-5=13人。\", \"answers\": [{\"label\": \"\", \"value\": \"13\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1505.7798000052571,
+ "ttft_ms": 1505.8089999947697,
+ "total_ms": 2345.695300027728
+}

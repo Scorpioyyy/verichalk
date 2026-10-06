@@ -1,0 +1,18 @@
+{
+ "key": "854bcecd7d6158b9fad07264828fb27b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"原来45人，上车23人，人数增加，用加法；下车12人，人数减少，用减法。所以列式为45+23-12=56。\", \"answers\": [{\"label\": \"正确列式\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 369,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5001.797499950044,
+ "ttft_ms": 5001.822600024752,
+ "total_ms": 5676.1216999730095
+}

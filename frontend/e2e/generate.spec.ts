@@ -134,7 +134,7 @@ test.describe("S9 异常与追问", () => {
     await expect(page.getByText(/不在我的能力范围/)).toBeVisible();
     await expect(page.getByTestId("item")).toHaveCount(0);
 
-    // 点左上角的标志回到主页面（对话保存在"历史"里）
+    // 点左上角的标志回到主页面（对话保存在"历史对话"里）
     await page.getByRole("link", { name: "VeriChalk 首页" }).click();
     await expect(page.getByRole("heading", { name: "今天想出什么题？" })).toBeVisible();
   });
@@ -143,7 +143,7 @@ test.describe("S9 异常与追问", () => {
     await page.goto("/");
     await expectFirstFeedbackFast(page, "帮我写一首关于春天的诗");
     await waitRunDone(page);
-    await page.getByRole("button", { name: "历史" }).click();
+    await page.getByRole("button", { name: "历史对话" }).click();
     const menu = page.getByRole("menu", { name: "历史对话" });
     await menu
       .getByRole("button", { name: /^重命名/ })
@@ -151,12 +151,14 @@ test.describe("S9 异常与追问", () => {
       .click();
     const box = menu.getByRole("textbox", { name: "对话标题" });
     await box.fill("端到端：改名后的对话");
-    await box.press("Enter");
+    // 不按回车：点一下空白处就算改完——菜单保持打开，教师能立刻看到改名结果
+    await page.mouse.click(700, 400);
     await expect(menu.getByRole("menuitem", { name: /端到端：改名后的对话/ })).toBeVisible();
+    await expect(menu.getByRole("textbox", { name: "对话标题" })).toHaveCount(0);
 
     // 刷新后标题仍在（已保存到后端）
     await page.reload();
-    await page.getByRole("button", { name: "历史" }).click();
+    await page.getByRole("button", { name: "历史对话" }).click();
     const again = page.getByRole("menu", { name: "历史对话" });
     await expect(again.getByRole("menuitem", { name: /端到端：改名后的对话/ })).toBeVisible();
 
@@ -167,5 +169,6 @@ test.describe("S9 异常与追问", () => {
     await again.getByRole("button", { name: "删除“端到端：改名后的对话”" }).click();
     await again.getByRole("button", { name: "删除", exact: true }).click();
     await expect(again.getByRole("menuitem", { name: /端到端：改名后的对话/ })).toHaveCount(0);
+    await expect(again).toBeVisible(); // 删除后菜单保持打开，教师能看到它已经没了
   });
 });

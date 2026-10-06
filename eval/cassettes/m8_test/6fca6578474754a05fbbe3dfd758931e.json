@@ -1,0 +1,18 @@
+{
+ "key": "6fca6578474754a05fbbe3dfd758931e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"9.4×9 = 9.4×(10-1) = 94 - 9.4 = 84.6\", \"answers\": [{\"label\": \"\", \"value\": \"84.6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 293,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1413.0344999721274,
+ "ttft_ms": 1413.2614000700414,
+ "total_ms": 3130.219000042416
+}

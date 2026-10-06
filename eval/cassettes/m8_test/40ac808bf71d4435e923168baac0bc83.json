@@ -1,0 +1,18 @@
+{
+ "key": "40ac808bf71d4435e923168baac0bc83",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 8640, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"8640\", \"72\"], \"mode\": null}], \"concepts\": [\"除法竖式计算前估计商的位数\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4455,
+  "completion_tokens": 78,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2914.0481000067666,
+ "ttft_ms": 2914.0737999696285,
+ "total_ms": 3579.1391000384465
+}

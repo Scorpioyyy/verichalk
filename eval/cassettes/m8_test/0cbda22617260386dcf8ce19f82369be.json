@@ -1,0 +1,18 @@
+{
+ "key": "0cbda22617260386dcf8ce19f82369be",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"平年上半年：31+28+31+30+31+30=179天。下半年：31+31+30+31+30+31=184天。差值：184-179=5天。闰年2月29天，上半年180天，差值4天。题目指定平年。\",\n \"solver_code\": \"def solve():\\n    # 平年各月天数\\n    days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\\n    first_half = sum(days[:6])\\n    second_half = sum(days[6:])\\n    return [second_half - first_half]\",\n \"stem\": \"计算：平年的上半年比下半年少____天\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"5\",\n   \"unit\": \"天\"\n  }\n ],\n \"solution\": \"平年上半年有 $31+28+31+30+31+30=179$ 天，下半年有 $31+31+30+31+30+31=184$ 天。下半年比上半年多 $184-179=5$ 天，即上半年比下半年少 5 天。\",\n \"kp_use\": {\n  \"各月天数与平年闰年的规律\": \"识别平年2月为28天，区分大月（31天）和小月（30天），分别计算上半年和下半年的总天数并求差\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2214,
+  "completion_tokens": 413,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2542.864099959843,
+ "ttft_ms": 2554.2171000270173,
+ "total_ms": 9565.147200017236
+}

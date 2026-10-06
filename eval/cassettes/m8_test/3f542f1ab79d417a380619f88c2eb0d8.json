@@ -1,0 +1,18 @@
+{
+ "key": "3f542f1ab79d417a380619f88c2eb0d8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 96000, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"8000\", \"12\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"7805\", \"12\"], \"mode\": null}], \"concepts\": [\"三位数乘两位数的竖式计算与估算\"], \"units_of_measure\": [\"千米\", \"时\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4473,
+  "completion_tokens": 105,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1547.419699956663,
+ "ttft_ms": 1547.438699984923,
+ "total_ms": 2481.265699956566
+}

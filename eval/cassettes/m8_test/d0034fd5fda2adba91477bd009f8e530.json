@@ -1,0 +1,18 @@
+{
+ "key": "d0034fd5fda2adba91477bd009f8e530",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 130000, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12\", \"10000\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1\", \"100000\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"3\", \"10000\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"100000\", \"30000\"], \"mode\": null}], \"concepts\": [\"亿以内数的大小比较\", \"万以内数的数位顺序与组成\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4477,
+  "completion_tokens": 153,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8169.925400055945,
+ "ttft_ms": 8169.94750010781,
+ "total_ms": 9285.15370003879
+}

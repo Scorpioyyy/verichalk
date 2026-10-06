@@ -1,0 +1,18 @@
+{
+ "key": "88fd43f34d83e5796864b75f34ddefd5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"“1日”是10小时，“1年”是60个这样的“日”，所以1年共有 60×10=600 小时。\", \"answers\": [{\"label\": \"“开普勒星”的“1年”共有多少小时\", \"value\": \"600\", \"unit\": \"小时\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 360,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6008.951300056651,
+ "ttft_ms": 6008.969700080343,
+ "total_ms": 6648.07820005808
+}

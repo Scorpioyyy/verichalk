@@ -1,0 +1,18 @@
+{
+ "key": "2c8d7728c51379562423e75b692a532b",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A包含分数乘法（如88×1/2）和一道多步应用题，不符合‘小数乘法基础题’的要求，且题量不足10道；练习B全是小数乘法口算，覆盖了整数乘小数、小数乘小数、含0的乘法等易错点，更贴合课本基础训练需求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 539,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1624.2908999556676,
+ "ttft_ms": 1624.3178999284282,
+ "total_ms": 3487.7438999246806
+}

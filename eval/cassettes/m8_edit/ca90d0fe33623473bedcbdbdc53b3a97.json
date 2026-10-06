@@ -1,0 +1,18 @@
+{
+ "key": "ca90d0fe33623473bedcbdbdc53b3a97",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.ask.judge",
+ "text": "{\"answered\": true, \"consistent\": true, \"reason\": \"回答指出了小数乘法算理、退位错误等易错点，与第6题解析一致，未编造或改动答案。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 812,
+  "completion_tokens": 44,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5258.502900018357,
+ "ttft_ms": 5258.522900054231,
+ "total_ms": 5750.7979000220075
+}

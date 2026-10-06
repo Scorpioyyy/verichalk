@@ -1,0 +1,18 @@
+{
+ "key": "6b56caf4be600ec919c0abc7e57bed30",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 360000,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"360000\", \"100000\"], \"mode\": null}\n  ],\n  \"concepts\": [\"计数单位十万的认识\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4417,
+  "completion_tokens": 84,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3693.0207000114024,
+ "ttft_ms": 3693.0439000716433,
+ "total_ms": 4272.943400079384
+}

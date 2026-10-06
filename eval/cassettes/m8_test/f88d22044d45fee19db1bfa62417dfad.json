@@ -1,0 +1,18 @@
+{
+ "key": "f88d22044d45fee19db1bfa62417dfad",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数加一位数\": true, \"两位数加减整十数（不进位不退位）\": false, \"用减法解决相差问题（比多比少）\": true}, \"issues\": [\"解析中 39-20 属于两位数减整十数，但该知识点声称的是'不进位不退位'，39-20=19 需要退位（个位 9-0 不需退位，但十位 3-2 不需退位，实际不退位），然而 39-20 的个位 9-0=9、十位 3-2=1，确实不退位，故该知识点实际被用到；但题目声称的'两位数加减整十数（不进位不退位）'在解答中仅出现减法，未出现加法，且 39-20 不退位，应判 true。重新核对：39-20 个位 9-0=9，十位 3-2=1，不退位，符合'不退位'，故该知识点确实被用到，应判 true。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 544,
+  "completion_tokens": 275,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2137.9430000670254,
+ "ttft_ms": 2137.9661000100896,
+ "total_ms": 5970.927500049584
+}

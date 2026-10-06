@@ -1,0 +1,18 @@
+{
+ "key": "29167c9f6734631dd8fc7d40fff871a8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"rewrite\", \"items\": [4], \"kind\": \"fill\", \"instruction\": \"改成填空题\"}, {\"op\": \"rewrite\", \"items\": [5], \"difficulty_delta\": -1, \"instruction\": \"降低难度\"}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1422,
+  "completion_tokens": 66,
+  "cached_tokens": 1024,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6558.427999960259,
+ "ttft_ms": 6558.445499977097,
+ "total_ms": 6960.517299943604
+}

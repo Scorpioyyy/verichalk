@@ -1,0 +1,18 @@
+{
+ "key": "90efbee1c5faabaad684ae8ab2df1de0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":10,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"减法\",\"operands\":[\"10\",\"3\"],\"mode\":null}],\"concepts\":[\"10的组成及10以内的加减法\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4475,
+  "completion_tokens": 67,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6518.692299956456,
+ "ttft_ms": 6518.718400038779,
+ "total_ms": 7049.667699960992
+}

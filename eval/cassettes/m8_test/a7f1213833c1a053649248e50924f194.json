@@ -1,0 +1,18 @@
+{
+ "key": "a7f1213833c1a053649248e50924f194",
+ "model": "qwen3.7-plus",
+ "purpose": "naive.write",
+ "text": "{\n  \"items\": [\n    {\n      \"stem\": \"妈妈买了15个苹果，小明吃了7个，还剩多少个苹果？\",\n      \"answer\": \"8\",\n      \"solution\": \"用总数减去吃掉的数量：15 - 7 = 8（个）。\"\n    },\n    {\n      \"stem\": \"停车场原来有12辆汽车，开走了4辆，现在停车场还有多少辆汽车？\",\n      \"answer\": \"8\",\n      \"solution\": \"用原来的数量减去开走的数量：12 - 4 = 8（辆）。\"\n    },\n    {\n      \"stem\": \"小红有13颗糖果，送给好朋友6颗，她自己还剩几颗糖果？\",\n      \"answer\": \"7\",\n      \"solution\": \"用原有的糖果数减去送出的数量：13 - 6 = 7（颗）。\"\n    },\n    {\n      \"stem\": \"图书角一共有11本故事书，借出去了5本，还剩下多少本故事书？\",\n      \"answer\": \"6\",\n      \"solution\": \"用总数减去借出的数量：11 - 5 = 6（本）。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 92,
+  "completion_tokens": 273,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1592.9585000267252,
+ "ttft_ms": 1610.4118999792263,
+ "total_ms": 6238.562799990177
+}

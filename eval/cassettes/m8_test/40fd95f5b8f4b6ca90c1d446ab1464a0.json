@@ -1,0 +1,18 @@
+{
+ "key": "40fd95f5b8f4b6ca90c1d446ab1464a0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12:18 的前项和后项同时除以最大公因数 6，得 12:18=2:3。总份数为 2+3=5 份，乙原料占 3/5。求乙原料体积：450×3/5=450÷5×3=270（mL）。也可写成 450×3/5=450×(3÷5)=450×3÷5=270。\", \"answers\": [{\"label\": \"最简整数比\", \"value\": \"2:3\", \"unit\": \"\"}, {\"label\": \"乙原料需要多少毫升\", \"value\": \"270\", \"unit\": \"mL\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 349,
+  "completion_tokens": 155,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12171.709900023416,
+ "ttft_ms": 12171.733499970287,
+ "total_ms": 18571.634299936704
+}

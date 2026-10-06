@@ -1,0 +1,18 @@
+{
+ "key": "d0e4ca3f08c4b0191629d0317c352009",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数加一位数\": false, \"两位数加减整十数（不进位不退位）\": true}, \"issues\": [\"题目只涉及两位数加整十数，未涉及两位数加一位数，声称的知识点中'两位数加一位数'在解答中并未用到\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 501,
+  "completion_tokens": 106,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3850.4606999922544,
+ "ttft_ms": 3850.485899951309,
+ "total_ms": 4994.8059999151155
+}

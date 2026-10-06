@@ -1,0 +1,18 @@
+{
+ "key": "0d23c7712b048b5e973ee06cd52cd2ac",
+ "model": "qwen3.8-flash",
+ "purpose": "warmup",
+ "text": "{\"",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "length",
+ "usage": {
+  "prompt_tokens": 1615,
+  "completion_tokens": 1,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2099.234199966304,
+ "ttft_ms": 2099.2707000114024,
+ "total_ms": 2133.856000029482
+}

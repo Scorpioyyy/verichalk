@@ -1,0 +1,18 @@
+{
+ "key": "0c60980a7ce95372ddf0912b68bea882",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小明棋盘：原长方形面积 6×4=24 平方米；右上角挖去边长2米的正方形，减少 2×2=4 平方米；左下角向外延伸同样大小的正方形，增加 2×2=4 平方米。所以小明棋盘面积 = 24-4+4=24 平方米。小红棋盘面积 = 6×4=24 平方米。两人棋盘面积相等，每次跳跃覆盖面积相同，游戏公平。面积相差 24-24=0 平方米。\", \"answers\": [{\"label\": \"游戏是否公平\", \"value\": \"公平\", \"unit\": \"\"}, {\"label\": \"两个棋盘面积相差多少\", \"value\": \"0\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 382,
+  "completion_tokens": 169,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6933.599699987099,
+ "ttft_ms": 6933.617900009267,
+ "total_ms": 8554.395199986175
+}

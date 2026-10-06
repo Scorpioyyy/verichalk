@@ -1,0 +1,18 @@
+{
+ "key": "72b0b62ebddc6d5f3d21b08a21012b0b",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"自驾与导航\",\n      \"angle\": \"已知全程里程，求行驶了全程几分之几后的剩余路程\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"航天与科技科普\",\n      \"angle\": \"判断两个真分数相乘的积是否一定小于其中任意一个因数\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"手工制作与折纸\",\n      \"angle\": \"已知单层纸厚度，求折叠多次后总厚度的算式填空\"\n    },\n    {\n      \"index\": 4,\n      \"scene\": \"农场养殖与种植\",\n      \"angle\": \"比较两块不同面积土地分别收获其几分之几后的产量差\"\n    },\n    {\n      \"index\": 5,\n      \"combo\": \"A\",\n      \"scene\": \"动物身体数据\",\n      \"angle\": \"已知蓝鲸体重及大脑占体重的比例，求大脑具体重量\",\n      \"roles\": {\n        \"整数乘分数（求一个数的几分之几是多少）\": \"计算蓝鲸大脑的具体重量数值\",\n        \"等量关系\": \"建立‘大脑重量 = 总体重 × 占比’的数量关系模型\"\n      }\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1368,
+  "completion_tokens": 309,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1648.052699980326,
+ "ttft_ms": 1661.5546999964863,
+ "total_ms": 6906.197000062093
+}

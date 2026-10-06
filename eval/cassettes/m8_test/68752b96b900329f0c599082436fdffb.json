@@ -1,0 +1,18 @@
+{
+ "key": "68752b96b900329f0c599082436fdffb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"二年级长度单位：矿泉水高20厘米，花生油高度应填厘米，即50厘米。50-20=30（厘米）。\", \"answers\": [{\"label\": \"一桶大花生油的高度单位\", \"value\": \"厘米\", \"unit\": \"\"}, {\"label\": \"这桶大花生油比这瓶小矿泉水高多少\", \"value\": \"30\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3636.611199937761,
+ "ttft_ms": 3636.643399950117,
+ "total_ms": 4536.783099989407
+}

@@ -1,0 +1,18 @@
+{
+ "key": "86ccfa1707a5d6e1698929f3e744ce70",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 4200, \"decimal_places\": null, \"fraction_types\": [\"几分之几\"], \"operations\": [{\"op\": \"加法\", \"operands\": [\"1\", \"1/6\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"4200\", \"7/6\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4200\", \"6/7\"], \"mode\": null}], \"concepts\": [\"已知一个数的几分之几是多少，求这个数\"], \"units_of_measure\": [\"千克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4461,
+  "completion_tokens": 135,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4685.458600055426,
+ "ttft_ms": 4685.483300010674,
+ "total_ms": 5669.46350003127
+}

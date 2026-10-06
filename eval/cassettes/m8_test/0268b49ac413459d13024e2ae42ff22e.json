@@ -1,0 +1,18 @@
+{
+ "key": "0268b49ac413459d13024e2ae42ff22e",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"B\", \"reason\": \"练习A全是纯数字填空，思维含量低、情境单一；练习B每题都有具体情境或操作（AQI、计数器、公交上下车），需要比较、判断和多步推理，更贴合一年级认知特点且易错点设计更到位。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 559,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2422.925000078976,
+ "ttft_ms": 2422.959400108084,
+ "total_ms": 4017.1702000079677
+}

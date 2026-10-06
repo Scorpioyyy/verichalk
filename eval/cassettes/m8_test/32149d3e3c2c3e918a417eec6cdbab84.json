@@ -1,0 +1,18 @@
+{
+ "key": "32149d3e3c2c3e918a417eec6cdbab84",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": true, \"小数数列与图形中的变化规律\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 650,
+  "completion_tokens": 76,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2202.542799990624,
+ "ttft_ms": 2202.5623000226915,
+ "total_ms": 6702.211100026034
+}

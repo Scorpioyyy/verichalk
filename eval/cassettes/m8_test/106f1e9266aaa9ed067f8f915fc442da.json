@@ -1,0 +1,18 @@
+{
+ "key": "106f1e9266aaa9ed067f8f915fc442da",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12345678 四舍五入到十万位，看万位上的数字。万位是 5，满 5 向十万位进 1。十万位原来是 4，进 1 后变成 5，后面各位都写 0，得到 12350000。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 351,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2041.9996000127867,
+ "ttft_ms": 2042.00880008284,
+ "total_ms": 3692.2243000008166
+}

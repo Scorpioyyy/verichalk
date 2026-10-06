@@ -1,0 +1,18 @@
+{
+ "key": "7a499646a32f89892a650474a9bf96f5",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：三年级4个班参加跳绳比赛。1-3班每班8人，4班12人。问1-3班总人数比4班多多少人？\\n计算：3*8=24，24-12=12。\\n检查约束：整数，无括号混合运算（先乘后减），数值小，符合变式（比较差值而非求和或单价）。\",\n \"solver_code\": \"def solve():\\n    # 1-3班每班8人，共3个班\\n    count_1_to_3 = 3 * 8\\n    # 4班12人\\n    count_4 = 12\\n    # 求差值\\n    diff = count_1_to_3 - count_4\\n    return [diff]\",\n \"stem\": \"学校举行跳绳比赛，三年级有 4 个班参加。其中 1 班、2 班和 3 班每班派出 8 名同学，4 班派出 12 名同学。1 班、2 班和 3 班派出的总人数比 4 班多多少人？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"12\",\n   \"unit\": \"人\"\n  }\n ],\n \"solution\": \"先算 1、2、3 班的总人数：$3\\\\times 8=24$ 人。再算比 4 班多的人数：$24-12=12$ 人。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"第一步计算 $3\\\\times 8$ 得到前三个班的总人数，第二步用该结果减去 4 班人数，体现先乘除后加减的运算顺序\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2309,
+  "completion_tokens": 426,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1291.196299949661,
+ "ttft_ms": 1304.8121000174433,
+ "total_ms": 8629.913199925795
+}

@@ -1,0 +1,18 @@
+{
+ "key": "91025dda48e1f8e5db07faecc33b125e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每箱装108个，共25箱，求总数用乘法：108×25=2700（个）。\", \"answers\": [{\"label\": \"这些苹果一共有多少个\", \"value\": \"2700\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 15923.322699964046,
+ "ttft_ms": 15923.341499990784,
+ "total_ms": 16679.043099982664
+}

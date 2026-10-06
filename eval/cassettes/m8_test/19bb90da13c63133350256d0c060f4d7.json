@@ -1,0 +1,18 @@
+{
+ "key": "19bb90da13c63133350256d0c060f4d7",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"B\",\n  \"reason\": \"练习B的题目情境更真实多样（购书、火车行程、工厂生产、体育场面积、果园收获），数据更合理且包含易错点（如末尾有0的乘法、三位数乘两位数），思维含量更高；练习A题量不足且情境单一，综合题虽有两问但整体设计较弱。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 574,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1932.1601000847295,
+ "ttft_ms": 1932.185300043784,
+ "total_ms": 3974.5305000105873
+}

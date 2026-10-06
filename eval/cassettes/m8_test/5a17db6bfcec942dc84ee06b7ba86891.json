@@ -1,0 +1,18 @@
+{
+ "key": "5a17db6bfcec942dc84ee06b7ba86891",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：班级图书角。总数15本，未还7本，求已还。15-7=8。符合20以内退位减法。\",\n \"solver_code\": \"def solve():\\n    return [15 - 7]\",\n \"stem\": \"班级图书角共有 $15$ 本书，其中有 $7$ 本还没还回来，已经还回来的有多少本？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"8\",\n   \"unit\": \"本\"\n  }\n ],\n \"solution\": \"用总数减去没还的数量。想：$7+8=15$，所以 $15-7=8$。已经还回来的有 $8$ 本。\",\n \"kp_use\": {\n  \"20以内退位减法\": \"利用想加算减法或破十法计算 $15-7$ 的结果\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2187,
+  "completion_tokens": 226,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2322.5434999912977,
+ "ttft_ms": 2335.848500020802,
+ "total_ms": 21375.270599965006
+}

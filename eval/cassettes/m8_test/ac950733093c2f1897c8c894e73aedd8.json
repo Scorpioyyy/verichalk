@@ -1,0 +1,18 @@
+{
+ "key": "ac950733093c2f1897c8c894e73aedd8",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计情境：配置实验溶液。已知原比例 2:7，现溶质增加到 140g，求溶剂。计算：140/2=70, 70*7=490。数值在范围内。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    # 原比 2:7，现溶质 140\\n    ratio_solute = 2\\n    ratio_solvent = 7\\n    current_solute = 140\\n    # 倍数\\n    factor = Fraction(current_solute, ratio_solute)\\n    # 新溶剂\\n    new_solvent = ratio_solvent * factor\\n    return [int(new_solvent)]\",\n \"stem\": \"科学小组配制一种实验溶液，原配方中溶质与溶剂的质量比是 $2:7$。为了增加浓度稳定性，现将溶质的质量调整为 $140$ 克，同时保持溶质与溶剂的质量比不变。此时，溶剂的质量应调整为多少克？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"490\",\n   \"unit\": \"克\"\n  }\n ],\n \"solution\": \"原比是 $2:7$，现溶质变为 $140$ 克。因为 $140 \\\\div 2 = 70$，即前项扩大了 $70$ 倍。根据比的基本性质，后项也要扩大 $70$ 倍，所以溶剂质量为 $7 \\\\times 70 = 490$ 克。\",\n \"kp_use\": {\n  \"比的基本性质\": \"利用比的前项和后项同时乘或除以相同的不为0的数，比值不变的性质，由溶质的变化倍数推导溶剂的变化量\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2621,
+  "completion_tokens": 415,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1440.9150999272242,
+ "ttft_ms": 1455.3491999395192,
+ "total_ms": 8505.42589998804
+}

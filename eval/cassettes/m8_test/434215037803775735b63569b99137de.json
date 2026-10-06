@@ -1,0 +1,18 @@
+{
+ "key": "434215037803775735b63569b99137de",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设总量为1。上午借出1/4，下午归还1/6（即增加1/6），全天净减少1/3。设下午借出x。方程：1 - 1/4 + 1/6 - x = 1 - 1/3。解得 x = 1/4 + 1/3 - 1/6 = 3/12 + 4/12 - 2/12 = 5/12。\",\n \"solver_code\": \"from fractions import Fraction\\ndef solve():\\n    morning_out = Fraction(1, 4)\\n    afternoon_return = Fraction(1, 6)\\n    net_decrease = Fraction(1, 3)\\n    # Equation: 1 - morning_out + afternoon_return - afternoon_out = 1 - net_decrease\\n    # Simplify: - morning_out + afternoon_return - afternoon_out = - net_decrease\\n    # afternoon_out = net_decrease - afternoon_return + morning_out\\n    afternoon_out = net_decrease - afternoon_return + morning_out\\n    return [afternoon_out]\",\n \"stem\": \"图书馆统计图书借阅情况，把馆藏总量看作单位“1”。上午借出了总量的 $\\\\frac{1}{4}$，下午归还了总量的 $\\\\frac{1}{6}$，已知全天结束时馆藏总量比原来减少了 $\\\\frac{1}{3}$。下午借出的图书占总量的几分之几？\",\n \"options\": [\n  \"$\\\\frac{1}{4}$\",\n  \"$\\\\frac{5}{12}$\",\n  \"$\\\\frac{7}{12}$\",\n  \"$\\\\frac{1}{3}$\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"B\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"全天净减少量等于上午借出加下午借出，再减去下午归还。所以下午借出占比等于净减少量加上归还量，再减去上午借出量，即 $\\\\frac{1}{3}+\\\\frac{1}{6}-\\\\frac{1}{4}=\\\\frac{5}{12}$。\",\n \"kp_use\": {\n  \"分数连加连减与加减混合运算\": \"通过逆向思维列出分数加减混合算式 $\\\\frac{1}{3}+\\\\frac{1}{6}-\\\\frac{1}{4}$，并通分计算出最终结果\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2360,
+  "completion_tokens": 550,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1437.4012999469414,
+ "ttft_ms": 1446.2758000008762,
+ "total_ms": 10790.141399949789
+}

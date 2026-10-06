@@ -1,0 +1,18 @@
+{
+ "key": "a78291ced41cc706a40244eef453e52b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 38, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"35.5\", \"2.8\"], \"mode\": null}], \"concepts\": [\"一位小数的加减法（不进退位）\"], \"units_of_measure\": [\"千克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4455,
+  "completion_tokens": 84,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3901.9700000062585,
+ "ttft_ms": 3901.9952000817284,
+ "total_ms": 5086.3163999747485
+}

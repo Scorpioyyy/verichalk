@@ -1,0 +1,18 @@
+{
+ "key": "170a76981df2f8dc16927651c35e6b79",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"平年上半年：1月31+2月28+3月31+4月30+5月31+6月30 = 181天。下半年：7月31+8月31+9月30+10月31+11月30+12月31 = 184天。差值：184-181=3天。题目问上半年比下半年少几天，答案是3。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 平年各月天数\\n    days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\\n    first_half = sum(days[:6])\\n    second_half = sum(days[6:])\\n    return [second_half - first_half]\",\n \"stem\": \"计算：平年的上半年比下半年少____天\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"3\",\n   \"unit\": \"天\"\n  }\n ],\n \"solution\": \"平年上半年有 $31+28+31+30+31+30=181$ 天，下半年有 $31+31+30+31+30+31=184$ 天。下半年比上半年多 $184-181=3$ 天，即上半年比下半年少 3 天。\",\n \"kp_use\": {\n  \"各月天数与平年闰年的规律\": \"识别平年2月为28天，区分大月（31天）和小月（30天），分别计算上下半年的总天数并求差\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2435,
+  "completion_tokens": 432,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1537.528399960138,
+ "ttft_ms": 1547.9695999529213,
+ "total_ms": 8880.394599982537
+}

@@ -1,0 +1,18 @@
+{
+ "key": "7dd7da8d59f382d4030e79428a9ffd6f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每5棵一组，12组共数了12×5=60棵。总共90棵，剩下90-60=30棵。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 358,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 21934.02619997505,
+ "ttft_ms": 21934.056399972178,
+ "total_ms": 22056.17410002742
+}

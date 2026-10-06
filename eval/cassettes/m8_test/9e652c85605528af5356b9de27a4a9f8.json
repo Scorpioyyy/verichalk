@@ -1,0 +1,18 @@
+{
+ "key": "9e652c85605528af5356b9de27a4a9f8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"B店打七五折后是225元，原价=225÷0.75=300元。A店：先减50元得250元，再打八折得250×0.8=200元。200<225，A店更划算。\", \"answers\": [{\"label\": \"这套书的原价\", \"value\": \"300\", \"unit\": \"元\"}, {\"label\": \"A店需支付\", \"value\": \"200\", \"unit\": \"元\"}, {\"label\": \"哪家店更划算\", \"value\": \"A店\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 376,
+  "completion_tokens": 142,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1345.700400066562,
+ "ttft_ms": 1345.7275000400841,
+ "total_ms": 2597.0985000021756
+}

@@ -1,0 +1,18 @@
+{
+ "key": "92aa223f3a4ca1f8ee971fec98908c4e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"45÷6=7……3，所以可以装满7袋，还剩3颗。\", \"answers\": [{\"label\": \"可以装满几袋\", \"value\": \"7\", \"unit\": \"袋\"}, {\"label\": \"还剩几颗\", \"value\": \"3\", \"unit\": \"颗\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 311,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17056.26320000738,
+ "ttft_ms": 17056.288699968718,
+ "total_ms": 17805.44889997691
+}

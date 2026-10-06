@@ -1,0 +1,18 @@
+{
+ "key": "abf3573fb8b510567363762e1dc45f7b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"组合体表面积的比较与优化（包装问题）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 649,
+  "completion_tokens": 66,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7933.417199994437,
+ "ttft_ms": 7933.4310999838635,
+ "total_ms": 8510.005500051193
+}

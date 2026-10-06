@@ -1,0 +1,18 @@
+{
+ "key": "eb87cd59f1c0376fcdc169ce9a107a72",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数乘两位数的口算与分拆算法\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 558,
+  "completion_tokens": 65,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2179.1071000043303,
+ "ttft_ms": 2179.1286999359727,
+ "total_ms": 2638.836700003594
+}

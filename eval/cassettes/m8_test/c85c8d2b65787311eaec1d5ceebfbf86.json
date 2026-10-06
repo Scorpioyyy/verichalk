@@ -1,0 +1,18 @@
+{
+ "key": "c85c8d2b65787311eaec1d5ceebfbf86",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"计数单位十万的认识\": true, \"万以内数比较大小\": false}, \"issues\": [\"声称涉及'万以内数比较大小'，但实际比较的是130000与120000，均为六位数，超出万以内范围，该知识点在解答中并未真正用到。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 580,
+  "completion_tokens": 107,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3400.8808999788016,
+ "ttft_ms": 3400.904900045134,
+ "total_ms": 4833.02989997901
+}

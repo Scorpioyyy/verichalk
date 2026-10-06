@@ -1,0 +1,18 @@
+{
+ "key": "948dea1e008674468c255dec8d3a83a0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把5次成绩相加：102+98+110+105+100=515，再除以5：515÷5=103。\", \"answers\": [{\"label\": \"平均每次跳多少个\", \"value\": \"103\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1219.6728000417352,
+ "ttft_ms": 1219.899700023234,
+ "total_ms": 2186.389800044708
+}

@@ -1,0 +1,18 @@
+{
+ "key": "002918b46447097cbe2a92e424b6c694",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方形面积=长×宽，0.25×0.4=0.1（平方米）。\", \"answers\": [{\"label\": \"沙坑的面积\", \"value\": \"0.1\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1132.837799959816,
+ "ttft_ms": 1132.8660999424756,
+ "total_ms": 1684.3609999632463
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d78d5aed08901a99a0d27dbd01434b0f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 8,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"8\", \"5\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"2\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"40\", \"4\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"36\", \"4\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"40\", \"40\"], \"mode\": null}\n  ],\n  \"concepts\": [\"比较图形面积的方法（出入相补）\"],\n  \"units_of_measure\": [\"平方米\"],\n  \"geometry_vocab\": [\"长方形\", \"正方形\", \"面积\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4523,
+  "completion_tokens": 184,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3112.0663000037894,
+ "ttft_ms": 3112.08190000616,
+ "total_ms": 4235.499200061895
+}

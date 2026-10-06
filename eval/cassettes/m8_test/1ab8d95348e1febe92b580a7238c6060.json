@@ -1,0 +1,18 @@
+{
+ "key": "1ab8d95348e1febe92b580a7238c6060",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 10500, \"decimal_places\": 4, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"125\", \"84\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1.25\", \"0.84\"], \"mode\": null}], \"concepts\": [\"小数乘小数的竖式计算（含补0与去0）\", \"积的小数位数规则\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4428,
+  "completion_tokens": 115,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6216.34229994379,
+ "ttft_ms": 6216.365300002508,
+ "total_ms": 6993.274200009182
+}

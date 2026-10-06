@@ -1,0 +1,18 @@
+{
+ "key": "7949ad1c55454d3d0dcca7e4aeb3f04c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 10,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"3\", \"2\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"7\", \"2\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"10\", \"5\"], \"mode\": null}\n  ],\n  \"concepts\": [\"探索规律：和不变（一个加数增大、另一个减小）\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4510,
+  "completion_tokens": 135,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 13685.711300000548,
+ "ttft_ms": 13685.727899894118,
+ "total_ms": 15107.7180999564
+}

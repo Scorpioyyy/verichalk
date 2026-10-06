@@ -1,0 +1,18 @@
+{
+ "key": "7133bbab52908f3bb548783f24f1fc9f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 27, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"2\", \"13.5\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"27\", \"4.5\"], \"mode\": null}], \"concepts\": [\"三角形的面积\"], \"units_of_measure\": [\"平方米\", \"米\"], \"geometry_vocab\": [\"三角形\", \"底\", \"高\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4469,
+  "completion_tokens": 111,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3266.019199974835,
+ "ttft_ms": 3266.035499982536,
+ "total_ms": 4122.750599985011
+}

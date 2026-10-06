@@ -1,0 +1,18 @@
+{
+ "key": "f2481f95b186db1deb9fb4ec3de0d605",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 15, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"9\", \"1\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"10\", \"5\"], \"mode\": null}], \"concepts\": [\"20以内进位加法（凑十法）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4428,
+  "completion_tokens": 97,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 8819.26190003287,
+ "ttft_ms": 8819.285899982788,
+ "total_ms": 9662.941900081933
+}

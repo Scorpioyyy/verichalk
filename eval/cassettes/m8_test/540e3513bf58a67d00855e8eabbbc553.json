@@ -1,0 +1,18 @@
+{
+ "key": "540e3513bf58a67d00855e8eabbbc553",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"2.4×5，先算24×5=120，再点上一位小数，得12.0，即12。\", \"answers\": [{\"label\": \"\", \"value\": \"12\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 293,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1578.3037000801414,
+ "ttft_ms": 1578.3185000764206,
+ "total_ms": 3382.6963000465184
+}

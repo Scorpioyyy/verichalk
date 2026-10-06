@@ -1,0 +1,18 @@
+{
+ "key": "e84257dfb094c48b74ce10dbfeeebbc4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）每公顷收125千克，共24公顷，总产量=125×24=3000千克。（2）目标2800千克，实际3000千克，3000>2800，所以达到目标。\", \"answers\": [{\"label\": \"一共收小麦多少千克\", \"value\": \"3000\", \"unit\": \"千克\"}, {\"label\": \"实际产量是否达到目标\", \"value\": \"达到\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 111,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3759.1186999343336,
+ "ttft_ms": 3759.1342999367043,
+ "total_ms": 4730.259599979036
+}

@@ -1,0 +1,18 @@
+{
+ "key": "cb6730a1ba63a2dacfce623ab7daecd6",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"B\",\n  \"reason\": \"练习B的题目情境更真实具体（篮球、跳绳、接力、体操），数据合理且多样；第1题和第3题需要逆向推理求未知数，思维含量更高；第4题引入“去掉最高最低分”的规则，针对易错点且更贴近真实比赛评分，整体设计更优。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 695,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1761.9438999099657,
+ "ttft_ms": 1761.973699904047,
+ "total_ms": 4082.203899975866
+}

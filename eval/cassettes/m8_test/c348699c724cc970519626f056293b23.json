@@ -1,0 +1,18 @@
+{
+ "key": "c348699c724cc970519626f056293b23",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"两位数乘两位数的竖式计算\": false}, \"issues\": [\"解析用拆分口算（24×5 与 24×10 相加）完成，并未使用两位数乘两位数的竖式计算，声称的知识点与解答不匹配。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 547,
+  "completion_tokens": 99,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1570.5712999915704,
+ "ttft_ms": 1570.6908999709412,
+ "total_ms": 3638.4342999663204
+}

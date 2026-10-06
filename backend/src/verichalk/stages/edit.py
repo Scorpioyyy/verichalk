@@ -2,7 +2,7 @@
 
 分工：模型只把教师的话译成**编辑计划**（小词表里的动作 + 对第几题 + 参数）；其余都是确定性代码：
 - 目标限定：教师点名的题（理解阶段给出）是硬范围，未点名的题不会进入执行——"附带破坏"在结构上被排除；
-- 改写（换情境 / 调难度 / 改题型 / 调数字）复用创作阶段（写题 → 核验 → 修复），所以"复核通过"免费获得；
+- 改写（换情境 / 调难度 / 改题型 / 调数字）复用生成阶段（写题 → 核验 → 修复），所以"复核通过"免费获得；
 - 删除 / 移动 / 交换 / 分值 / 标题是纯规则；
 - 所有改动合成**一个补丁、一条修订**，教师一次撤销就回到改前。
 """
@@ -423,7 +423,7 @@ class EditStage(Stage[EditIn, EditOut]):
                     await trace.item_status(r.item_id, r.status, found[2].verification.checks)
         return EditOut(results=results, summary=summary, rev=done_c.revision.rev)
 
-    # ---- 改写：复用创作阶段 ----
+    # ---- 改写：复用生成阶段 ----
     async def _kp_names(self, ctx: RunContext, item: Item) -> list[str]:
         names: list[str] = []
         for kid in item.kp_ids[:3]:
@@ -481,7 +481,7 @@ class EditStage(Stage[EditIn, EditOut]):
         )
         out = await run_stage(ctx, ProduceStage(), pin, key=f"edit:{item.id}")
         if out.item is None or out.item.verification.status == VerifyStatus.needs_review:
-            # 教师明确要改这道题，值得再整体试一次：创作阶段的重试已用尽，或只得到"需复核"（如知识点没真正用上）
+            # 教师明确要改这道题，值得再整体试一次：生成阶段的重试已用尽，或只得到"需复核"（如知识点没真正用上）
             again = await run_stage(ctx, ProduceStage(), pin, key=f"edit:{item.id}:retry")
             if again.item is not None and (
                 out.item is None or again.item.verification.status != VerifyStatus.needs_review

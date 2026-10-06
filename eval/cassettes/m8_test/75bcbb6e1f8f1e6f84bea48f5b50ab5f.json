@@ -1,0 +1,18 @@
+{
+ "key": "75bcbb6e1f8f1e6f84bea48f5b50ab5f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方体棱长总和 = (12+8+4)×4 = 24×4 = 96 cm。先截取总长的 3/4：96×3/4 = 72 cm。再从这 72 cm 中取出 2/3 用来加固底部：72×2/3 = 48 cm。\", \"answers\": [{\"label\": \"用来加固底部的铁丝长\", \"value\": \"48\", \"unit\": \"cm\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 372,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2512.3207999859005,
+ "ttft_ms": 2512.681599939242,
+ "total_ms": 3798.967199982144
+}

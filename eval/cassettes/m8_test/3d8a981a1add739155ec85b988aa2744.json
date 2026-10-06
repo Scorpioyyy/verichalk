@@ -1,0 +1,18 @@
+{
+ "key": "3d8a981a1add739155ec85b988aa2744",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"456÷3：百位4÷3=1余1，十位15÷3=5，个位6÷3=2，商152。验算：152×3=456，正确。\", \"answers\": [{\"label\": \"每个班级能分到多少张\", \"value\": \"152\", \"unit\": \"张\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9572.22820003517,
+ "ttft_ms": 9572.257100022398,
+ "total_ms": 11155.433399952017
+}

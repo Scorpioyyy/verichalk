@@ -1,0 +1,18 @@
+{
+ "key": "441fd582904c9097853346fe2583c0b7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 408, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"408\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"102\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"2\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1\", \"4\"], \"mode\": null}], \"concepts\": [\"两、三位数除以一位数的笔算方法\", \"除法的验算方法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4473,
+  "completion_tokens": 168,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 17505.588099942543,
+ "ttft_ms": 17505.6096999906,
+ "total_ms": 18614.712300011888
+}

@@ -1,0 +1,18 @@
+{
+ "key": "0791a8bfe0410fbaa31346166efc8eae",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把一批书的总数看作单位“1”。前三个书架共放了 2/5 + 1/4 + 3/10。先通分：分母 5、4、10 的最小公倍数是 20，所以 2/5 = 8/20，1/4 = 5/20，3/10 = 6/20，合计 8/20 + 5/20 + 6/20 = 19/20。第四个书架放的是剩下的部分：1 - 19/20 = 1/20。\", \"answers\": [{\"label\": \"第四个书架放了这批书的几分之几\", \"value\": \"1/20\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 388,
+  "completion_tokens": 165,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 15690.97520003561,
+ "ttft_ms": 15691.13870000001,
+ "total_ms": 17417.43959998712
+}

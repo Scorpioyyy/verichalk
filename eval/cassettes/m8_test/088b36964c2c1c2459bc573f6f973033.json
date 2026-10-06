@@ -1,0 +1,18 @@
+{
+ "key": "088b36964c2c1c2459bc573f6f973033",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"第一步：8可以分成6和几？算 $8-6=2$，所以填2。第二步：8可以分成几和4？算 $8-4=4$，所以填4。结论：两个空分别填2和4。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 159,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 18515.781300025992,
+ "ttft_ms": 18515.813300036825,
+ "total_ms": 18810.611300054006
+}

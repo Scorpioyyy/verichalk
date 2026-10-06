@@ -1,0 +1,18 @@
+{
+ "key": "103f2b19f3a60ed5ba66b1517c56ac6a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"11减8，把11分成10和1，10减8得2，2再加1得3。\", \"answers\": [{\"label\": \"\", \"value\": \"3\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 290,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11109.14529999718,
+ "ttft_ms": 11109.171500080265,
+ "total_ms": 11741.625700029545
+}

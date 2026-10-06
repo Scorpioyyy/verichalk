@@ -1,0 +1,18 @@
+{
+ "key": "ba7441b84e96afb148ce7a24d434fc7e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 50,\n  \"decimal_places\": null,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"8\", \"12\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"20\", \"5\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"100\", \"2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"4\", \"5\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"20\", \"2\"], \"mode\": null},\n    {\"op\": \"减法\", \"operands\": [\"50\", \"10\"], \"mode\": null}\n  ],\n  \"concepts\": [\"梯形的面积\", \"三角形的面积\"],\n  \"units_of_measure\": [\"平方米\", \"米\"],\n  \"geometry_vocab\": [\"梯形\", \"三角形\", \"上底\", \"下底\", \"底\", \"高\", \"顶点\", \"边\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4509,
+  "completion_tokens": 224,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 7704.03709996026,
+ "ttft_ms": 7704.054499976337,
+ "total_ms": 9039.297699928284
+}

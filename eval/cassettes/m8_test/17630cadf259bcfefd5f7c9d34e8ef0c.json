@@ -1,0 +1,18 @@
+{
+ "key": "17630cadf259bcfefd5f7c9d34e8ef0c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"8和9的组成及8、9以内的加减法\": false}, \"issues\": [\"题目只涉及2和3的加法，未涉及8和9的组成或8、9以内的加减法，与声称知识点不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 485,
+  "completion_tokens": 97,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11000.44919992797,
+ "ttft_ms": 11000.474000000395,
+ "total_ms": 11865.89199991431
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8fb099b46db4316695e75e8b8a875a57",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"校园活动组织\",\n      \"angle\": \"已知班级借书总数和未还数量，求已归还的本数。\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"家务劳动调查\",\n      \"angle\": \"给出两天做家务的件数，利用凑十法计算两天总件数。\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"农场养殖与种植\",\n      \"angle\": \"比较两种家禽的数量，选择正确的算式计算相差多少。\"\n    },\n    {\n      \"index\": 4,\n      \"combo\": \"A\",\n      \"scene\": \"数学益智游戏\",\n      \"angle\": \"观察一组减法算式，找出被减数不变时差的变化规律并填空。\",\n      \"roles\": {\n        \"20以内退位减法\": \"计算具体算式的结果以验证猜想\",\n        \"探索规律：减法算式中被减数、减数与差的变化规律\": \"归纳减数变化对差的影响\"\n      }\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1130,
+  "completion_tokens": 267,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1549.929599976167,
+ "ttft_ms": 1566.7578999418765,
+ "total_ms": 6102.878600009717
+}

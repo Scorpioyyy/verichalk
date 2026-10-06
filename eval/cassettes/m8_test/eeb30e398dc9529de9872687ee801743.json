@@ -1,0 +1,18 @@
+{
+ "key": "eeb30e398dc9529de9872687ee801743",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 24,\n  \"decimal_places\": null,\n  \"fraction_types\": [\"几分之几\"],\n  \"operations\": [\n    {\"op\": \"除法\", \"operands\": [\"3\", \"8\"], \"mode\": null},\n    {\"op\": \"除法\", \"operands\": [\"2\", \"8\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"24\", \"2/8\"], \"mode\": null}\n  ],\n  \"concepts\": [\"列举简单随机现象的所有可能结果\", \"事件发生的不确定性与可能性大小\"],\n  \"units_of_measure\": [],\n  \"geometry_vocab\": [\"扇形\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4524,
+  "completion_tokens": 145,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3265.2561999857426,
+ "ttft_ms": 3265.548800001852,
+ "total_ms": 4329.242400010116
+}

@@ -1,0 +1,18 @@
+{
+ "key": "2b34ab64ee57849533c984a0d98e3c8e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：用同样长的绳子围图形。周长固定为24厘米（半周长12）。正方形边长6。长方形长宽和为12，如长8宽4。题目问：若长方形的长是8厘米，宽是多少？这样既考了周长相等形状不同，又考了简单的减法。数值范围合规。\",\n \"solver_code\": \"def solve():\\n    # 正方形边长6，周长 = 6 * 4 = 24\\n    # 长方形周长也是24，长+宽 = 24 / 2 = 12\\n    # 已知长=8，宽 = 12 - 8 = 4\\n    perimeter_square = 6 * 4\\n    half_perimeter = perimeter_square // 2\\n    length_rect = 8\\n    width_rect = half_perimeter - length_rect\\n    return [width_rect]\",\n \"stem\": \"体育课上，小明和小红用同样长的一根绳子玩“围图形”游戏。小明围成了一个边长为 $6$ 厘米的正方形，小红围成了一个长为 $8$ 厘米的长方形。小红围成的这个长方形的宽是多少厘米？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"4\",\n   \"unit\": \"厘米\"\n  }\n ],\n \"solution\": \"先求绳子总长：$6\\\\times 4=24$ 厘米。再求长方形长与宽的和：$24\\\\div 2=12$ 厘米。最后求宽：$12-8=4$ 厘米。\",\n \"kp_use\": {\n  \"周长相等的图形其形状可以不同\": \"通过同一根绳子（周长相等）围出正方形和不同长宽的长方形，体现形状不同但周长相同，利用周长公式逆向求边长\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2239,
+  "completion_tokens": 422,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1346.2810000637546,
+ "ttft_ms": 1364.5632000407204,
+ "total_ms": 8525.607000105083
+}

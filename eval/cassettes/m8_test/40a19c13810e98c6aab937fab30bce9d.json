@@ -1,0 +1,18 @@
+{
+ "key": "40a19c13810e98c6aab937fab30bce9d",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.ideate",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"scene\": \"公共交通出行\",\n      \"angle\": \"公交车到站后无人上下车，求车上现有人数（涉及加0或减0）\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 2,\n      \"scene\": \"校园活动组织\",\n      \"angle\": \"已知两组学生总数和其中一组人数，利用8或9的组成求另一组人数\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 3,\n      \"scene\": \"数学益智游戏\",\n      \"angle\": \"在数字接龙游戏中，根据前一个数利用10的组成推算下一个数\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 4,\n      \"scene\": \"家务劳动调查\",\n      \"angle\": \"记录三天做家务的次数，通过连加计算这三天一共做了多少次\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 5,\n      \"scene\": \"农场养殖与种植\",\n      \"angle\": \"已知原有牲畜数量和新增数量（需进位），求现在的总头数\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 6,\n      \"scene\": \"动物观察与保护\",\n      \"angle\": \"已知鸟群总数和飞走的数量（需退位），求树上还剩多少只鸟\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 7,\n      \"scene\": \"资源与环保统计\",\n      \"angle\": \"已知回收瓶子的整十数和零头数，求一共回收了多少个瓶子\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 8,\n      \"scene\": \"体育比赛计分\",\n      \"angle\": \"比较两支队伍上半场和下半场的得分总和，判断哪队总分更高\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 9,\n      \"scene\": \"公平游戏与概率\",\n      \"angle\": \"掷骰子游戏中某次未得分（得0分），结合之前分数求当前累计总分\",\n      \"combo\": \"none\"\n    },\n    {\n      \"index\": 10,\n      \"scene\": \"校园活动组织\",\n      \"angle\": \"将9名同学分成两组进行比赛，已知一组人数，求另一组有几人\",\n      \"combo\": \"none\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1316,
+  "completion_tokens": 584,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2699.1262999363244,
+ "ttft_ms": 2703.092099982314,
+ "total_ms": 12493.803499964997
+}

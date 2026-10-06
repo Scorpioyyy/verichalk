@@ -1,0 +1,18 @@
+{
+ "key": "b6c53fe483f5ddd1750659e1be43802f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.2×2.5，先算32×25=800，两个因数共有两位小数，所以结果是8.00，即8。\", \"answers\": [{\"label\": \"\", \"value\": \"8\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 297,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3248.6462000524625,
+ "ttft_ms": 3248.6614000517875,
+ "total_ms": 4278.325000079349
+}

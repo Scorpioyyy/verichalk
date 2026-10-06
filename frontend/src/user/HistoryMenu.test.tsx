@@ -39,6 +39,32 @@ describe("历史对话菜单", () => {
     expect(f.onRename).toHaveBeenCalledTimes(1);
   });
 
+  it("改完点别处（失焦）或菜单被整个关掉，也会保存", async () => {
+    const f = setup();
+    await userEvent.click(screen.getByRole("button", { name: "重命名“期末复习”" }));
+    const box = screen.getByRole("textbox", { name: "对话标题" });
+    await userEvent.clear(box);
+    await userEvent.type(box, "失焦保存");
+    await userEvent.click(document.body);
+    expect(f.onRename).toHaveBeenCalledWith("ses_2", "失焦保存");
+  });
+
+  it("菜单在输入过程中被关掉（点菜单外面）：改动不丢；按 Esc 取消的不保存", async () => {
+    const fns = { onOpen: vi.fn(), onRename: vi.fn(), onDelete: vi.fn() };
+    const first = render(<HistoryMenu recent={recent} currentId="ses_1" {...fns} />);
+    await userEvent.click(screen.getByRole("button", { name: "重命名“期末复习”" }));
+    await userEvent.type(screen.getByRole("textbox", { name: "对话标题" }), "（改）");
+    first.unmount();
+    expect(fns.onRename).toHaveBeenCalledWith("ses_2", "期末复习（改）");
+
+    fns.onRename.mockClear();
+    const second = render(<HistoryMenu recent={recent} currentId="ses_1" {...fns} />);
+    await userEvent.click(screen.getByRole("button", { name: "重命名“期末复习”" }));
+    await userEvent.type(screen.getByRole("textbox", { name: "对话标题" }), "不要{Escape}");
+    second.unmount();
+    expect(fns.onRename).not.toHaveBeenCalled();
+  });
+
   it("删除要再确认一次；取消不删", async () => {
     const f = setup();
     await userEvent.click(screen.getByRole("button", { name: "删除“期末复习”" }));

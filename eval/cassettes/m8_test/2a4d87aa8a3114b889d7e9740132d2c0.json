@@ -1,0 +1,18 @@
+{
+ "key": "2a4d87aa8a3114b889d7e9740132d2c0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"用字母表示数与方程（总复习）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 549,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4040.546700009145,
+ "ttft_ms": 4040.5731999780983,
+ "total_ms": 4509.583199978806
+}

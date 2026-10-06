@@ -1,0 +1,18 @@
+{
+ "key": "b1e05b7da54172ab52855a2b5e7e59f3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每支铅笔1.5元，买6支的总价为1.5×6=9（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"9\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 306,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1098.6445000162348,
+ "ttft_ms": 1098.664200049825,
+ "total_ms": 1658.4353999933228
+}

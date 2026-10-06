@@ -1,0 +1,18 @@
+{
+ "key": "d1b8f05387b09b67ebfa80988c2c6076",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"苹果的数量与总价的比是 5:35.5 = 10:71；香蕉的数量与总价的比是 4:28.4 = 10:71。两个比的比值相等，所以能组成比例。\", \"answers\": [{\"label\": \"\", \"value\": \"能\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 348,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2702.9735000105575,
+ "ttft_ms": 2703.2335000112653,
+ "total_ms": 3647.2820999333635
+}

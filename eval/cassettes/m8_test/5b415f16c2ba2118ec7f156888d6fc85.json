@@ -1,0 +1,18 @@
+{
+ "key": "5b415f16c2ba2118ec7f156888d6fc85",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 60, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"12\", \"18\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"60\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"30\", \"5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4\", \"8\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"20\", \"32\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"52\", \"35\"], \"mode\": null}], \"concepts\": [\"100以内三个数加减混合运算\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4532,
+  "completion_tokens": 179,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4538.3280999958515,
+ "ttft_ms": 4538.35219994653,
+ "total_ms": 6738.402299932204
+}

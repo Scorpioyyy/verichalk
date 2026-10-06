@@ -1,0 +1,18 @@
+{
+ "key": "99390be057526ca9d2779102d4c4743a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"A市人口30500200，分级为3050|0200，读作三千零五十万零二百。比较两数：30500200与30050200，位数相同，从高位比起，前两位30相同，第三位5>0，所以30500200更大，即A市人口更多。\", \"answers\": [{\"label\": \"A市人口数的读法\", \"value\": \"三千零五十万零二百\", \"unit\": \"\"}, {\"label\": \"人口更多的城市\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 340,
+  "completion_tokens": 133,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1757.2303999913856,
+ "ttft_ms": 1757.4120999779552,
+ "total_ms": 3488.832399947569
+}

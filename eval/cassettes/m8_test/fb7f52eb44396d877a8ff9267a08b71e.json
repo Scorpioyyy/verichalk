@@ -1,0 +1,18 @@
+{
+ "key": "fb7f52eb44396d877a8ff9267a08b71e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"23÷5=4……3，商4表示最多扎成4束，余数3表示还剩3朵。\", \"answers\": [{\"label\": \"最多可以扎成\", \"value\": \"4\", \"unit\": \"束\"}, {\"label\": \"还剩\", \"value\": \"3\", \"unit\": \"朵\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 318,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2911.6606999887154,
+ "ttft_ms": 2911.919999984093,
+ "total_ms": 6066.97649997659
+}

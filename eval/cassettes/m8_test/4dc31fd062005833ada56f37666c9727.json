@@ -1,0 +1,18 @@
+{
+ "key": "4dc31fd062005833ada56f37666c9727",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"从7月1日到8月31日共 31+31=62 天。按5本循环，62÷5=12余2，所以第62天是循环中的第2本，即《三国演义》。\", \"answers\": [{\"label\": \"8月31日读的书\", \"value\": \"《三国演义》\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 353,
+  "completion_tokens": 95,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 6351.039599976502,
+ "ttft_ms": 6351.060100016184,
+ "total_ms": 7723.606900079176
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9af3f85c120049ad969bf74436f44c39",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 7,\n  \"decimal_places\": 1,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"加法\", \"operands\": [\"0.8\", \"0.2\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1.0\", \"0.2\"], \"mode\": null},\n    {\"op\": \"加法\", \"operands\": [\"1.2\", \"0.2\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"1.4\", \"5\"], \"mode\": null}\n  ],\n  \"concepts\": [\"小数加减法（位数不同）\", \"小数乘整数的意义与算法（初步）\"],\n  \"units_of_measure\": [\"千米\"],\n  \"geometry_vocab\": []\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4538,
+  "completion_tokens": 179,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 10701.075399992988,
+ "ttft_ms": 10701.103599974886,
+ "total_ms": 11954.181399894878
+}

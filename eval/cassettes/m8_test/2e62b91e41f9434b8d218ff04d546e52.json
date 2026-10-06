@@ -1,0 +1,18 @@
+{
+ "key": "2e62b91e41f9434b8d218ff04d546e52",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总分数÷平均每场得分=场数：804÷4=201（场）。验算：201×4=804，与总分一致。\", \"answers\": [{\"label\": \"一共参加了多少场比赛\", \"value\": \"201\", \"unit\": \"场\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 325,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2880.2775000222027,
+ "ttft_ms": 2880.2918000146747,
+ "total_ms": 3656.551699968986
+}

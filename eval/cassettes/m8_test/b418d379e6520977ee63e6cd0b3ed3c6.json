@@ -1,0 +1,18 @@
+{
+ "key": "b418d379e6520977ee63e6cd0b3ed3c6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"（1）钢笔12.50元，笔记本8.40元，一共12.50+8.40=20.90元。（2）小明付了两张10元和一张1元，共10+10+1=21元；应找回21-20.90=0.10元。\", \"answers\": [{\"label\": \"一共需要付多少元\", \"value\": \"20.90\", \"unit\": \"元\"}, {\"label\": \"应找回多少元\", \"value\": \"0.10\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 358,
+  "completion_tokens": 132,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1109.967500087805,
+ "ttft_ms": 1109.9885000148788,
+ "total_ms": 2438.283500028774
+}

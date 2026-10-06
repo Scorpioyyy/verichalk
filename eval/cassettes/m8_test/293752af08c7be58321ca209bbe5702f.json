@@ -1,0 +1,18 @@
+{
+ "key": "293752af08c7be58321ca209bbe5702f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"平年2月有28天。上半年：1月31天+2月28天+3月31天+4月30天+5月31天+6月30天=181天。全年365天，下半年：365-181=184天。184-181=3天。\", \"answers\": [{\"label\": \"平年的上半年比下半年少多少天\", \"value\": \"3\", \"unit\": \"天\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 293,
+  "completion_tokens": 109,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4286.411399953067,
+ "ttft_ms": 4286.43470001407,
+ "total_ms": 5374.008400016464
+}

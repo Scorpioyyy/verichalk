@@ -1,0 +1,18 @@
+{
+ "key": "ed2bd0e26baa29ce9cbc3a074de4b49c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"用四舍五入法求大数的近似数\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 587,
+  "completion_tokens": 66,
+  "cached_tokens": 384,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 5200.563000049442,
+ "ttft_ms": 5200.579999946058,
+ "total_ms": 5778.036399977282
+}

@@ -1,0 +1,18 @@
+{
+ "key": "1d9956a2587be937cc30bb6b27955695",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\"winner\": \"A\", \"reason\": \"练习A更贴合六年级下册比例应用的要求，题目情境真实多样（折纸、购物、篮球、烘焙），需要学生判断比例关系并解决实际问题，思维含量较高；练习B偏重比例的基本性质、化简和计算，题型传统且缺乏真实情境，更像基础训练而非综合应用。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 667,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1879.7066999832168,
+ "ttft_ms": 1879.734899965115,
+ "total_ms": 3533.075000043027
+}

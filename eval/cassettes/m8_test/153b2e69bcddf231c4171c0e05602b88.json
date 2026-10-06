@@ -1,0 +1,18 @@
+{
+ "key": "153b2e69bcddf231c4171c0e05602b88",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"A车：出发60人，下车12+18=30人，上车5人，所以现在有60-30+5=35人。B车：出发20人，4站每站上车8人，共上车4×8=32人，无人下车，所以现在有20+32=52人。B车比A车多52-35=17人。\", \"answers\": [{\"label\": \"B车上的乘客比A车多多少人\", \"value\": \"17\", \"unit\": \"人\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 380,
+  "completion_tokens": 128,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12259.894000017084,
+ "ttft_ms": 12259.920399985276,
+ "total_ms": 14994.039200013503
+}

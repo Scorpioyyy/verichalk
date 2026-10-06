@@ -1,0 +1,18 @@
+{
+ "key": "b6a3b92a7518d3ee05f29775c29f22b5",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计情境：妈妈带了50元去超市。买了4袋面包，每袋6元；又买了一瓶牛奶8元。问还剩多少钱？\\n计算：4*6=24，24+8=32，50-32=18。\\n检查知识点：乘加混合（先算乘法），再减法。符合三年级水平。避免使用“单价”术语，直接用“每袋...元”。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 4 bags of bread at 6 yuan each, 1 bottle of milk at 8 yuan. Paid 50.\\n    cost_bread = 4 * 6\\n    total_cost = cost_bread + 8\\n    change = 50 - total_cost\\n    return [Decimal(str(change))]\",\n \"stem\": \"妈妈带了 $50$ 元去超市购物。她买了 $4$ 袋面包，每袋 $6$ 元，还买了一瓶 $8$ 元的牛奶。妈妈买完这些东西后，还剩多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"18\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算买面包花的钱：$4\\\\times 6=24$ 元。再算一共花的钱：$24+8=32$ 元。最后算剩下的钱：$50-32=18$ 元。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"第一步计算 $4\\\\times 6$ 体现先算乘法；第二步计算 $24+8$ 和第三步 $50-32$ 体现加减运算顺序及整体混合运算逻辑\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2553,
+  "completion_tokens": 420,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1375.803199945949,
+ "ttft_ms": 2040.3446999844164,
+ "total_ms": 8531.480300007388
+}

@@ -1,0 +1,18 @@
+{
+ "key": "67ce2913445adcae7da94e85e816e544",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计数据：月初520本，新增135本，借出86本。计算：520+135=655，655-86=569。数值在范围内，无小数，适合三年级。\",\n \"solver_code\": \"def solve():\\n    return [520 + 135 - 86]\",\n \"stem\": \"图书馆少儿阅览室月初有藏书 $520$ 本，本月新购进 $135$ 本，被借走 $86$ 本。现在少儿阅览室有藏书多少本？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"569\",\n   \"unit\": \"本\"\n  }\n ],\n \"solution\": \"先算购进后的总数：$520+135=655$ 本。再减去借走的数量：$655-86=569$ 本。现在少儿阅览室有藏书 $569$ 本。\",\n \"kp_use\": {\n  \"三个数及以上的连加、连减、加减混合运算\": \"按从左往右的顺序，先进行加法运算求总和，再进行减法运算求剩余量\"\n },\n \"difficulty\": 1\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2280,
+  "completion_tokens": 296,
+  "cached_tokens": 1664,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1780.13580001425,
+ "ttft_ms": 1785.6585000408813,
+ "total_ms": 6836.452800082043
+}

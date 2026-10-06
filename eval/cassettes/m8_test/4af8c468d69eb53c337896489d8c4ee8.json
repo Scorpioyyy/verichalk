@@ -1,0 +1,18 @@
+{
+ "key": "4af8c468d69eb53c337896489d8c4ee8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "produce.explain",
+ "text": "{\"solution\": \"先算个位：$9+0=9$。再算十位：$20+70=90$。最后合起来：$90+9=99$。所以结果是99。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 143,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 22720.11420002673,
+ "ttft_ms": 22720.48740007449,
+ "total_ms": 23134.852100047283
+}

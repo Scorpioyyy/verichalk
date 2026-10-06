@@ -1,0 +1,18 @@
+{
+ "key": "c017a368ff1d126e63ecf1f00a68f3b9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每公顷产量508千克，共24公顷，求总产量用乘法：508×24。计算：508×24=508×20+508×4=10160+2032=12192（千克）。\", \"answers\": [{\"label\": \"一共收获小麦多少千克\", \"value\": \"12192\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1207.5804999331012,
+ "ttft_ms": 1207.6077000238001,
+ "total_ms": 2740.7502999994904
+}

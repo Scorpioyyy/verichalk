@@ -1,0 +1,18 @@
+{
+ "key": "e519811a9fd92da2aa70d43dee37fd1f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 270, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3\", \"3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"6\", \"6\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1\", \"2\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4\", \"3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"45\", \"6\"], \"mode\": null}], \"concepts\": [\"正比例\", \"圆锥的体积\"], \"units_of_measure\": [\"厘米\", \"克\"], \"geometry_vocab\": [\"圆锥\", \"底面\", \"半径\", \"高\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4536,
+  "completion_tokens": 173,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2288.954099989496,
+ "ttft_ms": 2288.9812999637797,
+ "total_ms": 4278.397599933669
+}

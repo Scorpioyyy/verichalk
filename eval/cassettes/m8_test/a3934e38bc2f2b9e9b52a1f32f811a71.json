@@ -1,0 +1,18 @@
+{
+ "key": "a3934e38bc2f2b9e9b52a1f32f811a71",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"两个礼盒拼在一起，表面积 = 两个礼盒表面积之和 - 2×重合面的面积。重合面越大，减少的面积越多，越省包装纸。三个面的面积分别是：10×8=80（平方厘米），10×5=50（平方厘米），8×5=40（平方厘米）。80最大，所以把长10厘米、宽8厘米的面重合最省包装纸。\", \"answers\": [{\"label\": \"哪种包装方式最节约包装纸\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 401,
+  "completion_tokens": 130,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 3476.923399954103,
+ "ttft_ms": 3476.9516999367625,
+ "total_ms": 5105.796399991959
+}

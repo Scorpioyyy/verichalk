@@ -1,0 +1,18 @@
+{
+ "key": "21d4523ad7e28187cb161dd0aac5eccf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"羚羊速度比猎豹慢1/6，即羚羊速度是猎豹的1-1/6=5/6。120×5/6=100（千米/小时）。\", \"answers\": [{\"label\": \"羚羊的最高奔跑速度\", \"value\": \"100\", \"unit\": \"千米/小时\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 11652.458399999887,
+ "ttft_ms": 11652.489800006151,
+ "total_ms": 12340.812599984929
+}

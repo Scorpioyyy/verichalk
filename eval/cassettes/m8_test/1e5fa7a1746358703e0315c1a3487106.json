@@ -1,0 +1,18 @@
+{
+ "key": "1e5fa7a1746358703e0315c1a3487106",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3元5角=3.50元，3元4角8分=3.48元。比较3.50元和3.48元，3.48元更小，所以B线路更便宜。\", \"answers\": [{\"label\": \"哪条线路更便宜\", \"value\": \"B线路\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 338,
+  "completion_tokens": 88,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 9943.499899934977,
+ "ttft_ms": 9943.532999954186,
+ "total_ms": 10644.007099908777
+}

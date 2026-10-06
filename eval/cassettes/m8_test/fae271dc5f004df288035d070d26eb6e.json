@@ -1,0 +1,18 @@
+{
+ "key": "fae271dc5f004df288035d070d26eb6e",
+ "model": "qwen3.7-plus",
+ "purpose": "naive.write",
+ "text": "{\n  \"items\": [\n    {\n      \"stem\": \"计算：3.45 + 2.8 =\",\n      \"answer\": \"6.25\",\n      \"solution\": \"计算小数加法时，首先将小数点对齐（即相同数位对齐）。从最低位算起，百分位上5加0得5；十分位上4加8得12，写2进1；个位上3加2再加进位的1得6。因此结果为6.25。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 85,
+  "completion_tokens": 120,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1473.765500006266,
+ "ttft_ms": 1490.6928000273183,
+ "total_ms": 3519.9714000336826
+}

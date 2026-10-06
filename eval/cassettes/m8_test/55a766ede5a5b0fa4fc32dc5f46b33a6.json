@@ -1,0 +1,18 @@
+{
+ "key": "55a766ede5a5b0fa4fc32dc5f46b33a6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"题目没有给出迷宫的行数和列数，无法确定从入口到出口需要向右、向下各走几格，因此无法确定出口处的算式。若按常见理解，入口在左上角，出口在右下角，但缺少格子数信息，条件不足。\", \"answers\": [{\"label\": \"出口处算式的得数\", \"value\": \"ambiguous\", \"unit\": \"\"}], \"ambiguous\": true, \"ambiguity\": \"题目没有说明迷宫有几行几列，无法确定从入口到出口向右、向下各移动多少格。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 357,
+  "completion_tokens": 121,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 21018.613300053403,
+ "ttft_ms": 21018.63940001931,
+ "total_ms": 23133.24029999785
+}

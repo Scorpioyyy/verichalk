@@ -1,0 +1,18 @@
+{
+ "key": "c1d03a6372184f3bad8ffe37c05e73a2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\n  \"integer_max\": 314,\n  \"decimal_places\": 2,\n  \"fraction_types\": [],\n  \"operations\": [\n    {\"op\": \"乘法\", \"operands\": [\"2\", \"3.14\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"6.28\", \"10\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"10\", \"10\"], \"mode\": null},\n    {\"op\": \"乘法\", \"operands\": [\"3.14\", \"100\"], \"mode\": null}\n  ],\n  \"concepts\": [\"圆的周长计算公式\", \"圆的面积计算公式\"],\n  \"units_of_measure\": [\"米\", \"平方米\"],\n  \"geometry_vocab\": [\"圆\", \"半径\"]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4491,
+  "completion_tokens": 168,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2566.4137999992818,
+ "ttft_ms": 2566.4374000625685,
+ "total_ms": 4058.5547001101077
+}

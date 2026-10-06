@@ -1,0 +1,18 @@
+{
+ "key": "4f4e3414d85dfd76ab2b931d57118645",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算括号内的和：120+135=255，255+128=383，383+137=520；再除以4：520÷4=130。\", \"answers\": [{\"label\": \"\", \"value\": \"130\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 299,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 15413.977399934083,
+ "ttft_ms": 15413.998399977572,
+ "total_ms": 16027.983799926005
+}

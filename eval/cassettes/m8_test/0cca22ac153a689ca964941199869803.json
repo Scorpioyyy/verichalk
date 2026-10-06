@@ -1,0 +1,18 @@
+{
+ "key": "0cca22ac153a689ca964941199869803",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"竖着相邻的三个日期，上下两个相差7天，设中间日期为x，则三个日期为x-7、x、x+7，它们的和是3x=45，所以x=15。\", \"answers\": [{\"label\": \"中间的那个日期\", \"value\": \"15\", \"unit\": \"日\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 317,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1805.0640999572352,
+ "ttft_ms": 1805.0872000167146,
+ "total_ms": 2982.3431000113487
+}

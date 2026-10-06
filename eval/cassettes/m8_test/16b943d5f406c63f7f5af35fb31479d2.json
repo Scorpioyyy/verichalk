@@ -1,0 +1,18 @@
+{
+ "key": "16b943d5f406c63f7f5af35fb31479d2",
+ "model": "deepseek-v4-pro",
+ "purpose": "preference",
+ "text": "{\n  \"winner\": \"A\",\n  \"reason\": \"练习A的题目情境更真实具体（篮球、跳绳、接力、体操），数据合理且多样，包含逆向求总分、去高低分等易错点，思维含量更高；练习B第1题为纯计算，第2题仅需简单判断，整体设计较平淡，且第4题情境与接力重复，多样性不足。\"\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 695,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1971.8878000276163,
+ "ttft_ms": 1971.910300082527,
+ "total_ms": 3893.193500000052
+}

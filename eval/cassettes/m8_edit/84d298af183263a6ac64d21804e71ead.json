@@ -1,0 +1,18 @@
+{
+ "key": "84d298af183263a6ac64d21804e71ead",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [], \"unsupported\": \"这句话和改卷无关，我没法据此修改试卷。请告诉我具体要改哪道题、怎么改，比如“第 3 题换个场景”或“整体降一点难度”。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1410,
+  "completion_tokens": 51,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1797.5917001022026,
+ "ttft_ms": 1797.620400087908,
+ "total_ms": 2614.8751000873744
+}

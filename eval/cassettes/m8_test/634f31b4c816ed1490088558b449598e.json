@@ -1,0 +1,18 @@
+{
+ "key": "634f31b4c816ed1490088558b449598e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"topics\":[\"认识小数\"],\"count\":5,\"scenes\":[\"买东西\"],\"explicit\":[\"grade\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 40,
+  "cached_tokens": 2048,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 12780.991500010714,
+ "ttft_ms": 12781.016299966723,
+ "total_ms": 13829.927599988878
+}

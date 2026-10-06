@@ -1,0 +1,18 @@
+{
+ "key": "074c37da78b6c4a35455eafbf8b6f0a4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "understand.parse",
+ "text": "{\"route\":\"generate\",\"grade\":3,\"semester\":\"b\",\"topics\":[\"年月日\"],\"count\":4,\"scenes\":[\"生活\"],\"explicit\":[\"grade\",\"semester\",\"count\",\"scenes\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2121,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1691.1217999877408,
+ "ttft_ms": 1691.1472000647336,
+ "total_ms": 2038.5190000524744
+}

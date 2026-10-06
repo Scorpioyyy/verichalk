@@ -1,0 +1,18 @@
+{
+ "key": "5b8077734a187b8e6aa48a219b1ab709",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 520, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"120\", \"135\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"255\", \"128\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"383\", \"137\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"520\", \"4\"], \"mode\": null}], \"concepts\": [\"平均数的意义与求法\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4405,
+  "completion_tokens": 136,
+  "cached_tokens": 4096,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 4379.267500014976,
+ "ttft_ms": 4379.297300009057,
+ "total_ms": 5360.45809998177
+}

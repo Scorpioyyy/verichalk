@@ -1,0 +1,18 @@
+{
+ "key": "19d7f3b8448defb03a4f841dff08c971",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每天写8个，5天共写了8×5=40个。还需要再写12个，所以计划一共写40+12=52个。\", \"answers\": [{\"label\": \"小明计划一共写多少个大字\", \"value\": \"52\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1122.001799987629,
+ "ttft_ms": 1122.0161999808624,
+ "total_ms": 1841.3353000069037
+}

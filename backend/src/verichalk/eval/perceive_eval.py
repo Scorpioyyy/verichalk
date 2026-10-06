@@ -163,13 +163,11 @@ def load_photo_cases(root: Path, gold: dict[str, GoldPage], groups: set[str], sp
             g = gold.get(page)
             if g and split in ("all", g.split):
                 cases.append(PhotoCase(p.stem, page, p, "variant", g.split))
-    if "fresh" in groups:  # 验收集：用户新拍的、从未用于调优的页；重拍的旧页（split=reshot）单独成组
+    if "fresh" in groups:  # 验收集：用户新拍的、从未用于调优的页
         for p in sorted((base / "fresh").glob("f*.jpg")):
             g = gold.get(p.stem)
             if g:
-                cases.append(
-                    PhotoCase(p.stem, p.stem, p, "reshot" if g.split == "reshot" else "fresh", g.split)
-                )
+                cases.append(PhotoCase(p.stem, p.stem, p, "fresh", g.split))
     if "negative" in groups:
         for p in sorted((base / "negatives").glob("*.jpg")):
             cases.append(PhotoCase(p.stem, "", p, "negative", "all"))
@@ -385,7 +383,6 @@ def summarize(scores: list[PageScore]) -> dict[str, Any]:
         ("raw", [s for s in scores if s.group == "raw"]),
         ("variant", [s for s in scores if s.group == "variant"]),
         ("fresh", [s for s in scores if s.group == "fresh"]),
-        ("reshot", [s for s in scores if s.group == "reshot"]),
         ("all", real),
     ):
         if not rows:
@@ -431,7 +428,7 @@ def summarize(scores: list[PageScore]) -> dict[str, Any]:
 
 def render_report(scores: list[PageScore], title: str, summary: dict[str, Any]) -> str:
     L = [f"# 拍照感知评测：{title}", ""]
-    for name in ("raw", "variant", "fresh", "reshot", "all"):
+    for name in ("raw", "variant", "fresh", "all"):
         m = summary.get(name)
         if not m:
             continue
@@ -439,7 +436,6 @@ def render_report(scores: list[PageScore], title: str, summary: dict[str, Any]) 
             "raw": "真实照片（开发集）",
             "variant": "变体",
             "fresh": "验收集（未见页）",
-            "reshot": "重拍的旧页（不算未见）",
             "all": "合计（开发集）",
         }[name]
         L += [

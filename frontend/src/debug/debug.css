@@ -976,11 +976,11 @@
 }
 .ai__chips--grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 常见问题一行两个 */
-}
-.ai__chips--grid .ai__chip {
-  text-align: left;
-  border-radius: 14px;
+  grid-template-columns: repeat(
+    2,
+    max-content
+  ); /* 一行两个；每列按最长的一条定宽，上下左右对齐，不撑满整行 */
+  gap: 8px 10px;
 }
 @media (max-width: 720px) {
   .ai__chips--grid {
@@ -995,6 +995,7 @@
   color: var(--ink-2);
   font: inherit;
   cursor: pointer;
+  text-align: left;
 }
 .ai__chip:hover:not(:disabled) {
   border-color: var(--brand);

@@ -9,7 +9,7 @@ description = "VeriChalk: verifiable question-generation agent for primary-schoo
 license = "MIT"
 requires-python = ">=3.11"
 dependencies = [
-    "chalkbase>=0.1.1,<0.2",
+    "chalkbase[llm]>=0.1.1,<0.2",  # [llm] 带上 requests：线上边界判定会导入 chalkbase.boundary.extract，它在模块顶层 import requests
     "pydantic>=2.7",
     "pydantic-settings>=2.3",
     "fastapi>=0.115",

@@ -350,3 +350,27 @@ def test_detector_catches_tex_leak_and_missing_stem_in_pdf() -> None:
     other = paper(Section(id="a", title="练习", items=[item(1, stem="完全不同的题干文字内容。")]))
     codes = {f.code for f in check_result(_case(other), opts, ok)}
     assert "X5" in codes
+
+
+def test_appendix_answer_is_closer_to_its_analysis_than_to_the_next_entry() -> None:
+    """教师版"参考答案与解析"：答案与它自己的解析之间的间距，必须小于解析与下一题答案之间的间距（否则读起来像解析属于下一题）。"""
+    import re
+
+    import pymupdf
+
+    items = [item(i, answer=str(i), solution="先算括号里的，再算括号外的。") for i in range(1, 5)]
+    p = paper(Section(id="a", title="练习", items=items))
+    r = export_paper(
+        p,
+        ExportOptions(
+            format=ExportFormat.pdf, version=ExportVersion.teacher, answers=AnswerPlacement.appendix
+        ),
+    )
+    page = pymupdf.open(stream=r.data)[-1]
+    words = page.get_text("words")  # (x0, y0, x1, y1, text, ...)
+    nums = sorted(w[1] for w in words if re.fullmatch(r"\d+\.", w[4]) and w[0] < 90)
+    sols = sorted(w[1] for w in words if w[4].startswith("解析"))
+    assert len(nums) >= 3 and len(sols) >= 3
+    inner = sols[0] - nums[0]  # 答案 → 解析
+    between = nums[1] - sols[0]  # 解析 → 下一题答案
+    assert inner < between, (inner, between)

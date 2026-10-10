@@ -87,8 +87,8 @@ _PREAMBLE = f"""\
   ]
   #v(space)
 ]
-#let answer-entry(n, ans, sol) = block(breakable: false, above: 0.8em, below: 0.8em)[
-  #grid(columns: (2.1em, 1fr), [#strong[#n.]], [#ans#if sol != none [#v(0.25em)#text(fill: luma(70))[解析：]#sol]])
+#let answer-entry(n, ans, sol) = block(breakable: false, above: 1.2em, below: 1.2em)[
+  #grid(columns: (2.1em, 1fr), [#strong[#n.]], [#ans#if sol != none [#linebreak()#text(fill: luma(70))[解析：]#sol]])
 ]
 """
 

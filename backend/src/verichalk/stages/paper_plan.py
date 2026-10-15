@@ -99,7 +99,13 @@ def plan_paper_structure(brief: Brief, *, title: str = "") -> PaperPlan:
                 )
             total = total_fixed
     else:
-        n_total = estimate_count(duration)
+        # 明确总题量优先于按时长估算；6～30 的限制只用于默认估算。
+        requested = brief.count
+        n_total = (
+            requested.value
+            if requested is not None and requested.origin == Origin.user and requested.value > 0
+            else estimate_count(duration)
+        )
         weights = dict(DEFAULT_MIX)
         if brief.kinds:
             weights = {k: DEFAULT_MIX.get(k, 0.2) for k in brief.kinds.value}
@@ -167,7 +173,8 @@ def paper_title(brief: Brief) -> str:
 
 
 def apply_plan_to_brief(brief: Brief, plan: PaperPlan) -> Brief:
-    """规划阶段按题位数出题：题量 = 题位数。"""
+    """按题位数出题；数量未变时保留原始来源，否则记录为结构推断。"""
     out = brief.model_copy(deep=True)
-    out.count = BriefSlot[int](value=plan.n_items, origin=Origin.inferred)
+    if out.count is None or out.count.value != plan.n_items:
+        out.count = BriefSlot[int](value=plan.n_items, origin=Origin.inferred)
     return out

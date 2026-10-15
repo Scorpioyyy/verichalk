@@ -1,12 +1,53 @@
 from __future__ import annotations
 
+import subprocess
 from decimal import Decimal
 from fractions import Fraction
+from types import SimpleNamespace
+from unittest.mock import Mock
 
 import pytest
 
 from verichalk.core.errors import SandboxError, SandboxTimeout, SandboxViolation
 from verichalk.sandbox import run_solver, validate_source
+
+
+@pytest.mark.parametrize("platform", ["darwin", "linux"])
+def test_resource_limits_match_platform(monkeypatch: pytest.MonkeyPatch, platform: str):
+    """Mac 跳过不兼容的地址空间限制，Linux 仍保留内存限制，两者均限制 CPU。"""
+    import sys
+
+    from verichalk.sandbox import runner
+
+    resource = SimpleNamespace(RLIMIT_AS=1, RLIMIT_CPU=2, setrlimit=Mock())
+    monkeypatch.setitem(sys.modules, "resource", resource)
+    monkeypatch.setattr(runner, "sys", SimpleNamespace(platform=platform))
+    runner._preexec()
+    calls = [(args[0], args[1]) for args, _ in resource.setrlimit.call_args_list]
+    expected = [(2, (10, 10))]
+    if platform == "linux":
+        expected.insert(0, (1, (512 * 2**20, 512 * 2**20)))
+    assert calls == expected
+
+
+@pytest.mark.parametrize("error", [OSError("cannot start"), subprocess.SubprocessError("preexec failed")])
+async def test_process_start_failure_is_typed(monkeypatch: pytest.MonkeyPatch, error: Exception):
+    """初始化失败归入沙箱错误，由核验流程处理，不泄漏原始内部异常。"""
+    from verichalk.sandbox import runner
+
+    monkeypatch.setattr(runner.subprocess, "run", Mock(side_effect=error))
+    with pytest.raises(SandboxError, match="求解子进程启动失败"):
+        await run_solver("def solve():\n    return 6 * 7\n")
+
+    from verichalk.domain.paper import CheckStatus
+    from verichalk.verify.checks import VerifyInput, check_program
+
+    result = await check_program(
+        VerifyInput(kind="calc", stem="6 × 7", solver_code="def solve():\n    return 6 * 7\n")
+    )
+    assert result.status == CheckStatus.fail
+    assert "求解子进程启动失败" in result.detail
+
 
 GOOD = [
     ("def solve():\n    return Fraction(1, 3) + Fraction(1, 6)\n", Fraction(1, 2)),

@@ -28,7 +28,7 @@ EXPECTED_TOP_LEVEL = {
     "tmp",
     ".git",
 }
-IGNORED = {".venv", "node_modules", ".pytest_cache", ".ruff_cache", ".claude", "__pycache__"}
+IGNORED = {".venv", "node_modules", ".pytest_cache", ".ruff_cache", ".claude", "__pycache__", ".DS_Store"}
 
 
 def test_top_level_is_clean():

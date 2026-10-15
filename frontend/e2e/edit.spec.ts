@@ -31,9 +31,8 @@ test.describe("S6 编辑", () => {
     await expect(editor).toBeVisible();
     await expectNoA11yViolations(page, "编辑器");
     const stem = editor.getByLabel("题干");
-    await stem.click();
-    await stem.press("End");
-    await stem.pressSequentially("（请写出计算过程）");
+    // End 在不同操作系统上的光标行为不同；明确追加到原始题干末尾，保持回放输入一致。
+    await stem.fill(`${await stem.inputValue()}（请写出计算过程）`);
     await expect(editor.getByLabel("效果预览")).toContainText("请写出计算过程");
     await editor.getByRole("button", { name: "保存" }).click();
 

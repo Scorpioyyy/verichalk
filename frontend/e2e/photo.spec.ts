@@ -31,12 +31,14 @@ test.describe("S3 拍照出题（M4）", () => {
     await expect(card).toBeVisible({ timeout: 60_000 });
     await expect(card).toContainText("读到了");
     await expect(card).toContainText("0.70");
-    await expectNoA11yViolations(page, "识别卡片");
 
     await expect(page.getByTestId("item").first()).toBeVisible();
     await waitRunDone(page);
     const items = page.getByTestId("item");
     await expect(items).toHaveCount(3);
+    // 流式草稿仍在淡入时，整页对比度检查会读到过渡透明度；待最终装配后检查。
+    await expect(page.locator(".item--draft")).toHaveCount(0);
+    await expectNoA11yViolations(page, "识别卡片");
     // 范围来自照片：年级与知识点芯片
     await expect(page.getByTestId("chips")).toContainText("四年级");
     // 防雷同：新题不是照片里那道应用题的翻版

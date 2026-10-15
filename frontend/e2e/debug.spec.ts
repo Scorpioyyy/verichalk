@@ -58,7 +58,7 @@ test.describe("D1 调试台", () => {
     // 模型调用：列表 + 提示分段 + 输出
     await page.getByTestId("tab-calls").click();
     const rows = page.getByTestId("calls-table").locator("tbody tr");
-    expect(await rows.count()).toBeGreaterThan(3);
+    await expect.poll(() => rows.count()).toBeGreaterThan(3);
     await rows.nth(1).click();
     const cd = page.getByTestId("call-detail");
     await expect(cd).toBeVisible();

@@ -14,7 +14,7 @@ from verichalk.domain.understanding import Route, Understanding
 from verichalk.orchestrator.paper_flow import PaperTweak, apply_tweak, confirmed, paper_flow, pick_samples
 from verichalk.stages import PlanStage, ProduceStage, RunContext
 from verichalk.stages.assemble import assemble_paper
-from verichalk.stages.paper_plan import estimate_count, plan_paper_structure
+from verichalk.stages.paper_plan import apply_plan_to_brief, estimate_count, plan_paper_structure
 from verichalk.stages.produce import ProduceIn, ProduceOut
 from verichalk.trace import MemorySink, Tracer, use_tracer
 
@@ -52,6 +52,66 @@ def test_default_values_and_notes() -> None:
     plan = plan_paper_structure(Brief())
     assert plan.duration_min == 40 and plan.total_score == 100
     assert any("40 分钟" in n for n in plan.notes) and any("100 分" in n for n in plan.notes)
+
+
+@pytest.mark.parametrize("count", [1, 3, 6, 12, 31])
+@pytest.mark.parametrize("duration", [None, 40, 90])
+def test_explicit_count_wins_over_duration_estimate(count: int, duration: int | None) -> None:
+    """用户总题量不能被默认时长、显式时长或估算题量的上下限覆盖。"""
+    b = brief(duration)
+    b.count = Slot[int](value=count, origin=Origin.user, confidence=0.9)
+    plan = plan_paper_structure(b)
+
+    assert plan.n_items == sum(s.count for s in plan.sections) == count
+    assert sum(s.score for s in plan.slots) == plan.total_score == 100
+    assert all(s.score > 0 for s in plan.slots)
+    assert b.count.value == count and b.count.origin == Origin.user
+
+
+@pytest.mark.parametrize("origin", [Origin.default, Origin.inferred])
+def test_non_user_count_does_not_override_duration_estimate(origin: Origin) -> None:
+    b = brief(40)
+    b.count = Slot[int](value=6, origin=origin)
+    assert plan_paper_structure(b).n_items == 16
+
+
+def test_explicit_count_preserves_requested_kinds() -> None:
+    b = brief(kinds=[ItemKind.choice, ItemKind.calc])
+    b.count = Slot[int](value=6, origin=Origin.user)
+    plan = plan_paper_structure(b)
+    assert plan.n_items == 6
+    assert {s.kind for s in plan.sections} == {ItemKind.choice, ItemKind.calc}
+
+
+def test_apply_plan_preserves_explicit_count_and_its_source() -> None:
+    b = brief()
+    b.count = Slot[int](value=6, origin=Origin.user, confidence=0.9)
+    out = apply_plan_to_brief(b, plan_paper_structure(b))
+    assert out is not b
+    assert out.count is not b.count
+    assert out.count == b.count
+    assert out.count is not None and out.count.origin == Origin.user
+
+
+def test_apply_plan_infers_count_when_not_specified() -> None:
+    b = brief(40)
+    out = apply_plan_to_brief(b, plan_paper_structure(b))
+    assert b.count is None
+    assert out.count is not None and out.count.value == 16 and out.count.origin == Origin.inferred
+
+
+def test_section_adjustment_can_change_previously_explicit_count() -> None:
+    """后续教师在细目表上增加题目时，仍按新结构生成，不被旧的总题量锁住。"""
+    b = brief()
+    b.count = Slot[int](value=6, origin=Origin.user)
+    plan = plan_paper_structure(b)
+    n_choice = next(s.count for s in plan.sections if s.kind == ItemKind.choice)
+    adjusted = apply_tweak(b, plan, PaperTweak(counts={"choice": n_choice + 2}))
+    updated = plan_paper_structure(adjusted)
+    out = apply_plan_to_brief(adjusted, updated)
+    assert updated.n_items == 8
+    assert out.count is not None and out.count.value == 8 and out.count.origin == Origin.inferred
+    assert b.count.value == 6 and b.count.origin == Origin.user
 
 
 def test_user_structure_wins_and_total_follows_fixed_scores() -> None:
@@ -226,6 +286,32 @@ async def test_staged_flow_checkpoints_and_final_paper(ctx, monkeypatch) -> None
     assert "共 16 道题" in reply and "满分 100 分" in reply
     revs = [r.summary for r in await ctx.store.papers.list_revisions(ctx.session_id)]
     assert revs[0] == "样题" and revs[-1].startswith("整卷")  # 样题上屏过，最后整卷替换
+
+
+@pytest.mark.parametrize("staged", [False, True])
+async def test_paper_flow_keeps_explicit_six_items_through_assembly(ctx, monkeypatch, staged: bool) -> None:
+    """复现已解析出 6 题却进入整卷路径的场景，检查题位、检查点与最终装配。"""
+    plans = fake_stages(monkeypatch)
+    u = u_paper()
+    assert u.brief is not None
+    u.brief.count = Slot[int](value=6, origin=Origin.user)
+    asked: list[tuple[str, str, dict]] = []
+    if staged:
+        ctx.ask_fn, asked = scripted_ask([{"option": "confirm"}, {"option": "confirm"}])
+    else:
+        ctx.ask_fn = None
+
+    reply = await paper_flow(ctx, u)
+
+    assert len(plans) == 1 and len(plans[0].slots) == 6
+    assert plans[0].brief.count.value == 6 and plans[0].brief.count.origin == Origin.user
+    p = await ctx.store.papers.get_current(ctx.session_id)
+    assert p is not None and len(p.all_items()) == 6
+    assert sum(it.score or 0 for it in p.all_items()) == 100
+    assert "共 6 道题" in reply
+    if staged:
+        assert [a[0] for a in asked] == ["blueprint", "samples"]
+        assert "共 6 道题" in asked[0][1]
 
 
 async def test_blueprint_adjust_changes_plan(ctx, monkeypatch) -> None:

@@ -1,4 +1,7 @@
-"""受限执行（D21）：AST 白名单 + 独立子进程 + 墙钟超时 + 内存上限（POSIX）。
+"""受限执行（D21）：AST 白名单 + 独立子进程 + 墙钟超时 + 平台资源限制。
+
+macOS 不设置 RLIMIT_AS；其余 POSIX 平台保留 512 MiB 地址空间限制。
+POSIX 平台均保留 CPU 时间限制。
 
 这是进程级隔离加源码过滤，不是操作系统级沙箱；容器本身是第二道隔离。
 只有模型输出的求解程序会被执行——用户文本与图片永远不会被当作代码。
@@ -63,7 +66,10 @@ def _preexec() -> None:  # pragma: no cover  仅 POSIX
         return
     import resource
 
-    resource.setrlimit(resource.RLIMIT_AS, (512 * 2**20, 512 * 2**20))
+    # macOS 提供此常量，但设置地址空间限制会抛 ValueError，导致 preexec_fn 崩溃。
+    # 不吞掉其他平台的限制设置错误；Linux 部署仍须执行原有内存限制。
+    if sys.platform != "darwin":
+        resource.setrlimit(resource.RLIMIT_AS, (512 * 2**20, 512 * 2**20))
     resource.setrlimit(resource.RLIMIT_CPU, (10, 10))
 
 
@@ -108,6 +114,8 @@ async def run_solver(
             proc = await asyncio.to_thread(_run)
         except subprocess.TimeoutExpired:
             raise SandboxTimeout(f"求解程序超过 {timeout_s}s") from None
+        except (OSError, subprocess.SubprocessError) as exc:
+            raise SandboxError(f"求解子进程启动失败：{type(exc).__name__}: {exc}") from exc
         out, err = proc.stdout, proc.stderr
         dur = (time.perf_counter() - t0) * 1000
     text = out.decode("utf-8", "replace")[:MAX_OUTPUT]

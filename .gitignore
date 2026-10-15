@@ -47,3 +47,6 @@ frontend/dist/
 # Playwright
 frontend/test-results/
 frontend/playwright-report/
+
+# macOS 文件夹元数据
+.DS_Store

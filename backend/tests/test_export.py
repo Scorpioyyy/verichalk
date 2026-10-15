@@ -367,7 +367,7 @@ def test_appendix_answer_is_closer_to_its_analysis_than_to_the_next_entry() -> N
         ),
     )
     page = pymupdf.open(stream=r.data)[-1]
-    words = page.get_text("words")  # (x0, y0, x1, y1, text, ...)
+    words = page.get_text_words()  # (x0, y0, x1, y1, text, ...)
     nums = sorted(w[1] for w in words if re.fullmatch(r"\d+\.", w[4]) and w[0] < 90)
     sols = sorted(w[1] for w in words if w[4].startswith("解析"))
     assert len(nums) >= 3 and len(sols) >= 3

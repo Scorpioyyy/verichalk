@@ -118,7 +118,10 @@ class Auditor:
             return AuditRecord(key=it.key)  # 回放模式下没有缓存：未审计
         async with self.sem:
             rec = await self._audit(it)
-        self.store.add(rec)
+            if rec.a2 == "unavailable":  # 审计模型偶发超时 / 限流：再试一次
+                rec = await self._audit(it)
+        if rec.a2 != "unavailable":  # 不可用的结论不缓存，下次运行会重新审计
+            self.store.add(rec)
         return rec
 
     async def _audit(self, it: AuditItem) -> AuditRecord:

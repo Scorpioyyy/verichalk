@@ -4,7 +4,7 @@
 
 VeriChalk 是面向小学数学教师的**可验证命题 Agent**：自然语言或练习册照片 → 不超纲、答案经核验、有新意的题目与试卷 → 在线编辑 → 导出。课程知识由独立项目 [ChalkBase](https://github.com/Scorpioyyy/chalkbase)（`pip install chalkbase`）提供。最终形态是前后端全栈服务，部署到 Zeabur。
 
-文档入口：[docs/brief.md](docs/brief.md)（项目委托书：需求来源）→ [docs/prd.md](docs/prd.md)（做什么）→ [docs/metrics.md](docs/metrics.md)（怎样算做好）→ [docs/architecture.md](docs/architecture.md)（怎么搭）→ [docs/design.md](docs/design.md)（为什么这样）→ [docs/evaluation.md](docs/evaluation.md)（怎么评）→ [docs/roadmap.md](docs/roadmap.md)（节奏）。
+文档入口：[docs/brief.md](docs/brief.md)（项目委托书：需求来源）→ [docs/prd.md](docs/prd.md)（做什么）→ [docs/metrics.md](docs/metrics.md)（怎样算做好）→ [docs/architecture.md](docs/architecture.md)（怎么搭）→ [docs/design.md](docs/design.md)（为什么这样）→ [docs/evaluation.md](docs/evaluation.md)（怎么评）→ [docs/roadmap.md](docs/roadmap.md)（节奏）→ [docs/history.md](docs/history.md)（迭代记录：每一轮做了什么、证据与教训）。
 
 ## 2. 工程原则
 
@@ -81,8 +81,10 @@ pip install -e "backend[dev]"                 # 后端依赖
 python scripts/dev.py check                   # ruff + pyright + pytest（L1）
 python scripts/dev.py run                     # 本地启动后端（localhost:8000）
 python -m verichalk.eval run --suite core --split val --mode replay
-python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items   # M3 快速诊断：只跑生成阶段，约 1 分钟
-python scripts/compare_sets.py a.json b.json                        # 两套产出的盲评对比（好题）
+python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items --out a.json   # 出题快速诊断：理解→规划→生成（线上同一流程），约 1 分钟
+python scripts/judge_sets.py a.json [b.json]                        # 教师视角评审：可用题 / 要求题（北极星代理）
+python scripts/compare_sets.py a.json b.json                        # 两套产出的成对盲评
+python -m verichalk.eval produce --cases fresh --split test --naive  # 出题验收：留出集 + 独立审计 + 朴素基线（里程碑才跑）
 python scripts/spend.py                                              # 累计模型花费
 python scripts/make_photo_variants.py                               # 拍照评测的变体集与负例集（照片在 eval/datasets/photos/raw/，不入库）
 python -m verichalk.eval perceive --set raw,variant,negative --split all   # 拍照识别评测（B4 / B5 / P5 / P6）
@@ -96,7 +98,7 @@ npm run build                                 # 构建到 frontend/dist（后端
 python scripts/gen_types.py [--check]         # 由后端 OpenAPI 生成前端类型（--check 查漂移）
 E2E_MODE=replay npx playwright test           # 端到端（模型回放）；E2E_MODE=replay_or_record 补录（整体重录先删 eval/cassettes/e2e）；本机用 Edge 时加 PW_CHANNEL=msedge
 ```
-评测纪律：迭代用上面的小样本工具，完整评测（含审计）只在里程碑验收时整套跑；接续指南见 `eval/specs/produce.md §9`。
+评测纪律：迭代用上面的小样本工具，完整评测（含审计）只在里程碑验收时整套跑；接续指南见 `eval/specs/produce.md §9`。实调时若环境只能经代理出网，设 `VERICHALK_LLM_USE_PROXY=true`。
 
 ## 9. 流程
 

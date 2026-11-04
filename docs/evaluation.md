@@ -143,4 +143,4 @@ Badcase 记录：`id`、来源（run_id 或评测用例）、输入、观察到�
 - **判定**：关闭后若**质量指标无显著下降**（置信区间包含 0），且延迟或成本更优，则该模块**应当删除**；若质量下降但代价过高，需要记录权衡。结论写入 [design.md](design.md)（`D<n>`），附实验报告路径。
 - **何时做**：模块进入主路径的同一个里程碑内完成首轮消融；之后每次大改（模型、提示词）重跑受影响模块的消融。
 - **范围**：不仅是"功能开关"，也包括——提示词里各段内容（教材示例、边界约束、情境）、检索的各路信号（词法 / 向量 / 图扩展 / 跨点共现）、核验的各路检查（盲解、特征抽取、相似度）、修复循环次数、模型档位（smart → fast 能否降级）。
-- **初版清单**（随实现补全）：`warmup`（预热）、`retrieval.dense`、`plan.combo_miner`、`produce.blind_solve`、`produce.boundary_check`、`produce.novelty_check`、`produce.repair`、`context.textbook_examples`。
+- **清单**：以 `backend/src/verichalk/core/features.py` 的注册表为准（每个开关附一句说明）；各模块的消融与必要性结论见 [design.md](design.md)（D28、D31、D39、D59～D61）。

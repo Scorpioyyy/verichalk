@@ -18,7 +18,7 @@
 | 8 | **雷同**：与教材题型示例相似；与用户上传题相似；套内重复 | 没有新意 / 学生做过 | 相似度（字符 n-gram + 数字模式） | A5 |
 | 9 | **伪综合**：声称用到两个知识点，解答只用一个 | 综合题名不副实 | 判官核对"每个声称的知识点在解答中的作用" | A5c |
 | 10 | **与规格不符**：题型、难度、知识点跑偏 | 要选择题给了填空 | 结构检查（确定性）；难度由判官估计、与目标比较 | A4 |
-| 11 | **格式不合法**：TeX 语法错、选择题答案不在选项里、填空位置错、依赖图形却没有图 | 渲染 / 导出错乱 | 规范化 + TeX 语法校验 + 结构检查；本里程碑**不出依赖图形的题**（图形属 M6） | C4 前置 |
+| 11 | **格式不合法**：TeX 语法错、选择题答案不在选项里、填空位置错、依赖图形却没有图 | 渲染 / 导出错乱 | 规范化 + TeX 语法校验 + 结构检查；需要图时写题给出结构化规格，由代码渲染校验（D60） | C4 前置 |
 | 12 | **验证器漏检**：错题被标"已核验" | 信任崩塌（最严重） | VerifyBank 上的错答检出率；端到端审计里"已核验却错"的数量 | **V1、A2(a)** |
 | 13 | **验证器误杀**：好题被拒，浪费成本与时间 | 慢、贵 | VerifyBank 上对正确题的误杀率；废弃 token 占比 | V2、E4 |
 | 14 | **修复无效或丢约束**：修好了答案却丢了情境 / 难度 | 反复修仍不对 | 修复成功率；修复后规格符合率 | E4 |
@@ -107,7 +107,7 @@
 
 1. 审计与线上核验都依赖语言模型，二者独立但不是"人工真值"；争议项由人工复核，规模有限（只保证精确到我能逐条复核的数量）。
 2. 教材原题文本不是知识库的公开接口，新颖度的"教材雷同"只与**题型卡片的模板与改写示例**比较（若发现雷同漏检，应向 chalkbase 提需求暴露习题检索接口，根因 `K`）。
-3. 本里程碑不出依赖图形的题（几何作图、统计图读取等），这类题的覆盖留给 M6 `figures`；用户要求时明确告知。
+3. 图只有四类基本图形（数轴、条形统计图、单个平面图形、方格图，D60）；组合图形、立体图形、实物图画不出来，这类题写成纯文字。
 4. 写题与核验的模型都来自同一平台（DashScope），模型家族间并非完全独立（qwen 与 deepseek 是不同厂商，但训练数据有重叠）。
 
 ## 8. 结果
@@ -116,32 +116,23 @@
 
 ## 9. 接续指南（开发者与后续会话读这一节）
 
-**当前状态**：M3 的中期成果已合入 `main`（质量优化未完成，见 roadmap）。`eval/cassettes/` 下 `produce`、`audit`、`naive_models`、`m8_test`、`m8_edit` 等是已提交的回归基线；`verify_bank`、`bake_*`、`scratch_*` 等探索产物按需重录，不作为基线。M8 的 test 划分结果见 [e2e.md §5](e2e.md)：A2(a) 0.944、A3 0.048 未过闸门，题量达成率 0.775，这几项是 M3 质量优化要接着做的。
+**系统现状**：规划是"代码管约束、模型管设计"（D59）；写题可带一张图（D60）；核验各层的必要性与写题模型选型见 D61。迭代过程见 [docs/history.md](../../docs/history.md)。
 
 **快速迭代工具（优先用它们，不要整套重跑评测）**
 | 目的 | 命令 | 耗时 / 成本 |
 |---|---|---|
-| 理解 → 规划 → 生成（线上同一条 `produce_specs`），看每题被哪项检查拦下、首题 / 端到端时间、成本 | `python scripts/probe_produce.py "请求" ["请求"…] [--items] [--off flag] [--role smart=模型:notemp] [--llm-conc 64]` | 约 1 分钟，几分钱；多个请求并行时把 `--llm-conc` 调大，否则排队会截断单题预算 |
-| 读题（打印交付的题目全文） | 同上加 `--items --quiet` | |
-| 一套请求的产出 → JSON，供对比 | `--file eval/datasets/quality_probe.yaml --out x.json` | 3～4 分钟 |
-| 两套产出盲评对比（好题） | `python scripts/compare_sets.py a.json b.json` | 约 ¥0.1 |
-| 教师视角评审（北极星代理：可用 / 要求） | `python scripts/judge_sets.py a.json [b.json…] [--show]`；校准 `--calibrate eval/annotation/teacher_accept/classic_q2.yaml` | 每套约 ¥0.01；单个请求上不稳定，只用于比较 |
-| 端到端、不审计（交付数 / 延迟 / 成本 / 一次通过率） | `python -m verichalk.eval produce --no-audit --split val --limit 14 --record --cassette-ns scratch_e2e --tag x` | 5～8 分钟 |
-| 端到端 + 审计 + 朴素基线 + 教师偏好 | `… produce --naive …`（去掉 `--no-audit`） | 15～30 分钟，里程碑才用 |
+| 理解 → 规划 → 生成（线上同一条 `produce_specs`），看每题被哪项检查拦下、首题 / 端到端时间、成本 | `python scripts/probe_produce.py "请求" [...] [--items] [--off flag] [--role smart=模型:notemp] [--llm-conc 64] [--out x.json]` | 约 1 分钟，几分钱；多个请求并行时把 `--llm-conc` 调大，否则排队会截断单题预算 |
+| 教师视角评审（北极星代理：可用 / 要求） | `python scripts/judge_sets.py a.json [b.json…] [--show]`；校准 `--calibrate eval/annotation/teacher_accept/calibration.yaml` | 每套约 ¥0.01；单个请求上不稳定，只用于比较 |
+| 两套产出成对盲评 | `python scripts/compare_sets.py a.json b.json` | 约 ¥0.1 |
+| 核验各层的独有贡献（反事实） | `python scripts/check_contribution.py --file 请求.yaml --per 3 [--dump x.jsonl]` | 100 道初稿约 ¥10（审计用思考模型） |
 | 核验器在 VerifyBank / BoundaryBank 上 | `python -m verichalk.eval verify --bank answers|boundary --role solver=模型:think` | 几分钟 |
-| 累计花费 | `python scripts/spend.py` | |
-注意：同时跑多个探针会抢全局并发（`llm_concurrency`），单题耗时被夸大，不是产品延迟。
+| 端到端 + 审计 + 朴素基线 + 教师偏好（里程碑验收） | `python -m verichalk.eval produce --cases fresh --split test --naive [--dump x.json]` | 30 分钟，约 ¥30 |
 
-**已验证的设计决策**：见 [design.md D33～D38](../../docs/design.md)。关键事实：①写题 qwen3.7-plus（与 qwen3.8-max 无差别，价格 1/6）；②盲解 / 抽取用 deepseek-v4.1-flash 非思考；③单题 45 秒预算、修复 1 次 + 重写 1 次、丢弃后补题一轮；④`template` 路径要为题生成具体解析（`produce.explain`）并只用主知识点匹配的题型；⑤算式 / 方程答案按值 / 解比较（`verify/expr.py`）。
+**评测纪律**：①同时跑多个请求时模型并发要给够，比较只在同一并发条件下进行；②同一配置两次运行，可用率能差 ±5 个百分点、端到端 p50 能差 ±10 秒——小样本差异先看是否超过这个噪声，再读题确认；③评审代理不懂教材（会说"列方程是五年级内容"），结论以读题为准；④`produce_fresh` 只在里程碑验收时跑一次，结果不回头调。
 
 **踩过的坑**
-- bash heredoc 里的 python：反斜杠转义会被折叠（`\\n` 变真换行、`\\times` 变 TAB）。凡含反斜杠的代码 / 提示词，用 Write / Edit 工具写。
+- 含反斜杠的代码 / 提示词用 Write / Edit 工具写，bash heredoc 会把 `\\n`、`\\times` 折叠掉。
 - 模型在 JSON 里写 TeX 反斜杠：`extract_json` 会修复，`normalize_text` 还原控制字符。
-- 大批量评测慢的真正原因：审计里 chalkbase 自带的思考式特征抽取每题约 1 分钟（并发已调到 20）；探针并行抢并发。
-- `tmp/` 必须为空（`test_tmp_is_empty`）；清理时用明确文件名，通配符 `rm tmp/*` 在切目录后会被安全检查拦下；临时输出放会话临时目录，不放仓库 `tmp/`。
-- 评测集的已知局限：VerifyBank 区分不了盲解模型（都到天花板）；模板来源的超纲 `in` 标签偏宽；审计判官 / 比较有格式噪声（"3 位数 / 三位数"等，已部分修复）。
-
-**2026-11-04 规划重构（D59）**：classic / design 两条链路删除，规划改为"代码给骨架与候选菜单、模型读原话设计整套"。在调优中从未使用的 18 个 val 请求上：可用 / 要求 0.65 → 0.83，成对盲评 7 胜 5 负，首题时间不变，端到端 p50 约 +10s。fin1 的"好题回退"不再需要二分：四个开关已删除（其目标由上游的规划设计承担）。另：M8 的题量达成率 0.775 主要是评测并发不足（题目排队被单题预算截断）造成的，并发给够时交付率 0.95～1.0（评测命令已修正，见 eval/CHANGELOG.md）。
-
-**待办与顺序**：①~~读三个探索策略的汇总~~（已完成，都不采用，见 D40）；②小样本把 A2 / A3 / 题量达成率 / 解析成立率迭代到过线；③消融（`plan.combo_miner`、`plan.llm`、`produce.blind_solve`、`boundary_check`、`quality_check`、`repair`、`context.textbook_examples`，每组小样本 + A/A 噪声对照）；④在 `produce_fresh.yaml`（36 例，从未用于调优）上验收；⑤更新本文件 §8 的结果与 design.md，清理 `tmp/` 与过程性报告，合入 main 并推送。
-
+- 求解程序里用 `float` 会被沙箱拒绝（精确计算的约定），写题模型偶尔仍会用，表现为"程序无法运行"并进入修复。
+- `tmp/` 必须为空（`test_tmp_is_empty`）；临时输出放会话临时目录。
+- 评测集的已知局限：VerifyBank 区分不了盲解模型（都到天花板）；模板来源的超纲 `in` 标签偏宽；审计的超纲判定有词表缺项与过严的概念判定（见 `eval/badcases/`）。

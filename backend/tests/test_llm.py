@@ -259,3 +259,19 @@ def test_extract_json_tolerates_tex_backslashes() -> None:
     assert isinstance(obj, dict)
     assert obj["stem"] == "$6" + bs + "div 3=$____"
     assert obj["angle"] == "$60^" + bs + "circ$"
+
+
+async def test_transport_ignores_env_proxy_unless_opted_in() -> None:
+    """默认直连（本机代理对阿里云端点不稳定）；只能经代理出网的环境显式打开 `llm_use_proxy`。"""
+    from pydantic import SecretStr
+
+    from verichalk.core.config import Credentials
+    from verichalk.llm.transport import HttpxTransport
+
+    creds = Credentials(api_key=SecretStr("k" * 12), base_url="https://example.invalid/v1")
+    direct, proxied = HttpxTransport(creds), HttpxTransport(creds, use_proxy=True)
+    assert direct._client._trust_env is False  # pyright: ignore[reportPrivateUsage]
+    assert proxied._client._trust_env is True  # pyright: ignore[reportPrivateUsage]
+    assert Settings().llm_use_proxy is False
+    await direct.aclose()
+    await proxied.aclose()

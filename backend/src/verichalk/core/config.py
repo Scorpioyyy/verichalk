@@ -58,6 +58,8 @@ class Settings(BaseSettings):
     llm_concurrency: int = 8
     llm_max_retries: int = 3
     llm_timeout_s: float = 90.0
+    # 模型端点默认直连（本机 HTTP 代理对阿里云端点不稳定，CLAUDE.md §4）；只能经代理出网的环境（如云端容器）设为 true
+    llm_use_proxy: bool = False
 
     item_concurrency: int = 4
     item_budget_s: float = 45.0  # 单题生成与核验的时间预算：超过后不再开始新的尝试

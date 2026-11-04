@@ -1,6 +1,7 @@
 """HTTP 传输：OpenAI 兼容的流式 `chat/completions`（DashScope）。
 
-- 对 `.aliyuncs.com` 直连，不走本机 HTTP 代理（`trust_env=False`）；本机代理在并发下不稳定（见 CLAUDE.md §4）。
+- 默认直连，不走本机 HTTP 代理（`trust_env=False`）：本机代理在并发下不稳定（见 CLAUDE.md §4）；
+  只能经代理出网的环境用 `VERICHALK_LLM_USE_PROXY=true` 改为读取环境里的代理设置。
 - 只负责"发请求、解析 SSE、把 HTTP 错误映射为带类型的错误"；重试、计时、成本在网关层。
 """
 
@@ -49,10 +50,12 @@ def map_http_error(status: int, text: str) -> LLMError:
 
 
 class HttpxTransport:
-    def __init__(self, creds: Credentials, *, client: httpx.AsyncClient | None = None) -> None:
+    def __init__(
+        self, creds: Credentials, *, client: httpx.AsyncClient | None = None, use_proxy: bool = False
+    ) -> None:
         self._creds = creds
         self._client = client or httpx.AsyncClient(
-            trust_env=False,
+            trust_env=use_proxy,
             http2=False,
             limits=httpx.Limits(max_connections=64, max_keepalive_connections=32),
         )

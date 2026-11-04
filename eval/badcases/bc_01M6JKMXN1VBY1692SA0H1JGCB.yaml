@@ -1,0 +1,18 @@
+run_id: eval:m8_test/pr-020
+item_id: null
+input: 三下年月日，出4道，生活情境
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 要的是年月日，交付了一道「4
+  个文具盒 36 元，每个几元」（知识点：4 的乘法口诀），与需求无关。审计判超纲（单价、数量与总价，四上）的依据较牵强（36÷4 是表内除法），真正的问题是意图丢失。'
+expected: 交付的每道题都落在用户点名的主题上；补题 / 降级时也不能换到无关知识点。
+root_cause: R
+severity: S2
+stage: plan
+id: bc_01M6JKMXN1VBY1692SA0H1JGCB
+created_at: 1793773434.5297258
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- intent-loss
+- A3-label-questionable

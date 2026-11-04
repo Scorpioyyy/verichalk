@@ -1,0 +1,18 @@
+run_id: eval:m8_test/pr-026
+item_id: null
+input: 四下小数乘法，出6道，难度中等
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 题面「乘积应该有几位小数」有两种读法：按法则
+  2.45×1.6=3.920 是 3 位，化简后 3.92 是 2 位。给的答案 3，两个审计模型都答 2。题面质量检查没有报歧义。'
+expected: 不出这种依赖“末尾 0 去不去”的问法；或者题面写明“按小数乘法法则，积的小数位数”。题面质量检查应能识别这类歧义。
+root_cause: W
+severity: S1
+stage: produce
+id: bc_01M6JKMXMMRPR9ZMXZ3VZQ92MK
+created_at: 1793773434.5162945
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A2
+- confirmed

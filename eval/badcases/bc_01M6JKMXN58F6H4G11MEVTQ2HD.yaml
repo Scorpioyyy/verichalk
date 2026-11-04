@@ -1,0 +1,19 @@
+run_id: eval:m8_test/pr-048
+item_id: null
+input: 五年级期末复习，把小数和分数串起来，出6道
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 「350
+  平方米的 3/5 种蔬菜，其中 2/7 种西红柿」被审计判超纲（连续分率关系求量，六上）。但五下“分数乘分数”本身就用“一个量的几分之几的几分之几”的情境引入，这道题按五下的方法一步
+  350×3/5×2/7 可解。疑似知识库边界划分过严，需复核。'
+expected: 复核 chalkbase 中“连续分率关系求量”与五下“分数乘分数”的边界划分；若属知识库问题，向 chalkbase 反馈。
+root_cause: K
+severity: S3
+stage: produce
+id: bc_01M6JKMXN58F6H4G11MEVTQ2HD
+created_at: 1793773434.5332499
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A3
+- audit-disputed

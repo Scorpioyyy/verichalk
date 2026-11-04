@@ -1,0 +1,18 @@
+run_id: eval:m8_test/pr-006
+item_id: null
+input: 一年级的基础口算，来10道课本那种的
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 「16 +
+  82 ○ 53 + 44」被审计判超纲，依据是“两位数加两位数的口算（含进位）”（二上）。这两道加法都不进位，一下已学“两位数加两位数（不进位）”。是审计侧特征抽取把不进位题归到了“含进位”的概念名下。'
+expected: 审计不应判 out。审计抽取需区分进位 / 不进位（概念名本身带“含进位”易被误用）。
+root_cause: B
+severity: S3
+stage: produce
+id: bc_01M6JKMXNBQSF9WR3NR4FS6E8W
+created_at: 1793773434.5399585
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A3
+- audit-false-positive

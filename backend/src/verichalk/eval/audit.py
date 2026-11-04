@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from ..core.config import Settings
+from ..core.config import LLMMode, Settings
 from ..core.errors import VerichalkError
 from ..domain.blueprint import AnswerPart
 from ..knowledge import KnowledgeService
@@ -100,15 +100,23 @@ def _gateway(settings: Settings, spec: dict[str, Any], role: str) -> LLMGateway:
 
 class Auditor:
     def __init__(
-        self, settings: Settings, kb: KnowledgeService, store: AuditStore, *, concurrency: int = 20
+        self,
+        settings: Settings,
+        kb: KnowledgeService,
+        store: AuditStore,
+        *,
+        concurrency: int = 20,
+        live: bool | None = None,
     ) -> None:
-        s = settings.model_copy(update={"cassette_namespace": "audit"})
+        """`live`：缺缓存时是否实调审计；默认跟随运行模式（回放运行不审计）。回放一次已录制的运行、只补缺失的审计时传 True。"""
+        self.live = settings.llm_mode.value != "replay" if live is None else live
+        mode = settings.llm_mode if not self.live else LLMMode.live
+        s = settings.model_copy(update={"cassette_namespace": "audit", "llm_mode": mode})
         self.kb, self.store = kb, store
         self.gw_a = _gateway(s, AUDITOR_A, "solver")
         self.gw_b = _gateway(s, AUDITOR_B, "solver")
         self.gw_j = _gateway(s, JUDGE, "judge")
         self.sem = asyncio.Semaphore(concurrency)
-        self.live = settings.llm_mode.value != "replay"
 
     async def audit(self, it: AuditItem) -> AuditRecord:
         cached = self.store.records.get(it.key)
@@ -118,11 +126,16 @@ class Auditor:
             return AuditRecord(key=it.key)  # 回放模式下没有缓存：未审计
         async with self.sem:
             rec = await self._audit(it)
-            if rec.a2 == "unavailable":  # 审计模型偶发超时 / 限流：再试一次
+            if not self._complete(it, rec):  # 审计模型或知识库抽取偶发超时 / 限流 / 服务中断：再试一次
                 rec = await self._audit(it)
-        if rec.a2 != "unavailable":  # 不可用的结论不缓存，下次运行会重新审计
+        if self._complete(it, rec):  # 不完整的结论不缓存，下次运行会重新审计
             self.store.add(rec)
         return rec
+
+    @staticmethod
+    def _complete(it: AuditItem, rec: AuditRecord) -> bool:
+        """答案两路都给出了结论；有参照课时时，超纲也给出了结论。"""
+        return rec.a2 != "unavailable" and (rec.a3 != "" or not it.lesson_id)
 
     async def _audit(self, it: AuditItem) -> AuditRecord:
         inp = VerifyInput(

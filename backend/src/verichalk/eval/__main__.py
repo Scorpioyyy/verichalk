@@ -212,7 +212,7 @@ def cmd_produce(args: argparse.Namespace) -> int:
         kb = KnowledgeService.from_settings(settings)
         recs = await run_cases(settings, cases, args.concurrency)
         store = AuditStore(root / "eval" / "audits" / "produce.jsonl")
-        auditor = Auditor(settings, kb, store)
+        auditor = Auditor(settings, kb, store, live=True if args.audit_live else None)
         audits = {} if args.no_audit else await audit_records(auditor, kb, recs)
         title = f"{args.tag or 'produce'} · split={args.split} · {settings.features.describe()}"
         parts = [render_score(title, await score(recs, audits, kb))]
@@ -601,6 +601,11 @@ def main() -> None:
     pr.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
     pr.add_argument("--off", default="", help="关闭的特性开关（消融用）")
     pr.add_argument("--naive", action="store_true")
+    pr.add_argument(
+        "--audit-live",
+        action="store_true",
+        help="回放模式下仍实调审计缺失的条目（重新打分一次已录制的运行，例如审计曾因服务中断不完整）",
+    )
     pr.add_argument(
         "--no-audit", action="store_true", help="跳过审计（只看交付数 / 延迟 / 成本 / 修复，快速迭代用）"
     )

@@ -18,7 +18,8 @@ def _auditor(tmp_path: Path, results: list[str]) -> tuple[Auditor, AuditStore, l
 
     async def fake(it: AuditItem) -> AuditRecord:
         calls[0] += 1
-        return AuditRecord(key=it.key, a2=results[min(calls[0] - 1, len(results) - 1)])
+        a2, sep, a3 = results[min(calls[0] - 1, len(results) - 1)].partition("/")
+        return AuditRecord(key=it.key, a2=a2, a3=a3 if sep else "in")  # "correct/" = 超纲结论为空
 
     au._audit = fake  # type: ignore[method-assign]
     return au, store, calls
@@ -38,3 +39,9 @@ async def test_success_after_retry_is_cached(tmp_path: Path) -> None:
     assert (await au.audit(ITEM)).a2 == "correct" and calls[0] == 2
     assert store.records[ITEM.key].a2 == "correct"
     assert (await au.audit(ITEM)).a2 == "correct" and calls[0] == 2  # 命中缓存，不再调用
+
+
+async def test_missing_scope_verdict_is_not_cached(tmp_path: Path) -> None:
+    au, store, calls = _auditor(tmp_path, ["correct/", "correct/"])  # 知识库抽取失败：超纲结论为空
+    rec = await au.audit(ITEM)
+    assert rec.a3 == "" and calls[0] == 2 and ITEM.key not in store.records

@@ -8,9 +8,10 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 import statistics
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -224,6 +225,16 @@ async def audit_records(
     return {iid: rec for (iid, _), rec in zip(pending, recs_out, strict=True)}
 
 
+def drop_cause(reason: str) -> str:
+    """丢弃原因归类：模型调用失败 / 单题时间预算用尽 / 最后一次被哪项检查拦下。"""
+    if "写题失败" in reason:
+        return "模型调用失败"
+    if "超出单题时间预算" in reason:
+        return "时间预算用尽"
+    m = re.search(r"【(\w+)】", reason)
+    return m.group(1) if m else (reason[:12] or "未知")
+
+
 def answer_values_of(it: Item) -> list[str]:
     parts = it.answer_value if isinstance(it.answer_value, list) else []
     vals = [str(p.get("value", "")) for p in parts if isinstance(p, dict)]
@@ -305,6 +316,9 @@ async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: Knowled
     out: dict[str, Any] = {"n_cases": len(recs), "n_delivered": len(delivered), "n_audited": len(aud)}
     out["n_requested"] = sum(r.n_requested for r in recs)
     out["fill"] = (len(delivered), out["n_requested"])  # 题量达成率
+    out["dropped_by"] = dict(
+        Counter(drop_cause(ir.dropped_reason) for r in recs for ir in r.items if ir.item is None)
+    )
     out["case_failed"] = sum(1 for r in recs if r.status != "succeeded")
     traced = [r for r in recs if r.trace_ok is not None]
     out["f6"] = (sum(1 for r in traced if r.trace_ok), len(traced))
@@ -422,7 +436,7 @@ def render_score(title: str, s: dict[str, Any]) -> str:
         f"| D3 端到端 p50 / p95 | {fmt(d3[0])} / {fmt(d3[1])} |",
         f"| E1 单题成本 / 总成本（元） | {_opt(s['cost_per_item'], 3)} / {_opt(s['cost_total'], 2)} |",
         f"| E3 每道交付题的模型调用数 | {s['calls_per_item']:.1f} |",
-        f"| E4 平均写题次数（含修复） | {_opt(s['attempts_mean'], 2)}；一次通过率 {f(*s['first_pass'])}；首次被拦的检查 {s['first_fail_by']} |",
+        f"| E4 平均写题次数（含修复） | {_opt(s['attempts_mean'], 2)}；一次通过率 {f(*s['first_pass'])}；首次被拦的检查 {s['first_fail_by']}；丢弃原因 {s.get('dropped_by') or '无'} |",
     ]
     if s.get("issues"):
         lines += ["", "**审计发现的问题题目（判错 / 争议 / 超纲）**", ""]

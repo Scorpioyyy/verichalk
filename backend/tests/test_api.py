@@ -454,6 +454,21 @@ async def test_figure_refs_stream_and_badcase_endpoints(env, tmp_path):
     assert r.status_code == 200 and r.headers["content-type"].startswith("image/svg+xml") and "<svg" in r.text
     assert (await cl.get(f"/api/sessions/{sid}/figures/nope")).status_code == 404
 
+    # 逐题上屏：题已送达、试卷还没装配，它的图也要能取到（否则教师先看到一张破图）
+    from verichalk.domain.events import ItemDelivered
+    from verichalk.domain.run import Run
+
+    early = FigureSpec(id="f2", kind="bar_chart", params={"categories": ["一班"], "values": [3]})
+    run = await c.store.runs.create(Run(id="run_x", session_id=sid, pipeline="main", created_at=time.time()))
+    ev = ItemDelivered(
+        run_id=run.id,
+        seq=1,
+        item=Item(id="i2", kind=ItemKind.fill, stem="如图 ![](fig:f2)", answer="3", figures=[early]),
+    )
+    await c.store.events.append(run.id, 1, time.time(), ev.type, None, None, "user", ev.model_dump_json())
+    r = await cl.get(f"/api/sessions/{sid}/figures/f2")
+    assert r.status_code == 200 and "<svg" in r.text
+
     kp_id = (await c.kb.search("小数加减法", k=1))[0].id
     refs = (await cl.get("/api/knowledge/refs", params={"ids": [kp_id, "kp.not.exist"]})).json()
     assert [x["id"] for x in refs] == [kp_id] and refs[0]["name"]

@@ -6,7 +6,7 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -51,11 +51,22 @@ class AnswerPart(BaseModel):
     unit: str = ""
 
 
+class FigureDraft(BaseModel):
+    """写题模型给出的图形规格（类型与参数见 `figures/draw.py`）；由代码渲染与校验，题面里用"如图"引用。"""
+
+    kind: str
+    params: dict[str, Any] = Field(default_factory=dict)
+    alt: str = ""
+
+
 class WriteOut(BaseModel):
     """写题模型的输出。`scratch` 是草稿区（允许自我修正，不展示给教师）；其余字段必须是定稿。"""
 
     scratch: str = ""
     solver_code: str = ""  # 求解程序：`def solve():` 返回与 `answers` 同序的精确值列表
+    figure: FigureDraft | None = (
+        None  # 这道题需要的一张图（统计图、数轴、标了尺寸的图形、方格图）；不需要为 None
+    )
     stem: str
     options: list[str] = Field(default_factory=list)
     answers: list[AnswerPart] = Field(default_factory=list)

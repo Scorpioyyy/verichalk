@@ -128,7 +128,7 @@ def bar_chart(p: dict[str, Any]) -> Rendered:
     ystep = Decimal(str(p["y_step"])) if p.get("y_step") is not None else ymax / 5
     if ystep <= 0 or ymax / ystep > 20:
         raise FigureError("纵轴刻度不合法")
-    left, right, top_pad, bottom = 56.0, 16.0, 44.0 if p.get("title") else 28.0, 40.0
+    left, right, top_pad, bottom = 56.0, 16.0, 52.0 if p.get("title") else 28.0, 40.0
     plot_h = 170.0
     slot = 54.0
     w = left + right + slot * len(cats)
@@ -137,7 +137,8 @@ def bar_chart(p: dict[str, Any]) -> Rendered:
     if p.get("title"):
         parts.append(_text(w / 2, 22, str(p["title"]), size=15))
     if p.get("y_label"):
-        parts.append(_text(left - 8, top_pad - 10, str(p["y_label"]), anchor="end", size=12, fill=GRAY))
+        # 从画布左边缘写起：右对齐到纵轴时，长一点的标签（"重量/千克"）会超出画布被截掉
+        parts.append(_text(4, top_pad - 10, str(p["y_label"]), anchor="start", size=12, fill=GRAY))
 
     def y_of(v: Decimal) -> float:
         return top_pad + plot_h - float(v / ymax) * plot_h
@@ -173,6 +174,17 @@ def _right_angle(x: float, y: float, dx1: float, dy1: float, dx2: float, dy2: fl
     pts = [(x + dx1 * r, y + dy1 * r), (x + (dx1 + dx2) * r, y + (dy1 + dy2) * r), (x + dx2 * r, y + dy2 * r)]
     d = "M" + " L".join(f"{_fmt(a)} {_fmt(b)}" for a, b in pts)
     return f'<path d="{d}" fill="none" stroke="{INK}" stroke-width="1"/>'
+
+
+# 每种平面图形会画出的标注（`labels` 的键）；文字描述只用这些，保证"描述里有的，图上就有"
+SHAPE_LABELS: dict[str, tuple[str, ...]] = {
+    "rectangle": ("length", "width", "side"),
+    "square": ("side", "length", "width"),
+    "triangle": ("base", "left", "right", "height"),
+    "parallelogram": ("base", "side", "height"),
+    "trapezoid": ("top", "bottom", "height"),
+    "circle": ("radius", "diameter"),
+}
 
 
 def shape(p: dict[str, Any]) -> Rendered:

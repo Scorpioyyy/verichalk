@@ -34,6 +34,10 @@ REGISTRY: dict[str, Feature] = {
             "plan.llm",
             "规划模型读教师原话，从候选知识点菜单为整套题选知识点、设计解题链与情境；关闭则用确定性蓝图",
         ),
+        Feature(
+            "produce.figures",
+            "写题可以给出一张图（统计图、数轴、标了尺寸的图形、方格图）的结构化规格；关闭则只出纯文字题",
+        ),
         Feature("produce.program_check", "核验：求解程序在沙箱里执行，结果须与题目答案一致"),
         Feature("produce.blind_solve", "核验：独立模型盲解（看不到答案），结果须与题目答案一致"),
         Feature("produce.boundary_check", "核验：特征抽取 + 能力边界判定（是否超纲）"),

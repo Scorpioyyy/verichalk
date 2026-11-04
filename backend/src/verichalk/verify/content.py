@@ -117,7 +117,13 @@ def check_math(text: str) -> list[str]:
 
 
 def structure_issues(
-    *, kind: str, stem: str, options: list[str], answer_values: list[str], solution: str
+    *,
+    kind: str,
+    stem: str,
+    options: list[str],
+    answer_values: list[str],
+    solution: str,
+    has_figure: bool = False,
 ) -> list[str]:
     """题目结构检查（确定性）。返回问题列表，空表示通过。"""
     issues: list[str] = []
@@ -143,8 +149,8 @@ def structure_issues(
     if kind == "judge" and answer_values and parse_judge(answer_values[0]) is None:
         issues.append("判断题的答案必须是“对”或“错”")
     blob = "\n".join([stem, *options])
-    if _FIGURE_DEP.search(blob):
-        issues.append("题面依赖图形（本版本不出依赖图形的题）")
+    if _FIGURE_DEP.search(blob) and not has_figure:
+        issues.append("题面说“如图”，却没有给出图（需要图就在 figure 里给出规格，不需要就把条件写进题面）")
     if _PLACEHOLDER.search(blob + solution):
         issues.append("含占位符或未完成的内容")
     if _ANSWER_HINT_IN_STEM.search(stem):

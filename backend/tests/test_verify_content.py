@@ -48,7 +48,7 @@ def test_structure_choice_rules() -> None:
 
 def test_structure_detects_known_failures() -> None:
     assert any("自我修正" in x for x in _issues(solution="先算 3+4=8……等等，重新算：3+4=7"))
-    assert any("依赖图形" in x for x in _issues(stem="如图，求阴影部分面积 ____"))
+    assert any("没有给出图" in x for x in _issues(stem="如图，求阴影部分面积 ____"))  # 说"如图"却没有图
     assert any("填空位置" in x for x in _issues(stem="1+1 等于几？"))
     assert any("答案为空" in x for x in _issues(answer_values=[]))
     assert any("判断题" in x for x in _issues(kind="judge", stem="3>2", answer_values=["也许"]))

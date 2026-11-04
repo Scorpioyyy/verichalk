@@ -10,6 +10,7 @@ from collections.abc import Callable
 from typing import Any
 
 from ..domain.paper import FigureSpec
+from .describe import describe_figure
 from .draw import FigureError, Rendered, bar_chart, grid, number_line, shape
 
 KINDS: dict[str, Callable[[dict[str, Any]], Rendered]] = {
@@ -28,4 +29,4 @@ def render_figure(spec: FigureSpec) -> Rendered:
     return fn(spec.params)
 
 
-__all__ = ["KINDS", "FigureError", "Rendered", "render_figure"]
+__all__ = ["KINDS", "FigureError", "Rendered", "describe_figure", "render_figure"]

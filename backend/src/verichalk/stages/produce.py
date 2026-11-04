@@ -32,6 +32,7 @@ from ..domain.llm import Role
 from ..domain.paper import (
     CheckResult,
     CheckStatus,
+    FigureSpec,
     Item,
     ItemKind,
     Provenance,
@@ -121,9 +122,48 @@ def _after_equals(v: str) -> str:
     return v.rsplit("=", 1)[-1].strip() if "=" in v else v
 
 
+_FIG_REF = re.compile(r"\(fig:[^)]*\)")
+_TEX_TEXT = re.compile(r"\\(?:text|mathrm)\{([^{}]*)\}")
+_SUP = {"^{2}": "²", "^{3}": "³", "^2": "²", "^3": "³"}
+
+
+def plain_labels(v: Any) -> Any:
+    """图上的文字是纯文本（SVG 不排公式）：去掉 `$` 与 `\\text{}`，平方 / 立方写成上标字符。"""
+    if isinstance(v, str):
+        s = _TEX_TEXT.sub(r"\1", v).replace("$", "")
+        for k, sup in _SUP.items():
+            s = s.replace(k, sup)
+        return " ".join(s.split())
+    if isinstance(v, dict):
+        return {k: plain_labels(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [plain_labels(x) for x in v]
+    return v
+
+
+def attach_figure(w: WriteOut) -> tuple[WriteOut, FigureSpec | None]:
+    """把写题模型给的图形规格变成 `FigureSpec`，并保证题面引用的就是这张图（模型写的引用 ID 一律换成真实 ID；
+    没写引用就加在题面末尾）。没有图时原样返回。"""
+    if w.figure is None:
+        return w, None
+    spec = FigureSpec(
+        id=new_id("fig"),
+        kind=w.figure.kind,
+        params=plain_labels(w.figure.params),
+        alt=w.figure.alt.strip() or "图",
+    )
+    stem = (
+        _FIG_REF.sub(f"(fig:{spec.id})", w.stem)
+        if "(fig:" in w.stem
+        else f"{w.stem}\n\n![{spec.alt}](fig:{spec.id})"
+    )
+    return w.model_copy(update={"stem": stem}), spec
+
+
 def _previous_text(w: WriteOut) -> str:
     return json.dumps(
         {
+            "figure": w.figure.model_dump() if w.figure else None,
             "stem": w.stem,
             "options": w.options,
             "answers": [a.model_dump() for a in w.answers],
@@ -232,7 +272,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     attempts += 1
                     break
                 attempts += 1
-                w = await fix_choice_letter(w, spec.kind)
+                if not feats.enabled("produce.figures"):
+                    w = w.model_copy(update={"figure": None})
+                w, fig = attach_figure(await fix_choice_letter(w, spec.kind))
                 vin = VerifyInput(
                     kind=spec.kind.value,
                     stem=w.stem,
@@ -245,10 +287,11 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     grade=inp.grade,
                     lesson_id=inp.lesson_id,
                     references=inp.references,
+                    figure=fig,
                 )
                 ver = await verify_item(env, vin, feats)
                 if ver.status != VerifyStatus.rejected:
-                    item = self._to_item(ctx, spec, w, ver)
+                    item = self._to_item(ctx, spec, w, ver, fig)
                     if inp.rewrite is None:  # 改写的结果不是试卷里的新题，状态由编辑阶段按原题 id 发出
                         await trace.item_status(item.id, ver.status, ver.checks)
                     return ProduceOut(item=item, attempts=attempts, failed_checks=failed)
@@ -327,7 +370,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         )
         return out
 
-    def _to_item(self, ctx: RunContext, spec: ItemSpec, w: WriteOut, ver: Verification) -> Item:
+    def _to_item(
+        self, ctx: RunContext, spec: ItemSpec, w: WriteOut, ver: Verification, fig: FigureSpec | None = None
+    ) -> Item:
         return Item(
             id=new_id("itm"),
             kind=spec.kind,
@@ -339,6 +384,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             kp_ids=spec.kp_ids,
             difficulty=spec.difficulty,
             tier=spec.tier,
+            figures=[fig] if fig else [],
             provenance=Provenance(
                 source=Source.novel,
                 archetype_ids=spec.archetype_ids,

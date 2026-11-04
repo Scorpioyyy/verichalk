@@ -24,7 +24,8 @@ from ..core.errors import (
 )
 from ..domain.blueprint import AnswerPart
 from ..domain.llm import Role
-from ..domain.paper import CheckResult, CheckStatus
+from ..domain.paper import CheckResult, CheckStatus, FigureSpec
+from ..figures import FigureError, describe_figure, render_figure
 from ..knowledge import KnowledgeService
 from ..llm import LLMGateway, LLMRequest, complete_json, get_prompt
 from ..sandbox import run_solver
@@ -50,6 +51,7 @@ class VerifyInput:
     grade: int | None = None
     lesson_id: str | None = None  # 能力边界的参照课时
     references: list[str] = field(default_factory=list)  # 照片里的题：新题不得是它们的翻版
+    figure: FigureSpec | None = None  # 题目带的图：结构检查负责渲染校验，模型检查读它的文字描述
 
 
 @dataclass
@@ -66,6 +68,15 @@ def _clip(s: str, n: int = 500) -> str:
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
+_FIG_REF = re.compile(r"!\[[^\]]*\]\(fig:[^)]*\)")
+
+
+def model_stem(inp: VerifyInput) -> str:
+    """给核验模型看的题面：图的引用换成图的文字描述（模型看不到图片）。"""
+    stem = _FIG_REF.sub("", inp.stem).rstrip()
+    return f"{stem}\n（图：{describe_figure(inp.figure)}）" if inp.figure else stem
+
+
 def _grade_text(grade: int | None) -> str:
     return f"{GRADE_CN[grade]}年级" if grade in GRADE_CN else "小学"
 
@@ -79,7 +90,13 @@ async def check_structure(inp: VerifyInput) -> CheckResult:
             options=inp.options,
             answer_values=answer_values(inp.answers),
             solution=inp.solution,
+            has_figure=inp.figure is not None,
         )
+        if inp.figure is not None:
+            try:
+                render_figure(inp.figure)
+            except FigureError as e:
+                issues.append(f"图形规格不合法：{e}")
         sp.set(n_issues=len(issues))
         if issues:
             return _res("structure", CheckStatus.fail, "；".join(issues), issues=issues)
@@ -179,7 +196,7 @@ class BlindOut(BaseModel):
 async def check_blind(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
     async with trace.check_span("blind") as sp:
         built = get_prompt("verify.blind").render(
-            dynamic={"grade": _grade_text(inp.grade), "stem": inp.stem, "options": inp.options}
+            dynamic={"grade": _grade_text(inp.grade), "stem": model_stem(inp), "options": inp.options}
         )
         try:
             out, res = await complete_json(
@@ -237,7 +254,7 @@ async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
             vocab = await env.kb.feature_vocab()
             built = get_prompt("verify.extract").render(
                 stable=vocab,
-                dynamic={"stem": inp.stem, "options": inp.options, "solution": inp.solution},
+                dynamic={"stem": model_stem(inp), "options": inp.options, "solution": inp.solution},
             )
             raw, res = await complete_json(
                 env.llm,
@@ -298,7 +315,7 @@ async def check_quality(env: VerifyEnv, inp: VerifyInput) -> tuple[CheckResult, 
             dynamic={
                 "grade": _grade_text(inp.grade),
                 "kp_names": inp.kp_names,
-                "stem": inp.stem,
+                "stem": model_stem(inp),
                 "options": inp.options,
                 "answer": format_answer(inp.answers),
                 "solution": inp.solution,

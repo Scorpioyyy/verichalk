@@ -1,0 +1,18 @@
+{
+ "key": "567d6c2a3a7eba927073364fd08c6185",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1000, \"decimal_places\": 3, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"350\", \"1000\"], \"mode\": \"decimal_quotient\"}], \"concepts\": [\"千米的认识\", \"小数点位置移动引起小数大小变化的规律\"], \"units_of_measure\": [\"米\", \"千米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4443,
+  "completion_tokens": 92,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1460.3433900010714,
+ "ttft_ms": 1460.3602130009676,
+ "total_ms": 1953.7264540012984
+}

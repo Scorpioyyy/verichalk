@@ -1,0 +1,18 @@
+{
+ "key": "c87bd74a1962e505bb2ae3fe75d33dec",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计跳远情境。已知第二次成绩3.85米，比第一次少0.6米（逆向思维，学生易错为加法或减法方向搞反）。求第一次成绩。3.85 + 0.6 = 4.45。位数不同：3.85是两位，0.6是一位，需补0为0.60。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 第二次成绩\\n    second = Decimal('3.85')\\n    # 差值\\n    diff = Decimal('0.6')\\n    # 第一次比第二次多，所以用加法\\n    first = second + diff\\n    return [first]\",\n \"figure\": null,\n \"stem\": \"在跳远比赛中，小强第二次跳了 $3.85$ 米，比第一次少跳了 $0.6$ 米。小强第一次跳了 ____ 米。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"4.45\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"“比第一次少”说明第一次跳得更远，用加法计算。将 $0.6$ 看作 $0.60$，对齐小数点：$3.85+0.60=4.45$ 米。\",\n \"kp_use\": {\n  \"小数加减法（位数不同）\": \"计算 $3.85+0.6$ 时，需将 $0.6$ 补零为 $0.60$ 以对齐数位，体现位数不同时的对位规则\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 2939,
+  "completion_tokens": 387,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2217.0382700005575,
+ "ttft_ms": 2234.9974860007933,
+ "total_ms": 13726.717909999934
+}

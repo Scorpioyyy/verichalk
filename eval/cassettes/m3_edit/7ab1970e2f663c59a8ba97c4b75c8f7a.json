@@ -1,0 +1,18 @@
+{
+ "key": "7ab1970e2f663c59a8ba97c4b75c8f7a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"改写后方程4x=12比3x-4.5=7.5少一步移项运算，确实更简单。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 127,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1220.0287100004061,
+ "ttft_ms": 1220.0466699996468,
+ "total_ms": 1625.172324000232
+}

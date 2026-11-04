@@ -1,0 +1,18 @@
+{
+ "key": "8dcc308a1c69ac56f4822eb5997c1636",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"a=5.6大于0，比较各算式中的另一个因数：1.2、1、0.9、1.01。其中0.9最小，所以a×0.9的积最小。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 343,
+  "completion_tokens": 82,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1108.8898250000057,
+ "ttft_ms": 1109.2084949996206,
+ "total_ms": 1562.7450560004945
+}

@@ -1,0 +1,18 @@
+{
+ "key": "88df5871b8c34dd1ada5024abe379bf1",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.compose",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"kps\": [\n        \"K1\"\n      ],\n      \"scene\": \"超市购物核对账单\",\n      \"plan\": \"【直接应用】列出含三位小数的连加连减混合算式，注意对齐数位并正确计算进位与退位。\"\n    },\n    {\n      \"index\": 2,\n      \"kps\": [\n        \"K2\"\n      ],\n      \"scene\": \"跳远比赛成绩对比\",\n      \"plan\": \"【逆向求原数】已知两次成绩的差及其中一次成绩（位数不同），通过逆运算求另一次成绩。\"\n    },\n    {\n      \"index\": 3,\n      \"kps\": [\n        \"K1\",\n        \"K6\"\n      ],\n      \"scene\": \"家庭月度水电费结算\",\n      \"plan\": \"【多步综合】先利用总量与分量关系求出未知月份费用，再结合另一数据计算两个月费用的总和或差额。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1513,
+  "completion_tokens": 246,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1785.2998170001229,
+ "ttft_ms": 1801.4923810005712,
+ "total_ms": 5724.8984329999075
+}

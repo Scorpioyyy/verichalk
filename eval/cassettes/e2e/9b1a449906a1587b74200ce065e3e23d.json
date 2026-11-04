@@ -1,0 +1,18 @@
+{
+ "key": "9b1a449906a1587b74200ce065e3e23d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"5人可买五人团体票98元；也可买三人套票55元加两张单人票40元，共95元；还可买5张单人票100元。比较：98元、95元、100元，最少是95元，选C。\", \"answers\": [{\"label\": \"怎样购票最省钱\", \"value\": \"买1张三人优惠套票和2张单人票\", \"unit\": \"\"}, {\"label\": \"最少需要花多少元\", \"value\": \"95\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 391,
+  "completion_tokens": 132,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1199.6033899995382,
+ "ttft_ms": 1199.617369000407,
+ "total_ms": 1930.3615570006514
+}

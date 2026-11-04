@@ -1,0 +1,18 @@
+{
+ "key": "30f62f9e24a8d869ee3be6b2e07c0fe9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"去时路程：0.08×12.5=1（千米）。返回速度与去时相同，返回时间是去时的1.2倍，所以返回路程是去时路程的1.2倍：1×1.2=1.2（千米）。\", \"answers\": [{\"label\": \"返回时走了多少千米\", \"value\": \"1.2\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 344,
+  "completion_tokens": 103,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1180.0400579995767,
+ "ttft_ms": 1180.0524789996416,
+ "total_ms": 1760.0434420000965
+}

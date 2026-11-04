@@ -1,0 +1,18 @@
+{
+ "key": "ce87ed6e115412a6fe3d88c0d05a3037",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：超市买两种商品凑单。A商品单价12.5元，B商品单价7.5元。各买4件。求总价。考察乘法分配律逆运算或分别计算再相加。12.5*4 + 7.5*4 = (12.5+7.5)*4 = 20*4 = 80。或者 12.5*4=50, 7.5*4=30, 50+30=80。数据简单但体现运算律推广。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    price_a = Decimal('12.5')\\n    price_b = Decimal('7.5')\\n    count = 4\\n    total = (price_a + price_b) * count\\n    return [total]\",\n \"figure\": null,\n \"stem\": \"超市促销，一种笔记本每本 $12.5$ 元，一种钢笔每支 $7.5$ 元。李老师买了 $4$ 本笔记本和 $4$ 支钢笔，一共需要付多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"80\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"方法一：先算每种商品的总价，再相加。$12.5\\\\times 4=50$ 元，$7.5\\\\times 4=30$ 元，$50+30=80$ 元。\\n方法二：利用乘法分配律。$(12.5+7.5)\\\\times 4=20\\\\times 4=80$ 元。\\n一共需要付 $80$ 元。\",\n \"kp_use\": {\n  \"整数运算律在小数运算中的推广\": \"在计算总费用时，可以将相同数量的两种商品单价相加后再乘数量，即运用乘法分配律 $(a+b)\\\\times c = a\\\\times c + b\\\\times c$ 进行简便计算\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3120,
+  "completion_tokens": 482,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2065.3050939999957,
+ "ttft_ms": 2081.196942999668,
+ "total_ms": 9780.861293998896
+}

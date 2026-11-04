@@ -1,0 +1,18 @@
+{
+ "key": "e5d0447e8a91fef4da075eb8bb6acf50",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 80, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12.5\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"7.5\", \"4\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"50\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"12.5\", \"7.5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"20\", \"4\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\", \"整数运算律在小数运算中的推广\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4497,
+  "completion_tokens": 183,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1499.5071569992433,
+ "ttft_ms": 1499.5199160002812,
+ "total_ms": 2394.8876449994714
+}

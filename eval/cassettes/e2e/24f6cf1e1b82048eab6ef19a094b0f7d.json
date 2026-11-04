@@ -1,0 +1,18 @@
+{
+ "key": "24f6cf1e1b82048eab6ef19a094b0f7d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"提取公因数3.7：3.7×4.6+3.7×5.4=3.7×(4.6+5.4)=3.7×10=37\", \"answers\": [{\"label\": \"\", \"value\": \"37\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 309,
+  "completion_tokens": 79,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1219.259993000378,
+ "ttft_ms": 1219.2745359989203,
+ "total_ms": 1599.595550000231
+}

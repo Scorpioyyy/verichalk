@@ -1,0 +1,18 @@
+{
+ "key": "e053d0b0f49207dc54f31587f49eb7ca",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"一个数乘小于1的数，积比原数小；乘大于1的数，积比原数大。0.98<1，所以3.5×0.98<3.5；1.05>1，所以12.4×1.05>12.4。\", \"answers\": [{\"label\": \"3.5×0.98 与 3.5 比较\", \"value\": \"<\", \"unit\": \"\"}, {\"label\": \"12.4×1.05 与 12.4 比较\", \"value\": \">\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 335,
+  "completion_tokens": 145,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1189.6378559995355,
+ "ttft_ms": 1189.846461000343,
+ "total_ms": 1928.8363449995813
+}

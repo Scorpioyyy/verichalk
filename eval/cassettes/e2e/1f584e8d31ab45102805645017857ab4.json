@@ -1,0 +1,18 @@
+{
+ "key": "1f584e8d31ab45102805645017857ab4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"整数运算律在小数运算中的推广\": true, \"小数乘小数的竖式计算（含补0与去0）\": false}, \"issues\": [\"解析只用了乘法交换律、结合律的简便运算，完全没有用到小数乘小数的竖式计算（含补0与去0），声称的第二个知识点与解答不符。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 614,
+  "completion_tokens": 120,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1272.9417529990315,
+ "ttft_ms": 1272.9541629996675,
+ "total_ms": 1938.662876998933
+}

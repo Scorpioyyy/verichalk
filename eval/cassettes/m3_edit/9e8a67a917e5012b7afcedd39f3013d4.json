@@ -1,0 +1,18 @@
+{
+ "key": "9e8a67a917e5012b7afcedd39f3013d4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算笔记本总价：3.5×4=14（元）；再算钢笔总价：6.8×2=13.6（元）；合计：14+13.6=27.6（元）；用优惠券后应付：27.6-5.5=22.1（元）；找回：100-22.1=77.9（元）。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"77.9\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 358,
+  "completion_tokens": 127,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1107.9381520012248,
+ "ttft_ms": 1107.956230000127,
+ "total_ms": 1772.199109000212
+}

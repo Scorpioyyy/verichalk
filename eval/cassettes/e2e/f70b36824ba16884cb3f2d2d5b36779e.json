@@ -1,0 +1,18 @@
+{
+ "key": "f70b36824ba16884cb3f2d2d5b36779e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每千米消耗0.075升，行驶4000千米，用乘法：0.075×4000=300（升）。\", \"answers\": [{\"label\": \"\", \"value\": \"300\", \"unit\": \"升\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 65,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1408.9365950003412,
+ "ttft_ms": 1408.950150000237,
+ "total_ms": 1843.3409040007973
+}

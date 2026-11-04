@@ -1,0 +1,18 @@
+{
+ "key": "2ca04a59d1b69540a752455d1912f948",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 100, \"decimal_places\": 2, \"fraction_types\": [\"几分之一\"], \"operations\": [{\"op\": \"除法\", \"operands\": [\"10\", \"100\"], \"mode\": null}, {\"op\": \"除法\", \"operands\": [\"12.5\", \"10\"], \"mode\": null}], \"concepts\": [\"积的小数位数规则\", \"小数点位置移动引起小数大小变化的规律\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4469,
+  "completion_tokens": 110,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1395.1247919994785,
+ "ttft_ms": 1395.2658489997702,
+ "total_ms": 1952.1734030004154
+}

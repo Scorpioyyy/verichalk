@@ -1,0 +1,18 @@
+{
+ "key": "67b262a3cb9c592e2f6f9eb217a165b9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"12.6\", \"3.45\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"9.15\", \"0.8\"], \"mode\": null}], \"concepts\": [\"小数加减法（位数不同）\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4447,
+  "completion_tokens": 107,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1504.8821869986568,
+ "ttft_ms": 1504.8971209998854,
+ "total_ms": 2018.4625450001477
+}

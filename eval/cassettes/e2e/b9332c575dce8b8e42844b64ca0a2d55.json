@@ -1,0 +1,18 @@
+{
+ "key": "b9332c575dce8b8e42844b64ca0a2d55",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.45×6，先算345×6=2070，因数中共有两位小数，所以积是20.70，即20.7。\", \"answers\": [{\"label\": \"\", \"value\": \"20.7\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 298,
+  "completion_tokens": 72,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1126.8210110010841,
+ "ttft_ms": 1126.847051000368,
+ "total_ms": 1591.4210300015839
+}

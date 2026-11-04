@@ -1,0 +1,18 @@
+{
+ "key": "75929907f1021246ff51239f02c1122e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.050去掉所有0后变成3.5，3.050=3.05，3.5≠3.05，大小改变，所以说法错误。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 306,
+  "completion_tokens": 72,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1220.542585999283,
+ "ttft_ms": 1220.5595849991369,
+ "total_ms": 1668.087533000289
+}

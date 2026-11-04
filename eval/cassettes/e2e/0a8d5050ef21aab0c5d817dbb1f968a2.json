@@ -1,0 +1,18 @@
+{
+ "key": "0a8d5050ef21aab0c5d817dbb1f968a2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"先除后乘解决两步实际问题\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 573,
+  "completion_tokens": 63,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1105.8471880005527,
+ "ttft_ms": 1105.8673770003224,
+ "total_ms": 1449.0169010005047
+}

@@ -1,0 +1,18 @@
+{
+ "key": "854869e6ddaa262560d1ede1d8209066",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":100,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"20\",\"5\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"20\",\"2\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"55\",\"40\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"55\",\"40\"],\"mode\":null}],\"concepts\":[\"用列表法比较方案解决实际问题\"],\"units_of_measure\":[\"元\"],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4544,
+  "completion_tokens": 120,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1520.278120000512,
+ "ttft_ms": 1520.2931590010849,
+ "total_ms": 2148.0879170012486
+}

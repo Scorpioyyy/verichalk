@@ -1,0 +1,18 @@
+{
+ "key": "8e5c88752d70474bf66432b172c9d1ee",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"单价0.4元/千克，买0.05千克，用乘法：0.4×0.05=0.02（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"0.02\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 314,
+  "completion_tokens": 71,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1104.2184079997241,
+ "ttft_ms": 1104.2355710014817,
+ "total_ms": 1493.862244000411
+}

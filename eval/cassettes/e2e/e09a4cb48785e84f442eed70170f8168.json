@@ -1,0 +1,18 @@
+{
+ "key": "e09a4cb48785e84f442eed70170f8168",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"毛绒玩偶价格：12×4+5=53（元）；一共：53+12=65（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"65\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 336,
+  "completion_tokens": 64,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1276.4349239987496,
+ "ttft_ms": 1276.4544330002536,
+ "total_ms": 1601.5599639995344
+}

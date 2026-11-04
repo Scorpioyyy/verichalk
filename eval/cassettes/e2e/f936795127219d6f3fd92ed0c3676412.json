@@ -1,0 +1,18 @@
+{
+ "key": "f936795127219d6f3fd92ed0c3676412",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.8×5 表示 5 个 0.8 相加，即 0.8+0.8+0.8+0.8+0.8，说法正确。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 311,
+  "completion_tokens": 80,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1197.0905899997888,
+ "ttft_ms": 1197.1062590000656,
+ "total_ms": 1618.1262190002599
+}

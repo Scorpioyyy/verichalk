@@ -1,0 +1,18 @@
+{
+ "key": "3e05be1fab2f8a76cd94252d1ced902b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"速度是每分钟0.85千米，1000分钟行驶的路程为0.85×1000=850（千米）。\", \"answers\": [{\"label\": \"1000分钟能行驶多少千米\", \"value\": \"850\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 320,
+  "completion_tokens": 72,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1184.4210519993794,
+ "ttft_ms": 1184.4420509987685,
+ "total_ms": 1584.3113939990872
+}

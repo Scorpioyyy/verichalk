@@ -1,0 +1,18 @@
+{
+ "key": "791aed4e5fd7cc6e07025cf22ff4b018",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1.23是两位小数，0.4是一位小数，两个因数一共有2+1=3位小数，所以积是三位小数。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 329,
+  "completion_tokens": 67,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1385.5938919987238,
+ "ttft_ms": 1385.7125129998167,
+ "total_ms": 1808.7797249991127
+}

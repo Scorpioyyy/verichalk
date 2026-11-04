@@ -1,0 +1,18 @@
+{
+ "key": "378ca336c26635e576a9391892acabe2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.9小于1，一个数（0除外）乘小于1的数，积小于原数，所以5.6×0.9<5.6，原说法错误。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 317,
+  "completion_tokens": 76,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1243.1297629991604,
+ "ttft_ms": 1243.1444649992045,
+ "total_ms": 1712.1238290001202
+}

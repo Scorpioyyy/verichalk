@@ -1,0 +1,18 @@
+{
+ "key": "da3e86893414efc53e4caf1ac2075927",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：游乐园纪念品。钥匙扣12元，玩偶价格是钥匙扣的4倍多5元。求买1个玩偶和1个钥匙扣共多少元。算式：12*4+5+12。先算乘法12*4=48，再加5得53，再加12得65。符合无括号混合运算顺序（先乘后加）。难度4在于理解倍数关系及多步计算。\",\n \"solver_code\": \"def solve():\\n    keychain = 12\\n    doll = keychain * 4 + 5\\n    total = doll + keychain\\n    return [total]\",\n \"figure\": null,\n \"stem\": \"游乐园商店里，一个卡通钥匙扣 $12$ 元，一个毛绒玩偶的价格比钥匙扣的 $4$ 倍还多 $5$ 元。买一个毛绒玩偶和一个卡通钥匙扣一共需要多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"65\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算玩偶价格：$12\\\\times 4+5=53$ 元。再算总价：$53+12=65$ 元。综合算式为 $12\\\\times 4+5+12$，先算乘法，再从左往右算加法。\",\n \"kp_use\": {\n  \"乘除法与加减法两步混合运算（无括号）\": \"在计算玩偶价格 $12\\\\times 4+5$ 及总价时，遵循先算乘法 $12\\\\times 4$，再算加法的运算顺序\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 5182,
+  "completion_tokens": 394,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2239.0705079997133,
+ "ttft_ms": 2253.4708960010903,
+ "total_ms": 8546.084976000202
+}

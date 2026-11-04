@@ -1,0 +1,18 @@
+{
+ "key": "66a12380f133a47b714c21461d62d3c3",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.25×0.4中两个因数共有2+1=3位小数，按整数乘法25×4=100，积100有三位小数应为0.100，化简为0.1。题目说先去掉末尾的0再点小数点，得到0.001，是错误的。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 364,
+  "completion_tokens": 99,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1069.2437139987305,
+ "ttft_ms": 1069.256183998732,
+ "total_ms": 1728.1708880000224
+}

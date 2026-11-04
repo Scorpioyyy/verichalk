@@ -1,0 +1,18 @@
+{
+ "key": "84d298af183263a6ac64d21804e71ead",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [], \"unsupported\": \"这个问题和修改试卷无关，我没法处理。请告诉我要改哪道题、怎么改。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1410,
+  "completion_tokens": 32,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1780.2468270001555,
+ "ttft_ms": 1780.2645660012786,
+ "total_ms": 2040.6974779998563
+}

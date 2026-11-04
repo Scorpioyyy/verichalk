@@ -1,0 +1,18 @@
+{
+ "key": "fd1b77896d1cdc26e4f55ad1f37a67fe",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1千米=1000米，350米=350÷1000千米=0.35千米，故选B。\", \"answers\": [{\"label\": \"\", \"value\": \"B\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 327,
+  "completion_tokens": 61,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1260.0170519999665,
+ "ttft_ms": 1260.0380669991864,
+ "total_ms": 1615.792529000828
+}

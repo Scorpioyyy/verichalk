@@ -1,0 +1,18 @@
+{
+ "key": "46be3595fcb200acefd08d7c8de48b9f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数乘小数的竖式计算（含补0与去0）\": false, \"积的小数位数规则\": false}, \"issues\": [\"解析用 0.08×12.5=1 和 1×1.2=1.2 直接口算得出，没有体现竖式计算（补0、去0）的过程，也没有讨论积的小数位数规则，声称的两个知识点在解答中均未真正用到。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 642,
+  "completion_tokens": 142,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1166.713577000337,
+ "ttft_ms": 1166.7323460005719,
+ "total_ms": 1962.3023950007337
+}

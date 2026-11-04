@@ -1,0 +1,18 @@
+{
+ "key": "85b9e0cfe51be2928d8eb87845321b6f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先按整数乘法计算：25×4=100。两个因数共有2+1=3位小数，所以从100的右边起数出3位点上小数点，得0.100，化简为0.1。\", \"answers\": [{\"label\": \"\", \"value\": \"0.1\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 299,
+  "completion_tokens": 86,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1108.8959869994142,
+ "ttft_ms": 1108.9140959993529,
+ "total_ms": 1610.576470999149
+}

@@ -1,0 +1,18 @@
+{
+ "key": "ffad6be6ab99dedf9532b8c62cf6e7e8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"一箱248瓶，6箱就是6个248，用乘法：248×6=1488（瓶）。\", \"answers\": [{\"label\": \"一共买了多少瓶\", \"value\": \"1488\", \"unit\": \"瓶\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 314,
+  "completion_tokens": 68,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1111.3166680006543,
+ "ttft_ms": 1111.329729001227,
+ "total_ms": 1512.5970940007392
+}

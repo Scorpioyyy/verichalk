@@ -1,0 +1,18 @@
+{
+ "key": "3960c6449a4d6bd952219e60592a210f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"第二次比第一次少跳0.6米，说明第一次比第二次多0.6米，所以第一次跳了3.85+0.6=4.45米。\", \"answers\": [{\"label\": \"\", \"value\": \"4.45\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 77,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1255.247238001175,
+ "ttft_ms": 1255.2633520008385,
+ "total_ms": 1644.8130490007316
+}

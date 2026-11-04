@@ -1,0 +1,18 @@
+{
+ "key": "61444324874322b81659448111e2f148",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"积的变化规律：一个因数乘10，另一个因数除以100，积先乘10再除以100，即乘10÷100=1/10。12.5×1/10=1.25。\", \"answers\": [{\"label\": \"\", \"value\": \"1.25\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 324,
+  "completion_tokens": 83,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1432.1783389987104,
+ "ttft_ms": 1432.193124999685,
+ "total_ms": 1913.4093390002818
+}

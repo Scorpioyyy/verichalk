@@ -1,0 +1,18 @@
+{
+ "key": "8488f291fbd10fb5193c0a71774cffa7",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算4本笔记本的钱：12.5×4=50（元）；再算4支钢笔的钱：7.5×4=30（元）；一共50+30=80（元）。也可以先算一套（1本笔记本+1支钢笔）的价钱：12.5+7.5=20（元），买4套共20×4=80（元）。\", \"answers\": [{\"label\": \"一共需要付多少元\", \"value\": \"80\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 127,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2062.00254200121,
+ "ttft_ms": 2062.0211900004506,
+ "total_ms": 2790.446487000736
+}

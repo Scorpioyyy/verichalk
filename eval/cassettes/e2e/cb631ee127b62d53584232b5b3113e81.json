@@ -1,0 +1,18 @@
+{
+ "key": "cb631ee127b62d53584232b5b3113e81",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先求速度：320÷4=80（千米/小时）；再求9小时路程：80×9=720（千米）。\", \"answers\": [{\"label\": \"\", \"value\": \"720\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 66,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1137.2161769995728,
+ "ttft_ms": 1137.2292050000397,
+ "total_ms": 1503.7015119996795
+}

@@ -1,0 +1,18 @@
+{
+ "key": "6ef93267dbb5154922a6708596e88f04",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算三种商品总价：28.5+45.75+12.6=86.85（元）；再算找回：100-86.85=13.15（元）。\", \"answers\": [{\"label\": \"应找回多少元\", \"value\": \"13.15\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 86,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1265.4398319991742,
+ "ttft_ms": 1265.4527249997045,
+ "total_ms": 1771.0013689993502
+}

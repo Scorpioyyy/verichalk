@@ -1,0 +1,18 @@
+{
+ "key": "de610063b35506dbee1d954dcd14f267",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":5,\"decimal_places\":1,\"fraction_types\":[],\"operations\":[],\"concepts\":[\"小数乘整数的意义与算法（初步）\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4431,
+  "completion_tokens": 53,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1456.7650110002432,
+ "ttft_ms": 1456.779636999272,
+ "total_ms": 1768.8572789993486
+}

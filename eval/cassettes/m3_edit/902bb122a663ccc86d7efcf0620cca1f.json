@@ -1,0 +1,18 @@
+{
+ "key": "902bb122a663ccc86d7efcf0620cca1f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": false, \"reason\": \"改写后题干与改写前完全相同，仍是跳绳情境，没有换成不同情境。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 173,
+  "completion_tokens": 28,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1201.452552999399,
+ "ttft_ms": 1201.4722019994224,
+ "total_ms": 1392.9569510000874
+}

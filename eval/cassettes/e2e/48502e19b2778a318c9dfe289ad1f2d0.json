@@ -1,0 +1,18 @@
+{
+ "key": "48502e19b2778a318c9dfe289ad1f2d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 3250, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3.25\", \"1000\"], \"mode\": null}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\", \"单价、数量与总价的关系\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 92,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1762.012377001156,
+ "ttft_ms": 1762.0267210004386,
+ "total_ms": 2247.431775000223
+}

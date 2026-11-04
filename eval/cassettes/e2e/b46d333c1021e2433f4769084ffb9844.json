@@ -1,0 +1,18 @@
+{
+ "key": "b46d333c1021e2433f4769084ffb9844",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先求每小时行驶的路程：240÷3=80（千米/时）；再求5小时行驶的路程：80×5=400（千米）。\", \"answers\": [{\"label\": \"接下来5小时能行驶多少千米\", \"value\": \"400\", \"unit\": \"千米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 79,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1051.1034459996154,
+ "ttft_ms": 1051.1232119988563,
+ "total_ms": 1494.3573659984395
+}

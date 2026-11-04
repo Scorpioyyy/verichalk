@@ -1,0 +1,18 @@
+{
+ "key": "20826ece083b37b6a41ee129ca1b274f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1月份电费：35.20+48.50=83.70（元）；1月份水电费合计：35.20+83.70=118.90（元）；3月份水电费：500.50-118.90-180.60=201.00（元）。\", \"answers\": [{\"label\": \"3月份的水电费共计\", \"value\": \"201.00\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 109,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1204.0490650015272,
+ "ttft_ms": 1204.0669489997526,
+ "total_ms": 1787.35435300041
+}

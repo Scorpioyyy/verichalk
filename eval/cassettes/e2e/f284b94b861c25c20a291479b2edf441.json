@@ -1,0 +1,18 @@
+{
+ "key": "f284b94b861c25c20a291479b2edf441",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 720, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"320\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"80\", \"9\"], \"mode\": null}], \"concepts\": [\"速度、时间与路程的关系\"], \"units_of_measure\": [\"千米\", \"时\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4436,
+  "completion_tokens": 100,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1606.8258970008173,
+ "ttft_ms": 1606.8448700007139,
+ "total_ms": 2115.6744899999467
+}

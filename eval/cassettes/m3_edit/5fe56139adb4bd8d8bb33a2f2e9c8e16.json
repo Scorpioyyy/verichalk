@@ -1,0 +1,18 @@
+{
+ "key": "5fe56139adb4bd8d8bb33a2f2e9c8e16",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每盒2.4元，买4盒，用乘法：2.4×4=9.6（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"9.6\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 311,
+  "completion_tokens": 66,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1134.0653839997685,
+ "ttft_ms": 1134.0911150000466,
+ "total_ms": 1488.6875760003022
+}

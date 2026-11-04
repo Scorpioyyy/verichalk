@@ -1,0 +1,18 @@
+{
+ "key": "948dea1e008674468c255dec8d3a83a0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"平均数 = 总个数 ÷ 次数 = (102+98+110+105+100) ÷ 5 = 515 ÷ 5 = 103\", \"answers\": [{\"label\": \"\", \"value\": \"103\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 70,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1117.7527889994963,
+ "ttft_ms": 1117.7749229991605,
+ "total_ms": 1512.1727979985735
+}

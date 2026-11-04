@@ -1,0 +1,18 @@
+{
+ "key": "dbdf6a2f07251ee9b4d7b911fc1ec95d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 9, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"2.4\", \"4\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4419,
+  "completion_tokens": 83,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1476.7626310003834,
+ "ttft_ms": 1476.775703000385,
+ "total_ms": 1899.4007080000301
+}

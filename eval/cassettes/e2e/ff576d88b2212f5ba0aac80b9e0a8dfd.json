@@ -1,0 +1,18 @@
+{
+ "key": "ff576d88b2212f5ba0aac80b9e0a8dfd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.50元表示3元5角0分，计数单位是0.01元（分）；3.5元表示3元5角，计数单位是0.1元（角）。价格大小都是3元5角，没有变，但计数单位由0.01元变成了0.1元，所以这句话对。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 332,
+  "completion_tokens": 108,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1234.4674760006455,
+ "ttft_ms": 1234.4832790004148,
+ "total_ms": 1839.9315139995451
+}

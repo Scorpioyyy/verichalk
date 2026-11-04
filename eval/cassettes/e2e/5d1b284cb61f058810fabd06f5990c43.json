@@ -1,0 +1,18 @@
+{
+ "key": "5d1b284cb61f058810fabd06f5990c43",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1488, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"8\", \"6\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"24\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4\", \"6\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"12\", \"2\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"2\", \"6\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"248\", \"6\"], \"mode\": null}], \"concepts\": [\"两、三位数乘一位数（需要进位）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4486,
+  "completion_tokens": 185,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1546.6405280003528,
+ "ttft_ms": 1546.6512110015174,
+ "total_ms": 2432.329749000928
+}

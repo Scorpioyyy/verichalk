@@ -22,11 +22,19 @@ KINDS: dict[str, Callable[[dict[str, Any]], Rendered]] = {
 
 
 def render_figure(spec: FigureSpec) -> Rendered:
-    """渲染一个图形规格；类型未知或规格不合法时抛 `FigureError`。"""
+    """渲染一个图形规格；类型未知或规格不合法时抛 `FigureError`（不会抛其他异常）。"""
     fn = KINDS.get(spec.kind)
     if fn is None:
         raise FigureError(f"不支持的图形类型：{spec.kind}")
-    return fn(spec.params)
+    try:
+        return fn(spec.params)
+    except FigureError:
+        raise
+    except (ArithmeticError, ValueError, TypeError, KeyError, IndexError) as e:
+        # 规格来自写题模型：数值写成 "?"、列表长度不对、缺字段……一律是"规格不合法"，不能让运行崩溃
+        raise FigureError(
+            f"{spec.kind} 的参数不合法（{type(e).__name__}）：数值要写成数字，字段与类型见说明"
+        ) from e
 
 
 __all__ = ["KINDS", "FigureError", "Rendered", "describe_figure", "render_figure"]

@@ -24,6 +24,7 @@ from ..domain.events import ItemStatus, RunStarted
 from ..domain.llm import ChatMessage, Role
 from ..domain.paper import Item, ItemKind, Provenance, Source, Tier, Verification, VerifyStatus
 from ..domain.understanding import Understanding
+from ..figures import describe_figure
 from ..knowledge import KnowledgeService
 from ..llm import LLMGateway, LLMRequest, complete_json
 from ..metrics import compute_run_metrics
@@ -433,30 +434,26 @@ def render_score(title: str, s: dict[str, Any]) -> str:
 
 
 def dump_records(recs: list[CaseRec]) -> str:
-    """把一次评测的原始产出写成 JSON（便于复盘；入 tmp 或报告目录由调用方决定）。"""
-    rows = []
+    """一次评测的交付题，写成与 `scripts/probe_produce.py --out` 相同的格式（{教师原话: [题]}，另有 `__asked__` 要求题数），
+    可直接交给 `scripts/judge_sets.py`（教师视角评审）与 `scripts/compare_sets.py`（成对盲评）。"""
+    out: dict[str, Any] = {}
+    asked: dict[str, int] = {}
     for r in recs:
-        rows.append(
+        request = r.case.turns[0].user
+        asked[request] = r.n_requested
+        out[request] = [
             {
+                "index": i,
                 "case": r.case.id,
-                "status": r.status,
-                "error": r.error,
-                "lesson": r.lesson_id,
-                "items": [
-                    {
-                        "stem": ir.item.stem,
-                        "options": ir.item.options,
-                        "answer": ir.item.answer,
-                        "solution": ir.item.solution,
-                        "status": ir.item.verification.status.value,
-                        "kps": ir.item.kp_ids,
-                        "tier": ir.item.tier.value,
-                        "kind": ir.item.kind.value,
-                    }
-                    if ir.item
-                    else {"dropped": ir.dropped_reason}
-                    for ir in r.items
-                ],
+                "stem": it.stem,
+                "options": it.options,
+                "answer": it.answer,
+                "solution": it.solution,
+                "figures": [{"kind": f.kind, "text": describe_figure(f)} for f in it.figures],
+                "tier": it.tier.value,
+                "kind": it.kind.value,
+                "status": it.verification.status.value,
             }
-        )
-    return json.dumps(rows, ensure_ascii=False, indent=1)
+            for i, it in enumerate(r.delivered, 1)
+        ]
+    return json.dumps({**out, "__asked__": asked}, ensure_ascii=False, indent=1)

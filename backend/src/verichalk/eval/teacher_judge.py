@@ -91,8 +91,9 @@ def render_items(rows: list[dict[str, Any]]) -> str:
             if r.get("options")
             else ""
         )
+        figs = "".join(f"\n   （图：{f['text']}）" for f in r.get("figures") or [])
         out.append(
-            f"第 {r['index']} 题：{r['stem']}{opts}\n   答案：{r.get('answer', '')}\n   解析：{r.get('solution', '')}"
+            f"第 {r['index']} 题：{r['stem']}{figs}{opts}\n   答案：{r.get('answer', '')}\n   解析：{r.get('solution', '')}"
         )
     return "\n\n".join(out)
 

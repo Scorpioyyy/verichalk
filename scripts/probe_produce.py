@@ -28,6 +28,7 @@ warnings.simplefilter("ignore")
 
 from verichalk.core.config import LLMMode, Profile, Settings
 from verichalk.domain.events import ItemDelivered, LLMCall
+from verichalk.figures import describe_figure
 from verichalk.orchestrator import build_container
 from verichalk.orchestrator.produce_flow import produce_specs
 from verichalk.stages import PlanIn, PlanStage, RunContext
@@ -121,6 +122,7 @@ async def probe(
                 "scene": spec.scene,
                 "angle": spec.angle,
                 "stem": it.stem,
+                "figures": [{"kind": f.kind, "params": f.params, "text": describe_figure(f)} for f in it.figures],
                 "options": it.options,
                 "answer": it.answer,
                 "solution": it.solution,
@@ -137,6 +139,8 @@ async def probe(
                     "    选项："
                     + " | ".join(f"{'ABCD'[i]}.{x}" for i, x in enumerate(it.options))
                 )
+            for f in it.figures:
+                lines.append(f"    图：{describe_figure(f)}")
             lines.append(f"    答案：{it.answer}")
     COLLECTED[text] = rows
     ASKED[text] = len(bp.items)

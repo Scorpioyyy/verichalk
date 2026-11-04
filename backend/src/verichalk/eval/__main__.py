@@ -22,7 +22,7 @@ from ..llm import ModelRegistry, build_gateway
 from .ablation import render_ablation, run_ablation
 from .audit import Auditor, AuditStore
 from .cases import load_cases
-from .produce_eval import audit_records, dump_records, render_score, run_cases, run_naive, score
+from .produce_eval import CaseRec, audit_records, dump_records, render_score, run_cases, run_naive, score
 from .report import write_report
 from .runner import run_suite
 from .verify_eval import (
@@ -199,7 +199,9 @@ def cmd_produce(args: argparse.Namespace) -> int:
         llm_concurrency=args.concurrency * 12,
     )
     root = settings.root_dir
-    cases = load_cases(root / "eval" / "datasets", "produce", args.split)
+    cases = load_cases(
+        root / "eval" / "datasets", "produce_fresh" if args.cases == "fresh" else "produce", args.split
+    )
     if args.only:
         wanted = {x.strip() for x in args.only.split(",")}
         cases = [c for c in cases if c.id in wanted]
@@ -214,6 +216,7 @@ def cmd_produce(args: argparse.Namespace) -> int:
         audits = {} if args.no_audit else await audit_records(auditor, kb, recs)
         title = f"{args.tag or 'produce'} · split={args.split} · {settings.features.describe()}"
         parts = [render_score(title, await score(recs, audits, kb))]
+        nrecs: list[CaseRec] = []
         if args.naive:
             nrecs = await run_naive(build_gateway(settings), recs)
             if not args.no_audit:
@@ -245,6 +248,8 @@ def cmd_produce(args: argparse.Namespace) -> int:
             parts.append("### A8 教师偏好盲评（VeriChalk vs 朴素直出）\n\n" + pref_summary(rows))
         if args.dump:
             Path(args.dump).write_text(dump_records(recs), encoding="utf-8")  # noqa: ASYNC240
+            if nrecs:
+                Path(args.dump).with_suffix(".naive.json").write_text(dump_records(nrecs), encoding="utf-8")
         return "\n\n".join(parts)
 
     md = asyncio.run(main())
@@ -582,6 +587,12 @@ def main() -> None:
     v.set_defaults(fn=cmd_verify)
     pr = sub.add_parser("produce", help="生成与核验的端到端评测（含审计；--naive 加跑朴素基线）")
     pr.add_argument("--split", default="val", choices=["val", "test", "all"])
+    pr.add_argument(
+        "--cases",
+        default="main",
+        choices=["main", "fresh"],
+        help="fresh = 从未调优过的留出集 produce_fresh（里程碑验收只跑一次，全部是 test 划分）",
+    )
     pr.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     pr.add_argument("--record", action="store_true")
     pr.add_argument("--profile", default="intl", choices=["cn", "intl"])

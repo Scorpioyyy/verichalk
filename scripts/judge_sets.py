@@ -3,7 +3,7 @@
 用法：
   python scripts/judge_sets.py a.json [b.json …]                       # 每份产出一行汇总
   python scripts/judge_sets.py a.json --show                          # 逐题打印评审意见（读题用）
-  python scripts/judge_sets.py --calibrate eval/annotation/teacher_accept/classic_q2.yaml   # 与人工标注比一致率
+  python scripts/judge_sets.py --calibrate eval/annotation/teacher_accept/calibration.yaml   # 与人工标注比一致率
 评审用 deepseek-v4-pro（与写题模型不同厂商），一套题一次调用；花费每套约 ¥0.01。
 """
 

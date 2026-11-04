@@ -47,6 +47,7 @@ async def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--file", default="eval/datasets/quality_probe.yaml")
     ap.add_argument("--per", type=int, default=6, help="每个请求取前几道")
+    ap.add_argument("--dump", default="", help="把逐题的检查结论与审计真值写成 JSONL（复盘用，不要放进仓库）")
     args = ap.parse_args()
     s = Settings(profile=Profile.intl, llm_mode=LLMMode.live)
     c = await build_container(s, store=await Store.open(":memory:"))
@@ -59,7 +60,7 @@ async def main() -> None:
         store=c.store,
     )
     env = VerifyEnv(llm=c.llm, kb=c.kb)
-    reqs = yaml.safe_load((ROOT / args.file).read_text(encoding="utf-8"))
+    reqs = [r for f in args.file.split(",") for r in yaml.safe_load((ROOT / f).read_text(encoding="utf-8"))]
     stage = ProduceStage()
     sem = asyncio.Semaphore(12)
 
@@ -76,7 +77,7 @@ async def main() -> None:
                 w = _normalize(
                     await stage._write(
                         ctx,
-                        ProduceIn(spec=spec, grade=bp.grade, lesson_id=bp.lesson_id),
+                        ProduceIn(spec=spec, grade=bp.grade, lesson_id=bp.lesson_id, request=u.brief.request),
                         details,
                         examples,
                         None,
@@ -106,7 +107,6 @@ async def main() -> None:
             tier=spec.tier.value,
             grade=bp.grade,
             lesson_id=bp.lesson_id,
-            target_difficulty=spec.difficulty,
         )
         async with sem:
             res = await asyncio.gather(
@@ -143,6 +143,26 @@ async def main() -> None:
             qd.get(k, False)
             for k in ("unambiguous", "complete", "data_plausible", "solution_ok")
         )
+        if args.dump:
+            import json
+
+            with open(args.dump, "a", encoding="utf-8") as fh:
+                fh.write(
+                    json.dumps(
+                        {
+                            "stem": w.stem,
+                            "answers": answer_values(w.answers),
+                            "kind": spec.kind.value,
+                            "flagged": flagged,
+                            "details": {r.name: r.detail[:200] for r in [*res[:4], q, integ]},
+                            "audit": {"a2": a.a2, "a": a.answers_a, "b": a.answers_b, "a3": a.a3,
+                                      "a3_violations": [v.get("item_value") for v in a.a3_violations],
+                                      "quality": qd},
+                        },
+                        ensure_ascii=False,
+                    )
+                    + "\n"
+                )
         return (
             flagged,
             {"answer": bad_answer, "scope": bad_scope, "quality": bad_quality},

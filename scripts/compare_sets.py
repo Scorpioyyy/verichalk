@@ -45,6 +45,8 @@ async def main() -> None:
     args = ap.parse_args()
     a = json.loads(Path(args.a).read_text(encoding="utf-8"))
     b = json.loads(Path(args.b).read_text(encoding="utf-8"))
+    a.pop("__asked__", None)  # probe 产出里的要求题数（不是请求）
+    b.pop("__asked__", None)
     gw = build_gateway(Settings(profile=Profile.intl, llm_mode=LLMMode.live))
     gw.registry = gw.registry.override("judge", **JUDGE)
 

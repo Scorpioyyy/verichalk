@@ -194,6 +194,7 @@ async def test_stage_uses_model_and_validates_output(kb_service, store):
     u = await run_stage(ctx, UnderstandStage(), UnderstandIn(text="四年级下册小数加减法，出5道题"))
     assert u.method == "llm" and u.brief and u.brief.scope.grade and u.brief.scope.grade.origin == Origin.user
     assert u.brief.scope.kp_ids is not None  # 检索与模型并行，之后用于映射
+    assert u.brief.request == "四年级下册小数加减法，出5道题"  # 原话随 Brief 交给规划与写题（D59）
     body = tr.bodies[0]
     assert body["response_format"] == {"type": "json_object"} and body["enable_thinking"] is False
     assert "<user_message>" in json.dumps(body["messages"], ensure_ascii=False)

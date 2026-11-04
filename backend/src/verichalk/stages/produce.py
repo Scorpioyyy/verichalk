@@ -93,6 +93,7 @@ class ProduceIn(BaseModel):
     lesson_id: str | None = None  # 能力边界的参照课时
     constraints: str = ""  # 教师的其他要求（如"数字不要太大"）
     avoid: list[str] = []  # 套内其他题的考法摘要（本题要与之不同）
+    request: str = ""  # 教师的原话：规格之外的意图（风格、情境偏好、难度感受）
     references: list[str] = []  # 照片里的题的纯题面（防雷同的比较对象）
     reference_notes: list[str] = []  # 同一批题的提示词写法（带大题题干），给写题参考
     rewrite: dict[str, Any] | None = (
@@ -243,7 +244,6 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     tier=spec.tier.value,
                     grade=inp.grade,
                     lesson_id=inp.lesson_id,
-                    target_difficulty=spec.difficulty if feats.enabled("produce.difficulty_check") else None,
                     references=inp.references,
                 )
                 ver = await verify_item(env, vin, feats)
@@ -292,31 +292,22 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             }
             for k, n in zip(spec.kp_ids, spec.kp_names, strict=False)
         ]
-        roles = [
-            f"{n}：{spec.roles[k]}"
-            for k, n in zip(spec.kp_ids, spec.kp_names, strict=False)
-            if k in spec.roles
-        ]
-        dp = ctx.settings.features.enabled("produce.design_prompt")
         built = get_prompt("produce.write").render(
-            stable={"design_mode": dp},
             dynamic={
                 "grade_text": f"{_GRADE_CN.get(inp.grade or 0, '')}年级" if inp.grade else "小学",
                 "tier_cn": _TIER_CN[spec.tier],
                 "difficulty": spec.difficulty,
                 "kind_cn": _KIND_CN[spec.kind],
                 "kps": kps,
-                "roles": roles,
                 "scene": spec.scene,
                 "scene_hint": spec.scene_hint,
                 "angle": spec.angle,
-                "design": spec.design if dp else "",
-                "target_error": spec.target_error if dp else "",
                 "difficulty_rule": _DIFFICULTY_RULE.get(min(max(spec.difficulty, 1), 5), "")
-                if (dp or inp.rewrite)
+                if inp.rewrite
                 else "",
                 "number_hint": spec.number_hint,
                 "constraints": inp.constraints,
+                "request": inp.request,
                 "examples": examples,
                 "avoid": inp.avoid,
                 "rewrite": inp.rewrite,

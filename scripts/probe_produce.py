@@ -147,13 +147,6 @@ async def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("texts", nargs="*")
     ap.add_argument("--off", default="")
-    ap.add_argument("--on", default="")
-    ap.add_argument(
-        "--pipeline",
-        default="classic",
-        choices=["classic", "design"],
-        help="链路预设（默认 classic）",
-    )
     ap.add_argument("--quiet", action="store_true")
     ap.add_argument("--items", action="store_true", help="打印交付的题目全文（读题用）")
     ap.add_argument(
@@ -195,8 +188,6 @@ async def main() -> None:
         profile=Profile(args.profile),
         llm_mode=LLMMode.live,
         off=args.off,
-        on=args.on,
-        pipeline=args.pipeline,
         **upd,
     )
     c = await build_container(s, store=await Store.open(":memory:"))
@@ -222,7 +213,7 @@ async def main() -> None:
     firsts = [st["first_item"] for st in stats if st.get("first_item")]
     asked = max(tot("asked"), 1)
     print(
-        f"SUMMARY 链路={args.pipeline} smart={c.llm.registry.role('smart').model} 题数={int(tot('asked'))} "
+        f"SUMMARY 关闭={args.off or '无'} smart={c.llm.registry.role('smart').model} 题数={int(tot('asked'))} "
         f"交付={int(tot('delivered'))}（{tot('delivered') / asked:.2f}） 一次通过={int(tot('first_pass'))} "
         f"写题={int(tot('writes'))}（均 {tot('writes') / asked:.2f}） 首题 p50={statistics.median(firsts) if firsts else float('nan'):.0f}s "
         f"端到端 p50={statistics.median(e2e) if e2e else float('nan'):.0f}s max={max(e2e, default=0):.0f}s "

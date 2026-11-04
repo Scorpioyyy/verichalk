@@ -49,7 +49,6 @@ class VerifyInput:
     tier: str = "consolidate"
     grade: int | None = None
     lesson_id: str | None = None  # 能力边界的参照课时
-    target_difficulty: int | None = None  # 规格要求的难度：判官估计低它 2 级以上就判"偏简单"
     references: list[str] = field(default_factory=list)  # 照片里的题：新题不得是它们的翻版
 
 
@@ -323,10 +322,6 @@ async def check_quality(env: VerifyEnv, inp: VerifyInput) -> tuple[CheckResult, 
             return skip, _res("integration", CheckStatus.skip, "未评审")
         ev = q.model_dump() | {"model": res.model}
         bad = [label for key, label in _QUALITY_LABELS.items() if not getattr(q, key)]
-        if inp.target_difficulty and q.difficulty <= inp.target_difficulty - 2:
-            bad.append(
-                f"题目偏简单（评审估计难度 {q.difficulty}，要求 {inp.target_difficulty}）：需要更多步骤、逆向、比较或取舍"
-            )
         sp.set(n_bad=len(bad))
         if bad:
             quality = _res("quality", CheckStatus.fail, "；".join(bad + q.issues[:3]), **ev)

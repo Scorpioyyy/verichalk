@@ -58,6 +58,7 @@ async def produce_specs(
                     grade=bp.grade,
                     lesson_id=bp.lesson_id,
                     constraints=constraints,
+                    request=brief.request,
                     avoid=avoid[:6],
                     references=ref_texts,
                     reference_notes=ref_notes,

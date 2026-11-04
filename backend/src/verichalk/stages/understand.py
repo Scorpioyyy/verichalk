@@ -100,6 +100,8 @@ class UnderstandStage(Stage[UnderstandIn, Understanding]):
         u = await finalize(
             raw, hits=hits, kb=ctx.kb, prev=prev, method=method, topic_hits=topic_hits, photo=inp.photo
         )
+        if u.brief is not None:
+            u.brief.request = inp.text.strip()[:500]
         if method == "rules_fallback":
             u.notes.append("智能解析暂时不可用，已用基础规则理解您的需求，可能不够准确")
         return u

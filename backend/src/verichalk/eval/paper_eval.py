@@ -68,7 +68,7 @@ async def run_paper_eval(settings: Settings, cases: list[dict[str, Any]]) -> lis
             plan = plan_paper_structure(brief)
             scope = await resolve_scope(brief, kb)
             draft = await build_draft(apply_plan_to_brief(brief, plan), kb, miner, scope, slots=plan.slots)
-            specs = draft.blueprint.items
+            specs = draft.items
         except Exception as e:  # 评测要看到崩溃
             row.problems.append(f"崩溃：{type(e).__name__}: {str(e)[:150]}")
             rows.append(row)

@@ -51,7 +51,7 @@ async def test_blueprint_count_exact_and_in_scope(kb: KnowledgeService, count: i
     scope = await resolve_scope(brief, kb)
     g = await kb.graph()
     draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope)
-    items = draft.blueprint.items
+    items = draft.items
     assert len(items) == count  # P3：题量精确
     for it in items:
         assert set(it.kp_ids) <= scope.learned  # P1：全部在已学范围内
@@ -84,4 +84,4 @@ async def test_narrow_unit_with_no_combo_does_not_exhaust_singles(kb: KnowledgeS
     scope = await resolve_scope(brief, kb)
     g = await kb.graph()
     draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope, slots=slots)
-    assert len(draft.blueprint.items) == 16
+    assert len(draft.items) == 16

@@ -1,12 +1,15 @@
-"""规划阶段：`Brief` → `Blueprint`（architecture §5.2，D20）。
+"""规划阶段：`Brief` → `Blueprint`（architecture §5.2，D20、D59）。
 
-流程：范围解析 → 确定性蓝图（题量 / 档位 / 难度 / 题型 / 知识点 / 组合 / 情境，`plan_rules`）→ 发出检索事件（调试台的图检索视图）
-→ 规划模型为每道题选择搭配、构想情境与问法（`plan.llm`）。模型不可用或输出非法时降级为确定性蓝图（F3）。
+分工：**代码管约束，模型管设计**。
+1. 确定性骨架（`plan_rules.build_draft`）：范围、题量、档位、难度、题型、数值范围（能力边界）——这些由代码保证；
+2. 候选知识点菜单（`plan_rules.build_menu`）：教师点名的主题按"本册优先"检索，加上图上有桥的搭档，只含已学、可考的知识点；
+3. 规划模型（`plan.llm`）读教师原话，为整套题从菜单里选知识点、设计一条解题链与具体情境；代码校验并合并
+   （知识点必须来自菜单，教师点名主题时每道题至少考一个主题知识点，综合题要两个不同的知识点）。
+模型不可用、输出非法或开关关闭时，骨架本身就是可用的蓝图（F3 降级）。
 """
 
 from __future__ import annotations
 
-import asyncio
 import logging
 
 from pydantic import BaseModel, Field
@@ -20,9 +23,9 @@ from ..domain.llm import Role
 from ..domain.paper import ItemKind, Tier
 from ..domain.paper_plan import Slot
 from ..knowledge import ComboMiner, ComboWeights, GraphData
-from ..llm import LLMGateway, LLMRequest, complete_json, get_prompt
+from ..llm import LLMRequest, complete_json, get_prompt
 from .base import RunContext, Stage
-from .plan_rules import Draft, ScopeInfo, build_draft, resolve_scope
+from .plan_rules import MenuEntry, ScopeInfo, build_draft, build_menu, resolve_scope
 
 log = logging.getLogger("verichalk.plan")
 
@@ -43,18 +46,60 @@ class PlanIn(BaseModel):
     slots: list[Slot] | None = None  # 整卷：细目表的题位（题型与难度已定）
 
 
-class IdeaItem(BaseModel):
+class ComposeItem(BaseModel):
     index: int
-    combo: str = ""
+    kps: list[str] = Field(default_factory=list)
     scene: str = ""
-    design: str = ""
-    target_error: str = ""
-    angle: str = ""
-    roles: dict[str, str] = Field(default_factory=dict)
+    plan: str = ""
 
 
-class IdeaOut(BaseModel):
-    items: list[IdeaItem]
+class ComposeOut(BaseModel):
+    items: list[ComposeItem]
+
+
+def merge_compose(
+    draft: Blueprint, out: ComposeOut, menu: list[MenuEntry], g: GraphData, brief: Brief
+) -> Blueprint:
+    """把模型的整套设计合并进确定性骨架（题量、档位、难度、题型、数值范围不变）。
+
+    不变量：知识点只来自菜单；教师点名了主题时，每道题至少有一个主题知识点（不满足就由代码换上用得最少的主题知识点）；
+    综合题有两个不同的知识点——给不出时，教师明说要结合就保留骨架的搭配，否则改成单知识点的变式题；
+    `template` 来源的题与复习题的搭配不动；教师指定的情境不被模型改写。"""
+    bp = draft.model_copy(deep=True)
+    code = {m.code: m.kp_id for m in menu}
+    by_idx = {i.index: i for i in out.items}
+    user_scenes = bool(brief.scenes)
+    must_combine = len(set(brief.scope.kp_topics.values())) >= 2
+    topical = [m.kp_id for m in menu if m.topical]
+    used = dict.fromkeys(topical, 0)
+    for it in bp.items:
+        x = by_idx.get(it.index)
+        if x is None or it.source == "template":
+            continue
+        ids = list(dict.fromkeys(code[c.strip().upper()] for c in x.kps if c.strip().upper() in code))
+        if it.review:
+            pass  # 复习题的搭配（已学前置）由骨架决定，模型只设计情境与解题链
+        elif it.tier == Tier.integrated:
+            if len(ids) >= 2:
+                it.kp_ids, it.rationale = ids[:2], "规划按解题链选择的搭配"
+            elif ids and not must_combine:
+                it.kp_ids, it.tier, it.rationale = ids[:1], Tier.variation, ""
+        elif ids:
+            it.kp_ids = ids[:1]
+        if topical and not any(k in used for k in it.kp_ids):
+            fix = min(topical, key=lambda k: used[k])
+            it.kp_ids = [fix, *it.kp_ids[1:]] if it.tier == Tier.integrated else [fix]
+            it.rationale = "按教师点名的主题替换"
+        for k in it.kp_ids:
+            if k in used:
+                used[k] += 1
+        it.kp_names = [g.nodes[k].name for k in it.kp_ids]
+        scene = x.scene.strip()[:24]
+        if not user_scenes and scene and scene != it.scene:
+            it.scene, it.scene_hint = scene, ""  # 情境库的典型量只对应骨架里的原情境
+        it.angle = x.plan.strip()[:120]
+    bp.method = "llm"
+    return bp
 
 
 def _requirements(brief: Brief) -> str:
@@ -63,89 +108,49 @@ def _requirements(brief: Brief) -> str:
         bits.append("指定情境：" + "、".join(brief.scenes.value))
     if brief.constraints:
         bits.append("限制：" + "；".join(brief.constraints.value))
-    return "；".join(bits) or "无特别要求"
+    return "；".join(bits)
 
 
-def retrieval_payload(g: GraphData, scope: ScopeInfo, draft: Draft) -> RetrievalPayload:
-    """规划的检索载荷：锚点、选中的组合及其关系边，供调试台绘制。"""
+def retrieval_payload(
+    g: GraphData, scope: ScopeInfo, menu: list[MenuEntry], bp: Blueprint
+) -> RetrievalPayload:
+    """规划的检索载荷（调试台图检索视图）：锚点、菜单里的候选、最终选中的知识点与综合题的搭配边。"""
     nodes: dict[str, GraphNode] = {}
 
-    def add(kid: str, role: str) -> None:
-        n = g.nodes[kid]
-        if kid not in nodes or role == "selected":
-            nodes[kid] = GraphNode(
-                id=kid,
-                name=n.name,
-                grade=n.grade,
-                semester=n.semester,
-                domain=n.domain,
-                role=role,  # type: ignore[arg-type]
-            )
+    def add(kid: str, role: str, note: str = "") -> None:
+        n = g.nodes.get(kid)
+        if n is None or (kid in nodes and role != "selected"):
+            return
+        nodes[kid] = GraphNode(
+            id=kid,
+            name=n.name,
+            grade=n.grade,
+            semester=n.semester,
+            domain=n.domain,
+            role=role,  # type: ignore[arg-type]
+            note=note,
+        )
 
-    for a in scope.anchors:
-        add(a, "anchor")
-    edges: list[GraphEdge] = []
-    combos: list[Combo] = []
-    for alts in draft.alts.values():
-        for j, c in enumerate(alts):
-            for kid in c.kp_ids:
-                add(kid, "selected" if j == 0 else "candidate")
-            for x in range(len(c.kp_ids)):
-                for y in range(x + 1, len(c.kp_ids)):
-                    key = GraphData.key(c.kp_ids[x], c.kp_ids[y])
-                    types = list(g.edges.get(key, {})) or (["cooccur"] if key in g.cooccur else [])
-                    for t in types[:1]:
-                        edges.append(GraphEdge(source=key[0], target=key[1], type=t))
-            if j == 0:
-                combos.append(c)
-    for it in draft.blueprint.items:
+    for it in bp.items:
         for kid in it.kp_ids:
             add(kid, "selected")
-    return RetrievalPayload(
-        step="plan.combos",
-        nodes=list(nodes.values()),
-        edges=edges,
-        combos=combos,
-        notes=draft.blueprint.notes,
-    )
-
-
-def merge_ideas(draft: Draft, ideas: IdeaOut, user_scenes: list[str]) -> Blueprint:
-    """把模型的选择合并进确定性蓝图；任何一项不合法就保留该项的确定性结果（约束由代码保证）。"""
-    bp = draft.blueprint.model_copy(deep=True)
-    by_idx = {i.index: i for i in ideas.items}
-    notes = list(bp.notes)
+    for a in scope.anchors:
+        add(a, "anchor")
+    for m in menu:
+        add(m.kp_id, "candidate", m.note)
+    edges: list[GraphEdge] = []
+    combos: list[Combo] = []
     for it in bp.items:
-        idea = by_idx.get(it.index)
-        if idea is None:
+        if len(it.kp_ids) < 2:
             continue
-        alts = draft.alts.get(it.id, [])
-        choice = idea.combo.strip().upper()
-        if alts and choice == "NONE":
-            notes.append(f"第 {it.index} 题没有自然的综合搭配，改为单知识点题")
-            it.kp_ids, it.kp_names, it.tier, it.rationale = it.kp_ids[:1], it.kp_names[:1], Tier.variation, ""
-            it.review = False
-        elif alts and len(choice) == 1 and 0 <= ord(choice) - 65 < len(alts):
-            c = alts[ord(choice) - 65]
-            names = {k: n for k, n in zip(it.kp_ids, it.kp_names, strict=False)}
-            if c.kp_ids != it.kp_ids:
-                it.kp_ids = list(c.kp_ids)
-                it.kp_names = [names.get(k, k) for k in it.kp_ids]
-                it.rationale = c.rationale
-        if user_scenes:
-            pass  # 教师指定的情境由确定性分配保证，不让模型改
-        elif idea.scene and len(idea.scene) <= 24:
-            it.scene = idea.scene.strip()
-        if idea.angle:
-            it.angle = idea.angle.strip()[:120]
-        it.design = idea.design.strip()[:20]
-        it.target_error = idea.target_error.strip()[:120]
-        if idea.roles and len(it.kp_ids) > 1:
-            by_name = {n: k for k, n in zip(it.kp_ids, it.kp_names, strict=False)}
-            it.roles = {by_name[n]: r.strip()[:80] for n, r in idea.roles.items() if n in by_name}
-    bp.notes = notes
-    bp.method = "llm"
-    return bp
+        a, b = it.kp_ids[0], it.kp_ids[1]
+        key = GraphData.key(a, b)
+        types = list(g.edges.get(key, {})) or (["cooccur"] if key in g.cooccur else [])
+        edges += [GraphEdge(source=key[0], target=key[1], type=t) for t in types[:1]]
+        combos.append(Combo(kp_ids=[a, b], score=0.0, rationale=it.rationale or it.angle))
+    return RetrievalPayload(
+        step="plan.combos", nodes=list(nodes.values()), edges=edges, combos=combos, notes=bp.notes
+    )
 
 
 class PlanStage(Stage[PlanIn, Blueprint]):
@@ -161,89 +166,53 @@ class PlanStage(Stage[PlanIn, Blueprint]):
         g = await ctx.kb.graph()
         miner = ComboMiner(g, ComboWeights.load(ctx.settings.config_dir))
         draft = await build_draft(
-            brief,
-            ctx.kb,
-            miner,
-            scope,
-            use_miner=feats.enabled("plan.combo_miner"),
-            cross_unit=feats.enabled("plan.cross_unit"),
-            slots=inp.slots,
+            brief, ctx.kb, miner, scope, use_miner=feats.enabled("plan.combo_miner"), slots=inp.slots
         )
-        await trace.retrieval(retrieval_payload(g, scope, draft))
-        if not feats.enabled("plan.llm") or not draft.blueprint.items:
-            return draft.blueprint
-        await trace.progress("正在构思题目的情境与考法")
-        try:
-            return await self._ideate(ctx, brief, draft, g)
-        except (LLMError, BudgetExceeded, KnowledgeError) as e:
-            log.warning("plan: ideation failed (%s), using the deterministic blueprint", e.code)
-            draft.blueprint.notes.append("情境与考法由系统直接分配（智能构思暂时不可用）")
-            return draft.blueprint
+        bp, menu = draft, []
+        if feats.enabled("plan.llm") and any(it.source != "template" for it in bp.items):
+            menu = await build_menu(brief, ctx.kb, miner, scope)
+            if menu:
+                await trace.progress("正在构思题目的情境与考法")
+                try:
+                    bp = await self._compose(ctx, brief, draft, menu, g)
+                except (LLMError, BudgetExceeded, KnowledgeError) as e:
+                    log.warning("plan: compose failed (%s), using the deterministic blueprint", e.code)
+                    bp.notes.append("情境与考法由系统直接分配（智能构思暂时不可用）")
+        await trace.retrieval(retrieval_payload(g, scope, menu, bp))
+        return bp
 
-    async def _ideate(self, ctx: RunContext, brief: Brief, draft: Draft, g: GraphData) -> Blueprint:
-        llm: LLMGateway = ctx.llm
-        bp = draft.blueprint
-        # 知识库里这些知识点"教什么、学生常错什么"：规划据此设计要暴露的易错点
-        kp_ids = sorted(
-            {k for it in bp.items for k in it.kp_ids}
-            | {k for al in draft.alts.values() for c in al for k in c.kp_ids}
-        )
-        design = ctx.settings.features.enabled("plan.design")  # classic 链路不读知识点详情、不设计考法结构
-        details = {d.id: d for d in await asyncio.gather(*(ctx.kb.kp(k) for k in kp_ids))} if design else {}
-        items = []
-        for it in bp.items:
-            alts = [
-                {"names": " × ".join(g.nodes[k].name for k in c.kp_ids), "why": c.rationale[:120] or "—"}
-                for c in draft.alts.get(it.id, [])
-            ]
-            scenes = []
-            for s in draft.scene_cands.get(it.id, [])[:5]:
-                cx = draft.contexts.get(s)
-                scenes.append(
-                    s
-                    + (f"（{'、'.join(cx.typical_quantities[:3])}）" if cx and cx.typical_quantities else "")
-                )
-            items.append(
-                {
-                    "index": it.index,
-                    "tier_cn": _TIER_CN[it.tier],
-                    "difficulty": it.difficulty,
-                    "kind_cn": _KIND_CN[it.kind],
-                    "kps": "、".join(it.kp_names),
-                    "kp_info": [
-                        {
-                            "name": details[k].name,
-                            "desc": details[k].description[:70],
-                            "errors": details[k].typical_errors[:2],
-                        }
-                        for k in dict.fromkeys(
-                            it.kp_ids + [x for c in draft.alts.get(it.id, []) for x in c.kp_ids]
-                        )
-                        if k in details
-                    ],
-                    "alts": alts,
-                    "scenes": "、".join(scenes) or "（自由选择生活情境）",
-                }
-            )
-        grade = bp.grade
-        built = get_prompt("plan.ideate" if design else "plan.ideate_classic").render(
+    async def _compose(
+        self, ctx: RunContext, brief: Brief, draft: Blueprint, menu: list[MenuEntry], g: GraphData
+    ) -> Blueprint:
+        bp = draft
+        built = get_prompt("plan.compose").render(
             dynamic={
-                "grade_text": f"{_GRADE_CN.get(grade or 0, '')}年级" if grade else "小学",
-                "number_hint": draft.blueprint.items[0].number_hint if bp.items else "",
+                "request": brief.request,
+                "grade_text": f"{_GRADE_CN.get(bp.grade or 0, '')}年级" if bp.grade else "小学",
+                "number_hint": bp.items[0].number_hint if bp.items else "",
                 "requirements": _requirements(brief),
-                "items": items,
+                "menu": [{"code": m.code, "name": m.name, "where": m.where, "note": m.note} for m in menu],
+                "items": [
+                    {
+                        "index": it.index,
+                        "tier_cn": _TIER_CN[it.tier],
+                        "difficulty": it.difficulty,
+                        "kind_cn": _KIND_CN[it.kind],
+                    }
+                    for it in bp.items
+                ],
             }
         )
         out, _ = await complete_json(
-            llm,
+            ctx.llm,
             LLMRequest(
                 role=Role.smart,
                 messages=built.messages,
-                purpose="plan.ideate",
+                purpose="plan.compose",
                 prompt=built.ref,
-                max_tokens=2600,
+                max_tokens=2000,
                 temperature=0.5,
             ),
-            IdeaOut,
+            ComposeOut,
         )
-        return merge_ideas(draft, out, list(brief.scenes.value) if brief.scenes else [])
+        return merge_compose(draft, out, menu, g, brief)

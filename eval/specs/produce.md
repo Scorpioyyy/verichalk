@@ -121,15 +121,15 @@
 **快速迭代工具（优先用它们，不要整套重跑评测）**
 | 目的 | 命令 | 耗时 / 成本 |
 |---|---|---|
-| 只跑生成阶段、看每次被哪项检查拦下 | `python scripts/probe_produce.py "请求" ["请求"…] [--items] [--off flag] [--role smart=模型:notemp]` | 约 1 分钟，几分钱 |
+| 理解 → 规划 → 生成（线上同一条 `produce_specs`），看每题被哪项检查拦下、首题 / 端到端时间、成本 | `python scripts/probe_produce.py "请求" ["请求"…] [--items] [--off flag] [--role smart=模型:notemp] [--llm-conc 64]` | 约 1 分钟，几分钱；多个请求并行时把 `--llm-conc` 调大，否则排队会截断单题预算 |
 | 读题（打印交付的题目全文） | 同上加 `--items --quiet` | |
 | 一套请求的产出 → JSON，供对比 | `--file eval/datasets/quality_probe.yaml --out x.json` | 3～4 分钟 |
 | 两套产出盲评对比（好题） | `python scripts/compare_sets.py a.json b.json` | 约 ¥0.1 |
+| 教师视角评审（北极星代理：可用 / 要求） | `python scripts/judge_sets.py a.json [b.json…] [--show]`；校准 `--calibrate eval/annotation/teacher_accept/classic_q2.yaml` | 每套约 ¥0.01；单个请求上不稳定，只用于比较 |
 | 端到端、不审计（交付数 / 延迟 / 成本 / 一次通过率） | `python -m verichalk.eval produce --no-audit --split val --limit 14 --record --cassette-ns scratch_e2e --tag x` | 5～8 分钟 |
 | 端到端 + 审计 + 朴素基线 + 教师偏好 | `… produce --naive …`（去掉 `--no-audit`） | 15～30 分钟，里程碑才用 |
 | 核验器在 VerifyBank / BoundaryBank 上 | `python -m verichalk.eval verify --bank answers|boundary --role solver=模型:think` | 几分钟 |
 | 累计花费 | `python scripts/spend.py` | |
-| **切换链路** | `--pipeline classic`（默认，mid1 稳定链路）/ `--pipeline design`（好题设计）；单项 `--on` / `--off`；环境变量 `VERICHALK_PIPELINE` | 见 design.md D41 |
 注意：同时跑多个探针会抢全局并发（`llm_concurrency`），单题耗时被夸大，不是产品延迟。
 
 **已验证的设计决策**：见 [design.md D33～D38](../../docs/design.md)。关键事实：①写题 qwen3.7-plus（与 qwen3.8-max 无差别，价格 1/6）；②盲解 / 抽取用 deepseek-v4.1-flash 非思考；③单题 45 秒预算、修复 1 次 + 重写 1 次、丢弃后补题一轮；④`template` 路径要为题生成具体解析（`produce.explain`）并只用主知识点匹配的题型；⑤算式 / 方程答案按值 / 解比较（`verify/expr.py`）。
@@ -141,7 +141,7 @@
 - `tmp/` 必须为空（`test_tmp_is_empty`）；清理时用明确文件名，通配符 `rm tmp/*` 在切目录后会被安全检查拦下；临时输出放会话临时目录，不放仓库 `tmp/`。
 - 评测集的已知局限：VerifyBank 区分不了盲解模型（都到天花板）；模板来源的超纲 `in` 标签偏宽；审计判官 / 比较有格式噪声（"3 位数 / 三位数"等，已部分修复）。
 
-**最近一次端到端（fin1，2026-10-06，14 条 val，不审计）**：题量达成率 0.654（51/78），一次通过率 0.579，D2 / D3 p50 35s / 142s，单题成本 ¥0.038，每题调用 12.7；首次被拦：质量 10、程序 9、边界 8、结构 8、盲解 3、综合性 4。对照 mid1（同样 14 条）：0.90 / 0.805 / 63s / ¥0.011 / 5.8。**回退**，疑因"好题"改动（规划 v2、写题 v3、跨单元先验、多主题组合、难度偏简单判不合格）。二分方案：对这 14 条各关掉一项改动重跑 `--no-audit`（建议先加开关 `plan.design`（考法结构与易错点）、`produce.difficulty_rule`（难度结构要求与偏简单判不合格）、`plan.cross_unit`（跨单元先验）），找出代价最大的一项，再决定保留 / 收窄 / 删除。
+**2026-11-04 规划重构（D59）**：classic / design 两条链路删除，规划改为"代码给骨架与候选菜单、模型读原话设计整套"。在调优中从未使用的 18 个 val 请求上：可用 / 要求 0.65 → 0.83，成对盲评 7 胜 5 负，首题时间不变，端到端 p50 约 +10s。fin1 的"好题回退"不再需要二分：四个开关已删除（其目标由上游的规划设计承担）。另：M8 的题量达成率 0.775 主要是评测并发不足（题目排队被单题预算截断）造成的，并发给够时交付率 0.95～1.0（评测命令已修正，见 eval/CHANGELOG.md）。
 
 **待办与顺序**：①~~读三个探索策略的汇总~~（已完成，都不采用，见 D40）；②小样本把 A2 / A3 / 题量达成率 / 解析成立率迭代到过线；③消融（`plan.combo_miner`、`plan.llm`、`produce.blind_solve`、`boundary_check`、`quality_check`、`repair`、`context.textbook_examples`，每组小样本 + A/A 噪声对照）；④在 `produce_fresh.yaml`（36 例，从未用于调优）上验收；⑤更新本文件 §8 的结果与 design.md，清理 `tmp/` 与过程性报告，合入 main 并推送。
 

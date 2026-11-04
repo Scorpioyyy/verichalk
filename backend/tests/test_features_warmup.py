@@ -135,7 +135,7 @@ async def test_ablation_report_renders_variants(tmp_path):
 
 
 def test_every_flag_is_on_unless_turned_off() -> None:
-    """只有一种约定：注册的模块默认开启，`off` 关闭（消融）；没有并行的"链路预设"（D59 删除了 classic / design 两条链路）。"""
+    """只有一种约定：注册的模块默认开启，`off` 关闭（消融）。"""
     flags = FeatureFlags.parse("")
     assert all(flags.enabled(f) for f in REGISTRY)
     off = FeatureFlags.parse("plan.llm, produce.blind_solve")

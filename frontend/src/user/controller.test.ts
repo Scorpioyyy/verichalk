@@ -208,7 +208,7 @@ describe("发送一轮需求", () => {
     const c = new SessionController();
     await c.send("出 2 道题");
     const { onEvent } = sse.streams[0]!;
-    onEvent(ev("run.started", { session_id: "ses_1", pipeline: "classic", schema_version: "1.2" }));
+    onEvent(ev("run.started", { session_id: "ses_1", pipeline: "main", schema_version: "1.2" }));
     onEvent(ev("progress", { label: "正在构思", current: null, total: null }));
     expect(c.getSnapshot().run?.progress?.label).toBe("正在构思");
 

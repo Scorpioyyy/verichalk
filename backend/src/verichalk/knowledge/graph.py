@@ -236,9 +236,7 @@ class ComboMiner:
         self.g = graph
         self.w = weights or ComboWeights()
 
-    def _eligible(
-        self, anchor: str, b: str, topic: str, grade_gap: int | None, cross_unit: bool = False
-    ) -> bool:
+    def _eligible(self, anchor: str, b: str, topic: str, grade_gap: int | None) -> bool:
         if b == anchor or b not in self.g.nodes:
             return False
         na, nb = self.g.nodes[anchor], self.g.nodes[b]
@@ -246,8 +244,6 @@ class ComboMiner:
             return False
         if topic == "cross_topic" and na.topic == nb.topic:
             return False
-        if cross_unit and na.unit_id == nb.unit_id:
-            return False  # 整学期综合：搭档必须来自不同单元（区统考考的正是单元之间的综合）
         return not (grade_gap is not None and nb.grade < na.grade - grade_gap)
 
     def partners(
@@ -258,7 +254,6 @@ class ComboMiner:
         limit: int = 20,
         topic: str = "any",
         grade_gap: int | None = None,
-        cross_unit: bool = False,
     ) -> list[tuple[str, float]]:
         """锚点在范围内得分最高的伙伴知识点（P2 评测直接用它）。
 
@@ -266,10 +261,10 @@ class ComboMiner:
         `grade_gap`：伙伴年级不得比锚点低多少年以上（太基础的前置知识不值得单独考；复习场景传 None 不限制）。"""
         scored: list[tuple[str, float]] = []
         for b in scope:
-            if not self._eligible(anchor, b, topic, grade_gap, cross_unit):
+            if not self._eligible(anchor, b, topic, grade_gap):
                 continue
             sig = pair_signals(self.g, anchor, b, self.w)
-            if (topic == "cross_topic" or cross_unit) and not (
+            if topic == "cross_topic" and not (
                 "edge" in sig or "cooccur" in sig or sig.get("shared", 0.0) >= self.w.bridge_shared
             ):
                 continue  # 跨主题却没有任何"桥"：只是碰巧教学位置相近，拼在一起会牵强
@@ -287,7 +282,6 @@ class ComboMiner:
         exclude: Iterable[tuple[str, ...]] = (),
         topic: str = "any",
         grade_gap: int | None = 2,
-        cross_unit: bool = False,
     ) -> list[Combo]:
         """返回至多 k 个组合，每个组合含至少一个锚点，其余成员来自 `scope`。
 
@@ -298,9 +292,7 @@ class ComboMiner:
         banned = {frozenset(x) for x in exclude}
         pool: list[tuple[float, tuple[str, ...]]] = []
         for a in anchors:
-            for b, s in self.partners(
-                a, scope, limit=max(12, 2 * k), topic=topic, grade_gap=grade_gap, cross_unit=cross_unit
-            ):
+            for b, s in self.partners(a, scope, limit=max(12, 2 * k), topic=topic, grade_gap=grade_gap):
                 if s <= 0:
                     continue
                 pool.append((s, (a, b)))

@@ -313,7 +313,10 @@ async def build_draft(
             kind = brief.kinds.value[i % len(brief.kinds.value)]
         else:
             natural = set().union(*(g.nodes[k].kinds for k in kp_ids)) if kp_ids else set()
-            ordered = [k for k in kinds_pool if k.value in natural] or kinds_pool
+            # 计算题就是一个算式：承载不了老师指定的情境；教材里只用看图题考的知识点（认识图形、分类）
+            # 定成计算题只能变成数个数的算术题——这两种情况都不分配计算题
+            pool = [k for k in kinds_pool if k != ItemKind.calc] if user_scenes or not natural else kinds_pool
+            ordered = [k for k in pool if k.value in natural] or pool or kinds_pool
             kind = ordered[sum(1 for it in items if it.tier == tier) % len(ordered)]
         # 情境：用户指定 > 知识点共同出现的情境（综合题）/ 该知识点自己的情境（单点题）
         if user_scenes:

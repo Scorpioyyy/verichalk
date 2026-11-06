@@ -36,7 +36,7 @@ REGISTRY: dict[str, Feature] = {
         ),
         Feature(
             "produce.figures",
-            "写题可以给出一张图（统计图、数轴、标了尺寸的图形、方格图）的结构化规格；关闭则只出纯文字题",
+            "写题可以给出一张图（统计图、数轴、标了尺寸的图形、钟面、方格图）的结构化规格；关闭则只出纯文字题",
         ),
         Feature("produce.program_check", "核验：求解程序在沙箱里执行，结果须与题目答案一致"),
         Feature("produce.blind_solve", "核验：独立模型盲解（看不到答案），结果须与题目答案一致"),

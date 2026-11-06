@@ -321,7 +321,34 @@ def _ci(k: int, n: int) -> str:
     return f"{k / n:.3f} ({k}/{n}) [{lo:.2f},{hi:.2f}]"
 
 
-async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: KnowledgeService) -> dict[str, Any]:
+async def teacher_verdicts(gw: LLMGateway, recs: list[CaseRec]) -> dict[str, bool]:
+    """教师视角评审（`teacher_judge`，带教师原话、一次看整套）：{题目 ID: 是否可用}。评审失败的那套不在结果里。"""
+    from .teacher_judge import judge_set
+
+    async def one(r: CaseRec) -> dict[str, bool]:
+        items = r.delivered
+        rows = [
+            {
+                "index": i,
+                "stem": it.stem,
+                "options": it.options,
+                "answer": it.answer,
+                "solution": it.solution,
+                "figures": [{"text": describe_figure(f)} for f in it.figures],
+            }
+            for i, it in enumerate(items, 1)
+        ]
+        return {items[j.index - 1].id: j.usable for j in await judge_set(gw, r.case.turns[0].user, rows)}
+
+    return {k: v for d in await asyncio.gather(*(one(r) for r in recs)) for k, v in d.items()}
+
+
+async def score(
+    recs: list[CaseRec],
+    audits: dict[str, AuditRecord],
+    kb: KnowledgeService,
+    teacher: dict[str, bool] | None = None,
+) -> dict[str, Any]:
     g = await kb.graph()
     names = {k: n.name for k, n in g.nodes.items()}
     delivered = [(r, it) for r in recs for it in r.delivered]
@@ -364,6 +391,12 @@ async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: Knowled
     # A1
     out["a1"] = (sum(1 for _, it, a in aud if item_passes(it, a)), len(aud))
     out["a1_per_requested"] = (sum(1 for _, it, a in aud if item_passes(it, a)), out["n_requested"])
+    if teacher is not None:  # 北极星的合并代理：审计判可直接使用 ∧ 教师视角判可用（评审失败的套按不可用计）
+        out["teacher"] = (sum(1 for _, it in delivered if teacher.get(it.id)), out["n_requested"])
+        out["a1_teacher"] = (
+            sum(1 for _, it, a in aud if item_passes(it, a) and teacher.get(it.id)),
+            out["n_requested"],
+        )
     # A5
     integ = [(it, a) for _, it, a in aud if it.tier == Tier.integrated and len(it.kp_ids) > 1 and a.quality]
     out["a5c"] = (sum(1 for _, a in integ if all(a.quality.get("kp_used", {}).values())), len(integ))
@@ -438,6 +471,14 @@ def render_score(title: str, s: dict[str, Any]) -> str:
         f"| **题量达成率**（交付 / 要求） | {f(*s['fill'])} |",
         f"| **A1 可直接使用率**（交付题） | {f(*s['a1'])} |",
         f"| A1（按要求题量，丢弃算失败） | {f(*s['a1_per_requested'])} |",
+        *(
+            [
+                f"| 教师视角可用（按要求题量） | {f(*s['teacher'])} |",
+                f"| **A1 ∧ 教师视角可用**（按要求题量） | {f(*s['a1_teacher'])} |",
+            ]
+            if "teacher" in s
+            else []
+        ),
         f"| **A2(a)** 已核验题答案正确率 | {f(*s['a2_verified'])}；其中错 {s['a2_wrong_verified']} |",
         f"| **A2(b)** 全部交付题答案正确率 | {f(*s['a2_all'])}；错 {s['a2_wrong_all']}，争议 {s['a2_disputed']} |",
         f"| **A3** 审计判超纲（out） | {f(*s['a3_out'])}；borderline {s['a3_borderline'][0]} |",

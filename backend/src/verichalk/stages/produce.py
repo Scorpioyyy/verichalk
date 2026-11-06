@@ -518,6 +518,17 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         ver = await verify_item(VerifyEnv(llm=ctx.llm, kb=ctx.kb), vin, feats, preset=preset)
         if ver.status == VerifyStatus.rejected:
             return None, "；".join(_problems(ver))[:160]
+        # 知识点挂的题型卡片里混着别的形态（"小数加减混合运算"的卡片实例化出整数题）：评审认为解答里
+        # 根本没用到这个知识点，就换下一个种子 / 卡片
+        unused = [
+            k
+            for c in ver.checks
+            if c.name == "quality"
+            for k, v in (c.evidence.get("kp_used") or {}).items()
+            if v is False
+        ]
+        if unused:
+            return None, f"题目没有用到「{'、'.join(unused)}」"
         item = Item(
             id=new_id("itm"),
             kind=kind,

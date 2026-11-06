@@ -81,10 +81,10 @@ pip install -e "backend[dev]"                 # 后端依赖
 python scripts/dev.py check                   # ruff + pyright + pytest（L1）
 python scripts/dev.py run                     # 本地启动后端（localhost:8000）
 python -m verichalk.eval run --suite core --split val --mode replay
-python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items --out a.json   # 出题快速诊断：理解→规划→生成（线上同一流程），约 1 分钟
+python scripts/probe_produce.py "四年级下册小数加减法，出5道" --items --out a.json   # 出题快速诊断：理解→规划→生成（线上同一流程），约 1 分钟；--cases produce [--tags fig] 跑开发集
 python scripts/judge_sets.py a.json [b.json]                        # 教师视角评审：可用题 / 要求题（北极星代理）
 python scripts/compare_sets.py a.json b.json                        # 两套产出的成对盲评
-python -m verichalk.eval produce --cases fresh --split test --naive  # 出题验收：留出集 + 独立审计 + 朴素基线（里程碑才跑）
+python -m verichalk.eval produce --cases holdout --split test --naive  # 出题验收：留出集 + 独立审计 + 朴素基线（发布 / 里程碑才跑一次）
 python scripts/spend.py                                              # 累计模型花费
 python scripts/make_photo_variants.py                               # 拍照评测的变体集与负例集（照片在 eval/datasets/photos/raw/，不入库）
 python -m verichalk.eval perceive --set raw,variant,negative --split all   # 拍照识别评测（B4 / B5 / P5 / P6）

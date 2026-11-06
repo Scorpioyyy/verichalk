@@ -143,15 +143,6 @@ async def finalize(
             return h.grade < user_grade
         return not (raw.semester and "semester" in raw.explicit and h.semester and h.semester > raw.semester)
 
-    if user_grade is not None and mapped:
-        inside = [h for h in mapped if within(h)]
-        # 年级内的命中只是沾边（"二上的分数的认识"→ 二上的平均分），而超前一点的命中才是老师说的主题
-        # （三下的"分数的初步认识"）：以字面重合度判断，交给下面的"主题稍超前"处理
-        near_ahead = [h for h in mapped if not within(h) and (h.grade or 0) - user_grade < CONFLICT_GAP]
-        if inside and near_ahead and _overlap(raw.topics, near_ahead) > _overlap(raw.topics, inside):
-            inside = []
-            mapped = near_ahead
-        mapped = inside or mapped  # 全都更靠后：保留，交给"范围冲突"澄清
     if topic_hits and len(topic_hits) >= 2:  # 多主题请求（"小数乘法和面积"）：每个主题单独映射，都要进入范围
         per: list[KPHit] = []
         for topic in raw.topics:
@@ -163,13 +154,16 @@ async def finalize(
                     kp_topics[h.id] = topic
         mapped = per[: MAP_MAX + 1] or mapped
     # 老师点名的主题在教材里比所说的年级学期稍晚（"四上的小数乘法"在四下）：以主题为准，按主题所在的册出题并说明；
-    # 晚两个年级以上的交给下面的"范围冲突"澄清
-    ahead = (
-        user_grade is not None
-        and bool(mapped)
-        and not any(within(h) for h in mapped)
-        and max(h.grade or 0 for h in mapped) - user_grade < CONFLICT_GAP
-    )
+    # 晚两个年级以上的交给下面的"范围冲突"澄清。年级内的命中只是字面沾边、超前一点的命中才是老师说的主题时
+    # （"三上的分数加减法"：三上的小数加减法 vs 四下的同分母分数加减法），按字面重合度判断。
+    ahead = False
+    if user_grade is not None and mapped and not (topic_hits and len(topic_hits) >= 2):
+        inside = [h for h in mapped if within(h)]
+        near = [h for h in mapped if not within(h) and (h.grade or 0) - user_grade < CONFLICT_GAP]
+        if near and (not inside or _overlap(raw.topics, near) > _overlap(raw.topics, inside)):
+            mapped, ahead = near, True
+        else:
+            mapped = inside or mapped  # 全都晚两个年级以上：保留，交给"范围冲突"澄清
 
     # ---- 年级 / 学期 / 单元 ----
     grade, grade_origin = raw.grade, _origin("grade", raw)

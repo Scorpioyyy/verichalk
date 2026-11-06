@@ -22,7 +22,16 @@ from ..llm import ModelRegistry, build_gateway
 from .ablation import render_ablation, run_ablation
 from .audit import Auditor, AuditStore
 from .cases import load_cases
-from .produce_eval import CaseRec, audit_records, dump_records, render_score, run_cases, run_naive, score
+from .produce_eval import (
+    CaseRec,
+    audit_records,
+    dump_records,
+    render_score,
+    run_cases,
+    run_naive,
+    score,
+    teacher_verdicts,
+)
 from .report import write_report
 from .runner import run_suite
 from .verify_eval import (
@@ -215,15 +224,24 @@ def cmd_produce(args: argparse.Namespace) -> int:
         auditor = Auditor(settings, kb, store, live=True if args.audit_live else None)
         audits = {} if args.no_audit else await audit_records(auditor, kb, recs)
         title = f"{args.tag or 'produce'} · split={args.split} · {settings.features.describe()}"
-        parts = [render_score(title, await score(recs, audits, kb))]
+        tgw = None
+        if args.teacher:  # 教师视角评审是评测的裁判（不属于被测系统）：总是实调
+            from .teacher_judge import JUDGE as TEACHER_JUDGE
+
+            tgw = build_gateway(settings.model_copy(update={"llm_mode": LLMMode.live}))
+            tgw.registry = tgw.registry.override("judge", **TEACHER_JUDGE)
+        teacher = await teacher_verdicts(tgw, recs) if tgw else None
+        parts = [render_score(title, await score(recs, audits, kb, teacher))]
         nrecs: list[CaseRec] = []
         if args.naive:
             nrecs = await run_naive(build_gateway(settings), recs)
             if not args.no_audit:
                 naudits = await audit_records(auditor, kb, nrecs)
+                nteacher = await teacher_verdicts(tgw, nrecs) if tgw else None
                 parts.append(
                     render_score(
-                        "朴素直出基线 B0（smart 单次调用，无知识库、无核验）", await score(nrecs, naudits, kb)
+                        "朴素直出基线 B0（smart 单次调用，无知识库、无核验）",
+                        await score(nrecs, naudits, kb, nteacher),
                     )
                 )
             # 教师偏好盲评：同一请求下两套题哪套更适合发给学生（不看对错，看思维含量 / 情境 / 多样性 / 易错点 / 贴合要求）
@@ -610,6 +628,11 @@ def main() -> None:
         "--no-audit", action="store_true", help="跳过审计（只看交付数 / 延迟 / 成本 / 修复，快速迭代用）"
     )
     pr.add_argument("--dump", default="", help="把原始产出写到这个路径（复盘用；不要放进仓库）")
+    pr.add_argument(
+        "--teacher",
+        action="store_true",
+        help="加跑教师视角评审（实调，每套约 ¥0.01），报告“审计 A1 ∧ 教师视角可用”的按要求题数口径",
+    )
     pr.add_argument("--tag", default="")
     pr.add_argument("--cassette-ns", default=None)
     pr.set_defaults(fn=cmd_produce)

@@ -143,6 +143,20 @@ async def test_a_closer_topic_slightly_ahead_beats_a_loosely_related_one_in_grad
     assert any("四年级下册的内容" in a for a in u.brief.assumptions)
 
 
+async def test_only_the_hits_slightly_ahead_are_kept(kb_service):
+    # "三下的分数加减法"：命中里有四下的同分母、五下的异分母；只保留差不到两个年级的四下，按四下出题
+    raw = RawParse(grade=3, semester="b", topics=["分数加减法"], explicit=["grade", "semester"])
+    like = "kp.na.分数加减法.addition_and_subtraction_of_fractions_with_like_denominators"
+    hits = [
+        kp("kp.na.分数加减法.g5b_heterogeneous", "异分母分数加减法（通分）", 5, "g5b.u1.l01", 0.95),
+        kp(like, "同分母分数加减法", 4, "g4b.u9.l03", 0.9),
+    ]
+    u = await finalize(raw, hits=hits, kb=kb_service)
+    assert u.clarify is None and u.brief and u.brief.scope.kp_ids
+    assert u.brief.scope.kp_ids.value == [like]
+    assert u.brief.target_lesson and u.brief.target_lesson.value.startswith("g4b.")
+
+
 async def test_scope_inherited_from_previous_brief_only(kb_service):
     first = await finalize(
         RawParse(grade=4, topics=["小数加减法"], count=5, explicit=["grade", "count"]),

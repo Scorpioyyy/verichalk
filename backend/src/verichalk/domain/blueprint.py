@@ -65,7 +65,7 @@ class WriteOut(BaseModel):
     scratch: str = ""
     solver_code: str = ""  # 求解程序：`def solve():` 返回与 `answers` 同序的精确值列表
     figure: FigureDraft | None = (
-        None  # 这道题需要的一张图（统计图、数轴、标了尺寸的图形、方格图）；不需要为 None
+        None  # 这道题需要的一张图（统计图、数轴、标了尺寸的图形、钟面、方格图）；不需要为 None
     )
     stem: str
     options: list[str] = Field(default_factory=list)

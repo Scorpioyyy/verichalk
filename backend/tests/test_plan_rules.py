@@ -125,3 +125,29 @@ def test_replacement_keeps_the_combination_only_when_the_teacher_asked_for_it() 
     )
     combo = replacement_spec(spec, keep_kinds=True, keep_combo=True)
     assert (combo.kp_ids, combo.tier, combo.kind) == (["a", "b"], Tier.integrated, ItemKind.fill)
+
+
+async def test_no_calc_items_for_figure_only_topics_or_teacher_scenes(kb: KnowledgeService) -> None:
+    # 认识钟表在教材里只有看图题：定成"计算题"只能变成算术题；老师指定了情境时，纯算式承载不了情境
+    from verichalk.domain.paper import ItemKind
+
+    clock = "kp.na.认识时间与年月日.hour_halfhour"
+    g = await kb.graph()
+    for scope, scenes in [
+        (
+            Scope(
+                grade=Slot(value=1, origin=Origin.user), kp_ids=Slot(value=[clock], origin=Origin.inferred)
+            ),
+            None,
+        ),
+        (
+            Scope(grade=Slot(value=4, origin=Origin.user), semester=Slot(value="b", origin=Origin.user)),
+            ["做手工"],
+        ),
+    ]:
+        brief = Brief(scope=scope)
+        brief.count = Slot(value=6, origin=Origin.user)
+        if scenes:
+            brief.scenes = Slot(value=scenes, origin=Origin.user)
+        draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), await resolve_scope(brief, kb))
+        assert len(draft.items) == 6 and all(it.kind != ItemKind.calc for it in draft.items)

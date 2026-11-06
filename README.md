@@ -15,9 +15,9 @@
 
 </div>
 
-https://github.com/user-attachments/assets/dfc727ef-641d-49c0-8d7e-8d446af08a58
-
 ![一句话说清需求，也可以拍一页练习册](docs/assets/welcome.png)
+
+https://github.com/user-attachments/assets/dfc727ef-641d-49c0-8d7e-8d446af08a58
 
 ## 为什么做 VeriChalk
 

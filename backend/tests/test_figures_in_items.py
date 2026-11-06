@@ -117,3 +117,73 @@ async def test_malformed_figure_params_fail_the_check_instead_of_crashing() -> N
             )
         )
         assert r.status.value == "fail" and "图形规格不合法" in r.detail
+
+
+def test_statistics_charts_render_and_describe() -> None:
+    from verichalk.figures import render_figure
+
+    two = {
+        "title": "两班借书",
+        "categories": ["一月", "二月", "三月"],
+        "series": [{"name": "一班", "values": [12, 15, 9]}, {"name": "二班", "values": [10, 14, 11]}],
+    }
+    for kind in ("bar_chart", "line_chart"):
+        spec = FigureSpec(id="x", kind=kind, params=two)
+        assert render_figure(spec).svg.startswith("<svg") and "二班" in render_figure(spec).svg
+        d = describe_figure(spec)
+        assert d.startswith("复式") and "一月 一班 12、二班 10" in d
+    pie = FigureSpec(
+        id="p",
+        kind="pie_chart",
+        params={
+            "parts": [{"label": "科普", "percent": 30}, {"label": "其他", "percent": 70}],
+            "hide": ["其他"],
+        },
+    )
+    assert "<path" in render_figure(pie).svg
+    assert describe_figure(pie) == "扇形统计图：科普 30%，其他 （百分比没有标出）"
+
+
+def test_invalid_figures_name_what_is_allowed() -> None:
+    # 写题模型自创类型名（quadrilateral、line_segment）时，报错要列出可用的，修复才能一次改对
+    from verichalk.figures import FigureError, render_figure
+
+    for kind, params, hint in [
+        ("line_segment", {}, "shape"),
+        ("shape", {"shape": "quadrilateral"}, "trapezoid"),
+        ("pie_chart", {"parts": [{"label": "a", "percent": 30}, {"label": "b", "percent": 60}]}, "合计 100"),
+        ("bar_chart", {"categories": ["a"], "series": [{"name": "x", "values": [1, 2]}]}, "个数"),
+    ]:
+        try:
+            render_figure(FigureSpec(id="x", kind=kind, params=params))
+        except FigureError as e:
+            assert hint in str(e)
+        else:
+            raise AssertionError(kind)
+
+
+def test_clock_face_renders_and_describes_hand_positions() -> None:
+    from verichalk.figures import render_figure
+
+    half = FigureSpec(id="c", kind="clock", params={"hour": 9, "minute": 30})
+    assert render_figure(half).svg.count("<text") == 12
+    assert (
+        describe_figure(half) == "钟面：时针在 9 和 10 中间，分针指向 6"
+    )  # 不写出"9 时半"：读钟面就是要考的
+    assert (
+        describe_figure(FigureSpec(id="c", kind="clock", params={"hour": 15}))
+        == "钟面：时针指向 3，分针指向 12"
+    )
+
+
+def test_shape_labels_must_be_values_not_captions() -> None:
+    from verichalk.figures import FigureError, render_figure
+
+    try:
+        render_figure(
+            FigureSpec(id="x", kind="shape", params={"shape": "circle", "labels": {"diameter": "钟面示意图"}})
+        )
+    except FigureError as e:
+        assert "数值" in str(e)
+    else:
+        raise AssertionError("caption accepted as a label")

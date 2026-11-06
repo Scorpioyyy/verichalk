@@ -35,15 +35,56 @@ def _labels(d: dict[str, Any]) -> str:
     return "，".join(f"{_LABEL_CN.get(k, k)}标着“{v}”" for k, v in d.items() if v not in (None, ""))
 
 
+def clock_text(hour: int, minute: int) -> str:
+    """钟面上指针的位置（不直接写出时刻：读钟面就是题目要考的）。"""
+    h = hour % 12 or 12
+    nxt = h % 12 + 1
+    if minute == 0:
+        hand = f"时针指向 {h}"
+    elif minute == 30:
+        hand = f"时针在 {h} 和 {nxt} 中间"
+    else:
+        hand = f"时针在 {h} 和 {nxt} 之间"
+    mark = minute // 5 if minute % 5 == 0 else None
+    m = (
+        "分针指向 12"
+        if minute == 0
+        else f"分针指向 {mark}"
+        if mark
+        else f"分针指向 {minute // 5 or 12} 后面第 {minute % 5} 个小格"
+    )
+    return f"钟面：{hand}，{m}"
+
+
 def describe_figure(spec: FigureSpec) -> str:
     p = spec.params
-    if spec.kind == "bar_chart":
-        pairs = "，".join(
-            f"{c} {v}" for c, v in zip(p.get("categories", []), p.get("values", []), strict=False)
-        )
-        head = f"条形统计图《{p['title']}》" if p.get("title") else "条形统计图"
+    if spec.kind in ("bar_chart", "line_chart"):
+        cats = p.get("categories", [])
+        series = p.get("series") or [{"name": "", "values": p.get("values", [])}]
+        name = {"bar_chart": "条形统计图", "line_chart": "折线统计图"}[spec.kind]
+        if len(series) > 1:
+            name = "复式" + name
+            pairs = "；".join(
+                f"{c} "
+                + "、".join(
+                    f"{x.get('name', '')} {vs[i]}" for x in series if i < len(vs := x.get("values", []))
+                )
+                for i, c in enumerate(cats)
+            )
+        else:
+            pairs = "，".join(f"{c} {v}" for c, v in zip(cats, series[0].get("values", []), strict=False))
+        head = f"{name}《{p['title']}》" if p.get("title") else name
         unit = f"（纵轴：{p['y_label']}）" if p.get("y_label") else ""
         return f"{head}{unit}：{pairs}"
+    if spec.kind == "pie_chart":
+        hide = {str(x) for x in p.get("hide") or []}
+        parts = "，".join(
+            f"{x.get('label')} "
+            + ("（百分比没有标出）" if str(x.get("label")) in hide else f"{x.get('percent')}%")
+            for x in p.get("parts") or []
+        )
+        head = f"扇形统计图《{p['title']}》" if p.get("title") else "扇形统计图"
+        return f"{head}：{parts}"
     if spec.kind == "number_line":
         pts = "，".join(
             f"{pt.get('label') or '点'}在 {pt.get('value')}" + ("（空心）" if pt.get("hollow") else "")
@@ -67,6 +108,8 @@ def describe_figure(spec: FigureSpec) -> str:
         drawn = SHAPE_LABELS.get(kind, ())
         lab = _labels({k: v for k, v in (p.get("labels") or {}).items() if k in drawn})
         return f"一个{name}{extra}" + (f"：{lab}" if lab else "")
+    if spec.kind == "clock":
+        return clock_text(int(p.get("hour", 0)), int(p.get("minute", 0)))
     if spec.kind == "grid":
         bits = [
             f"方格图，{p.get('rows')} 行 {p.get('cols')} 列"

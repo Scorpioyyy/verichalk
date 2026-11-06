@@ -39,3 +39,27 @@ def test_saved_runs_load_back_for_rescoring() -> None:
     (back,) = load_runs(save_runs([rec]))
     assert back.case.id == "c1" and back.lesson_id == "g1a.u1.l01" and back.e2e_s == 12.5
     assert [it.id for it in back.delivered] == ["x"] and back.items[1].dropped_reason == "超出单题时间预算"
+
+
+async def test_auditors_read_the_figure_description() -> None:
+    # 审计模型看不到图片：题面里的图要换成与线上核验同一份文字描述，否则看图题一律"无法确定"
+    from types import SimpleNamespace
+
+    from verichalk.domain.paper import FigureSpec
+    from verichalk.eval.cases import Case, TurnSpec
+    from verichalk.eval.produce_eval import CaseRec, ItemRec, audit_records
+
+    fig = FigureSpec(id="f1", kind="bar_chart", params={"categories": ["一班", "二班"], "values": [24, 30]})
+    item = Item(id="x", kind=ItemKind.fill, stem="如图，二班比一班多____本。\n\n![图](fig:f1)", answer="6", figures=[fig])
+    rec = CaseRec(case=Case(id="c", turns=[TurnSpec(user="出题")]), items=[ItemRec(item, 1)])
+    seen: list[str] = []
+
+    async def audit(ai):  # type: ignore[no-untyped-def]
+        seen.append(ai.stem)
+        return None
+
+    async def graph():  # type: ignore[no-untyped-def]
+        return SimpleNamespace(nodes={})
+
+    await audit_records(SimpleNamespace(audit=audit), SimpleNamespace(graph=graph), [rec])  # type: ignore[arg-type]
+    assert "fig:" not in seen[0] and "一班 24" in seen[0] and "二班 30" in seen[0]

@@ -33,7 +33,7 @@ from ..metrics.stats import percentile, wilson
 from ..orchestrator import build_container
 from ..stages.produce import ProduceOut
 from ..store import Store
-from ..verify.checks import similarity
+from ..verify.checks import VerifyInput, model_stem, similarity
 from .audit import AuditItem, Auditor, AuditRecord
 from .cases import Case
 from .runner import _drive
@@ -223,8 +223,14 @@ async def audit_records(
                 continue
             it = ir.item
             vals = answer_values_of(it)
+            # 审计模型同样看不到图片：读与线上核验同一份由规格生成的文字描述（否则看图题一律"无法确定"）
+            stem = (
+                model_stem(VerifyInput(kind=it.kind.value, stem=it.stem, figure=it.figures[0]))
+                if it.figures
+                else it.stem
+            )
             ai = AuditItem(
-                stem=it.stem,
+                stem=stem,
                 options=it.options,
                 answers=vals,
                 solution=it.solution,

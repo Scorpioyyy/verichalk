@@ -26,9 +26,11 @@ from .produce_eval import (
     CaseRec,
     audit_records,
     dump_records,
+    load_runs,
     render_score,
     run_cases,
     run_naive,
+    save_runs,
     score,
     teacher_verdicts,
 )
@@ -219,7 +221,12 @@ def cmd_produce(args: argparse.Namespace) -> int:
 
     async def main() -> str:
         kb = KnowledgeService.from_settings(settings)
-        recs = await run_cases(settings, cases, args.concurrency)
+        if args.load:  # 别的版本保存的原始运行：只做审计与打分
+            recs = load_runs(Path(args.load).read_text(encoding="utf-8"))  # noqa: ASYNC240
+        else:
+            recs = await run_cases(settings, cases, args.concurrency)
+        if args.save:
+            Path(args.save).write_text(save_runs(recs), encoding="utf-8")  # noqa: ASYNC240
         store = AuditStore(root / "eval" / "audits" / "produce.jsonl")
         auditor = Auditor(settings, kb, store, live=True if args.audit_live else None)
         audits = {} if args.no_audit else await audit_records(auditor, kb, recs)
@@ -628,6 +635,10 @@ def main() -> None:
         "--no-audit", action="store_true", help="跳过审计（只看交付数 / 延迟 / 成本 / 修复，快速迭代用）"
     )
     pr.add_argument("--dump", default="", help="把原始产出写到这个路径（复盘用；不要放进仓库）")
+    pr.add_argument("--save", default="", help="保存原始运行（之后可用 --load 重新审计打分；不要放进仓库）")
+    pr.add_argument(
+        "--load", default="", help="读取 --save 保存的原始运行，不再生成，只审计与打分（跨版本对比用）"
+    )
     pr.add_argument(
         "--teacher",
         action="store_true",

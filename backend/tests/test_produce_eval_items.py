@@ -21,3 +21,21 @@ def test_replacement_items_count_as_delivered() -> None:
     recs = items_from_state(state, bp)
     assert [r.item is not None for r in recs] == [True, False]
     assert recs[0].attempts == 4
+
+
+def test_saved_runs_load_back_for_rescoring() -> None:
+    from verichalk.eval.cases import Case, TurnSpec
+    from verichalk.eval.produce_eval import CaseRec, ItemRec, load_runs, save_runs
+
+    item = Item(id="x", kind=ItemKind.calc, stem="1+1=____", answer="2")
+    rec = CaseRec(
+        case=Case(id="c1", turns=[TurnSpec(user="出1道")]),
+        status="succeeded",
+        lesson_id="g1a.u1.l01",
+        n_requested=2,
+        items=[ItemRec(item, 1), ItemRec(None, 2, "超出单题时间预算", 3)],
+        e2e_s=12.5,
+    )
+    (back,) = load_runs(save_runs([rec]))
+    assert back.case.id == "c1" and back.lesson_id == "g1a.u1.l01" and back.e2e_s == 12.5
+    assert [it.id for it in back.delivered] == ["x"] and back.items[1].dropped_reason == "超出单题时间预算"

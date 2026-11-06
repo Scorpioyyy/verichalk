@@ -526,3 +526,33 @@ def dump_records(recs: list[CaseRec]) -> str:
             for i, it in enumerate(r.delivered, 1)
         ]
     return json.dumps({**out, "__asked__": asked}, ensure_ascii=False, indent=1)
+
+
+def save_runs(recs: list[CaseRec]) -> str:
+    """一次评测的原始运行（用例、每个题位的结果、时延与成本），可以之后用 `load_runs` 读回来重新审计与打分——
+    不同版本的系统各自生成、保存，再用同一套审计与评审计分，数字才可比。"""
+    return json.dumps(
+        [
+            {
+                **{k: v for k, v in r.__dict__.items() if k not in ("case", "items")},
+                "case": r.case.model_dump(mode="json"),
+                "items": [
+                    {**ir.__dict__, "item": ir.item.model_dump(mode="json") if ir.item else None}
+                    for ir in r.items
+                ],
+            }
+            for r in recs
+        ],
+        ensure_ascii=False,
+    )
+
+
+def load_runs(text: str) -> list[CaseRec]:
+    out: list[CaseRec] = []
+    for d in json.loads(text):
+        items = [
+            ItemRec(**{**ir, "item": Item.model_validate(ir["item"]) if ir["item"] else None})
+            for ir in d.pop("items")
+        ]
+        out.append(CaseRec(**{**d, "case": Case.model_validate(d["case"]), "items": items}))
+    return out

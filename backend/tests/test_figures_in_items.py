@@ -106,8 +106,9 @@ async def test_malformed_figure_params_fail_the_check_instead_of_crashing() -> N
         {"categories": ["一班", "二班"], "values": [24, "?"]},
         {"categories": ["一班"], "values": None},
         {"min": "a", "max": 2},
+        {"shape": "parallelogram", "labels": ["底 6 cm", "高 4 cm"]},  # 标注写成了列表（验收里出现过）
     ):
-        kind = "number_line" if "min" in params else "bar_chart"
+        kind = "number_line" if "min" in params else "shape" if "shape" in params else "bar_chart"
         r = await check_structure(
             VerifyInput(
                 kind="fill",

@@ -296,6 +296,8 @@ SHAPE_LABELS: dict[str, tuple[str, ...]] = {
 def shape(p: dict[str, Any]) -> Rendered:
     kind = str(_need(p, "shape"))
     L = p.get("labels") or {}
+    if not isinstance(L, dict):
+        raise FigureError('labels 要写成 {边的名称: 标注}，如 {"length": "8 cm"}')
     for v in L.values():  # 标注是长度这类数值（"8 cm""?""a"），不是说明文字（"钟面示意图"）
         t = str(v) if v not in (None, "") else ""
         if len(t) > 2 and not any(ch.isdigit() or ch == "?" or (ch.isascii() and ch.isalpha()) for ch in t):

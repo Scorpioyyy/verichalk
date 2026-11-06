@@ -106,7 +106,9 @@ def describe_figure(spec: FigureSpec) -> str:
         name = _SHAPE_CN.get(kind, kind)
         extra = "（有一个直角）" if p.get("right_angle") else ""
         drawn = SHAPE_LABELS.get(kind, ())
-        lab = _labels({k: v for k, v in (p.get("labels") or {}).items() if k in drawn})
+        raw = p.get("labels")
+        labels: dict[str, Any] = raw if isinstance(raw, dict) else {}
+        lab = _labels({k: v for k, v in labels.items() if k in drawn})
         return f"一个{name}{extra}" + (f"：{lab}" if lab else "")
     if spec.kind == "clock":
         return clock_text(int(p.get("hour", 0)), int(p.get("minute", 0)))

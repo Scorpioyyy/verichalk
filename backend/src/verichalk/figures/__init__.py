@@ -33,7 +33,7 @@ def render_figure(spec: FigureSpec) -> Rendered:
         return fn(spec.params)
     except FigureError:
         raise
-    except (ArithmeticError, ValueError, TypeError, KeyError, IndexError) as e:
+    except (ArithmeticError, ValueError, TypeError, KeyError, IndexError, AttributeError) as e:
         # 规格来自写题模型：数值写成 "?"、列表长度不对、缺字段……一律是"规格不合法"，不能让运行崩溃
         raise FigureError(
             f"{spec.kind} 的参数不合法（{type(e).__name__}）：数值要写成数字，字段与类型见说明"

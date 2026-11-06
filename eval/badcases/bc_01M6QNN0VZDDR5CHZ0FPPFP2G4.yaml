@@ -1,0 +1,17 @@
+run_id: probe:dev/pf-001
+item_id: null
+input: 一年级上册认识钟表的题，整点半点的那种，出4道
+problem: 认识整时和半时（一上第八单元）的题必然出现钟面上的 11、12，超纲判定按“整数范围 ≤ 10，11 以上在一下第一单元才学”判为超纲，钟表题几乎全部被拦。钟面上的数是认读时间，不是数的大小。
+expected: 边界的整数范围不约束时刻与钟面数字。已在本仓库的抽取提示里排除（verify.extract v2）；知识库侧也应在该课时的边界里说明。
+root_cause: K
+severity: S2
+stage: produce
+id: bc_01M6QNN0VZDDR5CHZ0FPPFP2G4
+created_at: 1793943307.1357186
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m3_v1
+- A3
+- boundary

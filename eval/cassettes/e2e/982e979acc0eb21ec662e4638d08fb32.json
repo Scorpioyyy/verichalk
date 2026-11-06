@@ -1,0 +1,18 @@
+{
+ "key": "982e979acc0eb21ec662e4638d08fb32",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 320, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"3.2\", \"3.09\"], \"mode\": null}], \"concepts\": [\"小数大小的比较\", \"小数加减法（位数不同）\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4486,
+  "completion_tokens": 87,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1793.2043909995627,
+ "ttft_ms": 1793.297609999172,
+ "total_ms": 2240.8088539996243
+}

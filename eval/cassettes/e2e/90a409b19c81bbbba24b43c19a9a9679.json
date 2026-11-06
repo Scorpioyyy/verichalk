@@ -1,0 +1,18 @@
+{
+ "key": "90a409b19c81bbbba24b43c19a9a9679",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 20, \"decimal_places\": 4, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"5\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.05\", \"0.04\"], \"mode\": null}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\", \"小数的性质（末尾添0或去0大小不变）\"], \"units_of_measure\": [\"厘米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4487,
+  "completion_tokens": 119,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1678.592211999785,
+ "ttft_ms": 1678.6359349998747,
+ "total_ms": 2326.733568999771
+}

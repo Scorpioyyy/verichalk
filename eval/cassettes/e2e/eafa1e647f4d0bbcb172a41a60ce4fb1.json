@@ -1,0 +1,18 @@
+{
+ "key": "eafa1e647f4d0bbcb172a41a60ce4fb1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1258, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"12.58\", \"100\"], \"mode\": null}], \"concepts\": [\"度量单位间的小数换算\"], \"units_of_measure\": [\"元\", \"分(货币)\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4480,
+  "completion_tokens": 86,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1759.688914000435,
+ "ttft_ms": 1759.70670300012,
+ "total_ms": 2196.4819860004354
+}

@@ -8,9 +8,10 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 import statistics
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -20,10 +21,11 @@ from ..core.config import Settings
 from ..core.errors import VerichalkError
 from ..core.ids import new_id
 from ..domain.blueprint import Blueprint
-from ..domain.events import ItemStatus, RunStarted
+from ..domain.events import ItemStatus, LLMCall, RunStarted, SpanStarted
 from ..domain.llm import ChatMessage, Role
 from ..domain.paper import Item, ItemKind, Provenance, Source, Tier, Verification, VerifyStatus
 from ..domain.understanding import Understanding
+from ..figures import describe_figure
 from ..knowledge import KnowledgeService
 from ..llm import LLMGateway, LLMRequest, complete_json
 from ..metrics import compute_run_metrics
@@ -31,8 +33,8 @@ from ..metrics.stats import percentile, wilson
 from ..orchestrator import build_container
 from ..stages.produce import ProduceOut
 from ..store import Store
-from ..verify.checks import similarity
-from .audit import AuditItem, Auditor, AuditRecord
+from ..verify.checks import VerifyInput, model_stem, similarity
+from .audit import AuditItem, Auditor, AuditRecord, a2_verdict
 from .cases import Case
 from .runner import _drive
 
@@ -62,6 +64,8 @@ class CaseRec:
     e2e_s: float | None = None
     first_item_s: float | None = None
     trace_ok: bool | None = None  # F6：事件日志的 span 树完整；朴素基线没有 trace
+    tokens: int = 0  # 本次运行全部模型调用的 token
+    tokens_wasted: int = 0  # 其中花在最终被丢弃的题上的（E4）
     method: str = "verichalk"  # verichalk / naive
 
     @property
@@ -87,6 +91,7 @@ async def run_case_e2e(c: Any, case: Case, timeout_s: float = 900.0) -> CaseRec:
     m = compute_run_metrics(events)
     rec.cost, rec.calls, rec.e2e_s = m.cost, m.n_llm_calls, (m.e2e_ms or 0) / 1000
     rec.trace_ok = m.trace_ok
+    rec.tokens, rec.tokens_wasted = token_waste(events, done.state)
     t0 = next((e.ts for e in events if isinstance(e, RunStarted)), events[0].ts if events else 0.0)
     firsts = [
         e.ts
@@ -109,14 +114,56 @@ async def run_case_e2e(c: Any, case: Case, timeout_s: float = 900.0) -> CaseRec:
         rec.lesson_id = rec.lesson_id or bp.lesson_id
         rec.n_requested = rec.n_requested or len(bp.items)
         rec.scenes = [s.scene for s in bp.items]
-        for spec in bp.items:
-            out = state.get(f"produce:{spec.id}")
-            if out:
-                po = ProduceOut.model_validate(out)
-                rec.items.append(
-                    ItemRec(po.item, spec.index, po.dropped_reason, po.attempts, po.failed_checks)
-                )
+        rec.items = items_from_state(state, bp)
     return rec
+
+
+def token_waste(events: list[Any], state: dict[str, Any]) -> tuple[int, int]:
+    """(全部 token, 花在最终被丢弃的题上的 token)。每次模型调用沿 span 链找到它所在的写题题位
+    （`produce` 阶段 span 的 `key`）；该题位没有交付——包括被补题替换掉的原题——就算浪费（E4）。"""
+    parent = {e.span_id: e.parent_id for e in events if isinstance(e, SpanStarted)}
+    slot = {
+        e.span_id: e.attrs["key"]
+        for e in events
+        if isinstance(e, SpanStarted) and e.name == "produce" and e.attrs.get("key")
+    }
+    dropped = {
+        k.split(":", 1)[1]
+        for k, v in state.items()
+        if k.startswith("produce:") and isinstance(v, dict) and v.get("item") is None
+    }
+    total = wasted = 0
+    for e in events:
+        if not isinstance(e, LLMCall):
+            continue
+        n = e.record.usage.total_tokens
+        total += n
+        sid, seen = e.span_id, 0
+        while sid is not None and sid not in slot and seen < 64:
+            sid, seen = parent.get(sid), seen + 1
+        if sid in slot and slot[sid] in dropped:
+            wasted += n
+    return total, wasted
+
+
+def items_from_state(state: dict[str, Any], bp: Blueprint) -> list[ItemRec]:
+    """运行状态里每个题位的结果。丢弃后"换个考法补上"的题存在 `produce:{id}r`（`replacement_spec`）：
+    教师看得到它，计入交付，写题次数与被拦记录合并。"""
+    out: list[ItemRec] = []
+    for spec in bp.items:
+        raw = state.get(f"produce:{spec.id}")
+        if not raw:
+            continue
+        po = ProduceOut.model_validate(raw)
+        attempts, failed = po.attempts, list(po.failed_checks)
+        again = state.get(f"produce:{spec.id}r") if po.item is None else None
+        if again:
+            pr = ProduceOut.model_validate(again)
+            attempts, failed = attempts + pr.attempts, failed + pr.failed_checks
+            if pr.item is not None:
+                po = pr
+        out.append(ItemRec(po.item, spec.index, po.dropped_reason, attempts, failed))
+    return out
 
 
 async def run_cases(settings: Settings, cases: list[Case], concurrency: int = 4) -> list[CaseRec]:
@@ -207,8 +254,14 @@ async def audit_records(
                 continue
             it = ir.item
             vals = answer_values_of(it)
+            # 审计模型同样看不到图片：读与线上核验同一份由规格生成的文字描述（否则看图题一律"无法确定"）
+            stem = (
+                model_stem(VerifyInput(kind=it.kind.value, stem=it.stem, figure=it.figures[0]))
+                if it.figures
+                else it.stem
+            )
             ai = AuditItem(
-                stem=it.stem,
+                stem=stem,
                 options=it.options,
                 answers=vals,
                 solution=it.solution,
@@ -220,7 +273,22 @@ async def audit_records(
             )
             pending.append((it.id, ai))
     recs_out = await asyncio.gather(*(auditor.audit(ai) for _, ai in pending))
+    for (_, ai), rec in zip(pending, recs_out, strict=True):
+        if (
+            rec is not None and rec.a2 != "unavailable"
+        ):  # 用当前的答案比较规则判定（缓存的结论可能是旧规则下的）
+            rec.a2 = a2_verdict(rec.answers_a, rec.answers_b, ai.answers)
     return {iid: rec for (iid, _), rec in zip(pending, recs_out, strict=True)}
+
+
+def drop_cause(reason: str) -> str:
+    """丢弃原因归类：模型调用失败 / 单题时间预算用尽 / 最后一次被哪项检查拦下。"""
+    if "写题失败" in reason:
+        return "模型调用失败"
+    if "超出单题时间预算" in reason:
+        return "时间预算用尽"
+    m = re.search(r"【(\w+)】", reason)
+    return m.group(1) if m else (reason[:12] or "未知")
 
 
 def answer_values_of(it: Item) -> list[str]:
@@ -295,7 +363,34 @@ def _ci(k: int, n: int) -> str:
     return f"{k / n:.3f} ({k}/{n}) [{lo:.2f},{hi:.2f}]"
 
 
-async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: KnowledgeService) -> dict[str, Any]:
+async def teacher_verdicts(gw: LLMGateway, recs: list[CaseRec]) -> dict[str, bool]:
+    """教师视角评审（`teacher_judge`，带教师原话、一次看整套）：{题目 ID: 是否可用}。评审失败的那套不在结果里。"""
+    from .teacher_judge import judge_set
+
+    async def one(r: CaseRec) -> dict[str, bool]:
+        items = r.delivered
+        rows = [
+            {
+                "index": i,
+                "stem": it.stem,
+                "options": it.options,
+                "answer": it.answer,
+                "solution": it.solution,
+                "figures": [{"text": describe_figure(f)} for f in it.figures],
+            }
+            for i, it in enumerate(items, 1)
+        ]
+        return {items[j.index - 1].id: j.usable for j in await judge_set(gw, r.case.turns[0].user, rows)}
+
+    return {k: v for d in await asyncio.gather(*(one(r) for r in recs)) for k, v in d.items()}
+
+
+async def score(
+    recs: list[CaseRec],
+    audits: dict[str, AuditRecord],
+    kb: KnowledgeService,
+    teacher: dict[str, bool] | None = None,
+) -> dict[str, Any]:
     g = await kb.graph()
     names = {k: n.name for k, n in g.nodes.items()}
     delivered = [(r, it) for r in recs for it in r.delivered]
@@ -304,7 +399,11 @@ async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: Knowled
     out: dict[str, Any] = {"n_cases": len(recs), "n_delivered": len(delivered), "n_audited": len(aud)}
     out["n_requested"] = sum(r.n_requested for r in recs)
     out["fill"] = (len(delivered), out["n_requested"])  # 题量达成率
+    out["dropped_by"] = dict(
+        Counter(drop_cause(ir.dropped_reason) for r in recs for ir in r.items if ir.item is None)
+    )
     out["case_failed"] = sum(1 for r in recs if r.status != "succeeded")
+    out["e4_waste"] = (sum(r.tokens_wasted for r in recs), sum(r.tokens for r in recs))
     traced = [r for r in recs if r.trace_ok is not None]
     out["f6"] = (sum(1 for r in traced if r.trace_ok), len(traced))
     # A2
@@ -335,6 +434,12 @@ async def score(recs: list[CaseRec], audits: dict[str, AuditRecord], kb: Knowled
     # A1
     out["a1"] = (sum(1 for _, it, a in aud if item_passes(it, a)), len(aud))
     out["a1_per_requested"] = (sum(1 for _, it, a in aud if item_passes(it, a)), out["n_requested"])
+    if teacher is not None:  # 北极星的合并代理：审计判可直接使用 ∧ 教师视角判可用（评审失败的套按不可用计）
+        out["teacher"] = (sum(1 for _, it in delivered if teacher.get(it.id)), out["n_requested"])
+        out["a1_teacher"] = (
+            sum(1 for _, it, a in aud if item_passes(it, a) and teacher.get(it.id)),
+            out["n_requested"],
+        )
     # A5
     integ = [(it, a) for _, it, a in aud if it.tier == Tier.integrated and len(it.kp_ids) > 1 and a.quality]
     out["a5c"] = (sum(1 for _, a in integ if all(a.quality.get("kp_used", {}).values())), len(integ))
@@ -392,6 +497,10 @@ def _opt(x: float | None, digits: int) -> str:
     return "—" if x is None else f"{x:.{digits}f}"
 
 
+def _ratio(part: int, whole: int) -> str:
+    return f"{part / whole:.3f}（{part:,} / {whole:,} token）" if whole else "—"
+
+
 def render_score(title: str, s: dict[str, Any]) -> str:
     f = _ci
     d2, d3 = s["d2"], s["d3"]
@@ -409,6 +518,14 @@ def render_score(title: str, s: dict[str, Any]) -> str:
         f"| **题量达成率**（交付 / 要求） | {f(*s['fill'])} |",
         f"| **A1 可直接使用率**（交付题） | {f(*s['a1'])} |",
         f"| A1（按要求题量，丢弃算失败） | {f(*s['a1_per_requested'])} |",
+        *(
+            [
+                f"| 教师视角可用（按要求题量） | {f(*s['teacher'])} |",
+                f"| **A1 ∧ 教师视角可用**（按要求题量） | {f(*s['a1_teacher'])} |",
+            ]
+            if "teacher" in s
+            else []
+        ),
         f"| **A2(a)** 已核验题答案正确率 | {f(*s['a2_verified'])}；其中错 {s['a2_wrong_verified']} |",
         f"| **A2(b)** 全部交付题答案正确率 | {f(*s['a2_all'])}；错 {s['a2_wrong_all']}，争议 {s['a2_disputed']} |",
         f"| **A3** 审计判超纲（out） | {f(*s['a3_out'])}；borderline {s['a3_borderline'][0]} |",
@@ -421,7 +538,8 @@ def render_score(title: str, s: dict[str, Any]) -> str:
         f"| D3 端到端 p50 / p95 | {fmt(d3[0])} / {fmt(d3[1])} |",
         f"| E1 单题成本 / 总成本（元） | {_opt(s['cost_per_item'], 3)} / {_opt(s['cost_total'], 2)} |",
         f"| E3 每道交付题的模型调用数 | {s['calls_per_item']:.1f} |",
-        f"| E4 平均写题次数（含修复） | {_opt(s['attempts_mean'], 2)}；一次通过率 {f(*s['first_pass'])}；首次被拦的检查 {s['first_fail_by']} |",
+        f"| E4 废弃 token 占比（花在最终被丢弃的题上） | {_ratio(*s['e4_waste'])} |",
+        f"| E4 平均写题次数（含修复） | {_opt(s['attempts_mean'], 2)}；一次通过率 {f(*s['first_pass'])}；首次被拦的检查 {s['first_fail_by']}；丢弃原因 {s.get('dropped_by') or '无'} |",
     ]
     if s.get("issues"):
         lines += ["", "**审计发现的问题题目（判错 / 争议 / 超纲）**", ""]
@@ -433,30 +551,56 @@ def render_score(title: str, s: dict[str, Any]) -> str:
 
 
 def dump_records(recs: list[CaseRec]) -> str:
-    """把一次评测的原始产出写成 JSON（便于复盘；入 tmp 或报告目录由调用方决定）。"""
-    rows = []
+    """一次评测的交付题，写成与 `scripts/probe_produce.py --out` 相同的格式（{教师原话: [题]}，另有 `__asked__` 要求题数），
+    可直接交给 `scripts/judge_sets.py`（教师视角评审）与 `scripts/compare_sets.py`（成对盲评）。"""
+    out: dict[str, Any] = {}
+    asked: dict[str, int] = {}
     for r in recs:
-        rows.append(
+        request = r.case.turns[0].user
+        asked[request] = r.n_requested
+        out[request] = [
             {
+                "index": i,
                 "case": r.case.id,
-                "status": r.status,
-                "error": r.error,
-                "lesson": r.lesson_id,
+                "stem": it.stem,
+                "options": it.options,
+                "answer": it.answer,
+                "solution": it.solution,
+                "figures": [{"kind": f.kind, "text": describe_figure(f)} for f in it.figures],
+                "tier": it.tier.value,
+                "kind": it.kind.value,
+                "status": it.verification.status.value,
+            }
+            for i, it in enumerate(r.delivered, 1)
+        ]
+    return json.dumps({**out, "__asked__": asked}, ensure_ascii=False, indent=1)
+
+
+def save_runs(recs: list[CaseRec]) -> str:
+    """一次评测的原始运行（用例、每个题位的结果、时延与成本），可以之后用 `load_runs` 读回来重新审计与打分——
+    不同版本的系统各自生成、保存，再用同一套审计与评审计分，数字才可比。"""
+    return json.dumps(
+        [
+            {
+                **{k: v for k, v in r.__dict__.items() if k not in ("case", "items")},
+                "case": r.case.model_dump(mode="json"),
                 "items": [
-                    {
-                        "stem": ir.item.stem,
-                        "options": ir.item.options,
-                        "answer": ir.item.answer,
-                        "solution": ir.item.solution,
-                        "status": ir.item.verification.status.value,
-                        "kps": ir.item.kp_ids,
-                        "tier": ir.item.tier.value,
-                        "kind": ir.item.kind.value,
-                    }
-                    if ir.item
-                    else {"dropped": ir.dropped_reason}
+                    {**ir.__dict__, "item": ir.item.model_dump(mode="json") if ir.item else None}
                     for ir in r.items
                 ],
             }
-        )
-    return json.dumps(rows, ensure_ascii=False, indent=1)
+            for r in recs
+        ],
+        ensure_ascii=False,
+    )
+
+
+def load_runs(text: str) -> list[CaseRec]:
+    out: list[CaseRec] = []
+    for d in json.loads(text):
+        items = [
+            ItemRec(**{**ir, "item": Item.model_validate(ir["item"]) if ir["item"] else None})
+            for ir in d.pop("items")
+        ]
+        out.append(CaseRec(**{**d, "case": Case.model_validate(d["case"]), "items": items}))
+    return out

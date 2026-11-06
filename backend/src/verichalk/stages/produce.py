@@ -1,7 +1,7 @@
 """生成阶段：`ItemSpec` → `Item`（architecture §5.1，D5、D9、D24）。
 
 `novel` 来源：写题（题面、结构化答案、解析、求解程序）→ 规范化 → 分层核验 → 通过则交付；未通过则带着失败证据修复（≤ 2 次），
-仍不通过就从头重写一次，再不行就废弃（不展示）。`template` 来源：题型实例化，答案由知识库的程序算出，仍做结构 / 题面质量检查。
+仍不通过就从头重写一次，再不行就废弃（不展示）。`template` 来源：题型实例化，答案由知识库的程序算出，仍做结构、超纲与题面质量检查。
 """
 
 from __future__ import annotations
@@ -32,6 +32,7 @@ from ..domain.llm import Role
 from ..domain.paper import (
     CheckResult,
     CheckStatus,
+    FigureSpec,
     Item,
     ItemKind,
     Provenance,
@@ -87,12 +88,20 @@ class _ExplainOut(BaseModel):
     solution: str
 
 
+def number_signature(stem: str) -> str:
+    """题面里出现的数（排序后）：两道题用的数完全相同，就是同一道题换了说法（"28+35"换个情境还是同一个算式）。
+    少于两个数的题不比较（"8 时"这类题撞数很正常）。"""
+    nums = sorted(re.findall(r"\d+(?:\.\d+)?", stem))
+    return " ".join(nums) if len(nums) >= 2 else ""
+
+
 class ProduceIn(BaseModel):
     spec: ItemSpec
     grade: int | None = None
     lesson_id: str | None = None  # 能力边界的参照课时
     constraints: str = ""  # 教师的其他要求（如"数字不要太大"）
     avoid: list[str] = []  # 套内其他题的考法摘要（本题要与之不同）
+    request: str = ""  # 教师的原话：规格之外的意图（风格、情境偏好、难度感受）
     references: list[str] = []  # 照片里的题的纯题面（防雷同的比较对象）
     reference_notes: list[str] = []  # 同一批题的提示词写法（带大题题干），给写题参考
     rewrite: dict[str, Any] | None = (
@@ -120,9 +129,48 @@ def _after_equals(v: str) -> str:
     return v.rsplit("=", 1)[-1].strip() if "=" in v else v
 
 
+_FIG_REF = re.compile(r"\(fig:[^)]*\)")
+_TEX_TEXT = re.compile(r"\\(?:text|mathrm)\{([^{}]*)\}")
+_SUP = {"^{2}": "²", "^{3}": "³", "^2": "²", "^3": "³"}
+
+
+def plain_labels(v: Any) -> Any:
+    """图上的文字是纯文本（SVG 不排公式）：去掉 `$` 与 `\\text{}`，平方 / 立方写成上标字符。"""
+    if isinstance(v, str):
+        s = _TEX_TEXT.sub(r"\1", v).replace("$", "")
+        for k, sup in _SUP.items():
+            s = s.replace(k, sup)
+        return " ".join(s.split())
+    if isinstance(v, dict):
+        return {k: plain_labels(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [plain_labels(x) for x in v]
+    return v
+
+
+def attach_figure(w: WriteOut) -> tuple[WriteOut, FigureSpec | None]:
+    """把写题模型给的图形规格变成 `FigureSpec`，并保证题面引用的就是这张图（模型写的引用 ID 一律换成真实 ID；
+    没写引用就加在题面末尾）。没有图时原样返回。"""
+    if w.figure is None:
+        return w, None
+    spec = FigureSpec(
+        id=new_id("fig"),
+        kind=w.figure.kind,
+        params=plain_labels(w.figure.params),
+        alt=w.figure.alt.strip() or "图",
+    )
+    stem = (
+        _FIG_REF.sub(f"(fig:{spec.id})", w.stem)
+        if "(fig:" in w.stem
+        else f"{w.stem}\n\n![{spec.alt}](fig:{spec.id})"
+    )
+    return w.model_copy(update={"stem": stem}), spec
+
+
 def _previous_text(w: WriteOut) -> str:
     return json.dumps(
         {
+            "figure": w.figure.model_dump() if w.figure else None,
             "stem": w.stem,
             "options": w.options,
             "answers": [a.model_dump() for a in w.answers],
@@ -208,6 +256,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         started = time.monotonic()
         budget_s = ctx.settings.item_budget_s  # 单题时间预算：超过后不再开始新的尝试（有界延迟）
         failed: list[list[str]] = []
+        seen: set[str] = ctx.scratch.setdefault("stem_numbers", set())
         for _ in range(rounds):
             repair: dict[str, Any] | None = None
             for _r in range(1 + max_repairs):
@@ -231,7 +280,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     attempts += 1
                     break
                 attempts += 1
-                w = await fix_choice_letter(w, spec.kind)
+                if not feats.enabled("produce.figures"):
+                    w = w.model_copy(update={"figure": None})
+                w, fig = attach_figure(await fix_choice_letter(w, spec.kind))
                 vin = VerifyInput(
                     kind=spec.kind.value,
                     stem=w.stem,
@@ -243,12 +294,22 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     tier=spec.tier.value,
                     grade=inp.grade,
                     lesson_id=inp.lesson_id,
-                    target_difficulty=spec.difficulty if feats.enabled("produce.difficulty_check") else None,
                     references=inp.references,
+                    figure=fig,
                 )
                 ver = await verify_item(env, vin, feats)
+                sig = number_signature(w.stem) if inp.rewrite is None else ""
+                if ver.status != VerifyStatus.rejected and sig and sig in seen:
+                    # 并行写的几道题可能用上同一组数（几道都是"52-37"）：先交付的保留，这道换一组数据
+                    problems = ["与本套另一道题用的数完全相同：换一组数据，不要只换情境"]
+                    failed.append(["duplicate:与本套另一道题用的数相同"])
+                    last_reason = problems[0]
+                    repair = {"previous": _previous_text(w), "problems": problems}
+                    continue
                 if ver.status != VerifyStatus.rejected:
-                    item = self._to_item(ctx, spec, w, ver)
+                    if sig:
+                        seen.add(sig)
+                    item = self._to_item(ctx, spec, w, ver, fig)
                     if inp.rewrite is None:  # 改写的结果不是试卷里的新题，状态由编辑阶段按原题 id 发出
                         await trace.item_status(item.id, ver.status, ver.checks)
                     return ProduceOut(item=item, attempts=attempts, failed_checks=failed)
@@ -292,31 +353,22 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             }
             for k, n in zip(spec.kp_ids, spec.kp_names, strict=False)
         ]
-        roles = [
-            f"{n}：{spec.roles[k]}"
-            for k, n in zip(spec.kp_ids, spec.kp_names, strict=False)
-            if k in spec.roles
-        ]
-        dp = ctx.settings.features.enabled("produce.design_prompt")
         built = get_prompt("produce.write").render(
-            stable={"design_mode": dp},
             dynamic={
                 "grade_text": f"{_GRADE_CN.get(inp.grade or 0, '')}年级" if inp.grade else "小学",
                 "tier_cn": _TIER_CN[spec.tier],
                 "difficulty": spec.difficulty,
                 "kind_cn": _KIND_CN[spec.kind],
                 "kps": kps,
-                "roles": roles,
                 "scene": spec.scene,
                 "scene_hint": spec.scene_hint,
                 "angle": spec.angle,
-                "design": spec.design if dp else "",
-                "target_error": spec.target_error if dp else "",
                 "difficulty_rule": _DIFFICULTY_RULE.get(min(max(spec.difficulty, 1), 5), "")
-                if (dp or inp.rewrite)
+                if inp.rewrite
                 else "",
                 "number_hint": spec.number_hint,
                 "constraints": inp.constraints,
+                "request": inp.request,
                 "examples": examples,
                 "avoid": inp.avoid,
                 "rewrite": inp.rewrite,
@@ -336,7 +388,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         )
         return out
 
-    def _to_item(self, ctx: RunContext, spec: ItemSpec, w: WriteOut, ver: Verification) -> Item:
+    def _to_item(
+        self, ctx: RunContext, spec: ItemSpec, w: WriteOut, ver: Verification, fig: FigureSpec | None = None
+    ) -> Item:
         return Item(
             id=new_id("itm"),
             kind=spec.kind,
@@ -348,6 +402,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             kp_ids=spec.kp_ids,
             difficulty=spec.difficulty,
             tier=spec.tier,
+            figures=[fig] if fig else [],
             provenance=Provenance(
                 source=Source.novel,
                 archetype_ids=spec.archetype_ids,
@@ -363,6 +418,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         题型卡片的答案由程序算出，但题面质量不保证（括号里写两种情境、占位不清……），所以仍过题面质量检查。"""
         spec = inp.spec
         bad: set[str] = ctx.scratch.setdefault("bad_archetypes", set())
+        seen: set[str] = ctx.scratch.setdefault("stem_numbers", set())  # 同一次出题里不交付重复的题
         base_seed = int(hashlib.sha1(f"{ctx.run_id}:{spec.id}".encode()).hexdigest(), 16) % 10_000
         reasons: list[str] = []
         attempts = 0
@@ -378,6 +434,12 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     reasons.append(f"题型 {aid} 无法实例化（{e.code}）")
                     bad.add(aid)
                     break
+                sig = number_signature(str(problem.get("problem", "")))
+                if sig and sig in seen:
+                    reasons.append("与本次已出的题重复")
+                    continue
+                if sig:
+                    seen.add(sig)
                 item, why = await self._template_item(ctx, inp, problem)
                 if item is not None:
                     return ProduceOut(item=item, attempts=attempts)
@@ -438,6 +500,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             lesson_id=inp.lesson_id,
         )
         bnd = problem.get("boundary") or {}
+        if bnd.get("verdict") == "out":
+            return None, "知识库按参数判定超纲"
+        # 超纲仍走正常的抽取 + 判定：知识库按参数给的"不超纲"偏宽（四下的解方程会出现除数是小数的一步）
         preset = {
             "program": CheckResult(
                 name="program",
@@ -449,16 +514,21 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     "seed": problem.get("seed"),
                 },
             ),
-            "boundary": CheckResult(
-                name="boundary",
-                status=CheckStatus.passed if bnd.get("verdict", "in") != "out" else CheckStatus.fail,
-                detail="知识库按参数判定",
-                evidence={"verdict": bnd.get("verdict"), "source": "chalkbase"},
-            ),
         }
         ver = await verify_item(VerifyEnv(llm=ctx.llm, kb=ctx.kb), vin, feats, preset=preset)
         if ver.status == VerifyStatus.rejected:
             return None, "；".join(_problems(ver))[:160]
+        # 知识点挂的题型卡片里混着别的形态（"小数加减混合运算"的卡片实例化出整数题）：评审认为解答里
+        # 根本没用到这个知识点，就换下一个种子 / 卡片
+        unused = [
+            k
+            for c in ver.checks
+            if c.name == "quality"
+            for k, v in (c.evidence.get("kp_used") or {}).items()
+            if v is False
+        ]
+        if unused:
+            return None, f"题目没有用到「{'、'.join(unused)}」"
         item = Item(
             id=new_id("itm"),
             kind=kind,

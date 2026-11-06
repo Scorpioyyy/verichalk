@@ -1,0 +1,18 @@
+{
+ "key": "39f5fc9e63466ba86deed4c83a5f348f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"38名同学，大船限乘6人。大船尽可能多：38÷6=6（条）余2（人），6条大船可坐36人，还剩2人。剩下2人租1条小船（限乘4人）。共需：6×40+1×30=240+30=270（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"270\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 343,
+  "completion_tokens": 112,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1242.660366000564,
+ "ttft_ms": 1242.673237999952,
+ "total_ms": 2029.6063109999523
+}

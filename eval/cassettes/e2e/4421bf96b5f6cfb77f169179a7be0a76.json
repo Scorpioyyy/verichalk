@@ -1,0 +1,18 @@
+{
+ "key": "4421bf96b5f6cfb77f169179a7be0a76",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"乘法分配律：2.5×(4+0.8)=2.5×4+2.5×0.8，题目漏乘了2.5，所以错误。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 329,
+  "completion_tokens": 76,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1221.9080810000378,
+ "ttft_ms": 1221.9223669999337,
+ "total_ms": 1648.7718790003782
+}

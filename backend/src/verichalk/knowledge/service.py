@@ -97,7 +97,9 @@ class KnowledgeService:
             return  # 旧版 chalkbase：沿用它自带的同步实现
         try:
             loop = asyncio.get_running_loop()
-            embedder = QueryEmbedder(load_credentials(settings.profile), loop)
+            embedder = QueryEmbedder(
+                load_credentials(settings.profile), loop, use_proxy=settings.llm_use_proxy
+            )
         except (RuntimeError, ConfigError):
             return  # 不在事件循环里，或没有密钥（回放 / 离线）：不注入
 
@@ -618,6 +620,7 @@ class KnowledgeService:
                         kp_id=a.primary_knowledge_point_id,
                         secondary_kp_ids=list(a.secondary_knowledge_point_ids),
                         item_form=str(getattr(a.item_form, "value", a.item_form)),
+                        kind=_FORM_TO_KIND.get(str(getattr(a.item_form, "value", a.item_form)), ""),
                         difficulty=a.difficulty,
                         verifiable_type=str(getattr(a.verifiable_type, "value", a.verifiable_type)),
                         template=_clip(a.template, 200),

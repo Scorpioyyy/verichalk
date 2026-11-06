@@ -1,0 +1,18 @@
+{
+ "key": "fdb5df334e5e36387563597934a3dee6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":255,\"decimal_places\":1,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"85\",\"3\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"8.5\",\"3\"],\"mode\":null}],\"concepts\":[\"结合元角分认识小数\",\"小数乘整数的意义与算法（初步）\"],\"units_of_measure\":[\"元\",\"千克\"],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4564,
+  "completion_tokens": 100,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1802.8591659995072,
+ "ttft_ms": 1802.8729349998684,
+ "total_ms": 2318.630703999588
+}

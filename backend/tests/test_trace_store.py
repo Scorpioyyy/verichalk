@@ -157,3 +157,39 @@ async def test_deferred_commit_survives_failed_op_and_close(tmp_path):
     s2 = await Store.open(path)
     assert await s2.events.count("run_x") == 5
     await s2.close()
+
+
+async def test_a_failing_parallel_task_leaves_a_complete_trace() -> None:
+    # 一道题出错时，同时在写的其他题要被取消并收尾：运行结束前 span 树是闭合的（F6）
+    from verichalk.core.aio import gather_all
+    from verichalk.trace import MemorySink, Tracer
+
+    sink = MemorySink()
+
+    async def slow() -> int:
+        async with trace.span(SpanKind.stage, "slow"):
+            await asyncio.sleep(10)
+        return 1
+
+    async def broken() -> int:
+        async with trace.span(SpanKind.stage, "broken"):
+            await asyncio.sleep(0.01)
+            raise ValueError("labels 写成了列表")
+
+    async with use_tracer(Tracer("r", sink)):
+        async with trace.span(SpanKind.stage, "produce"):
+            with pytest.raises(ValueError, match="列表"):
+                await gather_all(slow(), broken())
+    assert check_trace_completeness(sink.events).ok
+    statuses = {e.name: e.status.value for e in sink.events if isinstance(e, SpanFinished)}
+    assert statuses["slow"] == "cancelled" and statuses["broken"] == "error"
+
+
+async def test_gather_all_keeps_order() -> None:
+    from verichalk.core.aio import gather_all
+
+    async def val(x: int, d: float) -> int:
+        await asyncio.sleep(d)
+        return x
+
+    assert await gather_all(val(1, 0.02), val(2, 0.0)) == [1, 2]

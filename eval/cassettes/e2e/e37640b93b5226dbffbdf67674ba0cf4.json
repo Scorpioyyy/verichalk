@@ -1,0 +1,18 @@
+{
+ "key": "e37640b93b5226dbffbdf67674ba0cf4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"3.8 - 2.95 = 0.85（米）\", \"answers\": [{\"label\": \"小明比小强多跳了多少米\", \"value\": \"0.85\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 65,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1361.7538170001353,
+ "ttft_ms": 1361.7672930004119,
+ "total_ms": 1701.4433790000112
+}

@@ -1,83 +1,153 @@
+<div align="center">
+
 # VeriChalk
 
-**面向小学数学教师的可验证命题 Agent。** 用一句话或一张练习册照片说清需求，几十秒内得到答案经核验、不超纲、有新意的题目或整份试卷；在线微调，一键导出 PDF / Word / Markdown / LaTeX。
+**面向小学数学教师的可验证命题 Agent**
 
-课程知识（北师大版 1～6 年级：知识图谱、题型、能力边界、情境）来自 [ChalkBase](https://github.com/Scorpioyyy/chalkbase)。
+说一句话或拍一页练习册，得到答案经过核验、贴合学生进度的好题与整份试卷。
 
-![首页：一句话说清需求，也可以拍一页练习册](docs/assets/welcome.png)
+[![CI](https://github.com/Scorpioyyy/verichalk/actions/workflows/ci.yml/badge.svg)](https://github.com/Scorpioyyy/verichalk/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB)
+![React](https://img.shields.io/badge/React-19-61DAFB)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-> **状态：可小范围试用，尚未达到公开发布的全部门槛。** 理解 / 生成 / 编辑 / 整卷 / 拍照 / 导出、用户端与调试台均已完成并通过端到端测试；出题的答案正确率与超纲率两项闸门还没过（A2(a) 0.944 对 0.99，A3 0.048 对 0.02），详见下面的"评测结果"。路线图见 [docs/roadmap.md](docs/roadmap.md)。
+[功能](#功能) · [效果](#效果) · [工作原理](#工作原理) · [快速开始](#快速开始) · [文档](#文档)
 
-## 它能做什么
+</div>
+
+https://github.com/user-attachments/assets/dfc727ef-641d-49c0-8d7e-8d446af08a58
+
+![一句话说清需求，也可以拍一页练习册](docs/assets/welcome.png)
+
+## 为什么做 VeriChalk
+
+"双减"之后，现成的练习题不够用，老师常要自己补题，也越来越多地借助大模型。但大模型出的题常常答案算错、超出学生所学，也很难把几个知识点串成一道综合题，老师仍得逐题检查修改（来自安徽霍邱师范附小数学老师的反馈）。
+
+VeriChalk 让老师拿到就能用：**答案对**、**不超纲**，还能**把学过的知识点组合成有思维含量的综合题**。
+
+## 核心优势
+
+- ✅ **答案双重核验**：写题时同步写出求解程序精确计算，另一个模型独立盲解，两者一致才标"已核验"。
+- 🎯 **不超纲**：按课时把握学生学过的数、运算和计量单位。
+- 🧩 **综合题自然**：沿教材里知识点的前后联系设计解题链，前一步的结果就是后一步的条件。
+- 🗣️ **听得懂老师**："只要计算题""课本那种基础题""情境用做蛋糕"，都照着出。
+- 🖼️ **能出看图题**：统计图、数轴、钟面、标了尺寸的图形、方格图。
+
+## 功能
 
 | | |
 |---|---|
-| **一句话出题** | "四年级下册小数加减法，出 5 道，有点难度"——逐题上屏，每道题带核验徽标；需求含糊时只问一个问题。 |
-| **拍照出题** | 上传练习册 / 作业 / 试卷照片（1～4 张）+ "照这页再出 5 道，再来 2 道拔高的"：照片只用来了解学生学过和做过什么，新题不照抄；照片太模糊时先请教师核对。 |
-| **整份试卷** | 先确认细目表（分区、题型、题量、分值），再看样题，最后成卷，分值合计精确等于满分。 |
-| **在线微调** | 就地编辑，或用一句话改（"第 3 题换个场景""整体简单一点"）；撤销 / 恢复 / 版本历史 / 对比；手改后自动复核。 |
-| **导出** | PDF（Typst）、Word（原生公式）、Markdown、LaTeX；学生版 / 教师版。 |
-| **调试台**（`/debug`） | 每次运行一棵 span 树：流程与时间线、按学期分层的图检索、模型调用检查器、题目证据、Badcase 入库；还可以和"AI 分析"围绕某一次运行对话，不必逐条翻记录。 |
+| **一句话出题** | 如"四年级下册小数加减法，出 5 道，有点难度，跟买东西有关"；逐题上屏，需求含糊时只问一个问题 |
+| **拍照出题** | 上传练习册、作业或试卷的照片，照着学生做过的题出新题 |
+| **整份试卷** | 先定细目表，再看样题，最后成卷 |
+| **在线修改** | 直接编辑，或一句话修改（"第 3 题换个场景"）；可撤销、可回看历史，改后自动复核 |
+| **导出** | PDF、Word、Markdown、LaTeX；教师版 / 学生版 |
+| **调试台** | 每次出题的流程、模型调用与核验证据一目了然 |
 
 ![出题结果：左边对话，右边试卷](docs/assets/result.png)
 
-![拍照出题：先读出照片里的题，再照着出新题](docs/assets/photo-result.png)
+## 效果
 
-![调试台：一次运行的流程与时间线（截图取自回放环境，耗时不代表真实时延）](docs/assets/debug.png)
+与通用大模型直接出题对比（41 个出题请求、194 道题，覆盖 1～6 年级；答案与超纲由独立审计判定）：
 
-## 设计要点
-
-- **知识库是上下文，不是模板。** 教材题告诉 Agent"学生学过什么"，新题由知识图谱串联多个知识点、在新情境里生成，而不是改教材原题。用户明确要求优先。
-- **答案可核验，且诚实标注。** 求解程序与独立盲解两路一致才标"已核验"；超纲由课时级能力边界校验；对不上的题宁可丢弃，也不放行。
-- **确定性优先。** 能用规则或算法完成的不交给模型；模型只用在需要语义理解 / 生成的地方，每次调用都在 trace 里可查。
-- **一切可观测。** 每次运行是一棵 span 树；用户的进度条、开发者的调试台、指标与评测读的是同一份事件日志。
-- **评测先行。** 指标分北极星 / 闸门 / 目标 / 护栏 / 诊断五层（[docs/metrics.md](docs/metrics.md)），badcase 闭环到回归集；模型调用可录制回放，回归测试无网络、无密钥、零成本。
-
-## 评测结果（test 划分，2026-10-06）
-
-对照朴素直出（同一个模型一次生成、无核验）；完整报告见 [eval/reports/release_m8.md](eval/reports/release_m8.md) 与 [eval/specs/e2e.md §5](eval/specs/e2e.md)。
-
-| 指标（36 个出题用例，要求 187 题） | VeriChalk | 朴素直出 |
+| | **VeriChalk** | 通用大模型 |
 |---|---|---|
-| A1 题目可直接使用 | **0.855** | 0.642 |
-| A2(b) 答案正确 | **0.945** | 0.759 |
-| A3 超纲 | **0.048** | 0.155 |
-| A5(b) 套内重复 | **0.110** | 0.203 |
-| 题量达成率（交付 / 要求） | 0.775 | 1.000 |
-| 端到端时长 p50 | 169s | 11s |
-| 单题成本 | ¥0.019 | ¥0.001 |
+| 答案正确 | **97.8%** | 84.1% |
+| 超出学生所学 | **4.9%** | 13.8% |
+| 可直接使用 | **80.9%** | 69.1% |
+| 满足老师的具体要求 | **85.3%** | 62.4% |
+| 两套题对比，更适合发给学生 | **28 胜** · 9 平 · 3 负 | |
 
-核验换来的是正确率、不超纲和不重复；代价是更慢、更贵，且有 42 道题因反复核验不过被丢弃。**未过闸门的两项**：已核验题答案正确率 0.944（要求 ≥ 0.99）、超纲率 0.048（要求 ≤ 0.02），属于下一轮质量优化。其余闸门（运行成功率、trace 完整、导出、重启恢复、提示注入）均已通过。
+首题约 20 秒上屏，单题成本约 ¥0.02。需求理解准确率 98%，照片转写准确率 90%，一句话修改成功率 92%，导出成功率 100%。详见[评测](eval/specs/)。
 
-## 本地运行
+## 工作原理
 
-需要环境变量 `DASHSCOPE_API_KEY` / `DASHSCOPE_BASE_URL`（国内）或 `DASHSCOPE_INTL_API_KEY` / `DASHSCOPE_INTL_BASE_URL`（新加坡），以及 `VERICHALK_PROFILE=cn|intl`。Python ≥ 3.11、Node ≥ 20。
-
-```bash
-pip install -e "backend[dev]"        # 后端（依赖 chalkbase）
-cd frontend && npm install && npm run build && cd ..
-python scripts/dev.py run            # http://localhost:8000：用户端 /，调试台 /debug（本机未配置令牌时直接可进）
+```mermaid
+flowchart LR
+  T["老师的一句话"] --> U["理解<br/>结构化需求"]
+  P["练习册照片"] --> R["识别<br/>逐题转写 · 学生上下文"] --> U
+  U --> PL["规划<br/>代码定范围与约束<br/>模型设计整套题"]
+  PL --> W["写题<br/>求解程序 · 题面 · 答案 · 图"]
+  W --> V{"分层核验"}
+  V -- 通过 --> D["逐题上屏"]
+  V -- 未通过 --> F["带着问题修复 / 重写"] --> V
+  D --> E["整卷 · 修改 · 导出"]
 ```
 
-前端开发：`cd frontend && npm run dev`（Vite，`/api` 代理到 8000）。完整命令见 [CLAUDE.md §8](CLAUDE.md)。
+- **规划**：代码定范围、题量、难度和课时边界，并从知识图谱给出可用的知识点；模型读老师原话，设计整套题的解题链与情境；代码再校验。
+- **核验**：结构检查 → 求解程序（沙箱内精确计算）→ 独立盲解、超纲检查、题面评审并行。求解程序与盲解一致才标"已核验"；不通过就带着问题修复，修不好就换一道。
 
-## 部署
+课程知识（北师大版 1～6 年级）来自 [ChalkBase](https://github.com/Scorpioyyy/chalkbase)。
 
-单容器、同源托管，步骤与环境变量见 [deploy/README.md](deploy/README.md)（Zeabur 推荐步骤、持久卷、调试台令牌、上线前必读）。**没有访问控制与配额**，建议先只把链接发给小范围的人。
+## 调试台
+
+![调试台：一次运行的流程与时间线](docs/assets/debug.png)
+
+每次出题都能展开到单次模型调用，查看提示、输出与每道题的核验证据；发现的问题可一键入库回归。
+
+## 快速开始
+
+需要 Python ≥ 3.11、Node ≥ 20 和阿里云百炼的密钥：
+
+```bash
+export VERICHALK_PROFILE=cn            # cn（国内节点）或 intl（新加坡节点）
+export DASHSCOPE_API_KEY=...           # intl 用 DASHSCOPE_INTL_API_KEY
+export DASHSCOPE_BASE_URL=...          # intl 用 DASHSCOPE_INTL_BASE_URL
+```
+
+```bash
+pip install -e "backend[dev]"
+cd frontend && npm install && npm run build && cd ..
+python scripts/dev.py run              # http://localhost:8000 ：用户端 /，调试台 /debug
+```
+
+测试：
+
+```bash
+python scripts/dev.py check            # ruff + pyright + pytest
+cd frontend && npm run check           # tsc + eslint + prettier + vitest
+cd frontend && E2E_MODE=replay npx playwright test   # 端到端（回放录制，无需密钥）
+```
+
+部署见 [deploy/README.md](deploy/README.md)。
+
+## 技术栈
+
+| | |
+|---|---|
+| 后端 | Python 3.11 · FastAPI · asyncio · Pydantic v2 · SQLite · SSE |
+| 前端 | React 19 · TypeScript · Vite · KaTeX · pdf.js · d3 |
+| 导出 | Typst · pandoc |
+| 模型 | 阿里云百炼：qwen3.7-plus（写题）· deepseek-v4.1-flash（理解与核验）· qwen3.8-flash（识图） |
+| 知识 | [ChalkBase](https://github.com/Scorpioyyy/chalkbase) |
+| 质量 | pytest · vitest · Playwright · ruff · pyright |
+
+## 项目结构
+
+```
+verichalk/
+├── backend/src/verichalk/
+│   ├── core · domain                  配置、领域模型
+│   ├── llm · trace · store · sandbox  模型网关、事件与 trace、存储、沙箱
+│   ├── knowledge · verify · figures · render · perception
+│   ├── stages · orchestrator · api    各阶段、编排、HTTP 接口
+│   └── prompts · eval                 提示词、评测框架
+├── frontend/src/{user,debug,shared}   用户端、调试台、共享组件
+├── eval/                              评测规格、数据集与报告
+└── docs/                              需求、指标、架构、设计决策、评测方案
+```
 
 ## 文档
 
 | 文档 | 内容 |
 |---|---|
-| [docs/brief.md](docs/brief.md) | 项目委托书：目标、约束与工作方式要求（需求来源） |
-| [docs/prd.md](docs/prd.md) | 产品需求：用户、场景、原则、功能与验收 |
-| [docs/metrics.md](docs/metrics.md) | 指标体系 |
-| [docs/architecture.md](docs/architecture.md) | 分层架构、数据模型、事件协议、阶段、调试台 |
-| [docs/design.md](docs/design.md) | 设计决策记录（D1…） |
-| [docs/evaluation.md](docs/evaluation.md) | 评测方案、数据集、判官、badcase 闭环 |
-| [docs/roadmap.md](docs/roadmap.md) | 里程碑与出口标准 |
-| [eval/specs/](eval/specs/) | 各阶段评测规格与结果 |
-| [CLAUDE.md](CLAUDE.md) | 工程规则 |
+| [产品需求](docs/prd.md) | 用户、场景、功能与验收标准 |
+| [指标体系](docs/metrics.md) | 北极星、闸门、目标与护栏指标 |
+| [架构](docs/architecture.md) | 分层、数据模型、事件协议、各阶段 |
+| [设计决策](docs/design.md) | 关键取舍的理由与证据 |
+| [评测方案](docs/evaluation.md) | 评测方法、独立审计与判官校准 |
+| [迭代记录](docs/history.md) | 各里程碑的过程与结果 |
+| [路线图](docs/roadmap.md) | 现状与后续方向 |
 
 ## 许可
 

@@ -1,0 +1,18 @@
+{
+ "key": "385672b1bbff2426e6912d26dd2039d2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": false, \"reason\": \"改写前后题干和答案完全相同，没有做任何降低难度的改动，因此未体现“更容易”的要求。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 133,
+  "completion_tokens": 34,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1400.811454000177,
+ "ttft_ms": 1401.0859130003155,
+ "total_ms": 1662.3120260001087
+}

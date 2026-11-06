@@ -6,7 +6,7 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -19,15 +19,12 @@ class ItemSpec(BaseModel):
     index: int
     kp_ids: list[str]  # 单点题 1 个；综合 / 复习题 2～3 个
     kp_names: list[str] = Field(default_factory=list)  # 展示与提示词用的教师可读名称
-    roles: dict[str, str] = Field(default_factory=dict)  # 知识点 ID → 它在解答中起的作用（防"伪综合"）
     tier: Tier = Tier.consolidate
     difficulty: int = 3
     kind: ItemKind = ItemKind.application
-    scene: str = ""  # 情境主题（来自情境库或用户指定）
+    scene: str = ""  # 情境（规划模型设计、教师指定，或降级时来自情境库）
     scene_hint: str = ""  # 该年级下情境里的典型量与数值范围
-    angle: str = ""  # 问法 / 结构设想：学生要做什么，各知识点分别在哪一步起作用
-    design: str = ""  # 考法结构：逆向求原数 / 比较择优 / 多步混合 / 方案选择 / 纠错辨析 / 规律探究 / 估算与检验 / 数据分析
-    target_error: str = ""  # 这道题要暴露的学生典型错误（取自知识库）
+    angle: str = ""  # 规划给出的考法与解题链：学生先做什么、再做什么、最后求什么
     number_hint: str = ""  # 数值范围提示（贴合目标课时的能力边界）
     source: Literal["novel", "template"] = "novel"
     archetype_ids: list[str] = Field(
@@ -54,11 +51,22 @@ class AnswerPart(BaseModel):
     unit: str = ""
 
 
+class FigureDraft(BaseModel):
+    """写题模型给出的图形规格（类型与参数见 `figures/draw.py`）；由代码渲染与校验，题面里用"如图"引用。"""
+
+    kind: str
+    params: dict[str, Any] = Field(default_factory=dict)
+    alt: str = ""
+
+
 class WriteOut(BaseModel):
     """写题模型的输出。`scratch` 是草稿区（允许自我修正，不展示给教师）；其余字段必须是定稿。"""
 
     scratch: str = ""
     solver_code: str = ""  # 求解程序：`def solve():` 返回与 `answers` 同序的精确值列表
+    figure: FigureDraft | None = (
+        None  # 这道题需要的一张图（统计图、数轴、标了尺寸的图形、钟面、方格图）；不需要为 None
+    )
     stem: str
     options: list[str] = Field(default_factory=list)
     answers: list[AnswerPart] = Field(default_factory=list)

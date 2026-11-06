@@ -134,25 +134,15 @@ async def test_ablation_report_renders_variants(tmp_path):
     assert res["off:warmup"].settings.features.describe() == "关闭：warmup"
 
 
-def test_pipeline_presets_and_opt_in_flags() -> None:
-    """classic 是默认链路（选择性开关全部关闭）；design 预设一键开启它们；`on` 单独开启，`off` 优先。"""
-    from verichalk.core.features import DESIGN_FLAGS
-
-    assert DESIGN_FLAGS == {
-        "plan.design",
-        "produce.design_prompt",
-        "produce.difficulty_check",
-        "plan.cross_unit",
-    }
-    classic = FeatureFlags.parse("")
-    assert not any(classic.enabled(f) for f in DESIGN_FLAGS)
-    assert classic.enabled("produce.blind_solve")  # 普通开关默认开启
-    design = FeatureFlags.parse("", pipeline="design")
-    assert all(design.enabled(f) for f in DESIGN_FLAGS)
-    assert not FeatureFlags.parse("plan.cross_unit", pipeline="design").enabled(
-        "plan.cross_unit"
-    )  # 二分：关掉其一
-    one = FeatureFlags.parse("", "plan.design")
-    assert one.enabled("plan.design") and not one.enabled("produce.design_prompt")
+def test_every_flag_is_on_unless_turned_off() -> None:
+    """只有一种约定：注册的模块默认开启，`off` 关闭（消融）。"""
+    flags = FeatureFlags.parse("")
+    assert all(flags.enabled(f) for f in REGISTRY)
+    off = FeatureFlags.parse("plan.llm, produce.blind_solve")
+    assert (
+        not off.enabled("plan.llm")
+        and not off.enabled("produce.blind_solve")
+        and off.enabled("produce.repair")
+    )
     with pytest.raises(ConfigError):
-        FeatureFlags.parse("", pipeline="nope")
+        FeatureFlags.parse("plan.design")  # 已删除的开关不再被接受

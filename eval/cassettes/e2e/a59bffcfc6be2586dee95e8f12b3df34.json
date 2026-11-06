@@ -1,0 +1,18 @@
+{
+ "key": "a59bffcfc6be2586dee95e8f12b3df34",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"相邻两个数依次增加0.3：0.3+0.3=0.6，0.6+0.3=0.9，0.9+0.3=1.2，1.2+0.3=1.5，所以横线上填0.9。\", \"answers\": [{\"label\": \"\", \"value\": \"0.9\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 321,
+  "completion_tokens": 104,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1205.1672710003913,
+ "ttft_ms": 1205.1801549996526,
+ "total_ms": 1737.9404140001498
+}

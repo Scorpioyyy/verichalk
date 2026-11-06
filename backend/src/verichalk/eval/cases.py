@@ -52,3 +52,13 @@ def load_cases(datasets_dir: Path, suite: str, split: str | None = None) -> list
             for turn in c.turns:
                 turn.pipeline = turn.pipeline or "understand"
     return [c for c in cases if split in (None, "all", c.split)]
+
+
+def request_texts(datasets_dir: Path, suite: str, tags: str = "") -> list[str]:
+    """单轮出题请求的原话（诊断脚本用）：`tags` 是逗号分隔的标签，含其中任一即入选；需要追问的多轮用例跳过。"""
+    want = {t.strip() for t in tags.split(",") if t.strip()}
+    return [
+        c.turns[0].user
+        for c in load_cases(datasets_dir, suite)
+        if len(c.turns) == 1 and not c.turns[0].clarify_answer and (not want or want & set(c.tags))
+    ]

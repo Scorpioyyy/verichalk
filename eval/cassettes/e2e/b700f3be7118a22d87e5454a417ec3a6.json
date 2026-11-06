@@ -1,0 +1,18 @@
+{
+ "key": "b700f3be7118a22d87e5454a417ec3a6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":7,\"decimal_places\":1,\"fraction_types\":[],\"operations\":[{\"op\":\"减法\",\"operands\":[\"1.2\",\"1\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"5\",\"2\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"1.2\",\"4.5\"],\"mode\":null},{\"op\":\"减法\",\"operands\":[\"7\",\"5.4\"],\"mode\":null}],\"concepts\":[\"小数加减法（位数不同）\",\"小数乘小数的竖式计算（含补0与去0）\"],\"units_of_measure\":[\"千克\",\"元\"],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4611,
+  "completion_tokens": 145,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1894.4140820003668,
+ "ttft_ms": 1894.426785000178,
+ "total_ms": 2614.7510310001962
+}

@@ -52,7 +52,7 @@ const item = (id: string, status: Item["verification"]["status"] = "verified"): 
 function stream(): AppEvent[] {
   seq = 0;
   return [
-    ev("run.started", { session_id: "ses_1", pipeline: "classic", schema_version: "1.2" }),
+    ev("run.started", { session_id: "ses_1", pipeline: "main", schema_version: "1.2" }),
     ev("progress", { label: "正在理解您的需求", current: null, total: null }),
     ev("progress", { label: "开始逐题生成并核验", current: 0, total: 3 }),
     ev("item.delivered", { item: item("a", "pending"), order: 1 }),
@@ -97,7 +97,7 @@ describe("reduceEvent", () => {
   it("折叠一次完整运行", () => {
     const s = foldEvents(stream());
     expect(s.phase).toBe("succeeded");
-    expect(s.pipeline).toBe("classic");
+    expect(s.pipeline).toBe("main");
     expect(s.delivered.map((i) => i.id)).toEqual(["a", "b"]);
     expect(s.delivered[0]!.verification.status).toBe("verified"); // item.status 更新了送达的题
     expect(s.paperRev).toBe(1);
@@ -127,7 +127,7 @@ describe("reduceEvent", () => {
     let s = initialRun("run_1");
     s = reduceEvent(
       s,
-      ev("run.started", { session_id: "s", pipeline: "classic", schema_version: "1.2" }),
+      ev("run.started", { session_id: "s", pipeline: "main", schema_version: "1.2" }),
     );
     s = reduceEvent(
       s,
@@ -161,7 +161,7 @@ describe("reduceEvent", () => {
   it("失败与取消", () => {
     seq = 0;
     const failed = foldEvents([
-      ev("run.started", { session_id: "s", pipeline: "classic", schema_version: "1.2" }),
+      ev("run.started", { session_id: "s", pipeline: "main", schema_version: "1.2" }),
       ev("run.finished", {
         status: "failed",
         error: {
@@ -177,7 +177,7 @@ describe("reduceEvent", () => {
     expect(failed.error?.user_message).toBe("模型暂时不可用");
     seq = 0;
     const cancelled = foldEvents([
-      ev("run.started", { session_id: "s", pipeline: "classic", schema_version: "1.2" }),
+      ev("run.started", { session_id: "s", pipeline: "main", schema_version: "1.2" }),
       ev("run.finished", { status: "cancelled", error: null }),
     ]);
     expect(cancelled.phase).toBe("cancelled");

@@ -1,0 +1,18 @@
+{
+ "key": "8474ff1eca7645a6fd363c1f03270b76",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": false, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数加减法中的进位与退位\": true}, \"issues\": [\"人民币最小单位是分（0.01元），找回43.285元（千分之一元）不符合生活常识，四年级题目不应出现三位小数的钱数。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 597,
+  "completion_tokens": 100,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1421.3144289997217,
+ "ttft_ms": 1421.3568729992403,
+ "total_ms": 2089.320103999853
+}

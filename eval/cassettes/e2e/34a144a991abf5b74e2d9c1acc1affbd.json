@@ -8,11 +8,11 @@
  "finish_reason": "stop",
  "usage": {
   "prompt_tokens": 2126,
-  "completion_tokens": 52,
+  "completion_tokens": 53,
   "cached_tokens": 2048,
   "reasoning_tokens": 0
  },
- "ttfb_ms": 984.5148000167683,
- "ttft_ms": 984.533500042744,
- "total_ms": 1257.5745000503957
+ "ttfb_ms": 1400.138058000266,
+ "ttft_ms": 1400.151504999485,
+ "total_ms": 1786.1289559996294
 }

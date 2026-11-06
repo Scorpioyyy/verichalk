@@ -30,10 +30,11 @@ class QueryEmbedder:
         timeout_s: float = 20.0,
         retries: int = 2,
         client: httpx.AsyncClient | None = None,
+        use_proxy: bool = False,
     ) -> None:
         self._creds, self._loop, self._timeout, self._retries = creds, loop, timeout_s, retries
         self._client = client or httpx.AsyncClient(
-            trust_env=False,  # 不走本机 HTTP 代理（对阿里云端点不稳定）
+            trust_env=use_proxy,  # 默认不走本机 HTTP 代理（对阿里云端点不稳定）；见 Settings.llm_use_proxy
             limits=httpx.Limits(max_connections=32, max_keepalive_connections=16),
         )
 

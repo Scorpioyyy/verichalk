@@ -1,0 +1,18 @@
+run_id: eval:m8_test/pr-018
+item_id: null
+input: 三年级认识小数，出5道，和买东西有关
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 「2 米
+  5 分米 3 厘米写成以米为单位的小数」用到多级单位的小数换算（四下 g4b.u1.l02 才学），三年级只认识一位小数。线上边界检查放行了。'
+expected: 线上特征抽取应抽出“度量单位间的小数换算”，边界判 out，走修复。
+root_cause: B
+severity: S1
+stage: produce
+id: bc_01M6JKMXMR13G83QDXPCEWQPE2
+created_at: 1793773434.5200944
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A3
+- confirmed

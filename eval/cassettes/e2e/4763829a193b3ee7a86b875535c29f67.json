@@ -1,0 +1,18 @@
+{
+ "key": "4763829a193b3ee7a86b875535c29f67",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较四个小数：3.1、3.05、2.9、3.15。先看整数部分，2.9的整数部分是2，最小；其余整数部分都是3，再比较小数部分：3.15＞3.1＞3.05，所以最大的是3.15，对应小宇。\", \"answers\": [{\"label\": \"冠军的成绩\", \"value\": \"D\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 395,
+  "completion_tokens": 109,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1108.432117999655,
+ "ttft_ms": 1108.4507759996995,
+ "total_ms": 1860.4908719999003
+}

@@ -1,0 +1,18 @@
+{
+ "key": "9760c63ac0743540718bab200cee41f5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"求小明比小强多跳多少米，用减法：3.8 - 2.95。列竖式时把小数点对齐，3.80 - 2.95 = 0.85（米）。\", \"answers\": [{\"label\": \"\", \"value\": \"0.85\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 86,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1080.969227999958,
+ "ttft_ms": 1080.9889530000873,
+ "total_ms": 1651.2544139995953
+}

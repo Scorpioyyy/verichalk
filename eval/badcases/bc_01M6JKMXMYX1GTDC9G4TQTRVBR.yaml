@@ -1,0 +1,18 @@
+run_id: eval:m8_test/pr-010
+item_id: null
+input: 二年级长度单位，出4道，有点挑战
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 「一拃约
+  9 厘米，量了 8 拃还多 2 厘米」= 9×8+2，是无括号的乘加两步混合运算（三上 g3a.u1.l01）。二年级学生可以分步算，但按课时边界算超纲。'
+expected: 线上特征抽取应抽出两步混合运算；或在二年级的题里拆成两问。是否算“超纲”需教师视角复核（分步算是二年级常见做法）。
+root_cause: B
+severity: S2
+stage: produce
+id: bc_01M6JKMXMYX1GTDC9G4TQTRVBR
+created_at: 1793773434.5264478
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A3
+- borderline-by-teacher-view

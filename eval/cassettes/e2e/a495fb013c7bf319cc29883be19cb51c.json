@@ -1,0 +1,18 @@
+{
+ "key": "a495fb013c7bf319cc29883be19cb51c",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计一个等差数列，首项0.25，公差0.15。第1项0.25，第2项0.40，第3项0.55。下一个是0.70。考查小数加法及规律识别。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 数列为 0.25, 0.40, 0.55, ...\\n    # 公差 d = 0.40 - 0.25 = 0.15\\n    # 下一项 = 0.55 + 0.15 = 0.70\\n    return [Decimal('0.55') + (Decimal('0.40') - Decimal('0.25'))]\",\n \"figure\": null,\n \"stem\": \"观察下面一组按规律排列的小数：$0.25$，$0.40$，$0.55$，____。请在横线上填出下一个数。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.7\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"先观察相邻两个数的差：$0.40-0.25=0.15$，$0.55-0.40=0.15$。发现规律是后一个数比前一个数多 $0.15$。所以下一个数是 $0.55+0.15=0.7$。\",\n \"kp_use\": {\n  \"小数、分数、百分数的认识（总复习）\": \"通过观察小数序列，运用小数加减法找出数值变化的规律，并计算下一项，巩固对小数意义及运算的理解\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3354,
+  "completion_tokens": 417,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2970.303060000333,
+ "ttft_ms": 3023.3696980003515,
+ "total_ms": 9647.16924899949
+}

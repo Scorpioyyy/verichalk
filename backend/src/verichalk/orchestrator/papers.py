@@ -14,8 +14,9 @@ from dataclasses import dataclass, field
 
 from ..core.config import Settings
 from ..core.errors import Conflict, InvalidRequest, NotFound
+from ..domain.events import ItemDelivered
 from ..domain.export import ExportOptions
-from ..domain.paper import Paper, Revision
+from ..domain.paper import FigureSpec, Paper, Revision
 from ..domain.paper_ops import PaperDiff, diff_papers, parse_ops
 from ..figures import FigureError, render_figure
 from ..render import ExportResult, export_paper
@@ -23,6 +24,7 @@ from ..stages.paper_edit import commit_ops
 from ..store import Store
 
 log = logging.getLogger("verichalk.papers")
+RECENT_RUNS = 5  # 找逐题送达的图时回看的运行数（只读最近的几次，避免扫整个会话）
 
 Reviewer = Callable[[str, list[tuple[str, int]]], Awaitable[object]]  # 返回带 `.id` 的运行
 
@@ -56,16 +58,30 @@ class PaperService:
         return paper
 
     async def figure_svg(self, session_id: str, figure_id: str) -> str:
-        """当前试卷里某个图形的 SVG（预览与导出共用同一份渲染）。"""
-        paper = await self.current(session_id)
-        for it in paper.all_items():
+        """本会话里某个图形的 SVG（预览与导出共用同一份渲染）。"""
+        fig = await self._find_figure(session_id, figure_id)
+        if fig is None:
+            raise NotFound(f"图形不存在：{figure_id}")
+        try:
+            return render_figure(fig).svg
+        except FigureError as e:
+            raise InvalidRequest(str(e), user_message="这张图暂时画不出来。") from e
+
+    async def _find_figure(self, session_id: str, figure_id: str) -> FigureSpec | None:
+        """先找当前试卷；找不到再找最近几次运行里已送达的题——逐题上屏时题已经给教师看了，试卷要等全部完成才装配。"""
+        await self.store.sessions.get(session_id)
+        paper = await self.store.papers.get_current(session_id)
+        for it in paper.all_items() if paper else []:
             for fig in it.figures:
                 if fig.id == figure_id:
-                    try:
-                        return render_figure(fig).svg
-                    except FigureError as e:
-                        raise InvalidRequest(str(e), user_message="这张图暂时画不出来。") from e
-        raise NotFound(f"图形不存在：{figure_id}")
+                    return fig
+        for run in await self.store.runs.list(session_id=session_id, limit=RECENT_RUNS):
+            for ev in await self.store.events.list(run.id):
+                if isinstance(ev, ItemDelivered):
+                    for fig in ev.item.figures:
+                        if fig.id == figure_id:
+                            return fig
+        return None
 
     async def history(self, session_id: str) -> HistoryView:
         await self.current(session_id)

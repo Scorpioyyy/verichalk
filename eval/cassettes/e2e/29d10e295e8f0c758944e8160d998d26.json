@@ -1,0 +1,18 @@
+{
+ "key": "29d10e295e8f0c758944e8160d998d26",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总质量1.2千克。方案A：首重1千克5元，超出0.2千克，不足0.5千克按0.5千克算，续重费2元，共5+2=7元。方案B：1.2×4.5=5.4元。方案B便宜，便宜7-5.4=1.6元。\", \"answers\": [{\"label\": \"方案A费用\", \"value\": \"7\", \"unit\": \"元\"}, {\"label\": \"方案B费用\", \"value\": \"5.4\", \"unit\": \"元\"}, {\"label\": \"较便宜方案比另一种便宜\", \"value\": \"1.6\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 410,
+  "completion_tokens": 170,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1350.577277999946,
+ "ttft_ms": 1350.5979510000543,
+ "total_ms": 2270.676676000221
+}

@@ -1,0 +1,18 @@
+{
+ "key": "8dfc2336ada2076f30e515c4e0d87c90",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算实际剪去的长度：3.45-0.85=2.6（米）；再算现在绳长：12.6-2.6=10（米）。\", \"answers\": [{\"label\": \"现在这根绳子长\", \"value\": \"10\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 366,
+  "completion_tokens": 82,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1196.3184619999083,
+ "ttft_ms": 1196.3341749997198,
+ "total_ms": 1699.2693840002175
+}

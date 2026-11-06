@@ -1,0 +1,18 @@
+{
+ "key": "08d9f7c12721fd344bf44fb48dc84051",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较小数大小，先看整数部分，都是1；再看十分位，1.2的十分位是2，1.19的十分位是1，2>1，所以1.2>1.19，小明跳得远。小数位数多不代表数大，所以原说法错误。\", \"answers\": [{\"label\": \"\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 339,
+  "completion_tokens": 101,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1379.9394749994462,
+ "ttft_ms": 1379.9593280000408,
+ "total_ms": 2004.6964989996923
+}

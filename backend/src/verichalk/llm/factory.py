@@ -14,7 +14,7 @@ def build_gateway(settings: Settings, *, transport: Transport | None = None) -> 
     prices = PriceTable.load(settings.config_dir)
     if transport is None and settings.llm_mode != LLMMode.replay:
         try:
-            transport = HttpxTransport(load_credentials(settings.profile))
+            transport = HttpxTransport(load_credentials(settings.profile), use_proxy=settings.llm_use_proxy)
         except ConfigError:
             if settings.llm_mode != LLMMode.replay_or_live:  # replay_or_live 允许无密钥（只回放）
                 raise

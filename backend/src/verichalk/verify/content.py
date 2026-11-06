@@ -9,6 +9,8 @@ from __future__ import annotations
 
 import re
 
+from .answers import answer_parts
+
 _MATH = re.compile(r"(?<!\\)\$(?!\$)(.+?)(?<!\\)\$", re.S)
 _BLANK_IN_MATH = re.compile(r"(?:\s*(?:\\_|_){2,}\s*|\s*[（(]\s*[)）]\s*)+$")
 _SYMBOLS = {
@@ -117,7 +119,13 @@ def check_math(text: str) -> list[str]:
 
 
 def structure_issues(
-    *, kind: str, stem: str, options: list[str], answer_values: list[str], solution: str
+    *,
+    kind: str,
+    stem: str,
+    options: list[str],
+    answer_values: list[str],
+    solution: str,
+    has_figure: bool = False,
 ) -> list[str]:
     """题目结构检查（确定性）。返回问题列表，空表示通过。"""
     issues: list[str] = []
@@ -138,13 +146,21 @@ def structure_issues(
             issues.append("选择题的答案必须是选项字母")
     elif options:
         issues.append("非选择题不应有选项")
+    if kind == "calc" and stem.count("=") + stem.count("＝") > 1:
+        issues.append("计算题只有一个算式；几个算式要拆成几道题")
     if kind == "fill" and "____" not in stem:
         issues.append("填空题的题面里没有填空位置（____）")
+    elif (
+        kind == "fill"
+        and answer_values
+        and len(re.findall(r"_{3,}", stem)) > len(answer_parts(answer_values))
+    ):
+        issues.append("填空的个数比答案多：每个空都要有对应的答案")
     if kind == "judge" and answer_values and parse_judge(answer_values[0]) is None:
         issues.append("判断题的答案必须是“对”或“错”")
     blob = "\n".join([stem, *options])
-    if _FIGURE_DEP.search(blob):
-        issues.append("题面依赖图形（本版本不出依赖图形的题）")
+    if _FIGURE_DEP.search(blob) and not has_figure:
+        issues.append("题面说“如图”，却没有给出图（需要图就在 figure 里给出规格，不需要就把条件写进题面）")
     if _PLACEHOLDER.search(blob + solution):
         issues.append("含占位符或未完成的内容")
     if _ANSWER_HINT_IN_STEM.search(stem):

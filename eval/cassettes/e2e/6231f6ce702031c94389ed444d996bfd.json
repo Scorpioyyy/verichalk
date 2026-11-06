@@ -1,0 +1,18 @@
+{
+ "key": "6231f6ce702031c94389ed444d996bfd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":100,\"decimal_places\":4,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"4\",\"25\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"0.04\",\"0.25\"],\"mode\":null}],\"concepts\":[\"积的小数位数规则\",\"小数的性质（末尾添0或去0大小不变）\"],\"units_of_measure\":[\"平方米\"],\"geometry_vocab\":[\"长方形\",\"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4481,
+  "completion_tokens": 106,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1690.533422000044,
+ "ttft_ms": 1690.5443559999185,
+ "total_ms": 2261.224979999497
+}

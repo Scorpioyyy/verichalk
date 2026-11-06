@@ -85,7 +85,7 @@ describe("针对这次运行的推荐提问", () => {
           call("understand.parse", {}),
           call("produce.write", { retries: 2 }),
           call("produce.write", { error: { code: "llm_timeout" } }),
-          call("plan.ideate", { error: { code: "llm_timeout" } }),
+          call("plan.compose", { error: { code: "llm_timeout" } }),
         ],
       }),
     );

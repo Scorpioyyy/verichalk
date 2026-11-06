@@ -1,0 +1,18 @@
+{
+ "key": "8acf8a0cf6e00783a6a72c79027c02a8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": false, \"difficulty\": 2, \"kp_used\": {\"积的小数位数规则\": true}, \"issues\": [\"解析只按小数位数相加得5位，但1.25×0.008=0.01，实际积是两位小数；积的末尾有0时需去掉末尾的0，答案应为2位小数，给定答案5错误。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 577,
+  "completion_tokens": 114,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1262.835171000006,
+ "ttft_ms": 1262.856624000051,
+ "total_ms": 2025.2491930004908
+}

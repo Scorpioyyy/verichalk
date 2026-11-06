@@ -1,0 +1,18 @@
+{
+ "key": "0cb182e084e26e52913868a19e28db13",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"用付出的钱减去找回的钱：50 - 12.45 = 37.55（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"37.55\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 328,
+  "completion_tokens": 61,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.5367610001267,
+ "ttft_ms": 1299.5506759998534,
+ "total_ms": 1644.934349000323
+}

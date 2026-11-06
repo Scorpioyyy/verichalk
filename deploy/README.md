@@ -2,8 +2,6 @@
 
 单容器、同源托管：根目录 `Dockerfile` 先构建前端，再安装后端（chalkbase 取自 PyPI），同一个进程提供 API 与静态页面。用户端在 `/`，调试台在 `/debug`。
 
-> 开发机没有 Docker，**镜像本身没有在本机构建过**；其中每一步都在等价环境验证过：干净 venv 里 `pip install ./backend`、`VERICHALK_ROOT` 指向只含 `config/` 与 `frontend/dist` 的目录，健康检查、前端同源托管、出题与四种格式的导出均通过。首次部署若构建失败，先看构建日志里是哪一步。
-
 ## 部署到 Zeabur（推荐步骤）
 
 1. 把仓库推到 GitHub，在 Zeabur 新建项目 → **从 GitHub 部署** → 选本仓库。Zeabur 发现根目录的 `Dockerfile` 会按它构建，无需额外配置构建命令。

@@ -1,0 +1,18 @@
+{
+ "key": "5fb6d984b84cad0be28e614843c99505",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 1000, \"decimal_places\": 3, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"850\", \"1000\"], \"mode\": \"decimal_quotient\"}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\", \"克、千克、吨的认识及换算关系\"], \"units_of_measure\": [\"克\", \"千克\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4458,
+  "completion_tokens": 99,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1745.6493600002432,
+ "ttft_ms": 1745.6636760007314,
+ "total_ms": 2328.204463000475
+}

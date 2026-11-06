@@ -51,7 +51,7 @@ def compose_generate_reply(
         if any(
             c.name == "boundary" and c.evidence.get("verdict") == "borderline" for c in it.verification.checks
         ):
-            lines.append("- 个别题含本单元稍后才学的内容，已在题目上标注，建议您看一下")
+            lines.append("- 个别题含稍后才学的内容，已在题目上标注，建议您看一下")
             break
     if dropped:
         lines.append(f"- 另有 {len(dropped)} 道题没有通过核验，已经舍弃，没有展示给您")

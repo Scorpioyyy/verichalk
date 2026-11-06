@@ -1,0 +1,18 @@
+{
+ "key": "cb849c063198b170b0bbf6cca8d9a891",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"0.24×15 = 0.24×10 + 0.24×5 = 2.4 + 1.2 = 3.6\", \"answers\": [{\"label\": \"\", \"value\": \"3.6\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 73,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.944233000133,
+ "ttft_ms": 1299.963621000643,
+ "total_ms": 1658.904277000147
+}

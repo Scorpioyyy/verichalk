@@ -15,7 +15,7 @@ from verichalk.domain.understanding import RawParse, Route
 from verichalk.llm import build_gateway
 from verichalk.orchestrator import RunManager
 from verichalk.stages import RunContext, UnderstandIn, UnderstandStage, run_stage
-from verichalk.stages.understand_post import finalize, map_topics
+from verichalk.stages.understand_post import finalize, map_topics, same_operation
 from verichalk.stages.understand_rules import parse_rules
 from verichalk.trace import EventBus
 
@@ -108,6 +108,55 @@ async def test_small_grade_gap_is_not_a_conflict(kb_service):
     assert (await finalize(raw, hits=hits, kb=kb_service)).clarify is None
 
 
+async def test_topic_slightly_ahead_of_the_stated_semester_follows_the_topic(kb_service):
+    # "四上的小数乘法"：小数乘法在本教材是四下的内容。按四下出题并告诉老师，而不是换成四上的整数乘法
+    raw = RawParse(grade=4, semester="a", topics=["小数乘法"], explicit=["grade", "semester"])
+    hits = [kp("kp.na.小数乘法.decimal_times_int", "小数乘整数的意义与算法（初步）", 4, "g4b.u3.l01")]
+    u = await finalize(raw, hits=hits, kb=kb_service)
+    assert u.clarify is None and u.brief is not None
+    s = u.brief.scope
+    assert s.grade and s.semester
+    assert (s.grade.value, s.semester.value) == (4, "b") and s.semester.origin == Origin.inferred
+    assert u.brief.target_lesson and u.brief.target_lesson.value.startswith("g4b.")
+    assert any("四年级下册的内容" in a for a in u.brief.assumptions)
+
+
+async def test_a_closer_topic_slightly_ahead_beats_a_loosely_related_one_in_grade(kb_service):
+    # "三上的分数加减法"：三上的"小数加减法"只是字面沾边，四下的"同分母分数加减法"才是老师说的主题
+    raw = RawParse(grade=3, semester="a", topics=["分数加减法"], explicit=["grade", "semester"])
+    frac = "kp.na.分数加减法.addition_and_subtraction_of_fractions_with_like_denominators"
+    hits = [
+        kp(frac, "同分母分数加减法", 4, "g4b.u9.l03", 0.9),
+        kp(
+            "kp.na.小数加减法.decimal_add_sub_carry_borrow",
+            "小数加减法中的进位与退位",
+            3,
+            "g3a.u9.l05",
+            0.8,
+            "a",
+        ),
+    ]
+    u = await finalize(raw, hits=hits, kb=kb_service)
+    assert u.clarify is None and u.brief is not None and u.brief.scope.kp_ids
+    assert u.brief.scope.kp_ids.value == [frac]
+    assert u.brief.scope.grade and u.brief.scope.grade.value == 4
+    assert any("四年级下册的内容" in a for a in u.brief.assumptions)
+
+
+async def test_only_the_hits_slightly_ahead_are_kept(kb_service):
+    # "三下的分数加减法"：命中里有四下的同分母、五下的异分母；只保留差不到两个年级的四下，按四下出题
+    raw = RawParse(grade=3, semester="b", topics=["分数加减法"], explicit=["grade", "semester"])
+    like = "kp.na.分数加减法.addition_and_subtraction_of_fractions_with_like_denominators"
+    hits = [
+        kp("kp.na.分数加减法.g5b_heterogeneous", "异分母分数加减法（通分）", 5, "g5b.u1.l01", 0.95),
+        kp(like, "同分母分数加减法", 4, "g4b.u9.l03", 0.9),
+    ]
+    u = await finalize(raw, hits=hits, kb=kb_service)
+    assert u.clarify is None and u.brief and u.brief.scope.kp_ids
+    assert u.brief.scope.kp_ids.value == [like]
+    assert u.brief.target_lesson and u.brief.target_lesson.value.startswith("g4b.")
+
+
 async def test_scope_inherited_from_previous_brief_only(kb_service):
     first = await finalize(
         RawParse(grade=4, topics=["小数加减法"], count=5, explicit=["grade", "count"]),
@@ -194,6 +243,7 @@ async def test_stage_uses_model_and_validates_output(kb_service, store):
     u = await run_stage(ctx, UnderstandStage(), UnderstandIn(text="四年级下册小数加减法，出5道题"))
     assert u.method == "llm" and u.brief and u.brief.scope.grade and u.brief.scope.grade.origin == Origin.user
     assert u.brief.scope.kp_ids is not None  # 检索与模型并行，之后用于映射
+    assert u.brief.request == "四年级下册小数加减法，出5道题"  # 原话随 Brief 交给规划与写题（D59）
     body = tr.bodies[0]
     assert body["response_format"] == {"type": "json_object"} and body["enable_thinking"] is False
     assert "<user_message>" in json.dumps(body["messages"], ensure_ascii=False)
@@ -374,3 +424,14 @@ async def test_topic_research_only_when_hits_do_not_match_topics(kb_service, sto
         UnderstandIn(text="三年级的题，不要图形题，来5道"),
     )
     assert calls == ["三年级的题，不要图形题，来5道"]
+
+
+def test_named_operation_filters_out_hits_of_another_operation():
+    hits = [
+        kp("a", "整十、整百数乘一位数的口算", 3, "l"),
+        kp("b", "整十、几百几十数除以一位数的口算", 3, "l"),
+        kp("c", "口算的估算", 3, "l"),
+    ]
+    assert [h.id for h in same_operation(["整十整百数乘一位数"], hits)] == ["a", "c"]
+    assert [h.id for h in same_operation(["凑十法"], hits)] == ["a", "b", "c"]  # 没点名运算：不过滤
+    assert [h.id for h in same_operation(["小数加减法"], hits[1:2])] == ["b"]  # 全被去掉时保留原样

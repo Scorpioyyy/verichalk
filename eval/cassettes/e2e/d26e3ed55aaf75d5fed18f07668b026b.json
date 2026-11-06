@@ -1,0 +1,18 @@
+{
+ "key": "d26e3ed55aaf75d5fed18f07668b026b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 315, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"小数大小比较\"], \"units_of_measure\": [\"米\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4599,
+  "completion_tokens": 52,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2014.831511999546,
+ "ttft_ms": 2014.8467580002034,
+ "total_ms": 2294.897922999553
+}

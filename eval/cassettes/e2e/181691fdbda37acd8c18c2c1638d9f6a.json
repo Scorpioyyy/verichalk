@@ -1,0 +1,18 @@
+{
+ "key": "181691fdbda37acd8c18c2c1638d9f6a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"每平方米用胶0.025千克，12.5平方米用胶：0.025×12.5=0.3125（千克）。\", \"answers\": [{\"label\": \"\", \"value\": \"0.3125\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 72,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1223.485485999845,
+ "ttft_ms": 1223.5009830001218,
+ "total_ms": 1608.034943000348
+}

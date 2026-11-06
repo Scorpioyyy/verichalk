@@ -1,0 +1,18 @@
+{
+ "key": "7dc3c0f7219414db3bacefc6ff1efe0d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"提取公因数4.8：4.8×3.7+4.8×6.3=4.8×(3.7+6.3)=4.8×10=48\", \"answers\": [{\"label\": \"\", \"value\": \"48\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 312,
+  "completion_tokens": 79,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1204.0737329998592,
+ "ttft_ms": 1204.1351560001203,
+ "total_ms": 1626.0318649992769
+}

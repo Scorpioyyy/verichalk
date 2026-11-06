@@ -1,0 +1,18 @@
+{
+ "key": "19cd2ec28e5270222806e91fabb2e3f9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"12.65元中，小数点后第一位是十分位，6在十分位上，表示6个0.1元；小数点后第二位是百分位，5在百分位上，表示5个0.01元。\", \"answers\": [{\"label\": \"6个____元\", \"value\": \"0.1\", \"unit\": \"元\"}, {\"label\": \"5个____元\", \"value\": \"0.01\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 334,
+  "completion_tokens": 113,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1304.5058500001687,
+ "ttft_ms": 1304.6860399999787,
+ "total_ms": 2064.1879289996723
+}

@@ -1,0 +1,18 @@
+{
+ "key": "f96f0963d0cbe2a911aac22d12dee98c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": null, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"小数的性质（末尾添0或去0大小不变）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4433,
+  "completion_tokens": 59,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1718.6945200000991,
+ "ttft_ms": 1718.709499000397,
+ "total_ms": 2063.7449719997676
+}

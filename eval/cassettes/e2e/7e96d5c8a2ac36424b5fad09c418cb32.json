@@ -1,0 +1,18 @@
+{
+ "key": "7e96d5c8a2ac36424b5fad09c418cb32",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"单价缩小到原来的1/100后是3.5元，说明原价是3.5元的100倍：3.5×100=350（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"350\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 342,
+  "completion_tokens": 73,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1381.73493100021,
+ "ttft_ms": 1381.7514780002966,
+ "total_ms": 1788.2940890003738
+}

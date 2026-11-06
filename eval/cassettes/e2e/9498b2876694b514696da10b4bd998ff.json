@@ -1,0 +1,18 @@
+{
+ "key": "9498b2876694b514696da10b4bd998ff",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先求书房面积：4.8×3.5=16.8（平方米）；再求总价：16.8×120.5=2024.4（元）。\", \"answers\": [{\"label\": \"铺满整个书房需要多少元\", \"value\": \"2024.4\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 88,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1275.1079409999875,
+ "ttft_ms": 1275.129343000117,
+ "total_ms": 1786.3700039997639
+}

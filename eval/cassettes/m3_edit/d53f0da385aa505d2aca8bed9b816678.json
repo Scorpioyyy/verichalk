@@ -1,0 +1,18 @@
+{
+ "key": "d53f0da385aa505d2aca8bed9b816678",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"原题2步 → 新题4步。设计情境：班级买奖品，两种物品混合购买，涉及小数乘整数求总价，以及带括号的加减混合运算求剩余预算。数据：笔记本3.5元/本买6本，钢笔4.8元/支买5本，总预算100元。计算：3.5*6=21, 4.8*5=24, 21+24=45, 100-45=55。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    price_notebook = Decimal('3.5')\\n    count_notebook = 6\\n    price_pen = Decimal('4.8')\\n    count_pen = 5\\n    total_budget = Decimal('100')\\n    \\n    cost_notebooks = price_notebook * count_notebook\\n    cost_pens = price_pen * count_pen\\n    total_cost = cost_notebooks + cost_pens\\n    change = total_budget - total_cost\\n    \\n    return [change]\",\n \"figure\": null,\n \"stem\": \"四年级一班准备用 $100$ 元班费购买奖品。他们买了 $6$ 本笔记本，每本 $3.5$ 元；又买了 $5$ 支钢笔，每支 $4.8$ 元。买完这些奖品后，班费还剩多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"55\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"先算买笔记本花了 $3.5\\\\times 6=21$ 元，再算买钢笔花了 $4.8\\\\times 5=24$ 元。一共花了 $21+24=45$ 元，还剩 $100-45=55$ 元。\",\n \"kp_use\": {\n  \"小数乘整数的意义与算法（初步）\": \"分别计算6本笔记本和5支钢笔的总价\",\n  \"小数加减混合运算\": \"将两种物品的总价相加，再从总预算中减去总花费\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3486,
+  "completion_tokens": 505,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2360.03236400029,
+ "ttft_ms": 2375.2284480005983,
+ "total_ms": 10440.42175100003
+}

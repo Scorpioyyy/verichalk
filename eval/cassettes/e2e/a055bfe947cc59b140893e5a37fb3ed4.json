@@ -1,0 +1,18 @@
+{
+ "key": "a055bfe947cc59b140893e5a37fb3ed4",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 100, \"decimal_places\": 4, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"25\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.25\", \"0.04\"], \"mode\": null}], \"concepts\": [\"小数乘小数的竖式计算（含补0与去0）\", \"长方形和正方形的面积\"], \"units_of_measure\": [\"米\", \"平方米\"], \"geometry_vocab\": [\"长方形\", \"长\", \"宽\", \"面积\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4477,
+  "completion_tokens": 130,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1689.0674539999964,
+ "ttft_ms": 1689.081102000273,
+ "total_ms": 2368.041622000419
+}

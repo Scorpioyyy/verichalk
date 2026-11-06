@@ -1,0 +1,18 @@
+{
+ "key": "1ea5c95bec73cbd82155a6ef72b5a033",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"根据小数的性质，小数末尾添上0或去掉0，小数的大小不变。12.50元末尾的0去掉后是12.5元，大小不变。\", \"answers\": [{\"label\": \"\", \"value\": \"12.5\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 313,
+  "completion_tokens": 76,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1329.5770529994115,
+ "ttft_ms": 1329.5903549997092,
+ "total_ms": 1814.0009799999461
+}

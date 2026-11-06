@@ -1,0 +1,17 @@
+run_id: probe:dev/pf-016
+item_id: null
+input: 四年级上册条形统计图，出4道
+problem: 四上第八单元“调查数据的收集与条形统计图表示”的题，被判用到“条形统计图（1格代表1个单位）”——这个知识点在知识库里挂在四下第八单元（g4b.u8.l01），比四上的条形统计图还晚，课时归属疑似颠倒。
+expected: 核对该知识点的课时归属。本仓库已把“同一主线、同一学年稍后的概念”降为建议复核（D65）。
+root_cause: K
+severity: S2
+stage: produce
+id: bc_01M6QNN0W0XZGH38XXY89RAR81
+created_at: 1793943307.1366727
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m3_v1
+- A3
+- boundary

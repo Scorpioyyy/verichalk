@@ -1,0 +1,18 @@
+{
+ "key": "6b596088a2f2547896a29f2862672f5b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": false, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数乘小数的竖式计算（含补0与去0）\": true}, \"issues\": [\"花坛长0.04米（4厘米）、宽0.25米，面积仅0.01平方米，作为花坛尺寸不符合生活常识，数据不合理。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 599,
+  "completion_tokens": 106,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1707.193121000273,
+ "ttft_ms": 1707.2043959997245,
+ "total_ms": 2276.8373290000454
+}

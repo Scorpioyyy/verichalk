@@ -1,63 +1,61 @@
-# 出题端到端留出集（v1 发布验收用，2026-11-06 撰写，**在本轮任何系统改动之前封存**；全部 split: test）。
-# 只在里程碑 / 发布验收时跑一次，结果如实报告；失败样本不得回头"修"进提示或规则。
-# 分布对齐真实场景的请求分布（evaluation.md §3.1；暂无线上请求，按教材比例与教师访谈构造）：
+# 出题端到端留出集（发布验收用；全部 split: test）。只在发布 / 里程碑验收时跑一次，结果如实报告，失败样本不回头修。
+# 分布对齐真实场景（evaluation.md §3.1；暂无线上请求，按教材比例构造），逐例分层：
 #   41 例：年级 g1 5 / g2 6 / g3 8 / g4 8 / g5 7 / g6 6，另 1 例不说年级（需追问）；
-#   领域（按主题知识点）数与代数 24 / 图形与几何 11 / 统计与概率 3 / 综合与实践 2（教材知识点约 0.6 / 0.25 / 0.1 / 0.05）；
-#   主题在教材里只有看图题的（chalkbase 题型的配图比例 ≥ 0.5，`fig` 标签）10 例（约 1/4）——教材知识点里这一比例是 31%；
-#   请求形式（可重叠）：只说主题与题量为主；难度词 ~20%；指定情境 ~15%；指定题型 ~15%；课本式同类题 ~10%；
-#   综合 / 复习 ~12%；边缘（含糊需追问、年级与主题对不上、错别字、口语长句）~10%。
-# 措辞与主题刻意避开开发集 produce.yaml；topics_any 关键词已核对：出现在该年级教材知识点的名称里。
+#   领域（按主题知识点）数与代数 24 / 图形与几何 11 / 统计与概率 3 / 综合与实践 2；
+#   主题在教材里只有看图题的（`fig` 标签）10 例；请求形式（可重叠）：只说主题与题量为主，难度词、指定情境、
+#   指定题型、课本式同类题、综合 / 复习、边缘（含糊需追问、年级与主题对不上、错别字、口语长句）各占一小部分。
+# 主题与措辞避开开发集 produce.yaml；topics_any 关键词出现在该年级教材知识点的名称里。
 # 格式与 expect 键同 produce.yaml（n_items / topics_any / tier_min / kinds_only / scene_any / source / clarify）。
 
 # ---- 一年级 ----
-- {id: ph-001, split: test, tags: [g1, na, fig, plain], turns: [{user: "一年级上册5以内的加法，出6道，孩子刚学", expect: {n_items: 6, topics_any: [5以内]}}]}
-- {id: ph-002, split: test, tags: [g1, na, kinds, colloquial], turns: [{user: "一上10的组成，填空题出5道哈", expect: {n_items: 5, kinds_only: [fill], topics_any: [10的组成]}}]}
-- {id: ph-003, split: test, tags: [g1, na, template, count], turns: [{user: "一下20以内退位减法，口算题批量来15道", expect: {n_items: 15, source: template}}]}
-- {id: ph-004, split: test, tags: [g1, na, scene], turns: [{user: "一年级下册用减法解决比多比少的问题，出4道，情境用分水果", expect: {n_items: 4, topics_any: [相差, 比多比少], scene_any: [水果, 苹果, 梨, 桃, 橘子, 香蕉, 草莓]}}]}
-- {id: ph-005, split: test, tags: [g1, gg, fig, plain], turns: [{user: "一年级上册认识立体图形，长方体正方体圆柱球，出4道", expect: {n_items: 4, topics_any: [长方体, 正方体, 圆柱, 球]}}]}
+- {id: ph-001, split: test, tags: [g1, na, fig, plain], turns: [{user: "一上6以内的加减法，出5道，刚学完", expect: {n_items: 5, topics_any: [6以内]}}]}
+- {id: ph-002, split: test, tags: [g1, na, kinds, colloquial], turns: [{user: "一上8和9的组成，填空题来5道吧", expect: {n_items: 5, kinds_only: [fill], topics_any: [8和9]}}]}
+- {id: ph-003, split: test, tags: [g1, na, template, count], turns: [{user: "一下两位数加减整十数，口算题批量来15道", expect: {n_items: 15, source: template}}]}
+- {id: ph-004, split: test, tags: [g1, na, fig, scene], turns: [{user: "一年级下册十几减一位数，出4道，情境用分糖果", expect: {n_items: 4, topics_any: [十几], scene_any: [糖]}}]}
+- {id: ph-005, split: test, tags: [g1, gg, fig, plain], turns: [{user: "一年级下册轴对称的初步认识，对折后两边一样的图形，出3道", expect: {n_items: 3, topics_any: [轴对称]}}]}
 
 # ---- 二年级 ----
-- {id: ph-006, split: test, tags: [g2, na, fig, count], turns: [{user: "二年级上册9的乘法口诀，出1道应用题，课上当例题", expect: {n_items: 1, topics_any: [9的乘法口诀, 乘法口诀]}}]}
-- {id: ph-007, split: test, tags: [g2, sp, fig, plain], turns: [{user: "二年级下册分类，按不同的标准分，出4道", expect: {n_items: 4, topics_any: [分类]}}]}
-- {id: ph-008, split: test, tags: [g2, na, difficulty], turns: [{user: "二年级下册有余数的除法，出5道，有一两道拔高的", expect: {n_items: 5, topics_any: [余数]}}]}
-- {id: ph-009, split: test, tags: [g2, gg, fig, plain], turns: [{user: "二下认识平行四边形，出3道", expect: {n_items: 3, topics_any: [平行四边形]}}]}
-- {id: ph-010, split: test, tags: [g2, na, scene], turns: [{user: "二年级上册人民币的认识和换算，购物情境，出5道", expect: {n_items: 5, topics_any: [人民币], scene_any: [买, 购物, 商店, 超市, 文具, 付]}}]}
-- {id: ph-011, split: test, tags: [g2, na, template], turns: [{user: "二下三位数减法竖式退位的，同类题来10道", expect: {n_items: 10, source: template}}]}
+- {id: ph-006, split: test, tags: [g2, na, fig, count], turns: [{user: "二年级上册6的乘法口诀，出1道应用题，上课讲", expect: {n_items: 1, topics_any: [6的乘法口诀, 乘法口诀]}}]}
+- {id: ph-007, split: test, tags: [g2, gg, fig, plain], turns: [{user: "二年级下册图形的分割与组合，出3道", expect: {n_items: 3, topics_any: [分割, 组合]}}]}
+- {id: ph-008, split: test, tags: [g2, na, difficulty], turns: [{user: "二年级上册用乘法口诀求商，出5道，有一两道难点的", expect: {n_items: 5, topics_any: [求商]}}]}
+- {id: ph-009, split: test, tags: [g2, gg, fig, plain], turns: [{user: "二年级下册七巧板，出3道", expect: {n_items: 3, topics_any: [七巧板]}}]}
+- {id: ph-010, split: test, tags: [g2, na, scene], turns: [{user: "二年级下册三位数加法竖式，出5道，情境用图书馆借书", expect: {n_items: 5, topics_any: [三位数加法], scene_any: [图书, 书]}}]}
+- {id: ph-011, split: test, tags: [g2, na, template], turns: [{user: "二下有余数的除法，课本那种基础题来10道", expect: {n_items: 10, source: template}}]}
 
 # ---- 三年级 ----
-- {id: ph-012, split: test, tags: [g3, gg, plain], turns: [{user: "三年级上册角的认识，直角锐角钝角，出5道", expect: {n_items: 5, topics_any: [角]}}]}
-- {id: ph-013, split: test, tags: [g3, na, scene], turns: [{user: "三上年月日，平年闰年，出4道，可以结合过生日", expect: {n_items: 4, topics_any: [闰年, 平年], scene_any: [生日]}}]}
-- {id: ph-014, split: test, tags: [g3, na, kinds], turns: [{user: "三上含小括号的混合运算，只要计算题，6道", expect: {n_items: 6, kinds_only: [calc], topics_any: [混合运算]}}]}
-- {id: ph-015, split: test, tags: [g3, gg, scene], turns: [{user: "三下长方形周长，出5道，跟围篱笆、做相框有关", expect: {n_items: 5, topics_any: [周长], scene_any: [篱笆, 围栏, 相框, 花坛, 栅栏, 菜地, 菜园]}}]}
-- {id: ph-016, split: test, tags: [g3, na, integrated, difficulty], turns: [{user: "三年级下册，乘法和除法结合起来的两步应用题，出3道，有点难度", expect: {n_items: 3, tier_min: {integrated: 1}}}]}
-- {id: ph-017, split: test, tags: [g3, gg, fig, plain], turns: [{user: "三上观察物体，从不同位置看，出3道", expect: {n_items: 3, topics_any: [观察]}}]}
-- {id: ph-018, split: test, tags: [g3, ip, plain], turns: [{user: "三下制订家庭旅行计划的题，算算要花多少钱，出3道", expect: {n_items: 3, topics_any: [旅行]}}]}
+- {id: ph-012, split: test, tags: [g3, sp, plain], turns: [{user: "三年级上册调查与记录，用正字记数据的，出3道", expect: {n_items: 3, topics_any: [正, 调查]}}]}
+- {id: ph-013, split: test, tags: [g3, na, scene], turns: [{user: "三上结合元角分认识小数，出4道，情境用文具店", expect: {n_items: 4, topics_any: [小数], scene_any: [文具]}}]}
+- {id: ph-014, split: test, tags: [g3, na, kinds], turns: [{user: "三年级上册两位数除以一位数的口算，只要计算题，8道", expect: {n_items: 8, kinds_only: [calc], topics_any: [除以一位数]}}]}
+- {id: ph-015, split: test, tags: [g3, gg, scene], turns: [{user: "三年级上册千米的认识，出4道，跟爬山、跑步有关", expect: {n_items: 4, topics_any: [千米], scene_any: [爬山, 登山, 跑步, 长跑, 马拉松]}}]}
+- {id: ph-016, split: test, tags: [g3, na, integrated, difficulty], turns: [{user: "三年级上册，乘除法和加减法结合起来的两步应用题，出3道，难一点", expect: {n_items: 3, tier_min: {integrated: 1}}}]}
+- {id: ph-017, split: test, tags: [g3, gg, fig, plain], turns: [{user: "三下在方格纸上平移图形，出3道", expect: {n_items: 3, topics_any: [平移]}}]}
+- {id: ph-018, split: test, tags: [g3, na, plain], turns: [{user: "三年级下册连乘运算，出5道", expect: {n_items: 5, topics_any: [连乘]}}]}
+- {id: ph-019, split: test, tags: [g3, edge, mismatch], turns: [{user: "三年级上册，小数乘法，出4道", expect: {n_items: 4}}]}
 
 # ---- 四年级 ----
-- {id: ph-019, split: test, tags: [g4, na, integrated], turns: [{user: "四年级上册，速度时间路程和四则混合运算结合起来，出4道综合题", expect: {n_items: 4, topics_any: [速度], tier_min: {integrated: 1}}}]}
-- {id: ph-020, split: test, tags: [g4, na, kinds], turns: [{user: "四上亿以内数的读写，判断和选择题，5道", expect: {n_items: 5, kinds_only: [judge, choice], topics_any: [亿以内]}}]}
-- {id: ph-021, split: test, tags: [g4, gg, fig, typo], turns: [{user: "四年级上册角的度两，出4道", expect: {n_items: 4, topics_any: [角]}}]}
-- {id: ph-022, split: test, tags: [g4, na, difficulty], turns: [{user: "四年级下册小数点移动引起大小变化，出5道，有点难度", expect: {n_items: 5, topics_any: [小数点]}}]}
-- {id: ph-023, split: test, tags: [g4, gg, fig, plain], turns: [{user: "四下三角形按角分类，锐角三角形直角三角形钝角三角形，出4道", expect: {n_items: 4, topics_any: [三角形]}}]}
-- {id: ph-024, split: test, tags: [g4, na, template], turns: [{user: "四下小数加减混合运算，课本那种基础题，来10道", expect: {n_items: 10, source: template}}]}
-- {id: ph-025, split: test, tags: [g4, sp, scene], turns: [{user: "四年级下册平均数，出4道，用跳绳比赛做背景", expect: {n_items: 4, topics_any: [平均数], scene_any: [跳绳]}}]}
-- {id: ph-026, split: test, tags: [g4, na, plain], turns: [{user: "四上乘法分配律，出6道，既要有简便计算也要有应用", expect: {n_items: 6, topics_any: [分配律]}}]}
+- {id: ph-020, split: test, tags: [g4, na, integrated], turns: [{user: "四年级下册，小数加减法和平均数结合起来，出3道综合题", expect: {n_items: 3, topics_any: [平均数], tier_min: {integrated: 1}}}]}
+- {id: ph-021, split: test, tags: [g4, na, kinds], turns: [{user: "四下小数的意义和性质，判断和选择题，6道", expect: {n_items: 6, kinds_only: [judge, choice], topics_any: [小数]}}]}
+- {id: ph-022, split: test, tags: [g4, gg, fig, typo], turns: [{user: "四年级上册从不同位置观察拍照的画面，出3到题", expect: {n_items: 3, topics_any: [观察]}}]}
+- {id: ph-023, split: test, tags: [g4, na, difficulty], turns: [{user: "四年级上册大数的改写，改写成以万或亿为单位的数，出5道，有点难度", expect: {n_items: 5, topics_any: [改写]}}]}
+- {id: ph-024, split: test, tags: [g4, gg, fig, plain], turns: [{user: "四下等腰三角形和等边三角形，出4道", expect: {n_items: 4, topics_any: [等腰, 等边]}}]}
+- {id: ph-025, split: test, tags: [g4, na, template], turns: [{user: "四年级上册三位数乘两位数，课本那种基础题来10道", expect: {n_items: 10, source: template}}]}
+- {id: ph-026, split: test, tags: [g4, sp, scene], turns: [{user: "四下折线统计图，出3道，用气温变化做背景", expect: {n_items: 3, topics_any: [折线], scene_any: [气温, 温度]}}]}
+- {id: ph-027, split: test, tags: [g4, ip, plain], turns: [{user: "四下统筹优化，烙饼、沏茶那种，出3道", expect: {n_items: 3, topics_any: [统筹]}}]}
 
 # ---- 五年级 ----
-- {id: ph-027, split: test, tags: [g5, na, difficulty], turns: [{user: "五年级上册2、5、3的倍数特征，出5道，有点难度", expect: {n_items: 5, topics_any: [倍数特征]}}]}
-- {id: ph-028, split: test, tags: [g5, gg, variation], turns: [{user: "五上梯形面积，出4道变式题", expect: {n_items: 4, topics_any: [梯形], tier_min: {variation: 2}}}]}
-- {id: ph-029, split: test, tags: [g5, na, difficulty, colloquial], turns: [{user: "我们班孩子五上鸡兔同笼老是搞不懂，你给出3道题吧，稍微有点挑战，但别太难哈", expect: {n_items: 3, topics_any: [鸡兔同笼]}}]}
-- {id: ph-030, split: test, tags: [g5, sp, kinds], turns: [{user: "五上可能性，出4道选择题", expect: {n_items: 4, kinds_only: [choice], topics_any: [可能性]}}]}
-- {id: ph-031, split: test, tags: [g5, gg, na, integrated], turns: [{user: "五年级下册，长方体正方体的体积和分数乘法结合起来，出3道综合题", expect: {n_items: 3, topics_any: [体积], tier_min: {integrated: 1}}}]}
-- {id: ph-032, split: test, tags: [g5, na, scene], turns: [{user: "五年级下册分数除法，出6道，情境用做手工、分彩带", expect: {n_items: 6, topics_any: [分数除], scene_any: [手工, 彩带, 丝带, 绸带]}}]}
-- {id: ph-033, split: test, tags: [g5, na, template], turns: [{user: "五下分数乘分数，课本那种基础题来8道", expect: {n_items: 8, source: template}}]}
+- {id: ph-028, split: test, tags: [g5, na, difficulty], turns: [{user: "五年级上册公因数和最大公因数，出5道，有点难度", expect: {n_items: 5, topics_any: [公因数]}}]}
+- {id: ph-029, split: test, tags: [g5, gg, variation], turns: [{user: "五上平行四边形面积，出4道变式题", expect: {n_items: 4, topics_any: [平行四边形], tier_min: {variation: 2}}}]}
+- {id: ph-030, split: test, tags: [g5, na, difficulty, colloquial], turns: [{user: "五下已知一个数的几分之几是多少求这个数，孩子们老出错，给我出3道吧，稍微有点挑战哈", expect: {n_items: 3, topics_any: [几分之几]}}]}
+- {id: ph-031, split: test, tags: [g5, sp, kinds], turns: [{user: "五上摸球游戏公不公平，出4道选择题", expect: {n_items: 4, kinds_only: [choice], topics_any: [公平, 可能性, 摸球]}}]}
+- {id: ph-032, split: test, tags: [g5, gg, na, integrated], turns: [{user: "五年级下册，长方体的表面积和小数乘法结合起来，出3道综合题", expect: {n_items: 3, topics_any: [表面积], tier_min: {integrated: 1}}}]}
+- {id: ph-033, split: test, tags: [g5, na, scene], turns: [{user: "五年级下册分数乘法，出5道，情境用做蛋糕、烘焙", expect: {n_items: 5, topics_any: [分数乘], scene_any: [蛋糕, 烘焙, 面粉, 黄油]}}]}
+- {id: ph-034, split: test, tags: [g5, na, template], turns: [{user: "五上除法中商是小数的，课本那种基础题来8道", expect: {n_items: 8, source: template}}]}
 
 # ---- 六年级 ----
-- {id: ph-034, split: test, tags: [g6, gg, difficulty], turns: [{user: "六年级上册圆的周长和面积，出5道，有点拔高", expect: {n_items: 5, topics_any: [圆]}}]}
-- {id: ph-035, split: test, tags: [g6, na, kinds], turns: [{user: "六上比的基本性质和化简比，填空题，6道", expect: {n_items: 6, kinds_only: [fill], topics_any: [比]}}]}
-- {id: ph-036, split: test, tags: [g6, na, fig, kinds], turns: [{user: "六年级上册已知总量和百分数求部分量，出4道应用题", expect: {n_items: 4, kinds_only: [application], topics_any: [百分数]}}]}
-- {id: ph-037, split: test, tags: [g6, ip, plain], turns: [{user: "六上营养食谱的综合实践题，出3道", expect: {n_items: 3, topics_any: [食谱, 营养]}}]}
-- {id: ph-038, split: test, tags: [g6, gg, fig, plain], turns: [{user: "六年级下册图形的旋转，出3道", expect: {n_items: 3, topics_any: [旋转]}}]}
-- {id: ph-039, split: test, tags: [g6, na, review], turns: [{user: "六年级下册总复习，整数小数分数的计算，出8道，期末复习用", expect: {n_items: 8}}]}
-- {id: ph-040, split: test, tags: [g3, edge, mismatch], turns: [{user: "三年级上册，分数加减法，出4道", expect: {n_items: 4}}]}
-- {id: ph-041, split: test, tags: [edge, clarify], turns: [{user: "给我来几道练习题", clarify_answer: "四年级下册，小数加减法，4道", expect: {n_items: 4, clarify: true}}]}
+- {id: ph-035, split: test, tags: [g6, gg, difficulty], turns: [{user: "六下圆柱的体积，出5道，有点拔高", expect: {n_items: 5, topics_any: [圆柱]}}]}
+- {id: ph-036, split: test, tags: [g6, na, kinds], turns: [{user: "六上百分数的意义和读写，填空题，6道", expect: {n_items: 6, kinds_only: [fill], topics_any: [百分数]}}]}
+- {id: ph-037, split: test, tags: [g6, na, fig, kinds], turns: [{user: "六年级上册整数除以分数，出4道应用题", expect: {n_items: 4, kinds_only: [application], topics_any: [整数除以分数]}}]}
+- {id: ph-038, split: test, tags: [g6, ip, plain], turns: [{user: "六上用圆设计图案的综合实践题，出3道", expect: {n_items: 3, topics_any: [圆]}}]}
+- {id: ph-039, split: test, tags: [g6, gg, fig, plain], turns: [{user: "六年级上册圆的半径和直径的关系，出3道", expect: {n_items: 3, topics_any: [半径, 直径]}}]}
+- {id: ph-040, split: test, tags: [g6, na, review], turns: [{user: "六年级下册总复习，比和比例这块，出6道，期末复习用", expect: {n_items: 6}}]}
+- {id: ph-041, split: test, tags: [edge, clarify], turns: [{user: "帮我出几道数学题", clarify_answer: "三年级上册，两位数乘一位数，5道", expect: {n_items: 5, clarify: true}}]}

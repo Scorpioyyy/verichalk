@@ -111,14 +111,28 @@ async def run_case_e2e(c: Any, case: Case, timeout_s: float = 900.0) -> CaseRec:
         rec.lesson_id = rec.lesson_id or bp.lesson_id
         rec.n_requested = rec.n_requested or len(bp.items)
         rec.scenes = [s.scene for s in bp.items]
-        for spec in bp.items:
-            out = state.get(f"produce:{spec.id}")
-            if out:
-                po = ProduceOut.model_validate(out)
-                rec.items.append(
-                    ItemRec(po.item, spec.index, po.dropped_reason, po.attempts, po.failed_checks)
-                )
+        rec.items = items_from_state(state, bp)
     return rec
+
+
+def items_from_state(state: dict[str, Any], bp: Blueprint) -> list[ItemRec]:
+    """运行状态里每个题位的结果。丢弃后"换个考法补上"的题存在 `produce:{id}r`（`replacement_spec`）：
+    教师看得到它，计入交付，写题次数与被拦记录合并。"""
+    out: list[ItemRec] = []
+    for spec in bp.items:
+        raw = state.get(f"produce:{spec.id}")
+        if not raw:
+            continue
+        po = ProduceOut.model_validate(raw)
+        attempts, failed = po.attempts, list(po.failed_checks)
+        again = state.get(f"produce:{spec.id}r") if po.item is None else None
+        if again:
+            pr = ProduceOut.model_validate(again)
+            attempts, failed = attempts + pr.attempts, failed + pr.failed_checks
+            if pr.item is not None:
+                po = pr
+        out.append(ItemRec(po.item, spec.index, po.dropped_reason, attempts, failed))
+    return out
 
 
 async def run_cases(settings: Settings, cases: list[Case], concurrency: int = 4) -> list[CaseRec]:

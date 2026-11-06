@@ -1,7 +1,7 @@
 """两套出题结果的盲评对比：同一批请求下，A 套 vs B 套哪套更适合发给学生（不看对错，看思维含量 / 情境 / 多样性 / 易错点 / 贴合要求）。
 
 用法：
-  python scripts/probe_produce.py --file eval/datasets/quality_probe.yaml --out a.json --quiet      # 一种策略的产出
+  python scripts/probe_produce.py --cases produce --out a.json --quiet      # 一种策略的产出
   python scripts/compare_sets.py a.json b.json                                                    # 对比两种策略
 评审用 deepseek-v4-pro（与写题模型不同厂商），每个请求交换顺序评两次，一致才算胜负。花费：每对请求约 ¥0.01。
 """

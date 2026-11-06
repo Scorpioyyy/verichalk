@@ -200,7 +200,7 @@ def cmd_produce(args: argparse.Namespace) -> int:
     )
     root = settings.root_dir
     cases = load_cases(
-        root / "eval" / "datasets", "produce_fresh" if args.cases == "fresh" else "produce", args.split
+        root / "eval" / "datasets", "produce_holdout" if args.cases == "holdout" else "produce", args.split
     )
     if args.only:
         wanted = {x.strip() for x in args.only.split(",")}
@@ -589,9 +589,9 @@ def main() -> None:
     pr.add_argument("--split", default="val", choices=["val", "test", "all"])
     pr.add_argument(
         "--cases",
-        default="main",
-        choices=["main", "fresh"],
-        help="fresh = 从未调优过的留出集 produce_fresh（里程碑验收只跑一次，全部是 test 划分）",
+        default="dev",
+        choices=["dev", "holdout"],
+        help="dev = 开发集 produce（val）；holdout = 留出集 produce_holdout（发布 / 里程碑验收只跑一次，全部是 test 划分）",
     )
     pr.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     pr.add_argument("--record", action="store_true")

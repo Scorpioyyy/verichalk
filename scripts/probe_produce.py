@@ -4,7 +4,7 @@
 
 用法：
   python scripts/probe_produce.py "四年级下册小数加减法，出6道" ["另一个请求" ...] [--off flag,flag] [--items]
-  python scripts/probe_produce.py --file eval/datasets/quality_probe.yaml --out x.json --llm-conc 32
+  python scripts/probe_produce.py --cases produce [--tags fig,kinds] --out x.json --llm-conc 64   # 开发集（可按标签取子集）
 换模型：--role smart=kimi-k3:notemp ；末尾的 SUMMARY 行便于横向比较。
 注意：多个请求并行时共享全局模型并发（`--llm-conc`，默认取设置），并发不够会排队、触发单题时间预算，
 交付与时延都会被低估。比较时延要在同一并发条件下进行。
@@ -153,11 +153,8 @@ async def main() -> None:
     ap.add_argument("--off", default="")
     ap.add_argument("--quiet", action="store_true")
     ap.add_argument("--items", action="store_true", help="打印交付的题目全文（读题用）")
-    ap.add_argument(
-        "--file",
-        default="",
-        help="从 YAML 列表读取请求（如 eval/datasets/quality_probe.yaml）",
-    )
+    ap.add_argument("--cases", default="", help="从用例集读取请求（如 produce = 开发集）")
+    ap.add_argument("--tags", default="", help="只取带这些标签之一的用例（逗号分隔）")
     ap.add_argument(
         "--out",
         default="",
@@ -177,12 +174,10 @@ async def main() -> None:
     )
     ap.add_argument("--profile", default="intl", choices=["cn", "intl"])
     args = ap.parse_args()
-    if args.file:
-        import yaml
+    if args.cases:
+        from verichalk.eval.cases import request_texts
 
-        args.texts = args.texts + yaml.safe_load(
-            Path(args.file).read_text(encoding="utf-8")
-        )
+        args.texts += request_texts(ROOT / "eval" / "datasets", args.cases, args.tags)
     upd: dict[str, Any] = {}
     if args.conc:
         upd["item_concurrency"] = args.conc

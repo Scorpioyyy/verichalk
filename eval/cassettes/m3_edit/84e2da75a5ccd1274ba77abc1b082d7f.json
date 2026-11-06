@@ -1,0 +1,18 @@
+{
+ "key": "84e2da75a5ccd1274ba77abc1b082d7f",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"改写后情境由铅笔换为苹果，且仍为小数乘整数（4.2×5）的计算。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 154,
+  "completion_tokens": 35,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1215.1065500002005,
+ "ttft_ms": 1215.33108299991,
+ "total_ms": 1547.2912289997112
+}

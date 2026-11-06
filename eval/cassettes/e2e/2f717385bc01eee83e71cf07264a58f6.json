@@ -1,0 +1,18 @@
+{
+ "key": "2f717385bc01eee83e71cf07264a58f6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数加减法中的进位与退位\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 594,
+  "completion_tokens": 64,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1345.95826199984,
+ "ttft_ms": 1345.9729329997572,
+ "total_ms": 1745.5935389998558
+}

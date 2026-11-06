@@ -1,0 +1,18 @@
+{
+ "key": "1a168e22838a09280e64481607fbb448",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "eval.edit.judge",
+ "text": "{\"ok\": true, \"reason\": \"新题需先分别计算两种商品总价再求和后从100元中减去，步骤多于原题的单步乘法减法，难度提升。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 207,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1305.0968859997738,
+ "ttft_ms": 1305.1127139997334,
+ "total_ms": 1681.4277780003977
+}

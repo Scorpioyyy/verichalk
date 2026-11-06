@@ -1,0 +1,18 @@
+{
+ "key": "d5b614bfea57a6a12089197051ae45a8",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":200,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"加法\",\"operands\":[\"42\",\"38\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"80\",\"45\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"125\",\"40\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"165\",\"35\"],\"mode\":null},{\"op\":\"除法\",\"operands\":[\"200\",\"5\"],\"mode\":null}],\"concepts\":[\"平均数的意义与求法\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 134,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1444.054165000125,
+ "ttft_ms": 1444.0717100005713,
+ "total_ms": 2119.3805850007266
+}

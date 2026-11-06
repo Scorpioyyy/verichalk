@@ -1,0 +1,18 @@
+{
+ "key": "2fabb02b76035e164abf8dd26d706351",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"根据小数的性质：小数的末尾添上0或去掉0，小数的大小不变。例如3.50去掉末尾的0是3.5，大小相等。\", \"answers\": [{\"label\": \"\", \"value\": \"对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 295,
+  "completion_tokens": 72,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1299.6957129998918,
+ "ttft_ms": 1299.7107030005282,
+ "total_ms": 1726.877826999953
+}

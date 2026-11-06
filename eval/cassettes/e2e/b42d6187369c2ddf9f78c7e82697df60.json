@@ -1,0 +1,18 @@
+{
+ "key": "b42d6187369c2ddf9f78c7e82697df60",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 48, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"加法\", \"operands\": [\"3.7\", \"6.3\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4.8\", \"10\"], \"mode\": null}], \"concepts\": [\"乘法分配律\", \"整数运算律在小数运算中的推广\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4487,
+  "completion_tokens": 109,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1476.6320959997756,
+ "ttft_ms": 1476.6433699996924,
+ "total_ms": 2095.9185369993065
+}

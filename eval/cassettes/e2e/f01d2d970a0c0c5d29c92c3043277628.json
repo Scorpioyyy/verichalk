@@ -1,0 +1,18 @@
+{
+ "key": "f01d2d970a0c0c5d29c92c3043277628",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数\": true, \"分数\": false, \"百分数\": false}, \"issues\": [\"声称涉及分数和百分数的认识，但题目和解析只用到小数加减法，分数、百分数均未涉及。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 605,
+  "completion_tokens": 95,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1362.0444380003391,
+ "ttft_ms": 1362.0582350004042,
+ "total_ms": 1982.0350119998693
+}

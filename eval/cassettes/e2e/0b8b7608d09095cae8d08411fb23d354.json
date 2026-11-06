@@ -1,0 +1,18 @@
+{
+ "key": "0b8b7608d09095cae8d08411fb23d354",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 270, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"除法\", \"operands\": [\"38\", \"6\"], \"mode\": \"remainder\"}, {\"op\": \"乘法\", \"operands\": [\"6\", \"40\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"1\", \"30\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"240\", \"30\"], \"mode\": null}], \"concepts\": [\"用有余数除法解决周期排列位置问题\", \"用进一法解决实际问题\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4508,
+  "completion_tokens": 152,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1925.2001430004384,
+ "ttft_ms": 1925.211923000461,
+ "total_ms": 2715.179957000146
+}

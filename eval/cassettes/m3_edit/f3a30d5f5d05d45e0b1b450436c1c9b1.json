@@ -1,0 +1,18 @@
+{
+ "key": "f3a30d5f5d05d45e0b1b450436c1c9b1",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"三角形内角和是180°，第三个内角=180°-55°-65°=60°，不是70°，所以小明的说法不对。\", \"answers\": [{\"label\": \"小明的说法对吗\", \"value\": \"错\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 72,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1405.7645559996672,
+ "ttft_ms": 1405.7795809994786,
+ "total_ms": 1879.2498679995333
+}

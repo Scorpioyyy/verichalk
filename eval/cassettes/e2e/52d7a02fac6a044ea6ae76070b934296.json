@@ -1,0 +1,18 @@
+{
+ "key": "52d7a02fac6a044ea6ae76070b934296",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":458,\"decimal_places\":null,\"fraction_types\":[],\"operations\":[{\"op\":\"除法\",\"operands\":[\"458\",\"3\"],\"mode\":\"remainder\"},{\"op\":\"乘法\",\"operands\":[\"152\",\"3\"],\"mode\":null},{\"op\":\"加法\",\"operands\":[\"456\",\"2\"],\"mode\":null}],\"concepts\":[\"有余数除法的认识\",\"余数比除数小的规律\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4491,
+  "completion_tokens": 108,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1921.1767030001283,
+ "ttft_ms": 1921.1955189994114,
+ "total_ms": 2519.248173000051
+}

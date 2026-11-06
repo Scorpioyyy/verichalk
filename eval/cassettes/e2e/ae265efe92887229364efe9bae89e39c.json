@@ -1,0 +1,18 @@
+{
+ "key": "ae265efe92887229364efe9bae89e39c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 12, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [], \"concepts\": [\"小数数位的计数单位\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4494,
+  "completion_tokens": 54,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1590.6634319999284,
+ "ttft_ms": 1590.6747750004797,
+ "total_ms": 1900.3615450001234
+}

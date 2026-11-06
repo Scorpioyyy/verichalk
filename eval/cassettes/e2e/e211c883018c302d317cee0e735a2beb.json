@@ -1,0 +1,18 @@
+{
+ "key": "e211c883018c302d317cee0e735a2beb",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": null, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"0.5\", \"0.2\"], \"mode\": null}], \"concepts\": [\"积的小数位数规则\", \"小数的性质（末尾添0或去0大小不变）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4452,
+  "completion_tokens": 92,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1609.775952999371,
+ "ttft_ms": 1609.7882499998377,
+ "total_ms": 2088.1109570000262
+}

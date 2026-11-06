@@ -1,0 +1,18 @@
+{
+ "key": "337f668f46a2658c0e0a3c292dd5d0d9",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计一个等差小数数列：0.3, 0.6, ___, 1.2, 1.5。公差为0.3。缺失项为0.9。考察小数加减规律及数位对齐。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 数列为 0.3, 0.6, x, 1.2, 1.5\\n    # 公差 d = 0.6 - 0.3 = 0.3\\n    # x = 0.6 + 0.3 = 0.9\\n    return [Decimal('0.9')]\",\n \"figure\": null,\n \"stem\": \"观察下面这组小数的排列规律，在横线上填上合适的数。\\n$0.3，0.6，$____$，1.2，1.5$\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.9\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"观察相邻两个数，发现后一个数比前一个数多 $0.3$（即 $0.6-0.3=0.3$）。所以横线上的数是 $0.6+0.3=0.9$。验证：$0.9+0.3=1.2$，符合规律。\",\n \"kp_use\": {\n  \"小数、分数、百分数的认识（总复习）\": \"通过观察小数数列的变化规律，运用小数加法推算缺失项，巩固对小数数值大小及运算关系的理解\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3421,
+  "completion_tokens": 373,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2091.628199999832,
+ "ttft_ms": 2107.8358610002397,
+ "total_ms": 8061.902749000183
+}

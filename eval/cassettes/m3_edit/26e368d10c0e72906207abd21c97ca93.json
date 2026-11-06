@@ -2,17 +2,17 @@
  "key": "26e368d10c0e72906207abd21c97ca93",
  "model": "qwen3.7-plus",
  "purpose": "edit.rewrite_text",
- "text": "{\"text\": \"总数 $102+98+110+105+100=515$（个），平均 $515\\\\div5=103$（个）。\"}",
+ "text": "{\n  \"text\": \"先求总数：$102+98+110+105+100=515$（个）。再求平均数：$515\\\\div5=103$（个）。\"\n}",
  "reasoning_text": "",
  "tool_calls": [],
  "finish_reason": "stop",
  "usage": {
   "prompt_tokens": 356,
-  "completion_tokens": 49,
+  "completion_tokens": 61,
   "cached_tokens": 0,
   "reasoning_tokens": 0
  },
- "ttfb_ms": 1862.1999210008653,
- "ttft_ms": 1878.2382129993493,
- "total_ms": 2647.3007219992724
+ "ttfb_ms": 2345.162724999682,
+ "ttft_ms": 2360.0111610003296,
+ "total_ms": 3324.3214060003083
 }

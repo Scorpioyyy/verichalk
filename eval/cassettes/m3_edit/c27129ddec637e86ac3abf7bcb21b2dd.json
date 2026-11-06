@@ -1,0 +1,18 @@
+{
+ "key": "c27129ddec637e86ac3abf7bcb21b2dd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"笔记本共花 6×3.5=21 元，钢笔共花 5×4.8=24 元，共花 21+24=45 元，还剩 100-45=55 元。\", \"answers\": [{\"label\": \"班费还剩多少元\", \"value\": \"55\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 347,
+  "completion_tokens": 93,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1180.5528650002088,
+ "ttft_ms": 1180.5690090004646,
+ "total_ms": 1684.2234050000116
+}

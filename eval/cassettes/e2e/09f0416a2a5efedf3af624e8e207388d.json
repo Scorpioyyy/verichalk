@@ -1,0 +1,18 @@
+{
+ "key": "09f0416a2a5efedf3af624e8e207388d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":540,\"decimal_places\":4,\"fraction_types\":[],\"operations\":[{\"op\":\"乘法\",\"operands\":[\"45\",\"12\"],\"mode\":null},{\"op\":\"乘法\",\"operands\":[\"0.045\",\"1.2\"],\"mode\":null}],\"concepts\":[\"小数乘小数的竖式计算（含补0与去0）\",\"积的小数位数规则\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4473,
+  "completion_tokens": 101,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1670.200259000012,
+ "ttft_ms": 1670.2136470003097,
+ "total_ms": 2305.0086080002075
+}

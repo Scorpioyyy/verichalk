@@ -1,0 +1,18 @@
+{
+ "key": "b1f236c25b93e329f5ce0c7961e8b21a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先求5天收集的总数：18+22+20+25+15=100（个），再平均分成5份：100÷5=20（个）。\", \"answers\": [{\"label\": \"平均每天收集多少个松果\", \"value\": \"20\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 335,
+  "completion_tokens": 81,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1692.916922999757,
+ "ttft_ms": 1692.9322309997588,
+ "total_ms": 2130.699342999833
+}

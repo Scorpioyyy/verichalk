@@ -9,10 +9,10 @@
  "usage": {
   "prompt_tokens": 2124,
   "completion_tokens": 50,
-  "cached_tokens": 2048,
+  "cached_tokens": 0,
   "reasoning_tokens": 0
  },
- "ttfb_ms": 1799.6306670011109,
- "ttft_ms": 1799.6513380003307,
- "total_ms": 2158.286871999735
+ "ttfb_ms": 1622.2381000006862,
+ "ttft_ms": 1622.254195000096,
+ "total_ms": 1873.5394800005452
 }

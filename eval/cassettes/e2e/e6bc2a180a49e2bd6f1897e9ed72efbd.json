@@ -1,0 +1,18 @@
+{
+ "key": "e6bc2a180a49e2bd6f1897e9ed72efbd",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计题目：$12.5 \\\\times 3.2 = 12.5 \\\\times (\\\\_\\\\_\\\\_\\\\_ \\\\times \\\\_\\\\_\\\\_\\\\_) = (12.5 \\\\times \\\\_\\\\_\\\\_\\\\_) \\\\times \\\\_\\\\_\\\\_\\\\_ = \\\\_\\\\_\\\\_\\\\_$。利用乘法结合律，将3.2拆分为0.8×4，先算12.5×0.8=10，再乘4得40。检查：12.5*3.2=40。填空共5个空。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 12.5 * 3.2 = 12.5 * (0.8 * 4) = (12.5 * 0.8) * 4 = 10 * 4 = 40\\n    return ['0.8', '4', '0.8', '4', '40']\",\n \"figure\": null,\n \"stem\": \"在横线上填上合适的数。\\n$12.5 \\\\times 3.2 = 12.5 \\\\times ($____ $\\\\times$ ____) $= (12.5 \\\\times$ ____) $\\\\times$ ____ $=$ ____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.8\",\n   \"unit\": \"\"\n  },\n  {\n   \"label\": \"\",\n   \"value\": \"4\",\n   \"unit\": \"\"\n  },\n  {\n   \"label\": \"\",\n   \"value\": \"0.8\",\n   \"unit\": \"\"\n  },\n  {\n   \"label\": \"\",\n   \"value\": \"4\",\n   \"unit\": \"\"\n  },\n  {\n   \"label\": \"\",\n   \"value\": \"40\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"把 $3.2$ 拆成 $0.8 \\\\times 4$，运用乘法结合律，先算 $12.5 \\\\times 0.8 = 10$，再算 $10 \\\\times 4 = 40$。\",\n \"kp_use\": {\n  \"整数运算律在小数运算中的推广\": \"运用乘法结合律，通过拆分因数 $3.2$ 为 $0.8 \\\\times 4$，改变运算顺序进行简便计算\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3382,
+  "completion_tokens": 574,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2007.6154159996804,
+ "ttft_ms": 2023.5285319995455,
+ "total_ms": 11196.408853000321
+}

@@ -1,0 +1,18 @@
+{
+ "key": "349c7633168b43a7e574a6ef6569b08a",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.compose",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"kps\": [\n        \"K2\"\n      ],\n      \"scene\": \"跳远比赛成绩对比\",\n      \"plan\": \"【考法】直接应用。列竖式计算两个位数不同的小数之差，注意小数点对齐及末尾补0占位。\"\n    },\n    {\n      \"index\": 2,\n      \"kps\": [\n        \"K3\"\n      ],\n      \"scene\": \"超市购物找零钱\",\n      \"plan\": \"【考法】逆向求原数。已知支付整数金额和找回的带多位小数零钱，通过连续退位减法反推商品确切价格。\"\n    },\n    {\n      \"index\": 3,\n      \"kps\": [\n        \"K1\",\n        \"K5\"\n      ],\n      \"scene\": \"家庭月度水电缴费\",\n      \"plan\": \"【考法】多步综合。先根据总量与分量关系求出某项具体费用，再结合另一项费用进行小数加减混合运算求总支出。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1660,
+  "completion_tokens": 260,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2138.4955740004443,
+ "ttft_ms": 2154.819184000189,
+ "total_ms": 6300.20581700046
+}

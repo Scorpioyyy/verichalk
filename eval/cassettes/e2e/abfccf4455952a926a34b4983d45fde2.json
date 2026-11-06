@@ -1,0 +1,18 @@
+{
+ "key": "abfccf4455952a926a34b4983d45fde2",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"458÷3=152余2，所以每层放152本，还剩2本。\", \"answers\": [{\"label\": \"平均每层放多少本\", \"value\": \"152\", \"unit\": \"本\"}, {\"label\": \"还剩多少本\", \"value\": \"2\", \"unit\": \"本\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 323,
+  "completion_tokens": 84,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1547.3260700000537,
+ "ttft_ms": 1547.340068000267,
+ "total_ms": 1980.197470999883
+}

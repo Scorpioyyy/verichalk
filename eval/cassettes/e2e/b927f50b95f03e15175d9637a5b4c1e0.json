@@ -1,0 +1,18 @@
+{
+ "key": "b927f50b95f03e15175d9637a5b4c1e0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"相邻两个数依次相差0.15：0.40-0.25=0.15，0.55-0.40=0.15，所以下一个数是0.55+0.15=0.70。\", \"answers\": [{\"label\": \"\", \"value\": \"0.70\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 320,
+  "completion_tokens": 87,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1150.7869649994973,
+ "ttft_ms": 1150.8078059996478,
+ "total_ms": 1660.6316030001835
+}

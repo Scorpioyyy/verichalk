@@ -2,17 +2,17 @@
  "key": "34a144a991abf5b74e2d9c1acc1affbd",
  "model": "deepseek-v4.1-flash",
  "purpose": "understand.parse",
- "text": "{\"route\":\"paper\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"action\":\"paper\",\"paper\":{\"duration_min\":40,\"total_score\":100},\"explicit\":[\"grade\",\"semester\",\"unit\",\"action\",\"paper\"]}",
+ "text": "{\"route\":\"paper\",\"grade\":4,\"semester\":\"b\",\"unit_ordinals\":[3],\"action\":\"paper\",\"paper\":{\"duration_min\":40,\"total_score\":100},\"explicit\":[\"grade\",\"semester\",\"unit\",\"action\"]}",
  "reasoning_text": "",
  "tool_calls": [],
  "finish_reason": "stop",
  "usage": {
   "prompt_tokens": 2126,
-  "completion_tokens": 55,
+  "completion_tokens": 53,
   "cached_tokens": 2048,
   "reasoning_tokens": 0
  },
- "ttfb_ms": 1482.8494509984012,
- "ttft_ms": 1482.8635989997565,
- "total_ms": 1707.0571029998973
+ "ttfb_ms": 1400.138058000266,
+ "ttft_ms": 1400.151504999485,
+ "total_ms": 1786.1289559996294
 }

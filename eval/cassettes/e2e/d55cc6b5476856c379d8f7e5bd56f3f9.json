@@ -1,0 +1,18 @@
+{
+ "key": "d55cc6b5476856c379d8f7e5bd56f3f9",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"整数运算律在小数运算中的推广\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 638,
+  "completion_tokens": 64,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1119.7019250002995,
+ "ttft_ms": 1119.71423399973,
+ "total_ms": 1443.007912000212
+}

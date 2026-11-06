@@ -1,0 +1,18 @@
+{
+ "key": "23fc913916302167a837b8982c8d8b89",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"设计逆向求原数题。支付100元，找回金额需为两位小数（符合人民币常识），且涉及连续退位。设商品价格为36.48元。找回：100-36.48=63.52元。题目给出找回63.52元，求商品价格。计算：100.00-63.52。个位0减2不够，向十位借，十位是0向百位借。百位1变0，十位变9，个位变9，十分位变9，百分位10-2=8；十分位9-5=4；个位9-3=6；十位9-6=3。结果36.48。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    paid = Decimal('100')\\n    change = Decimal('63.52')\\n    price = paid - change\\n    return [price]\",\n \"figure\": null,\n \"stem\": \"妈妈在超市购物，付给收银员 $100$ 元，收银员找回 $63.52$ 元。这些商品的总价是 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"36.48\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"商品总价 $=$ 付出金额 $-$ 找回金额，列式 $100-63.52$。把 $100$ 看作 $100.00$，从百分位起依次退位减：$100.00-63.52=36.48$。\",\n \"kp_use\": {\n  \"小数加减法中的进位与退位\": \"计算 $100-63.52$ 时，整数减小数需将整数补零并对齐小数点，连续向前一位退1当10进行减法运算\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3566,
+  "completion_tokens": 472,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2451.9788500001596,
+ "ttft_ms": 2465.5997250001747,
+ "total_ms": 9999.586222999824
+}

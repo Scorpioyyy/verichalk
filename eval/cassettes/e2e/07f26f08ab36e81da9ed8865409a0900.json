@@ -1,0 +1,18 @@
+{
+ "key": "07f26f08ab36e81da9ed8865409a0900",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"商品总价 = 付的钱 - 找回的钱 = 100 - 63.52 = 36.48（元）\", \"answers\": [{\"label\": \"\", \"value\": \"36.48\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 320,
+  "completion_tokens": 67,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2309.022688999903,
+ "ttft_ms": 2309.038053999757,
+ "total_ms": 2693.9564209997116
+}

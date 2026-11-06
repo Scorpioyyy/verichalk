@@ -1,0 +1,18 @@
+{
+ "key": "87aaca2938fc663af98e8fabce820d45",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"576×4：个位6×4=24，写4进2；十位7×4=28，加进位2得30，写0进3；百位5×4=20，加进位3得23，写23。结果2304。\", \"answers\": [{\"label\": \"\", \"value\": \"2304\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 296,
+  "completion_tokens": 95,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1235.7081039999684,
+ "ttft_ms": 1235.7236930001818,
+ "total_ms": 1783.6747770006696
+}

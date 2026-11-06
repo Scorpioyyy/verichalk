@@ -1,0 +1,18 @@
+{
+ "key": "b65e017f4b9361ad851dae8f78e05dbd",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 4200, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3.5\", \"12\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"42\", \"100\"], \"mode\": null}], \"concepts\": [\"单价、数量与总价的关系\", \"人民币的认识与换算\"], \"units_of_measure\": [\"吨\", \"元\", \"分(货币)\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4510,
+  "completion_tokens": 117,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1736.9478790005815,
+ "ttft_ms": 1736.9643990004988,
+ "total_ms": 2360.3564949999054
+}

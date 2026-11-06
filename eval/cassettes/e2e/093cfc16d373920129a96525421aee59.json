@@ -1,0 +1,18 @@
+{
+ "key": "093cfc16d373920129a96525421aee59",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 360, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"24\", \"15\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"0.24\", \"15\"], \"mode\": null}], \"concepts\": [\"小数乘整数的意义与算法（初步）\", \"积的小数位数规则\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 109,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1462.1453919999112,
+ "ttft_ms": 1462.1586799994475,
+ "total_ms": 2007.7537319994008
+}

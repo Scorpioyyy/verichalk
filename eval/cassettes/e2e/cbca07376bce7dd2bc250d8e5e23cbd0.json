@@ -1,0 +1,18 @@
+{
+ "key": "cbca07376bce7dd2bc250d8e5e23cbd0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"电费：28.6+15.4=44（元）；燃气费：28.6-3.8=24.8（元）；合计：28.6+44+24.8=97.4（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"97.4\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 344,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1286.845959000857,
+ "ttft_ms": 1286.8645430007746,
+ "total_ms": 1804.711538000447
+}

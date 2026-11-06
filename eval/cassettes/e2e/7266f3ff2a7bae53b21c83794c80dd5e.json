@@ -1,0 +1,18 @@
+{
+ "key": "7266f3ff2a7bae53b21c83794c80dd5e",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 3, \"kp_used\": {\"乘数与1的大小关系对积的影响\": false}, \"issues\": [\"声称的知识点“乘数与1的大小关系对积的影响”在解答中并未用到，解答只涉及小数乘法与减法比较。\"]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 744,
+  "completion_tokens": 93,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1519.8670159998073,
+ "ttft_ms": 1519.879942999978,
+ "total_ms": 2098.5521659995356
+}

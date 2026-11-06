@@ -1,0 +1,18 @@
+{
+ "key": "25115110b5cec2514dcd4dec77d1743f",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write.repair",
+ "text": "{\n \"scratch\": \"原题两步(先加后除) → 新题一步(只除)。将方程简化为 $ax=b$ 形式，去掉加减项，降低认知负荷。设 $5x=12.5$，解得 $x=2.5$。数据简单，无需进位退位，符合难度2。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    return [Decimal('12.5') / Decimal('5')]\",\n \"figure\": null,\n \"stem\": \"解方程：$5x=12.5$，$x=$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"2.5\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"根据等式的性质，方程两边同时除以 $5$。$x=12.5\\\\div 5$，解得 $x=2.5$。\",\n \"kp_use\": {\n  \"解两步方程\": \"虽然本题简化为一步，但核心仍运用等式性质（两边同除以同一个数）求解未知数，是解复杂方程的基础步骤\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3552,
+  "completion_tokens": 275,
+  "cached_tokens": 2816,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2002.9522889999498,
+ "ttft_ms": 2018.8064140002098,
+ "total_ms": 6405.589087999942
+}

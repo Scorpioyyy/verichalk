@@ -2,17 +2,17 @@
  "key": "b84e10d1803c5eddbe7bcf244000f98a",
  "model": "qwen3.8-flash",
  "purpose": "perceive.read",
- "text": "{\"verdict\": \"worksheet\", \"reason\": \"\", \"title\": \"小数的性质（练习）\", \"questions\": [{\"no\": \"1\", \"instruction\": \"化简各数。\", \"kind\": \"calc\", \"topic\": \"小数的性质\", \"difficulty\": 1, \"confidence\": 0.95, \"has_figure\": false, \"figure\": \"\", \"items\": [\"0.70=\", \"0.6050=\", \"3.800=\", \"20.90=\", \"10.00=\", \"2.090=\"], \"doubts\": []}, {\"no\": \"2\", \"instruction\": \"在○里填上“>”“<”或“=”。\", \"kind\": \"calc\", \"topic\": \"小数的大小比较\", \"difficulty\": 1, \"confidence\": 0.95, \"has_figure\": false, \"figure\": \"\", \"items\": [\"0.8 ○ 0.58\", \"4.90 ○ 4.900\", \"1.45 ○ 1.5\", \"6 ○ 6.00\"], \"doubts\": []}, {\"no\": \"3\", \"instruction\": \"\", \"kind\": \"application\", \"topic\": \"小数加减混合运算\", \"difficulty\": 2, \"confidence\": 0.95, \"has_figure\": false, \"figure\": \"\", \"items\": [\"食堂运来大米10.7吨，第一个月吃掉3.3吨，第二个月吃掉3.4吨，还剩多少吨？\"], \"doubts\": []}, {\"no\": \"4\", \"instruction\": \"把下面各数改写成两位小数。\", \"kind\": \"fill\", \"topic\": \"小数的性质\", \"difficulty\": 1, \"confidence\": 0.95, \"has_figure\": false, \"figure\": \"\", \"items\": [\"5.6=\", \"8=\", \"3.2700=\"], \"doubts\": []}]\n}",
+ "text": "{\"verdict\": \"worksheet\", \"reason\": \"\", \"title\": \"小数的性质（练习）\", \"questions\": [{\"no\": \"1\", \"instruction\": \"化简各数。\", \"kind\": \"calc\", \"topic\": \"小数的性质\", \"difficulty\": 1, \"confidence\": 1.0, \"has_figure\": false, \"figure\": \"\", \"items\": [\"0.70=\", \"0.6050=\", \"3.800=\", \"20.90=\", \"10.00=\", \"2.090=\"], \"doubts\": []}, {\"no\": \"2\", \"instruction\": \"在○里填上“>”“<”或“=”。\", \"kind\": \"calc\", \"topic\": \"小数的大小比较\", \"difficulty\": 1, \"confidence\": 1.0, \"has_figure\": false, \"figure\": \"\", \"items\": [\"0.8 ○ 0.58\", \"4.90 ○ 4.900\", \"1.45 ○ 1.5\", \"6 ○ 6.00\"], \"doubts\": []}, {\"no\": \"3\", \"instruction\": \"食堂运来大米10.7吨，第一个月吃掉3.3吨，第二个月吃掉3.4吨，还剩多少吨？\", \"kind\": \"application\", \"topic\": \"小数加减混合运算\", \"difficulty\": 2, \"confidence\": 1.0, \"has_figure\": false, \"figure\": \"\", \"items\": [\"食堂运来大米10.7吨，第一个月吃掉3.3吨，第二个月吃掉3.4吨，还剩多少吨？\"], \"doubts\": []}, {\"no\": \"4\", \"instruction\": \"把下面各数改写成两位小数。\", \"kind\": \"fill\", \"topic\": \"小数的性质\", \"difficulty\": 1, \"confidence\": 1.0, \"has_figure\": false, \"figure\": \"\", \"items\": [\"5.6=\", \"8=\", \"3.2700=\"], \"doubts\": []}]}",
  "reasoning_text": "",
  "tool_calls": [],
  "finish_reason": "stop",
  "usage": {
   "prompt_tokens": 3523,
-  "completion_tokens": 433,
+  "completion_tokens": 459,
   "cached_tokens": 0,
   "reasoning_tokens": 0
  },
- "ttfb_ms": 2762.4795520005136,
- "ttft_ms": 2762.4977029990987,
- "total_ms": 6761.831648000225
+ "ttfb_ms": 3310.4366949992254,
+ "ttft_ms": 3310.4601559998628,
+ "total_ms": 8230.942018999485
 }

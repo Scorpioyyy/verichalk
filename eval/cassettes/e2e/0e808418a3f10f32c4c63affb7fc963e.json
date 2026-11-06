@@ -1,0 +1,18 @@
+{
+ "key": "0e808418a3f10f32c4c63affb7fc963e",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"情境：书店买书。付50元，找回12.45元。求书价。计算：50 - 12.45。50.00 - 12.45 = 37.55。检查：37.55 + 12.45 = 50.00。正确。难度：退位减法，涉及连续退位，符合四年级变式要求。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    paid = Decimal('50')\\n    change = Decimal('12.45')\\n    cost = paid - change\\n    return [cost]\",\n \"figure\": null,\n \"stem\": \"周末，小华去书店买了一套科普丛书，他付给收银员 $50$ 元，收银员找回 $12.45$ 元。这套科普丛书的售价是 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"37.55\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"把 $50$ 元看作 $50.00$ 元。从百分位减起，不够减向前一位借 $1$ 当 $10$。$50.00-12.45=37.55$ 元。\",\n \"kp_use\": {\n  \"小数加减法中的进位与退位\": \"在计算 $50.00-12.45$ 时，整数部分需连续向小数部分退位，十分位和百分位均需借位计算\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3328,
+  "completion_tokens": 391,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2103.912906000005,
+ "ttft_ms": 2118.2349820001036,
+ "total_ms": 8362.066095000046
+}

@@ -101,12 +101,12 @@ def test_figure_labels_become_plain_text() -> None:
 
 
 async def test_malformed_figure_params_fail_the_check_instead_of_crashing() -> None:
-    # 写题模型用 "?" 表示被遮住的一栏：渲染不了，应当退回修改，而不是让运行崩溃（留出集验收里出现过）
+    # 写题模型用 "?" 表示被遮住的一栏：渲染不了，应当退回修改，而不是让运行崩溃
     for params in (
         {"categories": ["一班", "二班"], "values": [24, "?"]},
         {"categories": ["一班"], "values": None},
         {"min": "a", "max": 2},
-        {"shape": "parallelogram", "labels": ["底 6 cm", "高 4 cm"]},  # 标注写成了列表（验收里出现过）
+        {"shape": "parallelogram", "labels": ["底 6 cm", "高 4 cm"]},  # 标注写成了列表
     ):
         kind = "number_line" if "min" in params else "shape" if "shape" in params else "bar_chart"
         r = await check_structure(

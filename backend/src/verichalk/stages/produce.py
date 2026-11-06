@@ -300,7 +300,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                 ver = await verify_item(env, vin, feats)
                 sig = number_signature(w.stem) if inp.rewrite is None else ""
                 if ver.status != VerifyStatus.rejected and sig and sig in seen:
-                    # 并行写的几道题撞上同一组数（"52-37"写了三遍）：先交付的保留，这道换一组数据
+                    # 并行写的几道题可能用上同一组数（几道都是"52-37"）：先交付的保留，这道换一组数据
                     problems = ["与本套另一道题用的数完全相同：换一组数据，不要只换情境"]
                     failed.append(["duplicate:与本套另一道题用的数相同"])
                     last_reason = problems[0]

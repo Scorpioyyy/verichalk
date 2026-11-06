@@ -57,6 +57,17 @@ class AuditItem:
         return hashlib.sha1((raw + cfg).encode()).hexdigest()[:16]
 
 
+def a2_verdict(answers_a: list[str], answers_b: list[str], answers: list[str]) -> str:
+    """两路审计的答案与题目答案 → correct / wrong / disputed。计分时用当前的答案比较规则重新判定
+    （缓存里存的是两路的原始答案），比较规则改了不用重新审计，各版本按同一规则计分。"""
+    a_ok, b_ok = answers_equal(answers_a, answers), answers_equal(answers_b, answers)
+    if a_ok and b_ok:
+        return "correct"
+    if not a_ok and not b_ok and answers_equal(answers_a, answers_b):
+        return "wrong"
+    return "disputed"
+
+
 @dataclass
 class AuditRecord:
     key: str
@@ -170,14 +181,7 @@ class Auditor:
         if ra.status.value == "skip" or rb.status.value == "skip":
             rec.a2 = "unavailable"
         else:
-            a_ok = answers_equal(rec.answers_a, it.answers)
-            b_ok = answers_equal(rec.answers_b, it.answers)
-            if a_ok and b_ok:
-                rec.a2 = "correct"
-            elif not a_ok and not b_ok and answers_equal(rec.answers_a, rec.answers_b):
-                rec.a2 = "wrong"
-            else:
-                rec.a2 = "disputed"
+            rec.a2 = a2_verdict(rec.answers_a, rec.answers_b, it.answers)
         rec.a3, rec.a3_violations = verdict, viol
         rec.quality = {k: v for k, v in q.evidence.items() if k != "model"}
         return rec

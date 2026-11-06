@@ -34,7 +34,7 @@ from ..orchestrator import build_container
 from ..stages.produce import ProduceOut
 from ..store import Store
 from ..verify.checks import VerifyInput, model_stem, similarity
-from .audit import AuditItem, Auditor, AuditRecord
+from .audit import AuditItem, Auditor, AuditRecord, a2_verdict
 from .cases import Case
 from .runner import _drive
 
@@ -242,6 +242,11 @@ async def audit_records(
             )
             pending.append((it.id, ai))
     recs_out = await asyncio.gather(*(auditor.audit(ai) for _, ai in pending))
+    for (_, ai), rec in zip(pending, recs_out, strict=True):
+        if (
+            rec is not None and rec.a2 != "unavailable"
+        ):  # 用当前的答案比较规则判定（缓存的结论可能是旧规则下的）
+            rec.a2 = a2_verdict(rec.answers_a, rec.answers_b, ai.answers)
     return {iid: rec for (iid, _), rec in zip(pending, recs_out, strict=True)}
 
 

@@ -78,8 +78,40 @@ def _to_fraction(s: str) -> Fraction | None:
     return None
 
 
+_MONEY = re.compile(r"(?:(\d+)元)?(?:(\d+)角)?(?:(\d+)分)?")
+_PI = re.compile(r"(\d+(?:\.\d+)?(?:/\d+)?)?π")
+
+
+def _written_number(t: str) -> Fraction | None:
+    """读法里的数："八十五""十二点五""85"。"""
+    if (f := _to_fraction(t)) is not None:
+        return f
+    whole, _, dec = t.partition("点")
+    n = _cn_to_int(whole) if whole else None
+    if n is None or any(ch not in _CN_DIGIT for ch in dec):
+        return None
+    return Fraction(Decimal(f"{n}.{''.join(str(_CN_DIGIT[ch]) for ch in dec) or 0}"))
+
+
+def _special_value(s: str) -> Fraction | None:
+    """几种写法不同、数值相同的答案：百分数的读法（"百分之八十五" = 85%）、复名数（"4元7角" = 4.7 元）、
+    含 π 的结果（"9π" = 9 × 3.14，小学取 π = 3.14）。"""
+    if s.startswith("百分之") and (v := _written_number(s[3:])) is not None:
+        return v / 100
+    t = _cn_numerals(s)
+    if (m := _MONEY.fullmatch(t)) and sum(g is not None for g in m.groups()) >= 2:
+        yuan, jiao, fen = (int(g or 0) for g in m.groups())
+        return yuan + Fraction(jiao, 10) + Fraction(fen, 100)
+    if m := _PI.fullmatch(t):
+        k = _to_fraction(m.group(1) or "1")
+        return k * Fraction(314, 100) if k is not None else None
+    return None
+
+
 def parse_value(raw: str) -> Canon:
     """答案字符串 → 规范值：数值为 `Fraction`，其余为规范化后的字符串。"""
+    if (v := _special_value(_clean(raw))) is not None:
+        return v
     s = _cn_numerals(_clean(raw))
     f = _to_fraction(s)
     if f is not None:
@@ -164,6 +196,11 @@ def _split(values: list[str]) -> list[str]:
         s = _clean(v)
         out += [p for p in (_REMAINDER.split(s) if _REMAINDER.search(s) else [s]) if p != ""]
     return out
+
+
+def answer_parts(values: list[str]) -> list[str]:
+    """答案按问展开后的各部分（"9……4"是商与余数两部分）。"""
+    return _split(values)
 
 
 def flatten(values: list[str]) -> list[Canon]:

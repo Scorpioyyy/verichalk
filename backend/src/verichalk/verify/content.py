@@ -9,6 +9,8 @@ from __future__ import annotations
 
 import re
 
+from .answers import answer_parts
+
 _MATH = re.compile(r"(?<!\\)\$(?!\$)(.+?)(?<!\\)\$", re.S)
 _BLANK_IN_MATH = re.compile(r"(?:\s*(?:\\_|_){2,}\s*|\s*[（(]\s*[)）]\s*)+$")
 _SYMBOLS = {
@@ -148,6 +150,12 @@ def structure_issues(
         issues.append("计算题只有一个算式；几个算式要拆成几道题")
     if kind == "fill" and "____" not in stem:
         issues.append("填空题的题面里没有填空位置（____）")
+    elif (
+        kind == "fill"
+        and answer_values
+        and len(re.findall(r"_{3,}", stem)) > len(answer_parts(answer_values))
+    ):
+        issues.append("填空的个数比答案多：每个空都要有对应的答案")
     if kind == "judge" and answer_values and parse_judge(answer_values[0]) is None:
         issues.append("判断题的答案必须是“对”或“错”")
     blob = "\n".join([stem, *options])

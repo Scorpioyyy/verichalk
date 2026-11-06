@@ -23,6 +23,7 @@ from ..core.errors import (
     SandboxViolation,
 )
 from ..domain.blueprint import AnswerPart
+from ..domain.knowledge import ViolationView
 from ..domain.llm import Role
 from ..domain.paper import CheckResult, CheckStatus, FigureSpec
 from ..figures import FigureError, describe_figure, render_figure
@@ -246,6 +247,27 @@ class FeaturesRaw(BaseModel):
     model_config = ConfigDict(extra="allow")
 
 
+async def _beyond_own_strand(env: VerifyEnv, inp: VerifyInput, violations: list[ViolationView]) -> bool:
+    """越界项里有没有"本题知识点所在主线、同一学年之内"以外的内容。
+
+    教材主线上的课时归属偶有出入（"四上的条形统计图"会被判用到四下的"1 格代表 1 个单位"）：同一主线、同一学年里
+    稍后才学的概念降为"建议复核"；跨学年的（四上的题用到五下的复式条形统计图）与其他维度（数、运算、单位）照常算超纲。"""
+    g = await env.kb.graph()
+    by_name = {n.name: n for n in g.nodes.values()}
+    own = [by_name[k] for k in inp.kp_names if k in by_name]
+    if not own:
+        return True
+    for v in violations:
+        n = by_name.get(v.item_value)
+        if not (
+            v.dimension == "concepts"
+            and n is not None
+            and any(n.thread == o.thread and n.grade == o.grade for o in own)
+        ):
+            return True
+    return False
+
+
 async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
     async with trace.check_span("boundary") as sp:
         if not inp.lesson_id:
@@ -276,6 +298,8 @@ async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
             "features": raw.model_dump(),
             "model": res.model,
         }
+        if rep.verdict == "out" and not await _beyond_own_strand(env, inp, rep.violations):
+            ev["verdict"] = rep.verdict = "borderline"  # 只差同一主线、同一学年稍后的内容：交付并请教师复核
         sp.set(verdict=rep.verdict)
         if rep.verdict == "out":
             desc = "；".join(
@@ -284,7 +308,9 @@ async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
             )
             return _res("boundary", CheckStatus.fail, f"超出该课时之前学过的范围：{desc}", **ev)
         if rep.verdict == "borderline":
-            return _res("boundary", CheckStatus.passed, "含同一单元内稍后才引入的内容，建议教师复核", **ev)
+            return _res(
+                "boundary", CheckStatus.passed, "含同一单元或同一主线稍后才学的内容，建议教师复核", **ev
+            )
         return _res("boundary", CheckStatus.passed, **ev)
 
 

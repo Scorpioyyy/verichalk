@@ -22,7 +22,18 @@ from ..llm import ModelRegistry, build_gateway
 from .ablation import render_ablation, run_ablation
 from .audit import Auditor, AuditStore
 from .cases import load_cases
-from .produce_eval import audit_records, dump_records, render_score, run_cases, run_naive, score
+from .produce_eval import (
+    CaseRec,
+    audit_records,
+    dump_records,
+    load_runs,
+    render_score,
+    run_cases,
+    run_naive,
+    save_runs,
+    score,
+    teacher_verdicts,
+)
 from .report import write_report
 from .runner import run_suite
 from .verify_eval import (
@@ -194,12 +205,14 @@ def cmd_produce(args: argparse.Namespace) -> int:
         llm_mode=mode,
         cassette_namespace=args.cassette_ns or "produce",
         off=args.off,
-        on=args.on,
-        pipeline=args.pipeline,
-        llm_concurrency=args.concurrency * 2,
+        # 每个用例最多 item_concurrency 道题并行、每题最多 3 个检查并行：并发给够，否则题目排队、被单题时间预算截断
+        # （M8 的题量达成率因此被低估，见 eval/CHANGELOG.md 2026-11-04）
+        llm_concurrency=args.concurrency * 12,
     )
     root = settings.root_dir
-    cases = load_cases(root / "eval" / "datasets", "produce", args.split)
+    cases = load_cases(
+        root / "eval" / "datasets", "produce_holdout" if args.cases == "holdout" else "produce", args.split
+    )
     if args.only:
         wanted = {x.strip() for x in args.only.split(",")}
         cases = [c for c in cases if c.id in wanted]
@@ -208,19 +221,34 @@ def cmd_produce(args: argparse.Namespace) -> int:
 
     async def main() -> str:
         kb = KnowledgeService.from_settings(settings)
-        recs = await run_cases(settings, cases, args.concurrency)
+        if args.load:  # 别的版本保存的原始运行：只做审计与打分
+            recs = load_runs(Path(args.load).read_text(encoding="utf-8"))  # noqa: ASYNC240
+        else:
+            recs = await run_cases(settings, cases, args.concurrency)
+        if args.save:
+            Path(args.save).write_text(save_runs(recs), encoding="utf-8")  # noqa: ASYNC240
         store = AuditStore(root / "eval" / "audits" / "produce.jsonl")
-        auditor = Auditor(settings, kb, store)
+        auditor = Auditor(settings, kb, store, live=True if args.audit_live else None)
         audits = {} if args.no_audit else await audit_records(auditor, kb, recs)
         title = f"{args.tag or 'produce'} · split={args.split} · {settings.features.describe()}"
-        parts = [render_score(title, await score(recs, audits, kb))]
+        tgw = None
+        if args.teacher:  # 教师视角评审是评测的裁判（不属于被测系统）：总是实调
+            from .teacher_judge import JUDGE as TEACHER_JUDGE
+
+            tgw = build_gateway(settings.model_copy(update={"llm_mode": LLMMode.live}))
+            tgw.registry = tgw.registry.override("judge", **TEACHER_JUDGE)
+        teacher = await teacher_verdicts(tgw, recs) if tgw else None
+        parts = [render_score(title, await score(recs, audits, kb, teacher))]
+        nrecs: list[CaseRec] = []
         if args.naive:
             nrecs = await run_naive(build_gateway(settings), recs)
             if not args.no_audit:
                 naudits = await audit_records(auditor, kb, nrecs)
+                nteacher = await teacher_verdicts(tgw, nrecs) if tgw else None
                 parts.append(
                     render_score(
-                        "朴素直出基线 B0（smart 单次调用，无知识库、无核验）", await score(nrecs, naudits, kb)
+                        "朴素直出基线 B0（smart 单次调用，无知识库、无核验）",
+                        await score(nrecs, naudits, kb, nteacher),
                     )
                 )
             # 教师偏好盲评：同一请求下两套题哪套更适合发给学生（不看对错，看思维含量 / 情境 / 多样性 / 易错点 / 贴合要求）
@@ -245,6 +273,8 @@ def cmd_produce(args: argparse.Namespace) -> int:
             parts.append("### A8 教师偏好盲评（VeriChalk vs 朴素直出）\n\n" + pref_summary(rows))
         if args.dump:
             Path(args.dump).write_text(dump_records(recs), encoding="utf-8")  # noqa: ASYNC240
+            if nrecs:
+                Path(args.dump).with_suffix(".naive.json").write_text(dump_records(nrecs), encoding="utf-8")
         return "\n\n".join(parts)
 
     md = asyncio.run(main())
@@ -582,6 +612,12 @@ def main() -> None:
     v.set_defaults(fn=cmd_verify)
     pr = sub.add_parser("produce", help="生成与核验的端到端评测（含审计；--naive 加跑朴素基线）")
     pr.add_argument("--split", default="val", choices=["val", "test", "all"])
+    pr.add_argument(
+        "--cases",
+        default="dev",
+        choices=["dev", "holdout"],
+        help="dev = 开发集 produce（val）；holdout = 留出集 produce_holdout（发布 / 里程碑验收只跑一次，全部是 test 划分）",
+    )
     pr.add_argument("--mode", default="replay", choices=[m.value for m in LLMMode])
     pr.add_argument("--record", action="store_true")
     pr.add_argument("--profile", default="intl", choices=["cn", "intl"])
@@ -589,18 +625,25 @@ def main() -> None:
     pr.add_argument("--limit", type=int, default=0)
     pr.add_argument("--only", default="", help="只跑这些用例 id，逗号分隔")
     pr.add_argument("--off", default="", help="关闭的特性开关（消融用）")
-    pr.add_argument("--on", default="", help="额外开启的选择性开关")
-    pr.add_argument(
-        "--pipeline",
-        default="classic",
-        choices=["classic", "design"],
-        help="链路预设：classic（默认，mid1 稳定链路）| design（好题设计）",
-    )
     pr.add_argument("--naive", action="store_true")
+    pr.add_argument(
+        "--audit-live",
+        action="store_true",
+        help="回放模式下仍实调审计缺失的条目（重新打分一次已录制的运行，例如审计曾因服务中断不完整）",
+    )
     pr.add_argument(
         "--no-audit", action="store_true", help="跳过审计（只看交付数 / 延迟 / 成本 / 修复，快速迭代用）"
     )
     pr.add_argument("--dump", default="", help="把原始产出写到这个路径（复盘用；不要放进仓库）")
+    pr.add_argument("--save", default="", help="保存原始运行（之后可用 --load 重新审计打分；不要放进仓库）")
+    pr.add_argument(
+        "--load", default="", help="读取 --save 保存的原始运行，不再生成，只审计与打分（跨版本对比用）"
+    )
+    pr.add_argument(
+        "--teacher",
+        action="store_true",
+        help="加跑教师视角评审（实调，每套约 ¥0.01），报告“审计 A1 ∧ 教师视角可用”的按要求题数口径",
+    )
     pr.add_argument("--tag", default="")
     pr.add_argument("--cassette-ns", default=None)
     pr.set_defaults(fn=cmd_produce)

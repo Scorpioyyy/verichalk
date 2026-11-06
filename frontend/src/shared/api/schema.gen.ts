@@ -708,6 +708,11 @@ export interface components {
             paper?: components["schemas"]["PaperSpec"] | null;
             /** Assumptions */
             assumptions?: string[];
+            /**
+             * Request
+             * @default
+             */
+            request: string;
         };
         /** ChatTurn */
         ChatTurn: {
@@ -2281,7 +2286,7 @@ export interface components {
             pipeline: string;
             /**
              * Schema Version
-             * @default 1.3
+             * @default 1.4
              */
             schema_version: string;
         };

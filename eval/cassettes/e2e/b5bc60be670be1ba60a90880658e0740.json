@@ -1,0 +1,18 @@
+{
+ "key": "b5bc60be670be1ba60a90880658e0740",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.compose",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"kps\": [\n        \"K1\"\n      ],\n      \"scene\": \"化简商品标价小数\",\n      \"plan\": \"【直接应用】根据小数的性质，去掉小数末尾的0，将给定的多位小数化简为最简形式。\"\n    },\n    {\n      \"index\": 2,\n      \"kps\": [\n        \"K3\"\n      ],\n      \"scene\": \"比较跳远比赛成绩\",\n      \"plan\": \"【直接应用】观察两个小数表示的米数，从高位到低位依次比较，判断哪个成绩更远。\"\n    },\n    {\n      \"index\": 3,\n      \"kps\": [\n        \"K6\"\n      ],\n      \"scene\": \"单位换算填数值\",\n      \"plan\": \"【直接应用】利用小数点移动规律，将低级单位的整数数值转换为高级单位的小数数值。\"\n    },\n    {\n      \"index\": 4,\n      \"kps\": [\n        \"K5\"\n      ],\n      \"scene\": \"还原被弄脏的账本\",\n      \"plan\": \"【逆向求原数】已知一个数缩小后的结果及缩小倍数，通过逆向移动小数点求出原来的数。\"\n    },\n    {\n      \"index\": 5,\n      \"kps\": [\n        \"K7\"\n      ],\n      \"scene\": \"找数列中的缺失项\",\n      \"plan\": \"【找规律】观察相邻小数之间的差值或倍数关系，确定变化规律，推算出数列中缺失的那一项。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1760,
+  "completion_tokens": 382,
+  "cached_tokens": 512,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2354.263226000512,
+ "ttft_ms": 2370.4615520000516,
+ "total_ms": 8470.91152900066
+}

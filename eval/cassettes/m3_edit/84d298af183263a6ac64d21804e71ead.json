@@ -1,0 +1,18 @@
+{
+ "key": "84d298af183263a6ac64d21804e71ead",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [], \"unsupported\": \"您这句话是在问天气，和修改试卷没有关系。请告诉我您想改哪道题、怎么改，比如“第 3 题换个场景”或“整体降一点难度”。\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1410,
+  "completion_tokens": 52,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1505.12467200042,
+ "ttft_ms": 1505.1400330003162,
+ "total_ms": 1937.409873999968
+}

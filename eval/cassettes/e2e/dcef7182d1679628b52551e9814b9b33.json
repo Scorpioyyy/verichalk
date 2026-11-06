@@ -1,0 +1,18 @@
+{
+ "key": "dcef7182d1679628b52551e9814b9b33",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 350, \"decimal_places\": 1, \"fraction_types\": [\"几分之一\"], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"3.5\", \"100\"], \"mode\": null}], \"concepts\": [\"小数点位置移动引起小数大小变化的规律\"], \"units_of_measure\": [\"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4515,
+  "completion_tokens": 84,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1644.9206429997503,
+ "ttft_ms": 1644.9298429997725,
+ "total_ms": 2042.1282059996884
+}

@@ -1,0 +1,18 @@
+{
+ "key": "b3c5835f6c0003f29042f178a321730c",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"四家店的售价分别是原价的0.8倍、0.95倍、1.1倍、1倍。因为原价a>0，比较倍数：1.1>1>0.95>0.8，所以C店售价最高。\", \"answers\": [{\"label\": \"\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 398,
+  "completion_tokens": 92,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1174.557686999833,
+ "ttft_ms": 1174.570537999898,
+ "total_ms": 1683.1123719994139
+}

@@ -1,0 +1,18 @@
+{
+ "key": "d5fcfafa60092e4ef5edb5e79fb21a9b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":1,\"decimal_places\":2,\"fraction_types\":[],\"operations\":[],\"concepts\":[\"乘数与1的大小关系对积的影响\"],\"units_of_measure\":[\"元\"],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4576,
+  "completion_tokens": 53,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1808.0303970000386,
+ "ttft_ms": 1808.0439919995115,
+ "total_ms": 2131.7493990000003
+}

@@ -1,0 +1,18 @@
+{
+ "key": "e3d7d0d9b7aac19dff823f6da7b499e0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"宽 = 长 × 0.04 = 0.05 × 0.04 = 0.002（厘米）\", \"answers\": [{\"label\": \"零件的宽\", \"value\": \"0.002\", \"unit\": \"厘米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 316,
+  "completion_tokens": 70,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1425.7944640003188,
+ "ttft_ms": 1425.8102579997285,
+ "total_ms": 1882.078139999976
+}

@@ -1,0 +1,19 @@
+run_id: eval:m8_test/pr-060
+item_id: null
+input: 六年级下册，圆锥的体积，出3道
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 圆锥形漏斗求容积，被审计判超纲，依据是几何词汇「容积」“教材未引入”（introduced_at
+  为空）。但同一边界的 concepts 里有“容积”（五下 g5b.u4.l01 引入）——是 chalkbase 几何词表漏了“容积”，题目本身没有超纲。同一原因在审计缓存里还命中另外
+  2 道题。'
+expected: 审计不应判 out。向 chalkbase 反馈：geometry_vocab 缺“容积”。
+root_cause: K
+severity: S3
+stage: produce
+id: bc_01M6JKMXN8CY9P9YR9DJW9N98E
+created_at: 1793773434.536538
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A3
+- audit-false-positive

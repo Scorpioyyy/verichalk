@@ -1,0 +1,18 @@
+{
+ "key": "bbbf6d2f3c7a01fa39466f869b6fd158",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"求应付的钱数，用单价乘数量：8.5×3。计算时先算85×3=255，因为8.5是一位小数，所以积是一位小数，即25.5元。选项A用了加法，错误；B的小数点位置错误；D没有点小数点。因此选C。\", \"answers\": [{\"label\": \"正确算式及结果\", \"value\": \"C\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 396,
+  "completion_tokens": 109,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1142.879076999634,
+ "ttft_ms": 1142.8935869998895,
+ "total_ms": 1905.0446969995392
+}

@@ -1,0 +1,18 @@
+{
+ "key": "976f0378b797d4b6709826cb808dfe98",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数乘整数的意义与算法（初步）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 677,
+  "completion_tokens": 66,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1166.4334189999863,
+ "ttft_ms": 1166.4445989999876,
+ "total_ms": 1532.474792999892
+}

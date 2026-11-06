@@ -1,0 +1,18 @@
+{
+ "key": "6d8875fc7191bc732143af3825e8ae1a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"357÷4：4×80=320，357-320=37；4×9=36，37-36=1，所以商89余1。验算：89×4=356，356+1=357，与被除数相等，分得对。\", \"answers\": [{\"label\": \"平均每层放多少本\", \"value\": \"89\", \"unit\": \"本\"}, {\"label\": \"还剩多少本\", \"value\": \"1\", \"unit\": \"本\"}, {\"label\": \"用乘法验算\", \"value\": \"89×4=356，356+1=357，分得对\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 341,
+  "completion_tokens": 156,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1413.3159729999534,
+ "ttft_ms": 1413.3277060000182,
+ "total_ms": 2397.4228509996465
+}

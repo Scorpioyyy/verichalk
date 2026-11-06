@@ -1,0 +1,18 @@
+{
+ "key": "682bd4cae5700939a508a47f3af66360",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"set_score\", \"items\": [6], \"score\": 10}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1410,
+  "completion_tokens": 31,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1301.9719980002264,
+ "ttft_ms": 1301.9863950003128,
+ "total_ms": 1540.551246999712
+}

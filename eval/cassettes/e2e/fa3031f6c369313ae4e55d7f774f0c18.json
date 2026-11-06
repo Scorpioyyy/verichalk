@@ -1,0 +1,18 @@
+{
+ "key": "fa3031f6c369313ae4e55d7f774f0c18",
+ "model": "qwen3.7-plus",
+ "purpose": "plan.compose",
+ "text": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"kps\": [\n        \"K1\"\n      ],\n      \"scene\": \"超市商品标价签\",\n      \"plan\": \"【易错辨析】判断“去掉小数末尾的0，小数的大小不变”这一陈述是否正确。\"\n    },\n    {\n      \"index\": 2,\n      \"kps\": [\n        \"K3\"\n      ],\n      \"scene\": \"运动会跳远成绩\",\n      \"plan\": \"【易错辨析】判断“位数多的小数一定比位数少的小数大”这一说法是否成立。\"\n    },\n    {\n      \"index\": 3,\n      \"kps\": [\n        \"K7\"\n      ],\n      \"scene\": \"方格纸上的图形变化\",\n      \"plan\": \"【找规律】观察一组按规律排列的小数，分析相邻两项的变化关系，填出下一个数。\"\n    }\n  ]\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1724,
+  "completion_tokens": 226,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2129.3315859993527,
+ "ttft_ms": 2145.1179910000064,
+ "total_ms": 5746.408723999593
+}

@@ -1,0 +1,18 @@
+{
+ "key": "bffc5b008e67e77aac02de9037681715",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"长方形面积=长×宽，0.8×0.05=0.04（平方米）。\", \"answers\": [{\"label\": \"\", \"value\": \"0.04\", \"unit\": \"平方米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 318,
+  "completion_tokens": 61,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1232.789125000636,
+ "ttft_ms": 1232.8049820007436,
+ "total_ms": 1559.4981370004461
+}

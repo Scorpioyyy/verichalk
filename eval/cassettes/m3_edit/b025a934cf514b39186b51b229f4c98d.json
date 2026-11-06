@@ -1,0 +1,18 @@
+{
+ "key": "b025a934cf514b39186b51b229f4c98d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"平均数的意义与求法\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 590,
+  "completion_tokens": 62,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1254.6855640002832,
+ "ttft_ms": 1254.705409000053,
+ "total_ms": 1597.4309010007346
+}

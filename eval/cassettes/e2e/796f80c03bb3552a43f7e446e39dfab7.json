@@ -1,0 +1,18 @@
+{
+ "key": "796f80c03bb3552a43f7e446e39dfab7",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计跳远成绩对比。小明跳了 3.8 米，小强跳了 2.95 米。求小明比小强多跳多少米。计算：3.8 - 2.95。补0后为 3.80 - 2.95。个位借位，十分位借位。10-5=5, 17-9=8, 2-2=0。结果 0.85。难度适中，考察位数不同小数减法及补0占位。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    return [Decimal('3.8') - Decimal('2.95')]\",\n \"figure\": null,\n \"stem\": \"在四年级跳远比赛中，小明跳了 $3.8$ 米，小强跳了 $2.95$ 米。小明比小强多跳了多少米？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"0.85\",\n   \"unit\": \"米\"\n  }\n ],\n \"solution\": \"列竖式计算时，先把 $3.8$ 看作 $3.80$，使小数点对齐。从百分位算起，$0$ 减 $5$ 不够减，向十分位借 $1$ 当 $10$，$10-5=5$；十分位剩 $7$，$7-9$ 不够减，向个位借 $1$ 当 $10$，$17-9=8$；个位剩 $2$，$2-2=0$。结果是 $0.85$ 米。\",\n \"kp_use\": {\n  \"小数加减法（位数不同）\": \"将 $3.8$ 补 $0$ 变为 $3.80$，确保小数点对齐后进行减法运算，解决位数不同导致的对位错误问题\"\n },\n \"difficulty\": 3\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3274,
+  "completion_tokens": 456,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2301.991196999552,
+ "ttft_ms": 2322.002189000159,
+ "total_ms": 9599.730300999909
+}

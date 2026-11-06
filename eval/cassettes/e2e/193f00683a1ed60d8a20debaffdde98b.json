@@ -1,0 +1,18 @@
+{
+ "key": "193f00683a1ed60d8a20debaffdde98b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 1, \"kp_used\": {\"小数点位置移动引起小数大小变化的规律\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 571,
+  "completion_tokens": 64,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1288.5663449997082,
+ "ttft_ms": 1288.7481859997933,
+ "total_ms": 1654.9338739996529
+}

@@ -1,0 +1,18 @@
+{
+ "key": "94934186b7e73ff59a6af1ceff9a1728",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"比较三个小数：3.2 > 3.15 > 3.09，所以第一名是小强3.2米，最后一名是小刚3.09米。3.2 - 3.09 = 0.11（米）。\", \"answers\": [{\"label\": \"第一名比最后一名远多少米\", \"value\": \"0.11\", \"unit\": \"米\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 333,
+  "completion_tokens": 100,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1378.4787619997587,
+ "ttft_ms": 1378.491046999443,
+ "total_ms": 1864.4672659993375
+}

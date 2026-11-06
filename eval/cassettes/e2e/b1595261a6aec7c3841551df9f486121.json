@@ -1,0 +1,18 @@
+{
+ "key": "b1595261a6aec7c3841551df9f486121",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计算式 428 × 3。个位 8×3=24，进2；十位 2×3=6，加进位2得8，不进位？不对，题目要求个位和十位均需进位。换一个：576 × 4。个位 6×4=24，进2；十位 7×4=28，加2得30，进3；百位 5×4=20，加3得23。结果 2304。符合连续进位。\",\n \"solver_code\": \"def solve():\\n    return [576 * 4]\",\n \"figure\": null,\n \"stem\": \"列竖式计算：$576 \\\\times 4 =$____\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"2304\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"从个位乘起。$6 \\\\times 4 = 24$，写 4 进 2；$7 \\\\times 4 = 28$，加进位 2 得 30，写 0 进 3；$5 \\\\times 4 = 20$，加进位 3 得 23。结果是 2304。\",\n \"kp_use\": {\n  \"两、三位数乘一位数（需要进位）\": \"执行竖式计算，处理个位向十位、十位向百位的连续进位\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3204,
+  "completion_tokens": 368,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2986.2846280002486,
+ "ttft_ms": 3002.719674999753,
+ "total_ms": 8880.147898999894
+}

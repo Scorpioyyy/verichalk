@@ -2,7 +2,7 @@
 
 做法：只开结构检查，生成一批"原始初稿"（不修复、不核验）→ 审计给每道初稿定真值（答案对错 / 是否超纲 / 题面质量）
 → 把每一层检查单独跑在这批初稿上，统计它抓到的真问题、误杀的好题、以及其他层都没抓到而它抓到的（独有贡献）。
-用法：python scripts/check_contribution.py [--file eval/datasets/quality_probe.yaml] [--per 6]
+用法：python scripts/check_contribution.py [--cases produce] [--tags fig] [--per 6]
 """
 
 from __future__ import annotations
@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "backend" / "src"))
 warnings.simplefilter("ignore")
 
-import yaml
 from verichalk.core.config import LLMMode, Profile, Settings
+from verichalk.eval.cases import request_texts
 from verichalk.eval.audit import AuditItem, Auditor, AuditStore
 from verichalk.orchestrator import build_container
 from verichalk.stages import (
@@ -45,8 +45,10 @@ CHECKS = ["structure", "program", "blind", "boundary", "quality"]
 
 async def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--file", default="eval/datasets/quality_probe.yaml")
+    ap.add_argument("--cases", default="produce", help="用例集（默认开发集）")
+    ap.add_argument("--tags", default="", help="只取带这些标签之一的用例（逗号分隔）")
     ap.add_argument("--per", type=int, default=6, help="每个请求取前几道")
+    ap.add_argument("--dump", default="", help="把逐题的检查结论与审计真值写成 JSONL（复盘用，不要放进仓库）")
     args = ap.parse_args()
     s = Settings(profile=Profile.intl, llm_mode=LLMMode.live)
     c = await build_container(s, store=await Store.open(":memory:"))
@@ -59,7 +61,7 @@ async def main() -> None:
         store=c.store,
     )
     env = VerifyEnv(llm=c.llm, kb=c.kb)
-    reqs = yaml.safe_load((ROOT / args.file).read_text(encoding="utf-8"))
+    reqs = request_texts(ROOT / "eval" / "datasets", args.cases, args.tags)
     stage = ProduceStage()
     sem = asyncio.Semaphore(12)
 
@@ -76,7 +78,7 @@ async def main() -> None:
                 w = _normalize(
                     await stage._write(
                         ctx,
-                        ProduceIn(spec=spec, grade=bp.grade, lesson_id=bp.lesson_id),
+                        ProduceIn(spec=spec, grade=bp.grade, lesson_id=bp.lesson_id, request=u.brief.request),
                         details,
                         examples,
                         None,
@@ -106,7 +108,6 @@ async def main() -> None:
             tier=spec.tier.value,
             grade=bp.grade,
             lesson_id=bp.lesson_id,
-            target_difficulty=spec.difficulty,
         )
         async with sem:
             res = await asyncio.gather(
@@ -143,6 +144,26 @@ async def main() -> None:
             qd.get(k, False)
             for k in ("unambiguous", "complete", "data_plausible", "solution_ok")
         )
+        if args.dump:
+            import json
+
+            with open(args.dump, "a", encoding="utf-8") as fh:
+                fh.write(
+                    json.dumps(
+                        {
+                            "stem": w.stem,
+                            "answers": answer_values(w.answers),
+                            "kind": spec.kind.value,
+                            "flagged": flagged,
+                            "details": {r.name: r.detail[:200] for r in [*res[:4], q, integ]},
+                            "audit": {"a2": a.a2, "a": a.answers_a, "b": a.answers_b, "a3": a.a3,
+                                      "a3_violations": [v.get("item_value") for v in a.a3_violations],
+                                      "quality": qd},
+                        },
+                        ensure_ascii=False,
+                    )
+                    + "\n"
+                )
         return (
             flagged,
             {"answer": bad_answer, "scope": bad_scope, "quality": bad_quality},

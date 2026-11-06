@@ -1,0 +1,17 @@
+run_id: probe:dev/pf-020
+item_id: null
+input: 四年级下册解方程，同类题批量来12道，课本上那种基础的
+problem: “解方程（等式两边乘除同一个数）”教材题数最多的题型卡片是一张判断改错卡，实例化后题面是“2x = 76，解：2x = 76 = 76 ÷ 2 = 26”这种连等号写法，本身就在示范错误的书写格式；同一知识点的计算卡参数范围偏宽，会出现
+  4.8x+10.3=77.5（要用除数是小数的除法，四下没学）。
+expected: 判断改错卡的题面不要使用连等号；计算卡的参数范围收紧到该课时的能力边界。本仓库已：课本式题型优先计算卡、超纲改走正常的抽取 + 判定（D63）。
+root_cause: K
+severity: S2
+stage: produce
+id: bc_01M6QNN0W11FH3ENT201RWD1R9
+created_at: 1793943307.1374617
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m3_v1
+- template

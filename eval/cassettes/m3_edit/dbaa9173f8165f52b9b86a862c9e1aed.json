@@ -1,0 +1,18 @@
+{
+ "key": "dbaa9173f8165f52b9b86a862c9e1aed",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"平均数 = 总个数 ÷ 次数 = (42+38+45+40+35) ÷ 5 = 200 ÷ 5 = 40（个）\", \"answers\": [{\"label\": \"平均每次跳多少个\", \"value\": \"40\", \"unit\": \"个\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 319,
+  "completion_tokens": 78,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1499.6343159991739,
+ "ttft_ms": 1499.6475210000426,
+ "total_ms": 1922.4835069999244
+}

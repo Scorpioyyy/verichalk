@@ -1,0 +1,18 @@
+{
+ "key": "ab8466cd66ce3fdb1bfbb069366d5806",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数点移动引起小数大小变化的规律（双向）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 593,
+  "completion_tokens": 66,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1174.3357830000605,
+ "ttft_ms": 1174.350518999745,
+ "total_ms": 1526.8538999998782
+}

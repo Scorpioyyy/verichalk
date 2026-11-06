@@ -51,7 +51,7 @@ async def test_blueprint_count_exact_and_in_scope(kb: KnowledgeService, count: i
     scope = await resolve_scope(brief, kb)
     g = await kb.graph()
     draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope)
-    items = draft.blueprint.items
+    items = draft.items
     assert len(items) == count  # P3：题量精确
     for it in items:
         assert set(it.kp_ids) <= scope.learned  # P1：全部在已学范围内
@@ -84,4 +84,70 @@ async def test_narrow_unit_with_no_combo_does_not_exhaust_singles(kb: KnowledgeS
     scope = await resolve_scope(brief, kb)
     g = await kb.graph()
     draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope, slots=slots)
-    assert len(draft.blueprint.items) == 16
+    assert len(draft.items) == 16
+
+
+async def test_calc_only_requests_have_no_integrated_items(kb: KnowledgeService) -> None:
+    # "只要计算题"：计算题是一个算式，不分配"两个知识点串成解题链"的综合题
+    from verichalk.domain.paper import ItemKind, Tier
+
+    brief = Brief(
+        scope=Scope(grade=Slot(value=4, origin=Origin.user), semester=Slot(value="b", origin=Origin.user))
+    )
+    brief.count = Slot(value=8, origin=Origin.user)
+    brief.kinds = Slot(value=[ItemKind.calc], origin=Origin.user)
+    scope = await resolve_scope(brief, kb)
+    g = await kb.graph()
+    draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope)
+    assert len(draft.items) == 8
+    assert all(it.kind == ItemKind.calc and it.tier != Tier.integrated for it in draft.items)
+
+
+def test_replacement_keeps_the_combination_only_when_the_teacher_asked_for_it() -> None:
+    from verichalk.domain.blueprint import ItemSpec
+    from verichalk.domain.paper import ItemKind, Tier
+    from verichalk.stages.plan_rules import replacement_spec
+
+    spec = ItemSpec(
+        id="it3",
+        index=3,
+        kp_ids=["a", "b"],
+        kp_names=["单价", "运算律"],
+        tier=Tier.integrated,
+        kind=ItemKind.fill,
+    )
+    plain = replacement_spec(spec, keep_kinds=False)
+    assert (plain.id, plain.kp_ids, plain.tier, plain.kind) == (
+        "it3r",
+        ["a"],
+        Tier.consolidate,
+        ItemKind.application,
+    )
+    combo = replacement_spec(spec, keep_kinds=True, keep_combo=True)
+    assert (combo.kp_ids, combo.tier, combo.kind) == (["a", "b"], Tier.integrated, ItemKind.fill)
+
+
+async def test_no_calc_items_for_figure_only_topics_or_teacher_scenes(kb: KnowledgeService) -> None:
+    # 认识钟表在教材里只有看图题：定成"计算题"只能变成算术题；老师指定了情境时，纯算式承载不了情境
+    from verichalk.domain.paper import ItemKind
+
+    clock = "kp.na.认识时间与年月日.hour_halfhour"
+    g = await kb.graph()
+    for scope, scenes in [
+        (
+            Scope(
+                grade=Slot(value=1, origin=Origin.user), kp_ids=Slot(value=[clock], origin=Origin.inferred)
+            ),
+            None,
+        ),
+        (
+            Scope(grade=Slot(value=4, origin=Origin.user), semester=Slot(value="b", origin=Origin.user)),
+            ["做手工"],
+        ),
+    ]:
+        brief = Brief(scope=scope)
+        brief.count = Slot(value=6, origin=Origin.user)
+        if scenes:
+            brief.scenes = Slot(value=scenes, origin=Origin.user)
+        draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), await resolve_scope(brief, kb))
+        assert len(draft.items) == 6 and all(it.kind != ItemKind.calc for it in draft.items)

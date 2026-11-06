@@ -1,0 +1,18 @@
+{
+ "key": "107cc93646b568c21019d0b4d828a7d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1元=100分，12.58元=12.58×100分=1258分。\", \"answers\": [{\"label\": \"\", \"value\": \"1258\", \"unit\": \"分\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 322,
+  "completion_tokens": 61,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1340.189021999322,
+ "ttft_ms": 1340.203293999366,
+ "total_ms": 1725.210894999691
+}

@@ -23,8 +23,10 @@ from ..core.errors import (
     SandboxViolation,
 )
 from ..domain.blueprint import AnswerPart
+from ..domain.knowledge import ViolationView
 from ..domain.llm import Role
-from ..domain.paper import CheckResult, CheckStatus
+from ..domain.paper import CheckResult, CheckStatus, FigureSpec
+from ..figures import FigureError, describe_figure, render_figure
 from ..knowledge import KnowledgeService
 from ..llm import LLMGateway, LLMRequest, complete_json, get_prompt
 from ..sandbox import run_solver
@@ -49,8 +51,8 @@ class VerifyInput:
     tier: str = "consolidate"
     grade: int | None = None
     lesson_id: str | None = None  # 能力边界的参照课时
-    target_difficulty: int | None = None  # 规格要求的难度：判官估计低它 2 级以上就判"偏简单"
     references: list[str] = field(default_factory=list)  # 照片里的题：新题不得是它们的翻版
+    figure: FigureSpec | None = None  # 题目带的图：结构检查负责渲染校验，模型检查读它的文字描述
 
 
 @dataclass
@@ -67,6 +69,15 @@ def _clip(s: str, n: int = 500) -> str:
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
+_FIG_REF = re.compile(r"!\[[^\]]*\]\(fig:[^)]*\)")
+
+
+def model_stem(inp: VerifyInput) -> str:
+    """给核验模型看的题面：图的引用换成图的文字描述（模型看不到图片）。"""
+    stem = _FIG_REF.sub("", inp.stem).rstrip()
+    return f"{stem}\n（图：{describe_figure(inp.figure)}）" if inp.figure else stem
+
+
 def _grade_text(grade: int | None) -> str:
     return f"{GRADE_CN[grade]}年级" if grade in GRADE_CN else "小学"
 
@@ -80,7 +91,13 @@ async def check_structure(inp: VerifyInput) -> CheckResult:
             options=inp.options,
             answer_values=answer_values(inp.answers),
             solution=inp.solution,
+            has_figure=inp.figure is not None,
         )
+        if inp.figure is not None:
+            try:
+                render_figure(inp.figure)
+            except FigureError as e:
+                issues.append(f"图形规格不合法：{e}")
         sp.set(n_issues=len(issues))
         if issues:
             return _res("structure", CheckStatus.fail, "；".join(issues), issues=issues)
@@ -180,7 +197,7 @@ class BlindOut(BaseModel):
 async def check_blind(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
     async with trace.check_span("blind") as sp:
         built = get_prompt("verify.blind").render(
-            dynamic={"grade": _grade_text(inp.grade), "stem": inp.stem, "options": inp.options}
+            dynamic={"grade": _grade_text(inp.grade), "stem": model_stem(inp), "options": inp.options}
         )
         try:
             out, res = await complete_json(
@@ -230,6 +247,27 @@ class FeaturesRaw(BaseModel):
     model_config = ConfigDict(extra="allow")
 
 
+async def _beyond_own_strand(env: VerifyEnv, inp: VerifyInput, violations: list[ViolationView]) -> bool:
+    """越界项里有没有"本题知识点所在主线、同一学年之内"以外的内容。
+
+    教材主线上的课时归属偶有出入（"四上的条形统计图"会被判用到四下的"1 格代表 1 个单位"）：同一主线、同一学年里
+    稍后才学的概念降为"建议复核"；跨学年的（四上的题用到五下的复式条形统计图）与其他维度（数、运算、单位）照常算超纲。"""
+    g = await env.kb.graph()
+    by_name = {n.name: n for n in g.nodes.values()}
+    own = [by_name[k] for k in inp.kp_names if k in by_name]
+    if not own:
+        return True
+    for v in violations:
+        n = by_name.get(v.item_value)
+        if not (
+            v.dimension == "concepts"
+            and n is not None
+            and any(n.thread == o.thread and n.grade == o.grade for o in own)
+        ):
+            return True
+    return False
+
+
 async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
     async with trace.check_span("boundary") as sp:
         if not inp.lesson_id:
@@ -238,7 +276,7 @@ async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
             vocab = await env.kb.feature_vocab()
             built = get_prompt("verify.extract").render(
                 stable=vocab,
-                dynamic={"stem": inp.stem, "options": inp.options, "solution": inp.solution},
+                dynamic={"stem": model_stem(inp), "options": inp.options, "solution": inp.solution},
             )
             raw, res = await complete_json(
                 env.llm,
@@ -260,6 +298,8 @@ async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
             "features": raw.model_dump(),
             "model": res.model,
         }
+        if rep.verdict == "out" and not await _beyond_own_strand(env, inp, rep.violations):
+            ev["verdict"] = rep.verdict = "borderline"  # 只差同一主线、同一学年稍后的内容：交付并请教师复核
         sp.set(verdict=rep.verdict)
         if rep.verdict == "out":
             desc = "；".join(
@@ -268,7 +308,9 @@ async def check_boundary(env: VerifyEnv, inp: VerifyInput) -> CheckResult:
             )
             return _res("boundary", CheckStatus.fail, f"超出该课时之前学过的范围：{desc}", **ev)
         if rep.verdict == "borderline":
-            return _res("boundary", CheckStatus.passed, "含同一单元内稍后才引入的内容，建议教师复核", **ev)
+            return _res(
+                "boundary", CheckStatus.passed, "含同一单元或同一主线稍后才学的内容，建议教师复核", **ev
+            )
         return _res("boundary", CheckStatus.passed, **ev)
 
 
@@ -299,7 +341,7 @@ async def check_quality(env: VerifyEnv, inp: VerifyInput) -> tuple[CheckResult, 
             dynamic={
                 "grade": _grade_text(inp.grade),
                 "kp_names": inp.kp_names,
-                "stem": inp.stem,
+                "stem": model_stem(inp),
                 "options": inp.options,
                 "answer": format_answer(inp.answers),
                 "solution": inp.solution,
@@ -323,10 +365,6 @@ async def check_quality(env: VerifyEnv, inp: VerifyInput) -> tuple[CheckResult, 
             return skip, _res("integration", CheckStatus.skip, "未评审")
         ev = q.model_dump() | {"model": res.model}
         bad = [label for key, label in _QUALITY_LABELS.items() if not getattr(q, key)]
-        if inp.target_difficulty and q.difficulty <= inp.target_difficulty - 2:
-            bad.append(
-                f"题目偏简单（评审估计难度 {q.difficulty}，要求 {inp.target_difficulty}）：需要更多步骤、逆向、比较或取舍"
-            )
         sp.set(n_bad=len(bad))
         if bad:
             quality = _res("quality", CheckStatus.fail, "；".join(bad + q.issues[:3]), **ev)

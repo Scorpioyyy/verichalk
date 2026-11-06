@@ -1,0 +1,18 @@
+{
+ "key": "cfe02d20d1a94fd8f0e4dd3a734f47d0",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "edit.plan",
+ "text": "{\"actions\": [{\"op\": \"rewrite\", \"items\": [7], \"kind\": \"judge\", \"instruction\": \"改成判断题，给出一个三角形两个内角的度数和一个第三角的度数，让学生判断对错\"}], \"unsupported\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 1409,
+  "completion_tokens": 56,
+  "cached_tokens": 1280,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1219.8105119996399,
+ "ttft_ms": 1219.8270640001283,
+ "total_ms": 1554.5277490000444
+}

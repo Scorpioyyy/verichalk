@@ -1,0 +1,18 @@
+{
+ "key": "77d1b918e7c978861805dc2598b98d74",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"1千克=1000克，把克换算成千克要除以1000，850÷1000=0.85，所以850克=0.85千克。\", \"answers\": [{\"label\": \"\", \"value\": \"0.85\", \"unit\": \"千克\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 301,
+  "completion_tokens": 75,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1454.3187799999941,
+ "ttft_ms": 1454.3339199999537,
+ "total_ms": 1832.8892169993196
+}

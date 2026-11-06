@@ -1,0 +1,18 @@
+{
+ "key": "66b13c21165bb2fed44aa83c222765d6",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"把8.8拆成8+0.8，用乘法分配律：1.25×8.8=1.25×(8+0.8)=1.25×8+1.25×0.8。计算1.25×8=10，1.25×0.8=1，所以结果为10+1=11。\", \"answers\": [{\"label\": \"横线上的数\", \"value\": \"0.8\", \"unit\": \"\"}, {\"label\": \"结果\", \"value\": \"11\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 326,
+  "completion_tokens": 136,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1408.857535999232,
+ "ttft_ms": 1408.8749649999954,
+ "total_ms": 2082.275963999564
+}

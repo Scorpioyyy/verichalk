@@ -1,0 +1,18 @@
+{
+ "key": "5fa0376c816af21da80f2d6d7c733582",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"苹果汁和橙汁各15瓶，共(2.8+3.2)×15=6×15=90元；矿泉水20瓶共1.5×20=30元；总花费90+30=120元。120<150，钱够，还剩150-120=30元。\", \"answers\": [{\"label\": \"钱够吗\", \"value\": \"够\", \"unit\": \"\"}, {\"label\": \"还剩多少元\", \"value\": \"30\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 363,
+  "completion_tokens": 126,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1207.1074269997553,
+ "ttft_ms": 1207.1214359993974,
+ "total_ms": 1864.8430769999322
+}

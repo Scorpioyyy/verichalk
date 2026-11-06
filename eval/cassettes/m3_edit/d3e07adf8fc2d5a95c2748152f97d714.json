@@ -1,0 +1,18 @@
+{
+ "key": "d3e07adf8fc2d5a95c2748152f97d714",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 210, \"decimal_places\": 1, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"42\", \"5\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"4.2\", \"5\"], \"mode\": null}], \"concepts\": [\"单价、数量与总价的关系\", \"小数乘整数的意义与算法（初步）\"], \"units_of_measure\": [\"千克\", \"元\"], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4468,
+  "completion_tokens": 116,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1699.142424999991,
+ "ttft_ms": 1699.1580519998024,
+ "total_ms": 2301.0974210001223
+}

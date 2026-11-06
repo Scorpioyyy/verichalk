@@ -1,0 +1,18 @@
+{
+ "key": "e964d54a166e68c28ba5ef6e258215ee",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：网购两本书，总重1.2kg。方案A：首重1kg内5元，续重每0.5kg 2元（不足0.5kg按0.5kg算）。方案B：统一单价4.5元/kg。需计算两种方案费用并比较。方案A：1.2kg分为1kg+0.2kg。0.2kg不足0.5kg按0.5kg算，即1个续重单位。费用=5+2=7元。方案B：1.2*4.5=5.4元。比较：7>5.4，方案B便宜。差额：7-5.4=1.6元。检查知识点：小数乘整数/小数，大小比较。难度适中，符合变式要求。\",\n \"solver_code\": \"from decimal import Decimal, ROUND_UP\\n\\ndef solve():\\n    weight = Decimal('1.2')\\n    \\n    # 方案A：首重1kg 5元，续重每0.5kg 2元，不足0.5kg按0.5kg算\\n    base_weight = Decimal('1')\\n    base_price = Decimal('5')\\n    step_weight = Decimal('0.5')\\n    step_price = Decimal('2')\\n    \\n    extra_weight = weight - base_weight\\n    if extra_weight <= 0:\\n        cost_a = base_price\\n    else:\\n        # 计算需要多少个续重单位，向上取整\\n        # 1.2 - 1 = 0.2. 0.2 / 0.5 = 0.4. ceil(0.4) = 1.\\n        steps = int((-(-extra_weight // step_weight))) # 模拟ceil\\n        if extra_weight % step_weight != 0:\\n             steps = int(extra_weight / step_weight) + 1\\n        else:\\n             steps = int(extra_weight / step_weight)\\n             \\n        cost_a = base_price + steps * step_price\\n        \\n    # 方案B：4.5元/kg\\n    price_b_per_kg = Decimal('4.5')\\n    cost_b = weight * price_b_per_kg\\n    \\n    # 比较\\n    diff = cost_a - cost_b\\n    \\n    return [cost_a, cost_b, diff]\",\n \"figure\": null,\n \"stem\": \"小明在网上买了两本书，打包后总质量为 $1.2$ 千克。快递公司提供了两种计费方案：\\n方案 A：首重 $1$ 千克以内（含 $1$ 千克）收费 $5$ 元，超过部分每 $0.5$ 千克收费 $2$ 元，不足 $0.5$ 千克按 $0.5$ 千克计算；\\n方案 B：不分首重续重，统一按每千克 $4.5$ 元收费。\\n请分别计算两种方案的费用，并求出较便宜的方案比另一种便宜多少元？\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"方案A费用\",\n   \"value\": \"7\",\n   \"unit\": \"元\"\n  },\n  {\n   \"label\": \"方案B费用\",\n   \"value\": \"5.4\",\n   \"unit\": \"元\"\n  },\n  {\n   \"label\": \"便宜差额\",\n   \"value\": \"1.6\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"方案 A：超重 $0.2$ 千克，不足 $0.5$ 千克按 $0.5$ 千克算，加收 $2$ 元，共 $5+2=7$ 元。方案 B：$1.2\\\\times 4.5=5.4$ 元。因为 $5.4<7$，所以方案 B 便宜，便宜 $7-5.4=1.6$ 元。\",\n \"kp_use\": {\n  \"乘数与1的大小关系对积的影响\": \"在估算或理解方案B时，虽直接计算，但隐含了对1.2倍关系的理解；更主要是在比较环节，确认5.4小于7，体现数值大小关系的判断能力，避免整数乘法思维定势（误以为重量大费用一定极高或极低，需精确计算对比）\",\n  \"小数乘整数\": \"计算方案B的费用 $1.2 \\\\times 4.5$（此处为小数乘小数，但规格允许小数乘小数，且是核心计算步骤）及方案A的续重费用倍数关系\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3384,
+  "completion_tokens": 1035,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2224.1064209993056,
+ "ttft_ms": 2238.416285999847,
+ "total_ms": 18786.64691599988
+}

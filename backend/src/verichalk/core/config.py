@@ -58,15 +58,15 @@ class Settings(BaseSettings):
     llm_concurrency: int = 8
     llm_max_retries: int = 3
     llm_timeout_s: float = 90.0
+    # 模型端点默认直连（本机 HTTP 代理对阿里云端点不稳定，CLAUDE.md §4）；只能经代理出网的环境（如云端容器）设为 true
+    llm_use_proxy: bool = False
 
-    item_concurrency: int = 4
+    item_concurrency: int = 6
     item_budget_s: float = 45.0  # 单题生成与核验的时间预算：超过后不再开始新的尝试
     run_budget_tokens: int = 600_000
     run_budget_cost: float = 8.0  # 以价格表币种计（默认人民币元）
 
     off: str = ""  # 关闭的特性开关，逗号分隔（消融实验用，见 core/features.py）
-    on: str = ""  # 选择性开启的特性开关，逗号分隔
-    pipeline: str = "classic"  # 链路预设：classic（M3 中期验证过的稳定链路，默认）| design（叠加"好题设计"开关）；环境变量 VERICHALK_PIPELINE
     warmup_ttl_s: float = 240.0  # 预热的有效期：期内重复触发不再发请求（前缀缓存有存活时间）
 
     log_level: str = "INFO"
@@ -77,7 +77,7 @@ class Settings(BaseSettings):
 
     @cached_property
     def features(self) -> FeatureFlags:
-        return FeatureFlags.parse(self.off, self.on, self.pipeline)
+        return FeatureFlags.parse(self.off)
 
     @cached_property
     def root_dir(self) -> Path:

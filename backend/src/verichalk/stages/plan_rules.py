@@ -8,14 +8,16 @@ from __future__ import annotations
 
 import math
 from collections import Counter
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field
 
+from ..core.aio import gather_all
 from ..domain.blueprint import Blueprint, ItemSpec
-from ..domain.brief import Action, Brief, SourceMode
-from ..domain.knowledge import BoundaryView, Combo, ContextBrief
+from ..domain.brief import Action, Brief, Origin, SourceMode
+from ..domain.knowledge import BoundaryView, Combo, KPHit
 from ..domain.paper import ItemKind, Tier
 from ..domain.paper_plan import Slot
 from ..knowledge import ComboMiner, GraphData, KnowledgeService, pair_signals
+from .understand_post import DEFAULT_TIER_MIX
 
 # 各档位默认的题型循环（与知识点自然题型取交集；用户指定题型时以用户为准）
 DEFAULT_KINDS: dict[Tier, list[ItemKind]] = {
@@ -25,7 +27,7 @@ DEFAULT_KINDS: dict[Tier, list[ItemKind]] = {
 }
 TIER_ORDER = [Tier.consolidate, Tier.variation, Tier.integrated]
 MAX_SCENE_REUSE = 2
-N_ALTS = 3  # 每道综合题给规划模型备选的组合数
+N_ALTS = 3  # 每道综合题从组合挖掘取的候选数（骨架取第一个）
 
 
 @dataclass
@@ -36,17 +38,6 @@ class ScopeInfo:
     anchors: list[str]  # 用户明说 / 检索映射到的知识点（按相关度）
     pool: list[str]  # 可用于出题的知识点（已学、可考），锚点在前
     notes: list[str] = field(default_factory=list)
-
-
-@dataclass
-class Draft:
-    """确定性蓝图 + 供规划模型选择的备选。"""
-
-    blueprint: Blueprint
-    alts: dict[str, list[Combo]] = field(default_factory=dict)  # 综合 / 复习题 id → 备选组合（第 0 个已选中）
-    scene_cands: dict[str, list[str]] = field(default_factory=dict)  # 题 id → 候选情境
-    contexts: dict[str, ContextBrief] = field(default_factory=dict)  # 情境主题 → 该年级的典型量与数值范围
-    boundary: BoundaryView | None = None
 
 
 def largest_remainder(total: int, weights: dict[Tier, float]) -> dict[Tier, int]:
@@ -142,6 +133,8 @@ def _boundary_hint(b: BoundaryView) -> str:
     if b.operations:  # 已学的运算形态：没列出的（如"除数是小数的除法"）学生没学过，题里不能出现
         ops = "；".join(f"{op}（{'、'.join(forms)}）" for op, forms in b.operations.items())
         bits.append(f"只能用已学的运算形态——{ops}")
+    if b.units:  # 没学过的计量单位（一年级上册还没学"元"）同样超纲：情境与数据都只能用这些
+        bits.append("计量单位只能用已学的：" + "、".join(b.units))
     return "；".join(bits)
 
 
@@ -159,21 +152,23 @@ async def build_draft(
     scope: ScopeInfo,
     *,
     use_miner: bool = True,
-    cross_unit: bool = False,
     slots: list[Slot] | None = None,
-) -> Draft:
+) -> Blueprint:
     g: GraphData = await kb.graph()
     count = len(slots) if slots else (brief.count.value if brief.count else 5)
     lo, hi = brief.difficulty.value if brief.difficulty else (2, 4)
     template = brief.source.value == SourceMode.template
     review = brief.action.value == Action.review
-    weights = (
-        dict(brief.tier_mix.value)
-        if brief.tier_mix
-        else {Tier.consolidate: 0.3, Tier.variation: 0.4, Tier.integrated: 0.3}
-    )
+    weights = dict(brief.tier_mix.value) if brief.tier_mix else dict(DEFAULT_TIER_MIX)
     if template:  # 用户明说要课本式的基础题：全部巩固档，不做综合
         weights = {Tier.consolidate: 1.0}
+    elif brief.kinds and set(brief.kinds.value) == {ItemKind.calc}:
+        # "只要计算题"：计算题就是一个算式。老师没说档位时全部是巩固（变化在算式的结构与数上）；
+        # 说了"变式"也没有"两个知识点串成一条解题链"的综合题
+        if not brief.tier_mix or brief.tier_mix.origin == Origin.default:
+            weights = {Tier.consolidate: 1.0}
+        elif Tier.integrated in weights:
+            weights[Tier.variation] = weights.get(Tier.variation, 0.0) + weights.pop(Tier.integrated)
     tiers = largest_remainder(count, weights)
     sequence: list[Tier] = [t for t in TIER_ORDER for _ in range(tiers.get(t, 0))]
     if review:  # 复习：至少三分之一的题把已学前置知识点穿插进来（按综合档处理）
@@ -204,7 +199,6 @@ async def build_draft(
             template = False
     single_list = _evenly(pool, n_single)
     singles = iter(single_list)
-    semester = brief.scope.semester.value if brief.scope.semester else None
     # 综合题的搭档必须适合纯文字出题（教材里有不依赖图形的题型）：作图、观察物体类的知识点不拼进综合题
     combo_scope = {k for k in scope.learned if g.nodes[k].kinds} if g.nodes else scope.learned
     if (
@@ -212,24 +206,12 @@ async def build_draft(
     ):  # 教师限定了单元：搭档不跨出这些单元（用户意图优先于"跨单元综合"的先验）
         units = set(brief.scope.units.value)
         combo_scope = {k for k in combo_scope if g.nodes[k].unit_id in units} or combo_scope
-    # 先验：范围是整学期 / 整年级、没点名知识点也没限定单元时，综合题默认跨单元（区统考考的正是单元之间的综合）
-    broad = cross_unit and not scope.anchors and not brief.scope.units  # 由 `plan.cross_unit` 开关控制
     n_integrated = sum(1 for t in sequence if t == Tier.integrated)
-    anchor_cycle = (
-        scope.anchors or (_evenly(pool, n_integrated) if (n_integrated and broad) else pool) or pool
-    )
+    anchor_cycle = scope.anchors or pool
     if slots and n_integrated and not scope.anchors:
         # 整卷：综合题的锚点优先取单点题没覆盖到的知识点，让整份卷子尽量覆盖范围内不同的知识点
         rest = [k for k in pool if k not in set(single_list)]
         anchor_cycle = _evenly(rest or pool, n_integrated)
-    book_scope = {  # 本学期的知识点：整学期综合的搭档优先从这里取，不够再放宽到更早的内容
-        k
-        for k in combo_scope
-        if scope.grade
-        and g.nodes[k].grade == scope.grade
-        and (not semester or g.nodes[k].semester == semester)
-    }
-    synth_miner = ComboMiner(g, replace(miner.w, proximity=0.3))  # 跨单元综合时，"教学位置相近"不再加分
     used_combo: list[tuple[str, ...]] = []
     # 多主题请求（"乘法和周长"）：综合题优先在用户点名的主题之间组合——这是教师明说的意图，先于图上的"自然搭配"
     groups: dict[str, list[str]] = {}
@@ -255,8 +237,6 @@ async def build_draft(
         topic_pairs.sort(key=lambda c: (-c.score, c.kp_ids))
     used_scene: Counter[str] = Counter()
     items: list[ItemSpec] = []
-    alts: dict[str, list[Combo]] = {}
-    scene_cands: dict[str, list[str]] = {}
     notes = list(scope.notes)
     n_int = 0
     for i, tier in enumerate(sequence):
@@ -303,24 +283,6 @@ async def build_draft(
                     for j, k in enumerate(near[:N_ALTS])
                 ]
             else:
-                if (
-                    broad
-                ):  # 整学期综合：优先"同一学期、不同单元、不同主题、有桥"的搭配（区统考的综合题正是这种）
-                    for sc, topic in (
-                        (book_scope, "cross_topic"),
-                        (book_scope, "any"),
-                        (combo_scope, "cross_topic"),
-                    ):
-                        if len(candidates) >= N_ALTS:
-                            break
-                        candidates += synth_miner.mine(
-                            [anchor],
-                            sc | {anchor},
-                            k=N_ALTS,
-                            exclude=used_combo,
-                            topic=topic,
-                            cross_unit=True,
-                        )
                 for mode in ("cross_topic", "in_topic"):  # 其次跨主题（创新），再次同主题（教材式）
                     if len(candidates) >= N_ALTS:
                         break
@@ -336,7 +298,6 @@ async def build_draft(
             if candidates:
                 combo = candidates[0]
                 used_combo.append(tuple(combo.kp_ids))
-                alts[spec_id] = candidates
             else:
                 notes.append(f"第 {i + 1} 题没有找到合适的综合搭配，改为单知识点题")
                 tier = Tier.variation
@@ -352,7 +313,10 @@ async def build_draft(
             kind = brief.kinds.value[i % len(brief.kinds.value)]
         else:
             natural = set().union(*(g.nodes[k].kinds for k in kp_ids)) if kp_ids else set()
-            ordered = [k for k in kinds_pool if k.value in natural] or kinds_pool
+            # 计算题就是一个算式：承载不了老师指定的情境；教材里只用看图题考的知识点（认识图形、分类）
+            # 定成计算题只能变成数个数的算术题——这两种情况都不分配计算题
+            pool = [k for k in kinds_pool if k != ItemKind.calc] if user_scenes or not natural else kinds_pool
+            ordered = [k for k in pool if k.value in natural] or pool or kinds_pool
             kind = ordered[sum(1 for it in items if it.tier == tier) % len(ordered)]
         # 情境：用户指定 > 知识点共同出现的情境（综合题）/ 该知识点自己的情境（单点题）
         if user_scenes:
@@ -364,7 +328,6 @@ async def build_draft(
                 cands = sorted(contexts)[:3]
         scene = _pick_scene(cands, used_scene)
         used_scene[scene] += 1
-        scene_cands[spec_id] = cands[:5]
         ctx = contexts.get(scene)
         scene_hint = ""
         if ctx:
@@ -383,7 +346,17 @@ async def build_draft(
                 ats = [
                     a for a in ats if a.verifiable_type == "program" and a.kp_id == k
                 ]  # 只用主知识点匹配的题型
+                # 老师说了题型（"口算"）就用这种题型的卡片；没说就优先计算卡，没有计算卡再用教材里最常见的那种
+                # （卡片按教材题数排序："课本那种基础的解方程"是解方程，不是判断改错或猜数游戏）
+                if brief.kinds:
+                    want = {x.value for x in brief.kinds.value}
+                else:
+                    want = {"calc"} if any(a.kind == "calc" for a in ats) else {ats[0].kind} if ats else set()
+                ats = [a for a in ats if a.kind in want] or ats
                 ats.sort(key=lambda a: abs(a.difficulty - ladder[i]))
+                if ats:  # 同一知识点的各题轮换题型卡片：12 道同类题不都出自同一张卡片
+                    r = sum(1 for it in items if it.kp_ids[:1] == kp_ids[:1]) % len(ats)
+                    ats = ats[r:] + ats[:r]
             archetype_ids += [a.id for a in ats[: 4 if template else 2]]
         items.append(
             ItemSpec(
@@ -413,26 +386,120 @@ async def build_draft(
         notes=notes,
         source=brief.source.value,
     )
-    return Draft(bp, alts, scene_cands, contexts, boundary)
+    return bp
 
 
-def replacement_spec(spec: ItemSpec, *, keep_kinds: bool) -> ItemSpec:
-    """题被丢弃后的替换规格：改成更稳妥的写法再来一次——只考第一个知识点、答案用数值、换一个考法。
-    教师明说了题型就保持；`template` 来源的题改由模型原创（题型卡片已经证明不可用）。"""
+def replacement_spec(spec: ItemSpec, *, keep_kinds: bool, keep_combo: bool = False) -> ItemSpec:
+    """题被丢弃后的替换规格：改成更稳妥的写法再来一次——答案用数值、换一个考法，默认只考第一个知识点。
+    教师明说了题型就保持题型；明说要"结合 / 综合 / 复习穿插"（`keep_combo`）就保留这几个知识点与综合档；
+    `template` 来源的题改由模型原创（题型卡片已经证明不可用）。"""
     kind = spec.kind
     if not keep_kinds and kind in (ItemKind.fill, ItemKind.judge, ItemKind.choice, ItemKind.open):
         kind = ItemKind.application
+    combo = keep_combo and len(spec.kp_ids) > 1
     return spec.model_copy(
         update={
             "id": f"{spec.id}r",
-            "kp_ids": spec.kp_ids[:1],
-            "kp_names": spec.kp_names[:1],
-            "roles": {},
-            "tier": Tier.consolidate if spec.tier == Tier.integrated else spec.tier,
+            "kp_ids": spec.kp_ids if combo else spec.kp_ids[:1],
+            "kp_names": spec.kp_names if combo else spec.kp_names[:1],
+            "tier": spec.tier if combo or spec.tier != Tier.integrated else Tier.consolidate,
             "kind": kind,
             "source": "novel",
             "archetype_ids": [],
-            "review": False,
-            "angle": "换一个与常见写法不同的考法；条件和问题都用具体数值，答案是数值，题面只问一个问题",
+            "review": spec.review and combo,
+            "angle": "换一个与常见写法不同的考法；条件和问题都用具体数值，答案是数值，题面只问一个问题"
+            + ("；所列知识点都要在解题里起作用" if combo else ""),
         }
     )
+
+
+# ---- 候选知识点菜单：规划模型只能从这里选知识点（D59）----
+_GRADE_CN = {1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六"}
+MENU_MAX = 16
+
+
+@dataclass
+class MenuEntry:
+    code: str
+    kp_id: str
+    name: str
+    where: str
+    note: str = ""
+    topical: bool = False  # 属于教师点名的主题（每道题至少考一个）
+
+
+async def _no_hits() -> list[KPHit]:
+    return []
+
+
+async def build_menu(
+    brief: Brief, kb: KnowledgeService, miner: ComboMiner, scope: ScopeInfo
+) -> list[MenuEntry]:
+    """规划模型可选的知识点（确定性）。
+
+    主题知识点：理解阶段映射到的锚点，加上本册优先检索到的、与锚点同一条主线的知识点（"三年级下册的乘法"是本册的
+    两位数乘两位数，而不是二年级的乘法意义）；只要已学、可考就入选——教材里只用看图题考的（认识钟表、搭配、
+    分类整理）也在内，并标注出来，由写题用文字或可画的图呈现。没有锚点时，检索命中就是主题知识点。
+    搭档：图上与主题知识点有桥、适合文字出题的已学知识点。"""
+    g = await kb.graph()
+    grade = scope.grade
+    semester = brief.scope.semester.value if brief.scope.semester else None
+    lesson_book = g.nodes[scope.pool[0]].grade if scope.pool else grade
+
+    def learned(k: str) -> bool:
+        n = g.nodes.get(k)
+        return n is not None and k in scope.learned and n.assessable
+
+    def ok(k: str) -> bool:  # 搭档与范围内的候选：还要有不依赖图形的题型
+        return learned(k) and bool(g.nodes[k].kinds)
+
+    picked: dict[str, str] = {}  # kp → 备注
+    topical: set[str] = set()
+
+    def add(k: str, note: str = "", *, topic: bool = False) -> None:
+        if (learned(k) if topic else ok(k)) and k not in picked and len(picked) < MENU_MAX:
+            picked[k] = note
+            if topic:
+                topical.add(k)
+
+    topics = list(dict.fromkeys(brief.scope.kp_topics.values()))
+    topics += [t for t in (brief.scope.topics.value if brief.scope.topics else []) if t not in topics]
+    topics = topics[:4]
+    anchors = [k for k in scope.anchors if learned(k)]
+    threads = {g.nodes[k].thread for k in anchors}
+    for k in anchors:
+        add(k, f"老师说的“{brief.scope.kp_topics.get(k) or '、'.join(topics)}”", topic=bool(topics))
+    found = await gather_all(*(kb.search(t, k=12, grade=grade) if grade else _no_hits() for t in topics))
+    for n, topic in enumerate(topics):
+        local = [h for h in found[n] if learned(h.id) and (not threads or g.nodes[h.id].thread in threads)]
+        local.sort(key=lambda h: (-(semester is not None and h.semester == semester), -h.score))
+        for h in local[:3]:
+            add(h.id, f"老师说的“{topic}”", topic=True)
+    if not topics and not scope.anchors:
+        for k in _evenly(scope.pool, 10):
+            add(k)
+    combo_scope = {k for k in scope.learned if ok(k)}
+    if brief.scope.units:
+        units = set(brief.scope.units.value)
+        combo_scope = {k for k in combo_scope if g.nodes[k].unit_id in units} or combo_scope
+    for a in list(picked)[:6]:
+        for c in miner.mine([a], combo_scope | {a}, k=2, topic="cross_topic"):
+            for k in c.kp_ids:
+                if k != a:
+                    add(k, f"可与“{g.nodes[a].name}”搭配")
+    refs = {r.id: r for r in await kb.refs(list(picked))}
+    out: list[MenuEntry] = []
+    for i, (k, note) in enumerate(picked.items(), 1):
+        n, r = g.nodes[k], refs.get(k)
+        book = (
+            "本册"
+            if (n.grade == (grade or lesson_book) and (semester is None or n.semester == semester))
+            else "旧知"
+        )
+        where = f"{_GRADE_CN.get(n.grade, '')}年级{'上' if n.semester == 'a' else '下'}册"
+        if r and r.unit_title:
+            where += f"·{r.unit_title}"
+        if not n.kinds:  # 教材里这个知识点的题都配图：写题要用文字把图说清楚，或配一张能画的图
+            note = "，".join(x for x in (note, "教材里这类题都配图") if x)
+        out.append(MenuEntry(f"K{i}", k, n.name, f"{book}，{where}", note, topical=k in topical))
+    return out

@@ -1,0 +1,18 @@
+run_id: eval:m8_test/pr-036
+item_id: null
+input: 四年级，来一份寒假复习的题，8道，把上学期学的内容穿插进来
+problem: '[M8 test 审计（eval/reports/produce_m8_test_test_20261006-185947.md）] 「去掉一个最高分和一个最低分再求平均」是五下
+  g5b.u10.l03（平均数的再认识）的内容，用在了四年级。线上边界检查放行了。'
+expected: 线上特征抽取应抽出该概念，边界判 out。
+root_cause: B
+severity: S1
+stage: produce
+id: bc_01M6JKMXMVPN8R2YG9GQMY1AVQ
+created_at: 1793773434.5233781
+status: open
+fix_commit: ''
+regression_case: ''
+tags:
+- m8_test
+- A3
+- confirmed

@@ -1,0 +1,18 @@
+{
+ "key": "24cde7d6840dd90aec4e4ea81fcc302a",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"总价=单价×数量，4.2×5=21（元）。\", \"answers\": [{\"label\": \"\", \"value\": \"21\", \"unit\": \"元\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 310,
+  "completion_tokens": 55,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1215.4268739996041,
+ "ttft_ms": 1215.44676800022,
+ "total_ms": 1534.5396369993978
+}

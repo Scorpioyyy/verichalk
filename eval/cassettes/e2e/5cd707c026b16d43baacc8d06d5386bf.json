@@ -1,0 +1,18 @@
+{
+ "key": "5cd707c026b16d43baacc8d06d5386bf",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 2304, \"decimal_places\": null, \"fraction_types\": [], \"operations\": [{\"op\": \"乘法\", \"operands\": [\"6\", \"4\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"28\", \"2\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"7\", \"4\"], \"mode\": null}, {\"op\": \"乘法\", \"operands\": [\"5\", \"4\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"20\", \"3\"], \"mode\": null}], \"concepts\": [\"两、三位数乘一位数（需要进位）\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4476,
+  "completion_tokens": 164,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1745.7540209998115,
+ "ttft_ms": 1745.7692200005113,
+ "total_ms": 2564.239068000461
+}

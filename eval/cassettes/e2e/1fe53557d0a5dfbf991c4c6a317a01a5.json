@@ -1,0 +1,18 @@
+{
+ "key": "1fe53557d0a5dfbf991c4c6a317a01a5",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\":3,\"decimal_places\":2,\"fraction_types\":[],\"operations\":[{\"op\":\"加法\",\"operands\":[\"2\",\"1\"],\"mode\":null}],\"concepts\":[\"积的小数位数规则\"],\"units_of_measure\":[],\"geometry_vocab\":[]}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4479,
+  "completion_tokens": 65,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1483.088625000164,
+ "ttft_ms": 1483.1020219999118,
+ "total_ms": 1847.9998120001255
+}

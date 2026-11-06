@@ -1,0 +1,18 @@
+{
+ "key": "3ff1f44ab90ba7ec5a80575298270a73",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先按整数乘法计算：45×12=540。0.045有三位小数，1.2有一位小数，共四位小数，所以从540右边起数出四位点上小数点，得0.0540，末尾的0去掉，结果是0.054。\", \"answers\": [{\"label\": \"\", \"value\": \"0.054\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 300,
+  "completion_tokens": 95,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1242.7009439998074,
+ "ttft_ms": 1242.7214460003597,
+ "total_ms": 1850.071724999907
+}

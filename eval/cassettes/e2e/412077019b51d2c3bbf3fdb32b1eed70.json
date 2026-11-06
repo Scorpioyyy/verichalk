@@ -1,0 +1,18 @@
+{
+ "key": "412077019b51d2c3bbf3fdb32b1eed70",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.quality",
+ "text": "{\"unambiguous\": true, \"complete\": true, \"data_plausible\": true, \"age_ok\": true, \"solution_ok\": true, \"difficulty\": 2, \"kp_used\": {\"小数乘小数的竖式计算（含补0与去0）\": true}, \"issues\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 591,
+  "completion_tokens": 70,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1448.277015999338,
+ "ttft_ms": 1448.2914009995511,
+ "total_ms": 1765.7273009999699
+}

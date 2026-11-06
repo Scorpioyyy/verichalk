@@ -1,0 +1,18 @@
+{
+ "key": "b6aac90fecb55a5cbd13aefeb8a3d96d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"小数点先向右移动两位，相当于扩大到原来的100倍；再向左移动一位，相当于缩小到原来的十分之一。合起来是扩大到原来的100÷10=10倍。\", \"answers\": [{\"label\": \"现在的长度与原来相比的变化\", \"value\": \"A\", \"unit\": \"\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 374,
+  "completion_tokens": 80,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1286.737506999998,
+ "ttft_ms": 1286.7568250003387,
+ "total_ms": 1750.9726810003485
+}

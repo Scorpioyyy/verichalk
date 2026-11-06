@@ -91,3 +91,6 @@ class Brief(BaseModel):
     references: list[ReferenceItem] = Field(default_factory=list)
     paper: PaperSpec | None = None
     assumptions: list[str] = Field(default_factory=list)  # 展示给用户的"本次假设"
+    request: str = (
+        ""  # 教师这一轮的原话（schema 1.4）：规划与写题据此保留无法结构化的意图（"区统考风格""要有趣"）
+    )

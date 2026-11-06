@@ -1,0 +1,18 @@
+{
+ "key": "cfcffa585b023370d36e51de09781e9b",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.blind",
+ "text": "{\"work\": \"先算水费：12×3.5=42（元）。1元=100分，所以42元=4200分。全部用1分硬币支付，需要4200枚。\", \"answers\": [{\"label\": \"一共需要多少枚1分硬币\", \"value\": \"4200\", \"unit\": \"枚\"}], \"ambiguous\": false, \"ambiguity\": \"\"}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 337,
+  "completion_tokens": 88,
+  "cached_tokens": 256,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1319.8407850004514,
+ "ttft_ms": 1319.8582900004112,
+ "total_ms": 1880.2294360002634
+}

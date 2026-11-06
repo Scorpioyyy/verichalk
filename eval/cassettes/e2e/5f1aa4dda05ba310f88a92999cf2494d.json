@@ -1,0 +1,18 @@
+{
+ "key": "5f1aa4dda05ba310f88a92999cf2494d",
+ "model": "deepseek-v4.1-flash",
+ "purpose": "verify.extract",
+ "text": "{\"integer_max\": 70, \"decimal_places\": 2, \"fraction_types\": [], \"operations\": [{\"op\": \"减法\", \"operands\": [\"0.40\", \"0.25\"], \"mode\": null}, {\"op\": \"减法\", \"operands\": [\"0.55\", \"0.40\"], \"mode\": null}, {\"op\": \"加法\", \"operands\": [\"0.55\", \"0.15\"], \"mode\": null}], \"concepts\": [\"小数数列与图形中的变化规律\"], \"units_of_measure\": [], \"geometry_vocab\": []}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 4490,
+  "completion_tokens": 130,
+  "cached_tokens": 4352,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 1526.0755190001873,
+ "ttft_ms": 1526.0889700002735,
+ "total_ms": 2229.383506999511
+}

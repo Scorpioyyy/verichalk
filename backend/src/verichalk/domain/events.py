@@ -19,7 +19,7 @@ from .paper import CheckResult, Item, VerifyStatus
 from .perception import ReferenceSet
 from .understanding import Understanding
 
-SCHEMA_VERSION = "1.3"
+SCHEMA_VERSION = "1.4"  # 1.4：Brief.request（教师原话，规划与写题用；D59）
 
 CheckpointKind = Literal["clarify", "blueprint", "samples", "confirm", "perception"]
 

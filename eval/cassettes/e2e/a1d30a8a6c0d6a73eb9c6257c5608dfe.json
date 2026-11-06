@@ -1,0 +1,18 @@
+{
+ "key": "a1d30a8a6c0d6a73eb9c6257c5608dfe",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计逆向找零题。支付100元，找回43.285元。商品价格=100-43.285。计算：100.000-43.285。个位0减5不够，向前借位。整数减小数，连续退位。100-43=57，57-0.285=56.715。检查：56.715+43.285=100。符合四年级小数加减法难点（连续退位）。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    paid = Decimal('100')\\n    change = Decimal('43.285')\\n    price = paid - change\\n    return [price]\",\n \"figure\": null,\n \"stem\": \"妈妈在超市买了一些商品，付给收银员 $100$ 元，收银员找回 $43.285$ 元。这些商品的总价是 ____ 元。\",\n \"options\": [],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"56.715\",\n   \"unit\": \"元\"\n  }\n ],\n \"solution\": \"商品总价等于付出的钱减去找回的钱，列式 $100-43.285$。计算时把 $100$ 看作 $100.000$，从千分位起依次退位相减：$100.000-43.285=56.715$。\",\n \"kp_use\": {\n  \"小数加减法中的进位与退位\": \"在计算 $100-43.285$ 时，需要将整数 $100$ 补零为三位小数，并处理从个位到千分位的连续退位减法\"\n },\n \"difficulty\": 4\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3307,
+  "completion_tokens": 445,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2984.3991460002144,
+ "ttft_ms": 3000.4615219995685,
+ "total_ms": 10106.754134999392
+}

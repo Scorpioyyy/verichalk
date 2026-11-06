@@ -1,0 +1,18 @@
+{
+ "key": "dfce8ccdce7949384ac7b404a306d2a8",
+ "model": "qwen3.7-plus",
+ "purpose": "produce.write",
+ "text": "{\n \"scratch\": \"设计情境：同一件商品原价相同，比较不同折扣后的价格。原价设为 $P$（不为0）。选项A打八折（$\\times 0.8$），B打九五折（$\\times 0.95$），C涨价10%（$\\times 1.1$），D原价（$\\times 1$）。根据乘数与1的关系：$0.8 < 1, 0.95 < 1, 1.1 > 1, 1 = 1$。所以 $1.1P$ 最大。考查学生是否知道乘大于1的数积变大。\",\n \"solver_code\": \"from decimal import Decimal\\ndef solve():\\n    # 题目问哪个算式的积最大\\n    # A: P * 0.8\\n    # B: P * 0.95\\n    # C: P * 1.1\\n    # D: P * 1\\n    # 比较乘数: 0.8, 0.95, 1.1, 1\\n    # 1.1 最大，且 P > 0\\n    return [\\\"C\\\"]\",\n \"figure\": null,\n \"stem\": \"某品牌书包在四家网店的促销方案如下（设书包原价为 $a$ 元，且 $a>0$）：\\nA店：按原价的 $0.8$ 倍出售\\nB店：按原价的 $0.95$ 倍出售\\nC店：按原价的 $1.1$ 倍出售\\nD店：按原价出售\\n不计算具体金额，哪家店的售价最高？\",\n \"options\": [\n  \"A店\",\n  \"B店\",\n  \"C店\",\n  \"D店\"\n ],\n \"answers\": [\n  {\n   \"label\": \"\",\n   \"value\": \"C\",\n   \"unit\": \"\"\n  }\n ],\n \"solution\": \"比较各店售价算式中的乘数：A店 $0.8<1$，B店 $0.95<1$，C店 $1.1>1$，D店 $1=1$。因为 $a>0$，乘大于 $1$ 的数积最大，所以 $1.1\\\\times a$ 最大，C店售价最高。\",\n \"kp_use\": {\n  \"乘数与1的大小关系对积的影响\": \"通过比较乘数 $0.8, 0.95, 1.1, 1$ 与 $1$ 的大小，直接判断积与原数 $a$ 的关系，从而确定最大值，无需计算具体数值。\"\n },\n \"difficulty\": 2\n}",
+ "reasoning_text": "",
+ "tool_calls": [],
+ "finish_reason": "stop",
+ "usage": {
+  "prompt_tokens": 3383,
+  "completion_tokens": 604,
+  "cached_tokens": 2304,
+  "reasoning_tokens": 0
+ },
+ "ttfb_ms": 2639.614965999499,
+ "ttft_ms": 2656.7756279991954,
+ "total_ms": 12314.377972999864
+}

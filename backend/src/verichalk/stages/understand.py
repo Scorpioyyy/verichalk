@@ -14,6 +14,7 @@ import logging
 from pydantic import BaseModel, Field
 
 from .. import trace
+from ..core.aio import gather_all
 from ..core.errors import BudgetExceeded, KnowledgeError, LLMError
 from ..domain.brief import Brief
 from ..domain.knowledge import KPHit
@@ -93,7 +94,7 @@ class UnderstandStage(Stage[UnderstandIn, Understanding]):
         topic_hits: dict[str, list[KPHit]] | None = None
         if len(raw.topics) >= 2:
             try:
-                found = await asyncio.gather(*(ctx.kb.search(tp, k=3) for tp in raw.topics))
+                found = await gather_all(*(ctx.kb.search(tp, k=3) for tp in raw.topics))
                 topic_hits = dict(zip(raw.topics, found, strict=True))
             except KnowledgeError as e:
                 log.warning("understand: per-topic search failed: %s", e.code)

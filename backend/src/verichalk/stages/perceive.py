@@ -12,6 +12,7 @@ import logging
 from pydantic import BaseModel, Field
 
 from .. import trace
+from ..core.aio import gather_all
 from ..core.errors import BudgetExceeded, KnowledgeError, LLMError
 from ..domain.knowledge import KPHit
 from ..domain.llm import ChatMessage, Role
@@ -40,7 +41,7 @@ class PerceiveStage(Stage[PerceiveIn, ReferenceSet]):
         n = len(inp.attachments)
         await trace.progress("正在识别照片", 0, n)
         pages = list(
-            await asyncio.gather(*(self._read_page(ctx, att, i, n) for i, att in enumerate(inp.attachments)))
+            await gather_all(*(self._read_page(ctx, att, i, n) for i, att in enumerate(inp.attachments)))
         )
         hits = await self._search(ctx, pages)
         use_topics = ctx.settings.features.enabled("perceive.topic_search")
@@ -121,7 +122,7 @@ class PerceiveStage(Stage[PerceiveIn, ReferenceSet]):
                 log.warning("perceive: kb search failed: %s", e.code)
                 return q, []
 
-        return dict(await asyncio.gather(*(one(q) for q in queries)))
+        return dict(await gather_all(*(one(q) for q in queries)))
 
     async def _target_lesson(
         self, ctx: RunContext, context: StudentContext, hits: dict[str, list[KPHit]]

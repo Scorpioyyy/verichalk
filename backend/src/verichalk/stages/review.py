@@ -6,12 +6,12 @@
 
 from __future__ import annotations
 
-import asyncio
 import logging
 
 from pydantic import BaseModel, Field
 
 from .. import trace
+from ..core.aio import gather_all
 from ..core.errors import KnowledgeError, NotFound
 from ..domain.blueprint import AnswerPart
 from ..domain.paper import Item, Verification, VerifyStatus
@@ -109,5 +109,5 @@ class ReviewStage(Stage[ReviewIn, ReviewOut]):
             await trace.item_status(t.item_id, ver.status, ver.checks)
             await trace.paper_patched(paper.id, saved.rev, saved.patch, saved.summary)
 
-        await asyncio.gather(*(one(t) for t in inp.targets))
+        await gather_all(*(one(t) for t in inp.targets))
         return out

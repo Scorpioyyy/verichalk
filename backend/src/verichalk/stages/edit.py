@@ -16,6 +16,7 @@ import re
 from pydantic import BaseModel
 
 from .. import trace
+from ..core.aio import gather_all
 from ..core.errors import Conflict, KnowledgeError, LLMError, NotFound
 from ..core.ids import new_id
 from ..domain.blueprint import ItemSpec
@@ -393,7 +394,7 @@ class EditStage(Stage[EditIn, EditOut]):
             await trace.progress(f"已修改 {done}/{total} 道题", done, total)
             return out
 
-        for new_ops, res in await asyncio.gather(*(one(n, a) for n, a in jobs)):
+        for new_ops, res in await gather_all(*(one(n, a) for n, a in jobs)):
             ops += new_ops
             results.append(res)
         results.sort(key=lambda r: (r.number == 0, r.number))

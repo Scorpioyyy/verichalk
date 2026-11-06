@@ -21,7 +21,7 @@ from ..core.config import Settings
 from ..core.errors import VerichalkError
 from ..core.ids import new_id
 from ..domain.blueprint import Blueprint
-from ..domain.events import ItemStatus, RunStarted
+from ..domain.events import ItemStatus, LLMCall, RunStarted, SpanStarted
 from ..domain.llm import ChatMessage, Role
 from ..domain.paper import Item, ItemKind, Provenance, Source, Tier, Verification, VerifyStatus
 from ..domain.understanding import Understanding
@@ -64,6 +64,8 @@ class CaseRec:
     e2e_s: float | None = None
     first_item_s: float | None = None
     trace_ok: bool | None = None  # F6：事件日志的 span 树完整；朴素基线没有 trace
+    tokens: int = 0  # 本次运行全部模型调用的 token
+    tokens_wasted: int = 0  # 其中花在最终被丢弃的题上的（E4）
     method: str = "verichalk"  # verichalk / naive
 
     @property
@@ -89,6 +91,7 @@ async def run_case_e2e(c: Any, case: Case, timeout_s: float = 900.0) -> CaseRec:
     m = compute_run_metrics(events)
     rec.cost, rec.calls, rec.e2e_s = m.cost, m.n_llm_calls, (m.e2e_ms or 0) / 1000
     rec.trace_ok = m.trace_ok
+    rec.tokens, rec.tokens_wasted = token_waste(events, done.state)
     t0 = next((e.ts for e in events if isinstance(e, RunStarted)), events[0].ts if events else 0.0)
     firsts = [
         e.ts
@@ -113,6 +116,34 @@ async def run_case_e2e(c: Any, case: Case, timeout_s: float = 900.0) -> CaseRec:
         rec.scenes = [s.scene for s in bp.items]
         rec.items = items_from_state(state, bp)
     return rec
+
+
+def token_waste(events: list[Any], state: dict[str, Any]) -> tuple[int, int]:
+    """(全部 token, 花在最终被丢弃的题上的 token)。每次模型调用沿 span 链找到它所在的写题题位
+    （`produce` 阶段 span 的 `key`）；该题位没有交付——包括被补题替换掉的原题——就算浪费（E4）。"""
+    parent = {e.span_id: e.parent_id for e in events if isinstance(e, SpanStarted)}
+    slot = {
+        e.span_id: e.attrs["key"]
+        for e in events
+        if isinstance(e, SpanStarted) and e.name == "produce" and e.attrs.get("key")
+    }
+    dropped = {
+        k.split(":", 1)[1]
+        for k, v in state.items()
+        if k.startswith("produce:") and isinstance(v, dict) and v.get("item") is None
+    }
+    total = wasted = 0
+    for e in events:
+        if not isinstance(e, LLMCall):
+            continue
+        n = e.record.usage.total_tokens
+        total += n
+        sid, seen = e.span_id, 0
+        while sid is not None and sid not in slot and seen < 64:
+            sid, seen = parent.get(sid), seen + 1
+        if sid in slot and slot[sid] in dropped:
+            wasted += n
+    return total, wasted
 
 
 def items_from_state(state: dict[str, Any], bp: Blueprint) -> list[ItemRec]:
@@ -372,6 +403,7 @@ async def score(
         Counter(drop_cause(ir.dropped_reason) for r in recs for ir in r.items if ir.item is None)
     )
     out["case_failed"] = sum(1 for r in recs if r.status != "succeeded")
+    out["e4_waste"] = (sum(r.tokens_wasted for r in recs), sum(r.tokens for r in recs))
     traced = [r for r in recs if r.trace_ok is not None]
     out["f6"] = (sum(1 for r in traced if r.trace_ok), len(traced))
     # A2
@@ -465,6 +497,10 @@ def _opt(x: float | None, digits: int) -> str:
     return "—" if x is None else f"{x:.{digits}f}"
 
 
+def _ratio(part: int, whole: int) -> str:
+    return f"{part / whole:.3f}（{part:,} / {whole:,} token）" if whole else "—"
+
+
 def render_score(title: str, s: dict[str, Any]) -> str:
     f = _ci
     d2, d3 = s["d2"], s["d3"]
@@ -502,6 +538,7 @@ def render_score(title: str, s: dict[str, Any]) -> str:
         f"| D3 端到端 p50 / p95 | {fmt(d3[0])} / {fmt(d3[1])} |",
         f"| E1 单题成本 / 总成本（元） | {_opt(s['cost_per_item'], 3)} / {_opt(s['cost_total'], 2)} |",
         f"| E3 每道交付题的模型调用数 | {s['calls_per_item']:.1f} |",
+        f"| E4 废弃 token 占比（花在最终被丢弃的题上） | {_ratio(*s['e4_waste'])} |",
         f"| E4 平均写题次数（含修复） | {_opt(s['attempts_mean'], 2)}；一次通过率 {f(*s['first_pass'])}；首次被拦的检查 {s['first_fail_by']}；丢弃原因 {s.get('dropped_by') or '无'} |",
     ]
     if s.get("issues"):

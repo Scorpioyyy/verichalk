@@ -6,6 +6,7 @@ from __future__ import annotations
 import asyncio
 
 from .. import trace
+from ..core.aio import gather_all
 from ..domain.blueprint import Blueprint, ItemSpec
 from ..domain.brief import Action, Brief, Origin
 from ..domain.paper import Tier
@@ -90,4 +91,4 @@ async def produce_specs(
             await trace.item_delivered(out.item, delivered)
         return out
 
-    return list(await asyncio.gather(*(one(s) for s in specs)))
+    return list(await gather_all(*(one(s) for s in specs)))

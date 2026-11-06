@@ -6,11 +6,11 @@ LLM 只在这些确定性结果之上"选择与构想"（`plan.py`）；模型�
 
 from __future__ import annotations
 
-import asyncio
 import math
 from collections import Counter
 from dataclasses import dataclass, field
 
+from ..core.aio import gather_all
 from ..domain.blueprint import Blueprint, ItemSpec
 from ..domain.brief import Action, Brief, Origin, SourceMode
 from ..domain.knowledge import BoundaryView, Combo, KPHit
@@ -469,7 +469,7 @@ async def build_menu(
     threads = {g.nodes[k].thread for k in anchors}
     for k in anchors:
         add(k, f"老师说的“{brief.scope.kp_topics.get(k) or '、'.join(topics)}”", topic=bool(topics))
-    found = await asyncio.gather(*(kb.search(t, k=12, grade=grade) if grade else _no_hits() for t in topics))
+    found = await gather_all(*(kb.search(t, k=12, grade=grade) if grade else _no_hits() for t in topics))
     for n, topic in enumerate(topics):
         local = [h for h in found[n] if learned(h.id) and (not threads or g.nodes[h.id].thread in threads)]
         local.sort(key=lambda h: (-(semester is not None and h.semester == semester), -h.score))

@@ -69,3 +69,42 @@ async def test_auditors_read_the_figure_description() -> None:
 
     await audit_records(SimpleNamespace(audit=audit), SimpleNamespace(graph=graph), [rec])  # type: ignore[arg-type]
     assert "fig:" not in seen[0] and "一班 24" in seen[0] and "二班 30" in seen[0]
+
+
+def test_tokens_spent_on_dropped_slots_count_as_waste() -> None:
+    # 题位 it1 被丢弃后由 it1r 补上：it1 上的调用算浪费，it1r 与 it2 上的不算
+    from verichalk.domain.events import LLMCall, SpanKind, SpanStarted
+    from verichalk.domain.llm import LLMCallRecord, Usage
+    from verichalk.eval.produce_eval import token_waste
+
+    def span(sid: str, parent: str | None, key: str | None) -> SpanStarted:
+        e = SpanStarted(
+            kind=SpanKind.stage, name="produce" if key else "llm", attrs={"key": key} if key else {}
+        )
+        e.span_id, e.parent_id = sid, parent
+        return e
+
+    def call(sid: str, n: int) -> LLMCall:
+        e = LLMCall(
+            record=LLMCallRecord(
+                id=sid, role="smart", model="m", profile="intl", usage=Usage(prompt_tokens=n)
+            )
+        )
+        e.span_id = sid
+        return e
+
+    events = [
+        span("a", None, "it1"),
+        span("a1", "a", None),
+        call("a1", 100),
+        span("b", None, "it1r"),
+        call("b", 50),
+        span("c", None, "it2"),
+        call("c", 30),
+    ]
+    state = {
+        "produce:it1": {"item": None},
+        "produce:it1r": {"item": {"id": "x"}},
+        "produce:it2": {"item": {"id": "y"}},
+    }
+    assert token_waste(events, state) == (180, 100)

@@ -85,3 +85,43 @@ async def test_narrow_unit_with_no_combo_does_not_exhaust_singles(kb: KnowledgeS
     g = await kb.graph()
     draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope, slots=slots)
     assert len(draft.items) == 16
+
+
+async def test_calc_only_requests_have_no_integrated_items(kb: KnowledgeService) -> None:
+    # "只要计算题"：计算题是一个算式，不分配"两个知识点串成解题链"的综合题
+    from verichalk.domain.paper import ItemKind, Tier
+
+    brief = Brief(
+        scope=Scope(grade=Slot(value=4, origin=Origin.user), semester=Slot(value="b", origin=Origin.user))
+    )
+    brief.count = Slot(value=8, origin=Origin.user)
+    brief.kinds = Slot(value=[ItemKind.calc], origin=Origin.user)
+    scope = await resolve_scope(brief, kb)
+    g = await kb.graph()
+    draft = await build_draft(brief, kb, ComboMiner(g, ComboWeights()), scope)
+    assert len(draft.items) == 8
+    assert all(it.kind == ItemKind.calc and it.tier != Tier.integrated for it in draft.items)
+
+
+def test_replacement_keeps_the_combination_only_when_the_teacher_asked_for_it() -> None:
+    from verichalk.domain.blueprint import ItemSpec
+    from verichalk.domain.paper import ItemKind, Tier
+    from verichalk.stages.plan_rules import replacement_spec
+
+    spec = ItemSpec(
+        id="it3",
+        index=3,
+        kp_ids=["a", "b"],
+        kp_names=["单价", "运算律"],
+        tier=Tier.integrated,
+        kind=ItemKind.fill,
+    )
+    plain = replacement_spec(spec, keep_kinds=False)
+    assert (plain.id, plain.kp_ids, plain.tier, plain.kind) == (
+        "it3r",
+        ["a"],
+        Tier.consolidate,
+        ItemKind.application,
+    )
+    combo = replacement_spec(spec, keep_kinds=True, keep_combo=True)
+    assert (combo.kp_ids, combo.tier, combo.kind) == (["a", "b"], Tier.integrated, ItemKind.fill)

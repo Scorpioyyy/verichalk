@@ -620,6 +620,7 @@ class KnowledgeService:
                         kp_id=a.primary_knowledge_point_id,
                         secondary_kp_ids=list(a.secondary_knowledge_point_ids),
                         item_form=str(getattr(a.item_form, "value", a.item_form)),
+                        kind=_FORM_TO_KIND.get(str(getattr(a.item_form, "value", a.item_form)), ""),
                         difficulty=a.difficulty,
                         verifiable_type=str(getattr(a.verifiable_type, "value", a.verifiable_type)),
                         template=_clip(a.template, 200),

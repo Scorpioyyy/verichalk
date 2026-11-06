@@ -1,7 +1,7 @@
 """生成阶段：`ItemSpec` → `Item`（architecture §5.1，D5、D9、D24）。
 
 `novel` 来源：写题（题面、结构化答案、解析、求解程序）→ 规范化 → 分层核验 → 通过则交付；未通过则带着失败证据修复（≤ 2 次），
-仍不通过就从头重写一次，再不行就废弃（不展示）。`template` 来源：题型实例化，答案由知识库的程序算出，仍做结构 / 题面质量检查。
+仍不通过就从头重写一次，再不行就废弃（不展示）。`template` 来源：题型实例化，答案由知识库的程序算出，仍做结构、超纲与题面质量检查。
 """
 
 from __future__ import annotations
@@ -86,6 +86,13 @@ REGENERATIONS = 1  # 修复用尽后，从头重写的次数
 
 class _ExplainOut(BaseModel):
     solution: str
+
+
+def number_signature(stem: str) -> str:
+    """题面里出现的数（排序后）：两道题用的数完全相同，就是同一道题换了说法（"28+35"换个情境还是同一个算式）。
+    少于两个数的题不比较（"8 时"这类题撞数很正常）。"""
+    nums = sorted(re.findall(r"\d+(?:\.\d+)?", stem))
+    return " ".join(nums) if len(nums) >= 2 else ""
 
 
 class ProduceIn(BaseModel):
@@ -249,6 +256,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         started = time.monotonic()
         budget_s = ctx.settings.item_budget_s  # 单题时间预算：超过后不再开始新的尝试（有界延迟）
         failed: list[list[str]] = []
+        seen: set[str] = ctx.scratch.setdefault("stem_numbers", set())
         for _ in range(rounds):
             repair: dict[str, Any] | None = None
             for _r in range(1 + max_repairs):
@@ -290,7 +298,17 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     figure=fig,
                 )
                 ver = await verify_item(env, vin, feats)
+                sig = number_signature(w.stem) if inp.rewrite is None else ""
+                if ver.status != VerifyStatus.rejected and sig and sig in seen:
+                    # 并行写的几道题撞上同一组数（"52-37"写了三遍）：先交付的保留，这道换一组数据
+                    problems = ["与本套另一道题用的数完全相同：换一组数据，不要只换情境"]
+                    failed.append(["duplicate:与本套另一道题用的数相同"])
+                    last_reason = problems[0]
+                    repair = {"previous": _previous_text(w), "problems": problems}
+                    continue
                 if ver.status != VerifyStatus.rejected:
+                    if sig:
+                        seen.add(sig)
                     item = self._to_item(ctx, spec, w, ver, fig)
                     if inp.rewrite is None:  # 改写的结果不是试卷里的新题，状态由编辑阶段按原题 id 发出
                         await trace.item_status(item.id, ver.status, ver.checks)
@@ -400,6 +418,7 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
         题型卡片的答案由程序算出，但题面质量不保证（括号里写两种情境、占位不清……），所以仍过题面质量检查。"""
         spec = inp.spec
         bad: set[str] = ctx.scratch.setdefault("bad_archetypes", set())
+        seen: set[str] = ctx.scratch.setdefault("stem_numbers", set())  # 同一次出题里不交付重复的题
         base_seed = int(hashlib.sha1(f"{ctx.run_id}:{spec.id}".encode()).hexdigest(), 16) % 10_000
         reasons: list[str] = []
         attempts = 0
@@ -415,6 +434,12 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     reasons.append(f"题型 {aid} 无法实例化（{e.code}）")
                     bad.add(aid)
                     break
+                sig = number_signature(str(problem.get("problem", "")))
+                if sig and sig in seen:
+                    reasons.append("与本次已出的题重复")
+                    continue
+                if sig:
+                    seen.add(sig)
                 item, why = await self._template_item(ctx, inp, problem)
                 if item is not None:
                     return ProduceOut(item=item, attempts=attempts)
@@ -475,6 +500,9 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
             lesson_id=inp.lesson_id,
         )
         bnd = problem.get("boundary") or {}
+        if bnd.get("verdict") == "out":
+            return None, "知识库按参数判定超纲"
+        # 超纲仍走正常的抽取 + 判定：知识库按参数给的"不超纲"偏宽（四下的解方程会出现除数是小数的一步）
         preset = {
             "program": CheckResult(
                 name="program",
@@ -485,12 +513,6 @@ class ProduceStage(Stage[ProduceIn, ProduceOut]):
                     "archetype": problem.get("archetype_id"),
                     "seed": problem.get("seed"),
                 },
-            ),
-            "boundary": CheckResult(
-                name="boundary",
-                status=CheckStatus.passed if bnd.get("verdict", "in") != "out" else CheckStatus.fail,
-                detail="知识库按参数判定",
-                evidence={"verdict": bnd.get("verdict"), "source": "chalkbase"},
             ),
         }
         ver = await verify_item(VerifyEnv(llm=ctx.llm, kb=ctx.kb), vin, feats, preset=preset)

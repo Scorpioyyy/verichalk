@@ -124,3 +124,25 @@ async def test_menu_is_learned_only_and_prefers_the_target_book(kb: KnowledgeSer
     topical = [g.nodes[m.kp_id] for m in menu if m.topical]
     assert topical and (topical[0].grade, topical[0].semester) == (3, "a")  # "三上的时间"先给本册的内容
     assert any(m.where.startswith("本册") for m in menu)
+
+
+async def test_menu_keeps_figure_only_topics_and_drops_unrelated_hits(kb: KnowledgeService) -> None:
+    # "认识钟表""搭配问题"在教材里只有看图题：仍然是老师点名的主题（标注出来），而不是被换成检索到的无关知识点
+    g = await kb.graph()
+    for anchor, grade, sem, topic in [
+        ("kp.na.认识时间与年月日.hour_halfhour", 1, "a", "认识钟表"),
+        ("kp.na.数量关系.combination_counting", 3, "a", "搭配问题"),
+    ]:
+        brief = Brief(
+            scope=Scope(
+                grade=Slot(value=grade, origin=Origin.user),
+                semester=Slot(value=sem, origin=Origin.user),
+                topics=Slot(value=[topic], origin=Origin.user),
+                kp_ids=Slot(value=[anchor], origin=Origin.inferred),
+            )
+        )
+        scope = await resolve_scope(brief, kb)
+        menu = await build_menu(brief, kb, ComboMiner(g, ComboWeights()), scope)
+        topical = [m for m in menu if m.topical]
+        assert topical and topical[0].kp_id == anchor and "配图" in topical[0].note
+        assert all(g.nodes[m.kp_id].thread == g.nodes[anchor].thread for m in topical)

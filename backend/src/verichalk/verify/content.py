@@ -144,6 +144,8 @@ def structure_issues(
             issues.append("选择题的答案必须是选项字母")
     elif options:
         issues.append("非选择题不应有选项")
+    if kind == "calc" and stem.count("=") + stem.count("＝") > 1:
+        issues.append("计算题只有一个算式；几个算式要拆成几道题")
     if kind == "fill" and "____" not in stem:
         issues.append("填空题的题面里没有填空位置（____）")
     if kind == "judge" and answer_values and parse_judge(answer_values[0]) is None:

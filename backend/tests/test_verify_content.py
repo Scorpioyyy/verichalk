@@ -93,3 +93,32 @@ async def test_fix_choice_letter_follows_program_value() -> None:
     dup = base.model_copy(update={"options": ["3.6", "3.60", "3.7", "3.16"]})
     assert await fix_choice_letter(dup, ItemKind.choice) is dup  # 多个选项相等：不猜
     assert await fix_choice_letter(base, ItemKind.fill) is base
+
+
+async def test_concept_later_in_the_same_strand_and_year_is_only_borderline() -> None:
+    # 四上"调查数据的收集与条形统计图表示"的题被判用到四下的"1 格代表 1 个单位"：同一主线、同一学年，只请教师复核
+    from types import SimpleNamespace
+
+    from chalkbase import Curriculum
+
+    from verichalk.domain.knowledge import ViolationView
+    from verichalk.knowledge import KnowledgeService
+    from verichalk.verify.checks import VerifyInput, _beyond_own_strand
+
+    env = SimpleNamespace(kb=KnowledgeService(Curriculum()))  # pyright: ignore[reportCallIssue]
+    inp = VerifyInput(kind="fill", stem="如图……", kp_names=["调查数据的收集与条形统计图表示"])
+
+    def v(dim: str, value: str) -> list[ViolationView]:
+        return [ViolationView(dimension=dim, item_value=value)]
+
+    assert not await _beyond_own_strand(env, inp, v("concepts", "条形统计图（1格代表1个单位）"))  # type: ignore[arg-type]
+    assert await _beyond_own_strand(env, inp, v("concepts", "复式条形统计图"))  # type: ignore[arg-type]  # 五下：跨学年
+    assert await _beyond_own_strand(env, inp, v("integer_domain", "100000"))  # type: ignore[arg-type]
+
+
+def test_a_calc_item_is_one_expression() -> None:
+    from verichalk.verify.content import structure_issues
+
+    base = {"kind": "calc", "options": [], "answer_values": ["33"], "solution": "28+5=33"}
+    assert structure_issues(stem="计算：$28+5=$____", **base) == []
+    assert any("拆成几道题" in i for i in structure_issues(stem="计算：\n$28+5=$____\n$46+7=$____", **base))

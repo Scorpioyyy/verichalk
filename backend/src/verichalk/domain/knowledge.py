@@ -124,6 +124,7 @@ class ArchetypeBrief(BaseModel):
     kp_id: str
     secondary_kp_ids: list[str] = Field(default_factory=list)
     item_form: str = ""
+    kind: str = ""  # 对应的题型（calc / fill / application / judge / choice）；作图、读图等依赖图形的题型为空
     difficulty: int = 3
     verifiable_type: str = ""
     template: str = ""

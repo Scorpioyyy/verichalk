@@ -18,7 +18,7 @@ from ..knowledge import KnowledgeService
 
 DEFAULT_COUNT = 5
 DEFAULT_DIFFICULTY = [2, 4]
-DEFAULT_TIER_MIX = {Tier.consolidate: 0.3, Tier.variation: 0.4, Tier.integrated: 0.3}
+DEFAULT_TIER_MIX = {Tier.consolidate: 0.4, Tier.variation: 0.6}  # 综合题只在老师要求时出（PRD §4.1 的触发词）
 PHOTO_TIER_MIX = {
     Tier.consolidate: 0.4,
     Tier.variation: 0.4,
@@ -62,6 +62,35 @@ def map_topics(hits: list[KPHit]) -> list[KPHit]:
     return kept[:MAP_MAX]
 
 
+_OPS = "加减乘除"
+
+
+def same_operation(topics: list[str], hits: list[KPHit]) -> list[KPHit]:
+    """老师点名了运算（"整十整百数乘一位数"）时，去掉名称里只有别的运算的命中（"整十数除以一位数的口算"）。
+    检索按语义相近排序，分不清乘与除、加与减；这一步是确定性的。全被去掉时保留原样。"""
+    named = {o for t in topics for o in _OPS if o in t}
+    if not named:
+        return hits
+    kept = [h for h in hits if not (ops := {o for o in _OPS if o in h.name}) or ops & named]
+    return kept or hits
+
+
+def _overlap(topics: list[str], hits: list[KPHit]) -> int:
+    """老师说的主题与知识点名称的最长公共子串长度（取最大）：判断哪些命中才是老师说的那个主题。"""
+
+    def lcs(a: str, b: str) -> int:
+        best = 0
+        for i in range(len(a)):
+            for j in range(i + best + 1, len(a) + 1):
+                if a[i:j] in b:
+                    best = j - i
+                else:
+                    break
+        return best
+
+    return max((lcs(t, h.name) for t in topics for h in hits), default=0)
+
+
 def _origin(field: str, raw: RawParse) -> Origin:
     return Origin.user if field in raw.explicit else Origin.inferred
 
@@ -102,7 +131,7 @@ async def finalize(
 
     notes: list[str] = []
     assumptions: list[str] = []
-    mapped = map_topics(hits) if raw.topics else []
+    mapped = map_topics(same_operation(raw.topics, hits)) if raw.topics else []
     kp_topics: dict[str, str] = {}
     user_grade = raw.grade if (raw.grade and "grade" in raw.explicit) else None
 
@@ -115,17 +144,32 @@ async def finalize(
         return not (raw.semester and "semester" in raw.explicit and h.semester and h.semester > raw.semester)
 
     if user_grade is not None and mapped:
-        mapped = [h for h in mapped if within(h)] or mapped  # 全都更靠后：保留，交给"范围冲突"澄清
+        inside = [h for h in mapped if within(h)]
+        # 年级内的命中只是沾边（"二上的分数的认识"→ 二上的平均分），而超前一点的命中才是老师说的主题
+        # （三下的"分数的初步认识"）：以字面重合度判断，交给下面的"主题稍超前"处理
+        near_ahead = [h for h in mapped if not within(h) and (h.grade or 0) - user_grade < CONFLICT_GAP]
+        if inside and near_ahead and _overlap(raw.topics, near_ahead) > _overlap(raw.topics, inside):
+            inside = []
+            mapped = near_ahead
+        mapped = inside or mapped  # 全都更靠后：保留，交给"范围冲突"澄清
     if topic_hits and len(topic_hits) >= 2:  # 多主题请求（"小数乘法和面积"）：每个主题单独映射，都要进入范围
         per: list[KPHit] = []
         for topic in raw.topics:
-            cands = [h for h in (topic_hits.get(topic) or []) if h.score >= MAP_MIN]
+            cands = [h for h in same_operation([topic], topic_hits.get(topic) or []) if h.score >= MAP_MIN]
             best = ([h for h in cands if within(h)] or cands)[:2]
             for h in best:
                 if h.id not in {x.id for x in per}:
                     per.append(h)
                     kp_topics[h.id] = topic
         mapped = per[: MAP_MAX + 1] or mapped
+    # 老师点名的主题在教材里比所说的年级学期稍晚（"四上的小数乘法"在四下）：以主题为准，按主题所在的册出题并说明；
+    # 晚两个年级以上的交给下面的"范围冲突"澄清
+    ahead = (
+        user_grade is not None
+        and bool(mapped)
+        and not any(within(h) for h in mapped)
+        and max(h.grade or 0 for h in mapped) - user_grade < CONFLICT_GAP
+    )
 
     # ---- 年级 / 学期 / 单元 ----
     grade, grade_origin = raw.grade, _origin("grade", raw)
@@ -195,6 +239,16 @@ async def finalize(
         mapped and not inherited and user_grade is None
     ):  # 用户明说了年级：学到哪由年级学期定，不由检索命中的知识点定
         target = await kb.latest_lesson([h.lesson_id for h in mapped if h.lesson_id])
+    elif ahead and clarify is None:
+        target = await kb.latest_lesson([h.lesson_id for h in mapped if h.lesson_id])
+        h = next((x for x in mapped if x.lesson_id == target), mapped[0])
+        if target and h.grade:
+            topic = raw.topics[0] if raw.topics else h.name
+            grade, semester = h.grade, h.semester or semester
+            grade_origin = sem_origin = Origin.inferred
+            assumptions.append(
+                f"“{topic}”在教材里是{grade_text(grade, semester)}的内容，按{grade_text(grade, semester)}出题"
+            )
     elif grade and semester:
         target = await kb.last_lesson(kb.book_id(grade, semester))
     elif grade:

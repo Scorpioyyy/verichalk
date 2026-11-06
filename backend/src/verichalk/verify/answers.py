@@ -170,10 +170,22 @@ def flatten(values: list[str]) -> list[Canon]:
     return [parse_value(p) for p in _split(values)]
 
 
+_TEXT_PREFIX = re.compile(r"^(?:星期|周|礼拜|一[个只条本盒辆张件块瓶袋支把根])(?=.)")
+_TEXT_SUFFIX = re.compile(r"(?<=.)(?:颜色|色)$")
+
+
+def _text_core(s: str) -> str:
+    """文字答案的写法差异（"红"与"红色"、"三"与"星期三"、"积木"与"一盒积木"）：去掉这几种前后缀再比较。"""
+    return _TEXT_SUFFIX.sub("", _TEXT_PREFIX.sub("", s))
+
+
 def _pair_equal(ra: str, rb: str) -> bool:
     ca, cb = parse_value(ra), parse_value(rb)
     if ca == cb:
         return True
+    if (isinstance(ca, str) or isinstance(cb, str)) and not re.search(r"[不没非]", ra + rb):
+        if parse_value(_text_core(_clean(ra))) == parse_value(_text_core(_clean(rb))):
+            return True
     # 百分数的写法约定不统一：`22.5%` 与程序算出的 `22.5`（百分数的数值）视为相等
     for pct, other in ((ra, cb), (rb, ca)):
         if pct.endswith("%") and isinstance(other, Fraction):

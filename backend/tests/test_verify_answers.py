@@ -29,6 +29,9 @@ from verichalk.verify.answers import answers_equal, format_answer, parse_value, 
         (["6……2"], ["6", "2"]),
         (["6余2"], ["6", "2"]),
         (["锐角 三角形"], ["锐角三角形"]),
+        (["红"], ["红色"]),  # 文字答案的写法差异
+        (["三"], ["星期三"]),
+        (["积木"], ["一盒积木"]),
     ],
 )
 def test_equal(a: list[str], b: list[str]) -> None:
@@ -45,6 +48,9 @@ def test_equal(a: list[str], b: list[str]) -> None:
         (["A"], ["B"]),
         (["对"], ["错"]),
         (["12"], ["一二"]),
+        (["红"], ["黄色"]),
+        (["是"], ["不是"]),
+        (["对称"], ["不对称"]),
     ],
 )
 def test_not_equal(a: list[str], b: list[str]) -> None:
